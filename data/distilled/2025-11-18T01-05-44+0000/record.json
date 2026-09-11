@@ -1,0 +1,83 @@
+{
+ "run_id": "2025-11-18T01-05-44+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 357,
+   "functional_lines": 78,
+   "functional_share": 0.2185,
+   "by_type": {
+    "print": 147,
+    "plot": 59,
+    "comment": 57,
+    "import": 9,
+    "glue": 6,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 243,
+   "functional_lines": 115,
+   "functional_share": 0.4733,
+   "by_type": {
+    "boilerplate": 92,
+    "heading": 30,
+    "hedging": 15,
+    "other": 4,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 73,
+  "action_claims": 40,
+  "result_claims": 33,
+  "links": 47,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 33
+ },
+ "silent_decisions": [
+  {
+   "id": 35,
+   "lines": [
+    [
+     161,
+     162
+    ],
+    [
+     197,
+     198
+    ],
+    [
+     276,
+     277
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "build every reported 95% interval with a fixed normal-approximation multiplier of 1.96 rather than an exact or resampled critical value",
+   "targets": [
+    "beta_dark",
+    "se_twoway",
+    "coef_dark_logit",
+    "se_dark_logit",
+    "estimates",
+    "ses",
+    "ci_lows",
+    "ci_highs"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,1333 @@
+{
+ "n_lines": 426,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring describing the study, author, date, seed"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     18
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     20
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     23
+    ]
+   ],
+   "note": "set numpy random seed"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from the soccer.csv source file",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "note": "print dataset size/shape"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": "lead-in comment for rater agreement check"
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "builds a diagnostic subset (both raters present) used only for the following agreement prints, not for downstream analysis"
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "note": "print rater agreement/correlation diagnostics"
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     45,
+     48
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     49,
+     52
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     53,
+     54
+    ]
+   ],
+   "operation": "drop dyads lacking a skin-tone rating (no player photo available)",
+   "targets": [
+    "skinTone",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     57
+    ]
+   ],
+   "note": "print counts after skin-tone exclusion"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "operation": "drop dyads where recorded yellow+red cards exceed games played, treating them as data-entry errors",
+   "targets": [
+    "yellowCards",
+    "redCards",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     64
+    ]
+   ],
+   "note": "print counts after data-error exclusion"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     68
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     74
+    ],
+    [
+     362,
+     362
+    ]
+   ],
+   "operation": "define the binary outcome as whether the dyad received at least one red card",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     75,
+     75
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     84
+    ]
+   ],
+   "operation": "dichotomize skin tone into light (<=0.25) vs dark (>=0.75) groups and build the primary analytic sample from only those two groups, dropping the middle range",
+   "targets": [
+    "skinTone",
+    "skin_group",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     91
+    ]
+   ],
+   "note": "print primary sample composition"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     92,
+     95
+    ]
+   ],
+   "operation": "compute player age at a chosen mid-season reference date (2012-07-01) from birthday",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     96,
+     97
+    ]
+   ],
+   "note": "lead-in comment for position grouping"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     98,
+     112
+    ]
+   ],
+   "operation": "collapse detailed playing positions into six broader position categories via custom mapping rules",
+   "targets": [
+    "position",
+    "position_group"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     113,
+     118
+    ]
+   ],
+   "operation": "impute missing height and weight with the sample median and flag which rows were imputed",
+   "targets": [
+    "height",
+    "weight",
+    "height_imputed",
+    "weight_imputed",
+    "height_missing",
+    "weight_missing"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     119,
+     120
+    ]
+   ],
+   "note": "lead-in comment for dummy encoding"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     125
+    ],
+    [
+     364,
+     367
+    ],
+    [
+     391,
+     394
+    ]
+   ],
+   "operation": "one-hot encode position group and league country, dropping the first level as reference category",
+   "targets": [
+    "position_group",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     126,
+     130
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     131,
+     134
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     135,
+     140
+    ]
+   ],
+   "note": "print outcome distribution stats"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     141,
+     141
+    ]
+   ],
+   "note": "lead-in print for unadjusted rate comparison"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     142,
+     143
+    ],
+    [
+     146,
+     146
+    ]
+   ],
+   "operation": "compute the unadjusted (crude) red-card rate difference between dark and light skin-tone groups",
+   "targets": [
+    "anyRedCard",
+    "dark"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     144,
+     145
+    ]
+   ],
+   "note": "print unadjusted group rates"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     148
+    ]
+   ],
+   "note": "lead-in print for covariate balance table"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     154
+    ]
+   ],
+   "operation": "choose a set of covariates and compute their unadjusted group means to check pre-adjustment balance",
+   "targets": [
+    "age",
+    "height_imputed",
+    "weight_imputed",
+    "games",
+    "yellowCards"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     155,
+     159
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     160,
+     163
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     176
+    ],
+    [
+     369,
+     372
+    ]
+   ],
+   "operation": "specify and fit the primary logistic regression of red cards on skin-tone group adjusted for games, age, height, weight, yellow cards, position, and league, weighted by games with HC1 robust errors",
+   "targets": [
+    "anyRedCard",
+    "dark",
+    "games",
+    "age",
+    "height_imputed",
+    "weight_imputed",
+    "yellowCards",
+    "position_group",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     177,
+     180
+    ]
+   ],
+   "note": "print model summary"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     181,
+     184
+    ],
+    [
+     352,
+     352
+    ],
+    [
+     382,
+     382
+    ],
+    [
+     413,
+     413
+    ]
+   ],
+   "operation": "report the exponentiated dark-vs-light coefficient (and its CI) as an odds-ratio effect size",
+   "targets": [
+    "dark",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     185,
+     192
+    ]
+   ],
+   "note": "print odds ratio results"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     193,
+     211
+    ],
+    [
+     349,
+     351
+    ],
+    [
+     374,
+     381
+    ],
+    [
+     405,
+     412
+    ]
+   ],
+   "operation": "standardize predicted probabilities under counterfactual dark=1 vs dark=0 (games-weighted) to obtain an adjusted risk difference",
+   "targets": [
+    "dark",
+    "skinTone",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     212,
+     219
+    ]
+   ],
+   "note": "print adjusted risk difference results"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     220,
+     223
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     224,
+     227
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     228,
+     229
+    ],
+    [
+     232,
+     242
+    ],
+    [
+     244,
+     261
+    ]
+   ],
+   "operation": "run a parametric bootstrap (10,000 draws from the fitted coefficients' asymptotic multivariate normal) to simulate the risk-difference distribution",
+   "targets": [
+    "model_full",
+    "coef_sims"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     230,
+     231
+    ]
+   ],
+   "note": "progress print inside bootstrap setup"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     243,
+     243
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     262,
+     262
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 53,
+   "kind": "decision",
+   "lines": [
+    [
+     263,
+     265
+    ]
+   ],
+   "operation": "form the 95% CI from the 2.5th/97.5th percentiles of the bootstrap risk-difference draws",
+   "targets": [
+    "rds_bootstrap"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     266,
+     267
+    ]
+   ],
+   "note": "compute bootstrap standard deviation, a derived descriptive quantity used only for reporting"
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     268,
+     269
+    ]
+   ],
+   "operation": "derive an empirical two-sided p-value from the proportion of bootstrap draws on each side of zero",
+   "targets": [
+    "rds_bootstrap"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     270,
+     270
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     271,
+     279
+    ]
+   ],
+   "note": "print primary results header and sample composition"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     280,
+     280
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     286
+    ]
+   ],
+   "note": "print list of covariates adjusted for"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     287,
+     287
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     288,
+     291
+    ]
+   ],
+   "note": "print exclusion counts summary"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     292,
+     292
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     293,
+     296
+    ]
+   ],
+   "note": "print transformations summary"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     297,
+     297
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     298,
+     301
+    ]
+   ],
+   "note": "print SE/weighting summary"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     302,
+     305
+    ]
+   ],
+   "note": "final results section banner print"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     306,
+     306
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     307,
+     311
+    ]
+   ],
+   "note": "print primary estimand summary"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     312,
+     312
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     313,
+     316
+    ]
+   ],
+   "note": "print secondary estimand summary"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     317,
+     317
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     318,
+     330
+    ]
+   ],
+   "note": "print conclusion narrative"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     331,
+     334
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     335,
+     338
+    ]
+   ],
+   "note": "section title banner print"
+  },
+  {
+   "id": 75,
+   "kind": "decision",
+   "lines": [
+    [
+     339,
+     347
+    ]
+   ],
+   "operation": "refit the model excluding yellow cards from the adjustment set to check whether it acts as a mediator",
+   "targets": [
+    "yellowCards",
+    "anyRedCard",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     348,
+     348
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     353,
+     353
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     354,
+     357
+    ]
+   ],
+   "note": "print sensitivity 1 results"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     358,
+     358
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 80,
+   "kind": "decision",
+   "lines": [
+    [
+     359,
+     361
+    ]
+   ],
+   "operation": "restrict the sample to only the most extreme rater scores (0.00 vs 1.00) as an alternative exposure contrast",
+   "targets": [
+    "skinTone",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     363,
+     363
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     368,
+     368
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     373,
+     373
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     383,
+     383
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     384,
+     388
+    ]
+   ],
+   "note": "print sensitivity 2 (extreme comparison) results"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     389,
+     389
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 87,
+   "kind": "decision",
+   "lines": [
+    [
+     390,
+     390
+    ],
+    [
+     396,
+     403
+    ]
+   ],
+   "operation": "model skin tone as a continuous predictor instead of a dichotomized group",
+   "targets": [
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 88,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     395,
+     395
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     404,
+     404
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 90,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     414,
+     414
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 91,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     415,
+     419
+    ]
+   ],
+   "note": "print sensitivity 3 (continuous skin tone) results"
+  },
+  {
+   "id": 92,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     420,
+     420
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 93,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     421,
+     423
+    ]
+   ],
+   "note": "print closing sensitivity-analyses statement"
+  },
+  {
+   "id": 94,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     424,
+     424
+    ]
+   ],
+   "note": "blank line separator"
+  },
+  {
+   "id": 95,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     425,
+     425
+    ]
+   ],
+   "note": "print final completion message"
+  },
+  {
+   "id": 96,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     426,
+     426
+    ]
+   ],
+   "note": "trailing blank line"
+  }
+ ]
+}

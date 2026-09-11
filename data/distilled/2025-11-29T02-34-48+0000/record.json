@@ -1,0 +1,63 @@
+{
+ "run_id": "2025-11-29T02-34-48+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 446,
+   "functional_lines": 132,
+   "functional_share": 0.296,
+   "by_type": {
+    "print": 196,
+    "comment": 57,
+    "plot": 46,
+    "import": 8,
+    "config": 5,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 269,
+   "functional_lines": 150,
+   "functional_share": 0.5576,
+   "by_type": {
+    "boilerplate": 82,
+    "heading": 53,
+    "framing": 12,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 150,
+  "action_claims": 70,
+  "result_claims": 80,
+  "links": 79,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 28,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 80
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "restrict to extreme skin-tone dyads (<=0.25 or >=0.75), dropping the middle band, and binarize the exposure as isDark",
+   "claim": "17,015 dyads with medium skin tone (0.375-0.625) were excluded",
+   "note": "code excludes the (0.25,0.75) middle band (light 0-0.25, dark 0.75-1.0); claim states the excluded medium range as 0.375-0.625"
+  },
+  {
+   "decision": "specify the confirmatory logistic regression and its adjustment set (games, position, league country)",
+   "claim": "the slight differences in games and yellow cards between groups are controlled for in the adjusted analysis",
+   "note": "primary adjustment set is games, position, league; it does not include yellow cards, contrary to the claim that yellow-card differences are controlled in the adjusted analysis"
+  }
+ ]
+}

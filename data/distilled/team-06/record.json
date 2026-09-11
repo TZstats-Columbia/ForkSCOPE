@@ -1,0 +1,217 @@
+{
+ "run_id": "team-06",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 224,
+   "functional_lines": 139,
+   "functional_share": 0.6205,
+   "by_type": {
+    "glue": 63,
+    "dead": 11,
+    "comment": 8,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 483,
+   "functional_lines": 453,
+   "functional_share": 0.9379,
+   "by_type": {
+    "boilerplate": 20,
+    "heading": 12,
+    "framing": 11,
+    "hedging": 11,
+    "background": 6
+   }
+  }
+ },
+ "counts": {
+  "decisions": 26,
+  "claims": 53,
+  "action_claims": 34,
+  "result_claims": 19,
+  "links": 29,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 10,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 19
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     9,
+     10
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw crowdstorming CSV as the full working dataset",
+   "targets": [
+    "1. Crowdstorming Dataset 05.10.14.csv"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     11,
+     11
+    ]
+   ],
+   "confidence": "high",
+   "operation": "parse the birthday string into a date using day-month-year format",
+   "targets": [
+    "birthday",
+    "bdate"
+   ]
+  },
+  {
+   "id": 7,
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age as 2012 minus birth year",
+   "targets": [
+    "bdate",
+    "age"
+   ]
+  },
+  {
+   "id": 8,
+   "lines": [
+    [
+     13,
+     16
+    ]
+   ],
+   "confidence": "high",
+   "operation": "force-convert height, weight, meanIAT, and meanExp from string to numeric, coercing unparseable values to missing",
+   "targets": [
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "id": 9,
+   "lines": [
+    [
+     17,
+     24
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "encode player, position, referee number, league-country, and referee-country string fields into numeric ID variables for later grouping/fixed-effects use",
+   "targets": [
+    "playerShort",
+    "position",
+    "refNum",
+    "leagueCountry",
+    "refCountry"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "confidence": "high",
+   "operation": "drop observations with missing values on any player-characteristic control variable",
+   "targets": [
+    "age",
+    "height",
+    "weight"
+   ]
+  },
+  {
+   "id": 24,
+   "lines": [
+    [
+     60,
+     60
+    ],
+    [
+     115,
+     116
+    ],
+    [
+     170,
+     171
+    ]
+   ],
+   "confidence": "high",
+   "operation": "set referee (refID) as the panel unit for fixed-effects/clustered models",
+   "targets": [
+    "refID"
+   ]
+  },
+  {
+   "id": 29,
+   "lines": [
+    [
+     69,
+     69
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit a referee fixed-effects model of red cards with clustered SEs",
+   "targets": [
+    "redCards",
+    "rhs",
+    "refID",
+    "cluster_var"
+   ]
+  },
+  {
+   "id": 51,
+   "lines": [
+    [
+     188,
+     201
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "select and format rater1/highExp interaction coefficients for the Exp results table",
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2"
+   ]
+  },
+  {
+   "id": 52,
+   "lines": [
+    [
+     202,
+     214
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "select and format rater2/highExp interaction coefficients for the Exp results table",
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4"
+   ]
+  }
+ ],
+ "misalignments": []
+}

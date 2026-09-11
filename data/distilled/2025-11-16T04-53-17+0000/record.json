@@ -1,0 +1,73 @@
+{
+ "run_id": "2025-11-16T04-53-17+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 253,
+   "functional_lines": 138,
+   "functional_share": 0.5455,
+   "by_type": {
+    "print": 98,
+    "import": 9,
+    "comment": 6,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 201,
+   "functional_lines": 122,
+   "functional_share": 0.607,
+   "by_type": {
+    "other": 67,
+    "heading": 27,
+    "boilerplate": 8,
+    "framing": 6,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 122,
+  "action_claims": 50,
+  "result_claims": 72,
+  "links": 61,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 72
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     18,
+     19
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw soccer referee-player dyad dataset from a fixed path",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "fit the primary logistic regression of any-red-card on dark skin, log games, position group, and league, with standard errors clustered by player",
+   "claim": "no survey weights or fixed effects were used",
+   "note": "claim states no fixed effects were used, but the primary model includes leagueCountry as categorical fixed effects (decision 37 itself calls it the 'league fixed effect')"
+  }
+ ]
+}

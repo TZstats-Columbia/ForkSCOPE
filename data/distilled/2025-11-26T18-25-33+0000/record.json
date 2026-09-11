@@ -1,0 +1,57 @@
+{
+ "run_id": "2025-11-26T18-25-33+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 297,
+   "functional_lines": 95,
+   "functional_share": 0.3199,
+   "by_type": {
+    "comment": 97,
+    "print": 90,
+    "glue": 7,
+    "import": 6,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 271,
+   "functional_lines": 175,
+   "functional_share": 0.6458,
+   "by_type": {
+    "heading": 49,
+    "boilerplate": 44,
+    "framing": 20,
+    "hedging": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 109,
+  "action_claims": 50,
+  "result_claims": 59,
+  "links": 64,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 22,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 59
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "sweep additional binary exposure cutpoints (0.25 and 0.5) and refit the model at each to probe threshold sensitivity",
+   "claim": "thresholds at 0.125, 0.25, 0.375, 0.5, 0.625, and 0.75 were tested for the skin tone cutoff",
+   "note": "claim says thresholds 0.125/0.25/0.375/0.5/0.625/0.75 were tested; code only sweeps binary cutpoints 0.25/0.5/0.75"
+  }
+ ]
+}

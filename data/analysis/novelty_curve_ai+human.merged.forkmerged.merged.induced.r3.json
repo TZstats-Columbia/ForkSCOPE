@@ -1,0 +1,131 @@
+{
+ "source": "bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "bins": [
+  {
+   "bin": 1,
+   "n": 40,
+   "novelty_lo": 0.0,
+   "novelty_hi": 0.0,
+   "logOR": 0.1643,
+   "logOR_ci": [
+    0.1506,
+    0.1798
+   ],
+   "supported": 0.475,
+   "supported_ci": [
+    0.325,
+    0.625
+   ]
+  },
+  {
+   "bin": 2,
+   "n": 40,
+   "novelty_lo": 0.0,
+   "novelty_hi": 0.0,
+   "logOR": 0.1556,
+   "logOR_ci": [
+    0.1446,
+    0.1683
+   ],
+   "supported": 0.45,
+   "supported_ci": [
+    0.3,
+    0.6
+   ]
+  },
+  {
+   "bin": 3,
+   "n": 40,
+   "novelty_lo": 0.0,
+   "novelty_hi": 0.045,
+   "logOR": 0.1909,
+   "logOR_ci": [
+    0.1771,
+    0.2058
+   ],
+   "supported": 0.7,
+   "supported_ci": [
+    0.55,
+    0.825
+   ]
+  },
+  {
+   "bin": 4,
+   "n": 40,
+   "novelty_lo": 0.048,
+   "novelty_hi": 0.067,
+   "logOR": 0.2168,
+   "logOR_ci": [
+    0.1852,
+    0.2538
+   ],
+   "supported": 0.775,
+   "supported_ci": [
+    0.65,
+    0.9
+   ]
+  },
+  {
+   "bin": 5,
+   "n": 44,
+   "novelty_lo": 0.067,
+   "novelty_hi": 0.231,
+   "logOR": 0.1899,
+   "logOR_ci": [
+    0.1723,
+    0.2088
+   ],
+   "supported": 0.818,
+   "supported_ci": [
+    0.705,
+    0.932
+   ]
+  }
+ ],
+ "stages": [
+  {
+   "band": "0%-20%",
+   "runs": 204,
+   "decisions": 1211,
+   "novel_rate": 0.014,
+   "r_logOR": -0.055,
+   "r_verdict": 0.083
+  },
+  {
+   "band": "20%-40%",
+   "runs": 204,
+   "decisions": 956,
+   "novel_rate": 0.066,
+   "r_logOR": 0.07,
+   "r_verdict": 0.141
+  },
+  {
+   "band": "40%-60%",
+   "runs": 203,
+   "decisions": 652,
+   "novel_rate": 0.054,
+   "r_logOR": 0.112,
+   "r_verdict": 0.138
+  },
+  {
+   "band": "60%-80%",
+   "runs": 196,
+   "decisions": 546,
+   "novel_rate": 0.059,
+   "r_logOR": 0.148,
+   "r_verdict": 0.12
+  },
+  {
+   "band": "80%-100%",
+   "runs": 167,
+   "decisions": 300,
+   "novel_rate": 0.06,
+   "r_logOR": -0.077,
+   "r_verdict": 0.026
+  }
+ ],
+ "pearson_logOR": 0.119,
+ "spearman_logOR": 0.1353,
+ "pearson_verdict": 0.2175,
+ "spearman_verdict": 0.229
+}

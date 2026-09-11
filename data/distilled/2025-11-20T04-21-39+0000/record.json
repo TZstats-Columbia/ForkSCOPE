@@ -1,0 +1,117 @@
+{
+ "run_id": "2025-11-20T04-21-39+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 494,
+   "functional_lines": 227,
+   "functional_share": 0.4595,
+   "by_type": {
+    "print": 117,
+    "plot": 86,
+    "comment": 49,
+    "import": 8,
+    "config": 5,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 256,
+   "functional_lines": 141,
+   "functional_share": 0.5508,
+   "by_type": {
+    "other": 81,
+    "heading": 34,
+    "boilerplate": 16,
+    "background": 2,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 114,
+  "action_claims": 39,
+  "result_claims": 75,
+  "links": 78,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 75
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     52,
+     54
+    ],
+    [
+     90,
+     90
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse red-card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red",
+    "any_red_card"
+   ]
+  },
+  {
+   "id": 5,
+   "lines": [
+    [
+     59,
+     74
+    ],
+    [
+     87,
+     88
+    ],
+    [
+     317,
+     317
+    ]
+   ],
+   "confidence": "high",
+   "operation": "bucket free-text playing positions into five coarse groups (Goalkeeper/Defender/Midfielder/Forward/Other) and apply that mapping at both player and dyad level",
+   "targets": [
+    "position",
+    "position_cat"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     374,
+     378
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin the continuous skin-tone score into eighths to plot red-card rate by category",
+   "targets": [
+    "skin_tone"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "hardcode two of the four forest-plot estimates ('Unadjusted RR' and 'Adjusted RR (player-level)') as literal numbers rather than values computed anywhere in this script",
+   "claim": "all analyses are fully reproducible from the provided Python script, which generates all reported estimates/CIs/p-values, the sensitivity analyses, and diagnostic plots",
+   "note": "claim says the script generates all reported estimates, but code hardcodes 'Unadjusted RR' and 'Adjusted RR (player-level)' as literals rather than computing them"
+  }
+ ]
+}

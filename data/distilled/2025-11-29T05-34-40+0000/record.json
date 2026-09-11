@@ -1,0 +1,66 @@
+{
+ "run_id": "2025-11-29T05-34-40+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 375,
+   "functional_lines": 129,
+   "functional_share": 0.344,
+   "by_type": {
+    "print": 153,
+    "comment": 68,
+    "glue": 16,
+    "import": 5,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 258,
+   "functional_lines": 121,
+   "functional_share": 0.469,
+   "by_type": {
+    "boilerplate": 96,
+    "heading": 40,
+    "background": 2,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 115,
+  "action_claims": 73,
+  "result_claims": 42,
+  "links": 76,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 22,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 42
+ },
+ "silent_decisions": [
+  {
+   "id": 9,
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "confidence": "high",
+   "operation": "pick the input file and dataset scope to analyze",
+   "targets": [
+    "df"
+   ]
+  }
+ ],
+ "misalignments": []
+}

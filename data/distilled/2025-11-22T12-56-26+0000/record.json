@@ -1,0 +1,89 @@
+{
+ "run_id": "2025-11-22T12-56-26+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 391,
+   "functional_lines": 181,
+   "functional_share": 0.4629,
+   "by_type": {
+    "print": 117,
+    "comment": 56,
+    "plot": 22,
+    "import": 11,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 262,
+   "functional_lines": 155,
+   "functional_share": 0.5916,
+   "by_type": {
+    "heading": 49,
+    "boilerplate": 42,
+    "hedging": 23,
+    "other": 8,
+    "framing": 3,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 108,
+  "action_claims": 36,
+  "result_claims": 72,
+  "links": 82,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 1,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 72
+ },
+ "silent_decisions": [
+  {
+   "id": 28,
+   "lines": [
+    [
+     123,
+     125
+    ]
+   ],
+   "confidence": "high",
+   "operation": "specify the primary model's functional form as additive main effects of dark_skin, position, league and standardized controls with no interaction terms",
+   "targets": [
+    "formula",
+    "dark_skin",
+    "position",
+    "leagueCountry"
+   ]
+  },
+  {
+   "id": 60,
+   "lines": [
+    [
+     334,
+     339
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "populate the forest plot with manually typed odds-ratio and CI values per league (rather than the values just computed in the per-league loop above) and color-code leagues whose CI lower bound exceeds 1",
+   "targets": [
+    "leagues",
+    "ors",
+    "ci_lowers",
+    "ci_uppers",
+    "colors"
+   ]
+  }
+ ],
+ "misalignments": []
+}

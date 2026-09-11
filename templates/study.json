@@ -1,0 +1,117 @@
+{
+  "_README": [
+    "Copy to studies/<name>/study.json and fill it in. `/intake` writes this for",
+    "you by interview, which is the better route -- it asks the questions in an",
+    "order that surfaces what you do not know yet.",
+    "",
+    "THE CONTEXT BLOCK IS THE POINT. It is how your domain reaches the model:",
+    "appended to a FIXED prompt as data, never as an edit to prompt text. That is",
+    "what lets two studies claim the same instrument, and it is checkable --",
+    "prompt_hash is identical across studies or the claim is false. A study that",
+    "omits `context` still runs, and extracts worse, silently.",
+    "",
+    "Leave `final_tag` as CHANGE-ME. Lineage is not knowable until the repair",
+    "chain has run, and inventing one produces a study that reads the wrong",
+    "vocabulary. Build, read compare_vocab.py, then write the tag you settled on."
+  ],
+
+  "study": "CHANGE-ME",
+  "title": "one line naming the dataset and the question",
+  "question": "the question every analyst in this corpus was asked",
+
+  "final_tag": "CHANGE-ME",
+
+  "corpora": {
+    "CORPUS-NAME": {
+      "label": "how to refer to it in prose",
+      "env": "FORKSCOPE_RAW_CORPUS_NAME",
+      "default": "data/raw/CORPUS-NAME",
+      "glob": "pattern matching ONE run directory, relative to the corpus root",
+
+      "_artifacts_note": [
+        "A string is one filename. A LIST is candidates: the largest present",
+        "becomes that role and the runner-up becomes <role>_secondary, which is",
+        "how a corpus with two prose channels at two time points is read.",
+        "distill.py reads these -- nothing about filenames is hardcoded."
+      ],
+      "artifacts": {"code": "analysis.py", "prose": "report.txt"},
+
+      "_required_note": "Roles a run must have to count at all. Default: every role in `artifacts`. Make code optional here if some runs are prose-only -- they still count as runs contributing zero decisions, which is usually a finding rather than a nuisance.",
+      "required": ["code", "prose"],
+
+      "_min_bytes_note": "Per-role size floor. Default 1, i.e. merely non-empty. Raise it where a stub file would otherwise pass: an unfetched Git-LFS pointer is valid UTF-8 at about 130 bytes, and a two-line report is not a write-up.",
+      "min_bytes": {"prose": 400},
+
+      "arm_from_path": "optional regex with one group, if runs carry an arm",
+      "arm": "or a constant arm, when the corpus has only one",
+      "source": "where it came from",
+      "vendored": false
+    }
+  },
+
+  "context": {
+    "_comment": [
+      "Domain context, appended to prompts as DATA. Never edit prompt text --",
+      "the cache is keyed on it, and an edit orphans every answer that wording",
+      "produced. templates/intake.md section C works through what to collect.",
+      "",
+      "If a corpus seems to need the DEFINITION of a decision changed, that is a",
+      "finding about the instrument, not a configuration step. Record it and say",
+      "so; do not widen the definition here."
+    ],
+    "dataset": "one or two sentences: what one row is, and over what period",
+    "glossary": {
+      "TERM": "what a reader outside the field would not know, in one line",
+      "_note": "field shorthand, column names, units. 3-8 entries is typical"
+    },
+    "not_decisions": [
+      "operations that look like choices in this field but are conventions",
+      "e.g. loading from a fixed path, setting a seed, library imports"
+    ],
+    "easily_missed_decisions": [
+      "choices a non-specialist reader would skim past",
+      "these are the ones that become silent decisions if nobody names them"
+    ]
+  },
+
+  "research_questions": [
+    "what you want the map to answer",
+    "written before the build, so the study has a stated purpose"
+  ],
+
+  "predictions": {
+    "_comment": "Record BEFORE results. Written now, a later match is a prediction; written after, it is a story. `/intake` asks for these at section E2.",
+    "expected_to_matter": [
+      "the forks you already suspect are contested"
+    ],
+    "outcome": "left empty until results exist, then filled in and dated"
+  },
+
+  "provenance": {
+    "_comment": "Every run carries one of these. Provenance stratifies, it does not filter -- every run counts toward the statistics, and stability.py reports them with and without non-corpus runs so any drift is visible rather than silent.",
+    "corpus": "extracted from an analysis a real analyst wrote",
+    "itinerary": "assembled from options the corpus already contains",
+    "authored": "contains an operation no run in the corpus performed"
+  },
+
+  "comparisons": {
+    "_comment": "Which contrasts the design supports. Anything not listed as fair is observational, and any causal claim lives only in `fair`.",
+    "fair": [
+      {"between": "the randomly assigned variable, if there is one", "why": "randomly assigned"}
+    ],
+    "unfair": [
+      {"between": "groups that differ in more than one way", "why": "state the confound plainly"}
+    ]
+  },
+
+  "outcomes": {
+    "file": "data/outcomes/outcomes.json",
+    "covers_corpora": ["CORPUS-NAME"],
+    "note": "omit this block entirely if the study has no outcome side. Better absent than pointing at a file that does not exist. Ask early whether an outcome EXTRACTOR exists or must be written -- assembling outcomes outside the pipeline is how records end up with no provenance."
+  },
+
+  "intake": "INTAKE.md",
+
+  "stages": ["problem_formulation", "data_collection", "data_cleaning",
+             "eda", "modeling", "communication"]
+}

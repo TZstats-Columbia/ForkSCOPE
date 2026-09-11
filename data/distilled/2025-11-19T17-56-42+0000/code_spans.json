@@ -1,0 +1,774 @@
+{
+ "n_lines": 274,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     20
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     26
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     30
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "operation": "pick the source CSV file that defines the entire analysis dataset",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "operation": "collapse two raters' scores into a single skin-tone measure by averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "operation": "restrict to dyads with both ratings present before computing rater agreement",
+   "targets": [
+    "rater1",
+    "rater2",
+    "valid_ratings"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     46
+    ],
+    [
+     50,
+     52
+    ]
+   ],
+   "operation": "cut the continuous skin-tone score into dark/light groups at fixed thresholds, leaving the middle band unclassified and dropping it from the working sample",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "operation": "collapse the red-card count/type into a single yes/no outcome for any red card",
+   "targets": [
+    "redCards",
+    "got_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     53,
+     60
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     65,
+     67
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     70
+    ]
+   ],
+   "operation": "split the analysis sample into dark/light groups to report a raw, pre-adjustment comparison",
+   "targets": [
+    "analysis_df",
+    "dark_skin",
+    "dark",
+    "light"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     76
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     77,
+     80
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     81,
+     82
+    ]
+   ],
+   "note": "alias analysis_df into reg_df for downstream modeling"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     83,
+     99
+    ],
+    [
+     198,
+     198
+    ]
+   ],
+   "operation": "bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     100,
+     103
+    ],
+    [
+     199,
+     200
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample mean rather than dropping or modeling missingness",
+   "targets": [
+    "height",
+    "weight",
+    "height_imputed",
+    "weight_imputed"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     104,
+     108
+    ],
+    [
+     202,
+     204
+    ]
+   ],
+   "operation": "z-score height, weight, and games so covariates are on comparable scales",
+   "targets": [
+    "height_imputed",
+    "weight_imputed",
+    "games",
+    "height_std",
+    "weight_std",
+    "games_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     109,
+     111
+    ],
+    [
+     205,
+     205
+    ]
+   ],
+   "operation": "one-hot encode position and league categories keeping all levels (no reference level dropped)",
+   "targets": [
+    "position_cat",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     116
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     124
+    ],
+    [
+     206,
+     210
+    ]
+   ],
+   "operation": "choose the adjustment set of covariates (position, league, height, weight, games) accompanying the exposure in the outcome model",
+   "targets": [
+    "got_red_card",
+    "dark_skin",
+    "skin_tone_std",
+    "position_cat_Forward",
+    "position_cat_Goalkeeper",
+    "position_cat_Midfielder",
+    "position_cat_Unknown",
+    "leagueCountry_France",
+    "leagueCountry_Germany",
+    "leagueCountry_Spain",
+    "height_std",
+    "weight_std",
+    "games_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     125,
+     128
+    ]
+   ],
+   "operation": "fit a logistic regression as the outcome model with standard errors clustered by player",
+   "targets": [
+    "reg_df",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     132
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     138
+    ]
+   ],
+   "operation": "report the average marginal effect (risk-difference scale) rather than the raw log-odds coefficient as the headline estimand",
+   "targets": [
+    "logit_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     147
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     153
+    ]
+   ],
+   "operation": "additionally exponentiate the coefficient into an odds ratio as a secondary summary",
+   "targets": [
+    "logit_model"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     154,
+     161
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     162,
+     165
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     166,
+     169
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     170,
+     177
+    ]
+   ],
+   "operation": "refit with standard errors clustered by referee instead of player as a sensitivity check",
+   "targets": [
+    "reg_df",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     183
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     184,
+     189
+    ]
+   ],
+   "operation": "refit with heteroskedasticity-robust (HC1) errors and no clustering as a further sensitivity check",
+   "targets": [
+    "reg_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     195
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     196,
+     197
+    ]
+   ],
+   "operation": "build a separate sample for the continuous-exposure check using all rows with a non-missing skin-tone score, not just the dichotomized dark/light rows",
+   "targets": [
+    "df",
+    "skin_tone_avg",
+    "reg_df_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     201,
+     201
+    ]
+   ],
+   "operation": "standardize the continuous skin-tone score for use as a continuous exposure",
+   "targets": [
+    "skin_tone_avg",
+    "skin_tone_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     211,
+     214
+    ]
+   ],
+   "operation": "refit the outcome model using the continuous skin-tone exposure in place of the binary one, still clustered by player",
+   "targets": [
+    "reg_df_cont",
+    "playerShort",
+    "skin_tone_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     215,
+     218
+    ]
+   ],
+   "operation": "pull the skin-tone marginal effect out of the margeff array by a hard-coded position index",
+   "targets": [
+    "mfx_cont"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     219,
+     225
+    ]
+   ],
+   "operation": "rescale the continuous marginal effect into a dark-vs-light comparison by picking 0.875 and 0.125 as the representative contrast values",
+   "targets": [
+    "skin_tone_avg",
+    "skin_diff_std",
+    "pred_diff_cont",
+    "me_skin_cont",
+    "me_ci_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     226,
+     231
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     232,
+     235
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     239
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     240,
+     244
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     245,
+     249
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     250,
+     260
+    ]
+   ],
+   "note": "line 256 prints a hard-coded literal (17015) for the medium-skin-tone exclusion count instead of a computed value"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     261,
+     269
+    ]
+   ],
+   "operation": "declare the hypothesis supported or not using a rule requiring both p>0.05 and a CI lower bound below zero, and label the outcome accordingly",
+   "targets": [
+    "me_pval",
+    "me_ci",
+    "me_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     270,
+     274
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

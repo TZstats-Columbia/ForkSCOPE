@@ -1,0 +1,996 @@
+{
+ "n_lines": 298,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     32
+    ],
+    [
+     258,
+     258
+    ]
+   ],
+   "operation": "choose the raw player-referee dyad csv as the full input scope, and re-read it later solely to report the pre-exclusion total N",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     60
+    ]
+   ],
+   "operation": "collapse the granular playing positions into four coarse categories (Forward/Midfielder/Defender/Goalkeeper)",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     74
+    ]
+   ],
+   "operation": "drop dyads with missing skin-tone rating from the sample",
+   "targets": [
+    "skinTone",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     79,
+     79
+    ]
+   ],
+   "operation": "drop dyads where the referee-player pair appeared together only once, treating single-game pairs as too unstable to keep",
+   "targets": [
+    "games",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     84
+    ]
+   ],
+   "operation": "drop goalkeepers from the analysis sample on the grounds that their red-card exposure differs from outfield players",
+   "targets": [
+    "position_cat",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     93
+    ]
+   ],
+   "operation": "binarize continuous skin tone into a dark_skin exposure using a 0.125 cutpoint, chosen per the adjacent comment to maximize the observed effect",
+   "targets": [
+    "skinTone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     97
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median rather than dropping those rows or modeling the missingness",
+   "targets": [
+    "height",
+    "weight",
+    "height_imputed",
+    "weight_imputed"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     100,
+     102
+    ]
+   ],
+   "operation": "z-score standardize height, weight, and games-together before entering them as covariates",
+   "targets": [
+    "height_imputed",
+    "weight_imputed",
+    "games",
+    "height_std",
+    "weight_std",
+    "games_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "operation": "specify the primary outcome model as logistic regression of any red card on dark_skin, adjusting for position, league, height, weight, and games, with HC1 robust covariance",
+   "targets": [
+    "anyRedCard",
+    "dark_skin",
+    "position_cat",
+    "leagueCountry",
+    "height_std",
+    "weight_std",
+    "games_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     139,
+     143
+    ],
+    [
+     145,
+     168
+    ],
+    [
+     170,
+     174
+    ]
+   ],
+   "operation": "quantify the primary effect as an adjusted risk difference (average predicted-probability contrast between dark_skin=1 and 0), obtaining its standard error via a numerically-approximated delta-method gradient to build a Wald CI and p-value",
+   "targets": [
+    "primary_model",
+    "dark_skin",
+    "rd_point",
+    "rd_se",
+    "p_value"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     189,
+     191
+    ]
+   ],
+   "operation": "convert the dark_skin coefficient and its CI into an odds ratio via exponentiation as a secondary effect measure",
+   "targets": [
+    "primary_model",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     206,
+     214
+    ]
+   ],
+   "operation": "re-fit the model with the skin-tone cutpoint relaxed to 0.25 to check sensitivity of the result to the threshold choice",
+   "targets": [
+    "skinTone",
+    "dark_skin",
+    "df_rob1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     219,
+     232
+    ]
+   ],
+   "operation": "rebuild the analysis sample keeping single-game dyads that were otherwise excluded, then redo the exposure cutpoint, imputation, standardization and model fit to test sensitivity to that exclusion",
+   "targets": [
+    "games",
+    "df",
+    "dark_skin",
+    "height_imputed",
+    "weight_imputed",
+    "height_std",
+    "weight_std",
+    "games_std",
+    "df_rob2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     237,
+     247
+    ]
+   ],
+   "operation": "replace the binary exposure with continuous skin tone (rescaled to per-0.5-unit steps) to test sensitivity to dichotomizing the exposure",
+   "targets": [
+    "skinTone",
+    "skinTone_scaled",
+    "df_rob3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     292,
+     298
+    ]
+   ],
+   "operation": "declare the hypothesis outcome as 'SUPPORTED' and frame the size/significance of the effect as the paper's headline conclusion",
+   "targets": [
+    "rd_point",
+    "p_value"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis, author, date, seed"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     20
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "note": "import warnings and suppress warning output"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     25
+    ]
+   ],
+   "note": "set numpy random seed for reproducibility"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     31
+    ]
+   ],
+   "note": "section header and 'load data' comment"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     38
+    ]
+   ],
+   "note": "data-prep header and initial dataset size print"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     39
+    ]
+   ],
+   "note": "comment introducing skin-tone variable creation"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "note": "comment introducing binary outcome creation"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "note": "comment introducing position mapping"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     61,
+     65
+    ]
+   ],
+   "note": "section header for sample selection"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     66,
+     71
+    ]
+   ],
+   "note": "sample-selection header and starting N print"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     72,
+     72
+    ]
+   ],
+   "note": "comment labeling exclusion 1"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "note": "print count of missing skin tone"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     76
+    ]
+   ],
+   "note": "print N after exclusion"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     77,
+     77
+    ]
+   ],
+   "note": "comment labeling exclusion 2"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     78
+    ]
+   ],
+   "note": "print count of single-game dyads"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     81
+    ]
+   ],
+   "note": "print N after exclusion"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "note": "comment labeling exclusion 3"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "print count of goalkeeper dyads"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     86
+    ]
+   ],
+   "note": "print final analysis sample size"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     87,
+     90
+    ]
+   ],
+   "note": "section header for variable creation"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     91,
+     92
+    ]
+   ],
+   "note": "comment giving rationale for the 0.125 cutpoint"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "comment introducing imputation"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     99
+    ]
+   ],
+   "note": "comment introducing standardization"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     103,
+     113
+    ]
+   ],
+   "note": "print final sample characteristics summary"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     117
+    ]
+   ],
+   "note": "section header for primary model"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     121
+    ]
+   ],
+   "note": "primary model header print"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     122,
+     122
+    ]
+   ],
+   "note": "comment noting robust HC1 SEs"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     129
+    ]
+   ],
+   "note": "print model summary"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "note": "section header for risk-difference estimand"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": "risk-difference header print"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     138,
+     138
+    ]
+   ],
+   "note": "comment introducing risk-difference calculation"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     144,
+     144
+    ]
+   ],
+   "note": "comment introducing delta-method SE"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     169,
+     169
+    ]
+   ],
+   "note": "comment introducing CI/p-value computation"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     180
+    ]
+   ],
+   "note": "print risk difference, CI, SE, z, p-value"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     181,
+     184
+    ]
+   ],
+   "note": "section header for odds-ratio estimand"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     185,
+     188
+    ]
+   ],
+   "note": "odds-ratio header print"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     192,
+     195
+    ]
+   ],
+   "note": "print odds ratio and CI"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     196,
+     199
+    ]
+   ],
+   "note": "section header for robustness checks"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     200,
+     203
+    ]
+   ],
+   "note": "robustness-checks header print"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     204,
+     204
+    ]
+   ],
+   "note": "comment labeling robustness check 1"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     205,
+     205
+    ]
+   ],
+   "note": "announce alternative cutpoint check"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     215,
+     216
+    ]
+   ],
+   "note": "print robustness check 1 result"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     217,
+     217
+    ]
+   ],
+   "note": "comment labeling robustness check 2"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     218,
+     218
+    ]
+   ],
+   "note": "announce single-game-inclusion check"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     233,
+     234
+    ]
+   ],
+   "note": "print robustness check 2 result"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     235,
+     235
+    ]
+   ],
+   "note": "comment labeling robustness check 3"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     236
+    ]
+   ],
+   "note": "announce continuous-exposure check"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     248,
+     249
+    ]
+   ],
+   "note": "print robustness check 3 result"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     250,
+     253
+    ]
+   ],
+   "note": "section header for final summary"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     254,
+     257
+    ]
+   ],
+   "note": "final summary header and unit-of-analysis print"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     259,
+     275
+    ]
+   ],
+   "note": "printed recap of exclusions, covariates, exposure definition, and variance-estimation choices already made earlier"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     276,
+     282
+    ]
+   ],
+   "note": "reprint of the risk-difference results"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     283,
+     288
+    ]
+   ],
+   "note": "reprint of the odds-ratio results"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     289,
+     291
+    ]
+   ],
+   "note": "conclusion section header print"
+  }
+ ]
+}

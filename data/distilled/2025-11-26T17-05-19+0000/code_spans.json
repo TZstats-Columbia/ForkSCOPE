@@ -1,0 +1,905 @@
+{
+ "n_lines": 348,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring describing the script's purpose"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     19
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "suppress warnings and fix the RNG seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     32
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "operation": "read the raw player-referee dyad CSV as the full, unfiltered analysis input",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     38
+    ]
+   ],
+   "note": "report initial row/player/referee counts"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     43,
+     46
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ],
+    [
+     51,
+     51
+    ]
+   ],
+   "operation": "drop dyads missing either rater's skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "note": "report count excluded for missing skin tone"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     55
+    ]
+   ],
+   "operation": "average the two raters into a single continuous skin_tone consensus score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     59
+    ],
+    [
+     61,
+     61
+    ]
+   ],
+   "operation": "drop dyads missing height or weight, treating them as required confounder controls",
+   "targets": [
+    "height",
+    "weight",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     60,
+     60
+    ]
+   ],
+   "note": "report count excluded for missing anthropometrics"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     63
+    ]
+   ],
+   "note": "report final analytic sample size"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     64,
+     68
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     74
+    ]
+   ],
+   "operation": "collapse red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     76
+    ]
+   ],
+   "note": "report outcome prevalence"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     77,
+     80
+    ],
+    [
+     85,
+     90
+    ]
+   ],
+   "operation": "dichotomize skin tone by keeping only bottom/top quartiles and flagging the top quartile as 'dark', discarding the middle",
+   "targets": [
+    "skin_tone",
+    "q25",
+    "q75",
+    "dark",
+    "df_quartile"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     81,
+     84
+    ]
+   ],
+   "note": "report quartile cutoff values"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     95
+    ]
+   ],
+   "note": "report quartile subsample sizes"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     100,
+     103
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     104,
+     119
+    ]
+   ],
+   "note": "build and print descriptive tables (outcome by dark, position counts, league counts)"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     120,
+     123
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     124,
+     127
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     137
+    ]
+   ],
+   "operation": "specify the primary logistic model's covariate/adjustment set and fit it with HC3 robust standard errors",
+   "targets": [
+    "any_red",
+    "dark",
+    "games",
+    "yellowCards",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     138,
+     141
+    ]
+   ],
+   "note": "print statsmodels regression summary"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     146,
+     149
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     150,
+     153
+    ]
+   ],
+   "note": "pull parameter names/count needed to build design vectors"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     154,
+     162
+    ],
+    [
+     179,
+     183
+    ],
+    [
+     184,
+     189
+    ],
+    [
+     195,
+     200
+    ]
+   ],
+   "operation": "choose a reference covariate profile (sample means for continuous vars, modal position/league) to hold fixed when generating standardized predictions",
+   "targets": [
+    "games",
+    "yellowCards",
+    "height",
+    "weight",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     163,
+     170
+    ]
+   ],
+   "note": "print the chosen reference values"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     171,
+     178
+    ]
+   ],
+   "note": "initialize zero design vectors and set the intercept term"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     190,
+     194
+    ],
+    [
+     205,
+     211
+    ]
+   ],
+   "operation": "predict outcome probability at the reference profile with exposure fixed at light vs dark and take the difference as the risk difference",
+   "targets": [
+    "dark",
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     201,
+     204
+    ]
+   ],
+   "note": "define inverse-logit helper function"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     212,
+     231
+    ]
+   ],
+   "operation": "quantify uncertainty in the risk difference via parametric bootstrap draws from the model's coefficient covariance, using 10,000 simulations",
+   "targets": [
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     232,
+     234
+    ]
+   ],
+   "operation": "derive a two-sided p-value as twice the smaller tail proportion of bootstrap draws relative to zero",
+   "targets": [
+    "rd_dist"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     235,
+     246
+    ]
+   ],
+   "note": "print adjusted probabilities, risk difference, CI, SE, p-value"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     247,
+     250
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     251,
+     253
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     254,
+     257
+    ]
+   ],
+   "operation": "convert the dark coefficient to an odds ratio with a Wald-type (1.96 SE) 95% confidence interval",
+   "targets": [
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     258,
+     262
+    ]
+   ],
+   "note": "print odds ratio, CI, coefficient, SE, p-value"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     263,
+     267
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     268,
+     271
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     272,
+     272
+    ],
+    [
+     274,
+     277
+    ]
+   ],
+   "operation": "refit the primary model with yellowCards dropped from the covariate set to test sensitivity to that adjustment",
+   "targets": [
+    "yellowCards",
+    "df_quartile"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     273
+    ]
+   ],
+   "note": "console label for sensitivity check 1"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     279
+    ]
+   ],
+   "note": "print sensitivity-1 coefficient, SE, OR, p-value"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     280,
+     281
+    ],
+    [
+     283,
+     285
+    ]
+   ],
+   "operation": "refit on the full (non-quartile-restricted) sample using a fixed 0.5 midpoint to dichotomize skin tone instead of quartiles",
+   "targets": [
+    "skin_tone",
+    "df_complete",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     282
+    ]
+   ],
+   "note": "console label for sensitivity check 2"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     286,
+     288
+    ]
+   ],
+   "note": "print sensitivity-2 sample size, coefficient, SE, OR, p-value"
+  },
+  {
+   "id": 53,
+   "kind": "decision",
+   "lines": [
+    [
+     289,
+     290
+    ],
+    [
+     292,
+     296
+    ]
+   ],
+   "operation": "refit using a more extreme dark/light cutoff (>=0.75 vs <=0.25) instead of the quartile-based split",
+   "targets": [
+    "skin_tone",
+    "df_complete",
+    "df_extreme"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     291,
+     291
+    ]
+   ],
+   "note": "console label for sensitivity check 3"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     297,
+     299
+    ]
+   ],
+   "note": "print sensitivity-3 sample size, coefficient, SE, OR, p-value"
+  },
+  {
+   "id": 56,
+   "kind": "decision",
+   "lines": [
+    [
+     300,
+     301
+    ],
+    [
+     303,
+     306
+    ]
+   ],
+   "operation": "refit treating skin tone as a continuous predictor rather than dichotomizing it",
+   "targets": [
+    "skin_tone",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     302,
+     302
+    ]
+   ],
+   "note": "console label for sensitivity check 4"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     307,
+     309
+    ]
+   ],
+   "note": "print sensitivity-4 sample size, coefficient, SE, OR, p-value"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     310,
+     313
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     314,
+     317
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     318,
+     336
+    ]
+   ],
+   "note": "print already-computed primary/secondary estimands and model details"
+  },
+  {
+   "id": 62,
+   "kind": "decision",
+   "lines": [
+    [
+     337,
+     342
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' and characterize the risk difference as substantively meaningful, going beyond restating the computed numbers",
+   "targets": [
+    "rd_point",
+    "p_value"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     343,
+     348
+    ]
+   ],
+   "note": "close final summary string and print closing banner"
+  }
+ ]
+}

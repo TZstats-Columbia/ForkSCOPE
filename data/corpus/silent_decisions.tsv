@@ -1,0 +1,334 @@
+run_id	arm	lines	confidence	operation
+2025-11-12T09-30-16+0000	ai	32-33	medium	load the full soccer referee-player dyad dataset from a fixed CSV path with no additional row-level scope restriction
+2025-11-12T09-30-16+0000	ai	189-191	medium	discard bootstrap draws whose resampled dataset has fewer than 1000 rows
+2025-11-12T09-30-16+0000	ai	192-205,212-214	high	rebuild the covariate design matrix for each bootstrap draw and refit the logistic GLM with a plain (non-cluster-robust) fit, silently skipping draws whose fit raises an exception
+2025-11-12T09-52-44+0000	ai	53-70,310-310	high	bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching
+2025-11-12T09-52-44+0000	ai	313-314	medium	drop remaining dyads missing height or weight before fitting the continuous-exposure model
+2025-11-12T10-05-42+0000	ai	31-32	high	loads the raw player-referee dyad dataset from CSV as the analysis input
+2025-11-12T10-39-00+0000	ai	105-110	high	one-hot encode position and league with drop_first=True, fixing the omitted category as the implicit reference level
+2025-11-12T10-39-00+0000	ai	162-163	medium	construct the odds-ratio confidence interval via a manual normal (Wald) approximation on the log-odds scale using a fixed 1.96 multiplier, rather than the model's own CI method
+2025-11-12T12-24-45+0000	ai	218-225	high	use continuous skin tone instead of the binarized exposure and refit the adjusted model
+2025-11-12T12-24-45+0000	ai	249-295	medium	assemble a single summary table choosing which of the primary, secondary, stratified, and sensitivity estimates to report together and how to format them
+2025-11-12T12-54-24+0000	ai	56-72	high	recode the detailed playing position into four coarse role groups, sending anything unmapped to Other
+2025-11-12T13-46-32+0000	negative	79-82	high	choose which columns define a complete case for modeling (outcome, exposure, covariates, id fields)
+2025-11-12T13-46-32+0000	negative	324-324	medium	require at least 100 dyads in the extreme-comparison sample before fitting a model
+2025-11-12T17-30-15+0000	ai	10-10	high	load the full soccer dataset from a fixed file path as the analysis source
+2025-11-12T17-30-15+0000	ai	21-21	high	encode the treatment indicator so that dark skin tone is coded 1 and light is the reference 0
+2025-11-12T17-30-15+0000	ai	42-43	high	narrow the working data down to just the outcome, treatment, covariates, and identifiers that will enter the model
+2025-11-12T18-01-53+0000	ai	233-241	medium	bin continuous skin tone into five display categories with custom edges for the bar chart
+2025-11-12T18-56-42+0000	standard	21-22	high	load the specific source CSV as the analysis input
+2025-11-12T18-56-42+0000	standard	28-29	high	average the two rater columns into one continuous skin-tone score
+2025-11-12T18-56-42+0000	standard	96-96	high	encode player identity as a numeric ID to use as the clustering unit
+2025-11-12T19-55-38+0000	ai	33-33	medium	load the raw player-referee dyad soccer dataset from CSV
+2025-11-12T19-55-38+0000	ai	83-85	high	encode dark-skin group membership as a binary exposure variable
+2025-11-12T19-55-38+0000	ai	92-95	high	select and restrict the columns carried into the modeling dataset
+2025-11-12T21-15-40+0000	ai	68-69	medium	impute missing player position with the literal category 'Unknown'
+2025-11-12T22-55-33+0000	standard	29-31	high	average two independent raters' skin-tone scores into a single continuous skin_tone_avg measure
+2025-11-12T22-55-33+0000	standard	237-238	medium	bin continuous skin tone into quarter-range categories for a bar-chart summary of red card rate
+2025-11-13T00-05-19+0000	standard	78-79	medium	encode dark skin tone as the exposure indicator (1) versus light (0)
+2025-11-14T22-05-46+0000	standard	53-54	high	derive player age at a fixed reference year (2012) from birthday
+2025-11-15T01-08-22+0000	standard	70-74	high	compute player age at a fixed end-of-season reference date
+2025-11-15T02-22-25+0000	standard	43-43	high	collapse the red-card count into a binary any-red-card outcome
+2025-11-15T02-22-25+0000	standard	209-210	medium	discard a bootstrap replicate if it has fewer than 1000 dyads or fewer than 10 red-card events
+2025-11-15T02-22-25+0000	standard	222-222	low	cap bootstrap model fitting at 50 iterations and suppress convergence warnings
+2025-11-15T02-22-25+0000	standard	235-236	medium	silently drop any bootstrap replicate whose fit raises an exception
+2025-11-15T15-03-11+0000	ai	94-97	medium	choose which columns enter the modeling dataset, fixing the covariate set available to later models
+2025-11-15T15-03-11+0000	ai	331-339	medium	choose which covariates to check for balance across skin-tone groups and normalize their means relative to the light-skin group
+2025-11-15T15-38-19+0000	positive	142-150	high	fit an unadjusted logistic regression of red card receipt on dark_skin alone, with standard errors clustered by player
+2025-11-15T17-13-29+0000	ai	31-31	high	load the raw soccer referee dataset from a fixed CSV path with no filtering at read time
+2025-11-15T17-13-29+0000	ai	53-53	high	binarize skin category into a dark-skin indicator used as the exposure
+2025-11-15T17-13-29+0000	ai	56-71	high	collapse free-text position strings into a small set of position buckets via keyword matching, with an Unknown catch-all
+2025-11-15T17-13-29+0000	ai	85-89	high	choose the fixed set of variables (outcome, exposure, covariates, IDs) that will be carried into modeling
+2025-11-15T17-13-29+0000	ai	401-402	medium	drop skin-tone values supported by fewer than 100 dyads before plotting the rate-by-skin-tone curve
+2025-11-15T18-59-03+0000	ai	53-53	medium	compute player age as a fixed reference year (2012) minus birth year rather than age at time of match
+2025-11-15T20-23-37+0000	positive	34-34	high	point the analysis at a specific local CSV file as the full data source
+2025-11-15T22-00-27+0000	negative	252-252	high	restrict the interaction-sensitivity sample to dyads with non-missing referee implicit-bias score
+2025-11-15T23-57-58+0000	negative	332-333	medium	compute normal-approximation (Wald) confidence intervals for the odds ratios from their log-scale standard errors, for the forest-style comparison plot
+2025-11-15T23-57-58+0000	negative	351-351	medium	restrict the position-distribution panel to the 8 most common positions rather than showing all categories
+2025-11-16T04-53-17+0000	negative	18-19	high	load the raw soccer referee-player dyad dataset from a fixed path
+2025-11-16T07-53-05+0000	ai	149-154	low	choose a set of covariates and compute their unadjusted group means to check pre-adjustment balance
+2025-11-16T07-53-05+0000	ai	339-347	high	refit the model excluding yellow cards from the adjustment set to check whether it acts as a mediator
+2025-11-16T07-53-05+0000	ai	359-361	high	restrict the sample to only the most extreme rater scores (0.00 vs 1.00) as an alternative exposure contrast
+2025-11-16T11-59-47+0000	ai	34-36	high	load the raw player-referee dyad dataset from CSV
+2025-11-16T11-59-47+0000	ai	76-92	high	collapse detailed playing positions into four broad position groups
+2025-11-16T11-59-47+0000	ai	138-139	low	pick which covariates to compare across skin-tone groups as a balance check
+2025-11-16T21-46-30+0000	ai	147-151	medium	approximate the AME's standard error via a delta-method scaling of the logit coefficient's SE
+2025-11-16T21-46-30+0000	ai	293-309	medium	compute the red-card rate and a normal-approximation 95% CI separately for every distinct observed skin-tone value
+2025-11-16T23-15-36+0000	ai	337-345	low	hardcode the point estimates and confidence intervals for four of the six specifications as literal numbers in the plotting code rather than reading them from the result objects fitted earlier
+2025-11-17T01-20-10+0000	ai	227-227	high	announce a sensitivity sweep over alternative skin-tone cutoffs
+2025-11-17T01-20-10+0000	ai	252-252	high	announce swapping the dichotomized exposure for the raw continuous skin-tone score
+2025-11-17T01-20-10+0000	ai	273-273	high	announce adding league-country fixed effects to the adjustment set
+2025-11-17T01-20-10+0000	ai	294-294	high	announce dropping yellow-card count from the adjustment set
+2025-11-17T01-20-10+0000	ai	315-315	high	announce a minimally-adjusted specification
+2025-11-17T01-20-10+0000	ai	364-364	low	populate the forest plot's robustness-check row values with hand-typed literal numbers instead of referencing the actually-computed rd/rd_cont/rd_league/rd_noyellow/rd_min variables from section 5
+2025-11-17T01-20-10+0000	ai	372-373	low	substitute a single hand-picked approximate CI half-width for every forest-plot row instead of the CI actually computed for each specification
+2025-11-17T03-01-51+0000	ai	73-80	high	restrict the working dataset to a fixed set of variables carried into all downstream models
+2025-11-17T03-01-51+0000	ai	222-225	medium	derive a two-sided p-value via a normal-approximation z-test built from the bootstrap standard error rather than from the bootstrap distribution's own tails
+2025-11-17T05-02-45+0000	ai	39-43	high	derive player age by subtracting birth year from a fixed 2012 season-reference year, coercing bad dates to missing
+2025-11-17T05-02-45+0000	ai	172-172,175-179	medium	choose which covariates (age, height, weight, games) to inspect for balance across skin-tone groups
+2025-11-17T14-46-19+0000	standard	22-24	high	load the player-referee dyad dataset from a fixed CSV path as the entire analysis input
+2025-11-17T14-46-19+0000	standard	266-268	medium	bin the continuous skin-tone score into 9 groups to plot red-card rate against tone
+2025-11-17T15-56-59+0000	standard	45-46	high	derive player age by anchoring to a fixed reference year (2012) rather than to game date or current date
+2025-11-17T15-56-59+0000	standard	53-56	high	pick which columns enter the modeling dataset, fixing the covariate and identifier set for everything downstream
+2025-11-17T16-55-57+0000	standard	83-85,227-227	high	code dark-skinned players as 1 and light-skinned as 0, making light the reference category
+2025-11-17T18-58-32+0000	standard	305-305	medium	draw the 0.5 dichotomization cutoff as a reference line on the skin tone histogram
+2025-11-17T18-58-32+0000	standard	314-314	low	exclude players with missing position from the by-position red card rate chart
+2025-11-17T20-22-41+0000	standard	125-126	high	code dark skin tone as the exposure indicator with light as reference
+2025-11-17T20-22-41+0000	standard	219-219	medium	silently discard bootstrap iterations where the model fails to fit, rather than counting or flagging them
+2025-11-17T21-31-42+0000	standard	33-37	high	parse birthday strings and derive player age relative to a fixed mid-season reference date
+2025-11-18T01-05-44+0000	standard	161-162,197-198,276-277	medium	build every reported 95% interval with a fixed normal-approximation multiplier of 1.96 rather than an exact or resampled critical value
+2025-11-19T04-30-13+0000	ai	110-111	medium	summarizes the unadjusted contrast as both a risk difference and a relative risk
+2025-11-19T04-30-13+0000	ai	297-301	medium	approximates confidence intervals for the plotted unadjusted rates using a normal (1.96 x SE) approximation
+2025-11-19T05-56-22+0000	ai	34-35	high	load the raw player-referee dyad dataset from a specific CSV path
+2025-11-19T05-56-22+0000	ai	319-328	low	map p-values to significance-star annotations using conventional alpha thresholds (0.001/0.01/0.05)
+2025-11-19T07-38-28+0000	positive	277-278	high	restrict this sensitivity sample to dyads with non-missing referee bias scores
+2025-11-19T07-38-28+0000	positive	324-325,330-330	low	compute the plotted error bars from a normal-approximation SE of the raw proportions times 1.96
+2025-11-19T07-38-28+0000	positive	340-340	low	limit the position breakdown plot to the 10 most frequent positions
+2025-11-19T10-27-52+0000	positive	276-294	medium	choose which covariate effects to report in detail: all listed continuous covariates but only the first five position categories
+2025-11-19T10-27-52+0000	positive	378-380	medium	bin games-played into discrete exposure categories for the exposure-stratified plot
+2025-11-19T10-27-52+0000	positive	420-421	high	compute a normal-approximation (Wald) confidence interval for the unadjusted risk difference for the summary table, a different method than the delta-method CI used for the adjusted estimate
+2025-11-19T11-29-03+0000	positive	43-49	medium	pick which columns carry into the modeling dataset (outcome, exposure, covariates, cluster id)
+2025-11-19T11-29-03+0000	positive	149-153	high	redefine exposure using extreme skin-tone cutoffs (>=0.75 vs <=0.25) and exclude the ambiguous middle group
+2025-11-19T11-29-03+0000	positive	154-162	high	refit the adjusted logistic model on the extreme-only subsample using the extreme exposure coding
+2025-11-19T13-48-49+0000	positive	60-64	high	derive player age by subtracting birthday from a fixed reference date and converting days to years
+2025-11-19T13-48-49+0000	positive	110-111	medium	compute the raw, unadjusted red-card rate for each skin-tone group as a descriptive baseline
+2025-11-19T14-47-53+0000	positive	26-28	high	load the raw player-referee dyad dataset from a fixed file path
+2025-11-19T17-56-42+0000	negative	83-99,198-198	high	bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching
+2025-11-19T17-56-42+0000	negative	109-111,205-205	high	one-hot encode position and league categories keeping all levels (no reference level dropped)
+2025-11-19T17-56-42+0000	negative	196-197	high	build a separate sample for the continuous-exposure check using all rows with a non-missing skin-tone score, not just the dichotomized dark/light rows
+2025-11-19T17-56-42+0000	negative	215-218	medium	pull the skin-tone marginal effect out of the margeff array by a hard-coded position index
+2025-11-19T19-09-24+0000	negative	36-36	high	point the whole analysis at one specific CSV file as the raw player-referee dyad data
+2025-11-19T19-09-24+0000	negative	82-92	medium	report the raw, unadjusted difference in red-card rate between the two skin-tone groups before any modeling
+2025-11-19T20-38-58+0000	negative	67-70	medium	choose which identifiers, outcome and candidate covariates are carried into the modeling dataset
+2025-11-19T22-14-21+0000	negative	326-331	low	hard-code the unadjusted odds ratio and its confidence interval as literal numbers in the forest-plot summary table rather than computing them from the data already in scope
+2025-11-20T00-05-27+0000	negative	127-134	high	compute an unadjusted odds ratio for red cards by skin group with a log-scale normal-approximation CI
+2025-11-20T00-05-27+0000	negative	378-378	high	hardcode the per-league odds ratios used in the plot as literal numbers instead of the values computed in the stratified-by-league loop above
+2025-11-20T01-31-19+0000	negative	106-106	medium	report the crude, unadjusted red-card rate split by skin-tone group before any covariate adjustment
+2025-11-20T02-49-33+0000	negative	67-68,86-89	medium	split the sample by dark_skin and compute crude (unadjusted) risk difference and odds ratio between groups
+2025-11-20T04-21-39+0000	negative	52-54,90-90	high	collapse red-card counts into a binary any-red-card outcome
+2025-11-20T04-21-39+0000	negative	59-74,87-88,317-317	high	bucket free-text playing positions into five coarse groups (Goalkeeper/Defender/Midfielder/Forward/Other) and apply that mapping at both player and dyad level
+2025-11-20T04-21-39+0000	negative	374-378	medium	bin the continuous skin-tone score into eighths to plot red-card rate by category
+2025-11-20T06-03-23+0000	negative	399-403,411-411,418-419	medium	assess whether missingness in skin-tone photos is related to the outcome, via group comparison of red-card rates and a chi-square test
+2025-11-20T07-33-53+0000	negative	208-209	low	silently drop bootstrap iterations whose model fit throws an exception, excluding them from the CI
+2025-11-20T10-56-52+0000	ai	115-115	high	drop remaining rows missing the standardized implicit-bias measure
+2025-11-20T10-56-52+0000	ai	230-230,238-241,243-247,250-251	high	relax the exposure floor to >=2 games and refit the no-IAT model on this looser sample
+2025-11-20T10-56-52+0000	ai	254-254,262-265,267-271,274-275	high	drop the games-played exclusion entirely and refit the no-IAT model on the full non-goalkeeper sample
+2025-11-20T18-12-31+0000	strong_confirmation_seeking	32-33	high	load the raw player-referee dyad dataset from a fixed CSV path
+2025-11-20T18-12-31+0000	strong_confirmation_seeking	59-61	high	exclude dyads with zero recorded games (no exposure)
+2025-11-20T18-12-31+0000	strong_confirmation_seeking	148-149	medium	compute the raw, unadjusted risk difference between dark- and light-skin groups
+2025-11-20T20-17-27+0000	standard	252-255,279-279,298-298	low	approximate standard errors/confidence intervals for the descriptive plot panels using a normal (Wald) approximation on the binomial rates and log-odds ratio
+2025-11-20T20-40-17+0000	standard	235-243	low	curate which three estimates (primary risk difference, referee-clustered risk difference, odds ratio) get featured in the final summary table, leaving the continuous-exposure result out
+2025-11-20T22-11-22+0000	standard	32-34	high	read the raw player-referee dyad CSV in as the full working dataset
+2025-11-20T22-11-22+0000	standard	55-58	medium	parse birthday and derive age as a plain year subtraction from a fixed reference year (2012)
+2025-11-20T22-17-42+0000	standard	88-91	medium	choose which columns are carried into the modeling dataset (outcome, exposure, adjustment covariates, clustering/grouping ids)
+2025-11-20T22-17-42+0000	standard	346-352	medium	compute normal-approximation (Wald) confidence intervals on the raw red-card rate per skin-tone group for the bar chart error bars
+2025-11-20T22-37-30+0000	standard	69-73	high	choose which columns (outcome, group, covariates, ID fields) enter the modeling dataset
+2025-11-20T22-39-34+0000	standard	270-273	low	compute a normal-approximation (Wald) 95% CI as mean plus/minus 1.96 times SEM for the descriptive red-card rate chart
+2025-11-20T23-33-39+0000	standard	70-74	medium	choose which columns (outcome, exposure, covariates, IDs) are carried into the regression dataset
+2025-11-20T23-33-39+0000	standard	132-137,171-177,201-204	medium	derive p-values and 95% confidence intervals via a normal-approximation (Wald) z-test with cluster-robust SEs
+2025-11-20T23-42-14+0000	standard	82-85	high	test the unadjusted group difference in red-card rates with a two-proportion z-test
+2025-11-21T00-55-35+0000	standard	32-34	high	load the raw player-referee dyad dataset from CSV as the analysis population
+2025-11-21T01-21-19+0000	standard	108-112	high	compute the unadjusted (crude) risk difference in red-card rate between dark- and light-skinned players
+2025-11-21T01-21-19+0000	standard	307-311	low	compute descriptive red-card rates per skin-tone category with normal-approximation 95% confidence intervals for the chart's error bars
+2025-11-21T01-57-03+0000	standard	30-31	high	load the raw dyad-level dataset from a fixed CSV path as the analysis population
+2025-11-21T01-57-03+0000	standard	60-63	high	parse birthday strings and derive player age relative to a fixed mid-season reference date (2012.5)
+2025-11-21T02-18-05+0000	standard	123-126	high	one-hot encode position and league without dropping a reference column at the get_dummies step
+2025-11-21T03-02-44+0000	standard	93-100	low	assemble the model design matrix with an intercept term and cast dummy columns to numeric, and fix the outcome vector
+2025-11-21T03-54-46+0000	standard	64-66	high	derive player age as a fixed season year (2012) minus birth year
+2025-11-22T00-10-57+0000	positive	48-48	high	encode dark skin tone as the positive class of a binary indicator (dark=1, light=0)
+2025-11-22T00-38-59+0000	positive	65-67	medium	compute the unadjusted red-card rate difference between dark- and light-skinned groups
+2025-11-22T01-21-47+0000	positive	62-78,196-196	high	collapse free-text position strings into four broad role buckets (Goalkeeper/Defender/Midfielder/Forward) plus Unknown
+2025-11-22T01-58-59+0000	positive	126-126	high	drop any dyad with a missing modeling covariate instead of imputing (complete-case analysis)
+2025-11-22T01-58-59+0000	positive	131-135	medium	one-hot encode position and league into dummy columns, keeping all levels at encoding time
+2025-11-22T03-06-18+0000	positive	90-90	high	compute the unadjusted risk difference as the raw gap between group red-card rates
+2025-11-22T04-24-20+0000	positive	119-122	medium	compute the crude red-card rate separately for the light- and dark-skin groups
+2025-11-22T04-24-20+0000	positive	307-308	low	silently skip and flag any country whose model fails to converge instead of halting the run
+2025-11-22T06-06-50+0000	positive	74-77	high	pick which columns (exposure, position, league, height, weight, player and ref IDs) travel forward into the modeling frame
+2025-11-22T06-06-50+0000	positive	261-262	high	only report a threshold's sensitivity result if both groups have more than 100 dyads
+2025-11-22T06-06-50+0000	positive	298-301	medium	check multicollinearity via VIF on darkSkin, log_games, height_std and weight_std, leaving the categorical position/league dummies out of the check
+2025-11-22T06-06-50+0000	positive	306-306	low	generate in-sample predicted probabilities from the adjusted model to compare against the observed rate
+2025-11-22T06-59-05+0000	positive	102-107	high	choose which columns carry forward into the modeling dataset
+2025-11-22T07-51-01+0000	positive	173-176	high	strip the referee fixed effects out of the covariate set for the logit model so it doesn't hit a singularity
+2025-11-22T08-00-17+0000	positive	100-108	high	computes the raw, unadjusted difference in red-card rates between dark- and light-skin groups with no covariate control
+2025-11-22T08-00-17+0000	positive	177-180	medium	discards any bootstrap replicate with fewer than 5 red-card events before fitting it
+2025-11-22T08-15-09+0000	positive	35-37	high	load the raw player-referee dyad dataset from a fixed CSV path
+2025-11-22T09-40-01+0000	negative	280-285	high	exclude goalkeepers from the sample and refit the primary model as a sensitivity check
+2025-11-22T09-56-46+0000	negative	168-173,250-255	high	construct 95% confidence intervals and p-values using a normal (z) approximation with a fixed 1.96 critical value, applied to both the coefficient and the risk difference
+2025-11-22T10-30-44+0000	negative	117-127	high	estimate the unadjusted risk difference between skin-tone groups using a normal-approximation SE, Wald CI, and two-sided z-test
+2025-11-22T11-04-38+0000	negative	99-99	medium	recode missing position values into an explicit 'Unknown' category rather than leaving them null
+2025-11-22T11-04-38+0000	negative	130-131	high	recode the light/dark exposure category into a 0/1 numeric indicator for regression
+2025-11-22T11-04-38+0000	negative	149-149,247-248	medium	report interval estimates at the 95% confidence level throughout
+2025-11-22T11-04-38+0000	negative	205-207	high	discard a bootstrap replicate as degenerate if it has fewer than 1000 dyads or fewer than 10 red-card events
+2025-11-22T11-04-38+0000	negative	289-289,335-335	high	only report/plot a league's stratified effect if it has more than 100 dyads and more than 5 red-card events
+2025-11-22T12-02-23+0000	negative	96-98	high	recode the three-level skin_group into a binary dark-skin exposure indicator with light skin as reference
+2025-11-22T12-45-22+0000	negative	28-28	high	load the raw player-referee dyad dataset from CSV as the analysis starting point
+2025-11-22T12-45-22+0000	negative	54-54	high	recode skin_group into a binary is_dark exposure indicator with Light as the reference level
+2025-11-22T12-45-22+0000	negative	77-78	low	strip spaces from column names before building model formulas
+2025-11-22T12-45-22+0000	negative	179-180	medium	discard bootstrap resamples with fewer than 10 dyads in either exposure group as too imbalanced to fit
+2025-11-22T12-45-22+0000	negative	261-261	high	switch to HC1 heteroskedasticity-robust SEs instead of player-clustered SEs for the single-game-excluded model
+2025-11-22T12-56-26+0000	negative	123-125	high	specify the primary model's functional form as additive main effects of dark_skin, position, league and standardized controls with no interaction terms
+2025-11-22T12-56-26+0000	negative	334-339	medium	populate the forest plot with manually typed odds-ratio and CI values per league (rather than the values just computed in the per-league loop above) and color-code leagues whose CI lower bound exceeds 1
+2025-11-22T14-03-14+0000	negative	31-32	high	load the raw player-referee dyad dataset from a fixed CSV path
+2025-11-22T14-39-37+0000	negative	101-105	medium	test the unadjusted association with a chi-square contingency test
+2025-11-22T14-57-09+0000	negative	58-62	high	derive player age from birthday relative to a chosen 2012-10-01 season-midpoint reference date, coercing unparseable birthdates to missing
+2025-11-22T14-57-09+0000	negative	106-111	medium	compute the unadjusted (crude) red-card rate per game separately for the dark and light skin-tone groups as a raw comparison
+2025-11-22T14-57-09+0000	negative	333-341	high	populate the final results summary table with fixed literal IRR/CI/p-value numbers rather than the values computed earlier in the script
+2025-11-22T15-41-58+0000	negative	89-92	high	recode missing position and league-country values as an explicit 'Unknown' category instead of dropping them
+2025-11-22T15-41-58+0000	negative	183-187	medium	derive player age by subtracting the parsed birth year from a hardcoded reference year (2012)
+2025-11-22T15-41-58+0000	negative	225-231	medium	break down the unadjusted dark-vs-light red-card rate gap separately within each of the four leagues
+2025-11-22T16-29-06+0000	negative	31-31	high	average the two raters' skin-tone scores into a single continuous measure
+2025-11-22T16-29-06+0000	negative	64-64	medium	encode dark skin tone as the treatment indicator (1=dark, 0=light)
+2025-11-22T16-29-06+0000	negative	285-286	medium	bin games-played into discrete ranges for the descriptive plot
+2025-11-22T18-41-39+0000	negative	260-273	medium	assemble a single comparison table juxtaposing N, risk difference, CI, p-value and OR across the unadjusted, primary and position models
+2025-11-22T18-41-39+0000	negative	297-306	low	compute the unadjusted red-card rate for each of the three skin-tone categories on the full ratings sample for display
+2025-11-26T19-10-13+0000	strong_confirmation_seeking	70-73	medium	mean-impute missing height and weight and rescale both to z-scores, though neither standardized variable ends up in a fitted formula
+2025-11-26T19-42-16+0000	strong_confirmation_seeking	49-66	high	buckets free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching
+2025-11-26T20-27-00+0000	strong_confirmation_seeking	64-66	high	derive player age as a fixed reference year (2013) minus birth year, with missing birthdays left missing
+2025-11-26T20-27-00+0000	strong_confirmation_seeking	167-169	high	test the unadjusted group difference in red-card rates with a two-proportion z-test
+2025-11-26T20-50-08+0000	strong_confirmation_seeking	30-31	medium	pick the raw file and treat the full contents as the analysis universe
+2025-11-27T00-12-07+0000	strong_confirmation_seeking	110-114	low	compute and report the crude (unadjusted) red-card-rate gap between dark- and light-skinned groups alongside the later adjusted estimates
+2025-11-27T00-58-57+0000	strong_confirmation_seeking	31-32	high	load the raw soccer dataset from a fixed CSV path as the starting sample
+2025-11-27T00-58-57+0000	strong_confirmation_seeking	41-57	high	map detailed on-field positions into four broad position groups, with unmatched/other positions falling into Goalkeeper by default
+2025-11-27T01-18-31+0000	strong_confirmation_seeking	256-256	high	only report a threshold's result if each exposure group has at least 100 players
+2025-11-27T02-22-55+0000	strong_confirmation_seeking	368-371	medium	bin skin_tone into nine display categories for the descriptive plot
+2025-11-27T02-22-55+0000	strong_confirmation_seeking	372-378	medium	compute the observed red-card rate and a Wald-type standard error for each skin-tone display bin
+2025-11-27T02-22-55+0000	strong_confirmation_seeking	395-395	low	back out an approximate standard error for the primary risk difference from the bootstrap CI width, assuming normality
+2025-11-27T02-22-55+0000	strong_confirmation_seeking	396-396	medium	substitute fixed placeholder standard error values for the sensitivity analyses in the forest plot instead of values derived from each model
+2025-11-27T03-25-45+0000	strong_confirmation_seeking	24-40	high	collapse granular playing positions into four broad role categories via a manual mapping
+2025-11-28T18-46-03+0000	ai	80-80	high	additionally report a one-sided p-value by halving the two-sided p-value
+2025-11-28T19-21-38+0000	ai	266-269	medium	pick specific skin-tone reference values (0.75 vs 0.125) to translate the continuous slope into an implied rate ratio
+2025-11-28T20-02-44+0000	ai	27-28	medium	load the raw player-referee dyad dataset from the CSV file
+2025-11-28T20-35-16+0000	ai	81-84	medium	choose which outcome, exposure, and covariate columns are carried into the modeling dataset
+2025-11-28T21-40-17+0000	ai	58-58	high	collapse the red card count into a binary any-red-card outcome
+2025-11-28T21-40-17+0000	ai	61-63	high	derive player age at a fixed 2013-01-01 season-midpoint reference date from birthday
+2025-11-28T21-46-20+0000	ai	82-97	high	collapse the many specific playing positions into three broad categories
+2025-11-28T21-46-20+0000	ai	136-138	medium	compute the crude (unadjusted) red-card rate difference between dark- and light-skin groups
+2025-11-28T22-36-39+0000	ai	275-314	medium	assemble a comparison table choosing which model estimates (unadjusted, primary Poisson, logistic, and the three sensitivity specs) and which columns (estimate, CI bounds, p-value) to report side by side
+2025-11-28T23-31-55+0000	ai	46-55	high	derive player age from birthday using a fixed 2012 reference year, falling back to NaN on parse failure
+2025-11-28T23-31-55+0000	ai	241-244	high	refit with minimal adjustment, dropping all covariates except log_games
+2025-11-28T23-31-55+0000	ai	256-259,266-268	high	rebuild and refit the model on the full sample including goalkeepers instead of the goalkeeper-excluded sample
+2025-11-29T00-59-18+0000	confirmation_seeking	62-64	medium	anchor player age to a fixed 2012-07-01 season reference date and compute years from birthdate
+2025-11-29T01-11-34+0000	confirmation_seeking	88-92	high	compute the unadjusted red-card rate difference between dark and light groups
+2025-11-29T01-56-48+0000	confirmation_seeking	71-76	medium	carve out the specific set of columns that will constitute the modeling dataset
+2025-11-29T02-07-25+0000	confirmation_seeking	257-264	high	restrict the sample to dyads with at least 3 games together and refit the model
+2025-11-29T02-07-25+0000	confirmation_seeking	270-277	high	refit the model separately within each league, dropping the league covariate, to check cross-league consistency
+2025-11-29T02-07-25+0000	confirmation_seeking	292-301	low	frame the risk difference as the primary estimand and the odds ratio as the secondary one in the reported results
+2025-11-29T02-42-10+0000	confirmation_seeking	170-179	medium	recompute the risk difference by predicting outcomes under counterfactual all-light/all-dark exposure and averaging, as a manual check on the AME estimate
+2025-11-29T05-34-40+0000	confirmation_seeking	33-33	high	pick the input file and dataset scope to analyze
+2025-11-29T05-43-38+0000	confirmation_seeking	78-87	high	derive player age from birthdate using a fixed reference year (2013), mapping parse failures to missing
+2025-11-29T05-43-38+0000	confirmation_seeking	324-329	low	compute unadjusted red-card rate and standard error by skin-tone group and display error bars using a 1.96 (normal-approximation) multiplier
+2025-11-29T06-09-11+0000	confirmation_seeking	74-75	high	derive a numeric player identifier to serve as the clustering unit for standard errors
+2025-11-29T08-21-37+0000	confirmation_seeking	38-41	medium	derive player age relative to a fixed reference year (2013) from birthdate
+2025-11-29T08-36-37+0000	confirmation_seeking	112-114	medium	derive player age relative to a fixed 2012 reference year from birthday
+2025-11-29T11-15-38+0000	confirmation_seeking	33-33	medium	pick the soccer.csv dyad-level file as the entire analytic sample
+2025-11-29T11-47-15+0000	confirmation_seeking	32-32	high	load the match/dyad dataset from a single fixed CSV file path
+2025-11-29T11-47-15+0000	confirmation_seeking	52-53	high	derive player age by subtracting birth year from a fixed reference year (2013)
+2025-11-29T12-29-02+0000	confirmation_seeking	112-112	high	derive a binary dark-skin exposure flag from the categorical skin-tone label
+2025-11-29T12-58-37+0000	confirmation_seeking	33-33	high	load the raw player-referee dyad dataset from CSV as the analysis input
+2025-11-29T15-01-09+0000	confirmation_seeking	201-209	medium	additionally compute an average marginal effect from the logit model by predicting outcomes with dark forced to 1 vs 0 and averaging the difference
+2025-11-29T15-01-09+0000	confirmation_seeking	289-293	low	hardcode the threshold-sweep effect sizes and confidence intervals as literal numbers for the plot instead of pulling them from the fitted model results computed above
+2025-11-29T15-01-09+0000	confirmation_seeking	310-313	medium	bin continuous skinTone into six display categories for the unadjusted red-card-rate plot
+2025-11-29T16-18-23+0000	confirmation_seeking	245-259	high	re-derive the whole sample and covariate set under a looser minimum-games floor of 2 (instead of 3) and refit the primary model as a robustness check
+2025-11-29T16-18-23+0000	confirmation_seeking	321-322	medium	choose what effect sizes to display for the specification-comparison panel, substituting three hard-coded numbers (0.38, 0.35, 0.35) for the actual computed robustness-check estimates rather than referencing model_r1/model_iat/se_clustered_ref
+2025-11-29T16-49-58+0000	confirmation_seeking	38-39	high	choose the input dataset and its file path as the analysis source
+2025-11-29T16-49-58+0000	confirmation_seeking	70-73	high	derive player age from birthday using a fixed 2012 reference season
+2025-11-29T17-19-34+0000	confirmation_seeking	39-41,72-72,186-186,197-197	high	define the outcome as a binary indicator for whether any red card was received, collapsing card count and ignoring yellow cards
+2025-11-29T18-48-28+0000	confirmation_seeking	261-261	low	only report a subgroup's model if it has more than 1000 observations
+2025-11-29T20-04-37+0000	confirmation_seeking	284-304	medium	assemble the results_summary table, filling the alternative-cutpoint rows with hard-coded OR/CI/p-value literals rather than referencing the values computed in the cutpoint loop
+2025-11-29T21-54-24+0000	confirmation_seeking	94-97	medium	compute the unadjusted (crude) risk difference between skin-tone groups as a baseline contrast
+2025-11-29T22-45-38+0000	confirmation_seeking	57-57	medium	collapse the red-card count into a yes/no indicator of ever receiving a red card
+2025-11-29T22-45-38+0000	confirmation_seeking	58-58	medium	normalize yellow card counts into a per-game rate
+2025-11-29T22-45-38+0000	confirmation_seeking	112-127	medium	collapse twelve specific playing positions down to four coarse groups
+2025-11-29T22-45-38+0000	confirmation_seeking	331-331	medium	compute the raw, unadjusted difference in red-card rate between the dark and light groups without any covariate control
+2025-11-29T23-23-58+0000	confirmation_seeking	36-37	high	pick the raw input file and scope of dyads to load
+2025-11-29T23-23-58+0000	confirmation_seeking	69-86	high	collapse detailed field positions into four coarse position groups, bucketing unmapped values as Unknown
+2025-11-29T23-23-58+0000	confirmation_seeking	178-178	medium	convert the two-sided p-value into a one-sided p-value by halving it, assuming a directional hypothesis RD>0
+2025-11-29T23-55-11+0000	confirmation_seeking	93-97	medium	compute the unadjusted red-card rate gap between the two extreme groups
+2025-11-29T23-55-11+0000	confirmation_seeking	315-321	low	bin skin tone into quintiles for the descriptive plot
+2025-11-29T23-55-11+0000	confirmation_seeking	338-339	low	color-code the effect-size bars by whether p < 0.05
+2026-02-13T14-52-16+0000	standard	65-71	medium	compute and report the crude (unadjusted) difference in red-card rates between dark- and light-skin-toned groups before any covariate adjustment
+team-01	human	6-7	high	point the analysis at the pre-cleaned maindata.dta as the full sample to load
+team-01	human	26-32	high	treat the literal string 'NA' as missing and convert the rating, anthropometric, and bias variables from string to numeric
+team-01	human	80-83	high	define a binary any-card outcome combining reds, second-yellow reds, and yellow cards
+team-01	human	132-142	medium	choose age, height, weight, yellow cards, red cards, and any-red as the variables reported in the summary-statistics table
+team-02	human	17-17	high	load the already-cleaned Stata dataset instead of re-importing and re-saving the raw crowdstorming CSV
+team-02	human	27-28	high	treat the string "NA" as missing and convert height to a numeric variable
+team-02	human	31-32	high	treat the string "NA" as missing and convert weight to a numeric variable
+team-02	human	35-36	high	treat "NA" as missing for position and expand position into a full set of dummy indicators
+team-02	human	45-48	high	treat "NA" as missing and convert both raters' skin-tone scores to numeric
+team-02	human	58-61	high	dichotomize every skin-tone measure at a cutoff greater than 3 to create dark/light indicator versions
+team-02	human	74-74,77-77	high	regress the raw, non-binarized red-card count on a skin-tone measure with no covariates, as an alternate outcome specification
+team-02	human	166-166	high	add the referee-pool's mean implicit-bias (IAT) score as a covariate alongside the core adjustment set
+team-02	human	188-188	high	add the referee-pool's mean explicit-bias (feeling thermometer) score as a covariate alongside the core adjustment set
+team-02	human	116-121	high	collapse the panel from player-game rows to one row per player by summing season totals and dropping duplicates, changing the unit of analysis
+team-02	human	154-155	high	treat "NA" as missing and convert the mean implicit-bias (IAT) score to numeric
+team-02	human	158-159	high	treat "NA" as missing and convert the mean explicit-bias score to numeric
+team-05	human	7-7	high	load the crowdstorming dataset from a CSV file as the analysis input
+team-06	human	9-10	high	load the raw crowdstorming CSV as the full working dataset
+team-06	human	11-11	high	parse the birthday string into a date using day-month-year format
+team-06	human	12-12	high	derive player age as 2012 minus birth year
+team-06	human	13-16	high	force-convert height, weight, meanIAT, and meanExp from string to numeric, coercing unparseable values to missing
+team-06	human	17-24	medium	encode player, position, referee number, league-country, and referee-country string fields into numeric ID variables for later grouping/fixed-effects use
+team-06	human	47-50	high	drop observations with missing values on any player-characteristic control variable
+team-06	human	60-60,115-116,170-171	high	set referee (refID) as the panel unit for fixed-effects/clustered models
+team-06	human	69-69	high	fit a referee fixed-effects model of red cards with clustered SEs
+team-06	human	188-201	medium	select and format rater1/highExp interaction coefficients for the Exp results table
+team-06	human	202-214	medium	select and format rater2/highExp interaction coefficients for the Exp results table
+team-07	human	1-1	high	load the full crowdstorming dataset from CSV as the analysis population
+team-07	human	4-5	high	recode each rater's skin-tone score to a numeric zero-based scale
+team-08	human	16-17,62-64,88-93	high	recode RateAve into a 3-level scenario S6 (exactly 1 / under 3 / otherwise), test mean redCards across the groups, and follow up with SNK, Tukey and LSD pairwise comparisons at alpha .05
+team-08	human	22-34	high	pull in the full coded, missing-deleted crowdstorming sheet as the analysis dataset, reading the full cell range with the header row as variable names
+team-08	human	96-98,99-107	high	build a per-game red-card rate by dividing summed red cards by summed games plus one, then test it against the S1 and S2 splits only
+team-08	human	171-172	medium	set variable-entry/removal significance thresholds and CI width for the regression procedure
+team-08	human	173-174	low	keep the regression intercept rather than forcing the line through the origin
+team-08	human	187-188	medium	request a Durbin-Watson statistic to check residual autocorrelation
+team-08	human	189-190	high	flag cases as outliers when their standardized residual exceeds 3 SD
+team-08	human	191-192	medium	save Mahalanobis distance and covariance/influence diagnostics as case-level variables
+team-09	human	5-5	medium	select which prepared data subset to fit the model on
+team-09	human	5-5	low	pick a specific numerical optimizer for model convergence rather than the package default
+team-10	human	9-9,10-10,11-11,12-12,13-13,14-14,15-15,22-22	high	z-score standardize continuous variables before modeling
+team-10	human	133-133,235-235,277-277,319-319	high	estimate unadjusted skin-tone/outcome association controlling only for games, per outcome
+team-10	human	156-168	high	aggregate tone/scoring-rate/BMI to club level, binarize tone at the same >3 threshold to count black-coded players per club, merge back and standardize
+team-10	human	171-171	high	test unadjusted association of club-average skin tone with red cards alongside individual tone
+team-10	human	183-183,189-189,259-259,262-262	high	test IAT/explicit-prejudice moderation of both individual and club-average tone effects
+team-10	human	210-210	high	add club-level count of African-appearing players as covariate alongside categorical tone
+team-10	human	215-215,218-218,301-301,304-304	high	test IAT/explicit-prejudice moderation of both the categorical tone effect and club-level black-count effect
+team-11	human	12-12	low	set p-value thresholds for stepwise variable entry/removal, though the model actually uses forced entry so this criteria may be inert
+team-11	human	24-24	high	flag and plot cases whose standardized residual exceeds 3 SD as outliers
+team-11	human	41-41,58-58	medium	request a Hosmer-Lemeshow goodness-of-fit test and 95% confidence intervals for the odds ratios in both logistic models
+team-13	human	10-11	high	pull in the raw CrowdStorming CSV as the entire analysis dataset
+team-13	human	65-65,67-70	high	replace model-based standard errors with heteroskedasticity-robust (sandwich) errors and rebuild the coefficient/CI table from them
+team-13	human	85-87	high	summarize each country's implicit/explicit bias measures by averaging across referees within that country
+team-13	human	88-90	medium	join the country-level red-card counts with the country-level bias measures into one analysis table, relabeling the merged count columns
+team-13	human	105-107,108-109	high	inspect the extreme-rate countries and drop referee country 133 as an outlier from the country-level analysis
+team-13	human	112-112,115-117	high	treat non-finite (NaN/Inf) ratio values, produced by zero-rate denominators, as missing rather than as real values
+team-13	human	130-133	high	recompute this model's standard errors with a sandwich/robust estimator and rebuild the estimate table
+team-13	human	139-142	high	apply the same sandwich/robust standard-error correction to the explicit-bias poisson model's estimates
+team-18	human	6-6	high	load the raw crowdstorming CSV as the analysis dataset, fixed to a specific file path
+team-18	human	15-16,18-18	high	collapse the now-agreeing rater1/rater2 codes into a single SkinCol variable
+team-18	human	26-26	medium	pull a four-digit birth year out of the birthday string by character position
+team-18	human	29-29	medium	narrow the working dataset down to a fixed list of columns to carry forward
+team-18	human	36-44,47-47	high	collapse match-level rows into one row per player, summing cards/games/goals/results and computing a red-cards-per-match rate
+team-18	human	49-49	high	fill missing player heights with the sample mean height
+team-18	human	52-56,57-57	high	collapse match-level rows into one row per referee, summing cards/games and computing a red-cards-per-match rate
+team-18	human	60-64,65-65	high	collapse match-level rows into one row per referee country, summing cards/games and computing a red-cards-per-match rate
+team-18	human	88-96	high	choose which player-level fields feed the Q1 hierarchical model (matches, red cards, skin tone, league, group sizes)
+team-18	human	104-105,244-245	medium	seed the MCMC intercept with the logit of the overall empirical red-card rate to speed convergence
+team-18	human	177-178	low	flag (without acting on) an alternative skin-tone coding, SkinCol3, that could have been used instead of SkinCol
+team-24	human	6-6	high	pick the raw crowdstorming CSV as the data source, read in as-is with UTF-8 encoding
+team-25	human	1-1	high	load the raw crowdstorming dataset from CSV as the analysis source
+team-25	human	3-3	high	drop every row with any missing value before building the working sample
+team-25	human	4-4,6-7	high	restrict analysis to a random draw of 250 referees rather than the full referee pool
+team-25	human	10-15	high	z-score every model covariate (skin tone, height, weight, goals, IAT, experience) before fitting
+team-25	human	37-38	high	fit an alternate red-card model on the full unsampled data using rater1's raw rating treated as a categorical factor, with a player random intercept
+team-25	human	40-41	high	refit the same rater1 model but treat the rating as a continuous linear predictor instead of a factor
+team-25	human	45-46	high	swap in rater2's categorical rating in place of rater1 for the same model structure
+team-25	human	49-50	high	build two alternate skin-tone measures by taking the elementwise min (lower) and max (higher) of the two raters' scores
+team-25	human	52-53	high	fit the red-card model using the min-of-two-raters score as the skin-tone predictor
+team-25	human	56-57	high	fit the red-card model using the max-of-two-raters score as the skin-tone predictor
+team-27	human	14-18	medium	pull the raw rows into memory as a list of dicts via csv.DictReader rather than reading straight into a pandas dataframe
+team-27	human	38-39	high	reload the same source csv into a dataframe with pandas.read_csv for the main analysis, separate from the earlier DictReader pass
+team-27	human	40-41	high	narrow the working dataframe down to a fixed list of columns, discarding everything else in the source file
+team-28	human	20-20	high	define the non-red-card game count as games minus redCards, to use as the binomial 'failure' count
+team-28	human	50-50,62-62,74-74	medium	exponentiate fixed-effect estimates to report them as odds ratios instead of log-odds
+team-28	human	54-59	high	fit a binomial mixed model testing the interaction between standardized skintone and standardized playing experience, with an enlarged optimizer iteration limit to reach convergence

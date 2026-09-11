@@ -1,0 +1,72 @@
+{
+ "run_id": "2025-11-22T01-21-47+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 380,
+   "functional_lines": 99,
+   "functional_share": 0.2605,
+   "by_type": {
+    "print": 136,
+    "glue": 64,
+    "plot": 61,
+    "import": 10,
+    "comment": 9,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 214,
+   "functional_lines": 128,
+   "functional_share": 0.5981,
+   "by_type": {
+    "boilerplate": 69,
+    "heading": 36,
+    "framing": 6,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 113,
+  "action_claims": 59,
+  "result_claims": 54,
+  "links": 62,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 54
+ },
+ "silent_decisions": [
+  {
+   "id": 15,
+   "lines": [
+    [
+     62,
+     78
+    ],
+    [
+     196,
+     196
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse free-text position strings into four broad role buckets (Goalkeeper/Defender/Midfielder/Forward) plus Unknown",
+   "targets": [
+    "position",
+    "positionCat"
+   ]
+  }
+ ],
+ "misalignments": []
+}

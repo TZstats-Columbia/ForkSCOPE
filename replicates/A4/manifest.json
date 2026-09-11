@@ -1,0 +1,54 @@
+{
+ "root": "replicates/A4",
+ "stage": "forks",
+ "created": "2026-08-30T05:23:38",
+ "git_sha": "39380e029a061346eba7eeee0bb33680a1eaed54",
+ "git_branch": "",
+ "baseline_repo": ".",
+ "model_aliases": {
+  "bulk": "sonnet",
+  "adjudication": "opus"
+ },
+ "cli_version": "2.1.197 (Claude Code)",
+ "note": "Model ALIASES are recorded; the resolved model version is not exposed by the CLI and is therefore unknown. Two builds with the same alias may not be the same model.",
+ "sample_runs": [],
+ "sample_n": 0,
+ "sample_n_requested": 30,
+ "parent_vocab": "stability/replicates/parents/A/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.osplit.json",
+ "parent_root": ".",
+ "final_tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit.f3",
+ "fork_chain": [
+  {
+   "stage": "parent",
+   "tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit",
+   "forks": 317
+  },
+  {
+   "stage": "induce",
+   "tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit.induced",
+   "forks": 353
+  },
+  {
+   "stage": "merge_forks.1",
+   "tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit.f1",
+   "forks": 325,
+   "moved": 0.0793
+  },
+  {
+   "stage": "merge_forks.2",
+   "tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit.f2",
+   "forks": 318,
+   "moved": 0.0215
+  },
+  {
+   "stage": "merge_forks.3",
+   "tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit.f3",
+   "forks": 317,
+   "moved": 0.0031
+  }
+ ],
+ "completed": "2026-08-30T05:50:31",
+ "cache_entries": 130,
+ "spend_usd": 18.81,
+ "vocabulary_files": 5
+}

@@ -1,0 +1,91 @@
+{
+ "run_id": "2025-11-12T22-55-33+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 300,
+   "functional_lines": 117,
+   "functional_share": 0.39,
+   "by_type": {
+    "print": 62,
+    "comment": 52,
+    "plot": 49,
+    "import": 11,
+    "glue": 7,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 235,
+   "functional_lines": 116,
+   "functional_share": 0.4936,
+   "by_type": {
+    "boilerplate": 77,
+    "heading": 28,
+    "hedging": 15,
+    "framing": 6,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 66,
+  "action_claims": 34,
+  "result_claims": 32,
+  "links": 40,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 32
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "confidence": "high",
+   "operation": "average two independent raters' skin-tone scores into a single continuous skin_tone_avg measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ]
+  },
+  {
+   "id": 45,
+   "lines": [
+    [
+     237,
+     238
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin continuous skin tone into quarter-range categories for a bar-chart summary of red card rate",
+   "targets": [
+    "skin_tone_avg",
+    "skin_bins"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "collapse raw position labels into six broader positional categories (Defender, Defensive Midfielder, Attacking Midfielder/Winger, Forward, Goalkeeper, Other)",
+   "claim": "included player position as a 5-level categorical covariate (Defender[reference], Defensive Midfielder, Attacking Midfielder/Winger, Forward, Goalkeeper)",
+   "note": "code collapses positions into six categories including 'Other'; claim describes a 5-level position covariate omitting the 'Other' category"
+  }
+ ]
+}

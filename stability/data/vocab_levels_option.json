@@ -1,0 +1,62 @@
+{
+ "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "comparison_type": "replicate",
+ "level": "option",
+ "instances": 3946,
+ "clusters_a": 728,
+ "clusters_b": 759,
+ "label_paraphrase_penalised": false,
+ "levels": [
+  {
+   "level": "verbatim",
+   "rule": "jaccard >= 1.0",
+   "matched": 327,
+   "precision": 0.4308,
+   "recall": 0.4492,
+   "f1": 0.4398
+  },
+  {
+   "level": "strict",
+   "rule": "jaccard >= 0.9",
+   "matched": 337,
+   "precision": 0.444,
+   "recall": 0.4629,
+   "f1": 0.4533
+  },
+  {
+   "level": "lenient",
+   "rule": "jaccard >= 0.5",
+   "matched": 497,
+   "precision": 0.6548,
+   "recall": 0.6827,
+   "f1": 0.6685
+  },
+  {
+   "level": "core",
+   "rule": "containment >= 0.5",
+   "matched": 611,
+   "precision": 0.805,
+   "recall": 0.8393,
+   "f1": 0.8218
+  }
+ ],
+ "dispersion": {
+  "a_in_b": {
+   "intact_1": 564,
+   "split_2_3": 130,
+   "scattered_4plus": 34,
+   "unplaced": 0,
+   "n": 728,
+   "intact_or_split_rate": 0.9533
+  },
+  "b_in_a": {
+   "intact_1": 577,
+   "split_2_3": 159,
+   "scattered_4plus": 23,
+   "unplaced": 0,
+   "n": 759,
+   "intact_or_split_rate": 0.9697
+  }
+ }
+}

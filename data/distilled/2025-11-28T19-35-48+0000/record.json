@@ -1,0 +1,64 @@
+{
+ "run_id": "2025-11-28T19-35-48+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 382,
+   "functional_lines": 104,
+   "functional_share": 0.2723,
+   "by_type": {
+    "print": 129,
+    "glue": 77,
+    "comment": 62,
+    "import": 8,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 279,
+   "functional_lines": 150,
+   "functional_share": 0.5376,
+   "by_type": {
+    "other": 51,
+    "heading": 49,
+    "boilerplate": 33,
+    "framing": 6,
+    "hedging": 4,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 105,
+  "action_claims": 61,
+  "result_claims": 44,
+  "links": 64,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 44
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "collapse red card count into a binary any-red-card outcome",
+   "claim": "no other data transformations were applied beyond the skin tone averaging and age calculation",
+   "note": "claim denies any transformations beyond averaging and age, but code collapses redCards into a binary anyRedCard outcome"
+  },
+  {
+   "decision": "fill missing height, weight, and age with the sample median rather than dropping or modeling them",
+   "claim": "no other data transformations were applied beyond the skin tone averaging and age calculation",
+   "note": "claim denies transformations beyond averaging and age, but code median-imputes height, weight, and age"
+  }
+ ]
+}

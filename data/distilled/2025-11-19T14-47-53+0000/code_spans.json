@@ -1,0 +1,773 @@
+{
+ "n_lines": 368,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     18
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "note": "random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     25
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     26,
+     28
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed file path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     35
+    ]
+   ],
+   "note": "echo dataset size/counts"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     41
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     50
+    ]
+   ],
+   "operation": "cut continuous skin tone into light/dark groups at 0.25/0.75, drop the ambiguous middle band, and recode the surviving rows into a binary dark-skin exposure",
+   "targets": [
+    "skinTone",
+    "skinGroup",
+    "darkSkin",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     51,
+     54
+    ]
+   ],
+   "note": "echo group sizes"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     73
+    ]
+   ],
+   "operation": "bucket free-text player positions into a coarser set of categories (Forward/Goalkeeper/Defender/Midfielder/Winger/Other/Unknown)",
+   "targets": [
+    "position",
+    "positionCat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     81
+    ]
+   ],
+   "note": "section header echo"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     85
+    ],
+    [
+     90,
+     91
+    ]
+   ],
+   "operation": "compute the raw (unadjusted) red-card rate within each skin-tone group and take their difference as a naive risk difference",
+   "targets": [
+    "darkSkin",
+    "anyRedCard",
+    "red_by_skin",
+    "unadjusted_rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "report unadjusted rates"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     92,
+     92
+    ]
+   ],
+   "note": "report unadjusted risk difference"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     104
+    ]
+   ],
+   "operation": "choose which covariates enter the model and drop any dyad missing one of them (listwise deletion)",
+   "targets": [
+    "model_vars",
+    "analysis_df",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     105,
+     107
+    ]
+   ],
+   "note": "report modeling sample size and exclusions"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     108,
+     111
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": "section header echo"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     123
+    ]
+   ],
+   "operation": "specify the adjusted logistic regression model (dark skin plus covariate set) and fit it by maximum likelihood",
+   "targets": [
+    "formula",
+    "model_df",
+    "logit_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     124,
+     127
+    ]
+   ],
+   "note": "report model fit diagnostics"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     133
+    ],
+    [
+     138,
+     141
+    ]
+   ],
+   "operation": "summarize the adjusted dark-skin effect as an odds ratio with a confidence interval, exponentiating the logit coefficient",
+   "targets": [
+    "logit_model",
+    "dark_coef",
+    "dark_se",
+    "dark_pval",
+    "dark_ci",
+    "or_dark",
+    "or_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": "report log-odds coefficient"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "note": "report odds ratio and CI"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     146,
+     149
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     150,
+     153
+    ]
+   ],
+   "note": "section header echo"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     154,
+     166
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by g-computation: predict outcome probability for every dyad under a forced-dark and forced-light counterfactual and average the difference",
+   "targets": [
+    "model_df",
+    "darkSkin",
+    "logit_model",
+    "pred_if_dark",
+    "pred_if_light",
+    "adjusted_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     168
+    ]
+   ],
+   "note": "report adjusted risk difference point estimate"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     169,
+     172
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     173,
+     176
+    ]
+   ],
+   "note": "section header echo"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     177,
+     211
+    ],
+    [
+     213,
+     216
+    ],
+    [
+     219,
+     219
+    ]
+   ],
+   "operation": "quantify uncertainty on the standardized risk difference via a parametric bootstrap: draw model coefficients from their asymptotic multivariate-normal distribution, recompute the counterfactual risk difference each draw, and silently discard draws that error out",
+   "targets": [
+    "logit_model",
+    "model_df",
+    "coef_mean",
+    "coef_cov",
+    "bootstrap_rds",
+    "n_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     212,
+     212
+    ]
+   ],
+   "note": "progress ticker inside bootstrap loop"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     217,
+     218
+    ]
+   ],
+   "note": "announce bootstrap start"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     220,
+     220
+    ]
+   ],
+   "note": "report successful bootstrap iteration count"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     221,
+     229
+    ]
+   ],
+   "operation": "summarize the bootstrap draws into a mean/SD and a percentile-based 95% interval, and construct a two-sided p-value from the share of draws at or below zero doubled",
+   "targets": [
+    "bootstrap_rds",
+    "rd_mean",
+    "rd_std",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "p_value"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     230,
+     235
+    ]
+   ],
+   "note": "report bootstrap summary statistics"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     236,
+     239
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     240,
+     243
+    ]
+   ],
+   "note": "section header echo"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     244,
+     259
+    ],
+    [
+     264,
+     273
+    ]
+   ],
+   "operation": "re-run the exposure-outcome model treating skin tone as continuous rather than dichotomized, restricting to complete cases on this variable set, then predict outcome probability at the two extreme skin-tone values and take their difference as a sensitivity-check risk difference",
+   "targets": [
+    "analysis_df",
+    "skinTone",
+    "cont_df",
+    "formula_cont",
+    "logit_cont",
+    "st_coef",
+    "st_pval",
+    "st_or",
+    "st_ci",
+    "rd_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     263
+    ]
+   ],
+   "note": "report continuous-exposure odds ratio"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     274,
+     276
+    ]
+   ],
+   "note": "report sensitivity-analysis risk difference"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     277,
+     280
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     303
+    ]
+   ],
+   "note": "final summary banner and estimand/model-detail reporting"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     304,
+     305
+    ]
+   ],
+   "note": "conclusion section header"
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     306,
+     306
+    ]
+   ],
+   "operation": "declare the hypothesis outcome as 'SUPPORTED' as a fixed reporting label rather than one derived programmatically from a pre-specified significance rule",
+   "targets": [
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     307,
+     309
+    ]
+   ],
+   "note": "report conclusion narrative"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     310,
+     311
+    ]
+   ],
+   "note": "closing banner"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     312,
+     315
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     316,
+     361
+    ]
+   ],
+   "note": "build two-panel figure: bootstrap histogram and grouped bar chart of rates"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     362,
+     362
+    ]
+   ],
+   "note": "write figure to disk"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     363,
+     363
+    ]
+   ],
+   "note": "confirm figure saved"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     364,
+     368
+    ]
+   ],
+   "note": "closing console messages"
+  }
+ ]
+}

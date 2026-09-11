@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-19T04-30-13+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 380,
+   "functional_lines": 76,
+   "functional_share": 0.2,
+   "by_type": {
+    "print": 114,
+    "comment": 82,
+    "plot": 66,
+    "glue": 21,
+    "import": 13,
+    "other": 5,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 283,
+   "functional_lines": 138,
+   "functional_share": 0.4876,
+   "by_type": {
+    "boilerplate": 95,
+    "heading": 43,
+    "hedging": 21,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 135,
+  "action_claims": 37,
+  "result_claims": 98,
+  "links": 73,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 1,
+  "result_claims_deferred": 98
+ },
+ "silent_decisions": [
+  {
+   "id": 32,
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "summarizes the unadjusted contrast as both a risk difference and a relative risk",
+   "targets": [
+    "p_red_light",
+    "p_red_dark"
+   ]
+  },
+  {
+   "id": 81,
+   "lines": [
+    [
+     297,
+     301
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "approximates confidence intervals for the plotted unadjusted rates using a normal (1.96 x SE) approximation",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "recodes missing player position as its own 'Unknown' category instead of dropping those rows",
+   "claim": "a complete-case analysis was used for all other models, since missing data in other variables was minimal",
+   "note": "claim states complete-case handling for other variables, but code recodes missing position into an 'Unknown' category rather than dropping those rows"
+  }
+ ]
+}

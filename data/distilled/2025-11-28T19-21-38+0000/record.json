@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-28T19-21-38+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 364,
+   "functional_lines": 133,
+   "functional_share": 0.3654,
+   "by_type": {
+    "print": 172,
+    "comment": 48,
+    "import": 6,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 328,
+   "functional_lines": 210,
+   "functional_share": 0.6402,
+   "by_type": {
+    "heading": 46,
+    "boilerplate": 28,
+    "framing": 28,
+    "background": 14,
+    "hedging": 14,
+    "other": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 141,
+  "action_claims": 75,
+  "result_claims": 66,
+  "links": 63,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 23,
+  "R_only_consistent_negative": 19,
+  "result_claims_deferred": 66
+ },
+ "silent_decisions": [
+  {
+   "id": 47,
+   "lines": [
+    [
+     266,
+     269
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pick specific skin-tone reference values (0.75 vs 0.125) to translate the continuous slope into an implied rate ratio",
+   "targets": [
+    "model_cont",
+    "skinTone"
+   ]
+  }
+ ],
+ "misalignments": []
+}

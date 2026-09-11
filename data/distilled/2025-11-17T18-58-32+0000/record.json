@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-17T18-58-32+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 344,
+   "functional_lines": 110,
+   "functional_share": 0.3198,
+   "by_type": {
+    "print": 108,
+    "comment": 58,
+    "plot": 48,
+    "glue": 10,
+    "import": 8,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 171,
+   "functional_lines": 94,
+   "functional_share": 0.5497,
+   "by_type": {
+    "heading": 40,
+    "boilerplate": 27,
+    "other": 26,
+    "background": 3,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 88,
+  "action_claims": 31,
+  "result_claims": 57,
+  "links": 35,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 5,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 57
+ },
+ "silent_decisions": [
+  {
+   "id": 47,
+   "lines": [
+    [
+     305,
+     305
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "draw the 0.5 dichotomization cutoff as a reference line on the skin tone histogram",
+   "targets": [
+    "skin_tone_avg"
+   ]
+  },
+  {
+   "id": 50,
+   "lines": [
+    [
+     314,
+     314
+    ]
+   ],
+   "confidence": "low",
+   "operation": "exclude players with missing position from the by-position red card rate chart",
+   "targets": [
+    "position_clean"
+   ]
+  }
+ ],
+ "misalignments": []
+}

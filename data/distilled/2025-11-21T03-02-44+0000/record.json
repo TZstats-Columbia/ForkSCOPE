@@ -1,0 +1,70 @@
+{
+ "run_id": "2025-11-21T03-02-44+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 209,
+   "functional_lines": 104,
+   "functional_share": 0.4976,
+   "by_type": {
+    "print": 87,
+    "comment": 9,
+    "import": 8,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 166,
+   "functional_lines": 95,
+   "functional_share": 0.5723,
+   "by_type": {
+    "other": 42,
+    "heading": 25,
+    "hedging": 11,
+    "boilerplate": 8,
+    "framing": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 72,
+  "action_claims": 34,
+  "result_claims": 38,
+  "links": 52,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 38
+ },
+ "silent_decisions": [
+  {
+   "id": 25,
+   "lines": [
+    [
+     93,
+     100
+    ]
+   ],
+   "confidence": "low",
+   "operation": "assemble the model design matrix with an intercept term and cast dummy columns to numeric, and fix the outcome vector",
+   "targets": [
+    "covariate_cols",
+    "log_games",
+    "X_clean",
+    "got_red_card",
+    "y"
+   ]
+  }
+ ],
+ "misalignments": []
+}

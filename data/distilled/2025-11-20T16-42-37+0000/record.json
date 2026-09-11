@@ -1,0 +1,56 @@
+{
+ "run_id": "2025-11-20T16-42-37+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 355,
+   "functional_lines": 191,
+   "functional_share": 0.538,
+   "by_type": {
+    "print": 103,
+    "comment": 49,
+    "import": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 201,
+   "functional_lines": 100,
+   "functional_share": 0.4975,
+   "by_type": {
+    "other": 56,
+    "heading": 38,
+    "boilerplate": 18,
+    "hedging": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 83,
+  "action_claims": 40,
+  "result_claims": 43,
+  "links": 59,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 43
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "drop dyads missing either rater's skin-tone score",
+   "claim": "dyads missing skin tone ratings from both raters were excluded as unclassifiable",
+   "note": "code drops dyads missing either rater's score; claim says only dyads missing ratings from both raters were excluded"
+  }
+ ]
+}

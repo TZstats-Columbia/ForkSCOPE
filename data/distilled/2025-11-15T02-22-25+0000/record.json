@@ -1,0 +1,112 @@
+{
+ "run_id": "2025-11-15T02-22-25+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 391,
+   "functional_lines": 87,
+   "functional_share": 0.2225,
+   "by_type": {
+    "comment": 103,
+    "print": 87,
+    "plot": 71,
+    "glue": 31,
+    "import": 8,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 222,
+   "functional_lines": 117,
+   "functional_share": 0.527,
+   "by_type": {
+    "boilerplate": 61,
+    "heading": 45,
+    "framing": 2,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 25,
+  "claims": 84,
+  "action_claims": 44,
+  "result_claims": 40,
+  "links": 53,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 21,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 13,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     209,
+     210
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "discard a bootstrap replicate if it has fewer than 1000 dyads or fewer than 10 red-card events",
+   "targets": [
+    "boot_data",
+    "any_red_card"
+   ]
+  },
+  {
+   "id": 21,
+   "lines": [
+    [
+     222,
+     222
+    ]
+   ],
+   "confidence": "low",
+   "operation": "cap bootstrap model fitting at 50 iterations and suppress convergence warnings",
+   "targets": [
+    "boot_model",
+    "boot_result"
+   ]
+  },
+  {
+   "id": 22,
+   "lines": [
+    [
+     235,
+     236
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "silently drop any bootstrap replicate whose fit raises an exception",
+   "targets": [
+    "bootstrap_rds"
+   ]
+  }
+ ],
+ "misalignments": []
+}

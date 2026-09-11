@@ -1,0 +1,103 @@
+{
+ "run_id": "2025-11-16T11-59-47+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 591,
+   "functional_lines": 222,
+   "functional_share": 0.3756,
+   "by_type": {
+    "print": 229,
+    "plot": 71,
+    "comment": 42,
+    "glue": 14,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 283,
+   "functional_lines": 130,
+   "functional_share": 0.4594,
+   "by_type": {
+    "boilerplate": 89,
+    "heading": 41,
+    "framing": 11,
+    "other": 8,
+    "hedging": 5,
+    "background": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 110,
+  "action_claims": 63,
+  "result_claims": 47,
+  "links": 44,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 30,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 47
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw player-referee dyad dataset from CSV",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     76,
+     92
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse detailed playing positions into four broad position groups",
+   "targets": [
+    "position",
+    "position_broad"
+   ]
+  },
+  {
+   "id": 10,
+   "lines": [
+    [
+     138,
+     139
+    ]
+   ],
+   "confidence": "low",
+   "operation": "pick which covariates to compare across skin-tone groups as a balance check",
+   "targets": [
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": []
+}

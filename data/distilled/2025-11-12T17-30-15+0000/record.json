@@ -1,0 +1,102 @@
+{
+ "run_id": "2025-11-12T17-30-15+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 81,
+   "functional_lines": 40,
+   "functional_share": 0.4938,
+   "by_type": {
+    "glue": 18,
+    "comment": 8,
+    "print": 7,
+    "import": 5,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 256,
+   "functional_lines": 143,
+   "functional_share": 0.5586,
+   "by_type": {
+    "heading": 64,
+    "hedging": 28,
+    "boilerplate": 24,
+    "framing": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 91,
+  "action_claims": 36,
+  "result_claims": 55,
+  "links": 38,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     10,
+     10
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the full soccer dataset from a fixed file path as the analysis source",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 13,
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "confidence": "high",
+   "operation": "encode the treatment indicator so that dark skin tone is coded 1 and light is the reference 0",
+   "targets": [
+    "skinCategory",
+    "darkSkin"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "confidence": "high",
+   "operation": "narrow the working data down to just the outcome, treatment, covariates, and identifiers that will enter the model",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "positionGroup",
+    "leagueCountry",
+    "playerShort",
+    "refNum",
+    "model_df"
+   ]
+  }
+ ],
+ "misalignments": []
+}

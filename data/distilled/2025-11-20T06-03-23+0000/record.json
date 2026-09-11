@@ -1,0 +1,75 @@
+{
+ "run_id": "2025-11-20T06-03-23+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 479,
+   "functional_lines": 206,
+   "functional_share": 0.4301,
+   "by_type": {
+    "print": 199,
+    "comment": 56,
+    "import": 10,
+    "config": 6,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 314,
+   "functional_lines": 163,
+   "functional_share": 0.5191,
+   "by_type": {
+    "heading": 87,
+    "boilerplate": 58,
+    "hedging": 13,
+    "framing": 11
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 161,
+  "action_claims": 55,
+  "result_claims": 106,
+  "links": 70,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 106
+ },
+ "silent_decisions": [
+  {
+   "id": 62,
+   "lines": [
+    [
+     399,
+     403
+    ],
+    [
+     411,
+     411
+    ],
+    [
+     418,
+     419
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "assess whether missingness in skin-tone photos is related to the outcome, via group comparison of red-card rates and a chi-square test",
+   "targets": [
+    "rater1",
+    "any_red_card"
+   ]
+  }
+ ],
+ "misalignments": []
+}

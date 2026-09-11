@@ -1,0 +1,95 @@
+{
+ "run_id": "2025-11-17T15-56-59+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 324,
+   "functional_lines": 82,
+   "functional_share": 0.2531,
+   "by_type": {
+    "comment": 88,
+    "print": 79,
+    "plot": 52,
+    "glue": 10,
+    "import": 8,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 320,
+   "functional_lines": 138,
+   "functional_share": 0.4313,
+   "by_type": {
+    "boilerplate": 103,
+    "heading": 60,
+    "hedging": 16,
+    "background": 12,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 133,
+  "action_claims": 51,
+  "result_claims": 82,
+  "links": 79,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 82
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age by anchoring to a fixed reference year (2012) rather than to game date or current date",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 7,
+   "lines": [
+    [
+     53,
+     56
+    ]
+   ],
+   "confidence": "high",
+   "operation": "pick which columns enter the modeling dataset, fixing the covariate and identifier set for everything downstream",
+   "targets": [
+    "anyRedCard",
+    "skinDark",
+    "position",
+    "games",
+    "leagueCountry",
+    "age",
+    "height",
+    "weight",
+    "yellowCards",
+    "refNum",
+    "refCountry",
+    "playerShort",
+    "skinTone"
+   ]
+  }
+ ],
+ "misalignments": []
+}

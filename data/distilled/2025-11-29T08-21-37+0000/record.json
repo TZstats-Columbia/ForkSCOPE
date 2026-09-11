@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-29T08-21-37+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 217,
+   "functional_lines": 131,
+   "functional_share": 0.6037,
+   "by_type": {
+    "print": 50,
+    "comment": 23,
+    "import": 8,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 309,
+   "functional_lines": 161,
+   "functional_share": 0.521,
+   "by_type": {
+    "boilerplate": 85,
+    "heading": 66,
+    "background": 2,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 119,
+  "action_claims": 68,
+  "result_claims": 51,
+  "links": 59,
+  "misaligned": 3
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 26,
+  "R_only_consistent_negative": 13,
+  "result_claims_deferred": 51
+ },
+ "silent_decisions": [
+  {
+   "id": 12,
+   "lines": [
+    [
+     38,
+     41
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "derive player age relative to a fixed reference year (2013) from birthdate",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "refit the primary logistic model substituting alternative dark-skin cutpoints (0.375, 0.5) as a robustness check",
+   "claim": "alternative cutpoints of 0.375, 0.5, and 0.625 were explored",
+   "note": "claim states cutpoint 0.625 was explored; code computes only cutpoints 0.25/0.375/0.5"
+  },
+  {
+   "decision": "refit the primary logistic model substituting alternative dark-skin cutpoints (0.375, 0.5) as a robustness check",
+   "claim": "skin tone cutpoints 0.25/0.375/0.5/0.625 were explored and 0.25 was chosen as it maximizes power and is substantively defensible",
+   "note": "claim lists 0.625 among explored cutpoints; code computes only 0.25/0.375/0.5"
+  },
+  {
+   "decision": "restrict the sample to dyads with at least 2 games as a robustness check",
+   "claim": "all-dyads, >=2 games, and >=3 games sample restrictions were explored and all dyads was chosen to maximize power",
+   "note": "claim states a >=3 games restriction was explored; code only restricts to >=2 games"
+  }
+ ]
+}

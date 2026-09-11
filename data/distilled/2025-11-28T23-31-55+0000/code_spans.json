@@ -1,0 +1,633 @@
+{
+ "n_lines": 291,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from CSV as the analysis universe",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "operation": "drop dyads missing either rater's skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into one continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "operation": "collapse red card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     55
+    ]
+   ],
+   "operation": "derive player age from birthday using a fixed 2012 reference year, falling back to NaN on parse failure",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     60
+    ]
+   ],
+   "operation": "drop dyads missing height or weight",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     81
+    ]
+   ],
+   "operation": "collapse detailed playing positions into four categories and drop goalkeepers from the analysis sample",
+   "targets": [
+    "position",
+    "positionCat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     89
+    ],
+    [
+     93,
+     102
+    ],
+    [
+     103,
+     106
+    ],
+    [
+     260,
+     260
+    ]
+   ],
+   "operation": "search several skin-tone cutpoints and select the one (0.25) that maximizes the unadjusted effect, then apply it to build the darkSkin indicator (including in the full-sample sensitivity dataset)",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     115,
+     116
+    ],
+    [
+     261,
+     261
+    ]
+   ],
+   "operation": "log-transform games played with a 0.5 offset as the exposure/control variable",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     117,
+     121
+    ],
+    [
+     262,
+     265
+    ]
+   ],
+   "operation": "z-standardize age, height, and weight before entering them as covariates",
+   "targets": [
+    "age",
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     146,
+     153
+    ]
+   ],
+   "operation": "fit a logistic regression of any red card on darkSkin adjusting for log games, age, height, weight, and league country",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "age_std",
+    "height_std",
+    "weight_std",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     157,
+     168
+    ],
+    [
+     169,
+     173
+    ],
+    [
+     213,
+     218
+    ],
+    [
+     230,
+     235
+    ],
+    [
+     245,
+     250
+    ],
+    [
+     269,
+     274
+    ]
+   ],
+   "operation": "summarize each fitted model's darkSkin effect as an average marginal (risk) difference via dydx and as an odds ratio exponentiating the coefficient",
+   "targets": [
+    "darkSkin",
+    "model_primary",
+    "model_s1",
+    "model_s2",
+    "model_s3",
+    "model_s4"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     207,
+     212
+    ]
+   ],
+   "operation": "refit the model with an alternative skin-tone cutpoint of 0.5 instead of 0.25",
+   "targets": [
+    "skinTone",
+    "darkSkin_50"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     229
+    ]
+   ],
+   "operation": "refit the model adding position category as an additional covariate",
+   "targets": [
+    "positionCat",
+    "darkSkin",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     241,
+     244
+    ]
+   ],
+   "operation": "refit with minimal adjustment, dropping all covariates except log_games",
+   "targets": [
+    "darkSkin",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     256,
+     259
+    ],
+    [
+     266,
+     268
+    ]
+   ],
+   "operation": "rebuild and refit the model on the full sample including goalkeepers instead of the goalkeeper-excluded sample",
+   "targets": [
+    "df_model",
+    "df_model_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     9
+    ]
+   ],
+   "note": "module docstring describing the analysis, with surrounding blank lines"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     10,
+     14
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     15,
+     19
+    ]
+   ],
+   "note": "suppress warnings and set numpy random seed"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "section header banner for data loading and QC"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "console title banner"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     31,
+     33
+    ]
+   ],
+   "note": "print raw dyad count"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "note": "print exclusion counts for missing skin tone"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     61,
+     62
+    ]
+   ],
+   "note": "print exclusion counts for missing anthropometrics"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     82,
+     83
+    ]
+   ],
+   "note": "print exclusion counts for goalkeepers and final sample size"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     84,
+     87
+    ]
+   ],
+   "note": "section header banner for skin tone dichotomization"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     92
+    ]
+   ],
+   "note": "print inter-rater correlation and mean skin tone descriptives"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     107,
+     109
+    ]
+   ],
+   "note": "print selected cutpoint and resulting group sizes"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     110,
+     114
+    ]
+   ],
+   "note": "section header banner for covariate preparation"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     122,
+     137
+    ]
+   ],
+   "note": "print descriptive statistics for the analysis sample and unadjusted red card rates"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     138,
+     141
+    ]
+   ],
+   "note": "section header banner for primary analysis"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "note": "console title banner for primary analysis"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     154,
+     156
+    ]
+   ],
+   "note": "print full logistic regression summary table"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     174,
+     199
+    ]
+   ],
+   "note": "print primary results: risk difference, odds ratio, and model details"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     200,
+     203
+    ]
+   ],
+   "note": "section header banner for sensitivity analyses"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     204,
+     206
+    ]
+   ],
+   "note": "console title banner for sensitivity analyses"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     219,
+     224
+    ]
+   ],
+   "note": "print sensitivity 1 results"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     240
+    ]
+   ],
+   "note": "print sensitivity 2 results"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     251,
+     255
+    ]
+   ],
+   "note": "print sensitivity 3 results"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     275,
+     280
+    ]
+   ],
+   "note": "print sensitivity 4 results"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     291
+    ]
+   ],
+   "note": "print closing banner and final conclusion narrative"
+  }
+ ]
+}

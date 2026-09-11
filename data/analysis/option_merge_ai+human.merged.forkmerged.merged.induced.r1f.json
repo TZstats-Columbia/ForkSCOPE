@@ -1,0 +1,5924 @@
+{
+ "corpus": "ai+human.merged.forkmerged.merged.induced.r1f",
+ "failures": [],
+ "forks": {
+  "Are all skin-tone categories retained, or is the sample collapsed to extreme groups?": {
+   "fork": "Are all skin-tone categories retained, or is the sample collapsed to extreme groups?",
+   "n_options": 3,
+   "n_runs": 6,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options 0 and 1 both retain all categories; 1 frames it as a sensitivity check but the operation is identical.",
+   "groups": [
+    {
+     "action": "retain all skin-tone categories (no collapsing)",
+     "options": [
+      "keep all levels, no reference dropped",
+      "refit model retaining all three skin-tone bands as sensitivity check on excluding Medium"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse to extreme groups (<0.25 vs >0.5, drop middle)",
+     "options": [
+      "extreme groups below-0.25 vs above-0.5, dropping the middle"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Does the model include a skin-tone × country-bias (IAT/exposure) interaction term?": {
+   "fork": "Does the model include a skin-tone × country-bias (IAT/exposure) interaction term?",
+   "n_options": 4,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 3 is a conditional/data-dependent inclusion, distinct from the unconditional include and the flat exclude.",
+   "groups": [
+    {
+     "action": "no interaction — main effects only",
+     "options": [
+      "specify primary model as additive main effects only, no interaction terms",
+      "fit zero-inflated model with main effects only, no interactions"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "include the skin-tone × country-bias interaction",
+     "options": [
+      "include darkSkin × country-bias (meanIAT/meanExp) interactions in the zero-inflated model"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "include the interaction only conditionally (if IAT sample > 10,000)",
+     "options": [
+      "add the interaction only if the IAT sample exceeds 10,000"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How are dyads with a missing skin-tone rating handled?": {
+   "fork": "How are dyads with a missing skin-tone rating handled?",
+   "n_options": 4,
+   "n_runs": 145,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All four use different drop rules (either/both/asymmetric/plus-IAT), so each changes which rows survive.",
+   "groups": [
+    {
+     "action": "complete-case: drop dyad if either rater's skin-tone rating is missing",
+     "options": [
+      "standard complete-case on skin tone: drop dyad if either rater's rating is missing"
+     ],
+     "runs": 141,
+     "parameter_only": false
+    },
+    {
+     "action": "drop dyad only when BOTH raters' scores are missing",
+     "options": [
+      "drop dyad only when BOTH raters' skin-tone scores are missing"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on both skin tone and referee IAT",
+     "options": [
+      "complete-case on skin tone and referee IAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop dyad when rater1's score is missing (asymmetric)",
+     "options": [
+      "drop dyad when rater1's skin-tone score is missing (asymmetric)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How are reported exclusion/sample counts sourced — computed from data or hardcoded literals?": {
+   "fork": "How are reported exclusion/sample counts sourced — computed from data or hardcoded literals?",
+   "n_options": 3,
+   "n_runs": 4,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All three describe hardcoding count literals instead of computing them; same operation.",
+   "groups": [
+    {
+     "action": "report exclusion/sample counts as hardcoded literals rather than computed from data",
+     "options": [
+      "report sample-exclusion counts as hardcoded literal numbers rather than computed values",
+      "report excluded-dyad count via hardcoded original N rather than computed value",
+      "report exclusion counts/baseline rates as hardcoded literals rather than sourced from variables"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How are the descriptive per-group red-card rates reported?": {
+   "fork": "How are the descriptive per-group red-card rates reported?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 1 adds a games-normalized metric on top of the raw rate; genuinely different reporting.",
+   "groups": [
+    {
+     "action": "report crude/unadjusted red-card rates by group",
+     "options": [
+      "report crude/unadjusted red-card rates by group"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "report red-card rate plus cards-per-100-games per group",
+     "options": [
+      "red-card rate plus cards-per-100-games per group"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How finely is skin tone aggregated for the descriptive red-card-rate plot?": {
+   "fork": "How finely is skin tone aggregated for the descriptive red-card-rate plot?",
+   "n_options": 4,
+   "n_runs": 4,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All four differ only in aggregation granularity (10, none, 8, 5 bins); each bin count changes the plot.",
+   "groups": [
+    {
+     "action": "bin skin tone into 10 equal-width bins",
+     "options": [
+      "bin skin tone into 10 equal-width bins for the scatter panel"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "no binning — compute rate per distinct observed skin-tone value",
+     "options": [
+      "compute red-card rate and 95% CI separately for every distinct observed skin-tone value"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin skin tone into 8 bins",
+     "options": [
+      "bin skin tone into 8 bins for the red-card rate plot"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin skin tone into quintiles (5 bins)",
+     "options": [
+      "bin skin tone into quintiles for a descriptive plot"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How is potential mediation/confounding probed by removing a covariate and refitting?": {
+   "fork": "How is potential mediation/confounding probed by removing a covariate and refitting?",
+   "n_options": 3,
+   "n_runs": 5,
+   "n_actions": 1,
+   "param_only": 1,
+   "misfiled": 0,
+   "note": "Same drop-and-refit operation; differs only in target covariate (unspecified, raw count, rate).",
+   "groups": [
+    {
+     "action": "drop a covariate and refit to probe confounding/mediation",
+     "options": [
+      "drop a single covariate to probe confounding/mediation",
+      "drop the raw yellow-card count covariate and refit",
+      "drop the yellow-card-per-game (rate) covariate as a possible mediator and refit"
+     ],
+     "runs": 5,
+     "parameter_only": true
+    }
+   ]
+  },
+  "How is the bivariate skin-tone/red-card association tested?": {
+   "fork": "How is the bivariate skin-tone/red-card association tested?",
+   "n_options": 2,
+   "n_runs": 5,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "The 2x2 phrasing is just table dimensions; both describe the same chi-square test of independence.",
+   "groups": [
+    {
+     "action": "chi-square test of independence on skin-tone group vs red card",
+     "options": [
+      "chi-square test of independence on skin-tone group vs red card",
+      "chi-square on a 2x2 skin-tone-by-red-card contingency table"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": {
+   "fork": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+   "n_options": 9,
+   "n_runs": 19,
+   "n_actions": 3,
+   "param_only": 1,
+   "misfiled": 0,
+   "note": "Drop-one-covariate group mixes generic drops with named targets (yellowCards, referee-bias); dropping all vs a graded ladder are distinct.",
+   "groups": [
+    {
+     "action": "drop covariate(s) from the adjustment set (single covariate removed)",
+     "options": [
+      "robustness: DROP a covariate from the adjustment set",
+      "drop specific covariate(s) from the adjustment set",
+      "sensitivity refit of the adjusted model dropping referee-bias covariates (meanIAT/meanExp)",
+      "drop a covariate from the adjustment set to test sensitivity",
+      "drop yellowCards from the adjustment model",
+      "drop yellowCards from the adjustment set",
+      "drop yellowCards from covariate set as a sensitivity check"
+     ],
+     "runs": 15,
+     "parameter_only": true
+    },
+    {
+     "action": "fit a fully unadjusted model (drop all covariates)",
+     "options": [
+      "fit an unadjusted model dropping all covariates to test sensitivity to adjustment"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "refit across a ladder of nested adjustment sets (unadjusted to full)",
+     "options": [
+      "refit across a ladder of nested adjustment sets (unadjusted -> full)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How is the estimated skin-tone effect converted into a reported quantity?": {
+   "fork": "How is the estimated skin-tone effect converted into a reported quantity?",
+   "n_options": 4,
+   "n_runs": 4,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0 and 2 both difference predicted risks but at different anchor values (extremes vs quartiles), so distinct.",
+   "groups": [
+    {
+     "action": "predict at extreme skin-tone values and difference them for a risk difference",
+     "options": [
+      "predict at extreme skin-tone values and difference them for a risk difference"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "pull skin-tone marginal effect from margeff array by hardcoded index",
+     "options": [
+      "pull skin-tone marginal effect from margeff array by hardcoded index"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "contrast predicted risk at 75th vs 25th percentile of skin tone",
+     "options": [
+      "contrast predicted risk at the 75th vs 25th percentile of continuous skin tone"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "compute posterior probability that darkest effect exceeds lightest",
+     "options": [
+      "compute posterior probability that the darkest skin-tone effect exceeds the lightest"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How is the p-value / uncertainty for the exposure effect obtained?": {
+   "fork": "How is the p-value / uncertainty for the exposure effect obtained?",
+   "n_options": 3,
+   "n_runs": 20,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options 0 and 1 both double the bootstrap tail; option 1 also reports a percentile CI but the p-value operation is identical.",
+   "groups": [
+    {
+     "action": "bootstrap p-value as twice the smaller/relevant tail proportion of draws crossing zero",
+     "options": [
+      "bootstrap p-value as twice the tail proportion of draws relative to zero",
+      "percentile/crossing-zero bootstrap p-value (double smaller tail) with percentile CI"
+     ],
+     "runs": 18,
+     "parameter_only": false
+    },
+    {
+     "action": "Wald p-value for exposure coefficient directly from the GLM fit",
+     "options": [
+      "report Wald p-value for exposure coefficient directly from primary GLM fit"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?": {
+   "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+   "n_options": 6,
+   "n_runs": 203,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three clean forms: binary, Poisson+offset, raw-count OLS. Option 2's 'no covariates' and 5's player-level unit are separate decisions.",
+   "groups": [
+    {
+     "action": "binarize red-card count into a binary any-red indicator",
+     "options": [
+      "binarize red-card count at dyad level (>0 threshold)",
+      "collapse red-card count into a binary any-red indicator (game-level then re-thresholded at player-level)"
+     ],
+     "runs": 198,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson regression on raw counts with log(games) exposure offset",
+     "options": [
+      "Poisson regression of red-card counts with log(games)/exposure offset",
+      "switch to a Poisson model on raw red-card counts with a log-games offset instead of binary logistic outcome"
+     ],
+     "runs": 13,
+     "parameter_only": false
+    },
+    {
+     "action": "OLS/linear regression on the raw (non-binarized) red-card count",
+     "options": [
+      "regress raw (non-binarized) red-card count on skin tone with no covariates",
+      "OLS on the raw red-card count outcome"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "How much regression-coefficient detail is included in the reported table?": {
+   "fork": "How much regression-coefficient detail is included in the reported table?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct scopes: full rater-block coefficients vs. a covariate subset (continuous + first five positions).",
+   "groups": [
+    {
+     "action": "report a rater-block's full OLS/FE coefficients in the main table",
+     "options": [
+      "report a rater-block's full OLS/FE coefficients in the main table"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "report covariate effects in detail (continuous vars + first five position categories)",
+     "options": [
+      "report covariate effects in detail (continuous vars + first five position categories)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "In what form is the magnitude of the adjusted effect presented?": {
+   "fork": "In what form is the magnitude of the adjusted effect presented?",
+   "n_options": 3,
+   "n_runs": 6,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three distinct presentation forms; option 2 bundles the relative-% of 0 with absolutes, but presents strictly more.",
+   "groups": [
+    {
+     "action": "express adjusted effect as relative percentage increase over the light-skin baseline",
+     "options": [
+      "express adjusted RD as a percentage increase relative to the light-skin baseline rate"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "report absolute predicted probabilities per counterfactual group",
+     "options": [
+      "report absolute predicted probabilities per counterfactual group"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "report a bundle of baseline rate, absolute pp difference, and relative-% increase together",
+     "options": [
+      "report bundle of baseline rate, absolute pp difference, and relative-% increase"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?": {
+   "fork": "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?",
+   "n_options": 10,
+   "n_runs": 17,
+   "n_actions": 7,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "8 and 9 bundle a separate log-games-exposure term, so they diverge from the plain rate/log-count actions.",
+   "groups": [
+    {
+     "action": "enter yellow cards as a per-game rate",
+     "options": [
+      "derive a yellow-cards-per-game rate covariate",
+      "logistic, base set + yellow-card rate",
+      "compute count-per-game rate (count / games played)",
+      "normalize yellow cards into a per-game rate"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "enter raw yellow-card count",
+     "options": [
+      "add raw yellow-card count as covariate"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "enter log(yellow-card count + 1)",
+     "options": [
+      "add log(yellow-card count + 1) as covariate"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "enter standardized yellow-card count",
+     "options": [
+      "logistic, base set + standardized yellow-card count"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "create both a log-covariate and a log-offset version",
+     "options": [
+      "create both a log-covariate and a log-offset version"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "per-game yellow-card rate plus log-transformed games exposure",
+     "options": [
+      "derive per-game yellow-card/goal rates and log-transformed games exposure"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log-transform both games and yellow cards with +1 offset",
+     "options": [
+      "log-transform games and yellow cards with a +1 offset before use as covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Is the analysis stratified into subgroups (e.g., by league), and how?": {
+   "fork": "Is the analysis stratified into subgroups (e.g., by league), and how?",
+   "n_options": 2,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both stratify but differ in operation: adjusted per-league model vs unadjusted subgroup risk difference.",
+   "groups": [
+    {
+     "action": "re-run the adjusted analysis separately within each league (drop league from adjustment set)",
+     "options": [
+      "re-run the adjusted analysis separately within each league, dropping league(-country) from the adjustment set"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "recompute unadjusted risk difference within subgroups",
+     "options": [
+      "recompute unadjusted risk difference within subgroups"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "On what scale is the effect coefficient reported — exponentiated ratio or the raw log scale?": {
+   "fork": "On what scale is the effect coefficient reported — exponentiated ratio or the raw log scale?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different scales — exponentiated ratio vs raw log — the exact axes this decision point asks about.",
+   "groups": [
+    {
+     "action": "exponentiate the coefficient to a rate ratio",
+     "options": [
+      "exponentiate the coefficient to a rate ratio (count/Poisson model)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "keep the coefficient on the log scale, no exponentiation",
+     "options": [
+      "keep the coefficient on the log-odds scale, no exponentiation"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "What minimum observation count must a skin-tone bin/value have to be plotted?": {
+   "fork": "What minimum observation count must a skin-tone bin/value have to be plotted?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both answer the question but use different thresholds (50 vs 100), making them distinct actions.",
+   "groups": [
+    {
+     "action": "drop skin-tone bins with fewer than 50 observations before plotting",
+     "options": [
+      "drop skin-tone bins with fewer than 50 observations before plotting"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop skin-tone values with fewer than 100 supporting dyads before plotting",
+     "options": [
+      "drop skin-tone values with fewer than 100 supporting dyads before plotting rate curve"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "What regression diagnostics are computed?": {
+   "fork": "What regression diagnostics are computed?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct diagnostics: an autocorrelation test versus a bundle of fit/collinearity statistics.",
+   "groups": [
+    {
+     "action": "run Durbin-Watson test for residual autocorrelation",
+     "options": [
+      "run Durbin-Watson test for residual autocorrelation"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "request coefficient/fit/collinearity/R2-change statistics",
+     "options": [
+      "request coefficient/fit/collinearity/R2-change statistics"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?": {
+   "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+   "n_options": 4,
+   "n_runs": 137,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "The two groups are the two poles of this binary question; 1/2/3 all fix at a mean-modal reference profile.",
+   "groups": [
+    {
+     "action": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference",
+     "options": [
+      "marginal standardization / g-computation: average counterfactual all-dark vs all-light predictions over the observed covariate distribution and difference them"
+     ],
+     "runs": 133,
+     "parameter_only": false
+    },
+    {
+     "action": "predict at a single fixed reference profile (covariate means / modal categories), then difference",
+     "options": [
+      "predict at a single fixed covariate profile (reference / mean-modal values) and difference, rather than averaging over the sample",
+      "marginal effect at the means: predictions for light vs dark evaluated at covariate means, then differenced",
+      "choose a reference covariate profile (sample means / modal category) for standardized predictions"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Where is the skin-tone dichotomization cutoff set?": {
+   "fork": "Where is the skin-tone dichotomization cutoff set?",
+   "n_options": 3,
+   "n_runs": 7,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All three differ in cutoff values/scale (0.5 vs 2&5 vs unspecified sweep); none clearly merge.",
+   "groups": [
+    {
+     "action": "sensitivity sweep across several unspecified cutoffs",
+     "options": [
+      "sensitivity sweep reporting model across several cutoffs"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "refit at alternate 0.5 threshold",
+     "options": [
+      "sensitivity refit using alternate 0.5-threshold exposure"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "test alternative cutoffs 2 and 5",
+     "options": [
+      "test alternative cutoffs (2 and 5) together as robustness"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Which card events are counted as the outcome event?": {
+   "fork": "Which card events are counted as the outcome event?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 2's 'yellow-red card' is the second-yellow red, so it matches 0; only 1 adds plain yellows.",
+   "groups": [
+    {
+     "action": "outcome = red cards (straight reds + second-yellow reds)",
+     "options": [
+      "any-red-card outcome = straight reds + second-yellow reds",
+      "define binary outcome as any red card or yellow-red card (any serious card)"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "outcome = reds + second-yellow reds + yellows (any card)",
+     "options": [
+      "any-card outcome = reds + second-yellow reds + yellows"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Which control variables and functional forms enter the regression model?": {
+   "fork": "Which control variables and functional forms enter the regression model?",
+   "n_options": 17,
+   "n_runs": 59,
+   "n_actions": 17,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Every option is a distinct full model spec; no two share the same covariate set or games functional form.",
+   "groups": [
+    {
+     "action": "games(raw) + position + league + height + weight",
+     "options": [
+      "games(raw) + position + league + height + weight"
+     ],
+     "runs": 15,
+     "parameter_only": false
+    },
+    {
+     "action": "baseline + meanIAT + meanExp (both referee-bias terms)",
+     "options": [
+      "games + position + league + height + weight + meanIAT + meanExp"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games) + position + league + height + weight",
+     "options": [
+      "log(games) + position + league + height + weight"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "games + yellowCards + position + league + height + weight",
+     "options": [
+      "games + yellowCards + height + weight + position + league"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "games + age + position + league + height + weight",
+     "options": [
+      "games + age + height + weight + position + league"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "position + league + age + height + weight, no games",
+     "options": [
+      "position + league + age + height + weight (no games)"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "games + position + league + height + weight + age + yellowCards",
+     "options": [
+      "games + position + league + height + weight + age + yellowCards"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games) + position + league + height + weight + age",
+     "options": [
+      "log(games) + position + league + height + weight + age"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "position + league + height + weight, no games",
+     "options": [
+      "position + league + height + weight (no games)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "baseline + meanIAT only (no meanExp)",
+     "options": [
+      "games + position + league + height + weight + meanIAT (no exp/yc)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games + yellowCards + goals + position + league + height + weight",
+     "options": [
+      "games + yellowCards + goals + height + weight + position + league"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "age + height + weight only as player-characteristic controls",
+     "options": [
+      "choose age, height, weight as player-characteristic controls"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games + games_sq + height + weight only (quadratic games)",
+     "options": [
+      "games + games_sq + height + weight only"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "yellowCards + height + weight + age",
+     "options": [
+      "yellowCards + height + weight + age"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "league + height + weight + meanIAT + meanExp (no games/position stated)",
+     "options": [
+      "add league, height, weight, and referee bias (IAT+Exp) as covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "height + weight only",
+     "options": [
+      "add height and weight as covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games + height + meanIAT + league + position, no weight",
+     "options": [
+      "games + height + meanIAT + league + position (no weight)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": {
+   "fork": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+   "n_options": 2,
+   "n_runs": 20,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different coefficients (Pearson vs Spearman); no overlap or misfiling.",
+   "groups": [
+    {
+     "action": "Pearson correlation only",
+     "options": [
+      "Pearson correlation only"
+     ],
+     "runs": 18,
+     "parameter_only": false
+    },
+    {
+     "action": "Spearman correlation only",
+     "options": [
+      "Spearman correlation only"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Which interaction/moderation term is added to the model?": {
+   "fork": "Which interaction/moderation term is added to the model?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Each option specifies a different moderator (unspecified, categorical tone, league) and covariate set; all distinct.",
+   "groups": [
+    {
+     "action": "add a generic slope/interaction term with N(0,1) prior",
+     "options": [
+      "add a slope/interaction term with N(0,1) prior"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "moderation by categorical tone plus club-black-count covariate",
+     "options": [
+      "moderation of categorical tone + club-black-count covariate"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "add dark_skin×league interaction adjusting for log_games, position, yellowCards_std",
+     "options": [
+      "add dark_skin×league interaction adjusting for log_games, position, yellowCards_std"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "Which player-position category is the omitted reference level for the position dummies?": {
+   "fork": "Which player-position category is the omitted reference level for the position dummies?",
+   "n_options": 3,
+   "n_runs": 4,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Same operation (dummy encoding); each option picks a different reference category, a result-changing value.",
+   "groups": [
+    {
+     "action": "dummy encode with Goalkeeper as reference level",
+     "options": [
+      "dummy encode with Goalkeeper as reference level"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "dummy encode with Midfielder as reference level",
+     "options": [
+      "dummy-code with Midfielder as reference level"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "dummy encode with Defender as reference level",
+     "options": [
+      "dummy-encode with an explicitly chosen reference level (Defender)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "along which dimension(s) are the standard errors clustered?": {
+   "fork": "along which dimension(s) are the standard errors clustered?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct actions: two-way clustering vs. sequential one-way clustering by each dimension.",
+   "groups": [
+    {
+     "action": "two-way clustered (delta-method analytic) SE",
+     "options": [
+      "analytic delta-method SE with two-way clustered covariance"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "one-way clustered SE recomputed per dimension for comparison",
+     "options": [
+      "recompute SEs one-way by each dimension sequentially for comparison"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "are goalkeepers included in or excluded from the analysis sample?": {
+   "fork": "are goalkeepers included in or excluded from the analysis sample?",
+   "n_options": 7,
+   "n_runs": 26,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 2 uniquely does both: include as baseline and exclude as a robustness check.",
+   "groups": [
+    {
+     "action": "exclude goalkeepers from the sample",
+     "options": [
+      "exclude goalkeepers from the sample",
+      "exclude goalkeepers as primary spec, with no robustness variant",
+      "exclude goalkeepers from the analytic/modeling sample"
+     ],
+     "runs": 24,
+     "parameter_only": false
+    },
+    {
+     "action": "include goalkeepers as baseline, exclude them as robustness check",
+     "options": [
+      "include goalkeepers as baseline, exclude them as robustness check"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "include/reinstate goalkeepers in the sample",
+     "options": [
+      "include goalkeepers again (reverse the exclusion)",
+      "refit keeping goalkeepers in the sample",
+      "refit with goalkeepers reinstated in the sample"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    }
+   ]
+  },
+  "are the covariates standardized/z-scored before entering the model?": {
+   "fork": "are the covariates standardized/z-scored before entering the model?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both options describe z-scoring/standardizing covariates; 'logistic, set unspecified' adds irrelevant model context.",
+   "groups": [
+    {
+     "action": "standardize/z-score covariates before entering the model",
+     "options": [
+      "logistic, standardized covariates, set unspecified",
+      "z-scored covariates in the regression formula"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "at what unit is the dyad-level data aggregated before modeling?": {
+   "fork": "at what unit is the dyad-level data aggregated before modeling?",
+   "n_options": 5,
+   "n_runs": 7,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All five are distinct aggregation units/methods; player-level options 0/1/2 differ in operation (sum vs binary flag vs rates) and granularity.",
+   "groups": [
+    {
+     "action": "collapse to one row per player, summing counts",
+     "options": [
+      "collapse to one row per player, summing counts"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "aggregate to player level, binary flag for ever-received-a-red-card",
+     "options": [
+      "flag player as case if ever received a red card (player-level aggregation)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "aggregate to player×club×position, derive rates",
+     "options": [
+      "build player-level table aggregating stats by player×club×position, merge, derive rates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "expand to per-game Bernoulli 0/1 trials for a binomial model",
+     "options": [
+      "expand to per-game Bernoulli 0/1 trials for a binomial model"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "one row per game, assigning all cards to the first N rows",
+     "options": [
+      "one row per game, assigning all cards to the first N rows"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "at what unit/increment is the continuous skin-tone effect scaled and reported?": {
+   "fork": "at what unit/increment is the continuous skin-tone effect scaled and reported?",
+   "n_options": 7,
+   "n_runs": 8,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Same rescaling operation throughout; groups differ only by increment value (SD, 0.1, 0.25, 0.5, 1.0), which changes the reported effect.",
+   "groups": [
+    {
+     "action": "standardize the score (per-SD increment)",
+     "options": [
+      "standardize the continuous score before use"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "rescale to per-0.1-unit effect (multiply score by 10)",
+     "options": [
+      "rescale slope to per-0.1-unit effect (odds ratio)",
+      "rescale the continuous score by a factor of 10"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "report per-1.0 (per-unit) effect",
+     "options": [
+      "extract per-unit (per-1.0) marginal effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "rescale to per-0.5-unit effect",
+     "options": [
+      "re-fit with continuous skin-tone score (rescaled by 0.5 to approximate the binary contrast)",
+      "rescale to a per-0.5-unit effect before exponentiating"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "rescale to per-0.25-unit effect",
+     "options": [
+      "rescale slope to per-0.25-unit effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are continuous predictors transformed and z-scored/standardized before modeling?": {
+   "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+   "n_options": 9,
+   "n_runs": 59,
+   "n_actions": 9,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 0 (38 runs) is a catch-all umbrella overlapping the specifics; the rest differ by variable set and whether games is raw/log/log1p.",
+   "groups": [
+    {
+     "action": "z-score a varying subset of continuous covariates (umbrella/aggregate)",
+     "options": [
+      "z-score a chosen subset of continuous covariates (subset varies by option)"
+     ],
+     "runs": 38,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score height and weight only",
+     "options": [
+      "z-score standardize height and weight"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score raw (unlogged) games, height, and weight",
+     "options": [
+      "z-score standardize games, height, and weight (all raw)"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "log-transform games (left unstandardized), z-score height and weight",
+     "options": [
+      "log-transform games, then z-standardize height and weight"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "log1p games, z-score age and height, impute height_std to 0",
+     "options": [
+      "log1p games, z-score age and height, impute height_std to 0"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score height, weight, and a missing-imputed IAT",
+     "options": [
+      "z-score height, weight, and a missing-imputed IAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score height, weight, and log-transformed games",
+     "options": [
+      "z-score height, weight, and log-transformed games"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score games only",
+     "options": [
+      "z-score the games covariate"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "z-score height, weight, log-games and log-yellowcards",
+     "options": [
+      "z-score height, weight, log-games AND log-yellowcards"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are descriptive red-card rates aggregated and tabulated across groups?": {
+   "fork": "how are descriptive red-card rates aggregated and tabulated across groups?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All three tabulate descriptive rates but differ in grouping dimension and columns reported; none substitutes for another.",
+   "groups": [
+    {
+     "action": "tabulate red-card counts/rates cross-classified by skin-tone group and position",
+     "options": [
+      "tabulate red-card counts/rates by skin-tone group and position"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "aggregate red-card rate and mean skin tone by position, ranked",
+     "options": [
+      "aggregate red-card rate and mean skin tone by position, ranked"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "compute per-group tallies (red cards, games, dyads, any-red-card counts) by skin-tone group only",
+     "options": [
+      "compute per-group tallies (red cards, games, dyads, any-red-card counts) for descriptive rates by skin-tone group"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are games-played binned for the descriptive plot?": {
+   "fork": "how are games-played binned for the descriptive plot?",
+   "n_options": 2,
+   "n_runs": 3,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both options describe the same binning with no specified cutpoints or bin counts to distinguish them.",
+   "groups": [
+    {
+     "action": "bin games-played into categories for a descriptive plot",
+     "options": [
+      "bin games played into categories for a descriptive plot",
+      "bin games-played into discrete ranges for a descriptive plot"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are league-specific effect estimates obtained?": {
+   "fork": "how are league-specific effect estimates obtained?",
+   "n_options": 4,
+   "n_runs": 5,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0 and 1 both refit within-league; 2 (crude) and 3 (pooled interaction) are genuinely different estimation methods.",
+   "groups": [
+    {
+     "action": "refit the model separately within each league (all leagues, no size threshold)",
+     "options": [
+      "refit separately within each league, no sample-size threshold",
+      "refit the adjusted model separately within each league (all leagues)"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "stratify the crude/unadjusted risk-difference comparison by league",
+     "options": [
+      "stratify the crude/unadjusted risk-difference comparison by league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "back out league-specific odds ratios from main effect + interaction coefficients",
+     "options": [
+      "back out league-specific odds ratios by summing main effect and interaction coefficients"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are non-numeric placeholder / non-finite values coerced to numeric-with-missing during cleaning?": {
+   "fork": "how are non-numeric placeholder / non-finite values coerced to numeric-with-missing during cleaning?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "NA-string coercion (0,1) differs from non-finite handling (2): distinct operations on what counts as missing.",
+   "groups": [
+    {
+     "action": "treat the literal 'NA' string as missing, then coerce to numeric",
+     "options": [
+      "treat the literal 'NA' string as missing, then coerce to numeric",
+      "convert both raters' scores to numeric, treating NA as missing"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "treat non-finite (Inf/NaN) ratio values as missing",
+     "options": [
+      "treat non-finite dark/light ratio values as missing"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are player positions categorized and how are missing / uncategorizable positions handled?": {
+   "fork": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+   "n_options": 6,
+   "n_runs": 40,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options 1 and 2 both keep missing as a category but differ: 1 also splits Other from Missing.",
+   "groups": [
+    {
+     "action": "drop rows/dyads with missing or uncategorizable position (complete-case deletion)",
+     "options": [
+      "drop rows/dyads with missing or uncategorizable position (complete-case deletion)",
+      "restrict analytic sample to dyads whose position could be mapped, dropping those with missing position"
+     ],
+     "runs": 18,
+     "parameter_only": false
+    },
+    {
+     "action": "six-category scheme: four positions plus separate Other and Missing/Unknown residuals",
+     "options": [
+      "four positions plus two separate residuals (Other and Missing/Unknown) = 6 categories"
+     ],
+     "runs": 11,
+     "parameter_only": false
+    },
+    {
+     "action": "recode missing position as a single explicit Unknown/Missing category",
+     "options": [
+      "recode missing position as an explicit Unknown/Missing category"
+     ],
+     "runs": 10,
+     "parameter_only": false
+    },
+    {
+     "action": "impute missing position with modal category (Midfielder)",
+     "options": [
+      "impute position_group with modal position (default Midfielder)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop missing-position rows only from the by-position visualization, keep them elsewhere",
+     "options": [
+      "exclude missing-position rows only from the by-position visualization, keep them elsewhere"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": {
+   "fork": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+   "n_options": 12,
+   "n_runs": 19,
+   "n_actions": 5,
+   "param_only": 1,
+   "misfiled": 0,
+   "note": "All complete-case options drop missing scores but vary in which variables/scores define completeness; imputation methods (mean/country-mean/median) genuinely differ.",
+   "groups": [
+    {
+     "action": "drop rows with a missing bias score (listwise deletion / complete-case including the bias score)",
+     "options": [
+      "complete-case on position, height, weight, meanIAT (referee IAT)",
+      "drop rows missing the referee IAT (meanIAT) bias score only",
+      "restrict to non-missing referee IAT and add it as a covariate",
+      "complete-case on height, weight, meanIAT (no position)",
+      "complete-case on height, weight, position, leagueCountry, meanIAT",
+      "complete-case on skin tone, height, weight, age, IAT, explicit bias",
+      "drop rows missing referee IAT OR explicit-bias scores",
+      "complete-case on height, weight, IAT, explicit bias (no age)"
+     ],
+     "runs": 15,
+     "parameter_only": true
+    },
+    {
+     "action": "impute missing bias score with the sample mean",
+     "options": [
+      "impute missing bias scores with the sample mean"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "impute missing IAT with the country (group) mean",
+     "options": [
+      "impute missing referee IAT with the country mean instead of dropping"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "impute missing bias score with the column median",
+     "options": [
+      "impute missing bias scores with the column median"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "impute/fill missing IAT (method unspecified, not dropped)",
+     "options": [
+      "complete-case on height, weight, and imputed/filled IAT (IAT not actually dropped)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are records with missing height/weight (and bias) covariates handled — imputed or dropped?": {
+   "fork": "how are records with missing height/weight (and bias) covariates handled — imputed or dropped?",
+   "n_options": 17,
+   "n_runs": 62,
+   "n_actions": 14,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two axes: impute method plus bias-score handling; complete-case options split by which covariate set must be non-missing.",
+   "groups": [
+    {
+     "action": "overall median-impute height/weight",
+     "options": [
+      "overall median-impute height and/or weight"
+     ],
+     "runs": 15,
+     "parameter_only": false
+    },
+    {
+     "action": "sample median-impute height/weight and age",
+     "options": [
+      "impute missing height/weight/age with sample median"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position-group median-impute height/weight",
+     "options": [
+      "position-group median-impute height and/or weight",
+      "height/weight with position-group-wise median"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "mean-impute height/weight",
+     "options": [
+      "mean-impute both height and weight (incl. imputing 0 on standardized scale)"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "median-impute height/weight, recode missing position as explicit category",
+     "options": [
+      "impute height/weight with median and recode missing position as an explicit category"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "median-impute height/weight, impute bias scores with zero",
+     "options": [
+      "height/weight median, bias scores (meanIAT/meanExp) with zero"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "median-impute height/weight, impute bias scores with mean",
+     "options": [
+      "height/weight median, bias scores (meanIAT/meanExp) with mean"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "median-impute height/weight/age and bias scores all with column median",
+     "options": [
+      "height/weight/age/meanIAT/meanExp all with column median"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case / drop on height and weight only",
+     "options": [
+      "drop dyads missing height or weight",
+      "restrict to dyads with known height/weight and add those physical covariates",
+      "restrict to players with known height/weight and add them as adjustment covariates"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on position, height, weight",
+     "options": [
+      "complete-case on position, height, weight"
+     ],
+     "runs": 14,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on position, age, height, weight",
+     "options": [
+      "complete-case on position, age, height, weight"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on position, league, height, weight, games",
+     "options": [
+      "complete-case on position, league, height, weight, games"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on skin tone, height, weight",
+     "options": [
+      "complete-case on skin tone, height, weight"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case on height, weight, position, both implicit-bias covariates",
+     "options": [
+      "complete-case on height, weight, position, and both implicit-bias covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are records with missing values handled (complete-case vs impute vs recode)?": {
+   "fork": "how are records with missing values handled (complete-case vs impute vs recode)?",
+   "n_options": 9,
+   "n_runs": 53,
+   "n_actions": 3,
+   "param_only": 1,
+   "misfiled": 0,
+   "note": "All deletion options share one operation (listwise); they differ only in which variable set defines completeness.",
+   "groups": [
+    {
+     "action": "complete-case / listwise deletion (no imputation)",
+     "options": [
+      "listwise deletion / restrict to complete cases (no imputation)",
+      "complete-case / listwise deletion on model covariates",
+      "complete-case on skin tone and position",
+      "complete-case deletion restricted to a specified variable set",
+      "drop dyads with missing player position",
+      "complete-case on broad set (outcome, exposure, covariates, IDs)",
+      "restrict exploratory fits to complete cases via listwise deletion"
+     ],
+     "runs": 52,
+     "parameter_only": true
+    },
+    {
+     "action": "impute missing covariates and model the full sample",
+     "options": [
+      "impute missing covariates and model the full sample"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "recode missing values as an explicit 'Unknown' category",
+     "options": [
+      "recode missing position/league values as an explicit 'Unknown' category"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are reference/baseline categories handled for the categorical dummies?": {
+   "fork": "how are reference/baseline categories handled for the categorical dummies?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different encodings: full one-hot (no reference) vs. dropping a chosen reference level.",
+   "groups": [
+    {
+     "action": "keep every dummy level with no reference category dropped (full one-hot)",
+     "options": [
+      "one-hot encode position group and league country keeping every dummy level (no reference dropped)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop one level per categorical as an explicit reference (Goalkeeper, England)",
+     "options": [
+      "manually choose Goalkeeper and England as reference categories for position/league dummies"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are standard errors / confidence intervals estimated for the main effect?": {
+   "fork": "how are standard errors / confidence intervals estimated for the main effect?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different SE/CI methods: analytic robust sandwich vs resampling bootstrap.",
+   "groups": [
+    {
+     "action": "apply sandwich/robust SE correction to the Poisson model",
+     "options": [
+      "apply sandwich/robust SE correction to the poisson bias model"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bias-corrected BCa bootstrap CI",
+     "options": [
+      "bias-corrected BCa bootstrap CI with z0 correction"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the model's standard errors estimated?": {
+   "fork": "how are the model's standard errors estimated?",
+   "n_options": 20,
+   "n_runs": 52,
+   "n_actions": 7,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options bundle covariates/model specs, but only the SE method matters here; clustering unit (player vs referee vs refCountry) genuinely changes SEs.",
+   "groups": [
+    {
+     "action": "player-clustered standard errors",
+     "options": [
+      "fit logistic regression as the effect model, with player-clustered SEs",
+      "logistic regression, player-clustered SEs",
+      "cluster standard errors by player",
+      "logistic, player-clustered SE, covariates unspecified",
+      "logistic regression with player-clustered SEs, covariates unspecified",
+      "fit logistic regression with standard errors clustered on player",
+      "logistic regression of any-red-card on dichotomized skin tone adjusting for games/position/league country, player-clustered SEs",
+      "logistic, dark_skin + position/league only, player-clustered SE, reported as OR",
+      "adjust for log-games + position + league with player-clustered SEs"
+     ],
+     "runs": 34,
+     "parameter_only": false
+    },
+    {
+     "action": "referee-clustered standard errors",
+     "options": [
+      "logistic regression, referee-clustered SEs",
+      "logistic, continuous skin tone + games/position/league/height/weight, referee-clustered SE"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "cluster standard errors on refCountryID (referee's country)",
+     "options": [
+      "cluster standard errors on refCountryID"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "HC1 heteroskedasticity-robust standard errors",
+     "options": [
+      "games-weighted, HC1, games + age + height + weight + yellowCards + position + league",
+      "logistic regression with HC1 robust SE",
+      "adjust for raw games + position + league with HC1 robust SEs",
+      "GLM on skin tone + covariates, HC1 robust SE",
+      "re-estimate primary model with HC1 robust standard errors"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "HC3 heteroskedasticity-robust standard errors",
+     "options": [
+      "use HC3 heteroskedasticity-robust standard errors"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "closed-form two-proportion binomial-variance SE formula",
+     "options": [
+      "closed-form two-proportion binomial-variance SE formula"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "plain ML unclustered (model-based) standard errors",
+     "options": [
+      "logistic via plain ML, unclustered SE"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the physical/adjustment covariates transformed or encoded before entering the model?": {
+   "fork": "how are the physical/adjustment covariates transformed or encoded before entering the model?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three genuinely distinct encoding operations; all address the transformation question.",
+   "groups": [
+    {
+     "action": "engineer a bundle: bucketed position, log games, z-scored height/weight, rate-normalized cards",
+     "options": [
+      "engineer adjustment covariates: bucketed position, log games, z-scored height/weight, rate-normalized yellow cards"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "compute BMI from height and weight",
+     "options": [
+      "compute BMI from height and weight via the standard formula"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "add squared height and weight terms",
+     "options": [
+      "add squared height and weight terms for nonlinear body-size effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the regression standard errors computed?": {
+   "fork": "how are the regression standard errors computed?",
+   "n_options": 15,
+   "n_runs": 67,
+   "n_actions": 8,
+   "param_only": 0,
+   "misfiled": 1,
+   "note": "Different cluster variables (player vs referee vs two-way) are distinct actions. 14 is a justification/diagnostic, not an SE computation.",
+   "groups": [
+    {
+     "action": "cluster-robust SEs by player",
+     "options": [
+      "switch to / re-run model at dyad level with cluster-robust standard errors by player",
+      "cluster-robust (player-clustered) SEs",
+      "recompute player-clustered SEs as a robustness check on the fitted model",
+      "cluster-robust standard errors by player"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "cluster-robust SEs by referee",
+     "options": [
+      "cluster standard errors by referee (refID)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "two-way cluster-robust SEs (player and referee)",
+     "options": [
+      "two-way cluster-robust SE on player and referee (Cameron-Gelbach-Miller)"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "one-way cluster-robust SEs, dimension unspecified",
+     "options": [
+      "one-way cluster-robust SE on a single dimension",
+      "cluster standard errors by a grouping variable"
+     ],
+     "runs": 52,
+     "parameter_only": false
+    },
+    {
+     "action": "HC1 heteroskedasticity-robust, no clustering",
+     "options": [
+      "HC1 heteroskedasticity-robust errors, no clustering",
+      "HC1 heteroskedasticity-robust non-clustered SEs",
+      "HC1 heteroskedasticity-robust SEs"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "HC3 heteroskedasticity-robust",
+     "options": [
+      "HC3 heteroskedasticity-robust SEs"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "conventional non-robust SEs",
+     "options": [
+      "use conventional (non-robust) standard errors"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "robust sandwich SEs, estimator type unspecified",
+     "options": [
+      "replace model SEs with robust sandwich errors, rebuild CI table"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the results and their uncertainty visualized?": {
+   "fork": "how are the results and their uncertainty visualized?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both use normal-approximation CIs but on different quantities (raw proportions vs odds ratios) with different plot forms.",
+   "groups": [
+    {
+     "action": "normal-approximation error bars on raw proportions",
+     "options": [
+      "normal-approximation error bars on raw proportions for plotting"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Wald normal-approximation CIs on odds ratios for a forest plot",
+     "options": [
+      "compute Wald normal-approximation CIs for odds ratios to build a forest-style comparison plot"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the standard error, confidence interval, and p-value for the exposure effect computed?": {
+   "fork": "how are the standard error, confidence interval, and p-value for the exposure effect computed?",
+   "n_options": 10,
+   "n_runs": 72,
+   "n_actions": 6,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Many restatements of Wald normal-approx collapse to one; bootstrap options genuinely differ in resampling unit and CI/p construction.",
+   "groups": [
+    {
+     "action": "Wald normal-approximation CI/p from model-based SE (z=1.96)",
+     "options": [
+      "Wald/normal-approximation CI (estimate ± 1.96×SE)",
+      "use Wald normal-approximation (z=1.96) for CIs/p-values instead of bootstrap or profile-likelihood",
+      "extract coefficient, SE/Wald z-statistic, p-value, and CI for the exposure/regression coefficient via normal approximation",
+      "construct CIs and p-values via normal (Wald z) approximation with a fixed 1.96 critical value",
+      "manual Wald approximation for odds-ratio CI (vs built-in CI)"
+     ],
+     "runs": 17,
+     "parameter_only": false
+    },
+    {
+     "action": "analytic delta-method SE via g-computation gradient, Wald CI/p",
+     "options": [
+      "analytic delta-method SE via g-computation gradient, Wald CI/p"
+     ],
+     "runs": 46,
+     "parameter_only": false
+    },
+    {
+     "action": "percentile bootstrap CI",
+     "options": [
+      "percentile bootstrap CI (unspecified resampling unit)"
+     ],
+     "runs": 13,
+     "parameter_only": false
+    },
+    {
+     "action": "bootstrap-resample for SE, then Wald normal-approximation p (not percentiles)",
+     "options": [
+      "bootstrap-resample for an SE, then normal-approximation Wald p (not percentiles)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "parametric bootstrap redrawing only the exposure coefficient",
+     "options": [
+      "parametric bootstrap redrawing only the exposure coefficient, others fixed"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "nonparametric bootstrap: percentile CI plus normal-approximation p-value",
+     "options": [
+      "nonparametric bootstrap with percentile CI and normal-approximation p-value"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how are the two raters combined into a single skin-tone exposure measure?": {
+   "fork": "how are the two raters combined into a single skin-tone exposure measure?",
+   "n_options": 8,
+   "n_runs": 214,
+   "n_actions": 6,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 1's 'dropping missing' is a data-handling detail, not a different combination operation.",
+   "groups": [
+    {
+     "action": "average the two raters",
+     "options": [
+      "average the two raters into one continuous score",
+      "average rater1 and rater2 ratings into a single continuous skin-tone score, dropping dyads missing either rating"
+     ],
+     "runs": 213,
+     "parameter_only": false
+    },
+    {
+     "action": "use the minimum of the two raters",
+     "options": [
+      "use the minimum of the two raters"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "use the maximum of the two raters",
+     "options": [
+      "use max-of-two-raters score as the skin-tone predictor",
+      "use the maximum of the two raters"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "sum the two raters",
+     "options": [
+      "sum the two raters (after dropping missing)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "keep raters separate — build exposure per individual rater instead of combining",
+     "options": [
+      "rebuild exposure per individual rater instead of averaging the two raters"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "construct both min-of-raters and max-of-raters scores",
+     "options": [
+      "construct both min-of-raters and max-of-raters scores"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is agreement between the two skin-tone raters quantified?": {
+   "fork": "how is agreement between the two skin-tone raters quantified?",
+   "n_options": 7,
+   "n_runs": 33,
+   "n_actions": 6,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options differ by which diagnostic set is reported; 1 and 3 merge since 'Pearson' is just the default unspecified correlation.",
+   "groups": [
+    {
+     "action": "single correlation / generic agreement diagnostic only",
+     "options": [
+      "single unspecified correlation / generic agreement diagnostic"
+     ],
+     "runs": 10,
+     "parameter_only": false
+    },
+    {
+     "action": "one correlation plus exact-match rate",
+     "options": [
+      "unspecified correlation plus exact-match rate",
+      "Pearson correlation plus exact-match rate"
+     ],
+     "runs": 12,
+     "parameter_only": false
+    },
+    {
+     "action": "Pearson and Spearman correlation (no exact-match)",
+     "options": [
+      "Pearson and Spearman correlation"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "Pearson and Spearman correlation plus exact-agreement rate",
+     "options": [
+      "Pearson and Spearman correlation plus exact-agreement rate"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "correlation, exact-match, plus within-0.25 tolerance band",
+     "options": [
+      "correlation, exact-match, plus within-0.25 tolerance band"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "Pearson/Spearman, binned Cohen's kappa, and exact-match rate",
+     "options": [
+      "Pearson/Spearman, binned Cohen's kappa, and exact-match rate"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is complete-case/listwise deletion applied and over which variable set?": {
+   "fork": "how is complete-case/listwise deletion applied and over which variable set?",
+   "n_options": 5,
+   "n_runs": 56,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Single operation throughout; only the deletion's variable-set scope varies, and option 0 is itself an aggregate bundle.",
+   "groups": [
+    {
+     "action": "complete-case/listwise deletion over the model's variable set (covariates + outcome)",
+     "options": [
+      "complete-case / listwise deletion on a covariate-and-outcome set (same operation, differing variable sets)",
+      "listwise-delete (complete-case) rows missing any covariate in the chosen analysis set",
+      "complete-case: drop dyads missing any adjustment covariate"
+     ],
+     "runs": 50,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case deletion over all variables (drop any row with any missing value anywhere)",
+     "options": [
+      "drop every row with any missing value (complete-case filter)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "complete-case deletion over an unspecified/generic variable set",
+     "options": [
+      "complete-case deletion over a generic/unspecified variable set"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is effect modification / moderation of the skin-tone effect tested?": {
+   "fork": "how is effect modification / moderation of the skin-tone effect tested?",
+   "n_options": 3,
+   "n_runs": 10,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 2 is vague on moderator and uses categorical skin tone, so kept separate from the league interactions.",
+   "groups": [
+    {
+     "action": "add a league × dark-skin interaction term (tested via LRT)",
+     "options": [
+      "add a league × dark-skin interaction term to test effect modification",
+      "add dark_skin×league interaction with minimal/unspecified adjustment, LRT"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "test moderation of the categorical skin-tone effect (moderator unspecified)",
+     "options": [
+      "moderation of the categorical skin-tone effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is games-played entered into the model (functional form / transformation)?": {
+   "fork": "how is games-played entered into the model (functional form / transformation)?",
+   "n_options": 6,
+   "n_runs": 18,
+   "n_actions": 6,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All six differ in zero-handling or functional form; the log variants (+1, +0.5, plain, floor-at-1) are genuinely distinct.",
+   "groups": [
+    {
+     "action": "log-transform games with +1 offset (log1p)",
+     "options": [
+      "log-transform games with +1 offset (log1p)"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "log-transform games with 0.5 offset",
+     "options": [
+      "log-transform games with 0.5 offset"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "add a squared (quadratic) games term",
+     "options": [
+      "add a squared (quadratic) games term"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "4-df natural cubic spline for games",
+     "options": [
+      "4-df natural cubic spline for games"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "plain log(games) with no offset",
+     "options": [
+      "replace the games spline with log(games) and recompute RD/OR"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "floor games at 1, then log-transform",
+     "options": [
+      "floor games at 1, then log-transform"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is inter-rater agreement between the two skin-tone raters quantified?": {
+   "fork": "how is inter-rater agreement between the two skin-tone raters quantified?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different agreement statistics; no overlap.",
+   "groups": [
+    {
+     "action": "Pearson correlation plus mean absolute difference",
+     "options": [
+      "Pearson correlation plus mean absolute difference"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Cronbach's alpha",
+     "options": [
+      "Cronbach's alpha"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is model adequacy or fit assessed?": {
+   "fork": "how is model adequacy or fit assessed?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct fit checks: AUC discrimination (classification) vs. residual/autocorrelation diagnostics (regression).",
+   "groups": [
+    {
+     "action": "assess discrimination via in-sample AUC",
+     "options": [
+      "assess discrimination via in-sample AUC"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "request Durbin-Watson statistic and residual diagnostic plots",
+     "options": [
+      "request Durbin-Watson statistic and residual diagnostic plots"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is moderation of the referee-bias effect by player skin tone assessed?": {
+   "fork": "how is moderation of the referee-bias effect by player skin tone assessed?",
+   "n_options": 6,
+   "n_runs": 9,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options blur two things: which interaction term is fit versus how it is tested (coefficient vs LRT vs subgroup).",
+   "groups": [
+    {
+     "action": "include/test the skin-tone × bias interaction term in the model",
+     "options": [
+      "test skin tone × bias moderation interaction",
+      "always add the dark_skin x meanIAT interaction term",
+      "add an interaction term between dark skin and a modifier"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "likelihood-ratio test of the interaction model vs the no-interaction model",
+     "options": [
+      "likelihood-ratio test of interaction model vs main-effects model at 3 df",
+      "joint likelihood-ratio test of interaction terms vs the no-interaction model"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "subgroup regressions for dark/light plus a manual t-test on the bias-effect difference",
+     "options": [
+      "test bias-effect difference between dark/light players via subgroup regressions plus a manual t-test"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is player position operationalized in the model?": {
+   "fork": "how is player position operationalized in the model?",
+   "n_options": 5,
+   "n_runs": 5,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All five are distinct granularity/coding schemes for position; no duplicates.",
+   "groups": [
+    {
+     "action": "include goalkeepers as their own position category",
+     "options": [
+      "include goalkeepers as their own position category"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "use the detailed/fine-grained position variable instead of the broad category",
+     "options": [
+      "swap broad position category for the detailed position variable (robustness check)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse positions into a single binary defensive-position indicator",
+     "options": [
+      "collapse specific positions into a single binary defensive-position indicator"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "dummy/indicator code specific positions (amid and cback)",
+     "options": [
+      "use dummy/indicator coding for the position variables amid and cback"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse position into 3 broad groups (Back/Front/Middle)",
+     "options": [
+      "collapse position into 3 broad groups (Back/Front/Middle)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is referee bias controlled for in the model?": {
+   "fork": "how is referee bias controlled for in the model?",
+   "n_options": 5,
+   "n_runs": 9,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0 is a vague umbrella; 1 and 2 are true duplicates; 1 vs 4 differ by which/how many covariates.",
+   "groups": [
+    {
+     "action": "include referee bias measure(s) as a covariate / block (unspecified which)",
+     "options": [
+      "include referee bias measure(s) as a covariate / regression block"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "add referee mean IAT (meanIAT) as a single covariate",
+     "options": [
+      "add referee mean implicit-bias score (meanIAT) as a single covariate",
+      "add referee mean IAT implicit-bias score as a covariate"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "add both meanIAT and meanExp covariates",
+     "options": [
+      "add both meanIAT and meanExp referee-bias covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "use referee fixed effects instead of bias covariates",
+     "options": [
+      "swap referee-bias covariates for referee fixed effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is sampling uncertainty shown on the descriptive red-card-rate chart?": {
+   "fork": "how is sampling uncertainty shown on the descriptive red-card-rate chart?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both are Wald/normal-approximation, but an SE (~1 SE) versus a 95% CI (~1.96 SE) show different error-bar widths.",
+   "groups": [
+    {
+     "action": "Wald standard error per bin",
+     "options": [
+      "red-card rate plus a Wald-type standard error per bin"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Wald normal-approximation 95% confidence interval",
+     "options": [
+      "compute a Wald (normal-approximation) 95% CI for the descriptive red-card rate chart"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is statistical significance quantified and reported for the key coefficient?": {
+   "fork": "how is statistical significance quantified and reported for the key coefficient?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three distinct significance-reporting operations: one-sided p-value, two-sided Wald p-value, and star-bucketing.",
+   "groups": [
+    {
+     "action": "compute an additional one-sided p-value testing a positive effect",
+     "options": [
+      "compute an additional one-sided p-value testing a positive effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "use the Wald p-value on the key coefficient as the significance measure",
+     "options": [
+      "use the Wald p-value on the extremelyDark coefficient as the significance measure"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bucket the p-value into significance stars at 0.001/0.01/0.05 thresholds",
+     "options": [
+      "bucket p-value into significance stars at 0.001/0.01/0.05"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the analytic sample restricted to complete / relevant records?": {
+   "fork": "how is the analytic sample restricted to complete / relevant records?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct restrictions: generic per-question missingness (0) vs. rater-plus-single-game filter (1).",
+   "groups": [
+    {
+     "action": "restrict each question's sample to non-missing values of that question's key variable",
+     "options": [
+      "restrict question-specific sample to non-missing value of that question's key variable"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "restrict to non-missing raters and single-game dyads (games==1)",
+     "options": [
+      "restrict to non-missing raters and single-game dyads (games==1)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the binary dark-skin exposure variable defined?": {
+   "fork": "how is the binary dark-skin exposure variable defined?",
+   "n_options": 2,
+   "n_runs": 17,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct methods: reuse a preexisting category vs. data-driven cutpoint search.",
+   "groups": [
+    {
+     "action": "recode existing light/dark category into a 0/1 binary",
+     "options": [
+      "recode light/dark category into a 0/1 dark-skin binary indicator"
+     ],
+     "runs": 15,
+     "parameter_only": false
+    },
+    {
+     "action": "empirically select cutoff that maximizes the group split",
+     "options": [
+      "empirically select cutoff maximizing the group split"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the bootstrap resampling of the estimate performed?": {
+   "fork": "how is the bootstrap resampling of the estimate performed?",
+   "n_options": 5,
+   "n_runs": 8,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options vary on two axes: resampling unit (player vs dyad) and quantity bootstrapped (logistic coefficient vs marginal RD); resample counts (1000/500) treated as inconsequential.",
+   "groups": [
+    {
+     "action": "player-level (cluster) bootstrap refitting the logistic model",
+     "options": [
+      "player-level bootstrap, 1000 resamples, refit, silently drop non-converging",
+      "bootstrap the CI/p-value with player-cluster resampling",
+      "player-level cluster bootstrap, 500 resamples, refit logistic, discard failed"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "dyad-level bootstrap refitting a plain non-cluster-robust logistic model",
+     "options": [
+      "bootstrap by resampling dyads and refitting a plain (non-cluster-robust) logistic model, skipping failed draws"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "player-level cluster bootstrap recomputing marginal-standardization risk difference each iteration",
+     "options": [
+      "player-level cluster bootstrap recomputing marginal-standardization RD each iteration"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the continuous skin-tone effect translated into a reported effect estimate?": {
+   "fork": "how is the continuous skin-tone effect translated into a reported effect estimate?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely distinct estimands: a fixed-point contrast versus a sample-averaged marginal effect.",
+   "groups": [
+    {
+     "action": "standardized risk difference between two fixed continuous reference values (~30th/90th percentile)",
+     "options": [
+      "standardize risk difference using two fixed continuous skin-tone reference values (~30th/90th percentile) rather than binary dark/light"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "extract the average marginal effect of continuous skin tone",
+     "options": [
+      "extract the average marginal effect of continuous skin tone"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the continuous skin-tone rating discretized into categories for analysis?": {
+   "fork": "how is the continuous skin-tone rating discretized into categories for analysis?",
+   "n_options": 7,
+   "n_runs": 2,
+   "n_actions": 7,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All seven are distinct; the binarize options differ only by cutpoint value, which changes the result.",
+   "groups": [
+    {
+     "action": "binarize RateAve at perfect-1 (==1) vs. rest",
+     "options": [
+      "binarize RateAve at strictest cut (perfect 1 vs. rest)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binarize RateAve at <2 cutoff",
+     "options": [
+      "binarize RateAve at <2 cutoff"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binarize RateAve at <3 cutoff",
+     "options": [
+      "binarize RateAve at <3 cutoff"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binarize RateAve at <4 cutoff",
+     "options": [
+      "binarize RateAve at <4 cutoff"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binarize RateAve at <5 cutoff",
+     "options": [
+      "binarize RateAve at <5 cutoff"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "recode RateAve into 3-level grouping with pairwise follow-up",
+     "options": [
+      "recode RateAve into 3-level grouping with pairwise follow-up"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binarize >0 twice (at dyad level and after aggregation)",
+     "options": [
+      "binarize >0 twice: at dyad level and again after aggregation"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the continuous skin-tone rating discretized into categories?": {
+   "fork": "how is the continuous skin-tone rating discretized into categories?",
+   "n_options": 4,
+   "n_runs": 4,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All four use different cutpoint values or method (absolute vs percentile), so each changes the categorization.",
+   "groups": [
+    {
+     "action": "trichotomize at absolute cutpoints 0.375/0.625",
+     "options": [
+      "trichotomize at 0.375/0.625"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at absolute cutpoints 0.25/0.625",
+     "options": [
+      "trichotomize at 0.25/0.625"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "use bottom-25%/top-25% percentile cutoffs",
+     "options": [
+      "use bottom-25%/top-25% percentile cutoffs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "use absolute thresholds 0.375 and 0.125",
+     "options": [
+      "use absolute thresholds 0.375 and 0.125"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the continuous skin-tone rating turned into the exposure variable (dichotomization, cutpoint, or search)?": {
+   "fork": "how is the continuous skin-tone rating turned into the exposure variable (dichotomization, cutpoint, or search)?",
+   "n_options": 80,
+   "n_runs": 203,
+   "n_actions": 56,
+   "param_only": 0,
+   "misfiled": 1,
+   "note": "Heavily fragmented by cutpoint value and sweep-set; 66 concerns rater choice/standardization, not dichotomization; 58 bundles outcome coding.",
+   "groups": [
+    {
+     "action": "single-cutoff dichotomize at 0.5 (no middle dropped)",
+     "options": [
+      "single-cutoff dichotomize at 0.5, no middle dropped",
+      "dichotomize at the 0.5 midpoint"
+     ],
+     "runs": 59,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff at 0.5 with >= boundary inclusion",
+     "options": [
+      "shift boundary inclusion to skin tone >=0.5 instead of >0.5"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.25 (no middle dropped)",
+     "options": [
+      "single-cutoff dichotomize at 0.25, no middle dropped",
+      "dichotomize at 0.25",
+      "fixed 0.25 cutoff on full non-missing sample, mislabeled as a median split"
+     ],
+     "runs": 33,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.75",
+     "options": [
+      "single-cutoff dichotomize at 0.75, no middle dropped"
+     ],
+     "runs": 12,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.375",
+     "options": [
+      "single alternate cutoff at 0.375 (range to 0.625)",
+      "single-cutoff dichotomize at 0.375"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.125",
+     "options": [
+      "dichotomize at 0.125",
+      "single-cutoff dichotomize at 0.125"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.875",
+     "options": [
+      "single-cutoff dichotomize at 0.875"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize at 0.625",
+     "options": [
+      "dichotomize at >0.625"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.25/0.75",
+     "options": [
+      "dichotomize at 0.25/0.75, drop middle band",
+      "dichotomize 0.25/0.75, drop middle band",
+      "restrict to extreme quartiles (<=0.25 vs >=0.75)"
+     ],
+     "runs": 49,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.25/0.5",
+     "options": [
+      "dichotomize 0.25/0.5, drop middle band",
+      "dichotomize at 0.25/0.50, drop middle band"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.375/0.625",
+     "options": [
+      "dichotomize 0.375/0.625, drop middle band"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.125/0.75",
+     "options": [
+      "dichotomize at 0.125/0.75, drop middle band"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.125/0.375",
+     "options": [
+      "dichotomize 0.125/0.375, drop middle band",
+      "extreme contrast via fixed absolute cutpoints (>=0.375 vs <0.125), dropping middle band"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.125/0.25",
+     "options": [
+      "dichotomize at 0.125/0.25, drop middle band"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.125/0.875",
+     "options": [
+      "dichotomize 0.125/0.875, drop middle band",
+      "restrict to very extreme contrast (<=0.125 vs >=0.875)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.25/0.625",
+     "options": [
+      "dichotomize 0.25/0.625, drop middle band"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize 0.125/0.5",
+     "options": [
+      "dichotomize at 0.125/0.50, drop middle band"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize, unspecified cutoffs",
+     "options": [
+      "drop the medium/undefined skin-tone band to restrict the sample to light vs dark",
+      "dichotomize at unspecified thresholds, drop middle band"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "drop-middle dichotomize on 1-5 scale at 3",
+     "options": [
+      "dichotomize 1-5 rating at 3, drop ambiguous middle"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme groups at endpoints 0 vs 1",
+     "options": [
+      "restrict to true endpoints 0.0 vs 1.0",
+      "strict scale extremes, 0 vs 1",
+      "extreme-groups at exact endpoints 0 vs 1",
+      "restrict to extreme rater endpoints (0 vs 1) as the contrast"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme groups: top quartile vs bottom ~10%",
+     "options": [
+      "extreme-groups top quartile vs bottom ~10%"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "dichotomize top vs bottom tertile (drop middle)",
+     "options": [
+      "dichotomize top vs bottom tertile"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "search cutoff maximizing effect size",
+     "options": [
+      "data-dependent cutoff search maximizing the effect estimate",
+      "data-driven search for cutoff giving strongest result",
+      "search cutoffs, keep the one maximizing estimated effect size"
+     ],
+     "runs": 24,
+     "parameter_only": false
+    },
+    {
+     "action": "search cutoff minimizing p-value / maximizing z",
+     "options": [
+      "search cutoffs, keep the one minimizing p-value / maximizing z-statistic"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "search cutoff pairs (extreme groups) maximizing effect",
+     "options": [
+      "search cutoff pairs on extreme groups, pick the one with largest effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at 0.25/0.75",
+     "options": [
+      "trichotomize at 0.25/0.75",
+      "bin at cutoffs (0.25, 0.75)"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at 0.25/0.5",
+     "options": [
+      "trichotomize at 0.25/0.5",
+      "bin at cutoffs (0.25, 0.5)"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at 0.125/0.625",
+     "options": [
+      "bin at cutoffs (0.125, 0.625)",
+      "trichotomize at 0.125/0.625"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at 0.375/0.625",
+     "options": [
+      "bin at cutoffs (0.375, 0.625)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "trichotomize at 0.325/0.675",
+     "options": [
+      "bin at cutoffs (0.325, 0.675)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "keep medium as its own category (unspecified 3-cat)",
+     "options": [
+      "keep medium skin tone as its own category rather than excluding it",
+      "keep Medium-category rows in the three-category skin-tone model rather than excluding them"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "bin into six categories",
+     "options": [
+      "bin into six categories"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin into eight equal-width bins",
+     "options": [
+      "bin into eight equal-width bins"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin into five categories, custom edges",
+     "options": [
+      "bin into five categories with custom edges"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin into four categories",
+     "options": [
+      "bin into four categories"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin into nine categories",
+     "options": [
+      "bin into nine categories"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "code rating as categorical factor",
+     "options": [
+      "rerun confound-adjusted model swapping continuous tone for categorical tonecode",
+      "code rating as a categorical factor"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "treat mean rating as ordinal 1-5 with partial pooling",
+     "options": [
+      "treat mean rating as ordinal 1-5 with partial pooling"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "keep continuous (non-binned) rating",
+     "options": [
+      "rebuild sample using continuous (non-binned) skin-tone ratings"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "single-cutoff dichotomize 1-5 scale at >3",
+     "options": [
+      "dichotomize 1-5 rating at >3, no middle dropped"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "dichotomize single rater (rater1) at 2/3",
+     "options": [
+      "dichotomize a single rater (rater1) at 2/3"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binary dark_skin on full sample, unspecified cutoff",
+     "options": [
+      "re-fit model on full sample using binary dark_skin exposure instead of extreme-groups contrast",
+      "dichotomize red cards into any_red_card and derive the binary dark_skin exposure in the same step"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "bin at 0.375/0.625, derive binary dark, keep middle",
+     "options": [
+      "bin at 0.375/0.625, derive binary dark indicator, keep middle"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "median split (data-dependent)",
+     "options": [
+      "true median split of skin tone"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.25/0.375/0.5 (0.25 primary)",
+     "options": [
+      "refit across three candidate cutpoints (0.25/0.375/0.5), 0.25 primary"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.25/0.5 (0.25 primary)",
+     "options": [
+      "primary 0.25 cutpoint with 0.5 alternate"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.375/0.5",
+     "options": [
+      "primary 0.5 cutpoint with 0.375 alternate",
+      "sweep cutpoints 0.375 / 0.5"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.125/0.375/0.5",
+     "options": [
+      "refit across cutoffs 0.125 / 0.375 / 0.5"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.375/0.5/0.625",
+     "options": [
+      "sweep cutpoints 0.375 / 0.5 / 0.625"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.30/0.35/0.375",
+     "options": [
+      "sweep cutpoints 0.30 / 0.35 / 0.375"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.125/0.375",
+     "options": [
+      "sweep at cutoffs 0.125 and 0.375"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.10/0.25",
+     "options": [
+      "sweep at cutoffs 0.10 and 0.25"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep cutpoints 0.5/0.625",
+     "options": [
+      "replace the extreme-groups design with a single sweeping cutoff (0.5, 0.625)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep two extreme (sample-gated) cutoffs",
+     "options": [
+      "rerun under two extreme (sample-gated) cutoffs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "generic multi-threshold sweep, unspecified values",
+     "options": [
+      "generic multi-threshold sweep, values unspecified"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "swap 0.25 for 0.375 within extreme-groups design",
+     "options": [
+      "swap the 0.25 cutpoint for 0.375, keeping the extreme-groups design"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the country-level referee bias measure aggregated / modeled?": {
+   "fork": "how is the country-level referee bias measure aggregated / modeled?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three distinct approaches; 1 and 2 differ by z-standardization, 0 is a regression model.",
+   "groups": [
+    {
+     "action": "model country-level bias as a random effect regressed on country mean IAT and Exp scores",
+     "options": [
+      "model country-level bias as a random effect regressed on country mean IAT and Exp scores"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "average referee bias within country, no standardization",
+     "options": [
+      "average referee bias measures within country (no standardization)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse to one row per country, z-standardize the bias scores, then merge back",
+     "options": [
+      "collapse to one row per country, z-standardize the bias scores, then merge back onto the sample"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the crude (unadjusted) skin-tone-to-red-card association expressed?": {
+   "fork": "how is the crude (unadjusted) skin-tone-to-red-card association expressed?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Rate difference vs. rate ratio are distinct effect measures; option 0 also restricts to an extreme-exposure subsample.",
+   "groups": [
+    {
+     "action": "crude red-card rate difference (within extreme-exposure subsample)",
+     "options": [
+      "crude red-card rate difference within the extreme-exposure subsample"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "crude rate ratio with log-rate-ratio normal-approx CI",
+     "options": [
+      "compute crude rate ratio with log-rate-ratio normal-approx CI"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the crude, unadjusted association estimated and tested?": {
+   "fork": "how is the crude, unadjusted association estimated and tested?",
+   "n_options": 10,
+   "n_runs": 82,
+   "n_actions": 9,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Many options bundle multiple methods; z-test (6) kept apart from Wald-CI RD (1,2) as pooled vs unpooled variance differs.",
+   "groups": [
+    {
+     "action": "crude risk difference, point estimate only (no test/CI)",
+     "options": [
+      "compute crude risk difference, point estimate only"
+     ],
+     "runs": 58,
+     "parameter_only": false
+    },
+    {
+     "action": "crude risk difference with normal-approx (Wald) SE/CI",
+     "options": [
+      "compute crude risk difference with normal-approx (Wald) z-test/CI",
+      "normal (Wald) approximation for SEs/CIs of unadjusted descriptive estimates"
+     ],
+     "runs": 16,
+     "parameter_only": false
+    },
+    {
+     "action": "two-proportion z-test on the group difference",
+     "options": [
+      "two-proportion z-test on group red-card difference"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "chi-square test on the 2x2 table",
+     "options": [
+      "test crude association with chi-square on the 2x2 table"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "unadjusted logistic regression (odds-ratio scale)",
+     "options": [
+      "fit an unadjusted logistic regression and report the skin-tone effect on the odds-ratio scale"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "raw rate difference plus unadjusted logistic fit",
+     "options": [
+      "report raw rate difference plus a bivariate unadjusted logistic fit"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "2x2 risk difference plus hand-computed OR with Wald CI",
+     "options": [
+      "unadjusted 2x2 table giving risk difference plus hand-computed OR with Wald CI"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "normality test then Spearman correlation",
+     "options": [
+      "test normality, then Spearman correlation"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "chi-square, odds ratio, and risk difference reported together",
+     "options": [
+      "test association via chi-square, odds ratio, and risk difference together"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the effect estimate's confidence interval obtained by simulating from the fitted model's parameters?": {
+   "fork": "how is the effect estimate's confidence interval obtained by simulating from the fitted model's parameters?",
+   "n_options": 2,
+   "n_runs": 39,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both redraw coefficients from the covariance, but one reports a percentile CI, the other a zero-crossing p-value.",
+   "groups": [
+    {
+     "action": "parametric bootstrap from coefficient MVN, percentile CI on recomputed RD",
+     "options": [
+      "parametric bootstrap: redraw all coefficients from asymptotic MVN, recompute RD, percentile CI"
+     ],
+     "runs": 38,
+     "parameter_only": false
+    },
+    {
+     "action": "parametric bootstrap from coefficient covariance, p-value from draws crossing zero",
+     "options": [
+      "parametric bootstrap over coefficient covariance, p-value from draws crossing zero"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the effect's statistical uncertainty estimated?": {
+   "fork": "how is the effect's statistical uncertainty estimated?",
+   "n_options": 2,
+   "n_runs": 4,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely distinct uncertainty methods: analytic homoskedastic SEs versus resampling-based percentile CI.",
+   "groups": [
+    {
+     "action": "conventional non-clustered (homoskedastic) standard errors",
+     "options": [
+      "conventional non-clustered (homoskedastic) SEs"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "bootstrap percentile 95% CI (2.5th/97.5th percentiles)",
+     "options": [
+      "bootstrap percentile 95% CI (2.5th/97.5th percentiles)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the exploratory disciplinary-outcome model without skin tone specified (club + position)?": {
+   "fork": "how is the exploratory disciplinary-outcome model without skin tone specified (club + position)?",
+   "n_options": 2,
+   "n_runs": 1,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both options describe the identical model spec; only wording differs.",
+   "groups": [
+    {
+     "action": "model disciplinary outcome from club + position (no skin tone)",
+     "options": [
+      "club + position",
+      "model club and position predicting disciplinary outcome (no skin tone)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the final conclusion characterized in the writeup?": {
+   "fork": "how is the final conclusion characterized in the writeup?",
+   "n_options": 5,
+   "n_runs": 13,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All five are distinct conclusion characterizations forming a spectrum from overstated to not-supported; none merge.",
+   "groups": [
+    {
+     "action": "overstate/embellish the conclusion beyond what the numbers support",
+     "options": [
+      "overstate/embellish the supported conclusion beyond the numbers"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "declare the hypothesis NOT supported",
+     "options": [
+      "declare hypothesis not supported from the primary result"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "frame as supported-with-caveats (hedged, small, heterogeneous)",
+     "options": [
+      "frame as 'supported with caveats' (hedged/small/heterogeneous)"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "declare SUPPORTED as a large/strong significant effect",
+     "options": [
+      "declare SUPPORTED, framed as a large/strong significant effect"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "declare SUPPORTED as a modest-but-meaningful effect",
+     "options": [
+      "declare SUPPORTED, framed as a modest-but-meaningful effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the fitted model's calibration / goodness-of-fit assessed?": {
+   "fork": "how is the fitted model's calibration / goodness-of-fit assessed?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Related (H-L also bins), but one is a formal test with a p-value, the other a descriptive calibration comparison.",
+   "groups": [
+    {
+     "action": "run Hosmer-Lemeshow goodness-of-fit test (with odds-ratio CIs)",
+     "options": [
+      "request Hosmer-Lemeshow test and 95% CIs for odds ratios (logistic)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin predicted probabilities into deciles and compare mean predicted vs observed",
+     "options": [
+      "bin predicted probabilities into deciles and compare mean predicted vs observed"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the hypothesis-support conclusion (p-value or decision rule) derived?": {
+   "fork": "how is the hypothesis-support conclusion (p-value or decision rule) derived?",
+   "n_options": 4,
+   "n_runs": 5,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0 and 3 both compute a two-sided bootstrap p-value re zero, just worded via crossing vs. doubling the tail.",
+   "groups": [
+    {
+     "action": "two-sided bootstrap p-value from the resampled distribution relative to zero",
+     "options": [
+      "derive a two-sided bootstrap p-value from the proportion of resampled risk differences crossing zero",
+      "define two-sided bootstrap p-value as twice the proportion of draws at or below zero"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "declare supported if bootstrap CI lower bound exceeds zero (one-sided directional)",
+     "options": [
+      "declare supported if bootstrap CI lower bound exceeds zero (one-sided directional)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "declare unsupported by weighing effect size against MDE and the p-value",
+     "options": [
+      "declare unsupported by weighing effect size against MDE and the p-value"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the linear probability model's validity checked (out-of-[0,1] predicted probabilities)?": {
+   "fork": "how is the linear probability model's validity checked (out-of-[0,1] predicted probabilities)?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both options are identical wording variants of the same validity check.",
+   "groups": [
+    {
+     "action": "check LPM predicted probabilities for out-of-[0,1] values",
+     "options": [
+      "check the linear probability model for out-of-[0,1] predicted probabilities",
+      "check LPM predicted probabilities for out-of-[0,1] values"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the p-value / test statistic derived from the estimate and its standard error?": {
+   "fork": "how is the p-value / test statistic derived from the estimate and its standard error?",
+   "n_options": 3,
+   "n_runs": 5,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All are normal-approximation Wald tests; they differ only in the SE source (bootstrap vs sandwich).",
+   "groups": [
+    {
+     "action": "Wald/z-test using a bootstrap-derived standard error",
+     "options": [
+      "normal/Wald bootstrap p-value from bootstrap standard error",
+      "z-test using the point estimate over a bootstrap-derived standard error"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "Wald z-test using cluster-robust (sandwich) SEs",
+     "options": [
+      "normal-approximation Wald z-test using cluster-robust (sandwich) SEs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the reported evidence selected and framed in the write-up?": {
+   "fork": "how is the reported evidence selected and framed in the write-up?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both describe cherry-picking supporting evidence; option 1 just names the specific kept/excluded estimates.",
+   "groups": [
+    {
+     "action": "selectively curate a supporting subset of estimates, excluding contrary/continuous-exposure results",
+     "options": [
+      "frame as supporting via selective evidentiary bullet points",
+      "curate 3 specific estimates (primary RD, referee-clustered RD, odds ratio), excluding continuous-exposure result"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the risk difference re-expressed for reporting?": {
+   "fork": "how is the risk difference re-expressed for reporting?",
+   "n_options": 2,
+   "n_runs": 9,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 1 adds number-needed-to-expose on top of the relative-% increase, so it reports strictly more than option 0.",
+   "groups": [
+    {
+     "action": "re-express RD as a relative percent increase over baseline",
+     "options": [
+      "re-express RD as a relative percent increase over baseline"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "re-express RD as relative-% increase plus number-needed-to-expose",
+     "options": [
+      "translate risk difference into relative-% increase plus number-needed-to-expose"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the skin-tone exposure entered — continuous or dichotomized at a cutpoint?": {
+   "fork": "how is the skin-tone exposure entered — continuous or dichotomized at a cutpoint?",
+   "n_options": 11,
+   "n_runs": 120,
+   "n_actions": 7,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "6 and 8 bundle unrelated decisions (model, covariates) but answer continuous here; cutpoint values distinguish the dichotomization variants.",
+   "groups": [
+    {
+     "action": "enter as continuous score, no dichotomization",
+     "options": [
+      "continuous score, no binarization",
+      "continuous skin-tone exposure (linear/continuous form)",
+      "logistic, continuous skintone_avg + position + games, referee-clustered SE",
+      "keep full skin-tone range, dropping only rows with missing position",
+      "code rating as a continuous linear predictor"
+     ],
+     "runs": 113,
+     "parameter_only": false
+    },
+    {
+     "action": "median split of the continuous score",
+     "options": [
+      "median split of the continuous score"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "dichotomize at a 0.5 cutpoint",
+     "options": [
+      "dichotomize the primary skin-tone exposure at a 0.5 cutpoint"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "dichotomize at a 0.25 cutoff",
+     "options": [
+      "use 0.25 dark-skin cutoff and drop position control"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep three discrete cutoffs 0.375/0.5/0.625",
+     "options": [
+      "refit adjusted model across cutoffs 0.375 / 0.5 / 0.625"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "continuous sweep of cutpoint over 0.125-0.75",
+     "options": [
+      "continuous sweep over range 0.125-0.75"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme two-sided cutoffs (<=0.125/>=0.750) dropping the middle",
+     "options": [
+      "two-sided extreme cutoffs (<=0.125 / >=0.750) dropping the middle"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the skin-tone rating defined as the exposure contrast whose effect is estimated?": {
+   "fork": "how is the skin-tone rating defined as the exposure contrast whose effect is estimated?",
+   "n_options": 17,
+   "n_runs": 49,
+   "n_actions": 15,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Many options are the same binning/extreme-groups scheme differing only in threshold values, which change the estimated contrast.",
+   "groups": [
+    {
+     "action": "binary light vs dark, threshold unspecified",
+     "options": [
+      "binary light vs dark, threshold unspecified"
+     ],
+     "runs": 20,
+     "parameter_only": false
+    },
+    {
+     "action": "three-category bin light/medium/dark at 0.25/0.75",
+     "options": [
+      "bin into light/medium/dark at 0.25/0.75 cutpoints"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "three-category bin light/medium/dark at 0.375/0.625",
+     "options": [
+      "bin into light/medium/dark at 0.375/0.625 cutpoints"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "three-category bin light/medium/dark at 0.25/0.5",
+     "options": [
+      "bin into light/medium/dark at 0.25/0.5 cutpoints"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme cutoffs <=0.25/>=0.75, drop middle, refit adjusted model on restricted sample",
+     "options": [
+      "extreme cutoffs 0.25/0.75, drop middle group, refit adjusted model",
+      "redefine exposure at extreme cutoffs (<=0.25/>=0.75) and refit adjusted model on restricted sample"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme groups light=0 vs dark>=0.75, drop middle",
+     "options": [
+      "extreme-groups light=0 vs dark>=0.75, drop middle"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "extreme groups light=0 vs dark>=0.5, drop middle",
+     "options": [
+      "extreme-groups light=0 vs dark>=0.5, drop middle"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "continuous exposure over full 0-to-1 range (full sample)",
+     "options": [
+      "report contrast over full 0-to-1 range (skinTone=1 vs 0)",
+      "keep full sample (not just extremes) for continuous-exposure check"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "report 75th vs 25th percentile (IQR) contrast on continuous scale",
+     "options": [
+      "report 75th vs 25th percentile (empirical IQR) contrast"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "dichotomize top vs bottom quartile, discard middle",
+     "options": [
+      "dichotomize top vs bottom quartile, discard middle"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "risk difference for a ±0.5 SD contrast",
+     "options": [
+      "report risk difference for a ±0.5 SD contrast"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "fixed reference values 0.75 vs 0.125",
+     "options": [
+      "use fixed reference values 0.75 vs 0.125"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "fixed reference values 0.875 vs 0.125",
+     "options": [
+      "rescale to a dark-vs-light contrast (0.875/0.125)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "data-driven terciles, top vs bottom third, drop middle third",
+     "options": [
+      "extreme contrast via data-driven terciles (top vs bottom third), dropping middle third"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "merge Medium into Light (dark vs light+medium), keep full sample",
+     "options": [
+      "merge Medium into Light (keep full sample)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the specification-comparison summary populated?": {
+   "fork": "how is the specification-comparison summary populated?",
+   "n_options": 2,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Opposed approaches: one fabricates numbers, the other computes them from real per-spec results.",
+   "groups": [
+    {
+     "action": "hardcode fabricated numbers instead of computed per-spec results",
+     "options": [
+      "hardcode fabricated numbers in the specification-comparison panel instead of using actual computed per-spec results"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "assemble summary table from actual computed results across four sensitivity specs",
+     "options": [
+      "assemble summary table of risk_diff/OR/p-value across four sensitivity specs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the study's overall conclusion framed?": {
+   "fork": "how is the study's overall conclusion framed?",
+   "n_options": 2,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely distinct framings of the overall conclusion; no overlap.",
+   "groups": [
+    {
+     "action": "frame conclusion around cross-league heterogeneity",
+     "options": [
+      "frame conclusion around cross-league heterogeneity"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "headline 'not supported' while narrating sensitivity analyses as significant",
+     "options": [
+      "headline 'not supported' while narrating sensitivity analyses as significant"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is the verdict on hypothesis support decided and framed?": {
+   "fork": "how is the verdict on hypothesis support decided and framed?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely different verdict procedures: a bare declaration versus a rule-bundle with a suggestive fallback.",
+   "groups": [
+    {
+     "action": "declare SUPPORTED with no elaborated framing",
+     "options": [
+      "declare SUPPORTED with no elaborated framing"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "apply an ad hoc bundle of significance rules across estimands with a suggestive fallback",
+     "options": [
+      "ad hoc bundle of significance rules across estimands with a suggestive fallback"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how is uncertainty in the estimates quantified?": {
+   "fork": "how is uncertainty in the estimates quantified?",
+   "n_options": 6,
+   "n_runs": 6,
+   "n_actions": 6,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Nonparametric bootstraps (0,3,5) share method but differ by resample count; id 4 adds refit/skip, so kept separate.",
+   "groups": [
+    {
+     "action": "nonparametric bootstrap, 200 resamples",
+     "options": [
+      "nonparametric bootstrap with 200 resamples"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "nonparametric bootstrap, 500 resamples",
+     "options": [
+      "nonparametric bootstrap with 500 resamples"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "nonparametric bootstrap, 2000 resamples",
+     "options": [
+      "nonparametric bootstrap with 2000 resamples"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "nonparametric bootstrap, 1000 resamples, refit Poisson, skip non-converging",
+     "options": [
+      "nonparametric bootstrap, 1000 resamples, refit Poisson, skip non-converging"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "parametric bootstrap, 10,000 draws",
+     "options": [
+      "parametric bootstrap with 10,000 draws"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Bayesian 95% equal-tailed credible interval",
+     "options": [
+      "summarize posterior uncertainty as a 95% equal-tailed credible interval"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how many categories, and by what mapping, is player position collapsed into?": {
+   "fork": "how many categories, and by what mapping, is player position collapsed into?",
+   "n_options": 13,
+   "n_runs": 89,
+   "n_actions": 9,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Many options are underspecified on count/residual, so several 6-category variants stay separate on plausible mapping differences.",
+   "groups": [
+    {
+     "action": "collapse into 4 categories (GK/Def/Mid/Fwd), no residual",
+     "options": [
+      "four position buckets, no residual = 4 categories",
+      "collapse position into 4 categories (GK/Def/Mid/Fwd)"
+     ],
+     "runs": 29,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 5 categories = four core positions + a single catch-all",
+     "options": [
+      "four positions plus a single residual/catch-all bucket = 5 categories",
+      "collapse into five buckets (four core positions + catch-all) via keyword matching",
+      "collapse position into 5 categories"
+     ],
+     "runs": 40,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 6 categories = four core + separate Other/Unknown residuals",
+     "options": [
+      "collapse position into 6 categories (with Other/Unknown)"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 6 categories, underspecified (either adds Winger or Other+Unknown)",
+     "options": [
+      "six buckets, underspecified (either adds Winger or separate Other+Unknown)"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 6 categories, splitting midfield into defensive/attacking-winger",
+     "options": [
+      "six categories splitting midfielders into defensive/attacking-winger"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 7 categories including a separate Winger bucket",
+     "options": [
+      "seven categories including a separate Winger bucket"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "keep seven fixed positions + 'Other' = 8 categories",
+     "options": [
+      "keep a fixed list of seven positions, collapse the rest into 'Other'"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse into 3 categories",
+     "options": [
+      "collapse position into 3 categories"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "categorical factor with unspecified grouping/count",
+     "options": [
+      "unspecified small set of role buckets (count and residual not pinned down)",
+      "treat position as categorical factor with unspecified grouping"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how many positions are shown in the position-breakdown plot?": {
+   "fork": "how many positions are shown in the position-breakdown plot?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Same operation (top-N truncation) but different cutoff values (8 vs 10) change what the plot shows.",
+   "groups": [
+    {
+     "action": "limit to top 8 most common positions",
+     "options": [
+      "limit the position breakdown descriptive plot to the top 8 most common positions"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "limit to top 10 most frequent positions",
+     "options": [
+      "limit position breakdown plot to top 10 most frequent positions"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "how many rater×bias interaction terms enter the model as the final block?": {
+   "fork": "how many rater×bias interaction terms enter the model as the final block?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct actions: one vs. two interaction terms changes the model.",
+   "groups": [
+    {
+     "action": "add a single bias-by-rater interaction term as the final block",
+     "options": [
+      "add a single bias-by-rater interaction term as the final/third block"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "enter both bias-by-rater interaction terms together as the final block",
+     "options": [
+      "enter both bias-by-rater interaction terms together as the final block"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "into how many bins is skin tone grouped for descriptive rates?": {
+   "fork": "into how many bins is skin tone grouped for descriptive rates?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "9 vs 10 bins is a different bin count, which changes descriptive rates; distinct actions.",
+   "groups": [
+    {
+     "action": "bin skin tone into 9 groups",
+     "options": [
+      "bin skin tone into 9 groups"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "bin skin tone into 10 groups",
+     "options": [
+      "bin skin tone into 10 groups"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "is statistical significance assessed one-sided or two-sided?": {
+   "fork": "is statistical significance assessed one-sided or two-sided?",
+   "n_options": 5,
+   "n_runs": 7,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0/3 keep two-sided primary and add one-sided; 1/2 make one-sided the assessment; distinct in what significance the analysis reports.",
+   "groups": [
+    {
+     "action": "additionally report a one-sided p-value by halving the two-sided (supplement to the two-sided result)",
+     "options": [
+      "additionally report a one-sided p-value by halving the two-sided p-value",
+      "additionally report a one-sided p-value by halving the two-sided value"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "assess one-sided for the directional hypothesis (compute/halve to a one-sided p-value as the criterion)",
+     "options": [
+      "compute a one-sided p-value for the directional hypothesis",
+      "halve the two-sided p-value for a directional hypothesis"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "use a two-sided p < 0.05 cutoff",
+     "options": [
+      "use a two-sided p < 0.05 significance cutoff"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "is the adjusted analysis stratified by position subgroup, and at what granularity?": {
+   "fork": "is the adjusted analysis stratified by position subgroup, and at what granularity?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 1 adds 'broad' granularity; option 0 leaves granularity unspecified, not a conflicting value, so same action.",
+   "groups": [
+    {
+     "action": "stratify the adjusted analysis by position subgroup",
+     "options": [
+      "stratify the adjusted analysis within each position subgroup",
+      "stratify the adjusted model separately by broad position subgroup"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "on what scale is the focal exposure coefficient reported?": {
+   "fork": "on what scale is the focal exposure coefficient reported?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both options describe leaving the coefficient on the log-odds scale rather than exponentiating; one action.",
+   "groups": [
+    {
+     "action": "report the focal coefficient on the raw log-odds scale, no exponentiation to an odds ratio",
+     "options": [
+      "take the model's default CI for the darkSkin coefficient without exponentiating to an odds ratio",
+      "treat the raw log-odds regression coefficient as the focal effect, no scale transform"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what bootstrap resampling scheme is used to compute the confidence interval?": {
+   "fork": "what bootstrap resampling scheme is used to compute the confidence interval?",
+   "n_options": 9,
+   "n_runs": 38,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Sole distinction is resampling unit: dyad vs player. Resample counts (200/500/1000) and id5's convergence handling are inconsequential tuning.",
+   "groups": [
+    {
+     "action": "nonparametric bootstrap resampling at the dyad/observation level, refit, percentile CI",
+     "options": [
+      "nonparametric bootstrap resampling dyads/observations, refit, percentile CI",
+      "nonparametric bootstrap, 500 resamples, refit full logit, percentile CI",
+      "dyad-level bootstrap, 1000 resamples, relaxed convergence, discard failed",
+      "bootstrap resampling dyads, percentile CI"
+     ],
+     "runs": 23,
+     "parameter_only": false
+    },
+    {
+     "action": "cluster bootstrap resampling at the player level (preserving within-player clustering), refit, percentile CI",
+     "options": [
+      "nonparametric cluster bootstrap resampling players, refit, percentile CI",
+      "cluster bootstrap resampling players, percentile CI",
+      "resample at the player level (not dyad level) to preserve within-player clustering",
+      "cluster bootstrap over players, 1000 resamples, reconstructing dyads",
+      "player-level cluster bootstrap, 200 resamples, refit logistic with BFGS"
+     ],
+     "runs": 18,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what decision rule determines whether the effect counts as statistically supported?": {
+   "fork": "what decision rule determines whether the effect counts as statistically supported?",
+   "n_options": 8,
+   "n_runs": 23,
+   "n_actions": 8,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All eight are genuinely distinct decision rules (differing operation or cutoff); no duplicates despite overlapping p<0.05 uses.",
+   "groups": [
+    {
+     "action": "supported iff two-sided 95% CI excludes zero (no p-value)",
+     "options": [
+      "declare supported on two-sided 95% CI excluding zero, no p-value"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep across multiple alternative threshold definitions",
+     "options": [
+      "sweep across multiple alternative threshold definitions"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "uncorrected analytic p<0.05 threshold",
+     "options": [
+      "apply an uncorrected p<0.05 threshold without adjusting for multiple analyses/sensitivity comparisons run"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "supported if p<0.05 OR CI excludes zero (disjunction)",
+     "options": [
+      "declare supported if p<0.05 OR CI excludes zero (disjunction)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "supported only if bootstrap p<0.05",
+     "options": [
+      "declare hypothesis supported only if bootstrap p<0.05"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "four-tier verdict from multiple p and CI cutoffs",
+     "options": [
+      "four-tier SUPPORTED/BORDERLINE/SUGGESTIVE/NOT from multiple p and CI cutoffs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "p<0.10 significance threshold",
+     "options": [
+      "use p<0.10 instead of the conventional 0.05 significance threshold"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "verdict from p, direction, and near-null CI-lower threshold (-0.002)",
+     "options": [
+      "verdict from p, direction, and a near-null CI-lower threshold (-0.002)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what fixed reference date is used to compute player age?": {
+   "fork": "what fixed reference date is used to compute player age?",
+   "n_options": 11,
+   "n_runs": 44,
+   "n_actions": 11,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Each distinct reference date yields a different age; many options are underspecified; option 10 uses a non-fixed date.",
+   "groups": [
+    {
+     "action": "year-only subtraction, fixed 2012 reference year",
+     "options": [
+      "year-only subtraction, fixed 2012 reference year"
+     ],
+     "runs": 16,
+     "parameter_only": false
+    },
+    {
+     "action": "year-only subtraction, fixed 2013 reference year",
+     "options": [
+      "year-only subtraction, fixed 2013 reference year"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "year-only subtraction, unspecified year, ignoring parse failures",
+     "options": [
+      "year-only subtraction, unspecified year, ignoring parse failures"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at fixed 2012-07-01 (mid-2012)",
+     "options": [
+      "day-based age at fixed 2012-07-01 (mid-2012) reference date"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at fixed 2013-01-01",
+     "options": [
+      "day-based age at fixed 2013-01-01 reference date"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at fixed 2012-08-01 (season-start)",
+     "options": [
+      "day-based age at fixed 2012-08-01 (season-start) reference date"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at fixed 2012-10-01 (season-midpoint)",
+     "options": [
+      "day-based age at fixed 2012-10-01 (season-midpoint) reference date"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at unspecified fixed mid-season date",
+     "options": [
+      "day-based age at an unspecified fixed mid-season reference date"
+     ],
+     "runs": 4,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at unspecified fixed end-of-season date",
+     "options": [
+      "day-based age at an unspecified fixed end-of-season reference date"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "day-based age at unspecified single fixed reference date",
+     "options": [
+      "day-based age at an unspecified single fixed reference date"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "compute age as of the script's run date",
+     "options": [
+      "compute age as of the script's run date"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what is the unit of analysis / row granularity of the analytic table?": {
+   "fork": "what is the unit of analysis / row granularity of the analytic table?",
+   "n_options": 3,
+   "n_runs": 9,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Three genuinely different granularities; the unit of analysis is the substantive choice, not a parameter sweep.",
+   "groups": [
+    {
+     "action": "aggregate to one row per player",
+     "options": [
+      "aggregate to one row per player (sum counts, keep/average attributes)"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse to one row per referee",
+     "options": [
+      "collapse to one row per referee"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "collapse to one row per referee country",
+     "options": [
+      "collapse to one row per referee country"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what minimum data volume must a sample have before its estimate is kept?": {
+   "fork": "what minimum data volume must a sample have before its estimate is kept?",
+   "n_options": 2,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 0 adds a red-card-count threshold; option 1 uses dyad count alone, so they exclude different samples.",
+   "groups": [
+    {
+     "action": "discard if fewer than 1000 dyads AND fewer than 10 red-card events (dual threshold)",
+     "options": [
+      "discard if fewer than 1000 dyads OR fewer than 10 red-card events"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "discard if fewer than 1000 dyads only (single threshold)",
+     "options": [
+      "discard if fewer than 1000 dyads/rows"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what minimum number of shared games per dyad is required for inclusion?": {
+   "fork": "what minimum number of shared games per dyad is required for inclusion?",
+   "n_options": 10,
+   "n_runs": 30,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Different cutpoints (2/3/5) are distinct actions; id 6 sweeps all, id 9 imposes no minimum.",
+   "groups": [
+    {
+     "action": "require at least 2 games per dyad",
+     "options": [
+      "restrict to dyads with ≥2 games together",
+      "require at least 2 games per dyad",
+      "exclude dyads with fewer than 2 games together",
+      "restrict to dyads with at least 2 games"
+     ],
+     "runs": 19,
+     "parameter_only": false
+    },
+    {
+     "action": "require at least 3 games per dyad",
+     "options": [
+      "require at least 3 games per dyad",
+      "restrict to dyads with at least 3 games together"
+     ],
+     "runs": 12,
+     "parameter_only": false
+    },
+    {
+     "action": "require at least 5 games per dyad",
+     "options": [
+      "restrict to dyads with ≥5 games together",
+      "require at least 5 games per dyad"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "sweep across thresholds (2,3,4,5)",
+     "options": [
+      "re-derive estimates across a sweep of minimum-games thresholds (2,3,4,5)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "drop the games-played exclusion entirely (no minimum)",
+     "options": [
+      "drop the games-played exclusion entirely"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what outcome model (distribution and link) is used for the primary analysis?": {
+   "fork": "what outcome model (distribution and link) is used for the primary analysis?",
+   "n_options": 5,
+   "n_runs": 6,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options 0/2/4 share the binomial family but differ by link (logit/probit/identity); 1 is Poisson, 3 is a nonparametric Bayesian model.",
+   "groups": [
+    {
+     "action": "binomial with logit link (red cards out of games)",
+     "options": [
+      "model outcome as binomial red cards out of games (binomial_logit / trial counts)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson rate model, convert rates to probabilities via 1-exp(-rate*games) then difference",
+     "options": [
+      "derive risk difference from a Poisson rate model, converting rates to probabilities via 1-exp(-rate*games) before differencing"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binomial with probit link",
+     "options": [
+      "model cards as binomial draws out of games played with a probit link"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Bayesian Dirichlet-process profile regression (binomial likelihood)",
+     "options": [
+      "fit Bayesian Dirichlet-process profile regression (binomial redCards/games) on red-card subset"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binomial with identity link (risk-difference GLM, games-weighted, HC1 SE)",
+     "options": [
+      "identity-link binomial GLM (risk difference), games-weighted, HC1 SE"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what overall conclusion is drawn about the hypothesis?": {
+   "fork": "what overall conclusion is drawn about the hypothesis?",
+   "n_options": 2,
+   "n_runs": 8,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Both conclude 'supported,' but option 1 rests on marginal significance with an explicit caveat, unlike the robust claim in 0.",
+   "groups": [
+    {
+     "action": "declare hypothesis supported (significant/robust)",
+     "options": [
+      "declare hypothesis supported (significant/robust)"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "treat marginal dyad-level p=0.037 as support despite player-level non-significance",
+     "options": [
+      "treat dyad-level p=0.037 as supporting the hypothesis despite non-significance at the player level"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what regression specification estimates the adjusted exposure–red-card association?": {
+   "fork": "what regression specification estimates the adjusted exposure–red-card association?",
+   "n_options": 4,
+   "n_runs": 5,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Option 3's percentage-point Wald CI implies a linear probability model, same specification as 0; its 'unfiltered sample' detail is a separate sample decision.",
+   "groups": [
+    {
+     "action": "linear probability model (OLS on binary any_red, percentage-point Wald CI)",
+     "options": [
+      "linear probability model (OLS on binary any_red)",
+      "primary model on full unfiltered sample, pct-point Wald CI"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic regression with very_dark exposure and standardized covariates",
+     "options": [
+      "logistic, very_dark exposure + standardized covariates incl meanIAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "mixed-effects random-intercept logistic regression (subject-specific estimand)",
+     "options": [
+      "mixed-effects random-intercept logistic regression (subject-specific estimand)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what rule determines whether the hypothesis is declared supported?": {
+   "fork": "what rule determines whether the hypothesis is declared supported?",
+   "n_options": 11,
+   "n_runs": 99,
+   "n_actions": 10,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Options 3 and 5 are degenerate always-SUPPORTED rules; the rest differ genuinely in inputs/thresholds/output cardinality.",
+   "groups": [
+    {
+     "action": "require p<0.05 AND CI excludes the null",
+     "options": [
+      "require p<0.05 AND CI excludes the null (any CI variant: RD/bootstrap/OR>1)"
+     ],
+     "runs": 32,
+     "parameter_only": false
+    },
+    {
+     "action": "require p<0.05 AND effect in hypothesized direction (binary)",
+     "options": [
+      "require p<0.05 AND effect in hypothesized direction (binary)"
+     ],
+     "runs": 24,
+     "parameter_only": false
+    },
+    {
+     "action": "declare supported on bare p<0.05 alone",
+     "options": [
+      "declare supported on bare p<0.05 alone"
+     ],
+     "runs": 24,
+     "parameter_only": false
+    },
+    {
+     "action": "hardcoded SUPPORTED verdict regardless of computed significance",
+     "options": [
+      "state no rule; report a fixed SUPPORTED label",
+      "declare SUPPORTED as a hardcoded verdict regardless of computed significance"
+     ],
+     "runs": 9,
+     "parameter_only": false
+    },
+    {
+     "action": "require p<0.05 AND direction AND CI lower bound",
+     "options": [
+      "require p<0.05 AND direction AND CI lower bound"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "three-tier verdict from dual p<0.05/p<0.10 cutoffs plus CI check",
+     "options": [
+      "three-tier verdict from dual p<0.05 and p<0.10 cutoffs plus a CI check"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "require both RD and OR p-values under 0.05",
+     "options": [
+      "require both RD and OR p-values under 0.05"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "four-category classification via p<0.05 + sign",
+     "options": [
+      "four-category classification (SUPPORTED/CONTRADICTORY/INCONCLUSIVE/NOT) via p<0.05 + sign"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "three-way verdict from bootstrap CI direction",
+     "options": [
+      "three-way supported/not/contradictory from bootstrap CI direction"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "three-way verdict from OR p-value plus RD direction",
+     "options": [
+      "three-way supported/inconclusive/contradictory from OR p-value plus RD direction"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what secondary/sensitivity logistic regression is fit alongside the primary model?": {
+   "fork": "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+   "n_options": 4,
+   "n_runs": 12,
+   "n_actions": 1,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All four describe the same logistic sensitivity model, same covariates, OR reporting; wording only differs.",
+   "groups": [
+    {
+     "action": "fit a secondary logistic regression with the same covariates, reported as an odds ratio",
+     "options": [
+      "fit a secondary/robustness logistic regression model on the same covariate specification, reported as an odds ratio",
+      "fit a secondary logistic regression with the same covariates and report the exponentiated coefficient as an odds ratio",
+      "fit a secondary sensitivity logistic regression mirroring primary covariates",
+      "secondary model: logistic regression in place of the LPM, same covariates/clustering"
+     ],
+     "runs": 12,
+     "parameter_only": false
+    }
+   ]
+  },
+  "what statistical model specification estimates the adjusted skin-tone effect on red cards?": {
+   "fork": "what statistical model specification estimates the adjusted skin-tone effect on red cards?",
+   "n_options": 15,
+   "n_runs": 65,
+   "n_actions": 12,
+   "param_only": 0,
+   "misfiled": 1,
+   "note": "Option 10 is a prejudice-moderation model (IAT/exp interactions), not the adjusted main effect; 0 (57 runs) is exposure handling; SE-type variants split.",
+   "groups": [
+    {
+     "action": "log-transform games as covariate (no offset), zero handling unspecified",
+     "options": [
+      "log-transform games, no offset / zero handling unspecified"
+     ],
+     "runs": 57,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic regression, continuous skin tone, full/fixed-effects adjustment, default SEs",
+     "options": [
+      "logit cascade of cards on rateravg through fixed effects",
+      "logistic, continuous skin tone, full adjustment incl referee bias"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic, continuous skin tone, full adjustment, HC1 robust SEs",
+     "options": [
+      "logistic, continuous skin tone + full set, HC1 robust SE"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "referee fixed-effects logistic with clustered SEs",
+     "options": [
+      "fit referee fixed-effects model of red cards with clustered SEs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "three-level categorical skin tone with Light as reference",
+     "options": [
+      "fit three-level categorical skin-tone model with Light as the reference category"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "categorical/nonlinear rater1 cascade through referee fixed effects",
+     "options": [
+      "categorical/nonlinear rater1 cascade through referee fixed effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "random slope letting skin-tone effect vary by referee",
+     "options": [
+      "random slope letting the skin-tone effect vary by referee",
+      "specify referee-style plus skin-tone-specific bias-slope model structure"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "binomial mixed model with crossed referee/player random intercepts",
+     "options": [
+      "binomial mixed model on main effects with crossed referee/player intercepts"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binomial hierarchical model with player-style and skin-tone random effects",
+     "options": [
+      "specify the Q1 binomial hierarchical model with player-style and skin-tone random effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "random intercept only, skin tone as fixed effect (no slope/interaction)",
+     "options": [
+      "random intercept only, skin tone as fixed effect (no slope, no interaction)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "mixed-effects logistic cascade with random slopes by referee and country (gm3 preferred)",
+     "options": [
+      "fit mixed-effects logistic cascade (intercept, fixed slope, random slope by referee, random slope by country), taking gm3 as preferred"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson mixed-effects model with games offset",
+     "options": [
+      "Poisson mixed-effects model with games offset"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which covariate / right-hand-side specification does the model use?": {
+   "fork": "which covariate / right-hand-side specification does the model use?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct specifications: one defines four alternative RHS sets, the other blocks controls first.",
+   "groups": [
+    {
+     "action": "define four alternative RHS specs (rater dummies ± player controls, club FE)",
+     "options": [
+      "define four alternative RHS specs (rater dummies ± player controls, club FE)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "enter player/position controls together as the first predictor block",
+     "options": [
+      "enter player/position controls together as the first predictor block"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which covariates does the primary model adjust for (if any)?": {
+   "fork": "which covariates does the primary model adjust for (if any)?",
+   "n_options": 7,
+   "n_runs": 15,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Most options are 'no adjustment'; option 2 differs by player-clustering, and 5 vs 6 name different covariate sets.",
+   "groups": [
+    {
+     "action": "unadjusted single-predictor logistic regression, no covariates (crude OR)",
+     "options": [
+      "unadjusted logistic regression on skin-tone alone yielding crude OR",
+      "fit an unadjusted single-predictor logistic regression (odds ratio)",
+      "refit primary model with no covariates (bivariate model)",
+      "unadjusted: darkSkin alone, no covariates"
+     ],
+     "runs": 11,
+     "parameter_only": false
+    },
+    {
+     "action": "unadjusted logistic regression, clustered by player",
+     "options": [
+      "unadjusted logistic regression, clustered by player"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "adjusted with expanded physical/style covariate set",
+     "options": [
+      "adjusted logistic regression, expanded covariate set (physical/style covariates added)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "adjusted for position-group and league country",
+     "options": [
+      "add position-group and league country as covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which covariates make up the model's adjustment set?": {
+   "fork": "which covariates make up the model's adjustment set?",
+   "n_options": 63,
+   "n_runs": 127,
+   "n_actions": 51,
+   "param_only": 2,
+   "misfiled": 0,
+   "note": "Highly fragmented; games transformation (raw/log/spline/quadratic) and position coding treated as result-changing; add/drop-a-covariate options flagged parameter_only.",
+   "groups": [
+    {
+     "action": "log(games) + position + league",
+     "options": [
+      "logistic, dark_skin + log_games + position + league",
+      "log(games) + position + league only"
+     ],
+     "runs": 30,
+     "parameter_only": false
+    },
+    {
+     "action": "raw games + position + league",
+     "options": [
+      "games + position + league only",
+      "dark_skin + raw (unlogged) games + position + league",
+      "add position and league to the minimal model"
+     ],
+     "runs": 11,
+     "parameter_only": false
+    },
+    {
+     "action": "games only (drop position/league)",
+     "options": [
+      "games only",
+      "refit adjusting for dark skin and games only, excluding position",
+      "minimally-adjusted sensitivity model: games only, drop position"
+     ],
+     "runs": 15,
+     "parameter_only": false
+    },
+    {
+     "action": "games + position",
+     "options": [
+      "games + position only",
+      "refit adding position alongside dark skin and games",
+      "fit the primary adjusted model with dark_skin, games, and position only"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games) only",
+     "options": [
+      "logistic, dark_skin + log_games only",
+      "adjust for log games only, dropping position and league"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "add one covariate to the primary model (variable varies)",
+     "options": [
+      "add a covariate to the primary model (variable varies)",
+      "add league country as covariate",
+      "add yellowCards as an extra covariate",
+      "add position category as covariate"
+     ],
+     "runs": 9,
+     "parameter_only": true
+    },
+    {
+     "action": "drop one covariate from the primary model (variable varies)",
+     "options": [
+      "drop a covariate from the primary model (variable varies)",
+      "remove the position covariate from the extreme-contrast model"
+     ],
+     "runs": 4,
+     "parameter_only": true
+    },
+    {
+     "action": "full standard column set: games, position, league, height, weight, player+referee ids",
+     "options": [
+      "select the standard full column set (games, position, league, height, weight, player & referee ids)"
+     ],
+     "runs": 21,
+     "parameter_only": false
+    },
+    {
+     "action": "games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league",
+     "options": [
+      "full set: games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league"
+     ],
+     "runs": 5,
+     "parameter_only": false
+    },
+    {
+     "action": "games, age, height, weight, position, league, meanIAT, meanExp",
+     "options": [
+      "games + age + height + weight + position + league + meanIAT + meanExp"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "unspecified/generic covariate set",
+     "options": [
+      "generic/unspecified covariate-set selection"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position, height, weight, yellowCards, league",
+     "options": [
+      "adjust position + log(games) + height + weight + yellow cards + league"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "position only",
+     "options": [
+      "position only"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, league, yellowCards",
+     "options": [
+      "games + position + league + yellowCards"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "raw games, position, league, height, weight",
+     "options": [
+      "logistic, dark_skin + games + position + league + height + weight"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "games, yellowCards, position, league, age (no anthropometrics)",
+     "options": [
+      "games + yellowCards + position + league + age (no anthropometrics)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, league, yellowCards, goals",
+     "options": [
+      "games + position + league + yellowCards + goals"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, league, yellowCards, meanIAT, meanExp, height, weight, age",
+     "options": [
+      "games + position + league + yellowCards + meanIAT + meanExp + height + weight + age"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, league, meanIAT",
+     "options": [
+      "games + position + league + meanIAT (no ht/wt)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games, yellowCards, position",
+     "options": [
+      "games + yellowCards + position"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "games, yellowCards, height, position, league",
+     "options": [
+      "games + yellowCards + height + position + league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games-as-spline, league, position",
+     "options": [
+      "games-as-spline + league + position"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games + games_sq, position (no league)",
+     "options": [
+      "logistic, dark_skin + games + games_sq + position, no league, player-clustered SE"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position_simple (no league)",
+     "options": [
+      "dichotomized skin + position_simple + log_games, no league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position, league, yellowCards (no games)",
+     "options": [
+      "adjust position + league + yellow cards"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "league, position, age, height, weight, yellowCards, goals (no games)",
+     "options": [
+      "logistic, league + position + age + height + weight + yellowCards + goals"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "raw games, position_simple (no league)",
+     "options": [
+      "dark_skin + raw games + position_simple, no league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position, league, games, yellowCards, goals, height, weight",
+     "options": [
+      "adjust position + league + games + yellowCards + goals + height + weight (family unspec)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position (no league)",
+     "options": [
+      "logistic, dark_skin + log(games) + position, no league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, wins, position dummies (first control block)",
+     "options": [
+      "enter games/wins/position dummies as the first control block"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, age, height, weight, yellowCards (no league)",
+     "options": [
+      "games + position + age + height + weight + yellowCards (no league)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position, league, player id (no height/weight)",
+     "options": [
+      "select a reduced/transformed set (log_games, position_cat, leagueCountry, playerShort; no height/weight)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position, league, meanIAT",
+     "options": [
+      "log(games) + position + league + meanIAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position, league, games, yellowCards, goals, height, weight, meanIAT",
+     "options": [
+      "position + league + games + yellowCards + goals + height + weight + meanIAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, age, position, league (no anthropometrics/yellow)",
+     "options": [
+      "games + age + position + league (no anthropometrics/yellow)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "raw games, position, league, yellowCards, height, weight",
+     "options": [
+      "logistic, dark_skin + raw games + position + league + yellowCards + height + weight"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, yellowCards, position, league, meanIAT, meanExp",
+     "options": [
+      "games + yellowCards + position + league + meanIAT + meanExp"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "add yellow cards to the extreme-contrast/referee-bias model",
+     "options": [
+      "add yellow cards to the extreme-contrast/referee-bias model"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position, league, yellowCards, height (no games)",
+     "options": [
+      "position + league + yellowCards + height"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "position, league, height, weight, standardized unlogged games",
+     "options": [
+      "adjust position + league + height + weight + standardized unlogged games"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, meanIAT, meanExp (referee-bias set)",
+     "options": [
+      "games + position + meanIAT + meanExp (referee-bias set)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "adjust for league, omit position",
+     "options": [
+      "adjust for league but omit position"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), position, league, yellowCards",
+     "options": [
+      "log(games) + position + league + yellowCards"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, yellowCards, age, height, weight, league, meanIAT, meanExp (no position)",
+     "options": [
+      "games + yellowCards + age + height + weight + league + meanIAT + meanExp"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), age, height, weight, league (no position/yellow)",
+     "options": [
+      "log(games) + age + height + weight + league (no position/yellow)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "yellowCards, height, weight, position, league, meanIAT, meanExp (no games)",
+     "options": [
+      "yellowCards + height + weight + position + league + meanIAT + meanExp (no games)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "log(games), anthropometrics, yellow-card RATE, position, league",
+     "options": [
+      "log(games) + anthropometrics + yellow-card RATE + position + league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, height, weight, age, yellowCards, goals, position, league",
+     "options": [
+      "games + height + weight + age + yellowCards + goals + position + league"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "league, position, games linear+quadratic, yellowCards, meanIAT",
+     "options": [
+      "league + position + games linear+quadratic + yellowCards + meanIAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, victories, defeats, age, height, weight, goals (no position/league)",
+     "options": [
+      "games + victories + defeats + age + height + weight + goals"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "games, position, league, height, weight, yellowCards, meanIAT",
+     "options": [
+      "games + position + league + height + weight + yellowCards + meanIAT"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which effect-size measure is used to express the exposure's effect on red cards?": {
+   "fork": "which effect-size measure is used to express the exposure's effect on red cards?",
+   "n_options": 11,
+   "n_runs": 175,
+   "n_actions": 9,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Unusually many distinct effect-size measures; several singletons differ by paired secondary measure or estimand source.",
+   "groups": [
+    {
+     "action": "exponentiate logistic coefficient to an odds ratio (with CI)",
+     "options": [
+      "exponentiate logistic coefficient to an odds ratio (with CI)",
+      "exponentiate the logistic coefficient/CI to an odds ratio"
+     ],
+     "runs": 168,
+     "parameter_only": false
+    },
+    {
+     "action": "risk difference (average marginal effect) as primary, odds ratio secondary",
+     "options": [
+      "designate risk difference (average marginal effect) as primary, odds ratio secondary"
+     ],
+     "runs": 12,
+     "parameter_only": false
+    },
+    {
+     "action": "crude risk difference plus relative risk/risk ratio",
+     "options": [
+      "compute crude risk difference plus relative risk/risk ratio"
+     ],
+     "runs": 7,
+     "parameter_only": false
+    },
+    {
+     "action": "crude risk difference plus odds ratio",
+     "options": [
+      "compute crude risk difference plus odds ratio"
+     ],
+     "runs": 6,
+     "parameter_only": false
+    },
+    {
+     "action": "use the LPM coefficient as the risk-difference measure (percentage points)",
+     "options": [
+      "rescale the linear-probability coefficient and CI from proportions to percentage points",
+      "designate the LPM coefficient itself as the primary risk-difference estimand"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "convert logistic coefficient to average marginal effect via p(1-p)",
+     "options": [
+      "convert the logistic coefficient to an average marginal effect via p(1-p)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "compute Cohen's h as an effect-size metric",
+     "options": [
+      "compute Cohen's h as an additional effect-size metric"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "extract AME via hardcoded parameter index with normal-approx CI",
+     "options": [
+      "extract AME via hardcoded parameter index, build normal-approx CI"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "convert coefficients to percentage points and odds ratios with normal-approx CIs",
+     "options": [
+      "convert coefficients to percentage points / odds ratios with normal-approximation CIs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?": {
+   "fork": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+   "n_options": 6,
+   "n_runs": 28,
+   "n_actions": 4,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "0/1/3 all report AME/RD (g-computation and extreme-contrast are just computation details, not different reported effects/scales).",
+   "groups": [
+    {
+     "action": "report the average marginal effect / risk difference as the primary effect (RD scale)",
+     "options": [
+      "average marginal effect / risk difference via g-computation (counterfactuals averaged over the full sample)",
+      "report the risk-difference / average marginal effect as the estimand",
+      "extract the average marginal effect of the extreme dark-skin exposure contrast"
+     ],
+     "runs": 25,
+     "parameter_only": false
+    },
+    {
+     "action": "report both the average marginal effect and the odds ratio",
+     "options": [
+      "report both the average marginal effect and the odds ratio"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "report the raw dark-skin coefficient (log-odds scale) with SE/p/CI as primary",
+     "options": [
+      "extract the dark-skin coefficient, clustered SE, p-value, and CI as the primary reported effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "exponentiate logit-scale effects to odds ratios as primary",
+     "options": [
+      "exponentiate logit-scale posterior effects to odds ratios (2 decimals)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which moderation model specification is estimated?": {
+   "fork": "which moderation model specification is estimated?",
+   "n_options": 3,
+   "n_runs": 1,
+   "n_actions": 3,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All three differ: 0 codes individual tone categorically and adds club-average; 1 is individual-only; 2 is both continuous.",
+   "groups": [
+    {
+     "action": "moderation with categorical individual tone plus continuous club-average tone (bookings outcome)",
+     "options": [
+      "moderation of categorical tone + continuous club-average tone, on bookings outcome"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "moderation of continuous individual skin-tone effect only",
+     "options": [
+      "moderation of continuous individual skin-tone effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "moderation of both continuous individual and continuous club-average tone",
+     "options": [
+      "moderation of both continuous individual and club-average tone"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which referee-bias measures are included in the adjustment model?": {
+   "fork": "which referee-bias measures are included in the adjustment model?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two distinct specifications: one omits implicit bias, the other keeps both bias measures.",
+   "groups": [
+    {
+     "action": "drop the implicit bias (meanIAT) covariate, recompute standardized RD",
+     "options": [
+      "drop referee implicit bias (meanIAT) covariate and recompute standardized RD"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "full adjustment including both implicit and explicit bias scores",
+     "options": [
+      "full adjustment incl both implicit and explicit bias scores"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which regression model / outcome family is used to estimate the effect?": {
+   "fork": "which regression model / outcome family is used to estimate the effect?",
+   "n_options": 13,
+   "n_runs": 31,
+   "n_actions": 8,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Binary-outcome families (logit/probit/LPM) vs count-outcome families (Poisson/OLS); Poisson split by offset, LPM split by adjustment.",
+   "groups": [
+    {
+     "action": "logistic regression on the binary red-card indicator",
+     "options": [
+      "logistic (logit-link) regression on the binary red-card indicator",
+      "logistic regression for the binary outcome",
+      "bare logistic family, adjustment unspecified",
+      "logistic regression primary (clustering unspecified)",
+      "use logistic regression as the outcome model family"
+     ],
+     "runs": 23,
+     "parameter_only": false
+    },
+    {
+     "action": "probit regression on the binary red-card indicator",
+     "options": [
+      "probit regression on the binary red-card indicator"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson regression of red-card counts with no offset",
+     "options": [
+      "Poisson regression of red-card counts with no offset"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson GLM with log(games) offset",
+     "options": [
+      "Poisson GLM with log(games) offset, no covariates"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "unadjusted linear probability model, player-clustered SE",
+     "options": [
+      "unadjusted LPM, player-clustered SE",
+      "unadjusted linear probability model, clustered by player"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "linear probability model with referee-bias covariates",
+     "options": [
+      "LPM with referee-bias covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "OLS regression on total red-card counts",
+     "options": [
+      "OLS multiple regression on total red cards"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "mixed model, random intercept + fixed-effect covariates",
+     "options": [
+      "mixed model, random intercept + fixed-effect covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which regression model is fit to relate exposure to red cards?": {
+   "fork": "which regression model is fit to relate exposure to red cards?",
+   "n_options": 2,
+   "n_runs": 2,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Two genuinely distinct model families: Poisson count model vs. OLS linear probability model.",
+   "groups": [
+    {
+     "action": "refit as a Poisson model (exposure re-derived at 0.5 cutpoint)",
+     "options": [
+      "re-derive exposure at 0.5 cutpoint and refit as a Poisson model"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "OLS linear probability model with referee-clustered SEs and normal-approx CI",
+     "options": [
+      "OLS LPM, referee-clustered SE, normal-approx CI"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which regression model, estimator, and standard-error scheme estimates the skin-tone effect on red cards?": {
+   "fork": "which regression model, estimator, and standard-error scheme estimates the skin-tone effect on red cards?",
+   "n_options": 10,
+   "n_runs": 17,
+   "n_actions": 8,
+   "param_only": 0,
+   "misfiled": 1,
+   "note": "Option 6 (Poisson GLMM) excludes skin tone entirely, so it estimates no skin-tone effect; the rest are near-all distinct specs.",
+   "groups": [
+    {
+     "action": "adjusted linear probability model (OLS) with player-clustered SEs",
+     "options": [
+      "adjusted OLS linear probability model, player/clustered SE",
+      "adjusted linear probability model with player-clustered SEs (nested covariate tiers)"
+     ],
+     "runs": 8,
+     "parameter_only": false
+    },
+    {
+     "action": "linear probability model (continuous exposure) with HC1 robust SEs",
+     "options": [
+      "continuous exposure fit via OLS with HC1 robust standard errors"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "linear probability model with HC3 robust SEs",
+     "options": [
+      "adjusted linear probability model with HC3 robust SEs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "adjusted logistic regression, covariates games+position+league",
+     "options": [
+      "adjusted logistic regression, standard covariate set (games + position + league)"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "adjusted logistic on continuous skin-tone, log_games+position+league, unclustered",
+     "options": [
+      "adjusted logistic on continuous skin-tone, adjust log_games+position+league, no clustering"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic on binary dark_skin, full referee-bias covariate set (log_games/height/weight/yellow-rate/position/league)",
+     "options": [
+      "logistic, dark_skin + full set incl referee bias (log_games/height/weight/yellow-rate/position/league)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson with log(games) offset plus height/weight/league/position/meanIAT/meanExp",
+     "options": [
+      "Poisson with log(games) offset + height, weight, league, position, meanIAT, meanExp"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "additive risk-difference model with age+height+weight controls",
+     "options": [
+      "risk-difference model adding age + height + weight controls"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which regression model/estimator is fit to the clustered binary outcome?": {
+   "fork": "which regression model/estimator is fit to the clustered binary outcome?",
+   "n_options": 3,
+   "n_runs": 3,
+   "n_actions": 2,
+   "param_only": 0,
+   "misfiled": 1,
+   "note": "Option 2 describes assembling a design matrix/outcome vector, not choosing a model or estimator.",
+   "groups": [
+    {
+     "action": "GEE logistic regression with exchangeable correlation (population-averaged)",
+     "options": [
+      "GEE logistic with exchangeable correlation (population-averaged estimand)"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "binomial mixed model with skintone × moderator interaction",
+     "options": [
+      "binomial mixed model with skintone × moderator interaction"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which regression model/estimator specifies the primary confound-adjusted effect?": {
+   "fork": "which regression model/estimator specifies the primary confound-adjusted effect?",
+   "n_options": 13,
+   "n_runs": 21,
+   "n_actions": 11,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "Many options are OLS/logistic variants split only by SE type; 8/9 read like mixed-model components more than primary estimators.",
+   "groups": [
+    {
+     "action": "linear probability model (OLS) with cluster-robust SEs",
+     "options": [
+      "linear probability model (OLS), player-clustered SEs",
+      "use a linear probability model with clustered standard errors as the primary/risk-difference estimator"
+     ],
+     "runs": 10,
+     "parameter_only": false
+    },
+    {
+     "action": "linear probability model (OLS) with HC3 robust SEs",
+     "options": [
+      "linear probability model with HC3 robust SE",
+      "linear probability model (OLS), HC3 robust SEs"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson GLM with HC0 robust SE",
+     "options": [
+      "Poisson GLM, HC0 robust SE"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic/binomial GEE with exchangeable within-player correlation",
+     "options": [
+      "logistic/binomial GEE with exchangeable within-player correlation"
+     ],
+     "runs": 3,
+     "parameter_only": false
+    },
+    {
+     "action": "cluster-robust logistic (LPM as secondary check)",
+     "options": [
+      "cluster-robust logistic (cluster level unspecified), LPM as secondary check"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "logistic with HC1 robust SE and fixed iteration cap",
+     "options": [
+      "logistic, HC1 robust SE with fixed iteration cap"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "linear OLS cascade with referee fixed effects",
+     "options": [
+      "linear OLS cascade of cards on rateravg through referee fixed effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "player random intercept with hyperprior-estimated mean and precision",
+     "options": [
+      "player random intercept with hyperprior-estimated mean and precision"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "referee random intercept, zero mean, estimated precision",
+     "options": [
+      "referee random intercept fixed at zero mean with estimated precision"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "g-computation risk difference, games-exposure fixed at one game",
+     "options": [
+      "g-computation risk difference, games-exposure fixed at one game"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "regress ratio on meanExp, weighted by inverse standard error",
+     "options": [
+      "regress ratio on meanExp, weighted by inverse standard error"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  },
+  "which statistical model family is used for the outcome instead of plain logistic?": {
+   "fork": "which statistical model family is used for the outcome instead of plain logistic?",
+   "n_options": 6,
+   "n_runs": 6,
+   "n_actions": 5,
+   "param_only": 0,
+   "misfiled": 0,
+   "note": "All Poisson variants share the family; they split on added clustered SEs (0) vs covariates (3) vs plain (1,2).",
+   "groups": [
+    {
+     "action": "Poisson rate model with log(games) offset (plain)",
+     "options": [
+      "poisson model of dark-skin cards on bias, offset by dark-skin games",
+      "swap outcome model to Poisson rate model with log-games offset"
+     ],
+     "runs": 2,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson GLM with log(games) offset and referee-clustered SEs",
+     "options": [
+      "Poisson GLM on counts with log(games) offset, referee-clustered SEs"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "Poisson GLM with log(games) offset plus position/league covariates",
+     "options": [
+      "Poisson GLM with log(games) offset plus position/league covariates"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "linear-probability (OLS) model with HC3 robust errors",
+     "options": [
+      "linear-probability model with HC3 errors, adjust for games+position, percentage-point effect"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    },
+    {
+     "action": "hierarchical model with random effects for position and league/country dyad",
+     "options": [
+      "give player position and league/country dyad their own non-centered random effects"
+     ],
+     "runs": 1,
+     "parameter_only": false
+    }
+   ]
+  }
+ }
+}

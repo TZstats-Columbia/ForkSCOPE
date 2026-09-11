@@ -1,0 +1,478 @@
+{
+ "n_lines": 138,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "note": "commented-out install.packages call"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     2,
+     3
+    ]
+   ],
+   "note": "load lme4 library"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     4,
+     5
+    ]
+   ],
+   "note": "section header for data loading/transformation"
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "operation": "pick the raw crowdstorming CSV as the data source, read in as-is with UTF-8 encoding",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     7,
+     7
+    ],
+    [
+     30,
+     31
+    ],
+    [
+     35,
+     35
+    ],
+    [
+     53,
+     53
+    ],
+    [
+     57,
+     57
+    ],
+    [
+     69,
+     69
+    ],
+    [
+     79,
+     79
+    ],
+    [
+     105,
+     105
+    ],
+    [
+     108,
+     108
+    ],
+    [
+     119,
+     119
+    ],
+    [
+     127,
+     127
+    ],
+    [
+     133,
+     133
+    ]
+   ],
+   "note": "blank spacer lines between code blocks"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     8,
+     22
+    ]
+   ],
+   "note": "loop building a lookup list of each player's rows, keyed by playerShort; pure data-structure setup"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     23,
+     29
+    ],
+    [
+     130,
+     130
+    ],
+    [
+     136,
+     136
+    ]
+   ],
+   "operation": "flag referee-countries whose implicit/explicit bias survey has too few respondents (SE above sd/5, or missing) and drop them when building the bias-interaction models",
+   "targets": [
+    "refCountry",
+    "seIAT",
+    "seExp",
+    "excludeImplicit",
+    "excludeExplicit"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    23,
+    24
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "header introducing the long-format transformation section"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "operation": "combine the two raters' scores into a single skin-tone rating by averaging them",
+   "targets": [
+    "rater1",
+    "rater2",
+    "rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     52
+    ]
+   ],
+   "operation": "expand each player-referee row into one row per game refereed, and allocate that dyad's total red/yellow-red cards to the first N games rather than a specific game",
+   "targets": [
+    "games",
+    "yellowReds",
+    "redCards",
+    "red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     54,
+     56
+    ]
+   ],
+   "note": "assign column names to the expanded matrix and coerce it to a data frame"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     68
+    ]
+   ],
+   "operation": "derive a per-player career goals total from the player list and merge it back in as a new column",
+   "targets": [
+    "goals",
+    "games",
+    "players"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     78
+    ]
+   ],
+   "operation": "collapse left/right variants of winger, fullback and midfielder into a single side-agnostic position category",
+   "targets": [
+    "position",
+    "position.short"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     80,
+     86
+    ]
+   ],
+   "note": "coerce selected columns to factor or numeric type so the model can use them"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     87,
+     94
+    ]
+   ],
+   "operation": "compute player age as of the script's run date from birthdate and z-standardize it at creation; also z-standardize height, weight and goals in the modeling frame",
+   "targets": [
+    "birthday",
+    "age",
+    "height",
+    "weight",
+    "goals"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     95,
+     100
+    ]
+   ],
+   "operation": "mean-center the implicit and explicit bias scores using the average over non-excluded referee-countries (the corresponding sd is computed but not applied)",
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "excludeImplicit",
+    "excludeExplicit"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     101,
+     104
+    ]
+   ],
+   "operation": "standardize the rating variable using the mean and sd of each player's first-listed rater-average rating",
+   "targets": [
+    "rating",
+    "players",
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     106,
+     107
+    ]
+   ],
+   "note": "section header for the modelling section"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     109,
+     110
+    ],
+    [
+     112,
+     113
+    ],
+    [
+     115,
+     116
+    ],
+    [
+     118,
+     118
+    ]
+   ],
+   "operation": "backward-eliminate predictors from the full mixed model via drop1, dropping goals then age across successive models",
+   "targets": [
+    "red",
+    "weight",
+    "height",
+    "rating",
+    "age",
+    "position.short",
+    "goals",
+    "refNum",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     111,
+     111
+    ],
+    [
+     114,
+     114
+    ],
+    [
+     117,
+     117
+    ]
+   ],
+   "operation": "restrict the exploratory model fits to complete cases only, via listwise deletion of any row with an NA",
+   "targets": [
+    "p"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    19
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "note": "header marking the start of the reported results"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     126
+    ]
+   ],
+   "operation": "fit the primary model of rating's effect on red cards on the full (unfiltered) sample, then report the effect as a percentage-point change with a Wald confidence interval",
+   "targets": [
+    "red",
+    "rating",
+    "weight",
+    "height",
+    "position.short"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     129
+    ],
+    [
+     131,
+     132
+    ]
+   ],
+   "operation": "add an implicit-bias (meanIAT) by rating interaction, fit only on countries with adequate implicit-bias data, and report the interaction as a percentage-point change with Wald CI",
+   "targets": [
+    "red",
+    "rating",
+    "meanIAT",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     134,
+     135
+    ],
+    [
+     137,
+     138
+    ]
+   ],
+   "operation": "add an explicit-bias (meanExp) by rating interaction, fit only on countries with adequate explicit-bias data, and report the interaction as a percentage-point change with Wald CI",
+   "targets": [
+    "red",
+    "rating",
+    "meanExp",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7
+   ]
+  }
+ ]
+}

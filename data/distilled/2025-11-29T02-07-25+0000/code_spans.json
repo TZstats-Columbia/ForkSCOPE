@@ -1,0 +1,704 @@
+{
+ "n_lines": 314,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     21
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     22,
+     25
+    ]
+   ],
+   "note": "suppress warnings and fix random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     32
+    ]
+   ],
+   "operation": "read the full player-referee dyad dataset from CSV as the analytic universe",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     37
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     41
+    ]
+   ],
+   "operation": "drop dyads missing either skin-tone rating before deriving the exposure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     42
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     43,
+     46
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into one continuous exposure variable",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     54
+    ],
+    [
+     244,
+     244
+    ]
+   ],
+   "operation": "binarize skin tone at a 0.25 cutoff into dark vs light skin, chosen explicitly to maximize the observed effect",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     57
+    ]
+   ],
+   "operation": "collapse red card counts into a single any-red-card binary outcome per dyad",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "operation": "fill missing height and weight values with the sample median",
+   "targets": [
+    "height",
+    "weight",
+    "height_imputed",
+    "weight_imputed"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     79
+    ]
+   ],
+   "operation": "regroup granular playing positions into four broad categories, bucketing anything unmapped as Other",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     80,
+     84
+    ]
+   ],
+   "operation": "drop goalkeepers from the modeling sample as a subgroup restriction",
+   "targets": [
+    "position_cat",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     91
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     92,
+     95
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     100,
+     106
+    ]
+   ],
+   "operation": "specify the primary outcome model as logistic regression of red-card occurrence on dark skin, adjusting for position, league, and games played",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "position_cat",
+    "leagueCountry",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     111
+    ]
+   ],
+   "operation": "report the darkSkin effect from the primary model on the odds-ratio scale with its Wald CI and p-value",
+   "targets": [
+    "model_primary",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     129
+    ],
+    [
+     231,
+     238
+    ]
+   ],
+   "operation": "convert the fitted model's coefficient into an absolute risk difference by predicting every observation under counterfactual dark-skin=1 and dark-skin=0 and differencing the averaged predictions",
+   "targets": [
+    "model_primary",
+    "model_probit",
+    "darkSkin",
+    "pred_dark",
+    "pred_light"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     130,
+     132
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     172
+    ]
+   ],
+   "operation": "derive the risk difference's sampling uncertainty via a numerical-gradient delta method, then build a two-sided 95% Wald interval and z-test around it",
+   "targets": [
+    "risk_diff",
+    "se_rd",
+    "ci_lower",
+    "ci_upper",
+    "pval_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     173,
+     177
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     178,
+     181
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     182,
+     188
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     189,
+     197
+    ]
+   ],
+   "operation": "re-estimate the model under two alternative dark-skin cutoffs (0.125 and 0.375) to probe sensitivity of the threshold choice",
+   "targets": [
+    "skinTone",
+    "dark_t12",
+    "dark_t25",
+    "dark_t37"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     198,
+     201
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     202,
+     210
+    ],
+    [
+     212,
+     220
+    ]
+   ],
+   "operation": "recompute the primary model's standard errors clustering first on referee, then on player, instead of treating dyads as independent",
+   "targets": [
+    "refNum",
+    "playerShort",
+    "model_cluster_ref",
+    "model_cluster_player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     211,
+     211
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     224
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     228
+    ]
+   ],
+   "operation": "re-estimate the exposure-outcome relationship with a probit link in place of logit",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "model_probit"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     229,
+     230
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     242
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     243,
+     243
+    ]
+   ],
+   "note": "copy dataframe before mutating it for the goalkeepers-included sensitivity check"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     245,
+     252
+    ]
+   ],
+   "operation": "refit the model on the full sample with goalkeepers reinstated to check sensitivity of their exclusion",
+   "targets": [
+    "df_work",
+    "df_all",
+    "model_all"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     256
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     257,
+     264
+    ]
+   ],
+   "operation": "restrict the sample to dyads with at least 3 games together and refit the model",
+   "targets": [
+    "games",
+    "df_g3",
+    "model_g3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     265,
+     269
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     270,
+     277
+    ]
+   ],
+   "operation": "refit the model separately within each league, dropping the league covariate, to check cross-league consistency",
+   "targets": [
+    "leagueCountry",
+    "df_league",
+    "model_league"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     278
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     279,
+     282
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     283,
+     291
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     292,
+     301
+    ]
+   ],
+   "operation": "frame the risk difference as the primary estimand and the odds ratio as the secondary one in the reported results",
+   "targets": [
+    "risk_diff",
+    "ci_lower",
+    "ci_upper",
+    "or_primary",
+    "ci_or"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     302,
+     309
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' and characterize the effect as statistically significant and robust across the sensitivity analyses",
+   "targets": [
+    "risk_diff",
+    "or_primary"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     310,
+     314
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

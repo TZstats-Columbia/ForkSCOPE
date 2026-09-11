@@ -1,0 +1,987 @@
+{
+ "H1": {
+  "verdict": "PASS",
+  "r2": {
+   "verdict": {
+    "lambda": 30,
+    "in_sample": 0.495,
+    "cv": 0.2972
+   },
+   "log_or": {
+    "lambda": 30,
+    "in_sample": 0.328,
+    "cv": 0.1144
+   },
+   "z": {
+    "lambda": 10,
+    "in_sample": 0.5817,
+    "cv": 0.3204
+   },
+   "ci_width": {
+    "lambda": 30,
+    "in_sample": 0.3132,
+    "cv": 0.0816
+   }
+  }
+ },
+ "H2": {
+  "verdict": "PASS",
+  "by_payout": {
+   "verdict": [
+    {
+     "player": "how are the regression model's standard errors estimated?",
+     "strength": 0.11167,
+     "null_mean": 0.01771,
+     "p": 0.0
+    },
+    {
+     "player": "which covariates does the primary model adjust for (if any)?",
+     "strength": 0.00889,
+     "null_mean": 0.00292,
+     "p": 0.0025
+    },
+    {
+     "player": "How is the middle (Medium) skin-tone category handled?",
+     "strength": 0.02482,
+     "null_mean": 0.00639,
+     "p": 0.0025
+    },
+    {
+     "player": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+     "strength": 0.04067,
+     "null_mean": 0.01577,
+     "p": 0.0175
+    },
+    {
+     "player": "How are dyads with a missing skin-tone rating handled?",
+     "strength": 0.0396,
+     "null_mean": 0.01525,
+     "p": 0.0375
+    },
+    {
+     "player": "how is complete-case/listwise deletion applied and over which variable set?",
+     "strength": 0.02722,
+     "null_mean": 0.0118,
+     "p": 0.0425
+    },
+    {
+     "player": "are goalkeepers included in or excluded from the analysis sample?",
+     "strength": 0.01542,
+     "null_mean": 0.00681,
+     "p": 0.0575
+    },
+    {
+     "player": "Is the adjustment set expanded by adding covariates as a robustness check?",
+     "strength": 0.01043,
+     "null_mean": 0.00464,
+     "p": 0.0675
+    },
+    {
+     "player": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+     "strength": 0.03817,
+     "null_mean": 0.02456,
+     "p": 0.0925
+    },
+    {
+     "player": "what minimum number of shared games per dyad is required for inclusion?",
+     "strength": 0.01081,
+     "null_mean": 0.00647,
+     "p": 0.14
+    },
+    {
+     "player": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+     "strength": 0.00792,
+     "null_mean": 0.00462,
+     "p": 0.15
+    },
+    {
+     "player": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+     "strength": 0.00877,
+     "null_mean": 0.00507,
+     "p": 0.1575
+    },
+    {
+     "player": "what rule determines whether the effect is declared statistically supported?",
+     "strength": 0.02757,
+     "null_mean": 0.02049,
+     "p": 0.17
+    },
+    {
+     "player": "how many categories, and by what mapping, is player position collapsed into?",
+     "strength": 0.02284,
+     "null_mean": 0.01591,
+     "p": 0.175
+    },
+    {
+     "player": "how is the crude, unadjusted association estimated and tested?",
+     "strength": 0.02324,
+     "null_mean": 0.01578,
+     "p": 0.1775
+    },
+    {
+     "player": "how novel is this analysis (share of its decisions that are options nobody else took)?",
+     "strength": 0.02313,
+     "null_mean": 0.01794,
+     "p": 0.255
+    },
+    {
+     "player": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+     "strength": 0.01915,
+     "null_mean": 0.01538,
+     "p": 0.3125
+    },
+    {
+     "player": "What covariate-balance descriptives are reported?",
+     "strength": 0.00296,
+     "null_mean": 0.00265,
+     "p": 0.385
+    },
+    {
+     "player": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+     "strength": 0.01738,
+     "null_mean": 0.01692,
+     "p": 0.4075
+    },
+    {
+     "player": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+     "strength": 0.00634,
+     "null_mean": 0.00633,
+     "p": 0.43
+    },
+    {
+     "player": "which version of the source dataset is loaded?",
+     "strength": 0.00066,
+     "null_mean": 0.00083,
+     "p": 0.45
+    },
+    {
+     "player": "which covariates make up the model's adjustment set?",
+     "strength": 0.01924,
+     "null_mean": 0.01975,
+     "p": 0.4575
+    },
+    {
+     "player": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+     "strength": 0.01076,
+     "null_mean": 0.01129,
+     "p": 0.4975
+    },
+    {
+     "player": "which regression model and outcome family estimates the exposure–red-card association?",
+     "strength": 0.00692,
+     "null_mean": 0.00789,
+     "p": 0.5
+    },
+    {
+     "player": "how are the confidence interval and p-value for the exposure effect computed?",
+     "strength": 0.01698,
+     "null_mean": 0.01876,
+     "p": 0.54
+    },
+    {
+     "player": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+     "strength": 0.00459,
+     "null_mean": 0.00583,
+     "p": 0.55
+    },
+    {
+     "player": "what fixed reference date is used to compute player age?",
+     "strength": 0.00779,
+     "null_mean": 0.00932,
+     "p": 0.5875
+    },
+    {
+     "player": "How are raw group red-card rates reported descriptively?",
+     "strength": 0.00588,
+     "null_mean": 0.01002,
+     "p": 0.62
+    },
+    {
+     "player": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+     "strength": 0.00229,
+     "null_mean": 0.00402,
+     "p": 0.6775
+    },
+    {
+     "player": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+     "strength": 0.00554,
+     "null_mean": 0.00777,
+     "p": 0.71
+    },
+    {
+     "player": "Which control variables and functional forms enter the regression model?",
+     "strength": 0.00757,
+     "null_mean": 0.01324,
+     "p": 0.7675
+    },
+    {
+     "player": "how is agreement between the two skin-tone raters quantified?",
+     "strength": 0.00444,
+     "null_mean": 0.00672,
+     "p": 0.77
+    },
+    {
+     "player": "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+     "strength": 0.00117,
+     "null_mean": 0.00302,
+     "p": 0.775
+    },
+    {
+     "player": "what bootstrap resampling scheme is used to compute the confidence interval?",
+     "strength": 0.00571,
+     "null_mean": 0.01034,
+     "p": 0.81
+    },
+    {
+     "player": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+     "strength": 0.0019,
+     "null_mean": 0.00891,
+     "p": 0.8625
+    },
+    {
+     "player": "which effect-size measure is used to express the exposure's effect on red cards?",
+     "strength": 0.00216,
+     "null_mean": 0.0096,
+     "p": 0.905
+    },
+    {
+     "player": "how is the binary dark-skin exposure variable defined?",
+     "strength": 0.0003,
+     "null_mean": 0.00401,
+     "p": 0.9625
+    }
+   ],
+   "log_or": [
+    {
+     "player": "Is the adjustment set expanded by adding covariates as a robustness check?",
+     "strength": 0.00308,
+     "null_mean": 0.00064,
+     "p": 0.0
+    },
+    {
+     "player": "how novel is this analysis (share of its decisions that are options nobody else took)?",
+     "strength": 0.00647,
+     "null_mean": 0.00267,
+     "p": 0.0
+    },
+    {
+     "player": "how are the regression model's standard errors estimated?",
+     "strength": 0.00835,
+     "null_mean": 0.00267,
+     "p": 0.005
+    },
+    {
+     "player": "are goalkeepers included in or excluded from the analysis sample?",
+     "strength": 0.00328,
+     "null_mean": 0.00106,
+     "p": 0.02
+    },
+    {
+     "player": "which covariates does the primary model adjust for (if any)?",
+     "strength": 0.00074,
+     "null_mean": 0.00045,
+     "p": 0.1425
+    },
+    {
+     "player": "how is complete-case/listwise deletion applied and over which variable set?",
+     "strength": 0.00293,
+     "null_mean": 0.00179,
+     "p": 0.1875
+    },
+    {
+     "player": "how is the crude, unadjusted association estimated and tested?",
+     "strength": 0.0035,
+     "null_mean": 0.00234,
+     "p": 0.2025
+    },
+    {
+     "player": "how many categories, and by what mapping, is player position collapsed into?",
+     "strength": 0.00348,
+     "null_mean": 0.00248,
+     "p": 0.21
+    },
+    {
+     "player": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+     "strength": 0.00078,
+     "null_mean": 0.00055,
+     "p": 0.2275
+    },
+    {
+     "player": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+     "strength": 0.00151,
+     "null_mean": 0.00101,
+     "p": 0.2425
+    },
+    {
+     "player": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+     "strength": 0.00193,
+     "null_mean": 0.00144,
+     "p": 0.29
+    },
+    {
+     "player": "how is agreement between the two skin-tone raters quantified?",
+     "strength": 0.00107,
+     "null_mean": 0.00092,
+     "p": 0.305
+    },
+    {
+     "player": "Which control variables and functional forms enter the regression model?",
+     "strength": 0.00207,
+     "null_mean": 0.00175,
+     "p": 0.315
+    },
+    {
+     "player": "what rule determines whether the effect is declared statistically supported?",
+     "strength": 0.00333,
+     "null_mean": 0.003,
+     "p": 0.3475
+    },
+    {
+     "player": "How is the middle (Medium) skin-tone category handled?",
+     "strength": 0.00101,
+     "null_mean": 0.00088,
+     "p": 0.35
+    },
+    {
+     "player": "How are dyads with a missing skin-tone rating handled?",
+     "strength": 0.00246,
+     "null_mean": 0.00218,
+     "p": 0.3525
+    },
+    {
+     "player": "which covariates make up the model's adjustment set?",
+     "strength": 0.00287,
+     "null_mean": 0.00279,
+     "p": 0.39
+    },
+    {
+     "player": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+     "strength": 0.00267,
+     "null_mean": 0.00261,
+     "p": 0.3925
+    },
+    {
+     "player": "which regression model and outcome family estimates the exposure–red-card association?",
+     "strength": 0.00121,
+     "null_mean": 0.00118,
+     "p": 0.41
+    },
+    {
+     "player": "how is the binary dark-skin exposure variable defined?",
+     "strength": 0.00053,
+     "null_mean": 0.00061,
+     "p": 0.465
+    },
+    {
+     "player": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+     "strength": 0.00337,
+     "null_mean": 0.00355,
+     "p": 0.49
+    },
+    {
+     "player": "what minimum number of shared games per dyad is required for inclusion?",
+     "strength": 0.00076,
+     "null_mean": 0.00093,
+     "p": 0.52
+    },
+    {
+     "player": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+     "strength": 0.00171,
+     "null_mean": 0.00217,
+     "p": 0.525
+    },
+    {
+     "player": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+     "strength": 0.00162,
+     "null_mean": 0.0019,
+     "p": 0.545
+    },
+    {
+     "player": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+     "strength": 0.00199,
+     "null_mean": 0.00232,
+     "p": 0.5475
+    },
+    {
+     "player": "how are the confidence interval and p-value for the exposure effect computed?",
+     "strength": 0.00259,
+     "null_mean": 0.00284,
+     "p": 0.5875
+    },
+    {
+     "player": "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+     "strength": 0.00028,
+     "null_mean": 0.00043,
+     "p": 0.6
+    },
+    {
+     "player": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+     "strength": 0.00042,
+     "null_mean": 0.00063,
+     "p": 0.6125
+    },
+    {
+     "player": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+     "strength": 0.00034,
+     "null_mean": 0.00073,
+     "p": 0.7375
+    },
+    {
+     "player": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+     "strength": 0.0007,
+     "null_mean": 0.00117,
+     "p": 0.765
+    },
+    {
+     "player": "which version of the source dataset is loaded?",
+     "strength": 2e-05,
+     "null_mean": 0.00011,
+     "p": 0.8375
+    },
+    {
+     "player": "what bootstrap resampling scheme is used to compute the confidence interval?",
+     "strength": 0.00061,
+     "null_mean": 0.00142,
+     "p": 0.8525
+    },
+    {
+     "player": "which effect-size measure is used to express the exposure's effect on red cards?",
+     "strength": 0.00015,
+     "null_mean": 0.00145,
+     "p": 0.9575
+    },
+    {
+     "player": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+     "strength": 0.0001,
+     "null_mean": 0.00093,
+     "p": 0.965
+    },
+    {
+     "player": "what fixed reference date is used to compute player age?",
+     "strength": 0.00012,
+     "null_mean": 0.00141,
+     "p": 0.98
+    },
+    {
+     "player": "How are raw group red-card rates reported descriptively?",
+     "strength": 0.0,
+     "null_mean": 0.00148,
+     "p": 1.0
+    },
+    {
+     "player": "What covariate-balance descriptives are reported?",
+     "strength": 0.0,
+     "null_mean": 0.0004,
+     "p": 1.0
+    }
+   ],
+   "z": [
+    {
+     "player": "Is the adjustment set expanded by adding covariates as a robustness check?",
+     "strength": 0.05476,
+     "null_mean": 0.0147,
+     "p": 0.0
+    },
+    {
+     "player": "how are the regression model's standard errors estimated?",
+     "strength": 0.19636,
+     "null_mean": 0.04236,
+     "p": 0.0
+    },
+    {
+     "player": "are goalkeepers included in or excluded from the analysis sample?",
+     "strength": 0.05383,
+     "null_mean": 0.01811,
+     "p": 0.0225
+    },
+    {
+     "player": "How is the middle (Medium) skin-tone category handled?",
+     "strength": 0.04481,
+     "null_mean": 0.01663,
+     "p": 0.045
+    },
+    {
+     "player": "how is agreement between the two skin-tone raters quantified?",
+     "strength": 0.03637,
+     "null_mean": 0.02057,
+     "p": 0.05
+    },
+    {
+     "player": "which covariates does the primary model adjust for (if any)?",
+     "strength": 0.0206,
+     "null_mean": 0.01089,
+     "p": 0.0875
+    },
+    {
+     "player": "which covariates make up the model's adjustment set?",
+     "strength": 0.07705,
+     "null_mean": 0.0507,
+     "p": 0.1075
+    },
+    {
+     "player": "How are dyads with a missing skin-tone rating handled?",
+     "strength": 0.06048,
+     "null_mean": 0.03473,
+     "p": 0.15
+    },
+    {
+     "player": "how many categories, and by what mapping, is player position collapsed into?",
+     "strength": 0.06388,
+     "null_mean": 0.04377,
+     "p": 0.16
+    },
+    {
+     "player": "how novel is this analysis (share of its decisions that are options nobody else took)?",
+     "strength": 0.06896,
+     "null_mean": 0.04845,
+     "p": 0.1625
+    },
+    {
+     "player": "how is the crude, unadjusted association estimated and tested?",
+     "strength": 0.05658,
+     "null_mean": 0.03927,
+     "p": 0.205
+    },
+    {
+     "player": "how is complete-case/listwise deletion applied and over which variable set?",
+     "strength": 0.04311,
+     "null_mean": 0.03113,
+     "p": 0.2775
+    },
+    {
+     "player": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+     "strength": 0.07165,
+     "null_mean": 0.0621,
+     "p": 0.305
+    },
+    {
+     "player": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+     "strength": 0.01576,
+     "null_mean": 0.01305,
+     "p": 0.3225
+    },
+    {
+     "player": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+     "strength": 0.02876,
+     "null_mean": 0.02444,
+     "p": 0.3225
+    },
+    {
+     "player": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+     "strength": 0.05252,
+     "null_mean": 0.0466,
+     "p": 0.355
+    },
+    {
+     "player": "what bootstrap resampling scheme is used to compute the confidence interval?",
+     "strength": 0.02796,
+     "null_mean": 0.02753,
+     "p": 0.4225
+    },
+    {
+     "player": "which regression model and outcome family estimates the exposure–red-card association?",
+     "strength": 0.01901,
+     "null_mean": 0.0225,
+     "p": 0.51
+    },
+    {
+     "player": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+     "strength": 0.01707,
+     "null_mean": 0.02004,
+     "p": 0.5225
+    },
+    {
+     "player": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+     "strength": 0.03863,
+     "null_mean": 0.04324,
+     "p": 0.5425
+    },
+    {
+     "player": "Which control variables and functional forms enter the regression model?",
+     "strength": 0.02692,
+     "null_mean": 0.03281,
+     "p": 0.57
+    },
+    {
+     "player": "How are raw group red-card rates reported descriptively?",
+     "strength": 0.01426,
+     "null_mean": 0.02358,
+     "p": 0.595
+    },
+    {
+     "player": "what minimum number of shared games per dyad is required for inclusion?",
+     "strength": 0.01491,
+     "null_mean": 0.01997,
+     "p": 0.6025
+    },
+    {
+     "player": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+     "strength": 0.02283,
+     "null_mean": 0.03683,
+     "p": 0.63
+    },
+    {
+     "player": "What covariate-balance descriptives are reported?",
+     "strength": 0.00408,
+     "null_mean": 0.01005,
+     "p": 0.77
+    },
+    {
+     "player": "which version of the source dataset is loaded?",
+     "strength": 0.00111,
+     "null_mean": 0.00298,
+     "p": 0.785
+    },
+    {
+     "player": "what fixed reference date is used to compute player age?",
+     "strength": 0.01503,
+     "null_mean": 0.02758,
+     "p": 0.785
+    },
+    {
+     "player": "how are the confidence interval and p-value for the exposure effect computed?",
+     "strength": 0.03368,
+     "null_mean": 0.05164,
+     "p": 0.805
+    },
+    {
+     "player": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+     "strength": 0.01682,
+     "null_mean": 0.03341,
+     "p": 0.8125
+    },
+    {
+     "player": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+     "strength": 0.00371,
+     "null_mean": 0.01541,
+     "p": 0.8725
+    },
+    {
+     "player": "what rule determines whether the effect is declared statistically supported?",
+     "strength": 0.03311,
+     "null_mean": 0.05481,
+     "p": 0.8775
+    },
+    {
+     "player": "which effect-size measure is used to express the exposure's effect on red cards?",
+     "strength": 0.00589,
+     "null_mean": 0.02617,
+     "p": 0.8925
+    },
+    {
+     "player": "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+     "strength": 0.00172,
+     "null_mean": 0.01076,
+     "p": 0.905
+    },
+    {
+     "player": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+     "strength": 0.00327,
+     "null_mean": 0.01402,
+     "p": 0.92
+    },
+    {
+     "player": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+     "strength": 0.00234,
+     "null_mean": 0.0164,
+     "p": 0.935
+    },
+    {
+     "player": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+     "strength": 0.00199,
+     "null_mean": 0.02378,
+     "p": 0.95
+    },
+    {
+     "player": "how is the binary dark-skin exposure variable defined?",
+     "strength": 0.00085,
+     "null_mean": 0.01305,
+     "p": 0.9825
+    }
+   ],
+   "ci_width": [
+    {
+     "player": "how novel is this analysis (share of its decisions that are options nobody else took)?",
+     "strength": 0.01015,
+     "null_mean": 0.00361,
+     "p": 0.0
+    },
+    {
+     "player": "How is the middle (Medium) skin-tone category handled?",
+     "strength": 0.00316,
+     "null_mean": 0.00118,
+     "p": 0.025
+    },
+    {
+     "player": "how are the regression model's standard errors estimated?",
+     "strength": 0.00936,
+     "null_mean": 0.00334,
+     "p": 0.035
+    },
+    {
+     "player": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+     "strength": 0.00799,
+     "null_mean": 0.00448,
+     "p": 0.0625
+    },
+    {
+     "player": "which regression model and outcome family estimates the exposure–red-card association?",
+     "strength": 0.00248,
+     "null_mean": 0.00152,
+     "p": 0.1325
+    },
+    {
+     "player": "what minimum number of shared games per dyad is required for inclusion?",
+     "strength": 0.00202,
+     "null_mean": 0.00123,
+     "p": 0.1525
+    },
+    {
+     "player": "how is the binary dark-skin exposure variable defined?",
+     "strength": 0.00141,
+     "null_mean": 0.00085,
+     "p": 0.1775
+    },
+    {
+     "player": "what bootstrap resampling scheme is used to compute the confidence interval?",
+     "strength": 0.00271,
+     "null_mean": 0.00185,
+     "p": 0.195
+    },
+    {
+     "player": "how are the confidence interval and p-value for the exposure effect computed?",
+     "strength": 0.00427,
+     "null_mean": 0.00348,
+     "p": 0.265
+    },
+    {
+     "player": "what rule determines whether the effect is declared statistically supported?",
+     "strength": 0.00459,
+     "null_mean": 0.00397,
+     "p": 0.3
+    },
+    {
+     "player": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+     "strength": 0.00287,
+     "null_mean": 0.00236,
+     "p": 0.32
+    },
+    {
+     "player": "which version of the source dataset is loaded?",
+     "strength": 0.00018,
+     "null_mean": 0.00015,
+     "p": 0.325
+    },
+    {
+     "player": "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+     "strength": 0.00068,
+     "null_mean": 0.0006,
+     "p": 0.335
+    },
+    {
+     "player": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+     "strength": 0.0017,
+     "null_mean": 0.00152,
+     "p": 0.345
+    },
+    {
+     "player": "what fixed reference date is used to compute player age?",
+     "strength": 0.00159,
+     "null_mean": 0.00177,
+     "p": 0.505
+    },
+    {
+     "player": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+     "strength": 0.00215,
+     "null_mean": 0.00275,
+     "p": 0.52
+    },
+    {
+     "player": "Is the adjustment set expanded by adding covariates as a robustness check?",
+     "strength": 0.00071,
+     "null_mean": 0.0009,
+     "p": 0.5275
+    },
+    {
+     "player": "How are dyads with a missing skin-tone rating handled?",
+     "strength": 0.00191,
+     "null_mean": 0.00263,
+     "p": 0.555
+    },
+    {
+     "player": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+     "strength": 0.00048,
+     "null_mean": 0.00075,
+     "p": 0.585
+    },
+    {
+     "player": "how is complete-case/listwise deletion applied and over which variable set?",
+     "strength": 0.00123,
+     "null_mean": 0.0021,
+     "p": 0.635
+    },
+    {
+     "player": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+     "strength": 0.00063,
+     "null_mean": 0.00121,
+     "p": 0.6675
+    },
+    {
+     "player": "how is agreement between the two skin-tone raters quantified?",
+     "strength": 0.00101,
+     "null_mean": 0.00128,
+     "p": 0.67
+    },
+    {
+     "player": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+     "strength": 0.00047,
+     "null_mean": 0.00113,
+     "p": 0.75
+    },
+    {
+     "player": "What covariate-balance descriptives are reported?",
+     "strength": 0.00019,
+     "null_mean": 0.00056,
+     "p": 0.79
+    },
+    {
+     "player": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+     "strength": 0.00064,
+     "null_mean": 0.00173,
+     "p": 0.79
+    },
+    {
+     "player": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+     "strength": 0.00155,
+     "null_mean": 0.00322,
+     "p": 0.8
+    },
+    {
+     "player": "are goalkeepers included in or excluded from the analysis sample?",
+     "strength": 0.00042,
+     "null_mean": 0.00132,
+     "p": 0.815
+    },
+    {
+     "player": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+     "strength": 0.00166,
+     "null_mean": 0.00309,
+     "p": 0.815
+    },
+    {
+     "player": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+     "strength": 0.00032,
+     "null_mean": 0.00094,
+     "p": 0.8225
+    },
+    {
+     "player": "which covariates does the primary model adjust for (if any)?",
+     "strength": 0.00017,
+     "null_mean": 0.00057,
+     "p": 0.8775
+    },
+    {
+     "player": "which effect-size measure is used to express the exposure's effect on red cards?",
+     "strength": 0.00035,
+     "null_mean": 0.00188,
+     "p": 0.9
+    },
+    {
+     "player": "how is the crude, unadjusted association estimated and tested?",
+     "strength": 0.00093,
+     "null_mean": 0.00282,
+     "p": 0.92
+    },
+    {
+     "player": "How are raw group red-card rates reported descriptively?",
+     "strength": 0.00023,
+     "null_mean": 0.00191,
+     "p": 0.9325
+    },
+    {
+     "player": "Which control variables and functional forms enter the regression model?",
+     "strength": 0.00049,
+     "null_mean": 0.00236,
+     "p": 0.9475
+    },
+    {
+     "player": "which covariates make up the model's adjustment set?",
+     "strength": 0.0013,
+     "null_mean": 0.00379,
+     "p": 0.955
+    },
+    {
+     "player": "how many categories, and by what mapping, is player position collapsed into?",
+     "strength": 0.0009,
+     "null_mean": 0.00328,
+     "p": 0.9775
+    },
+    {
+     "player": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+     "strength": 6e-05,
+     "null_mean": 0.00092,
+     "p": 0.99
+    }
+   ]
+  }
+ },
+ "H3": {
+  "verdict": "PASS",
+  "absent_vs_length_spearman": -0.5648,
+  "by_payout": {
+   "verdict": {
+    "absent_share_of_attribution": 0.3441,
+    "absent_share_of_cells": 0.6369
+   },
+   "log_or": {
+    "absent_share_of_attribution": 0.3245,
+    "absent_share_of_cells": 0.6369
+   },
+   "z": {
+    "absent_share_of_attribution": 0.3507,
+    "absent_share_of_cells": 0.6369
+   },
+   "ci_width": {
+    "absent_share_of_attribution": 0.2932,
+    "absent_share_of_cells": 0.6369
+   }
+  }
+ },
+ "H4": {
+  "verdict": "PASS",
+  "condition": 54.1,
+  "shape": [
+   204,
+   94
+  ]
+ },
+ "H5": {
+  "verdict": "PASS",
+  "spearman_vs_default": {
+   "1": 0.7565,
+   "3": 0.8687,
+   "10": 0.9602,
+   "100": 0.9545,
+   "300": 0.9078,
+   "1000": 0.8807
+  }
+ },
+ "H6": {
+  "verdict": "PASS",
+  "pairs": {
+   "verdict|log_or": 0.752,
+   "verdict|z": 0.805,
+   "verdict|ci_width": 0.569,
+   "log_or|verdict": 0.752,
+   "log_or|z": 0.843,
+   "log_or|ci_width": 0.532,
+   "z|verdict": 0.805,
+   "z|log_or": 0.843,
+   "z|ci_width": 0.539,
+   "ci_width|verdict": 0.569,
+   "ci_width|log_or": 0.532,
+   "ci_width|z": 0.539
+  },
+  "weakest": 0.532
+ }
+}

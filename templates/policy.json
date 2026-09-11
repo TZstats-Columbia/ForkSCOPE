@@ -1,0 +1,149 @@
+{
+  "_comment": [
+    "METHOD POLICY -- the decisions a human makes about how charting works.",
+    "",
+    "study.json says WHAT the corpus is and WHERE it lives. This file says HOW",
+    "it is charted: every threshold and structural rule that a competent",
+    "analyst could set otherwise. Today these live as ~120 module-level",
+    "constants across scripts/, which makes them invisible as choices --",
+    "MIN_REACH = 8 in garden.py is a research decision wearing the costume of",
+    "an implementation detail.",
+    "",
+    "Every value here is a fork in OUR pipeline. Filling this in is the same",
+    "act the pipeline performs on each corpus run, applied to itself, which is",
+    "why each entry carries the same fields a decision record does: what was",
+    "chosen, why, whether the rationale was stated or inferred, and whether the",
+    "choice was made or merely defaulted into.",
+    "",
+    "REACHES PROMPTS AS DATA, NEVER AS PROMPT TEXT. Same rule as",
+    "study.json:context. If policy edited prompts, prompt_hash would differ",
+    "across studies and the shared-instrument claim would be false rather than",
+    "merely unchecked."
+  ],
+
+  "policy_version": 1,
+  "study": "CHANGE-ME",
+  "filled_by": "CHANGE-ME",
+  "filled_on": "YYYY-MM-DD",
+  "source": "INTAKE.md sections G-K",
+
+  "decisions": {
+    "_what": "What counts as one decision, recovered from one run's artifacts.",
+    "artifacts_used": ["code"],
+    "prose_role": "silent_only",
+    "_prose_role_options": ["silent_only", "co_primary", "unused"],
+    "_prose_role_note": "soccer: silent_only. Prose is read to find what was CLAIMED, which is how silent decisions surface; a claim is not a decision record. Measured consequence: prose spans reproduce at ARI 0.48 against code at 0.90, so anything resting on prose inherits the weaker number.",
+
+    "disjoint_spans_allowed": true,
+    "_disjoint_note": "May one decision own lines separated by lines belonging to nothing (introns)? soccer: yes.",
+    "interleaving_allowed": false,
+    "_interleaving_note": "May one decision's lines be separated by lines belonging to ANOTHER decision? soccer: no. Allowing it makes span matching much harder to falsify.",
+    "same_run_repeat_span_lines": 5,
+    "_same_run_repeat_note": "Two decisions of one run more than this many lines apart are two decisions, not one used twice. This is audit V6 and repair_option_splits --span. Measured: 76 of 96 same-run merge groups spanned more than five lines and were over-merges.",
+
+    "similarity_level": "lenient",
+    "_similarity_level_options": ["verbatim", "strict", "lenient", "core"],
+    "_similarity_level_note": "How two distillations of one run are compared. THE SINGLE MOST CONSEQUENTIAL VALUE IN THIS FILE: soccer scores 0.176 verbatim, 0.713 lenient, 0.895 core. Quoting the wrong one changes the headline five-fold. Pick before measuring, not after.",
+    "boundary_tolerance_lines": 1,
+    "_boundary_note": "Measured jitter between two distillations of the same run was 1 line."
+  },
+
+  "options": {
+    "_what": "Grouping decision points into recurring options.",
+    "min_decisions_recurring": 2,
+    "singletons_allowed": true,
+    "singleton_label": "novel",
+    "_singleton_note": "Novel options are the rare-variant analogue and are NOT noise: 64% of soccer options are singletons, and excluding them moves by-option fork ARI from 0.31 to 0.69 -- which is a change in what is being measured, not an improvement.",
+
+    "same_option_twice_per_run": false,
+    "same_option_across_stages": false,
+    "same_option_across_positions": true,
+    "_identity_note": "Whether one option may recur within a run, across DSLC stages, or at different positions in the artifact. soccer allows position but not repetition; the repetition rule is what repair_option_splits enforces.",
+
+    "similarity": {"method": "jaccard_labels", "threshold": 0.5},
+    "include_novel_in_similarity": true,
+    "_include_novel_note": "Excluding singletons from the stability statistic flatters it. Report both or neither."
+  },
+
+  "forks": {
+    "_what": "Grouping options into decision points (forks).",
+    "min_options": 2,
+    "singleton_forks_allowed": true,
+    "exclusivity_required": true,
+    "co_occurrence_min": 2,
+    "_exclusivity_note": "A fork is a slot where a run picks exactly one option. soccer VIOLATES this in 86% of runs, dominated by one fork at 158 of 223. Setting this true does not make it true -- it makes the violation an audited finding (V2) rather than a silent assumption.",
+
+    "pivotal": {"min_coverage": 0.25, "min_effective_options": 1.5},
+    "_pivotal_note": "Forks worth reporting. Effective options = 1/HHI. soccer: 18 forks clear this bar, and all 18 are recovered by both builds -- the reproducible core, against 317 vs 351 raw.",
+
+    "similarity_scope": "both",
+    "_similarity_scope_options": ["all", "pivotal", "both"],
+    "_similarity_scope_note": "Restricting to pivotal forks raises agreement a lot and answers a narrower question. Report both or say which."
+  },
+
+  "staging": {
+    "_what": "When the DSLC stage is assigned, and whether it is revised.",
+    "assigned_at": "fork",
+    "_assigned_at_options": ["decision", "option", "fork"],
+    "revised_after_repair": true,
+    "stages": ["problem_formulation", "data_collection", "data_cleaning",
+               "eda", "modeling", "communication"]
+  },
+
+  "stability": {
+    "_what": "What the stability measurements are ALLOWED to do.",
+    "role": "diagnostic",
+    "_role_options": ["diagnostic", "objective"],
+    "_role_note": [
+      "READ THIS BEFORE CHANGING role TO 'objective'.",
+      "",
+      "Stability is trivially gameable in the wrong direction. Fork induction",
+      "can be driven toward ARI 1.0 by making it more deterministic -- merge",
+      "almost nothing, or seed a fixed clustering -- which raises the number",
+      "and destroys what it measures. Two worked cases are already on file:",
+      "core-first fork formation was principled and made agreement WORSE, and",
+      "the .osplit repair raises agreement partly because one deterministic",
+      "transform is applied to both builds.",
+      "",
+      "There is also a reflexive hazard. Tuning until stability looks good and",
+      "then reporting that stability is a garden of forking paths run on the",
+      "instrument that measures gardens of forking paths.",
+      "",
+      "So 'objective' is refused unless all three guards below are filled. The",
+      "agent must decline to tune otherwise, and say why."
+    ],
+
+    "tuning": {
+      "authorized": false,
+      "candidate_changes": [],
+      "_candidate_changes_note": "Pre-registered and closed. A change invented after seeing the result is not in this list.",
+      "holdout": null,
+      "_holdout_note": "Runs excluded from tuning and measured once at the end.",
+      "external_criterion": null,
+      "_external_criterion_options": ["human_benchmark", "aws_rediscovery", "outcome_prediction"],
+      "_external_criterion_note": "Stability may select among a priori equally defensible options ONLY when an external criterion confirms validity did not fall."
+    },
+
+    "replicates": {"n_per_parent": 5, "pre_committed": true},
+    "_replicates_note": "n is fixed before the first build. At k replicates a parent gives k-1 df; extending after seeing the spread is optional stopping on the very quantity being reported."
+  },
+
+  "audit": {
+    "_what": "Which falsification exhibits run, and what a failure means.",
+    "checks": ["V1", "V2", "V3", "V4", "V5", "V6", "V7"],
+    "blocking": [],
+    "_blocking_note": "Checks whose failure stops the build. Empty by default and that is deliberate: these checks RANK for human attention and most carry no null, so treating them as gates would convert a weak signal into a hard decision.",
+    "review_queue_max": 60,
+    "_review_queue_note": "Exhibits a human is actually expected to read. A queue of 561 pairs is not a queue."
+  },
+
+  "analysis": {
+    "_what": "Which questions the charted garden is used to answer. Optional; none should be invented to fill space.",
+    "persona_effects": true,
+    "pivotal_fork_effects": true,
+    "novel_option_location": true,
+    "multiplicity_correction": "bh",
+    "min_runs_for_test": 15,
+    "_min_runs_note": "Runs at a fork before its divergence is testable."
+  }
+}

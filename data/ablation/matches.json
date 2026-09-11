@@ -1,0 +1,8890 @@
+{
+ "null": false,
+ "n": 80,
+ "failures": [],
+ "results": [
+  {
+   "run": "2025-11-12T09-30-16+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "12",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both drop dyads with missing skin tone (complete-case)"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both collapse red-card counts to any vs. none"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "33",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at the 0.5 cutoff"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both dummy-code position and league with a dropped reference"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "same adjustment set: position, league, games, height, weight"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both use cluster-robust SEs clustered on player"
+    },
+    {
+     "code_id": "36",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both report odds ratio with Wald-type CI"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both estimate risk difference via g-formula standardization"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "132",
+     "verdict": "same_option",
+     "why": "both bootstrap 1000 draws resampling players"
+    },
+    {
+     "code_id": "47",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both form percentile bootstrap CI and two-sided p-value"
+    },
+    {
+     "code_id": "61",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both add referee-country fixed effects as sensitivity"
+    },
+    {
+     "code_id": "65",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both compute Cohen's h effect size on proportions"
+    }
+   ],
+   "unmatched_code": [
+    "6",
+    "10",
+    "20",
+    "25",
+    "27",
+    "45",
+    "46",
+    "53",
+    "57",
+    "70"
+   ],
+   "unmatched_prose": [
+    "23",
+    "30",
+    "36",
+    "41",
+    "47",
+    "52",
+    "53",
+    "56",
+    "57",
+    "58",
+    "62",
+    "73",
+    "82",
+    "89",
+    "90",
+    "98",
+    "99",
+    "130",
+    "134",
+    "135",
+    "148",
+    "151",
+    "152"
+   ],
+   "n_code": 23,
+   "n_prose": 36
+  },
+  {
+   "run": "2025-11-12T11-24-34+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "124",
+     "verdict": "same_option",
+     "why": "analysis population/unit is the player-referee dyad"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both discard the 0.25-0.5 middle band"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "outcome is any red card (yes/no)"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "complete-case restriction on model confounders"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both use a logistic regression model"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "standardize continuous covariates to z-scores"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "standard errors clustered by player"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "12",
+     "verdict": "same_option",
+     "why": "estimand is adjusted risk difference dark vs light"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "155",
+     "verdict": "same_option",
+     "why": "sensitivity using continuous skin tone"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "159",
+     "verdict": "same_option",
+     "why": "sensitivity refit dropping position"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "161",
+     "verdict": "same_option",
+     "why": "sensitivity restricted to dyads with >=2 games"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "drop dyads missing skin-tone rating"
+    }
+   ],
+   "unmatched_code": [
+    "3",
+    "11",
+    "13",
+    "17",
+    "18"
+   ],
+   "unmatched_prose": [
+    "27",
+    "30",
+    "31",
+    "32",
+    "34",
+    "35",
+    "47",
+    "49",
+    "52",
+    "54",
+    "56",
+    "58",
+    "61",
+    "64",
+    "65",
+    "66",
+    "70",
+    "74",
+    "77",
+    "78",
+    "79",
+    "103",
+    "106",
+    "108",
+    "117",
+    "118",
+    "120",
+    "127",
+    "129",
+    "131",
+    "136",
+    "151",
+    "163",
+    "180",
+    "183"
+   ],
+   "n_code": 18,
+   "n_prose": 48
+  },
+  {
+   "run": "2025-11-12T12-24-45+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "13",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone data"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both derive age from 2012 minus birth year"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin tone"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5 cutoff"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "92",
+     "verdict": "same_option",
+     "why": "both build yellow-cards-per-game rate from games"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "93",
+     "verdict": "same_option",
+     "why": "both collapse red-card count to any/none binary"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both fit adjusted LPM with player-clustered SEs"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both fit adjusted logistic model for odds ratio"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "10",
+     "verdict": "same_option",
+     "why": "both stratify and refit by league"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both refit dropping yellow-per-game as possible mediator"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both drop dyads missing covariates for complete-case"
+    }
+   ],
+   "unmatched_code": [
+    "39",
+    "45",
+    "6",
+    "37"
+   ],
+   "unmatched_prose": [
+    "48",
+    "121",
+    "97",
+    "157",
+    "90",
+    "211",
+    "42",
+    "29",
+    "56",
+    "5",
+    "25",
+    "98",
+    "198",
+    "134",
+    "212",
+    "128",
+    "58",
+    "65",
+    "216",
+    "214",
+    "223",
+    "162",
+    "141",
+    "8",
+    "62",
+    "60",
+    "69",
+    "67",
+    "215",
+    "152",
+    "133",
+    "96",
+    "135",
+    "159",
+    "142",
+    "143",
+    "127",
+    "4"
+   ],
+   "n_code": 15,
+   "n_prose": 49
+  },
+  {
+   "run": "2025-11-12T13-06-46+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "4",
+     "prose_id": "15",
+     "verdict": "same_option",
+     "why": "both dichotomise skin tone at 0.5 into dark/light"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "13",
+     "verdict": "same_option",
+     "why": "both define outcome as any red card in dyad"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "14",
+     "verdict": "same_option",
+     "why": "both use log of games as exposure"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both drop dyads missing position data"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "4",
+     "verdict": "same_option",
+     "why": "both fit primary clustered logistic model reporting odds ratio"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "116",
+     "verdict": "same_option",
+     "why": "both make adjusted risk difference the primary effect"
+    }
+   ],
+   "unmatched_code": [
+    "3",
+    "12",
+    "14",
+    "11",
+    "13",
+    "1",
+    "8"
+   ],
+   "unmatched_prose": [
+    "75",
+    "165",
+    "54",
+    "106",
+    "70",
+    "79",
+    "74",
+    "16",
+    "60",
+    "166",
+    "17",
+    "58",
+    "38",
+    "76",
+    "51",
+    "105",
+    "72",
+    "57",
+    "107",
+    "66",
+    "164",
+    "63",
+    "68",
+    "167"
+   ],
+   "n_code": 14,
+   "n_prose": 31
+  },
+  {
+   "run": "2025-11-12T18-01-53+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "4",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both dichotomize red cards to any-vs-none instead of count"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both average the two rater scores into skin_tone_avg"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at the 0.5 cutoff"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "65",
+     "verdict": "same_option",
+     "why": "both drop dyads missing a skin-tone rating"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "66",
+     "verdict": "same_option",
+     "why": "both require complete data on same covariate list"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both derive player age in 2013"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both cluster standard errors by player"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both use logistic GEE as secondary specification"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "71",
+     "verdict": "same_fork_different_option",
+     "why": "list1 says five position groups, list2 says four"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both make the primary model a linear probability model"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "both define analysis population as player-referee dyads"
+    }
+   ],
+   "unmatched_code": [
+    "16",
+    "18",
+    "15",
+    "13",
+    "9",
+    "19",
+    "10",
+    "17"
+   ],
+   "unmatched_prose": [
+    "48",
+    "102",
+    "35",
+    "155",
+    "152",
+    "56",
+    "3",
+    "67",
+    "41",
+    "49",
+    "118",
+    "112",
+    "93",
+    "50",
+    "47",
+    "45",
+    "68",
+    "4",
+    "38",
+    "154",
+    "43",
+    "37",
+    "75",
+    "61",
+    "44",
+    "116",
+    "54",
+    "59",
+    "106",
+    "153",
+    "60",
+    "62",
+    "70",
+    "157",
+    "120",
+    "46"
+   ],
+   "n_code": 19,
+   "n_prose": 47
+  },
+  {
+   "run": "2025-11-12T19-55-38+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin tone"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both use 0.25/0.75 cutoffs and drop the middle"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both compute age as 2012 minus birth year"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both estimate adjusted RD by marginal standardization"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both bootstrap CI from asymptotic normal of darkSkin coef"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both use cluster-robust SE clustered by player"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both define outcome as any red card, binary"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both drop dyads missing position"
+    }
+   ],
+   "unmatched_code": [
+    "21",
+    "56",
+    "28",
+    "7",
+    "54",
+    "60",
+    "17",
+    "18",
+    "23",
+    "64",
+    "46",
+    "32"
+   ],
+   "unmatched_prose": [
+    "53",
+    "93",
+    "31",
+    "152",
+    "45",
+    "153",
+    "167",
+    "49",
+    "44",
+    "58",
+    "24",
+    "57",
+    "41",
+    "33",
+    "42",
+    "29",
+    "109",
+    "169",
+    "40",
+    "34",
+    "55",
+    "112"
+   ],
+   "n_code": 20,
+   "n_prose": 30
+  },
+  {
+   "run": "2025-11-13T00-05-19+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores into one skin-tone measure"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both compute age from birthdate to 2013-01-01 reference"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both collapse red cards into a binary any-red-card outcome"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "31",
+     "verdict": "same_fork_different_option",
+     "why": "dark cutpoint differs: 0.75 versus 0.625"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both exclude medium, restricting to light-vs-dark comparison"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both z-standardize the same four continuous covariates"
+    },
+    {
+     "code_id": "48",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both estimate adjusted RD via g-computation counterfactuals"
+    },
+    {
+     "code_id": "43",
+     "prose_id": "108",
+     "verdict": "same_option",
+     "why": "same adjustment set of confounders for the outcome model"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both collapse detailed positions into broad categories"
+    },
+    {
+     "code_id": "53",
+     "prose_id": "97",
+     "verdict": "same_option",
+     "why": "both set number of bootstrap resamples to 200"
+    },
+    {
+     "code_id": "60",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both build 95% CI via bootstrap percentile method"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both drop dyads missing position/age/height/weight (complete case)"
+    }
+   ],
+   "unmatched_code": [
+    "30",
+    "66",
+    "62",
+    "56",
+    "23",
+    "7",
+    "39",
+    "32"
+   ],
+   "unmatched_prose": [
+    "85",
+    "105",
+    "54",
+    "89",
+    "32",
+    "112",
+    "99",
+    "51",
+    "40",
+    "103",
+    "91",
+    "52",
+    "106",
+    "110",
+    "59",
+    "29",
+    "43",
+    "20",
+    "156",
+    "153",
+    "102"
+   ],
+   "n_code": 20,
+   "n_prose": 33
+  },
+  {
+   "run": "2025-11-15T02-22-25+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "3",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both choose logistic regression as the model"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both use cluster-robust SEs clustered by player"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both estimate adjusted risk difference via marginal standardization/g-computation"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both drop medium, keeping only light vs dark"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both drop rows missing position/height/weight covariates"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both use log of games played"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "11",
+     "verdict": "same_option",
+     "why": "both specify the same covariate adjustment set"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both resample at player level for the bootstrap"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both define dark skin at the 0.75 cutoff"
+    }
+   ],
+   "unmatched_code": [
+    "24",
+    "4",
+    "13",
+    "21",
+    "18",
+    "22",
+    "12",
+    "25",
+    "1",
+    "23",
+    "11",
+    "20",
+    "7",
+    "10"
+   ],
+   "unmatched_prose": [
+    "150",
+    "57",
+    "85",
+    "3",
+    "91",
+    "40",
+    "43",
+    "86",
+    "38",
+    "108",
+    "23",
+    "60",
+    "92",
+    "93",
+    "118",
+    "137",
+    "87",
+    "94",
+    "138",
+    "122",
+    "107",
+    "98",
+    "39",
+    "41",
+    "30",
+    "114"
+   ],
+   "n_code": 25,
+   "n_prose": 37
+  },
+  {
+   "run": "2025-11-15T18-59-03+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both treat the player-referee dyad as the analysis unit/source"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both average the two independent raters' skin-tone ratings"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at the 0.5 cutoff"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both define any-red-card as a binary from red-card counts"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "102",
+     "verdict": "same_option",
+     "why": "both use complete-case analysis dropping missing covariates"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "same logistic model with identical adjustment set"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both use marginal standardization for the risk difference"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both a parametric bootstrap with 5000 draws"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "89",
+     "verdict": "same_option",
+     "why": "both use the percentile bootstrap CI method"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "117",
+     "verdict": "same_option",
+     "why": "both test the alternative 0.75 dichotomization"
+    }
+   ],
+   "unmatched_code": [
+    "5",
+    "8",
+    "10",
+    "15"
+   ],
+   "unmatched_prose": [
+    "80",
+    "53",
+    "148",
+    "88",
+    "54",
+    "56",
+    "37",
+    "94",
+    "167",
+    "83",
+    "69",
+    "73",
+    "150",
+    "96",
+    "71",
+    "65",
+    "103",
+    "87",
+    "160",
+    "78",
+    "5",
+    "191",
+    "154",
+    "57",
+    "91",
+    "63",
+    "51",
+    "79",
+    "68",
+    "144",
+    "185",
+    "3",
+    "30",
+    "60",
+    "82",
+    "81",
+    "66",
+    "90",
+    "45",
+    "151",
+    "50",
+    "93",
+    "46",
+    "59",
+    "189",
+    "62",
+    "99",
+    "155"
+   ],
+   "n_code": 15,
+   "n_prose": 59
+  },
+  {
+   "run": "2025-11-15T20-23-37+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores into one skin-tone value"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at a 0.5 cutoff"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both log-transform games for use as a covariate"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both group positions into the same six buckets"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "identical adjusted logistic model and covariate set"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both drop rows missing skin-tone data"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both collapse red cards into a binary outcome"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "65",
+     "verdict": "same_option",
+     "why": "both standardize via g-computation for the risk difference"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both compute SE via delta method, numerical gradient"
+    }
+   ],
+   "unmatched_code": [
+    "7",
+    "58",
+    "54",
+    "60",
+    "46",
+    "49",
+    "24",
+    "51"
+   ],
+   "unmatched_prose": [
+    "37",
+    "69",
+    "59",
+    "4",
+    "43",
+    "95",
+    "104",
+    "42",
+    "29",
+    "118",
+    "70",
+    "54",
+    "31",
+    "135",
+    "153",
+    "117",
+    "105",
+    "57",
+    "114"
+   ],
+   "n_code": 17,
+   "n_prose": 28
+  },
+  {
+   "run": "2025-11-16T02-42-50+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "33",
+     "prose_id": "19",
+     "verdict": "same_option",
+     "why": "both: risk difference via marginal standardization/g-computation, all-dark vs all-light"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both drop/exclude dyads missing skin tone"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both define binary any-red-card outcome"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both: bootstrap percentile CI, resample dyads, 500 iterations"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5 threshold"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both include log-transformed games as a covariate"
+    },
+    {
+     "code_id": "26",
+     "prose_id": "139",
+     "verdict": "same_option",
+     "why": "both specify adjusted logistic model with same covariate terms"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both dummy-code league and position categoricals"
+    },
+    {
+     "code_id": "46",
+     "prose_id": "92",
+     "verdict": "same_option",
+     "why": "both restrict to extreme groups: <=0.25 vs >=0.75"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "147",
+     "verdict": "same_option",
+     "why": "both identify the source soccer CSV dataset"
+    }
+   ],
+   "unmatched_code": [
+    "42",
+    "12",
+    "29",
+    "8",
+    "17"
+   ],
+   "unmatched_prose": [
+    "72",
+    "67",
+    "53",
+    "49",
+    "59",
+    "54",
+    "146",
+    "71",
+    "63",
+    "68",
+    "99",
+    "46",
+    "60",
+    "111",
+    "39",
+    "73",
+    "143",
+    "64",
+    "30",
+    "109",
+    "57",
+    "42",
+    "51",
+    "66",
+    "130"
+   ],
+   "n_code": 15,
+   "n_prose": 35
+  },
+  {
+   "run": "2025-11-16T04-53-17+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "6",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores into one skin-tone measure"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "225",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5 midpoint into dark/light"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both drop dyads missing a skin-tone score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both drop dyads missing position, height, or weight"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "84",
+     "verdict": "same_option",
+     "why": "both log-transform the games count"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both collapse 12 positions into four named groups"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "96",
+     "verdict": "same_option",
+     "why": "both specify primary logit on dark skin, log games, position, league"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both derive odds ratio from exponentiated dark-skin coefficient"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "both compute risk difference via marginal standardization/g-computation"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both use 1000-iteration player-clustered bootstrap for RD uncertainty"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "126",
+     "verdict": "same_option",
+     "why": "both run league-stratified sensitivity analyses"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "229",
+     "verdict": "same_option",
+     "why": "both use the 0.05 significance threshold"
+    }
+   ],
+   "unmatched_code": [
+    "10",
+    "7",
+    "33",
+    "35",
+    "4",
+    "31"
+   ],
+   "unmatched_prose": [
+    "70",
+    "228",
+    "217",
+    "60",
+    "195",
+    "6",
+    "209",
+    "137",
+    "85",
+    "32",
+    "188",
+    "71",
+    "207",
+    "62",
+    "148",
+    "139",
+    "5",
+    "197",
+    "227",
+    "59",
+    "232",
+    "226",
+    "138",
+    "68",
+    "88",
+    "223",
+    "52",
+    "231",
+    "58",
+    "65",
+    "215",
+    "213",
+    "191",
+    "83",
+    "224",
+    "99",
+    "90"
+   ],
+   "n_code": 18,
+   "n_prose": 49
+  },
+  {
+   "run": "2025-11-16T11-59-47+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin_tone score"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary 1/0 outcome"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both drop dyads lacking skin tone rating"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "107",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 cutoff"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing broad position"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both median-impute missing values rather than drop rows"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both specify logistic regression with same covariate set"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both use g-computation for average risk difference"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both approximate RD standard error via delta method"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both build normal-approximation 95% confidence interval"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "168",
+     "verdict": "same_option",
+     "why": "both adopt two-sided testing/reporting"
+    }
+   ],
+   "unmatched_code": [
+    "1",
+    "6",
+    "7",
+    "10",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+   ],
+   "unmatched_prose": [
+    "175",
+    "34",
+    "41",
+    "230",
+    "174",
+    "45",
+    "180",
+    "219",
+    "123",
+    "165",
+    "169",
+    "70",
+    "21",
+    "176",
+    "80",
+    "43",
+    "79",
+    "149",
+    "54",
+    "47",
+    "49",
+    "154",
+    "157",
+    "31",
+    "85",
+    "143",
+    "67",
+    "27",
+    "2",
+    "117",
+    "167",
+    "173",
+    "177",
+    "120",
+    "130",
+    "158",
+    "148",
+    "229",
+    "142",
+    "63",
+    "145",
+    "39",
+    "163",
+    "151",
+    "125",
+    "81",
+    "51",
+    "166",
+    "150",
+    "137",
+    "110"
+   ],
+   "n_code": 20,
+   "n_prose": 62
+  },
+  {
+   "run": "2025-11-16T17-04-39+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both average the two raters into a continuous skin_tone measure"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both set player-referee dyad as the analysis unit"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both binarize red cards into any_red 0/1"
+    },
+    {
+     "code_id": "55",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both fit Poisson red-card model with log(games) offset"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both dummy-code position with a dropped reference category"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both collapse position into six coarse categories"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both drop dyads missing height or weight"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both fit logistic of any_red on dark_skin plus position"
+    },
+    {
+     "code_id": "59",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both refit logistic with continuous skin tone predictor"
+    },
+    {
+     "code_id": "45",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both compute adjusted risk difference via counterfactual averaging (g-computation)"
+    },
+    {
+     "code_id": "50",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both use 5000-draw parametric bootstrap for risk-difference CI"
+    },
+    {
+     "code_id": "62",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both restrict to extreme 0/1 ratings and compare"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 cutoff"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "97",
+     "verdict": "same_option",
+     "why": "both scan multiple candidate cutoffs before settling"
+    }
+   ],
+   "unmatched_code": [
+    "41",
+    "30",
+    "68",
+    "35"
+   ],
+   "unmatched_prose": [
+    "106",
+    "102",
+    "61",
+    "63",
+    "108",
+    "117",
+    "56",
+    "98",
+    "41",
+    "86",
+    "100",
+    "101",
+    "54",
+    "99",
+    "124",
+    "87",
+    "37",
+    "39",
+    "93",
+    "38",
+    "67",
+    "92",
+    "147",
+    "64",
+    "103",
+    "47",
+    "72",
+    "94",
+    "48",
+    "15",
+    "66",
+    "125",
+    "96"
+   ],
+   "n_code": 19,
+   "n_prose": 48
+  },
+  {
+   "run": "2025-11-17T03-01-51+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "211",
+     "verdict": "same_option",
+     "why": "both load the raw soccer.csv dataset"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin_tone"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "86",
+     "verdict": "same_option",
+     "why": "both drop only rows missing skin tone"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both impute missing position via player's mode"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "81",
+     "verdict": "same_option",
+     "why": "both impute height/weight with position-group medians"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both define outcome as receiving at least one red card"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 cutoff"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both log-transform games-per-dyad variable"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both impute missing bias scores with sample mean"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "92",
+     "verdict": "same_option",
+     "why": "both specify logistic model on dark_skin, position, league, log games"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both define secondary estimand as adjusted odds ratio"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "97",
+     "verdict": "same_option",
+     "why": "both compute standardized counterfactual risk difference by averaging predictions"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "98",
+     "verdict": "same_option",
+     "why": "both bootstrap 200 replications for percentile 95% CI"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "107",
+     "verdict": "same_option",
+     "why": "both fit continuous skin-tone model as sensitivity check"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "113",
+     "verdict": "same_option",
+     "why": "both test alternative dichotomization cutpoints for sensitivity"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "126",
+     "verdict": "same_option",
+     "why": "both run per-position subgroup analysis"
+    }
+   ],
+   "unmatched_code": [
+    "4",
+    "7",
+    "16",
+    "18",
+    "21",
+    "22"
+   ],
+   "unmatched_prose": [
+    "268",
+    "242",
+    "267",
+    "137",
+    "136",
+    "198",
+    "72",
+    "74",
+    "269",
+    "214",
+    "215",
+    "90",
+    "199",
+    "96",
+    "60",
+    "43",
+    "19",
+    "159",
+    "210",
+    "271",
+    "200",
+    "196",
+    "8",
+    "147",
+    "261",
+    "44",
+    "212",
+    "135",
+    "84",
+    "213",
+    "191",
+    "197",
+    "134",
+    "6",
+    "7",
+    "154",
+    "80",
+    "66",
+    "87",
+    "95",
+    "139",
+    "82",
+    "270",
+    "56",
+    "70",
+    "123"
+   ],
+   "n_code": 22,
+   "n_prose": 62
+  },
+  {
+   "run": "2025-11-17T14-46-19+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "66",
+     "verdict": "same_option",
+     "why": "both specify the adjusted logistic formula with same covariates"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both define binary any-red-card outcome"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both compute average marginal effect as risk difference"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5 into dark/light"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "81",
+     "verdict": "same_fork_different_option",
+     "why": "position bucketed into 4 categories versus 5"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "3",
+     "verdict": "same_option",
+     "why": "both fit primary logistic regression clustered by player"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "162",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases, dropping missing rows"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "2",
+     "verdict": "same_option",
+     "why": "both use the full player-referee dyad dataset as input"
+    }
+   ],
+   "unmatched_code": [
+    "47",
+    "21",
+    "41",
+    "37",
+    "44",
+    "57",
+    "67"
+   ],
+   "unmatched_prose": [
+    "76",
+    "110",
+    "61",
+    "52",
+    "133",
+    "160",
+    "54",
+    "18",
+    "82",
+    "158",
+    "70",
+    "74",
+    "135",
+    "159",
+    "102",
+    "48",
+    "55",
+    "60",
+    "121",
+    "161",
+    "164",
+    "71",
+    "56",
+    "69",
+    "80",
+    "113",
+    "163"
+   ],
+   "n_code": 16,
+   "n_prose": 36
+  },
+  {
+   "run": "2025-11-17T18-58-32+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both average the two rater columns into skin tone"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5 cutoff"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both define outcome as any red card in dyad"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both log-transform number of games"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both g-computation risk difference, all-light vs all-dark"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both build risk-difference CI via delta method"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "4",
+     "verdict": "same_option",
+     "why": "both name the same covariate adjustment set"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "65",
+     "verdict": "same_option",
+     "why": "both impute missing height/weight with median"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both fit logistic model, SE clustered by player"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "3",
+     "verdict": "vaguer",
+     "why": "5 says choose source/scope without naming dataset specifics"
+    }
+   ],
+   "unmatched_code": [
+    "47",
+    "50",
+    "38",
+    "42"
+   ],
+   "unmatched_prose": [
+    "133",
+    "148",
+    "121",
+    "60",
+    "66",
+    "149",
+    "152",
+    "137",
+    "70",
+    "64",
+    "127",
+    "109",
+    "112",
+    "41",
+    "51",
+    "53",
+    "55",
+    "50",
+    "32",
+    "74"
+   ],
+   "n_code": 15,
+   "n_prose": 31
+  },
+  {
+   "run": "2025-11-17T21-31-42+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "14",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone photo rating"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both model binary outcome with logistic regression"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "33",
+     "verdict": "same_option",
+     "why": "both dichotomize at 0.25/0.75, dropping intermediates"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both use complete-case listwise deletion"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both standardize continuous covariates before modeling"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both specify six-covariate set with reference categories"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "129",
+     "verdict": "same_option",
+     "why": "both compute risk-difference variance via delta method"
+    },
+    {
+     "code_id": "42",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both compute risk difference as average marginal effect"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "81",
+     "verdict": "same_option",
+     "why": "both cluster standard errors by player"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both define binary any-red-card outcome"
+    }
+   ],
+   "unmatched_code": [
+    "52",
+    "7",
+    "10",
+    "18",
+    "25",
+    "47",
+    "58",
+    "23",
+    "45"
+   ],
+   "unmatched_prose": [
+    "109",
+    "131",
+    "77",
+    "48",
+    "10",
+    "22",
+    "66",
+    "108",
+    "82",
+    "47",
+    "80",
+    "97",
+    "92",
+    "91",
+    "23",
+    "79",
+    "128",
+    "127",
+    "96",
+    "70",
+    "75",
+    "86",
+    "71",
+    "76",
+    "98",
+    "45"
+   ],
+   "n_code": 20,
+   "n_prose": 37
+  },
+  {
+   "run": "2025-11-18T01-05-44+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both average rater1 and rater2 into one skin-tone score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both code red cards as a binary any-red-card outcome"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both cut skin tone at 0.375/0.625 into three groups"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both adjust for position, league country, log(games)"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "19",
+     "verdict": "same_option",
+     "why": "both fit LPM with two-way player+referee clustered SEs (CGM)"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both log-transform games played before the model"
+    },
+    {
+     "code_id": "42",
+     "prose_id": "33",
+     "verdict": "same_option",
+     "why": "both fit logistic regression on the same covariate set"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "6",
+     "verdict": "same_option",
+     "why": "both exclude medium and missing observations from the model"
+    }
+   ],
+   "unmatched_code": [
+    "45",
+    "18",
+    "26",
+    "35",
+    "6",
+    "37"
+   ],
+   "unmatched_prose": [
+    "180",
+    "87",
+    "85",
+    "107",
+    "69",
+    "184",
+    "51",
+    "149",
+    "57",
+    "153",
+    "64",
+    "146",
+    "29",
+    "61",
+    "131",
+    "172",
+    "58",
+    "130",
+    "65",
+    "142",
+    "68",
+    "83",
+    "90",
+    "145",
+    "155",
+    "137",
+    "178",
+    "92",
+    "62",
+    "157",
+    "141"
+   ],
+   "n_code": 14,
+   "n_prose": 39
+  },
+  {
+   "run": "2025-11-19T05-56-22+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "13",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both define outcome as binary any-red-card"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "188",
+     "verdict": "same_option",
+     "why": "both fit logistic model with player-clustered SEs"
+    },
+    {
+     "code_id": "36",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both compute CI via player cluster bootstrap, 200 resamples"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "69",
+     "verdict": "vaguer",
+     "why": "69 says dichotomized but omits the cutoffs 12 states"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both exclude the middle skin-tone range from the sample"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both drop dyads lacking skin-tone ratings"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both log-transform games played"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both establish the six-category position variable"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both predict counterfactual outcomes for every observation for AME"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both listwise-drop dyads missing covariates (position/league)"
+    }
+   ],
+   "unmatched_code": [
+    "45",
+    "25",
+    "6",
+    "21",
+    "41",
+    "8"
+   ],
+   "unmatched_prose": [
+    "119",
+    "172",
+    "126",
+    "151",
+    "73",
+    "152",
+    "33",
+    "137",
+    "170",
+    "54",
+    "10",
+    "47",
+    "178",
+    "50",
+    "24",
+    "43",
+    "39",
+    "45",
+    "127",
+    "169",
+    "177",
+    "114",
+    "176",
+    "74",
+    "175",
+    "133",
+    "48",
+    "128",
+    "55",
+    "40",
+    "37",
+    "171",
+    "57",
+    "72",
+    "38",
+    "53",
+    "49"
+   ],
+   "n_code": 16,
+   "n_prose": 47
+  },
+  {
+   "run": "2025-11-19T10-27-52+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "16",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores into skin tone"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "30",
+     "verdict": "same_option",
+     "why": "both define outcome as binary any-red-card"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at extremes <=0.25 vs >=0.75"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "22",
+     "verdict": "same_option",
+     "why": "both restrict sample to complete covariate cases"
+    },
+    {
+     "code_id": "42",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "same adjusted logistic model, identical covariate set"
+    },
+    {
+     "code_id": "47",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both estimate RD via marginal standardization/g-computation"
+    },
+    {
+     "code_id": "54",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both derive RD SE/CI/p analytically via delta method"
+    },
+    {
+     "code_id": "65",
+     "prose_id": "116",
+     "verdict": "same_option",
+     "why": "both add referee bias measures as sensitivity check"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "12",
+     "verdict": "same_option",
+     "why": "both identify the player-referee dyad source dataset"
+    }
+   ],
+   "unmatched_code": [
+    "89",
+    "58",
+    "25",
+    "28",
+    "35",
+    "74",
+    "84",
+    "62"
+   ],
+   "unmatched_prose": [
+    "114",
+    "86",
+    "87",
+    "115",
+    "37",
+    "90",
+    "118",
+    "99",
+    "101",
+    "21",
+    "35",
+    "34",
+    "38",
+    "26",
+    "4",
+    "36",
+    "88",
+    "18",
+    "14",
+    "85",
+    "79",
+    "119",
+    "39",
+    "31",
+    "78"
+   ],
+   "n_code": 17,
+   "n_prose": 34
+  },
+  {
+   "run": "2025-11-19T19-09-24+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both average the two raters into one score"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25/0.75 dark vs light"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both reduce red cards to binary any/none per dyad"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "same adjustment set: position, league, games, height, weight"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both drop dyads missing covariates, complete-case, no imputation"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both fit logistic regression on binary red-card outcome"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both compute average marginal effect as risk difference"
+    },
+    {
+     "code_id": "36",
+     "prose_id": "168",
+     "verdict": "same_option",
+     "why": "both re-run model excluding Center Backs"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "210",
+     "verdict": "vaguer",
+     "why": "210 says heterogeneity explored; 38 names league interaction"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "204",
+     "verdict": "vaguer",
+     "why": "204 asserts high agreement; 10 names Pearson/exact-match method"
+    }
+   ],
+   "unmatched_code": [
+    "15",
+    "37",
+    "7",
+    "32",
+    "29"
+   ],
+   "unmatched_prose": [
+    "205",
+    "196",
+    "72",
+    "120",
+    "88",
+    "203",
+    "89",
+    "16",
+    "73",
+    "58",
+    "208",
+    "127",
+    "134",
+    "55",
+    "158",
+    "53",
+    "232",
+    "206",
+    "119",
+    "125",
+    "61",
+    "207",
+    "71",
+    "92",
+    "155",
+    "131",
+    "84",
+    "52",
+    "67",
+    "150",
+    "74",
+    "209",
+    "122",
+    "36",
+    "141",
+    "123",
+    "87",
+    "157",
+    "132",
+    "144",
+    "130",
+    "121",
+    "64"
+   ],
+   "n_code": 15,
+   "n_prose": 53
+  },
+  {
+   "run": "2025-11-20T01-31-19+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "16",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both define binary any-red-card outcome from counts"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both average the two rater scores"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rather than impute"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both restrict to dyads complete on covariates"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both log-transform games as covariate"
+    },
+    {
+     "code_id": "51",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both estimate risk difference via g-computation"
+    },
+    {
+     "code_id": "57",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both use 2000-draw parametric bootstrap for CIs"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "183",
+     "verdict": "same_option",
+     "why": "both fit logistic regression with player-clustered SEs"
+    },
+    {
+     "code_id": "46",
+     "prose_id": "184",
+     "verdict": "same_option",
+     "why": "both report odds ratio from the model"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "181",
+     "verdict": "same_option",
+     "why": "both load the source data file"
+    }
+   ],
+   "unmatched_code": [
+    "35",
+    "22",
+    "65",
+    "31"
+   ],
+   "unmatched_prose": [
+    "182",
+    "62",
+    "61",
+    "72",
+    "57",
+    "60",
+    "180",
+    "59",
+    "129",
+    "122",
+    "58",
+    "48",
+    "130",
+    "137",
+    "71",
+    "128",
+    "35",
+    "63",
+    "185",
+    "64"
+   ],
+   "n_code": 15,
+   "n_prose": 31
+  },
+  {
+   "run": "2025-11-20T10-56-52+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "7",
+     "verdict": "same_option",
+     "why": "both establish the full player-referee dyad dataset as the analytic universe"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "66",
+     "verdict": "same_option",
+     "why": "both collapse red cards into a binary any-red-card outcome"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at extreme bands, excluding the middle"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both exclude goalkeepers from the sample"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both restrict to dyads with at least 3 games"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "96",
+     "verdict": "same_option",
+     "why": "both one-hot encode position with a dropped reference category"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "95",
+     "verdict": "same_option",
+     "why": "both log-transform games as an exposure adjustment"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "116",
+     "verdict": "same_option",
+     "why": "both z-score standardize the referee IAT measure"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both specify the same covariate set / primary formula"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "87",
+     "verdict": "same_option",
+     "why": "both use OLS linear probability model as primary specification"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "120",
+     "verdict": "same_option",
+     "why": "both refit as logistic regression for the odds-ratio estimand"
+    }
+   ],
+   "unmatched_code": [
+    "3",
+    "12",
+    "16",
+    "17",
+    "18",
+    "19"
+   ],
+   "unmatched_prose": [
+    "119",
+    "106",
+    "62",
+    "117",
+    "34",
+    "147",
+    "216",
+    "226",
+    "132",
+    "136",
+    "102",
+    "61",
+    "142",
+    "224",
+    "59",
+    "137",
+    "75",
+    "70",
+    "98",
+    "141",
+    "100",
+    "148",
+    "83",
+    "108",
+    "8",
+    "115",
+    "149",
+    "221",
+    "22",
+    "131",
+    "46",
+    "127",
+    "197"
+   ],
+   "n_code": 19,
+   "n_prose": 46
+  },
+  {
+   "run": "2025-11-20T22-11-22+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both dichotomise skin tone at 0.5 into dark/light"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both complete-case on position, height, weight"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "same adjustment set of covariates"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both fit logistic regression with HC1 robust SEs"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both estimate risk difference via average marginal effects"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both derive RD CI via 500-iteration dyad bootstrap percentiles"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "10",
+     "verdict": "same_option",
+     "why": "both restrict to extreme groups <=0.25 vs >=0.75"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "30",
+     "verdict": "same_option",
+     "why": "both establish the full player-referee dyad dataset"
+    }
+   ],
+   "unmatched_code": [
+    "14",
+    "16",
+    "9",
+    "3",
+    "4",
+    "6"
+   ],
+   "unmatched_prose": [
+    "98",
+    "130",
+    "63",
+    "42",
+    "56",
+    "97",
+    "96",
+    "100",
+    "65",
+    "131",
+    "57",
+    "99",
+    "64",
+    "86",
+    "66",
+    "62"
+   ],
+   "n_code": 16,
+   "n_prose": 26
+  },
+  {
+   "run": "2025-11-20T22-17-42+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "3",
+     "verdict": "same_option",
+     "why": "both identify the soccer dyad dataset as source"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both average the two raters into one score"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both drop dyads missing player position"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary any-card indicator"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "47",
+     "verdict": "vaguer",
+     "why": "list1 just says dichotomized; list2 gives cutoffs and drops medium"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both set adjustment to games, position, league country"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both specify unclustered logistic regression as primary model"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both refit with player-clustered standard errors"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both bootstrap resample for risk-difference CI and p-value"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both difference mean predicted probabilities across counterfactual scenarios"
+    }
+   ],
+   "unmatched_code": [
+    "44",
+    "45",
+    "21",
+    "31",
+    "50",
+    "11",
+    "55",
+    "25",
+    "26",
+    "43"
+   ],
+   "unmatched_prose": [
+    "76",
+    "77",
+    "48",
+    "74",
+    "30",
+    "34",
+    "75",
+    "53",
+    "31",
+    "22",
+    "59",
+    "52",
+    "81",
+    "46",
+    "17",
+    "80",
+    "73",
+    "44",
+    "33",
+    "28",
+    "56",
+    "37",
+    "25",
+    "57",
+    "98",
+    "36",
+    "26",
+    "27",
+    "4",
+    "50"
+   ],
+   "n_code": 21,
+   "n_prose": 41
+  },
+  {
+   "run": "2025-11-20T22-39-34+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "42",
+     "prose_id": "6",
+     "verdict": "same_fork_different_option",
+     "why": "list-1 model adjusts for referee bias; list-2 covariate set omits it"
+    },
+    {
+     "code_id": "48",
+     "prose_id": "23",
+     "verdict": "same_option",
+     "why": "both fit LPM with player-clustered standard errors"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both drop dyads lacking skin-tone data"
+    },
+    {
+     "code_id": "59",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both fit adjusted logistic regression reporting odds ratios"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "90",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "92",
+     "verdict": "same_option",
+     "why": "both code outcome as any red card vs none"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both categorize skin tone with 0.325 cutoff"
+    },
+    {
+     "code_id": "51",
+     "prose_id": "21",
+     "verdict": "same_option",
+     "why": "both use LPM with HC3 robust SEs as preferred/primary"
+    },
+    {
+     "code_id": "69",
+     "prose_id": "137",
+     "verdict": "same_option",
+     "why": "both use continuous skin tone as sensitivity exposure"
+    },
+    {
+     "code_id": "26",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both drop medium to keep light/dark contrast"
+    },
+    {
+     "code_id": "62",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both compute average marginal effect as alternate risk difference"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases on covariates"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both include position as categorical covariate"
+    }
+   ],
+   "unmatched_code": [
+    "7",
+    "68",
+    "33",
+    "77",
+    "36",
+    "56",
+    "45",
+    "91"
+   ],
+   "unmatched_prose": [
+    "69",
+    "107",
+    "122",
+    "105",
+    "66",
+    "80",
+    "165",
+    "51",
+    "87",
+    "68",
+    "166",
+    "25",
+    "28",
+    "111",
+    "163",
+    "104",
+    "86",
+    "84",
+    "85",
+    "112",
+    "50",
+    "74",
+    "93",
+    "58",
+    "79",
+    "70",
+    "106",
+    "81",
+    "67",
+    "4",
+    "20",
+    "41",
+    "63",
+    "40",
+    "61",
+    "103",
+    "39",
+    "91",
+    "78",
+    "65",
+    "71",
+    "118"
+   ],
+   "n_code": 21,
+   "n_prose": 55
+  },
+  {
+   "run": "2025-11-20T23-33-39+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "5",
+     "prose_id": "142",
+     "verdict": "same_option",
+     "why": "both load the main player-referee dyad dataset"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both create binary dark-vs-light skin indicator"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both use linear probability model as primary"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both categorize skin tone at 0.25 cutoff"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "4",
+     "verdict": "same_option",
+     "why": "both adjust for position, league, log-games"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both drop medium skin-tone dyads"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both compute log(games+1) exposure transform"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both fit secondary logistic regression"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "45",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both add referee bias measures as sensitivity"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both drop rows missing skin-tone ratings"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary any-red indicator"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both cluster standard errors by player"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "35",
+    "27",
+    "36",
+    "54",
+    "22"
+   ],
+   "unmatched_prose": [
+    "19",
+    "41",
+    "104",
+    "39",
+    "151",
+    "100",
+    "32",
+    "28",
+    "34",
+    "49",
+    "97",
+    "40",
+    "139",
+    "115",
+    "110",
+    "114",
+    "150",
+    "30",
+    "16",
+    "46",
+    "140",
+    "127",
+    "90",
+    "126",
+    "143",
+    "125",
+    "33",
+    "35",
+    "22",
+    "84",
+    "107",
+    "42",
+    "26",
+    "144",
+    "47",
+    "88",
+    "118"
+   ],
+   "n_code": 19,
+   "n_prose": 50
+  },
+  {
+   "run": "2025-11-21T00-55-35+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "11",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both drop dyads lacking a skin-tone rating"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both average the two raters into one score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both dichotomise skin tone at 0.5 cutoff"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both binarise red cards as any vs none"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both collapse detailed positions into four categories"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "131",
+     "verdict": "same_option",
+     "why": "identical adjustment set: games, position, league, height, weight"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "3",
+     "verdict": "same_option",
+     "why": "both fit logistic regression with player-clustered standard errors"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both use G-computation for the adjusted risk difference"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both build CI via multivariate-normal parameter draws"
+    },
+    {
+     "code_id": "60",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "both judge significance against a p<0.05 threshold"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both drop dyads with missing covariate data"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "2",
+     "verdict": "vaguer",
+     "why": "7 just loads CSV; 2 specifies counts, season, leagues"
+    },
+    {
+     "code_id": "45",
+     "prose_id": "189",
+     "verdict": "vaguer",
+     "why": "189 names extreme-comparison sensitivity; 45 gives 0.25/0.75 specifics"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "28",
+    "39",
+    "48",
+    "41"
+   ],
+   "unmatched_prose": [
+    "207",
+    "174",
+    "84",
+    "169",
+    "124",
+    "44",
+    "132",
+    "171",
+    "195",
+    "43",
+    "206",
+    "57",
+    "53",
+    "232",
+    "48",
+    "56",
+    "201",
+    "81",
+    "159",
+    "134",
+    "194",
+    "65",
+    "164",
+    "154",
+    "191",
+    "79",
+    "156",
+    "150",
+    "188",
+    "192",
+    "198",
+    "15",
+    "38",
+    "59",
+    "209",
+    "197",
+    "200",
+    "162",
+    "179",
+    "148",
+    "55"
+   ],
+   "n_code": 18,
+   "n_prose": 54
+  },
+  {
+   "run": "2025-11-21T01-21-19+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin-tone score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both set the light/dark cutoffs at 0.125/0.625"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both drop medium category to contrast dark vs light"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "66",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone/photo data"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both restrict to complete covariate cases"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both binarize outcome as any red card"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both use logistic regression as the model"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "88",
+     "verdict": "same_option",
+     "why": "both make player-clustered SEs the primary inference"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both report average marginal effects on risk-difference scale"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "6",
+     "verdict": "same_option",
+     "why": "both name the same adjustment covariate set"
+    }
+   ],
+   "unmatched_code": [
+    "44",
+    "48",
+    "24",
+    "70",
+    "10",
+    "50",
+    "59",
+    "6"
+   ],
+   "unmatched_prose": [
+    "34",
+    "157",
+    "57",
+    "155",
+    "152",
+    "150",
+    "3",
+    "55",
+    "179",
+    "177",
+    "199",
+    "139",
+    "136",
+    "4",
+    "169",
+    "195",
+    "91",
+    "200",
+    "124",
+    "161",
+    "146",
+    "102",
+    "54",
+    "147",
+    "175",
+    "58",
+    "196",
+    "140",
+    "56",
+    "106",
+    "160",
+    "178",
+    "107",
+    "151",
+    "49",
+    "168",
+    "198",
+    "13",
+    "156",
+    "59",
+    "60",
+    "76",
+    "105",
+    "77",
+    "162",
+    "78"
+   ],
+   "n_code": 18,
+   "n_prose": 56
+  },
+  {
+   "run": "2025-11-21T03-02-44+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both average the two raters into continuous skin tone"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both exclude rows missing covariate data"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both set dark/light split at 0.5 threshold"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both define outcome as at-least-one red card binary"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both log-transform games played as exposure"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "19",
+     "verdict": "same_option",
+     "why": "both name the same adjustment covariate set"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both dummy-code position dropping a reference category"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both compute age relative to mid-season 2013-01-01 date"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "6",
+     "verdict": "same_option",
+     "why": "both fit logistic regression with player-clustered SEs"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both g-computation risk difference over counterfactual all-dark/light"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both delta method with numerical gradient, clustered vcov"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "145",
+     "verdict": "same_option",
+     "why": "both identify the raw source dataset"
+    }
+   ],
+   "unmatched_code": [
+    "10",
+    "32",
+    "25",
+    "19",
+    "35",
+    "39"
+   ],
+   "unmatched_prose": [
+    "132",
+    "68",
+    "114",
+    "149",
+    "55",
+    "144",
+    "35",
+    "113",
+    "52",
+    "67",
+    "56",
+    "118",
+    "148",
+    "45",
+    "107",
+    "147",
+    "152",
+    "146"
+   ],
+   "n_code": 19,
+   "n_prose": 31
+  },
+  {
+   "run": "2025-11-21T03-54-46+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "11",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both average the two rater columns into skin_tone"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both cut skin tone at 0.375/0.625 into light/dark"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both drop the medium skin-tone group"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both drop dyads with unusable/missing position"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both drop dyads missing height or weight"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both collapse detailed positions into 4 broad buckets"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both log-transform games played"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "22",
+     "verdict": "same_option",
+     "why": "identical adjustment set: position, league, height, weight, age, log-games"
+    },
+    {
+     "code_id": "51",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both use average marginal effects as estimand"
+    },
+    {
+     "code_id": "43",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both cluster standard errors at player level"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both binarize red cards into any-red-card outcome"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "5",
+     "verdict": "same_option",
+     "why": "both take the full player-referee dyad dataset as scope"
+    }
+   ],
+   "unmatched_code": [
+    "64",
+    "27",
+    "37",
+    "53",
+    "20",
+    "47",
+    "80"
+   ],
+   "unmatched_prose": [
+    "49",
+    "114",
+    "65",
+    "140",
+    "122",
+    "141",
+    "48",
+    "113",
+    "55",
+    "117",
+    "167",
+    "45",
+    "211",
+    "53",
+    "209",
+    "66",
+    "155",
+    "47",
+    "54",
+    "73",
+    "32",
+    "46",
+    "154",
+    "108",
+    "103",
+    "38",
+    "50",
+    "71",
+    "130",
+    "208",
+    "148"
+   ],
+   "n_code": 20,
+   "n_prose": 44
+  },
+  {
+   "run": "2025-11-22T00-10-57+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "42",
+     "verdict": "vaguer",
+     "why": "42 categorizes into light/medium/dark but omits the cutpoints"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both exclude medium-toned players from the primary comparison"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both dichotomize the outcome to any-red-card vs none"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both drop rows missing the chosen covariates (complete cases)"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "30",
+     "verdict": "same_option",
+     "why": "identical adjusted covariate set in the logistic model"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both derive age as 2012 minus birth year"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both define the binary light-vs-dark primary exposure"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both collapse detailed positions into broad categories"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both compute risk difference via average marginal effects over observations"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "22",
+     "verdict": "vaguer",
+     "why": "1 loads dyad dataset; 22 states dyad unit plus aggregation"
+    }
+   ],
+   "unmatched_code": [
+    "16",
+    "14",
+    "15",
+    "9",
+    "17",
+    "12"
+   ],
+   "unmatched_prose": [
+    "68",
+    "69",
+    "81",
+    "71",
+    "48",
+    "122",
+    "86",
+    "53",
+    "124",
+    "26",
+    "51",
+    "64",
+    "70",
+    "67",
+    "33",
+    "45",
+    "125",
+    "31",
+    "52",
+    "49"
+   ],
+   "n_code": 17,
+   "n_prose": 31
+  },
+  {
+   "run": "2025-11-22T04-02-51+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both average the two rater scores"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both dichotomize average skin tone at 0.5"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing a skin-tone rating"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both drop dyads missing covariates for complete-case"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "89",
+     "verdict": "same_option",
+     "why": "both compute adjusted risk difference via marginal standardization"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both binarize red-card count into any-red-card"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "90",
+     "verdict": "same_option",
+     "why": "both derive risk-difference inference via delta method"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "111",
+     "verdict": "same_option",
+     "why": "both refit exposure as continuous skin tone"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "118",
+     "verdict": "same_option",
+     "why": "both fit separate models by league"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both use within-player clustered SE as sensitivity"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "87",
+     "verdict": "vaguer",
+     "why": "L2 says logistic model but omits the covariate set"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "4",
+     "verdict": "vaguer",
+     "why": "CSV load underspecifies the source dyads dataset"
+    }
+   ],
+   "unmatched_code": [
+    "8",
+    "26"
+   ],
+   "unmatched_prose": [
+    "129",
+    "40",
+    "67",
+    "103",
+    "146",
+    "53",
+    "84",
+    "170",
+    "159",
+    "140",
+    "150",
+    "68",
+    "135",
+    "64",
+    "169",
+    "143",
+    "65",
+    "39",
+    "151",
+    "59",
+    "136",
+    "221",
+    "148",
+    "74",
+    "167",
+    "137",
+    "66",
+    "222",
+    "168",
+    "156",
+    "185",
+    "88",
+    "71",
+    "206",
+    "154",
+    "56",
+    "5"
+   ],
+   "n_code": 14,
+   "n_prose": 49
+  },
+  {
+   "run": "2025-11-22T04-24-20+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "13",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing a skin-tone rating"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both log-transform games for skew"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "145",
+     "verdict": "same_option",
+     "why": "both binarize outcome to any-red-card"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both standardize continuous covariates to mean 0 SD 1"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both group position into four categories"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "222",
+     "verdict": "same_option",
+     "why": "same six-covariate adjustment set"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "149",
+     "verdict": "same_option",
+     "why": "both cluster standard errors at player level"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "173",
+     "verdict": "same_option",
+     "why": "both complete-case listwise deletion of missing rows"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both average predicted-prob differences setting darkSkin 1 vs 0"
+    },
+    {
+     "code_id": "48",
+     "prose_id": "99",
+     "verdict": "same_option",
+     "why": "both refit with continuous skin-tone exposure"
+    },
+    {
+     "code_id": "52",
+     "prose_id": "107",
+     "verdict": "same_option",
+     "why": "both fit a separate model per league country"
+    },
+    {
+     "code_id": "58",
+     "prose_id": "123",
+     "verdict": "vaguer",
+     "why": "both drop high-exposure dyads; 123 omits >10 threshold"
+    },
+    {
+     "code_id": "43",
+     "prose_id": "90",
+     "verdict": "vaguer",
+     "why": "both extreme-groups robustness; 90 omits the cutpoints"
+    }
+   ],
+   "unmatched_code": [
+    "33",
+    "37",
+    "55",
+    "26",
+    "65",
+    "24",
+    "5"
+   ],
+   "unmatched_prose": [
+    "81",
+    "142",
+    "200",
+    "147",
+    "164",
+    "153",
+    "69",
+    "5",
+    "207",
+    "57",
+    "56",
+    "58",
+    "150",
+    "162",
+    "92",
+    "64",
+    "91",
+    "7",
+    "202",
+    "205",
+    "78",
+    "42",
+    "79",
+    "54",
+    "70",
+    "130",
+    "170",
+    "156",
+    "24",
+    "63",
+    "59",
+    "4"
+   ],
+   "n_code": 22,
+   "n_prose": 47
+  },
+  {
+   "run": "2025-11-22T14-03-14+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "8",
+     "verdict": "same_option",
+     "why": "both define light/dark via 0.25 and 0.75 cutoffs"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both exclude medium-tone dyads, keeping only light/dark"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both drop dyads missing covariates"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both z-standardize continuous covariates"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "11",
+     "verdict": "same_option",
+     "why": "both specify the covariate adjustment set"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "81",
+     "verdict": "same_option",
+     "why": "both collapse 12 positions into 4 groups"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both use binary any-red-card outcome"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "84",
+     "verdict": "same_option",
+     "why": "both fit logistic regression by MLE"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "87",
+     "verdict": "same_option",
+     "why": "both compute risk difference via g-computation"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "88",
+     "verdict": "same_option",
+     "why": "both derive risk-difference SE/CI via delta method"
+    },
+    {
+     "code_id": "53",
+     "prose_id": "112",
+     "verdict": "same_option",
+     "why": "both re-run skin tone as continuous exposure"
+    },
+    {
+     "code_id": "49",
+     "prose_id": "110",
+     "verdict": "same_option",
+     "why": "both use 0.375/0.625 alternative-cutoff sensitivity"
+    }
+   ],
+   "unmatched_code": [
+    "43",
+    "6",
+    "60",
+    "57",
+    "26",
+    "69",
+    "62"
+   ],
+   "unmatched_prose": [
+    "9",
+    "130",
+    "129",
+    "6",
+    "178",
+    "118",
+    "133",
+    "165",
+    "121",
+    "175",
+    "168",
+    "184",
+    "143",
+    "134",
+    "86",
+    "68",
+    "25",
+    "53",
+    "62",
+    "131",
+    "135",
+    "139",
+    "169",
+    "166",
+    "66",
+    "64",
+    "167",
+    "70"
+   ],
+   "n_code": 21,
+   "n_prose": 42
+  },
+  {
+   "run": "2025-11-22T14-57-09+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "11",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both dichotomise skin tone at 0.5 cutoff"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "5",
+     "verdict": "same_option",
+     "why": "both fix the player-referee dyad dataset as source/scope"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "same adjustment set: position, league, height, weight, age"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both fit Poisson GLM with log(games) offset"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both give player+referee-robust two-way clustered SE formula"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "89",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases on skin tone and covariates"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both compute risk difference as counterfactual average marginal effect"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "43",
+     "verdict": "vaguer",
+     "why": "L2 notes two raters but not the averaging"
+    }
+   ],
+   "unmatched_code": [
+    "36",
+    "54",
+    "12",
+    "60",
+    "23",
+    "9",
+    "48",
+    "44"
+   ],
+   "unmatched_prose": [
+    "103",
+    "49",
+    "41",
+    "97",
+    "7",
+    "53",
+    "6",
+    "52",
+    "36",
+    "102",
+    "65",
+    "68",
+    "40",
+    "162"
+   ],
+   "n_code": 16,
+   "n_prose": 22
+  },
+  {
+   "run": "2025-11-22T15-41-58+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores into skin tone"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both collapse red cards into binary any-red-card"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both cluster standard errors by player"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both compute average marginal effect risk difference"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "4",
+     "verdict": "same_option",
+     "why": "same adjustment set: games, position, league, yellow cards"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both z-score/standardize yellow cards covariate"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5/0.25 cutoffs"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both log-transform games as exposure control"
+    }
+   ],
+   "unmatched_code": [
+    "19",
+    "16",
+    "14",
+    "3",
+    "17",
+    "1",
+    "18",
+    "8",
+    "15",
+    "13"
+   ],
+   "unmatched_prose": [
+    "56",
+    "134",
+    "39",
+    "150",
+    "133",
+    "72",
+    "131",
+    "50",
+    "66",
+    "130",
+    "65",
+    "57",
+    "151",
+    "69",
+    "155",
+    "127",
+    "51",
+    "3",
+    "110",
+    "149",
+    "61",
+    "18",
+    "95",
+    "136",
+    "152",
+    "55",
+    "24"
+   ],
+   "n_code": 19,
+   "n_prose": 36
+  },
+  {
+   "run": "2025-11-22T16-29-06+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "4",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both define outcome as binary any-red-card"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both exclude the medium skin-tone group"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both categorize skin tone at 0.25/0.75 cutoffs"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both treat skin tone as continuous exposure"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both refit using a median split on skin tone"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both drop dyads missing player position"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both exclude goalkeepers and refit"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both re-cluster standard errors at referee level"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "66",
+     "verdict": "same_option",
+     "why": "both use secondary logistic regression"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "identical adjustment set with log-transformed games"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both make the primary model a linear probability model"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "21",
+    "9",
+    "1",
+    "6",
+    "13",
+    "8",
+    "19",
+    "2",
+    "15"
+   ],
+   "unmatched_prose": [
+    "189",
+    "33",
+    "178",
+    "152",
+    "46",
+    "121",
+    "118",
+    "119",
+    "153",
+    "129",
+    "60",
+    "52",
+    "151",
+    "150",
+    "54",
+    "39",
+    "78",
+    "16",
+    "55",
+    "114",
+    "186",
+    "65",
+    "67",
+    "120",
+    "18",
+    "117",
+    "53",
+    "64"
+   ],
+   "n_code": 21,
+   "n_prose": 39
+  },
+  {
+   "run": "2025-11-22T18-41-39+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both bucket skin tone at 0.25 and 0.75"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both define the binary dark-vs-light exposure"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both log-transform games for the model"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "96",
+     "verdict": "same_option",
+     "why": "same adjusted logistic model, same covariates"
+    },
+    {
+     "code_id": "49",
+     "prose_id": "121",
+     "verdict": "same_option",
+     "why": "both refit using continuous skin tone"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "92",
+     "verdict": "same_option",
+     "why": "both use delta method for risk-difference CI"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both compute adjusted risk difference via AME counterfactuals"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both define outcome as any red card"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both drop rows missing height/weight"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "111",
+     "verdict": "same_option",
+     "why": "both add player position as covariate"
+    }
+   ],
+   "unmatched_code": [
+    "55",
+    "23",
+    "60",
+    "39",
+    "21",
+    "32",
+    "25",
+    "5",
+    "9",
+    "47"
+   ],
+   "unmatched_prose": [
+    "164",
+    "97",
+    "89",
+    "73",
+    "180",
+    "71",
+    "63",
+    "90",
+    "86",
+    "170",
+    "72",
+    "58",
+    "93",
+    "167",
+    "82",
+    "177",
+    "157",
+    "207",
+    "47",
+    "80"
+   ],
+   "n_code": 22,
+   "n_prose": 32
+  },
+  {
+   "run": "2025-11-26T16-37-23+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at the 0.125 threshold"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both collapse red cards to a binary any-red-card outcome"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both median-impute missing height/weight within position"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "194",
+     "verdict": "same_option",
+     "why": "both load the raw player-referee dyad CSV as universe"
+    },
+    {
+     "code_id": "36",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both fit the primary adjusted logistic regression"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both report the effect as AME risk-difference"
+    },
+    {
+     "code_id": "53",
+     "prose_id": "102",
+     "verdict": "same_option",
+     "why": "both refit with continuous skin tone as robustness"
+    },
+    {
+     "code_id": "50",
+     "prose_id": "98",
+     "verdict": "same_option",
+     "why": "both restrict to extreme dyads >=0.75 vs <=0.125"
+    },
+    {
+     "code_id": "56",
+     "prose_id": "106",
+     "verdict": "same_option",
+     "why": "both drop height/weight, keeping the other covariates"
+    }
+   ],
+   "unmatched_code": [
+    "29",
+    "46",
+    "27",
+    "16",
+    "31"
+   ],
+   "unmatched_prose": [
+    "190",
+    "136",
+    "152",
+    "137",
+    "71",
+    "143",
+    "52",
+    "195",
+    "91",
+    "93",
+    "11",
+    "146",
+    "87",
+    "138",
+    "80",
+    "189",
+    "139",
+    "147",
+    "84",
+    "62",
+    "66",
+    "39",
+    "88",
+    "35",
+    "135",
+    "69",
+    "67",
+    "130",
+    "134",
+    "158",
+    "145",
+    "65",
+    "110",
+    "68",
+    "33",
+    "191",
+    "197",
+    "188",
+    "150",
+    "64",
+    "184",
+    "40",
+    "140",
+    "70",
+    "149",
+    "151",
+    "78",
+    "4",
+    "59",
+    "92",
+    "76",
+    "49",
+    "196",
+    "44",
+    "156",
+    "183",
+    "54",
+    "131",
+    "45",
+    "74",
+    "153",
+    "90",
+    "63",
+    "79",
+    "46",
+    "192",
+    "10"
+   ],
+   "n_code": 15,
+   "n_prose": 77
+  },
+  {
+   "run": "2025-11-26T22-40-16+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "5",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both drop dyads with fewer than 3 games"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both fit logistic regression of red card on covariates"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both log-transform games for use as covariate"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "3",
+     "verdict": "vaguer",
+     "why": "both denote the full raw dyad dataset"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "both exclude goalkeeper dyads"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 with continuous sensitivity"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin tone rating"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both use delta method for risk-difference CI"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both use marginal standardization, all-dark vs all-light"
+    }
+   ],
+   "unmatched_code": [
+    "14",
+    "3",
+    "13",
+    "2",
+    "6"
+   ],
+   "unmatched_prose": [
+    "4",
+    "42",
+    "20",
+    "112",
+    "78",
+    "33",
+    "57",
+    "40",
+    "92",
+    "43",
+    "51",
+    "37",
+    "46",
+    "79",
+    "39",
+    "11",
+    "98",
+    "90",
+    "44",
+    "81",
+    "87",
+    "94",
+    "34"
+   ],
+   "n_code": 14,
+   "n_prose": 32
+  },
+  {
+   "run": "2025-11-27T03-25-45+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both use average marginal effect for the adjusted risk difference"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both specify logistic model adjusting for games, yellow cards, position"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "4",
+     "verdict": "vaguer",
+     "why": "list_2 loads dyad dataset without specifying N, season, leagues"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both require at least two games per dyad"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both collapse red cards into a binary any-red-card outcome"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "18",
+     "verdict": "same_option",
+     "why": "both define the odds ratio as secondary estimand"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both add league country as a sensitivity/alternative adjustment"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both exclude goalkeepers from the sample"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at the 0.25 cutoff"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both represent position as a broad categorical covariate"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both drop rows missing covariates via complete-case"
+    }
+   ],
+   "unmatched_code": [
+    "13"
+   ],
+   "unmatched_prose": [
+    "9",
+    "106",
+    "82",
+    "105",
+    "113",
+    "12",
+    "81",
+    "48",
+    "93",
+    "60",
+    "24",
+    "71",
+    "53",
+    "65",
+    "95",
+    "70",
+    "84",
+    "32",
+    "62",
+    "30",
+    "64",
+    "5",
+    "55",
+    "76",
+    "29",
+    "25",
+    "67",
+    "85"
+   ],
+   "n_code": 13,
+   "n_prose": 40
+  },
+  {
+   "run": "2025-11-28T19-35-48+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "3",
+     "verdict": "same_option",
+     "why": "both identify the raw soccer dyad dataset as analysis input"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both average the two raters into composite skin tone"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both define a binary any-red-card outcome"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both compute age from birthdate at season-end reference date"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both median-impute missing height and weight"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both pick the cutoff via search maximizing the effect"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both set the primary model as LPM"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "81",
+     "verdict": "same_option",
+     "why": "both fit a secondary logistic regression for the odds ratio"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both use HC3 robust SEs without clustering as alternative"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "123",
+     "verdict": "same_option",
+     "why": "both add referee IAT/explicit-bias measures as covariates"
+    }
+   ],
+   "unmatched_code": [
+    "15",
+    "8",
+    "11",
+    "12"
+   ],
+   "unmatched_prose": [
+    "66",
+    "33",
+    "74",
+    "65",
+    "208",
+    "62",
+    "70",
+    "29",
+    "47",
+    "166",
+    "95",
+    "150",
+    "98",
+    "141",
+    "154",
+    "84",
+    "73",
+    "137",
+    "63",
+    "60",
+    "206",
+    "149",
+    "102",
+    "52",
+    "46",
+    "92",
+    "50",
+    "136",
+    "42",
+    "155",
+    "142",
+    "69",
+    "138",
+    "80",
+    "165",
+    "13",
+    "37",
+    "207",
+    "64",
+    "7",
+    "186",
+    "210",
+    "6",
+    "88",
+    "185",
+    "34",
+    "4"
+   ],
+   "n_code": 15,
+   "n_prose": 58
+  },
+  {
+   "run": "2025-11-28T20-35-16+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "14",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both dichotomise exposure at >0.125 cutoff"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both define outcome as binary any-red-card"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "identical primary logistic model formula and covariates"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "129",
+     "verdict": "same_option",
+     "why": "same adjustment set games/age/position/league, mediators excluded"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both compute risk difference via g-computation standardization"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both bootstrap RD CI, 1000 draws from coef normal"
+    },
+    {
+     "code_id": "47",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both add yellow cards in a sensitivity analysis"
+    },
+    {
+     "code_id": "53",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both use cluster-robust SEs by player as sensitivity"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "33",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both drop rows with missing covariates, complete-case"
+    }
+   ],
+   "unmatched_code": [
+    "8",
+    "19",
+    "30",
+    "40",
+    "44",
+    "50"
+   ],
+   "unmatched_prose": [
+    "66",
+    "131",
+    "64",
+    "100",
+    "102",
+    "62",
+    "75",
+    "128",
+    "55",
+    "57",
+    "47",
+    "59",
+    "4",
+    "81",
+    "30",
+    "52",
+    "109",
+    "164",
+    "99",
+    "49",
+    "68",
+    "5",
+    "127",
+    "54",
+    "130",
+    "51",
+    "53",
+    "38",
+    "56",
+    "163",
+    "74",
+    "101",
+    "41",
+    "60",
+    "77",
+    "107",
+    "34",
+    "142"
+   ],
+   "n_code": 17,
+   "n_prose": 49
+  },
+  {
+   "run": "2025-11-28T21-40-17+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both collapse detailed positions into four broad categories"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone data"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both complete-case exclude rows missing covariates"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both standardize continuous covariates to mean 0, SD 1"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "8",
+     "verdict": "same_option",
+     "why": "same adjustment set: skin tone, position, league, yellow cards"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both cluster standard errors on player"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both simulate parameter draws from covariance matrix"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both g-compute risk difference at exposure extremes"
+    }
+   ],
+   "unmatched_code": [
+    "4",
+    "5",
+    "18",
+    "15",
+    "17",
+    "16",
+    "19",
+    "12",
+    "1",
+    "6"
+   ],
+   "unmatched_prose": [
+    "19",
+    "53",
+    "79",
+    "108",
+    "104",
+    "73",
+    "92",
+    "6",
+    "7",
+    "105",
+    "164",
+    "40",
+    "163",
+    "54",
+    "89",
+    "85",
+    "74",
+    "115",
+    "56",
+    "91",
+    "66",
+    "81",
+    "71",
+    "51",
+    "55",
+    "32",
+    "67",
+    "106",
+    "47",
+    "125",
+    "162",
+    "76",
+    "159",
+    "126"
+   ],
+   "n_code": 19,
+   "n_prose": 43
+  },
+  {
+   "run": "2025-11-28T22-36-39+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "25",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both specify primary Poisson model, same covariates, log(games) offset"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both drop dyads missing covariates via complete-case deletion"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "23",
+     "verdict": "same_option",
+     "why": "both exclude dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "88",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin tone"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "89",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 cutpoint"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "90",
+     "verdict": "same_option",
+     "why": "both define the binary any-red-card outcome"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both use marginal standardization for adjusted risk difference"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both compute risk-difference CI via parametric bootstrap"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both fit secondary logistic model with same covariates"
+    }
+   ],
+   "unmatched_code": [
+    "45",
+    "53",
+    "51",
+    "27",
+    "7",
+    "59",
+    "21",
+    "47",
+    "43",
+    "52"
+   ],
+   "unmatched_prose": [
+    "74",
+    "66",
+    "98",
+    "81",
+    "37",
+    "119",
+    "83",
+    "26",
+    "43",
+    "73",
+    "112",
+    "84",
+    "99",
+    "77",
+    "93",
+    "44",
+    "36",
+    "111",
+    "47",
+    "71",
+    "3",
+    "50",
+    "75",
+    "45",
+    "34",
+    "96",
+    "18",
+    "40",
+    "69",
+    "91",
+    "31",
+    "30",
+    "95",
+    "94",
+    "4",
+    "15",
+    "79",
+    "76",
+    "25"
+   ],
+   "n_code": 19,
+   "n_prose": 48
+  },
+  {
+   "run": "2025-11-28T23-31-55+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "3",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both define exposure as average of two raters"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both drop dyads missing height/weight"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both exclude goalkeepers from the sample"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both collapse red cards into binary any-red-card"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "same logistic model, same covariate set"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "114",
+     "verdict": "same_option",
+     "why": "both compute adjusted marginal risk difference"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both log-transform games with 0.5 offset"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both search cutpoints, select 0.25 maximizing effect"
+    }
+   ],
+   "unmatched_code": [
+    "13",
+    "14",
+    "16",
+    "10",
+    "5",
+    "1",
+    "15"
+   ],
+   "unmatched_prose": [
+    "214",
+    "109",
+    "90",
+    "196",
+    "104",
+    "193",
+    "195",
+    "211",
+    "76",
+    "215",
+    "168",
+    "212",
+    "166",
+    "37",
+    "63",
+    "87",
+    "213",
+    "107",
+    "210",
+    "106",
+    "127",
+    "95",
+    "116",
+    "84",
+    "172",
+    "147",
+    "81",
+    "93",
+    "62",
+    "7",
+    "175",
+    "176",
+    "173",
+    "139"
+   ],
+   "n_code": 16,
+   "n_prose": 43
+  },
+  {
+   "run": "2025-11-29T04-37-04+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "12",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both define outcome as binary any-red-card indicator"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both drop rows missing skin-tone ratings"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both drop rows missing covariates, complete-case"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "both dichotomise dark>=0.75 vs light<0.25, discarding intermediate"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both fit logistic regression on skin_dark, games, yellowCards, position"
+    },
+    {
+     "code_id": "29",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both compute risk difference as average marginal effect"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both specify skin tone as continuous exposure"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both set the significance decision rule at p<0.05"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "21",
+     "verdict": "same_option",
+     "why": "both fix the analytic unit as player-referee dyads"
+    }
+   ],
+   "unmatched_code": [
+    "27",
+    "39",
+    "37"
+   ],
+   "unmatched_prose": [
+    "49",
+    "102",
+    "34",
+    "42",
+    "156",
+    "27",
+    "4",
+    "96",
+    "98",
+    "29",
+    "134",
+    "132",
+    "151",
+    "92",
+    "128",
+    "106",
+    "11",
+    "157",
+    "50",
+    "130",
+    "101",
+    "137",
+    "138",
+    "51",
+    "100",
+    "91",
+    "129",
+    "35",
+    "135",
+    "125",
+    "70",
+    "133",
+    "89",
+    "119",
+    "88",
+    "97",
+    "48",
+    "43",
+    "127",
+    "93",
+    "38"
+   ],
+   "n_code": 13,
+   "n_prose": 51
+  },
+  {
+   "run": "2025-11-29T05-34-40+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "18",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both make outcome a binary any-red-card indicator"
+    },
+    {
+     "code_id": "57",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both compute SE via delta method with numerical gradient"
+    },
+    {
+     "code_id": "79",
+     "prose_id": "106",
+     "verdict": "same_option",
+     "why": "both model skin tone as continuous robustness check"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "136",
+     "verdict": "vaguer",
+     "why": "one vaguely names key observables, other lists the set"
+    },
+    {
+     "code_id": "67",
+     "prose_id": "94",
+     "verdict": "same_option",
+     "why": "both drop referee-bias covariates as robustness check"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both dichotomize exposure at >=0.75 vs <=0.25"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both log-transform games played"
+    },
+    {
+     "code_id": "73",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "both use >=0.5 threshold on full sample"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin tone ratings"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both choose logistic regression for binary outcome"
+    },
+    {
+     "code_id": "39",
+     "prose_id": "73",
+     "verdict": "same_option",
+     "why": "both median-impute missing referee bias scores"
+    },
+    {
+     "code_id": "52",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both estimate adjusted RD via marginal standardization"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both average two raters into composite skin tone"
+    }
+   ],
+   "unmatched_code": [
+    "9",
+    "61",
+    "47",
+    "88",
+    "23",
+    "33"
+   ],
+   "unmatched_prose": [
+    "189",
+    "80",
+    "123",
+    "4",
+    "205",
+    "83",
+    "124",
+    "149",
+    "187",
+    "61",
+    "140",
+    "41",
+    "145",
+    "143",
+    "122",
+    "67",
+    "66",
+    "49",
+    "206",
+    "131",
+    "129",
+    "190",
+    "185",
+    "209",
+    "63",
+    "128",
+    "54",
+    "55",
+    "42",
+    "12",
+    "148",
+    "152",
+    "138",
+    "7",
+    "196",
+    "125",
+    "188",
+    "74",
+    "202",
+    "64",
+    "51",
+    "60",
+    "5",
+    "57",
+    "130",
+    "150",
+    "88",
+    "186",
+    "120",
+    "180",
+    "182",
+    "151",
+    "87",
+    "79",
+    "86",
+    "81",
+    "32",
+    "134",
+    "111",
+    "58"
+   ],
+   "n_code": 19,
+   "n_prose": 73
+  },
+  {
+   "run": "2025-11-29T08-21-37+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "84",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "194",
+     "verdict": "same_option",
+     "why": "both define binary anyRedCard from red card counts"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "123",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at candidates, 0.25 primary"
+    },
+    {
+     "code_id": "31",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both test alternative cutpoints (0.375/0.5) as robustness"
+    },
+    {
+     "code_id": "26",
+     "prose_id": "100",
+     "verdict": "same_option",
+     "why": "both compute RD via marginal standardization/G-computation"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "101",
+     "verdict": "same_option",
+     "why": "both derive RD uncertainty via delta-method SE and CI"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "95",
+     "verdict": "same_option",
+     "why": "both use logistic regression as the model"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "202",
+     "verdict": "same_option",
+     "why": "both specify the full covariate adjustment set"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both standardize height/weight/age continuous covariates"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "65",
+     "verdict": "same_option",
+     "why": "both dummy/one-hot code with a dropped reference level"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "86",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases on covariates"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "167",
+     "verdict": "same_option",
+     "why": "both keep full sample, test >=2 games as sensitivity"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "166",
+     "verdict": "same_option",
+     "why": "both run Poisson counts as sensitivity, binary primary"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "127",
+     "verdict": "same_option",
+     "why": "both frame binary-vs-Poisson-count outcome specification"
+    }
+   ],
+   "unmatched_code": [
+    "12",
+    "23",
+    "5",
+    "43",
+    "21",
+    "36"
+   ],
+   "unmatched_prose": [
+    "163",
+    "165",
+    "97",
+    "187",
+    "121",
+    "98",
+    "190",
+    "103",
+    "64",
+    "85",
+    "148",
+    "5",
+    "71",
+    "77",
+    "164",
+    "47",
+    "134",
+    "41",
+    "92",
+    "128",
+    "91",
+    "54",
+    "69",
+    "138",
+    "62",
+    "125",
+    "72",
+    "150",
+    "75",
+    "115",
+    "53",
+    "126",
+    "106",
+    "124",
+    "161",
+    "140",
+    "154",
+    "30",
+    "104",
+    "188",
+    "155",
+    "74",
+    "210",
+    "4",
+    "11",
+    "144",
+    "78",
+    "139"
+   ],
+   "n_code": 21,
+   "n_prose": 63
+  },
+  {
+   "run": "2025-11-29T08-52-24+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both define outcome as any career red card, binary"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both drop goalkeepers from the analytic sample"
+    },
+    {
+     "code_id": "43",
+     "prose_id": "81",
+     "verdict": "same_option",
+     "why": "both are the goalkeeper-inclusion sensitivity rerun"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "21",
+     "verdict": "same_option",
+     "why": "both aggregate red cards and games to player level"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both scan multiple candidate skin-tone thresholds"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both drop rows missing skin-tone rating rather than impute"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "141",
+     "verdict": "same_option",
+     "why": "both load the full raw dyad-level CSV"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both log-transform games played"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both define coarse position category buckets"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both choose logistic regression as the estimator"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "61",
+     "verdict": "same_option",
+     "why": "both use AME on dark_skin as the risk difference"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "42",
+     "verdict": "vaguer",
+     "why": "list1 names no covariates; list2 enumerates the set"
+    }
+   ],
+   "unmatched_code": [
+    "38",
+    "34",
+    "41",
+    "12",
+    "45"
+   ],
+   "unmatched_prose": [
+    "2",
+    "40",
+    "98",
+    "57",
+    "66",
+    "47",
+    "142",
+    "92",
+    "136",
+    "108",
+    "114",
+    "93",
+    "138",
+    "64",
+    "143",
+    "145",
+    "63",
+    "104",
+    "44",
+    "33",
+    "86",
+    "50",
+    "68",
+    "49",
+    "22",
+    "84",
+    "88",
+    "100",
+    "53",
+    "102",
+    "116",
+    "7",
+    "144",
+    "18",
+    "105",
+    "89",
+    "87",
+    "147"
+   ],
+   "n_code": 18,
+   "n_prose": 51
+  },
+  {
+   "run": "2025-11-29T11-47-15+0000",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "10",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both average the two rater columns into skin-tone score"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both z-score the continuous covariates (height/weight/age)"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both drop rows with missing covariate data (complete-case)"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "both collapse red-card count into binary indicator"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both cluster SEs by player (54 also adds referee)"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both dichotomize exposure at 0.75, light=0.0"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both compute one-sided directional dark>light p-value"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both use extreme groups, dropping intermediate ratings"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone rating"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both exclude goalkeepers from the sample"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both fit LPM of red cards on dark, games, position"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both test log functional form for games as alternative"
+    }
+   ],
+   "unmatched_code": [
+    "58",
+    "39",
+    "16",
+    "8",
+    "49",
+    "43",
+    "36",
+    "32",
+    "47"
+   ],
+   "unmatched_prose": [
+    "122",
+    "57",
+    "76",
+    "34",
+    "123",
+    "108",
+    "68",
+    "30",
+    "78",
+    "109",
+    "81",
+    "22",
+    "49",
+    "43",
+    "70",
+    "44",
+    "69",
+    "62",
+    "124",
+    "40",
+    "53",
+    "84",
+    "71",
+    "51",
+    "80",
+    "85",
+    "33"
+   ],
+   "n_code": 21,
+   "n_prose": 39
+  },
+  {
+   "run": "2025-11-29T13-19-54+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "22",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both fit logistic with dark, position, league, games"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both average the two rater scores"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "135",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both get risk-difference CI via parametric simulation draws"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both drop goalkeeper dyads"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary any-red outcome"
+    }
+   ],
+   "unmatched_code": [
+    "25",
+    "29",
+    "39",
+    "43",
+    "47",
+    "51",
+    "58",
+    "7"
+   ],
+   "unmatched_prose": [
+    "34",
+    "41",
+    "89",
+    "31",
+    "39",
+    "43",
+    "144",
+    "5",
+    "69",
+    "136",
+    "75",
+    "24",
+    "60",
+    "84",
+    "101",
+    "53",
+    "35",
+    "65",
+    "66",
+    "56",
+    "134",
+    "133",
+    "80",
+    "77",
+    "90",
+    "50",
+    "42",
+    "79",
+    "102",
+    "117",
+    "72",
+    "33",
+    "94",
+    "61",
+    "40",
+    "124",
+    "85",
+    "113",
+    "6",
+    "74",
+    "62",
+    "115",
+    "141",
+    "54",
+    "93",
+    "55"
+   ],
+   "n_code": 15,
+   "n_prose": 53
+  },
+  {
+   "run": "2025-11-29T15-01-09+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "51",
+     "verdict": "same_option",
+     "why": "both collapse red-card count to binary any/none"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both fit OLS LPM with HC3 SE for risk difference"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both fit logistic regression for odds ratio"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "identical seven-covariate adjustment set"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both drop dyads missing height or weight"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone/photo"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both pick threshold giving largest effect as primary"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both re-analyze skin tone as continuous predictor"
+    },
+    {
+     "code_id": "42",
+     "prose_id": "72",
+     "verdict": "same_option",
+     "why": "both add referee IAT/explicit bias as extra controls"
+    }
+   ],
+   "unmatched_code": [
+    "36",
+    "50",
+    "7",
+    "46",
+    "58",
+    "40"
+   ],
+   "unmatched_prose": [
+    "50",
+    "133",
+    "4",
+    "135",
+    "33",
+    "102",
+    "81",
+    "65",
+    "137",
+    "134",
+    "148",
+    "145",
+    "3",
+    "149",
+    "150",
+    "151",
+    "58",
+    "11",
+    "108",
+    "87",
+    "147",
+    "89",
+    "49",
+    "124",
+    "106"
+   ],
+   "n_code": 16,
+   "n_prose": 35
+  },
+  {
+   "run": "2025-11-29T18-13-22+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both average the two raters into continuous skin tone"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "101",
+     "verdict": "same_option",
+     "why": "both keep only extreme-contrast dyads at 0.25/0.75"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both drop dyads with fewer than 2 games"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "64",
+     "verdict": "same_option",
+     "why": "both binarize red cards to any-red outcome"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "105",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases on covariates"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "109",
+     "verdict": "same_option",
+     "why": "both z-standardize the continuous covariates"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "110",
+     "verdict": "same_option",
+     "why": "both dummy-code categorical position and league"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both fit adjusted logistic regression of any-red on dark flag"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "88",
+     "verdict": "same_option",
+     "why": "both estimate counterfactual average risk difference (AME)"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both use 500-replicate bootstrap percentile CI"
+    }
+   ],
+   "unmatched_code": [
+    "1",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16"
+   ],
+   "unmatched_prose": [
+    "7",
+    "8",
+    "37",
+    "54",
+    "55",
+    "65",
+    "68",
+    "70",
+    "73",
+    "74",
+    "75",
+    "76",
+    "78",
+    "79",
+    "80",
+    "84",
+    "89",
+    "90",
+    "93",
+    "95",
+    "96",
+    "97",
+    "102",
+    "103",
+    "104",
+    "106",
+    "111",
+    "112",
+    "115",
+    "116",
+    "117",
+    "135",
+    "136",
+    "144",
+    "157",
+    "160",
+    "161",
+    "166",
+    "169",
+    "170",
+    "171",
+    "172",
+    "173",
+    "176",
+    "177"
+   ],
+   "n_code": 16,
+   "n_prose": 55
+  },
+  {
+   "run": "2025-11-29T20-04-37+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both drop dyads missing skin-tone ratings"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both average the two rater scores"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.125"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both collapse red-card count to binary 0 vs 1+"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "129",
+     "verdict": "same_option",
+     "why": "both fit logistic adjusting for games and position"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "17",
+     "verdict": "same_option",
+     "why": "both compute adjusted RD via g-computation standardization"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both derive OR interval from ML/logistic SEs"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both use 10,000-draw parametric bootstrap from joint normal"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both add league country as robustness covariate"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both refit using continuous skin tone predictor"
+    }
+   ],
+   "unmatched_code": [
+    "1",
+    "6",
+    "12",
+    "14",
+    "15"
+   ],
+   "unmatched_prose": [
+    "141",
+    "87",
+    "4",
+    "122",
+    "135",
+    "58",
+    "44",
+    "49",
+    "112",
+    "37",
+    "140",
+    "106",
+    "134",
+    "19",
+    "123",
+    "133",
+    "43",
+    "81",
+    "113",
+    "85",
+    "36",
+    "97",
+    "91",
+    "96",
+    "29",
+    "50",
+    "30",
+    "5",
+    "6",
+    "143",
+    "42",
+    "54",
+    "90",
+    "83",
+    "18",
+    "70",
+    "47",
+    "32",
+    "118"
+   ],
+   "n_code": 15,
+   "n_prose": 49
+  },
+  {
+   "run": "2025-11-29T21-54-24+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone ratings"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.25 into light/dark"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both define binary any-red-card dyad outcome"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both compute age from birthday to season start"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "55",
+     "verdict": "same_option",
+     "why": "both collapse positions into four categories"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "58",
+     "verdict": "same_option",
+     "why": "both fit logistic dark_skin + games + position"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "60",
+     "verdict": "same_option",
+     "why": "both use marginal standardization for risk difference"
+    },
+    {
+     "code_id": "26",
+     "prose_id": "63",
+     "verdict": "same_option",
+     "why": "both approximate RD standard error via delta method"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both drop rows with missing data (complete-case)"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "112",
+     "verdict": "same_option",
+     "why": "both run the extreme-groups skin-tone sensitivity analysis"
+    }
+   ],
+   "unmatched_code": [
+    "19",
+    "35",
+    "6",
+    "29",
+    "33",
+    "20"
+   ],
+   "unmatched_prose": [
+    "155",
+    "110",
+    "109",
+    "98",
+    "47",
+    "57",
+    "68",
+    "142",
+    "160",
+    "31",
+    "108",
+    "150",
+    "107",
+    "52",
+    "146",
+    "154",
+    "43",
+    "194",
+    "156",
+    "67",
+    "46",
+    "195",
+    "161",
+    "7",
+    "59",
+    "191",
+    "211",
+    "140",
+    "134",
+    "192",
+    "65",
+    "136",
+    "51",
+    "111",
+    "151",
+    "193",
+    "129",
+    "125",
+    "53",
+    "143",
+    "42"
+   ],
+   "n_code": 16,
+   "n_prose": 51
+  },
+  {
+   "run": "2025-11-29T23-23-58+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin tone"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary any-red outcome"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "50",
+     "verdict": "same_option",
+     "why": "both cut dark >=0.75 vs light <=0.125"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "70",
+     "verdict": "same_option",
+     "why": "both drop dyads missing photo/skin-tone rating"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both complete-case drop on missing position/league"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both standardize yellow cards and height"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "126",
+     "verdict": "same_option",
+     "why": "both cluster standard errors by player"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "90",
+     "verdict": "same_option",
+     "why": "both weight the model by games played"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "99",
+     "verdict": "same_fork_different_option",
+     "why": "one reports one-sided p, the other two-sided"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "180",
+     "verdict": "vaguer",
+     "why": "named adjustment set vs bare selection criteria"
+    }
+   ],
+   "unmatched_code": [
+    "23",
+    "6",
+    "56",
+    "21",
+    "15",
+    "46",
+    "49",
+    "36",
+    "43"
+   ],
+   "unmatched_prose": [
+    "84",
+    "53",
+    "132",
+    "36",
+    "63",
+    "174",
+    "151",
+    "184",
+    "177",
+    "83",
+    "153",
+    "97",
+    "139",
+    "162",
+    "156",
+    "96",
+    "167",
+    "191",
+    "95",
+    "189",
+    "176",
+    "94",
+    "6",
+    "135",
+    "183",
+    "185",
+    "197",
+    "190",
+    "85",
+    "46",
+    "49",
+    "98",
+    "87",
+    "52",
+    "172",
+    "192",
+    "72",
+    "5",
+    "65",
+    "145",
+    "193",
+    "47",
+    "86",
+    "149",
+    "155",
+    "60",
+    "163",
+    "182",
+    "67"
+   ],
+   "n_code": 19,
+   "n_prose": 59
+  },
+  {
+   "run": "2025-11-29T23-55-11+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both use the average of the two raters' ratings"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both assess inter-rater agreement by correlation (r=0.923)"
+    },
+    {
+     "code_id": "32",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both compute adjusted RD via g-computation/marginal standardization"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both define a binary any-red-card outcome"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both fit the primary logistic regression model"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both analyze skin tone as continuous in sensitivity"
+    },
+    {
+     "code_id": "40",
+     "prose_id": "91",
+     "verdict": "same_option",
+     "why": "both use the 0.625 alternative dark-skin cutpoint"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "128",
+     "verdict": "same_option",
+     "why": "both point to the source soccer CSV dataset"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both restrict to complete cases with skin-tone ratings"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone into extreme groups"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both z-standardize the continuous covariates"
+    },
+    {
+     "code_id": "56",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both compile the primary plus four sensitivity specifications"
+    }
+   ],
+   "unmatched_code": [
+    "61",
+    "52",
+    "34",
+    "48",
+    "28",
+    "22",
+    "64"
+   ],
+   "unmatched_prose": [
+    "26",
+    "106",
+    "129",
+    "100",
+    "40",
+    "31",
+    "25",
+    "111",
+    "50",
+    "122",
+    "29",
+    "86",
+    "30",
+    "126",
+    "4",
+    "46",
+    "121",
+    "95",
+    "123",
+    "32",
+    "131",
+    "41",
+    "127",
+    "114",
+    "42",
+    "96",
+    "3",
+    "88",
+    "14",
+    "47",
+    "143",
+    "90",
+    "93",
+    "27",
+    "144",
+    "35",
+    "87"
+   ],
+   "n_code": 19,
+   "n_prose": 49
+  },
+  {
+   "run": "2026-02-13T14-52-16+0000",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "11",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at 0.5"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both average the two raters' scores"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "same six named covariates in adjustment set"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "both choose logistic regression as model"
+    },
+    {
+     "code_id": "37",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both add HC1 robust SEs as check"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "45",
+     "verdict": "same_option",
+     "why": "both report average marginal effect risk difference"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both collapse red cards to binary"
+    },
+    {
+     "code_id": "27",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "both use two-sided alpha=0.05 inference"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both drop rows missing skin-tone rating"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "37",
+     "verdict": "same_option",
+     "why": "both listwise-delete rows missing covariates"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "3",
+     "verdict": "same_option",
+     "why": "both identify the source dataset universe"
+    }
+   ],
+   "unmatched_code": [
+    "18",
+    "30",
+    "34",
+    "39"
+   ],
+   "unmatched_prose": [
+    "41",
+    "4",
+    "123",
+    "97",
+    "80",
+    "90",
+    "96",
+    "84",
+    "77",
+    "78",
+    "21",
+    "113",
+    "12",
+    "79",
+    "30",
+    "29",
+    "82",
+    "42",
+    "32",
+    "76"
+   ],
+   "n_code": 15,
+   "n_prose": 31
+  },
+  {
+   "run": "team-01",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "8",
+     "prose_id": "23",
+     "verdict": "same_option",
+     "why": "both average the two skin-tone rater columns into one rating"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "21",
+     "verdict": "same_option",
+     "why": "both expand each dyad into one row per game"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "40",
+     "verdict": "same_option",
+     "why": "both define any-red as straight reds plus second-yellow reds"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both z-standardize country-level mean IAT and EXP scores"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "22",
+     "verdict": "same_option",
+     "why": "both add squared body-size terms for nonlinear controls"
+    },
+    {
+     "code_id": "41",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both fit separate subgroup regressions for light vs dark players"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both use the full sample with no observations excluded"
+    }
+   ],
+   "unmatched_code": [
+    "35",
+    "32",
+    "19",
+    "38",
+    "29",
+    "6",
+    "40",
+    "23",
+    "24",
+    "33",
+    "7",
+    "28",
+    "14",
+    "27"
+   ],
+   "unmatched_prose": [
+    "38",
+    "32",
+    "29",
+    "5",
+    "30",
+    "11",
+    "33",
+    "31",
+    "35",
+    "6",
+    "39",
+    "26"
+   ],
+   "n_code": 21,
+   "n_prose": 19
+  },
+  {
+   "run": "team-02",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone measure"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "44",
+     "verdict": "same_option",
+     "why": "same adjusted set: position, height, weight, league/country fixed effects"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "22",
+     "verdict": "same_option",
+     "why": "both collapse red cards to a binary indicator"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "68",
+     "verdict": "same_option",
+     "why": "both run logit alongside LPM, reporting odds ratios"
+    },
+    {
+     "code_id": "18",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both build referee-bias by skin-tone interaction term"
+    }
+   ],
+   "unmatched_code": [
+    "23",
+    "15",
+    "5",
+    "21",
+    "8",
+    "17",
+    "22",
+    "19",
+    "12",
+    "2",
+    "13",
+    "6",
+    "4",
+    "9",
+    "10",
+    "20",
+    "3",
+    "1"
+   ],
+   "unmatched_prose": [
+    "41",
+    "25",
+    "51",
+    "79",
+    "73",
+    "45",
+    "80",
+    "52",
+    "63",
+    "30",
+    "49",
+    "53",
+    "66",
+    "13",
+    "11",
+    "62",
+    "46"
+   ],
+   "n_code": 23,
+   "n_prose": 22
+  },
+  {
+   "run": "team-03",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "outcome is binomial red-card count over games"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both adjust for player position and league/country as group-level effects"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "47",
+     "verdict": "same_option",
+     "why": "skin tone categorical at level 1, linear trend at level 2"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both add an error term to absorb overdispersion"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "56",
+     "verdict": "same_option",
+     "why": "referee-country effect with implicit/explicit bias as second-level predictors"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "restrict second model to dark-skin players (rating>3)"
+    }
+   ],
+   "unmatched_code": [
+    "6"
+   ],
+   "unmatched_prose": [
+    "65",
+    "7",
+    "31",
+    "67",
+    "61",
+    "83",
+    "14",
+    "72",
+    "15",
+    "23",
+    "64",
+    "35",
+    "55",
+    "18",
+    "42",
+    "81",
+    "62",
+    "88",
+    "41",
+    "13",
+    "24",
+    "20",
+    "33",
+    "63",
+    "17",
+    "26",
+    "32",
+    "66",
+    "38",
+    "8",
+    "49"
+   ],
+   "n_code": 7,
+   "n_prose": 37
+  },
+  {
+   "run": "team-05",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "7",
+     "prose_id": "16",
+     "verdict": "same_option",
+     "why": "both average the two rater columns into one score"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "17",
+     "verdict": "same_option",
+     "why": "both rescale skin-tone from 1-5 onto 0-1"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both concatenate playerShort and refNum into p_ref"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "23",
+     "verdict": "same_option",
+     "why": "both disaggregate to one row per game with binary red card"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "79",
+     "verdict": "same_option",
+     "why": "both drop missing avgrate or meanIAT, not meanExp"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "83",
+     "verdict": "same_option",
+     "why": "both chi-square observed vs expected by skin-tone category"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both restrict observed frequencies to red-card subset"
+    },
+    {
+     "code_id": "30",
+     "prose_id": "57",
+     "verdict": "same_option",
+     "why": "both pair country meanIAT with gm3 random slopes"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "62",
+     "verdict": "same_option",
+     "why": "both pair country meanExp with gm3 random slopes"
+    },
+    {
+     "code_id": "36",
+     "prose_id": "89",
+     "verdict": "same_option",
+     "why": "both add avgrate01 x meanIAT interaction (gm4)"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "93",
+     "verdict": "same_option",
+     "why": "both add avgrate01 x meanExp interaction (gm5)"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "39",
+     "verdict": "vaguer",
+     "why": "list_2 says 'four models compared' without the random-effects progression"
+    }
+   ],
+   "unmatched_code": [
+    "3"
+   ],
+   "unmatched_prose": [
+    "7",
+    "10",
+    "18",
+    "19",
+    "20",
+    "24",
+    "25",
+    "27",
+    "28",
+    "30",
+    "31",
+    "35",
+    "41",
+    "43",
+    "45",
+    "47",
+    "52",
+    "85"
+   ],
+   "n_code": 13,
+   "n_prose": 30
+  },
+  {
+   "run": "team-06",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "3",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both cluster standard errors at referee's country level"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both restrict to single player-referee interactions (games==1)"
+    },
+    {
+     "code_id": "26",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both are the main LPM regression of red cards on skin tone"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "23",
+     "verdict": "same_option",
+     "why": "both define spec variants over player controls and club FE"
+    },
+    {
+     "code_id": "34",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both define the rater x high-IAT interaction terms"
+    },
+    {
+     "code_id": "38",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both fit/present the high-IAT interaction model"
+    },
+    {
+     "code_id": "44",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both define the rater x high-Exp interaction terms"
+    },
+    {
+     "code_id": "48",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both fit/present the high-Exp interaction model"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "15",
+    "19",
+    "41",
+    "7",
+    "29",
+    "51",
+    "32",
+    "6",
+    "42",
+    "52",
+    "9",
+    "8",
+    "5",
+    "24",
+    "16",
+    "17",
+    "31"
+   ],
+   "unmatched_prose": [
+    "21",
+    "71",
+    "42",
+    "65",
+    "64",
+    "60",
+    "32",
+    "28",
+    "50",
+    "46",
+    "17",
+    "33",
+    "37",
+    "55",
+    "24",
+    "26",
+    "67",
+    "41",
+    "34",
+    "31",
+    "70",
+    "68",
+    "25",
+    "47",
+    "10",
+    "45"
+   ],
+   "n_code": 26,
+   "n_prose": 34
+  },
+  {
+   "run": "team-07",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "3",
+     "prose_id": "36",
+     "verdict": "same_option",
+     "why": "both drop dyads/rows missing a skin-tone rating"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "46",
+     "verdict": "same_option",
+     "why": "both restrict the sample to red-card dyads"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both take all player-referee dyads as the population"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both use profile regression (PReMiuM) as the method"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "87",
+     "verdict": "vaguer",
+     "why": "item 8 computes cluster relative risk but omits reference-cluster choice"
+    }
+   ],
+   "unmatched_code": [
+    "4"
+   ],
+   "unmatched_prose": [
+    "68",
+    "76",
+    "11",
+    "7",
+    "35",
+    "29",
+    "65",
+    "33",
+    "22",
+    "85",
+    "42",
+    "32",
+    "60",
+    "99",
+    "31",
+    "38",
+    "18",
+    "24",
+    "34",
+    "37",
+    "54",
+    "78",
+    "43",
+    "40"
+   ],
+   "n_code": 6,
+   "n_prose": 29
+  },
+  {
+   "run": "team-08",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "1",
+     "prose_id": "18",
+     "verdict": "same_option",
+     "why": "both drop cases missing a rater1/rater2 rating"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "17",
+     "verdict": "same_option",
+     "why": "both use listwise deletion on any missing model variable"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "77",
+     "verdict": "same_option",
+     "why": "both create the two centered bias-by-rater interaction terms"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "75",
+     "verdict": "same_option",
+     "why": "both mean-center the predictors before regression"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both collapse to one row per player, summing red cards"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both run OLS multiple regression on raw dyad-level red cards"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "76",
+     "verdict": "same_fork_different_option",
+     "why": "list 1 also controls league and referee country; list 2 block omits them"
+    }
+   ],
+   "unmatched_code": [
+    "4",
+    "3",
+    "7",
+    "20",
+    "25",
+    "9",
+    "8",
+    "14",
+    "23",
+    "11",
+    "6",
+    "21",
+    "18",
+    "24",
+    "17",
+    "5",
+    "22"
+   ],
+   "unmatched_prose": [
+    "56",
+    "23",
+    "78",
+    "29",
+    "42",
+    "37",
+    "79",
+    "58",
+    "39",
+    "89",
+    "61",
+    "44",
+    "30",
+    "62",
+    "88",
+    "57",
+    "28",
+    "40",
+    "43",
+    "74",
+    "5",
+    "73",
+    "63",
+    "6",
+    "47"
+   ],
+   "n_code": 25,
+   "n_prose": 33
+  },
+  {
+   "run": "team-09",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "2",
+     "prose_id": "6",
+     "verdict": "same_option",
+     "why": "both fit a mixed-effects (GLMM) logistic model for red cards"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "52",
+     "verdict": "same_fork_different_option",
+     "why": "adjustment set uses leagueCountry vs referee country"
+    }
+   ],
+   "unmatched_code": [
+    "5",
+    "4"
+   ],
+   "unmatched_prose": [
+    "53",
+    "63",
+    "26",
+    "73",
+    "38",
+    "30",
+    "28",
+    "50",
+    "24",
+    "17",
+    "51",
+    "67",
+    "66",
+    "35",
+    "21",
+    "42",
+    "57",
+    "55",
+    "45",
+    "27",
+    "60",
+    "32",
+    "16",
+    "43",
+    "31",
+    "49",
+    "41",
+    "29",
+    "33",
+    "56",
+    "54",
+    "59"
+   ],
+   "n_code": 4,
+   "n_prose": 34
+  },
+  {
+   "run": "team-10",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both average the two raters into one skin-tone score"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "both compute BMI from weight and height"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both compute goals-per-game (scoring rate / star status)"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both compute per-game game-situation rates (loss common)"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "74",
+     "verdict": "same_option",
+     "why": "both define total-bookings index red+yellow+2x yellow-red"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "80",
+     "verdict": "same_option",
+     "why": "both dichotomize skin tone at midpoint (3 = .50)"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "53",
+     "verdict": "same_option",
+     "why": "both construct the aggregated player-level data matrix"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both test position-skin-tone association via ANOVA"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "52",
+     "verdict": "same_option",
+     "why": "both correlate player-level confound candidates against skin tone"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "55",
+     "verdict": "vaguer",
+     "why": "both test confound candidates predicting cards; list2 leaves variables unnamed"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "69",
+     "verdict": "same_option",
+     "why": "both test IAT moderation via interaction on skin-tone effect"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both test explicit-prejudice moderation via interaction on skin-tone effect"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "78",
+     "verdict": "same_option",
+     "why": "both test moderation (H2a/2b) using categorical skin-tone recoding"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "82",
+     "verdict": "same_option",
+     "why": "both rerun models substituting categorical tone for continuous"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "43",
+     "verdict": "same_option",
+     "why": "both select nesting structure by model-comparison of explained variance"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "61",
+     "verdict": "same_fork_different_option",
+     "why": "adjustment set: club+position vs win/draw/loss%+position"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "26",
+    "21",
+    "24",
+    "2",
+    "18",
+    "19",
+    "25",
+    "12",
+    "14"
+   ],
+   "unmatched_prose": [
+    "8",
+    "90",
+    "45",
+    "36",
+    "42",
+    "22",
+    "64",
+    "40",
+    "38",
+    "66",
+    "50",
+    "48",
+    "101",
+    "37",
+    "10",
+    "30",
+    "34",
+    "33",
+    "65",
+    "63",
+    "23",
+    "81",
+    "27",
+    "67",
+    "31",
+    "44",
+    "25"
+   ],
+   "n_code": 26,
+   "n_prose": 43
+  },
+  {
+   "run": "team-11",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both choose multiple linear regression for total red cards"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "85",
+     "verdict": "same_option",
+     "why": "both handle missing data by listwise case exclusion"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "120",
+     "verdict": "same_option",
+     "why": "both set covariates to position, games, age, goals"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "59",
+     "verdict": "same_option",
+     "why": "both check residual normality via histogram and P-P plot"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "126",
+     "verdict": "same_option",
+     "why": "both switch to binary logistic regression for moderation"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "127",
+     "verdict": "same_option",
+     "why": "both use position, games, goals, age as logistic covariates"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "87",
+     "verdict": "same_option",
+     "why": "both include implicit (IAT) bias as logistic predictor"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "84",
+     "verdict": "same_option",
+     "why": "both create implicit bias × skin-tone interaction term"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both use indicator/contrast coding for categorical position"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "108",
+     "verdict": "same_option",
+     "why": "both include explicit bias as logistic predictor/moderator"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "105",
+     "verdict": "same_option",
+     "why": "both create explicit bias × skin-tone interaction term"
+    }
+   ],
+   "unmatched_code": [
+    "3",
+    "4",
+    "6",
+    "8",
+    "14"
+   ],
+   "unmatched_prose": [
+    "121",
+    "16",
+    "66",
+    "11",
+    "15",
+    "93",
+    "123",
+    "10",
+    "42",
+    "46",
+    "27",
+    "92",
+    "125",
+    "61",
+    "90",
+    "91",
+    "119",
+    "124",
+    "103",
+    "39",
+    "70",
+    "57",
+    "37",
+    "94",
+    "38",
+    "36",
+    "13",
+    "62",
+    "134",
+    "73",
+    "64",
+    "53",
+    "55",
+    "80",
+    "111",
+    "63",
+    "51",
+    "106",
+    "67",
+    "101",
+    "29",
+    "25",
+    "31",
+    "82",
+    "98",
+    "32",
+    "112",
+    "65",
+    "75",
+    "41",
+    "113",
+    "77",
+    "12",
+    "81",
+    "102",
+    "114",
+    "20",
+    "115"
+   ],
+   "n_code": 16,
+   "n_prose": 69
+  },
+  {
+   "run": "team-12",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "4",
+     "prose_id": "5",
+     "verdict": "same_option",
+     "why": "both are the primary zero-inflated model of red cards on skin tone"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both fit the interaction model of skin color with the two bias predictors"
+    }
+   ],
+   "unmatched_code": [],
+   "unmatched_prose": [
+    "25",
+    "52",
+    "26",
+    "3",
+    "63",
+    "28",
+    "13",
+    "22",
+    "23",
+    "38",
+    "43",
+    "27",
+    "19",
+    "40",
+    "24",
+    "18",
+    "4",
+    "21",
+    "59",
+    "16"
+   ],
+   "n_code": 2,
+   "n_prose": 22
+  },
+  {
+   "run": "team-13",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "12",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both average the two raters into one continuous skintone"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "29",
+     "verdict": "vaguer",
+     "why": "L1 says checked reliability, L2 names Cronbach's alpha"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "38",
+     "verdict": "same_option",
+     "why": "both dichotomize averaged skintone at 3, dropping neutral"
+    },
+    {
+     "code_id": "28",
+     "prose_id": "48",
+     "verdict": "same_option",
+     "why": "both aggregate to per-country-by-skincolor game/redcard sums"
+    },
+    {
+     "code_id": "33",
+     "prose_id": "49",
+     "verdict": "same_option",
+     "why": "both form the dark-to-light red-card ratio"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both fit Poisson GLM of red cards by skintone, log-games offset"
+    }
+   ],
+   "unmatched_code": [
+    "50",
+    "3",
+    "30",
+    "42",
+    "31",
+    "32",
+    "11",
+    "44",
+    "38",
+    "46",
+    "48",
+    "36",
+    "40",
+    "24"
+   ],
+   "unmatched_prose": [
+    "67",
+    "7",
+    "71",
+    "23",
+    "65",
+    "32",
+    "72",
+    "50",
+    "43",
+    "33",
+    "9",
+    "20",
+    "60",
+    "54",
+    "66",
+    "35",
+    "59",
+    "39",
+    "21",
+    "61",
+    "22",
+    "27",
+    "52",
+    "51",
+    "10",
+    "53",
+    "63",
+    "34"
+   ],
+   "n_code": 20,
+   "n_prose": 34
+  },
+  {
+   "run": "team-17",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "29",
+     "verdict": "same_fork_different_option",
+     "why": "same binomial card model, but logit link vs probit link"
+    },
+    {
+     "code_id": "9",
+     "prose_id": "16",
+     "verdict": "same_fork_different_option",
+     "why": "rating averaged from two raters vs modeled as latent categorical"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "30",
+     "verdict": "same_option",
+     "why": "referee random intercept centered at zero with estimated precision"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "31",
+     "verdict": "vaguer",
+     "why": "player mu0/precision hyperpriors; one names distributions, other says weakly informative"
+    }
+   ],
+   "unmatched_code": [
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "unmatched_prose": [
+    "75",
+    "37",
+    "98",
+    "17",
+    "22",
+    "65",
+    "102",
+    "63",
+    "21",
+    "42",
+    "40",
+    "109",
+    "39",
+    "72",
+    "92",
+    "80",
+    "43",
+    "88",
+    "101",
+    "18",
+    "23",
+    "59",
+    "15",
+    "24",
+    "44",
+    "83",
+    "26",
+    "33",
+    "5",
+    "34",
+    "95",
+    "100",
+    "38",
+    "20",
+    "48",
+    "55",
+    "27"
+   ],
+   "n_code": 9,
+   "n_prose": 41
+  },
+  {
+   "run": "team-18",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both keep only rows where the two raters agree"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "31",
+     "verdict": "same_fork_different_option",
+     "why": "reconcile two raters: average disagreements vs use agreed code"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both drop rows missing implicit/explicit preference scores"
+    },
+    {
+     "code_id": "69",
+     "prose_id": "39",
+     "verdict": "same_option",
+     "why": "both derive country-score precision from SE and sample size"
+    },
+    {
+     "code_id": "70",
+     "prose_id": "7",
+     "verdict": "same_option",
+     "why": "both specify Q2 referee model: style plus bias-score slopes"
+    },
+    {
+     "code_id": "46",
+     "prose_id": "6",
+     "verdict": "same_option",
+     "why": "both specify Q1 hierarchical cards model with style and skin-tone effects"
+    },
+    {
+     "code_id": "49",
+     "prose_id": "43",
+     "verdict": "vaguer",
+     "why": "L2 bundles MCMC settings without stating the 5000 iterations"
+    }
+   ],
+   "unmatched_code": [
+    "28",
+    "26",
+    "17",
+    "54",
+    "19",
+    "64",
+    "23",
+    "41",
+    "68",
+    "62",
+    "44",
+    "1",
+    "30"
+   ],
+   "unmatched_prose": [
+    "41",
+    "25",
+    "42",
+    "36",
+    "33",
+    "40",
+    "62",
+    "38",
+    "19",
+    "27",
+    "32",
+    "22",
+    "44",
+    "28",
+    "23",
+    "34",
+    "30"
+   ],
+   "n_code": 20,
+   "n_prose": 24
+  },
+  {
+   "run": "team-20",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "1",
+     "prose_id": "29",
+     "verdict": "same_option",
+     "why": "both choose negative-binomial for the count red-card outcome"
+    },
+    {
+     "code_id": "4",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both cluster random intercepts by player, club, league"
+    },
+    {
+     "code_id": "3",
+     "prose_id": "18",
+     "verdict": "same_option",
+     "why": "both treat position as a categorical variable"
+    }
+   ],
+   "unmatched_code": [
+    "2"
+   ],
+   "unmatched_prose": [
+    "22",
+    "43",
+    "50",
+    "32",
+    "35",
+    "49",
+    "23",
+    "17",
+    "57",
+    "48",
+    "33",
+    "36",
+    "46",
+    "44",
+    "21",
+    "30",
+    "31",
+    "45",
+    "16",
+    "34",
+    "47",
+    "15"
+   ],
+   "n_code": 4,
+   "n_prose": 25
+  },
+  {
+   "run": "team-24",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "both average the two raters into skin-tone rating"
+    },
+    {
+     "code_id": "13",
+     "prose_id": "22",
+     "verdict": "same_option",
+     "why": "both collapse left/right positions into side-agnostic categories"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "14",
+     "verdict": "same_option",
+     "why": "both expand each player-referee row into one row per game"
+    },
+    {
+     "code_id": "7",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both exclude countries with survey SE above sd/5"
+    },
+    {
+     "code_id": "16",
+     "prose_id": "24",
+     "verdict": "same_option",
+     "why": "both center bias scores using only retained countries"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both standardize rating at player level not match level"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "65",
+     "verdict": "same_option",
+     "why": "both specify RQ1 model covariates position, height, weight"
+    },
+    {
+     "code_id": "23",
+     "prose_id": "71",
+     "verdict": "same_option",
+     "why": "both are the RQ2a model incorporating meanIAT"
+    },
+    {
+     "code_id": "24",
+     "prose_id": "76",
+     "verdict": "same_option",
+     "why": "both are the RQ2b model incorporating meanExp"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "67",
+     "verdict": "same_option",
+     "why": "both drop goals and age from RQ1 predictors"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both drop rows missing any predictor (listwise)"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "20",
+     "verdict": "same_option",
+     "why": "both derive player age from birthday"
+    },
+    {
+     "code_id": "12",
+     "prose_id": "17",
+     "verdict": "same_fork_different_option",
+     "why": "career goals total versus average goals per game"
+    }
+   ],
+   "unmatched_code": [
+    "4"
+   ],
+   "unmatched_prose": [
+    "66",
+    "72",
+    "77",
+    "61",
+    "108",
+    "60",
+    "41",
+    "107",
+    "109",
+    "46",
+    "54",
+    "16",
+    "15",
+    "23",
+    "18",
+    "21",
+    "26",
+    "19",
+    "81",
+    "82",
+    "83",
+    "89",
+    "90",
+    "91",
+    "33",
+    "35"
+   ],
+   "n_code": 14,
+   "n_prose": 39
+  },
+  {
+   "run": "team-25",
+   "flipped": true,
+   "pairs": [
+    {
+     "code_id": "5",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both average the two raters' skin-tone scores"
+    },
+    {
+     "code_id": "10",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both let skin-tone slope vary by referee (random slope)"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both add a skin-tone by referee-IAT interaction term"
+    }
+   ],
+   "unmatched_code": [
+    "1",
+    "2",
+    "3",
+    "6",
+    "8",
+    "9",
+    "12",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19"
+   ],
+   "unmatched_prose": [
+    "34",
+    "40",
+    "24",
+    "39",
+    "30",
+    "26",
+    "37",
+    "38",
+    "36",
+    "43",
+    "25",
+    "31",
+    "48",
+    "22",
+    "45",
+    "29",
+    "8",
+    "47",
+    "20",
+    "50",
+    "19"
+   ],
+   "n_code": 16,
+   "n_prose": 24
+  },
+  {
+   "run": "team-27",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "9",
+     "prose_id": "32",
+     "verdict": "same_fork_different_option",
+     "why": "list1 sums the two raters, list2 averages them"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "35",
+     "verdict": "same_option",
+     "why": "both rescale meanIAT and meanExp by 100"
+    },
+    {
+     "code_id": "15",
+     "prose_id": "21",
+     "verdict": "same_option",
+     "why": "both choose Poisson for the count outcome"
+    },
+    {
+     "code_id": "5",
+     "prose_id": "34",
+     "verdict": "same_option",
+     "why": "both pick Spearman over Pearson due to non-normality"
+    },
+    {
+     "code_id": "14",
+     "prose_id": "25",
+     "verdict": "same_option",
+     "why": "Q1: rating as focus, interacted with all other covariates"
+    },
+    {
+     "code_id": "19",
+     "prose_id": "26",
+     "verdict": "same_option",
+     "why": "Q2a: meanIAT as focus, interacted with all others"
+    },
+    {
+     "code_id": "21",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "Q2b: meanExp as focus, interacted with all others"
+    },
+    {
+     "code_id": "17",
+     "prose_id": "30",
+     "verdict": "same_option",
+     "why": "both drop rows missing the meanIAT bias measure"
+    }
+   ],
+   "unmatched_code": [
+    "20",
+    "12",
+    "8",
+    "7",
+    "4"
+   ],
+   "unmatched_prose": [
+    "7",
+    "54",
+    "28",
+    "46",
+    "9",
+    "49",
+    "29",
+    "48",
+    "50",
+    "51",
+    "44",
+    "45",
+    "43",
+    "55",
+    "8",
+    "47",
+    "24"
+   ],
+   "n_code": 13,
+   "n_prose": 25
+  },
+  {
+   "run": "team-28",
+   "flipped": false,
+   "pairs": [
+    {
+     "code_id": "4",
+     "prose_id": "27",
+     "verdict": "same_option",
+     "why": "both use the mean of the two raters' skin-tone ratings"
+    },
+    {
+     "code_id": "6",
+     "prose_id": "28",
+     "verdict": "same_option",
+     "why": "both collapse position into Back/Middle/Front"
+    },
+    {
+     "code_id": "11",
+     "prose_id": "32",
+     "verdict": "same_option",
+     "why": "both exclude referees who encountered only one player"
+    },
+    {
+     "code_id": "25",
+     "prose_id": "42",
+     "verdict": "same_option",
+     "why": "both compare Poisson vs binomial via information criteria"
+    },
+    {
+     "code_id": "35",
+     "prose_id": "54",
+     "verdict": "same_option",
+     "why": "both fit skin tone x referee prejudice moderation"
+    },
+    {
+     "code_id": "20",
+     "prose_id": "7",
+     "verdict": "same_option",
+     "why": "both fit main binomial mixed logistic, crossed random effects"
+    },
+    {
+     "code_id": "22",
+     "prose_id": "41",
+     "verdict": "same_option",
+     "why": "both fit Poisson model with games offset"
+    },
+    {
+     "code_id": "8",
+     "prose_id": "31",
+     "verdict": "same_option",
+     "why": "both drop cases missing skin-tone ratings"
+    },
+    {
+     "code_id": "2",
+     "prose_id": "17",
+     "verdict": "vaguer",
+     "why": "both define full sample; list_1 only says load CSV"
+    }
+   ],
+   "unmatched_code": [
+    "29",
+    "13",
+    "16",
+    "9",
+    "10",
+    "28",
+    "31"
+   ],
+   "unmatched_prose": [
+    "30",
+    "86",
+    "44",
+    "23",
+    "52",
+    "63",
+    "20",
+    "62",
+    "85",
+    "21",
+    "64",
+    "70",
+    "40",
+    "19",
+    "74",
+    "22",
+    "29",
+    "67",
+    "69",
+    "8",
+    "51",
+    "82",
+    "61",
+    "72"
+   ],
+   "n_code": 16,
+   "n_prose": 33
+  }
+ ]
+}

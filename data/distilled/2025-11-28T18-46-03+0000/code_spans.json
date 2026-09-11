@@ -1,0 +1,552 @@
+{
+ "n_lines": 164,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "leading blank line and header docstring-style block naming the research question"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     6,
+     14
+    ]
+   ],
+   "note": "blank line plus package imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     15,
+     17
+    ]
+   ],
+   "note": "blank line plus fixed random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     18,
+     21
+    ]
+   ],
+   "note": "console section header"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     22,
+     24
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path with no filtering",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "note": "print row count of loaded data, trailing blank line"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     28
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "operation": "drop dyads with no skin-tone rating instead of imputing or otherwise handling them",
+   "targets": [
+    "skin_tone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "print post-exclusion sample size, trailing blank line"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "operation": "log-transform games played to use as an exposure-time covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     41
+    ]
+   ],
+   "operation": "dichotomize skin tone at a 0.75 cutoff into dark vs. light",
+   "targets": [
+    "skin_tone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "note": "print counts of light vs dark groups"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     49
+    ]
+   ],
+   "operation": "restrict to the extreme skin-tone dyads (0.0 or >=0.75) to build a sharper exposure contrast sample",
+   "targets": [
+    "skin_tone",
+    "df_extremes",
+    "dark_extreme"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     51
+    ]
+   ],
+   "note": "print extreme-groups sample size"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "note": "blank line and section-divider comment"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     56
+    ]
+   ],
+   "note": "console header for primary analysis section"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     57,
+     62
+    ]
+   ],
+   "operation": "fit a logistic regression of any red card on the extreme-groups exposure, adjusted for exposure time/position/league, with HC1 robust SEs",
+   "targets": [
+    "any_red_card",
+    "dark_extreme",
+    "log_games",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     63,
+     67
+    ]
+   ],
+   "note": "describe the model, outcome and covariates, print sample size"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     74
+    ],
+    [
+     102,
+     106
+    ],
+    [
+     128,
+     132
+    ]
+   ],
+   "operation": "exponentiate the exposure coefficient (and its CI) to report effects as odds ratios rather than log-odds",
+   "targets": [
+    "model_primary",
+    "model_sens1",
+    "model_sens2",
+    "coef_dark",
+    "coef_s1",
+    "coef_s2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     79
+    ]
+   ],
+   "note": "print coefficient, SE, OR, CI"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "operation": "additionally report a one-sided p-value by halving the two-sided p-value",
+   "targets": [
+    "pval_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     81,
+     88
+    ],
+    [
+     107,
+     112
+    ],
+    [
+     133,
+     138
+    ]
+   ],
+   "operation": "derive an absolute risk difference via average marginal effects rather than relying only on the odds ratio",
+   "targets": [
+    "model_primary",
+    "model_sens1",
+    "model_sens2",
+    "mfx",
+    "rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     89,
+     91
+    ]
+   ],
+   "note": "print adjusted risk difference and CI"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     92,
+     93
+    ]
+   ],
+   "note": "blank line and section-divider comment"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     96
+    ]
+   ],
+   "note": "console header for sensitivity analysis 1"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     101
+    ]
+   ],
+   "operation": "re-fit the same model on the full (non-extreme) sample using the binary dark_skin exposure instead of the extreme contrast",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "log_games",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     113,
+     117
+    ]
+   ],
+   "note": "print sample size, OR, RD, p-value for sensitivity model 1"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     118,
+     119
+    ]
+   ],
+   "note": "blank line and section-divider comment"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     120,
+     122
+    ]
+   ],
+   "note": "console header for sensitivity analysis 2"
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     123,
+     127
+    ]
+   ],
+   "operation": "re-fit the model using continuous skin_tone as the exposure instead of any binarized version",
+   "targets": [
+    "any_red_card",
+    "skin_tone",
+    "log_games",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     145
+    ]
+   ],
+   "note": "print sample size, OR, RD, p-value and a plain-language interpretation for sensitivity model 2"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     146,
+     147
+    ]
+   ],
+   "note": "blank line and section-divider comment"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     148,
+     157
+    ]
+   ],
+   "note": "console summary header and restatement of primary model results"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     158,
+     158
+    ]
+   ],
+   "operation": "declare the research hypothesis 'SUPPORTED' as the stated conclusion",
+   "targets": [
+    "pval_dark",
+    "or_dark",
+    "rd"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     159,
+     160
+    ]
+   ],
+   "note": "blank line and section-divider comment"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     161,
+     164
+    ]
+   ],
+   "note": "final console completion messages and trailing blank line"
+  }
+ ]
+}

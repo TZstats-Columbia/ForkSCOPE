@@ -1,0 +1,84 @@
+{
+ "run_id": "2025-11-19T19-09-24+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 392,
+   "functional_lines": 152,
+   "functional_share": 0.3878,
+   "by_type": {
+    "print": 112,
+    "plot": 61,
+    "comment": 47,
+    "import": 12,
+    "config": 4,
+    "glue": 4
+   }
+  },
+  "prose": {
+   "n_lines": 302,
+   "functional_lines": 141,
+   "functional_share": 0.4669,
+   "by_type": {
+    "heading": 91,
+    "boilerplate": 44,
+    "framing": 19,
+    "hedging": 16,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 141,
+  "action_claims": 53,
+  "result_claims": 88,
+  "links": 66,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 12,
+  "R_only_consistent_negative": 13,
+  "result_claims_deferred": 88
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     36,
+     36
+    ]
+   ],
+   "confidence": "high",
+   "operation": "point the whole analysis at one specific CSV file as the raw player-referee dyad data",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ]
+  },
+  {
+   "id": 15,
+   "lines": [
+    [
+     82,
+     92
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "report the raw, unadjusted difference in red-card rate between the two skin-tone groups before any modeling",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,67 @@
+{
+ "run_id": "2025-11-22T03-06-18+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 288,
+   "functional_lines": 93,
+   "functional_share": 0.3229,
+   "by_type": {
+    "print": 120,
+    "plot": 47,
+    "comment": 11,
+    "import": 9,
+    "config": 5,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 285,
+   "functional_lines": 137,
+   "functional_share": 0.4807,
+   "by_type": {
+    "boilerplate": 82,
+    "heading": 50,
+    "hedging": 21
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 118,
+  "action_claims": 58,
+  "result_claims": 60,
+  "links": 50,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 13,
+  "R_only_consistent_negative": 24,
+  "result_claims_deferred": 60
+ },
+ "silent_decisions": [
+  {
+   "id": 18,
+   "lines": [
+    [
+     90,
+     90
+    ]
+   ],
+   "confidence": "high",
+   "operation": "compute the unadjusted risk difference as the raw gap between group red-card rates",
+   "targets": [
+    "any_red",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": []
+}

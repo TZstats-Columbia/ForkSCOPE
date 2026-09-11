@@ -1,0 +1,884 @@
+{
+ "n_lines": 355,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "operation": "pull the raw player-referee dyad table in from a fixed CSV path rather than any other source or vintage of the data",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     38
+    ]
+   ],
+   "operation": "collapse the two raters' scores into one continuous skin-tone score by simple averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     55
+    ]
+   ],
+   "operation": "derive age from a hand-rolled birthday parser pinned to a Jan-1-2013 reference date, silently returning missing on any parse failure",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     58
+    ]
+   ],
+   "operation": "collapse the red-card count into a yes/no outcome at the any-red-card-at-all threshold",
+   "targets": [
+    "redCards",
+    "red_card_any"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     75
+    ]
+   ],
+   "operation": "roll free-text playing positions up into a small fixed set of position buckets via keyword matching, with a leftover Unknown bucket",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     93
+    ]
+   ],
+   "operation": "restrict the working sample to dyads with complete data on skin tone plus five covariates, dropping everything else",
+   "targets": [
+    "skintone",
+    "height",
+    "weight",
+    "age",
+    "meanIAT",
+    "meanExp",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     111
+    ],
+    [
+     115,
+     120
+    ],
+    [
+     124,
+     126
+    ]
+   ],
+   "operation": "define light/dark skin as the bottom vs. top tertile of the skin-tone score and recode the comparison as a single binary contrast, discarding the middle third",
+   "targets": [
+    "skintone",
+    "primary_df",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     123
+    ]
+   ],
+   "operation": "drop players whose position fell into the Unknown bucket from the primary comparison sample",
+   "targets": [
+    "position_cat",
+    "primary_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     144,
+     147
+    ]
+   ],
+   "operation": "pick the adjustment set for the primary model: exposure, position, age, height, weight, league, yellow cards, and both referee-country bias measures",
+   "targets": [
+    "dark_skin",
+    "games",
+    "position_cat",
+    "age",
+    "height",
+    "weight",
+    "leagueCountry",
+    "yellowCards",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     165,
+     165
+    ]
+   ],
+   "operation": "commit to a logistic regression as the model family for the binary red-card outcome",
+   "targets": [
+    "primary_model"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     175,
+     186
+    ]
+   ],
+   "operation": "designate the average marginal effect of dark_skin, evaluated overall via dy/dx, as the primary effect measure (a risk difference) rather than the raw coefficient",
+   "targets": [
+    "dark_skin",
+    "primary_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     201,
+     208
+    ]
+   ],
+   "operation": "additionally report an adjusted odds ratio by exponentiating the dark_skin logit coefficient as a secondary effect measure",
+   "targets": [
+    "dark_skin",
+    "primary_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     209,
+     210
+    ],
+    [
+     246,
+     247
+    ],
+    [
+     267,
+     268
+    ],
+    [
+     287,
+     288
+    ],
+    [
+     309,
+     310
+    ]
+   ],
+   "operation": "build every odds-ratio confidence interval with a Wald normal approximation (coef +/- 1.96*SE) instead of profile-likelihood or bootstrap intervals",
+   "targets": [
+    "bse",
+    "params"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     226
+    ],
+    [
+     229,
+     245
+    ]
+   ],
+   "operation": "rerun the whole tertile comparison with wider bottom-25%/top-25% cutoffs as a robustness check on the threshold choice",
+   "targets": [
+    "skintone",
+    "sens1_df",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     254,
+     255
+    ],
+    [
+     258,
+     266
+    ]
+   ],
+   "operation": "refit the primary model with yellowCards dropped from the adjustment set to check sensitivity to that covariate",
+   "targets": [
+    "formula_s2",
+    "yellowCards",
+    "primary_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     275,
+     276
+    ],
+    [
+     279,
+     286
+    ]
+   ],
+   "operation": "strip the adjustment set down to just exposure and position as a minimally-adjusted comparison model",
+   "targets": [
+    "formula_s3",
+    "primary_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     295,
+     296
+    ],
+    [
+     299,
+     308
+    ]
+   ],
+   "operation": "swap the binary dark/light contrast for the raw continuous skin-tone score (full non-tertile-restricted sample) and rescale the resulting effect to a per-0.1-unit increment",
+   "targets": [
+    "skintone",
+    "sens4_df",
+    "formula_s4"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     347,
+     352
+    ]
+   ],
+   "operation": "declare the hypothesis 'SUPPORTED' and frame the risk difference as statistically significant and robust in the final narrative conclusion",
+   "targets": [
+    "me_dark_skin",
+    "me_pval"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     19
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "suppress warnings; set numpy random seed"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "section header: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "inline comment before data load"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "report row count"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "note": "inline comment before skintone creation"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     39,
+     39
+    ]
+   ],
+   "note": "report skin-tone coverage"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     76,
+     79
+    ]
+   ],
+   "note": "section header: DATA QUALITY CONTROL AND EXCLUSIONS"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     83
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     99
+    ]
+   ],
+   "note": "report exclusion counts and dataset size"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     100,
+     103
+    ]
+   ],
+   "note": "section header: PRIMARY ANALYSIS: TERTILE COMPARISON"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     104,
+     107
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     114
+    ]
+   ],
+   "note": "report tertile cutpoints"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     130
+    ]
+   ],
+   "note": "report primary sample sizes"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "note": "inline comment before descriptive stats"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     133,
+     135
+    ]
+   ],
+   "note": "report red-card prevalence by group"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     136,
+     139
+    ]
+   ],
+   "note": "section header: LOGISTIC REGRESSION MODEL"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     140,
+     143
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     148,
+     161
+    ]
+   ],
+   "note": "print formula and covariate descriptions"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "note": "inline comment before model fit"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     164,
+     164
+    ]
+   ],
+   "note": "fitting status message"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     166,
+     166
+    ]
+   ],
+   "note": "convergence message"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     167,
+     170
+    ]
+   ],
+   "note": "section header: PRIMARY ESTIMAND: ADJUSTED RISK DIFFERENCE"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     171,
+     174
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     187,
+     192
+    ]
+   ],
+   "note": "report risk difference, CI, p-value, SE"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     193,
+     196
+    ]
+   ],
+   "note": "section header: SECONDARY ESTIMAND: ADJUSTED ODDS RATIO"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     197,
+     200
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     211,
+     216
+    ]
+   ],
+   "note": "report odds ratio, CI, p-value, coefficient"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     217,
+     220
+    ]
+   ],
+   "note": "section header: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     224
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     227,
+     228
+    ]
+   ],
+   "note": "sensitivity-1 sub-header"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     248,
+     253
+    ]
+   ],
+   "note": "report sensitivity-1 results"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     256,
+     257
+    ]
+   ],
+   "note": "sensitivity-2 sub-header"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     274
+    ]
+   ],
+   "note": "report sensitivity-2 results"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     277,
+     278
+    ]
+   ],
+   "note": "sensitivity-3 sub-header"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     289,
+     294
+    ]
+   ],
+   "note": "report sensitivity-3 results"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     297,
+     298
+    ]
+   ],
+   "note": "sensitivity-4 sub-header"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     311,
+     316
+    ]
+   ],
+   "note": "report sensitivity-4 results"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     317,
+     320
+    ]
+   ],
+   "note": "section header: FINAL SUMMARY"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     321,
+     346
+    ]
+   ],
+   "note": "print sample sizes, primary/secondary estimands, covariate list, and exclusion counts to console"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     353,
+     355
+    ]
+   ],
+   "note": "closing console banner"
+  }
+ ]
+}

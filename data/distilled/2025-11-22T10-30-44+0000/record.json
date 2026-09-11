@@ -1,0 +1,73 @@
+{
+ "run_id": "2025-11-22T10-30-44+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 318,
+   "functional_lines": 148,
+   "functional_share": 0.4654,
+   "by_type": {
+    "print": 118,
+    "comment": 44,
+    "import": 7,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 168,
+   "functional_lines": 90,
+   "functional_share": 0.5357,
+   "by_type": {
+    "other": 32,
+    "heading": 26,
+    "boilerplate": 23,
+    "hedging": 11,
+    "framing": 6
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 75,
+  "action_claims": 35,
+  "result_claims": 40,
+  "links": 43,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 13,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 25,
+   "lines": [
+    [
+     117,
+     127
+    ]
+   ],
+   "confidence": "high",
+   "operation": "estimate the unadjusted risk difference between skin-tone groups using a normal-approximation SE, Wald CI, and two-sided z-test",
+   "targets": [
+    "any_redcard",
+    "skin_binary_main"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "collapse detailed player positions into four broader categories to limit position-covariate levels",
+   "claim": "this raises the possibility that the main effect is driven by confounding related to position subtypes or playing styles not captured by the 3-category position variable",
+   "note": "code collapses positions into four categories; claim refers to a 3-category position variable"
+  }
+ ]
+}

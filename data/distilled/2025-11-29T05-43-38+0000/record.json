@@ -1,0 +1,91 @@
+{
+ "run_id": "2025-11-29T05-43-38+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 420,
+   "functional_lines": 164,
+   "functional_share": 0.3905,
+   "by_type": {
+    "print": 138,
+    "comment": 56,
+    "plot": 47,
+    "import": 7,
+    "config": 6,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 310,
+   "functional_lines": 184,
+   "functional_share": 0.5935,
+   "by_type": {
+    "heading": 50,
+    "boilerplate": 33,
+    "framing": 33,
+    "hedging": 21,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 87,
+  "action_claims": 49,
+  "result_claims": 38,
+  "links": 47,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 16,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 38
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     78,
+     87
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age from birthdate using a fixed reference year (2013), mapping parse failures to missing",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 67,
+   "lines": [
+    [
+     324,
+     329
+    ]
+   ],
+   "confidence": "low",
+   "operation": "compute unadjusted red-card rate and standard error by skin-tone group and display error bars using a 1.96 (normal-approximation) multiplier",
+   "targets": [
+    "analysis_df",
+    "skinDark",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "hand-enter comparison odds ratios from other (unadjusted, +games, +position) specifications as literal values for the forest plot rather than recomputing them here",
+   "claim": "no manual calculations or selective reporting were used; all results are generated directly from the code",
+   "note": "code hand-enters literal odds-ratio values into models_plot for the forest plot rather than computing them, contradicting the claim that no manual calculations were used"
+  }
+ ]
+}

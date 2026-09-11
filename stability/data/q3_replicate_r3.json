@@ -1,0 +1,84 @@
+{
+ "comparison_type": "replicate",
+ "interpretation": "same corpora and same distilled input; differences are run-to-run variability in the vocabulary induction.",
+ "header_a": {
+  "corpora": [
+   "ai",
+   "human"
+  ],
+  "n_runs": 223,
+  "n_decisions": 3946,
+  "n_options": 729,
+  "n_forks": 317
+ },
+ "header_b": {
+  "corpora": [
+   "ai",
+   "human"
+  ],
+  "n_runs": 223,
+  "n_decisions": 3946,
+  "n_options": 759,
+  "n_forks": 351
+ },
+ "levels": {
+  "option": {
+   "level": "option",
+   "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+   "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+   "instances_a": 3946,
+   "instances_b": 3946,
+   "assigned_a": 3946,
+   "assigned_b": 3946,
+   "shared": 3946,
+   "coverage_a": 1.0,
+   "coverage_b": 1.0,
+   "ari": 0.8528,
+   "vi_bits": 1.4145,
+   "vi_normalised": 0.1184,
+   "bcubed_precision": 0.7694,
+   "bcubed_recall": 0.7482,
+   "bcubed_f1": 0.7586,
+   "direction": "B finer than A (both signals agree)",
+   "direction_by_bcubed": "finer",
+   "direction_by_count": "finer",
+   "direction_signals_agree": true,
+   "clusters_a": 728,
+   "clusters_b": 759,
+   "split_clusters": 181,
+   "split_instances": 735,
+   "merge_clusters": 198,
+   "merge_instances": 659,
+   "stable_clusters": 327
+  },
+  "fork": {
+   "level": "fork",
+   "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+   "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+   "instances_a": 3946,
+   "instances_b": 3946,
+   "assigned_a": 3946,
+   "assigned_b": 3946,
+   "shared": 3946,
+   "coverage_a": 1.0,
+   "coverage_b": 1.0,
+   "ari": 0.6947,
+   "vi_bits": 2.1415,
+   "vi_normalised": 0.1793,
+   "bcubed_precision": 0.6732,
+   "bcubed_recall": 0.6544,
+   "bcubed_f1": 0.6637,
+   "direction": "balanced (|p-r| <= 0.02); cluster count says finer",
+   "direction_by_bcubed": "balanced",
+   "direction_by_count": "finer",
+   "direction_signals_agree": false,
+   "clusters_a": 317,
+   "clusters_b": 351,
+   "split_clusters": 113,
+   "split_instances": 959,
+   "merge_clusters": 123,
+   "merge_instances": 917,
+   "stable_clusters": 85
+  }
+ }
+}

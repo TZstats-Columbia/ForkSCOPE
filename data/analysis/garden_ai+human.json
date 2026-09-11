@@ -1,0 +1,3629 @@
+{
+ "source": "bottom_up_ai+human.json",
+ "runs": 223,
+ "raw_forks": 463,
+ "nodes": 441,
+ "sibling_groups": {
+  "how are dyads/rows with missing covariate or outcome data excluded to build the analysis sample?": [
+   "how are dyads with missing/incomplete skin-tone rating (rater) data handled?",
+   "how are dyads/rows with missing covariate or outcome data excluded to build the analysis sample?",
+   "how is missing skin-tone rating data handled / which rows are excluded?",
+   "which dyads are excluded from the analysis sample?",
+   "which rows are excluded due to missing covariate data?",
+   "which rows are excluded due to missing data (complete-case restriction)?",
+   "which rows are excluded due to missing skin-tone rating/data?"
+  ],
+  "which columns/covariates define the complete-case restriction for the analytic sample?": [
+   "which columns/covariates define the complete-case restriction for the analytic sample?",
+   "which variables jointly define the complete-case restriction on the analytic sample?"
+  ],
+  "what model family (distribution, link, offset, estimand) is used to model the red-card outcome?": [
+   "what model family (distribution, link, offset, estimand) is used to model the red-card outcome?",
+   "what outcome family/link is used to model red card counts?"
+  ],
+  "which columns/variables are carried into the analysis/modeling dataset?": [
+   "which columns/variables are carried into the analysis/modeling dataset?",
+   "which variables are carried/retained into the modeling dataset?"
+  ],
+  "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?": [
+   "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?",
+   "how is the raw/unadjusted skin-tone group difference in red-card rates summarized?",
+   "how is the unadjusted/crude association between skin tone and red cards summarized?"
+  ],
+  "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?": [
+   "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?",
+   "is skin tone modeled as continuous or dichotomized in the exposure model?"
+  ],
+  "how are continuous covariates standardized/scaled before entering the model?": [
+   "how are continuous covariates standardized/scaled before entering the model?",
+   "which continuous covariates are z-standardized before modeling?"
+  ],
+  "how are standard errors adjusted for non-independence/clustering (unit unspecified)?": [
+   "how are standard errors adjusted for non-independence/clustering (unit unspecified)?",
+   "what is the clustering unit for standard errors?"
+  ],
+  "what dataset/file is loaded as the starting analysis population?": [
+   "what dataset/file is loaded as the starting analysis population?",
+   "which raw data file/format is loaded as the starting dataset?"
+  ],
+  "how are rows with missing/uncategorizable position values handled?": [
+   "how are rows with missing/uncategorizable position values handled?",
+   "how is missing player position handled?"
+  ],
+  "how is the exposure restricted/re-specified to extreme skin-tone groups for a sensitivity/robustness check?": [
+   "how is the exposure restricted/re-specified to extreme skin-tone groups for a sensitivity/robustness check?",
+   "how is the sample restricted for the extreme-groups robustness check, and at what cutoff?"
+  ],
+  "what covariate set and functional form does the primary adjustment model use?": [
+   "what adjustment/confound set defines the primary regression model?",
+   "what covariate set and functional form does the primary adjustment model use?",
+   "which covariates make up the (primary) adjustment set for the outcome model?"
+  ],
+  "what estimator and clustering are used for the outcome model?": [
+   "what estimator and clustering are used for the outcome model?",
+   "what estimator is used for the primary model?"
+  ],
+  "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?": [
+   "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+   "how is the secondary, odds-ratio-scale effect measure derived and reported?"
+  ],
+  "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?": [
+   "which player positions/subgroups are excluded from (or included in) the analytic sample?",
+   "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?"
+  ]
+ },
+ "sibling_edges_used": 25,
+ "sibling_edges_vetoed": [],
+ "nodes_detail": [
+  {
+   "fork": "how are the two raters' skin-tone scores combined into one exposure variable?",
+   "runs": 213,
+   "coverage": 0.955,
+   "options": 12,
+   "position": 0.129,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the red-card count turned into the outcome variable?",
+   "runs": 199,
+   "coverage": 0.892,
+   "options": 6,
+   "position": 0.161,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+   "runs": 166,
+   "coverage": 0.744,
+   "options": 79,
+   "position": 0.241,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are dyads/rows with missing covariate or outcome data excluded to build the analysis sample?",
+   "runs": 164,
+   "coverage": 0.735,
+   "options": 44,
+   "position": 0.174,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what dataset/file is loaded as the starting analysis population?",
+   "runs": 132,
+   "coverage": 0.592,
+   "options": 5,
+   "position": 0.101,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+   "runs": 128,
+   "coverage": 0.574,
+   "options": 8,
+   "position": 0.575,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the adjusted risk difference estimated/computed from the fitted model?",
+   "runs": 124,
+   "coverage": 0.556,
+   "options": 13,
+   "position": 0.504,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what rule/threshold determines whether the effect/hypothesis is declared statistically significant or supported?",
+   "runs": 103,
+   "coverage": 0.462,
+   "options": 32,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?",
+   "runs": 89,
+   "coverage": 0.399,
+   "options": 41,
+   "position": 0.562,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the source/scope of the dataset used for the analysis?",
+   "runs": 80,
+   "coverage": 0.359,
+   "options": 3,
+   "position": 0.095,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?",
+   "runs": 80,
+   "coverage": 0.359,
+   "options": 17,
+   "position": 0.333,
+   "stage": "eda"
+  },
+  {
+   "fork": "what covariate set and functional form does the primary adjustment model use?",
+   "runs": 77,
+   "coverage": 0.345,
+   "options": 62,
+   "position": 0.445,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the primary (adjusted) model specification — model family, covariates, and SE/inference structure — used to test the skin-tone/red-card association?",
+   "runs": 75,
+   "coverage": 0.336,
+   "options": 50,
+   "position": 0.413,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariate/adjustment set does the primary model include?",
+   "runs": 65,
+   "coverage": 0.291,
+   "options": 54,
+   "position": 0.437,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?",
+   "runs": 63,
+   "coverage": 0.283,
+   "options": 10,
+   "position": 0.78,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the games-played covariate transformed/functionally specified before entering the model?",
+   "runs": 58,
+   "coverage": 0.26,
+   "options": 7,
+   "position": 0.256,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is inter-rater agreement between the two skin-tone raters quantified?",
+   "runs": 52,
+   "coverage": 0.233,
+   "options": 24,
+   "position": 0.136,
+   "stage": "eda"
+  },
+  {
+   "fork": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+   "runs": 50,
+   "coverage": 0.224,
+   "options": 9,
+   "position": 0.326,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are standard errors adjusted for non-independence/clustering (unit unspecified)?",
+   "runs": 45,
+   "coverage": 0.202,
+   "options": 9,
+   "position": 0.561,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are continuous covariates standardized/scaled before entering the model?",
+   "runs": 44,
+   "coverage": 0.197,
+   "options": 22,
+   "position": 0.315,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which columns/covariates define the complete-case restriction for the analytic sample?",
+   "runs": 42,
+   "coverage": 0.188,
+   "options": 22,
+   "position": 0.22,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the free-text position field collapsed into a categorical covariate?",
+   "runs": 39,
+   "coverage": 0.175,
+   "options": 10,
+   "position": 0.18,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are free-text/raw player positions collapsed into a coarse categorical variable?",
+   "runs": 38,
+   "coverage": 0.17,
+   "options": 11,
+   "position": 0.197,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what reference date/point and method is used to compute player age from birthdate?",
+   "runs": 37,
+   "coverage": 0.166,
+   "options": 12,
+   "position": 0.189,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?",
+   "runs": 36,
+   "coverage": 0.161,
+   "options": 23,
+   "position": 0.509,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what cutoff/cutpoint is used to dichotomize the continuous skin-tone score into dark/light?",
+   "runs": 31,
+   "coverage": 0.139,
+   "options": 10,
+   "position": 0.23,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what model family (distribution, link, offset, estimand) is used to model the red-card outcome?",
+   "runs": 30,
+   "coverage": 0.135,
+   "options": 16,
+   "position": 0.614,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the adjusted logistic coefficient reported as an effect size?",
+   "runs": 30,
+   "coverage": 0.135,
+   "options": 1,
+   "position": 0.624,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are position and league/country covariates encoded for the regression?",
+   "runs": 28,
+   "coverage": 0.126,
+   "options": 4,
+   "position": 0.374,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are rows with missing/uncategorizable position values handled?",
+   "runs": 24,
+   "coverage": 0.108,
+   "options": 6,
+   "position": 0.267,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are missing height/weight values handled?",
+   "runs": 24,
+   "coverage": 0.108,
+   "options": 10,
+   "position": 0.278,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what estimator and clustering are used for the outcome model?",
+   "runs": 23,
+   "coverage": 0.103,
+   "options": 10,
+   "position": 0.458,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the exposure restricted/re-specified to extreme skin-tone groups for a sensitivity/robustness check?",
+   "runs": 23,
+   "coverage": 0.103,
+   "options": 5,
+   "position": 0.597,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which columns/variables are carried into the analysis/modeling dataset?",
+   "runs": 22,
+   "coverage": 0.099,
+   "options": 8,
+   "position": 0.275,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how many position categories does the detailed position field get collapsed into?",
+   "runs": 20,
+   "coverage": 0.09,
+   "options": 6,
+   "position": 0.217,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what minimum-games threshold defines the analytic sample?",
+   "runs": 19,
+   "coverage": 0.085,
+   "options": 9,
+   "position": 0.317,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "what cutoffs define the light vs dark skin-tone exposure groups, and is the middle band dropped?",
+   "runs": 19,
+   "coverage": 0.085,
+   "options": 7,
+   "position": 0.195,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is games played incorporated as a covariate/control for exposure?",
+   "runs": 17,
+   "coverage": 0.076,
+   "options": 5,
+   "position": 0.316,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what robustness/sensitivity variant is run on the primary model specification?",
+   "runs": 16,
+   "coverage": 0.072,
+   "options": 14,
+   "position": 0.822,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the primary skin-tone treatment effect extracted/summarized from the fitted model?",
+   "runs": 16,
+   "coverage": 0.072,
+   "options": 3,
+   "position": 0.543,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the overall hypothesis-support conclusion framed and reached from the results?",
+   "runs": 16,
+   "coverage": 0.072,
+   "options": 9,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the model coefficient translated into the primary reported effect estimate/measure?",
+   "runs": 16,
+   "coverage": 0.072,
+   "options": 6,
+   "position": 0.604,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the 'medium' skin-tone group handled when forming the exposure variable?",
+   "runs": 16,
+   "coverage": 0.072,
+   "options": 2,
+   "position": 0.201,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the categorical skin-tone group encoded as a model-ready variable for regression?",
+   "runs": 15,
+   "coverage": 0.067,
+   "options": 3,
+   "position": 0.269,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is heterogeneity of the skin-tone effect across leagues assessed?",
+   "runs": 15,
+   "coverage": 0.067,
+   "options": 8,
+   "position": 0.785,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what alternative skin-tone cutoffs are tested for threshold-sensitivity/robustness checks?",
+   "runs": 14,
+   "coverage": 0.063,
+   "options": 7,
+   "position": 0.742,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how was the exposure cutoff (dark/light skin tone) chosen, and was that choice data-dependent?",
+   "runs": 14,
+   "coverage": 0.063,
+   "options": 3,
+   "position": 0.224,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the risk difference for skin tone estimated from the fitted model?",
+   "runs": 14,
+   "coverage": 0.063,
+   "options": 2,
+   "position": 0.52,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the bootstrap confidence interval constructed?",
+   "runs": 13,
+   "coverage": 0.058,
+   "options": 5,
+   "position": 0.676,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is missing data on the regression/modeling sample handled?",
+   "runs": 13,
+   "coverage": 0.058,
+   "options": 4,
+   "position": 0.256,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are standard errors adjusted for repeated observations per player (clustering)?",
+   "runs": 13,
+   "coverage": 0.058,
+   "options": 4,
+   "position": 0.478,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which estimator/model family is used to fit the primary red-card ~ skin-tone effect, and how are its SEs computed?",
+   "runs": 12,
+   "coverage": 0.054,
+   "options": 1,
+   "position": 0.469,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+   "runs": 12,
+   "coverage": 0.054,
+   "options": 4,
+   "position": 0.644,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are categorical covariates encoded for the model/design matrix?",
+   "runs": 12,
+   "coverage": 0.054,
+   "options": 7,
+   "position": 0.445,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the p-value for the risk-difference estimate computed (e.g., via bootstrap/simulation)?",
+   "runs": 11,
+   "coverage": 0.049,
+   "options": 3,
+   "position": 0.688,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what verdict and framing is given to the hypothesis-test outcome?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 7,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "what descriptive comparison/table is produced across skin-tone groups?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 6,
+   "position": 0.347,
+   "stage": "eda"
+  },
+  {
+   "fork": "what decision rule translates the statistical results into a supported/not-supported conclusion?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 3,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "is missing data imputed or deleted?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 6,
+   "position": 0.287,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the continuous skin-tone score turned into an exposure by dropping the middle band (extreme-contrast check)?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 2,
+   "position": 0.211,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the confidence interval for the primary effect estimate (risk difference) constructed?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 3,
+   "position": 0.571,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the analysis broken down or stratified by league?",
+   "runs": 10,
+   "coverage": 0.045,
+   "options": 2,
+   "position": 0.898,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the overall bootstrap resampling/refit/failure-handling procedure?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 7,
+   "position": 0.566,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 3,
+   "position": 0.594,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the effect of the continuous skin-tone exposure quantified/reported?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 8,
+   "position": 0.76,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is goalkeeper status handled in the analysis?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 4,
+   "position": 0.246,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are height and weight scaled for use as covariates?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 2,
+   "position": 0.312,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "at what unit of analysis (e.g., dyad vs player) is the data aggregated/modeled?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 6,
+   "position": 0.199,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "are reported summary/plot effect estimates computed live or hard-coded?",
+   "runs": 9,
+   "coverage": 0.04,
+   "options": 3,
+   "position": 0.877,
+   "stage": "communication"
+  },
+  {
+   "fork": "which minimum-games threshold defines the sensitivity subsample?",
+   "runs": 8,
+   "coverage": 0.036,
+   "options": 2,
+   "position": 0.809,
+   "stage": "modeling"
+  },
+  {
+   "fork": "on what scale (and via what transform) is the exposure effect reported?",
+   "runs": 8,
+   "coverage": 0.036,
+   "options": 3,
+   "position": 0.521,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the risk difference re-expressed/rescaled into a relative or interpretable scale?",
+   "runs": 8,
+   "coverage": 0.036,
+   "options": 4,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the adjusted association/effect of skin tone on red cards estimated or quantified?",
+   "runs": 8,
+   "coverage": 0.036,
+   "options": 5,
+   "position": 0.593,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which variables are shown in the descriptive summary-statistics table/plot?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 6,
+   "position": 0.369,
+   "stage": "eda"
+  },
+  {
+   "fork": "which rows are excluded/dropped due to missing height or weight?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 1,
+   "position": 0.205,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which effect measure/estimand is designated as the primary vs secondary (headline) result?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 5,
+   "position": 0.512,
+   "stage": "communication"
+  },
+  {
+   "fork": "what standard-error/variance estimation method is used for inference?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 5,
+   "position": 0.793,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstrapping?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 1,
+   "position": 0.574,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the continuous skin-tone score binned into a three-level exposure category?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 1,
+   "position": 0.141,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the bootstrap p-value derived?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 2,
+   "position": 0.675,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is sensitivity to the skin-tone dichotomization threshold/cutoff assessed?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 5,
+   "position": 0.539,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is player position encoded/entered into the regression model?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 6,
+   "position": 0.419,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is player age derived from birthdate?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 4,
+   "position": 0.161,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are games/height/weight scaled and prepared for use as covariates?",
+   "runs": 7,
+   "coverage": 0.031,
+   "options": 2,
+   "position": 0.277,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which model specification (family + adjustment set) is used for the primary effect estimate?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 4,
+   "position": 0.406,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which model family/functional form is used to fit the primary exposure-outcome relationship?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 2,
+   "position": 0.468,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what unadjusted/crude statistic or model is used as the baseline comparison to the adjusted estimate?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 3,
+   "position": 0.748,
+   "stage": "eda"
+  },
+  {
+   "fork": "what statistical test is used to assess the unadjusted skin-tone/red-card association?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 5,
+   "position": 0.343,
+   "stage": "eda"
+  },
+  {
+   "fork": "what is chosen as the primary effect estimand?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 1,
+   "position": 0.561,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "what additional covariate(s)/confounders are added to the model as a robustness/sensitivity check?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 4,
+   "position": 0.693,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is effect modification/heterogeneity by league tested via a formal interaction term?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 4,
+   "position": 0.861,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how much is the covariate set pared down in the sensitivity/robustness check model?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 2,
+   "position": 0.876,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is continuous skin tone binned into an ordinal/exposure category?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 2,
+   "position": 0.158,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are raw playing-position values recoded/grouped into categories?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 3,
+   "position": 0.318,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are missing/incomplete cases handled before modeling?",
+   "runs": 6,
+   "coverage": 0.027,
+   "options": 3,
+   "position": 0.242,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows are excluded from the analytic sample as a robustness check?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 4,
+   "position": 0.318,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which rows are excluded due to missing referee/implicit-bias measures?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 3,
+   "position": 0.395,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which model outputs/coefficients/estimates are selected for reporting (featured/highlighted) in the results?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 6,
+   "position": 0.616,
+   "stage": "communication"
+  },
+  {
+   "fork": "which model family is used to fit the exposure-outcome relationship as a secondary/robustness or odds-ratio side analysis?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 1,
+   "position": 0.615,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what sample restriction is applied as a robustness check on the primary model?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 5,
+   "position": 0.911,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what power/minimum-detectable-effect analysis and assumptions are used?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 3,
+   "position": 0.832,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what interpretive/hypothesis-support conclusion is drawn from the results, and how is it derived?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 5,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "what functional form does the games-played covariate take?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 3,
+   "position": 0.323,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what cutoffs create the three-level skin-tone category (no collapsing to binary)?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 5,
+   "position": 0.163,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what alternate cutpoints (0.25/0.75) are used to redefine dark/light skin tone, dropping the middle group?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 1,
+   "position": 0.673,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "is league country included as a covariate in the primary model's adjustment set?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 2,
+   "position": 0.802,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is within-player correlation/clustering of repeated or grouped observations handled?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 4,
+   "position": 0.555,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the analytic sample restricted based on position mappability?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 1,
+   "position": 0.284,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is player disciplinary history operationalized as a covariate?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 1,
+   "position": 0.225,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is multicollinearity among covariates/predictors assessed?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 3,
+   "position": 0.865,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is continuous skin tone binned for a descriptive plot?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 5,
+   "position": 0.836,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are results across multiple model specifications summarized/reported?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 3,
+   "position": 0.875,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are missing covariates imputed rather than dropped?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 6,
+   "position": 0.251,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are bootstrap replicate/draw failures (including degenerate resamples) handled?",
+   "runs": 5,
+   "coverage": 0.022,
+   "options": 5,
+   "position": 0.711,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which referee-bias covariates, if any, are added to the adjustment set?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 3,
+   "position": 0.816,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which covariates are included in the sensitivity/robustness model's adjustment set?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 6,
+   "position": 0.812,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what threshold defines the binary/dichotomized dark-skin exposure?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 4,
+   "position": 0.732,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what supplementary effect-size framings/metrics are reported for interpretation?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 3,
+   "position": 0.906,
+   "stage": "communication"
+  },
+  {
+   "fork": "what statistic is used to quantify inter-rater agreement?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.324,
+   "stage": "eda"
+  },
+  {
+   "fork": "what sensitivity analyses are performed on the skin-tone exposure definition?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 3,
+   "position": 0.847,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what scale is used to report the treatment effect — log-odds, odds ratio, or risk difference?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.516,
+   "stage": "communication"
+  },
+  {
+   "fork": "what method is used to construct confidence intervals?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 1,
+   "position": 0.778,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what method is used to compute SEs/CIs/error bars for the unadjusted (crude) descriptive estimates?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.787,
+   "stage": "eda"
+  },
+  {
+   "fork": "what is the unit of analysis?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 5,
+   "position": 0.306,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "what degeneracy criteria trigger discarding a bootstrap replicate?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 3,
+   "position": 0.594,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariates are added in robustness/sensitivity refits beyond the base model?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 5,
+   "position": 0.748,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is referee bias included as a covariate, and how?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 4,
+   "position": 0.948,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is position added to the adjustment set as a sensitivity/robustness check?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.727,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how many resamples are used for the bootstrap?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 4,
+   "position": 0.737,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 1,
+   "position": 0.482,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the adjusted effect's magnitude translated into a relative measure using the baseline rate?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is sensitivity to covariate-set choice assessed?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 4,
+   "position": 0.749,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is covariate balance across exposure/skin-tone groups assessed?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.382,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are the bootstrap CI and p-value derived, and for which estimands?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 2,
+   "position": 0.635,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are rows with missing covariates handled?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 1,
+   "position": 0.216,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "does the exposure effect vary by a modifier, and how is that tested?",
+   "runs": 4,
+   "coverage": 0.018,
+   "options": 3,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which subset is used to assess inter-rater agreement?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.142,
+   "stage": "eda"
+  },
+  {
+   "fork": "which subgroup/subsample is the model refit on (second model)?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.721,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which dyads are excluded based on games played together?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.154,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what threshold/cutpoint defines the binary skin-tone exposure?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.475,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what set of cutpoints is swept across in the threshold-sensitivity analysis?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.755,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model family/specification is used as a sensitivity check on the outcome model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.844,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what functional form does the skin-tone exposure take in the sensitivity model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.781,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what diagnostic is used to check for multicollinearity among covariates?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.903,
+   "stage": "eda"
+  },
+  {
+   "fork": "what covariate set and missing-data handling defines the modeling sample?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.296,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariate adjustment set is used in this sensitivity specification?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.806,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what character encoding is used to read the raw CSV file?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.106,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "is the significance threshold adjusted for multiple comparisons?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "is player yellow-card count included as a covariate?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.701,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is a secondary logistic-regression specification fit and reported alongside the primary model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.555,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is a referee-implicit-bias interaction/moderator term added to the model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.874,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is a one-sided p-value additionally reported?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.551,
+   "stage": "communication"
+  },
+  {
+   "fork": "is a crude/unadjusted comparison reported alongside the adjusted estimate?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.404,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is uncertainty for the unadjusted group red-card rates summarized/plotted?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.842,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the treatment effect and its uncertainty estimated?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.611,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the skin-tone distribution visualized?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.817,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the skin-tone dichotomization cutoff/threshold chosen?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.209,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the sample stratified by league for heterogeneity checks?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.894,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the referee bias/rating score incorporated into the model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.917,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the primary result's robustness to model specification checked?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.69,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the primary outcome/regression model specified (including within-player correlation)?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.392,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the hypothesis-support decision rule defined given the estimate and its uncertainty?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the analysis sample modified for sensitivity/robustness checks?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.799,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is significance/CI derived and reported for the fitted regression coefficient?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.487,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is model fit/calibration assessed?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 4,
+   "position": 0.807,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is covariate balance between position and skin-tone group checked?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.479,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are the per-league/country heterogeneity results reported?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.874,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are standard errors computed in the logistic model?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.434,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are raw string-typed columns converted to numeric type?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 3,
+   "position": 0.068,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are primary and sensitivity results presented together / shown side-by-side?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.85,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are missing referee bias measures handled?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.279,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are medium-skin-tone players handled in the exposure definition?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.634,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are dyads with too few shared games handled?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 2,
+   "position": 0.761,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are dyads with missing player position handled?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.207,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are confidence intervals and p-values constructed from point estimates and standard errors?",
+   "runs": 3,
+   "coverage": 0.013,
+   "options": 1,
+   "position": 0.589,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which standard-error estimator is used for inference?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.866,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which single covariate is added or dropped to probe its role as confounder or mediator?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.869,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which rows are excluded as data-entry errors?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.164,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which player-level variables are screened as potential confounders of skin tone?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 4,
+   "position": 0.341,
+   "stage": "eda"
+  },
+  {
+   "fork": "which model specification (family + adjustment set + SE method) is used for the primary effect estimate?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.437,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which diagnostic and output statistics are requested from the regression?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 4,
+   "position": 0.44,
+   "stage": "eda"
+  },
+  {
+   "fork": "which covariates (and method) are used to check exposure-group balance?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.359,
+   "stage": "eda"
+  },
+  {
+   "fork": "which covariate is dropped/added to test the adjustment set's sensitivity?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.732,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what threshold defines acceptable inter-rater agreement?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.173,
+   "stage": "eda"
+  },
+  {
+   "fork": "what supplementary effect-size measure is reported and how is it categorized?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.946,
+   "stage": "communication"
+  },
+  {
+   "fork": "what sample is used when switching to the continuous skin-tone exposure?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.753,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what row-inclusion filter is applied before this model/subset analysis?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.429,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what robustness/sensitivity check is run on the adjusted model's covariate set?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what outcome variable is used to test specificity/falsification of the effect?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what moderation interaction is tested?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 4,
+   "position": 0.989,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model is fit and on what scale is the unadjusted dark-skin effect reported?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.521,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model form and adjustment set (control cascade) define the primary/main skin-tone-cards model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 10,
+   "position": 0.63,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model family/structure is used for the primary adjusted estimate?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.473,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the resampling unit for the bootstrap?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.753,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the base regression model specification for red cards?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 4,
+   "position": 0.818,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what estimator is used as the secondary/comparison specification?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.726,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what estimator and standard-error structure are used for the primary/risk-difference model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.54,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what estimator and covariate set define the primary outcome model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.421,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what cutpoint(s) are chosen to dichotomize skin tone (primary and sensitivity variants)?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.171,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what covariate set is used in the exposure model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.804,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariate adjustment set and standard-error method are used in the primary outcome model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.361,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what clustering/robust-SE structure is used as a sensitivity check on the primary model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.651,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what balance/characterization checks are run on covariates by exposure group?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.447,
+   "stage": "eda"
+  },
+  {
+   "fork": "what alternative exposure specification is tried in a robustness check?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.917,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what alternate specification is used in this sensitivity model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.894,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what additional covariates are added to the core-adjusted model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.516,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is any player subgroup/position excluded from the analysis regardless of missingness?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.388,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "how/where is a bias-by-rater interaction term entered into the hierarchical regression?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 3,
+   "position": 0.958,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how sensitive is the exposure effect to inclusion of adjustment covariates?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.846,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how many bins are used to plot red-card rate against skin tone?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.881,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the unadjusted/crude skin-tone/red-card association tested?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.905,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the skin-tone exposure/continuous score constructed from the two raters?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.131,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the red-card outcome modeled (link/distribution)?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.303,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the raw rater score variable transformed?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.286,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the p-value annotated for display?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.617,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the outcome summarized by skin-tone group/display bin?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.845,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the league-interaction term tested for significance?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.911,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the league-country covariate encoded for the regression?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.439,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the exposure coefficient's statistical significance tested?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.79,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the crude (unadjusted) skin-tone group difference in red-card rates tested for significance?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.375,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the correlation structure across repeated player observations handled?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.551,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the continuous skin-tone score turned into an exposure for a robustness check?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.709,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the card outcome variable defined?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.195,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the adjusted outcome model estimated?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.489,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the LPM's validity as a probability model diagnosed?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the 'median split' exposure variable actually constructed?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.838,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is statistical/practical support for the hypothesis decided?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.574,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is statistical significance represented in outputs?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is statistical significance for the primary exposure effect assessed?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.79,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is sampling uncertainty for the adjusted risk difference quantified?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.627,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is referee implicit-bias (IAT) score incorporated into the model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.883,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is games-played represented for descriptive visualization?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is dyad-level card-count data expanded to game-level rows?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.16,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is bootstrap resampling implemented for uncertainty quantification?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.765,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is an effect size derived from the continuous-exposure sensitivity model?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.797,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is a continuous marginal effect rescaled for interpretability?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.839,
+   "stage": "communication"
+  },
+  {
+   "fork": "how far is the skin-tone contrast restricted for the extreme-groups sensitivity check?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.883,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are the values in the multi-specification comparison panel/forest plot populated?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.875,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are standard errors clustered as a robustness check?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.627,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are standard errors adjusted for non-independence of dyads?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.672,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are reported exclusion/dropped-row counts derived?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are referee-level bias measures aggregated to country level and attached to the working data?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 2,
+   "position": 0.612,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are outlier cases identified from residuals?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.99,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are missing height/weight/position values handled?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 0.28,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "does the preferred multilevel/Bayesian model include a cross-level skin-tone x country explicit-bias interaction, and with what prior?",
+   "runs": 2,
+   "coverage": 0.009,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which stratified league results are included in reporting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.838,
+   "stage": "communication"
+  },
+  {
+   "fork": "which statistics define the headline reported effect?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.429,
+   "stage": "communication"
+  },
+  {
+   "fork": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 4,
+   "position": 0.562,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which skin-tone score variant is used as the model predictor?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows/values are excluded before descriptive plotting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows are retained for the three-category skin-tone model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.962,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows are included in the question-specific analysis sample?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.978,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rows are included in the continuous-exposure sensitivity check?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.885,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which rows are excluded due to implausible covariate values?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.198,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which results are shown side-by-side in the summary table?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.727,
+   "stage": "communication"
+  },
+  {
+   "fork": "which referee-countries are excluded from the bias-interaction models?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.172,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "which rater/bias interaction coefficients are extracted for the results table?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 4,
+   "position": 0.931,
+   "stage": "communication"
+  },
+  {
+   "fork": "which player-characteristic controls are included in the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.223,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which optimizer/convergence settings are used for the mixed model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 6,
+   "position": 0.589,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which level/subset of analysis is used to judge significance?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "which leagues are included in the league-stratified analysis?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.832,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "which interaction terms are added to the moderation model's right-hand side?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.807,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which indicator and interaction variables are built into the design matrix?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.203,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which granularity of position variable enters the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.79,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which dataset file is loaded as the analysis sample?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.016,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "which covariates are displayed in the diagnostics table?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "which covariates and random-effects structure predict red cards?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.321,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which category is dropped as the reference level for position and league dummies?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.5,
+   "stage": "modeling"
+  },
+  {
+   "fork": "which case-level regression diagnostics are computed and retained?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "which bias measure and model form predicts dark-skin red-card counts?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.986,
+   "stage": "modeling"
+  },
+  {
+   "fork": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 6,
+   "position": 0.073,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "where do the standard errors shown in the sensitivity/forest plot come from?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.9,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what weighted regression is used for the dark/light red-card ratio?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.878,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what variable are standard errors clustered on?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.03,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what units/scale is the effect estimate reported in?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.59,
+   "stage": "communication"
+  },
+  {
+   "fork": "what statistic is used to assess significance of the exposure effect?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.771,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what standard-error adjustment is used as a robustness check?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.947,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what sensitivity analysis is run on the exclusion of the Medium skin-tone group?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.603,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what sample size is used for resampling/simulation steps?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.479,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what robustness/sensitivity check is run on the unit of analysis?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.676,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what residual diagnostics are checked?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.979,
+   "stage": "eda"
+  },
+  {
+   "fork": "what regression model family is fit to the binary outcome?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.627,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what reference value is used to center the implicit/explicit bias scores?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.709,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what random-effects structure is used for the multilevel red-card model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.632,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what prior is specified for the model's baseline intercept?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.178,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what prior is placed on the latent rating-class probabilities?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what predictors/model is fit for each disciplinary outcome?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.356,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what posterior contrast is computed for skin-tone categories?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.852,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what outcome distribution/link is used for the cards-per-game model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.25,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model is fit on the restricted red-card subset?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.571,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model formula answers Question 1/2a/2b?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 3,
+   "position": 0.82,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model family is used to refit the sensitivity analysis with an alternate skin-tone cutoff?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.618,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what model family and interaction terms are used for the count outcome?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.25,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what minimum sample size is required to report a subgroup result?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.96,
+   "stage": "communication"
+  },
+  {
+   "fork": "what minimum sample size gate is applied before fitting the extreme-groups model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.639,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the study's statistical power/detectable effect?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.933,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "what is the structural form of the Q2 hierarchical/Bayesian model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the structural form of the Q1 hierarchical model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.546,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what is the alternate outcome/covariate specification for the skin-tone effect?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.394,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what inputs feed the Q1 hierarchical model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.449,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what inputs and weighting scheme feed the Q2 model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.913,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what hypothesis-test variants are reported alongside the primary estimate?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.548,
+   "stage": "communication"
+  },
+  {
+   "fork": "what functional form/outcome model is used for the extreme-groups check?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what functional form is used for height/weight in the card models?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.232,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what functional form (interactions vs. main effects) does the primary model take?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.322,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what estimator is used to fit the continuous skin-tone exposure model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.894,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what effect measure is designated as the primary estimand for the dark-skin effect?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.476,
+   "stage": "problem_formulation"
+  },
+  {
+   "fork": "what diagnostics are run on the linear probability model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.842,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what diagnostic outputs are generated from the fitted model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.779,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what diagnostic checks the appropriateness of the count-model family?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.562,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what descriptive summary is produced for red cards by skin tone and position?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.255,
+   "stage": "eda"
+  },
+  {
+   "fork": "what descriptive summary is produced for red cards by position?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.516,
+   "stage": "eda"
+  },
+  {
+   "fork": "what derived covariates/exposure transformations are engineered?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.295,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "what data-sufficiency rule gates whether a threshold's result gets reported?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.705,
+   "stage": "communication"
+  },
+  {
+   "fork": "what covariates make up the model's adjustment set, comparing primary vs. sensitivity variants?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.461,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariate-adjustment sensitivity analyses are run?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.807,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what covariate values are held fixed when computing standardized/predicted effects?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.457,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what counterfactual exposure levels are used for standardization?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.515,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what confidence level is used for interval estimates?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.432,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what club-level covariates are included alongside individual skin tone?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.612,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what baseline sample size is used to report exclusion counts?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.995,
+   "stage": "communication"
+  },
+  {
+   "fork": "what are the MCMC sampling settings for the Bayesian model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.684,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what alternative model specifications are compared for the main analysis?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.252,
+   "stage": "modeling"
+  },
+  {
+   "fork": "what alpha level is used for the significance threshold?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "under what condition is a threshold-sensitivity result included in reporting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.791,
+   "stage": "communication"
+  },
+  {
+   "fork": "is the significance test one-sided or two-sided?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.484,
+   "stage": "communication"
+  },
+  {
+   "fork": "is the regression intercept retained or suppressed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.906,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is the model fit pooled or stratified by league?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.659,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is the effect re-estimated within subgroups, and by which stratifying variable?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is skin tone entered as continuous or categorical in the confound-adjusted model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.569,
+   "stage": "modeling"
+  },
+  {
+   "fork": "is missingness in skin-tone ratings related to the outcome?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "is club-level skin tone tested as its own predictor alongside individual tone?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.499,
+   "stage": "modeling"
+  },
+  {
+   "fork": "in what order/blocks are predictors entered into the hierarchical regression?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.927,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how sensitive are results to alternative exposure/threshold definitions?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.771,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is uncertainty computed for the descriptive red-card rate?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.722,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the yellow-card-rate finding interpreted relative to the confounding hypothesis?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.404,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the yellow-card variable transformed before use?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.162,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the skin-tone variable coded/referenced in the categorical model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the skin-tone exposure coded and which sample is used to fit the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.614,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the significance of the league interaction assessed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.884,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the sensitivity of standard errors to clustering assessed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the secondary (coefficient-scale) effect measure derived from the fitted model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.463,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the referee-level random effect on skin tone specified?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 4,
+   "position": 0.482,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the referee random effect specified?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.375,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the red-card outcome variable defined?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.344,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the raw data loaded into the analysis environment?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.427,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "how is the rating variable standardized?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.754,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the rater rating variable coded in the alternate red-card model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 3,
+   "position": 0.714,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the random-effects structure (referee/country grouping) chosen?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.012,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the primary effect estimate validated?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.88,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the player-referee dyad identified?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.104,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the player-level random effect specified in the Bayesian model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.938,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the player-level aggregate table constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.251,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the model's design matrix/data prepared before fitting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.465,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the missingness pattern in skin-tone data characterized?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the mean implicit-bias variable cleaned/typed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.819,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the mean explicit-bias variable cleaned/typed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.84,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the linear probability model diagnosed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.792,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the descriptive rate chart formatted/scaled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the dataset reduced to player-level for descriptive purposes?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.313,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is the count of excluded observations reported?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.992,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is the continuous/count red-card outcome turned into a binary indicator?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.34,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the continuous skin-tone score scaled/transformed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.358,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the continuous skin-tone effect characterized?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.682,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the confidence interval for the secondary odds-ratio estimate computed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.737,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the choice to cluster standard errors by player justified/diagnosed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.658,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the career-goals variable constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.433,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the birthdate field parsed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.054,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the binomial 'failure' count for red cards defined?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.303,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the binary skin-tone exposure coded/directed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.156,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is the average marginal effect extracted and its CI constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.59,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is the MCMC chain initialized?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.531,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is skin tone entered into the hierarchical/blocked regression?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.58,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is sampling uncertainty for player-clustered data represented?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.52,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is referee-country bias modeled relative to IAT/Exp measures?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is posterior uncertainty reported?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.755,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is position_group displayed/filtered for the descriptive plot?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.852,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is position/league encoded for the design matrix?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.331,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is overdispersion beyond the binomial model handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.341,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is optimizer convergence handled during bootstrap refitting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.857,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is model performance/discrimination evaluated?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is model family (Poisson vs binomial) chosen?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.667,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is missingness in skin-tone rating characterized?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is missing referee implicit-bias score handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.26,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is missing anthropometric data handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.872,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is leagueCountry encoded as a covariate?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.207,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is effect-modification by skin tone on the bias-outcome relationship tested?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is effect heterogeneity across position examined?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.963,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is disagreement between skin-tone raters handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.629,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is birth year extracted from the birthday string?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.133,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is an effect size derived from the sensitivity model comparing extreme exposure values?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.906,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is an aggregate red-card rate computed and compared?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.503,
+   "stage": "eda"
+  },
+  {
+   "fork": "how is a subgroup/effect-modification analysis by games played conducted?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.848,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is a specific raw variable cleaned/typed before use?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.165,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is a specific marginal effect extracted from model output?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.824,
+   "stage": "communication"
+  },
+  {
+   "fork": "how is a per-game performance rate computed from a count and games played?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.082,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is a p-value derived from a bootstrap distribution?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.937,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is a country-level bias measure related to the model's random skin-tone slope?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.906,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how is a continuous bias score turned into a high/low indicator?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 0.183,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how is BMI derived from anthropometric variables?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.052,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are undefined dark/light red-card ratios handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.806,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are the specification-curve estimates sourced for plotting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.847,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are the separate card-count variables combined into an outcome?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.061,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are the country-level red-card and bias datasets combined?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.633,
+   "stage": "data_collection"
+  },
+  {
+   "fork": "how are the categorical position variables coded in the models?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.7,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are the bias-score variables scaled before entering the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.528,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are the bias-by-rater interaction predictors constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.775,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are the adjustment covariates constructed/transformed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.33,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are summary statistics written into the narrative text?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.986,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are standard errors/CIs computed for the coefficient table?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.468,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are standard errors computed for the poisson bias models?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are skewed count covariates (games, yellow cards) transformed before modeling?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.461,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are red-card counts rescaled for presentation?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.246,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are predictors sequenced/blocked in the hierarchical regression?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.36,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are predictors selected/pruned from the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.813,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are posterior effects reported?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.832,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are position and league/country confounders incorporated into the multilevel model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.111,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are player/referee profiles clustered and summarized (profile regression)?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are p-values annotated for readability?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 1.0,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are outlier countries handled in the country-level analysis?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.755,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are outcome and exposure variables jointly constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.216,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are model-fitting failures handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.86,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are missing values handled for the exploratory model sample?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.828,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are missing position/league values handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.35,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are missing height/weight/age handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.199,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are missing height values handled?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.25,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are logistic mixed-model coefficients transformed for reporting?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.758,
+   "stage": "communication"
+  },
+  {
+   "fork": "how are league-specific effects derived from the interaction model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.907,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are error bars for the descriptive plot computed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.804,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are dyad observations weighted in the model?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.755,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are descriptive summary statistics computed by skin-tone group?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.195,
+   "stage": "eda"
+  },
+  {
+   "fork": "how are country-level dark-vs-light-skin card rates constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.655,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are continuous predictors centered before entering the regression?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.649,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are column names cleaned before modeling?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.256,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are club-level tone/black-count covariates constructed?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.455,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are categorical ID fields prepared for grouping/fixed effects?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.084,
+   "stage": "data_cleaning"
+  },
+  {
+   "fork": "how are alternative model specifications compared?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.858,
+   "stage": "modeling"
+  },
+  {
+   "fork": "how are CIs computed for the multi-estimate comparison display?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.946,
+   "stage": "communication"
+  },
+  {
+   "fork": "does the zero-inflated red-card model include interactions with country bias measures?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 2,
+   "position": 1.0,
+   "stage": "modeling"
+  },
+  {
+   "fork": "does the multilevel model include a cross-level interaction with a country bias measure?",
+   "runs": 1,
+   "coverage": 0.004,
+   "options": 1,
+   "position": 0.868,
+   "stage": "modeling"
+  }
+ ],
+ "universal": [
+  "how are the two raters' skin-tone scores combined into one exposure variable?",
+  "how is the red-card count turned into the outcome variable?",
+  "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+  "how are dyads/rows with missing covariate or outcome data excluded to build the analysis sample?"
+ ],
+ "gates": [
+  {
+   "from": "how many position categories does the detailed position field get collapsed into?",
+   "option": "collapse position into 4 broad categories (GK/Def/Mid/Fwd)",
+   "to": "what is the primary (adjusted) model specification — model family, covariates, and SE/inference structure — used to test the skin-tone/red-card association?",
+   "n_option": 12,
+   "hit": 9,
+   "miss": 0,
+   "p1": 0.75,
+   "p0": 0.0,
+   "lift": null,
+   "p": 0.0013098356751607525
+  }
+ ],
+ "gates_tested": 1,
+ "gate_p_threshold": 0.0013098356751607525
+}

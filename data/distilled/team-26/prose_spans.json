@@ -1,0 +1,1499 @@
+{
+ "n_lines": 113,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "note": "document title"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     2,
+     3
+    ]
+   ],
+   "note": "team identifier line and blank line"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     4,
+     4
+    ]
+   ],
+   "note": "section marker V6"
+  },
+  {
+   "id": 4,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     5,
+     8
+    ]
+   ],
+   "note": "survey metadata field: team name"
+  },
+  {
+   "id": 5,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     9,
+     9
+    ]
+   ],
+   "note": "section marker V7"
+  },
+  {
+   "id": 6,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     10,
+     13
+    ]
+   ],
+   "note": "survey metadata field: status code"
+  },
+  {
+   "id": 7,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     14,
+     14
+    ]
+   ],
+   "note": "section marker V8"
+  },
+  {
+   "id": 8,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     15,
+     18
+    ]
+   ],
+   "note": "survey metadata field: start date"
+  },
+  {
+   "id": 9,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     19,
+     19
+    ]
+   ],
+   "note": "section marker V9"
+  },
+  {
+   "id": 10,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "survey metadata field: end date"
+  },
+  {
+   "id": 11,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     24,
+     24
+    ]
+   ],
+   "note": "section marker transforms"
+  },
+  {
+   "id": 12,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     25,
+     25
+    ]
+   ],
+   "note": "restates survey question about transformations applied"
+  },
+  {
+   "id": 13,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 14,
+   "kind": "claim",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "assertion": "missing values in the player position variable were recoded into a new category",
+   "polarity": "did",
+   "targets": [
+    "player position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "claim",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "assertion": "player position was included in the analyses as a control, entered as a dummy variable for each position",
+   "polarity": "did",
+   "targets": [
+    "player position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 17,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     29,
+     29
+    ]
+   ],
+   "note": "section marker exclusions"
+  },
+  {
+   "id": 18,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "note": "restates survey question about exclusions"
+  },
+  {
+   "id": 19,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "assertion": "cases lacking skin tone measures were excluded from the analysis",
+   "polarity": "did",
+   "targets": [
+    "skin tone",
+    "cases"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    21,
+    22
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "assertion": "referees with fewer than 3 players played under them were excluded, as required for the multilevel analysis",
+   "polarity": "did",
+   "targets": [
+    "referees"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    20,
+    22
+   ]
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "assertion": "referees from countries with fewer than 3 referees were excluded",
+   "polarity": "did",
+   "targets": [
+    "referees",
+    "countries"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    20,
+    21
+   ]
+  },
+  {
+   "id": 23,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 24,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "section marker Q21"
+  },
+  {
+   "id": 25,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "restates survey question label 'Statistical Modeling'"
+  },
+  {
+   "id": 26,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "note": "answer label, response code, blank line"
+  },
+  {
+   "id": 27,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     39,
+     39
+    ]
+   ],
+   "note": "section marker technique"
+  },
+  {
+   "id": 28,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "note": "restates survey question about technique name"
+  },
+  {
+   "id": 29,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     42,
+     42
+    ]
+   ],
+   "assertion": "a three-level random effects model with Poisson estimation was used",
+   "polarity": "did",
+   "targets": [
+    "statistical technique"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 32,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "section marker tech_expl"
+  },
+  {
+   "id": 33,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     45,
+     45
+    ]
+   ],
+   "note": "restates survey question asking for detail on the chosen technique"
+  },
+  {
+   "id": 34,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "assertion": "the multilevel random effects approach was chosen because the data are nested (player-referee observations nested within referee, nested within country)",
+   "polarity": "did",
+   "targets": [
+    "player-referee data",
+    "referee",
+    "country"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    36
+   ]
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "assertion": "Poisson estimation was chosen because the red-cards outcome is a count variable with a distribution similar to a Poisson distribution",
+   "polarity": "did",
+   "targets": [
+    "red cards",
+    "Poisson distribution"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    35
+   ]
+  },
+  {
+   "id": 37,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 38,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "note": "section marker tech_ref"
+  },
+  {
+   "id": 39,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "note": "restates survey question about references"
+  },
+  {
+   "id": 40,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     51,
+     51
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 41,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     52,
+     52
+    ]
+   ],
+   "note": "reference to Blair Wheaton's notes"
+  },
+  {
+   "id": 42,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 43,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "note": "section marker software"
+  },
+  {
+   "id": 44,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     55,
+     55
+    ]
+   ],
+   "note": "restates survey question about software used"
+  },
+  {
+   "id": 45,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     56,
+     56
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 46,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     57
+    ]
+   ],
+   "assertion": "SAS 9.2 was used for the analysis",
+   "polarity": "did",
+   "targets": [
+    "software"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 48,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     59,
+     59
+    ]
+   ],
+   "note": "section marker DV_dist"
+  },
+  {
+   "id": 49,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     60,
+     60
+    ]
+   ],
+   "note": "restates survey question about the outcome distribution"
+  },
+  {
+   "id": 50,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     61,
+     61
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "assertion": "a Poisson distribution was specified for the red-cards outcome variable",
+   "polarity": "did",
+   "targets": [
+    "red cards",
+    "Poisson distribution"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     63,
+     63
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 53,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     64,
+     64
+    ]
+   ],
+   "note": "section marker cov_RQ1"
+  },
+  {
+   "id": 54,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     65,
+     65
+    ]
+   ],
+   "note": "restates survey question about covariates for research question 1"
+  },
+  {
+   "id": 55,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     66,
+     66
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 56,
+   "kind": "claim",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "assertion": "the RQ1 model included as covariates: games, yellowcards, age, weight, height, victories, ties, meanExp, meanIat, position, league, and a generated variable Refexp counting how many players played under the referee",
+   "polarity": "did",
+   "targets": [
+    "games",
+    "yellowcards",
+    "age",
+    "weight",
+    "height",
+    "victories",
+    "ties",
+    "meanExp",
+    "meanIat",
+    "position",
+    "league",
+    "Refexp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     68,
+     68
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 58,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     69,
+     69
+    ]
+   ],
+   "note": "section marker cov_RQ2a"
+  },
+  {
+   "id": 59,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     70,
+     70
+    ]
+   ],
+   "note": "restates survey question about covariates for research question 2a"
+  },
+  {
+   "id": 60,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     71,
+     71
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 61,
+   "kind": "claim",
+   "lines": [
+    [
+     72,
+     72
+    ]
+   ],
+   "assertion": "the RQ2a model included as covariates: games, yellowcards, age, weight, height, victories, ties, meanExp, position, league, and the generated variable Refexp",
+   "polarity": "did",
+   "targets": [
+    "games",
+    "yellowcards",
+    "age",
+    "weight",
+    "height",
+    "victories",
+    "ties",
+    "meanExp",
+    "position",
+    "league",
+    "Refexp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 62,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 63,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     74,
+     74
+    ]
+   ],
+   "note": "section marker cov_RQ2b"
+  },
+  {
+   "id": 64,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     75,
+     75
+    ]
+   ],
+   "note": "restates survey question about covariates for research question 2b"
+  },
+  {
+   "id": 65,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     76,
+     76
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     77,
+     77
+    ]
+   ],
+   "assertion": "the RQ2b model included as covariates: games, yellowcards, age, weight, height, victories, ties, meanIat, position, league, and the generated variable Refexp",
+   "polarity": "did",
+   "targets": [
+    "games",
+    "yellowcards",
+    "age",
+    "weight",
+    "height",
+    "victories",
+    "ties",
+    "meanIat",
+    "position",
+    "league",
+    "Refexp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     78,
+     78
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 68,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     79,
+     79
+    ]
+   ],
+   "note": "section marker cov_reason"
+  },
+  {
+   "id": 69,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "note": "restates survey question about rationale for covariate choice"
+  },
+  {
+   "id": 70,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     81,
+     81
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "assertion": "each covariate was chosen for a stated theoretical or statistical reason: games affects red-card opportunity, yellowcards controls for less severe punishment, age is a standard demographic control, weight/height may confound with skin tone, victories/ties captures frustration-driven fouling, meanIat/meanExp controls for referee bias scores, position captures defensive fouling tendency, league captures differing styles of play, and Refexp accounts for referee experience",
+   "polarity": "did",
+   "targets": [
+    "games",
+    "yellowcards",
+    "age",
+    "weight",
+    "height",
+    "victories",
+    "ties",
+    "meanIat",
+    "meanExp",
+    "position",
+    "league",
+    "Refexp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 72,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 73,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     84,
+     84
+    ]
+   ],
+   "note": "section marker Q24"
+  },
+  {
+   "id": 74,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     85,
+     85
+    ]
+   ],
+   "note": "restates survey question label 'Results'"
+  },
+  {
+   "id": 75,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     86,
+     88
+    ]
+   ],
+   "note": "answer label, response code, blank line"
+  },
+  {
+   "id": 76,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     89,
+     89
+    ]
+   ],
+   "note": "section marker ES_unit"
+  },
+  {
+   "id": 77,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     90,
+     90
+    ]
+   ],
+   "note": "restates survey question about effect size unit"
+  },
+  {
+   "id": 78,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     91,
+     91
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     92,
+     92
+    ]
+   ],
+   "assertion": "effect sizes are reported as unstandardized parameter estimates (b)",
+   "polarity": "did",
+   "targets": [
+    "effect size"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     93,
+     93
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 81,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     94,
+     94
+    ]
+   ],
+   "note": "section marker ES_R1"
+  },
+  {
+   "id": 82,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     95,
+     95
+    ]
+   ],
+   "note": "restates survey question about the RQ1 effect size"
+  },
+  {
+   "id": 83,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     96,
+     96
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 84,
+   "kind": "claim",
+   "lines": [
+    [
+     97,
+     97
+    ]
+   ],
+   "assertion": "the effect of player skin tone on red cards received was found to be 06383 with 95% CI [.01832, .10934]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 85,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     98,
+     98
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 86,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     99,
+     99
+    ]
+   ],
+   "note": "section marker ES_R2a"
+  },
+  {
+   "id": 87,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     100,
+     100
+    ]
+   ],
+   "note": "restates survey question about the RQ2a effect size"
+  },
+  {
+   "id": 88,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     101,
+     101
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 89,
+   "kind": "claim",
+   "lines": [
+    [
+     102,
+     102
+    ]
+   ],
+   "assertion": "the effect of referee-country implicit skin-tone prejudice on red cards received was found to be -.2953 with CI [-2.22688, 1.63628]",
+   "polarity": "found",
+   "targets": [
+    "implicit skin-tone prejudice",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 90,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     103,
+     103
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 91,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     104,
+     104
+    ]
+   ],
+   "note": "section marker ES_R2b"
+  },
+  {
+   "id": 92,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     105,
+     105
+    ]
+   ],
+   "note": "restates survey question about the RQ2b effect size"
+  },
+  {
+   "id": 93,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     106,
+     106
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 94,
+   "kind": "claim",
+   "lines": [
+    [
+     107,
+     107
+    ]
+   ],
+   "assertion": "the effect of referee-country explicit skin-tone prejudice on red cards received was found to be .07529 with CI [-.19715, .34773]",
+   "polarity": "found",
+   "targets": [
+    "explicit skin-tone prejudice",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 95,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     108,
+     108
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 96,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     109,
+     109
+    ]
+   ],
+   "note": "section marker alt_stats"
+  },
+  {
+   "id": 97,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     110,
+     110
+    ]
+   ],
+   "note": "restates survey question about other steps/analyses run"
+  },
+  {
+   "id": 98,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     111,
+     111
+    ]
+   ],
+   "note": "answer label"
+  },
+  {
+   "id": 99,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "similar analyses were run separately for each of the four leagues",
+   "polarity": "did",
+   "targets": [
+    "leagues"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    100,
+    101,
+    102,
+    103,
+    104
+   ]
+  },
+  {
+   "id": 100,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "the positive association between skin tone and red/yellow-red cards received was found to be mainly driven by the German league, with effect size .2231 [.1156, .3305]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards",
+    "yellow-reds",
+    "German league"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    99,
+    101,
+    102,
+    103,
+    104
+   ]
+  },
+  {
+   "id": 101,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "for the other three leagues, the association between skin tone and red/yellow-red cards was found not to be significant",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards",
+    "yellow-reds",
+    "leagues"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    99,
+    100,
+    102,
+    103,
+    104
+   ]
+  },
+  {
+   "id": 102,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "a minor error in model specification affecting the implicit and explicit skin-tone prejudice effect sizes was found shortly before submission",
+   "polarity": "found",
+   "targets": [
+    "implicit skin-tone prejudice",
+    "explicit skin-tone prejudice",
+    "model specification"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    99,
+    100,
+    101,
+    103,
+    104
+   ]
+  },
+  {
+   "id": 103,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "the authors expect the model-specification error would not substantially affect the results reported above",
+   "polarity": "found",
+   "targets": [
+    "model specification",
+    "results"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    99,
+    100,
+    101,
+    102,
+    104
+   ]
+  },
+  {
+   "id": 104,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "assertion": "the analyses are being re-run to update the results, a process expected to take about a day for the model to converge",
+   "polarity": "did",
+   "targets": [
+    "model convergence",
+    "results"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    99,
+    100,
+    101,
+    102,
+    103
+   ]
+  },
+  {
+   "id": 105,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     113,
+     113
+    ]
+   ],
+   "note": "trailing blank line"
+  }
+ ]
+}

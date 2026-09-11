@@ -1,0 +1,274 @@
+{
+ "I1": {
+  "verdict": "PASS",
+  "raw": 728,
+  "tie_artifacts": 34,
+  "kept": 694
+ },
+ "I2": {
+  "verdict": "PASS",
+  "observed": 0.1864,
+  "null_mean": 0.3268,
+  "ratio": 0.57,
+  "p": 1.0
+ },
+ "I3": {
+  "verdict": "PASS",
+  "spearman": 0.5929,
+  "mean_position": {
+   "data_collection": 0.109,
+   "eda": 0.397,
+   "data_cleaning": 0.255,
+   "modeling": 0.496,
+   "communication": 0.734,
+   "problem_formulation": 0.539
+  }
+ },
+ "I4": {
+  "corpus_rate": 0.186,
+  "by_fork": [
+   {
+    "fork": "which effect-size measure is used to express the exposure's effect on red cards?",
+    "returns": 161,
+    "opportunities": 195,
+    "rate": 0.826
+   },
+   {
+    "fork": "what rule determines whether the effect is declared statistically supported?",
+    "returns": 19,
+    "opportunities": 36,
+    "rate": 0.528
+   },
+   {
+    "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+    "returns": 98,
+    "opportunities": 210,
+    "rate": 0.467
+   },
+   {
+    "fork": "how is agreement between the two skin-tone raters quantified?",
+    "returns": 15,
+    "opportunities": 33,
+    "rate": 0.455
+   },
+   {
+    "fork": "how is games-played entered into the model (functional form / transformation)?",
+    "returns": 8,
+    "opportunities": 19,
+    "rate": 0.421
+   },
+   {
+    "fork": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+    "returns": 12,
+    "opportunities": 34,
+    "rate": 0.353
+   },
+   {
+    "fork": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+    "returns": 7,
+    "opportunities": 20,
+    "rate": 0.35
+   },
+   {
+    "fork": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+    "returns": 9,
+    "opportunities": 27,
+    "rate": 0.333
+   },
+   {
+    "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+    "returns": 38,
+    "opportunities": 116,
+    "rate": 0.328
+   },
+   {
+    "fork": "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?",
+    "returns": 6,
+    "opportunities": 19,
+    "rate": 0.316
+   },
+   {
+    "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "returns": 145,
+    "opportunities": 478,
+    "rate": 0.303
+   },
+   {
+    "fork": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+    "returns": 3,
+    "opportunities": 15,
+    "rate": 0.2
+   },
+   {
+    "fork": "Is the adjustment set expanded by adding covariates as a robustness check?",
+    "returns": 3,
+    "opportunities": 15,
+    "rate": 0.2
+   },
+   {
+    "fork": "how is the crude, unadjusted association estimated and tested?",
+    "returns": 15,
+    "opportunities": 86,
+    "rate": 0.174
+   },
+   {
+    "fork": "which covariates make up the model's adjustment set?",
+    "returns": 27,
+    "opportunities": 164,
+    "rate": 0.165
+   },
+   {
+    "fork": "which regression model and outcome family estimates the exposure–red-card association?",
+    "returns": 5,
+    "opportunities": 45,
+    "rate": 0.111
+   },
+   {
+    "fork": "what bootstrap resampling scheme is used to compute the confidence interval?",
+    "returns": 5,
+    "opportunities": 51,
+    "rate": 0.098
+   },
+   {
+    "fork": "How are raw group red-card rates reported descriptively?",
+    "returns": 3,
+    "opportunities": 38,
+    "rate": 0.079
+   },
+   {
+    "fork": "which covariates does the primary model adjust for (if any)?",
+    "returns": 1,
+    "opportunities": 15,
+    "rate": 0.067
+   },
+   {
+    "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+    "returns": 9,
+    "opportunities": 145,
+    "rate": 0.062
+   },
+   {
+    "fork": "how are the regression model's standard errors estimated?",
+    "returns": 8,
+    "opportunities": 130,
+    "rate": 0.062
+   },
+   {
+    "fork": "what minimum number of shared games per dyad is required for inclusion?",
+    "returns": 2,
+    "opportunities": 33,
+    "rate": 0.061
+   },
+   {
+    "fork": "how is complete-case/listwise deletion applied and over which variable set?",
+    "returns": 3,
+    "opportunities": 57,
+    "rate": 0.053
+   },
+   {
+    "fork": "Which control variables and functional forms enter the regression model?",
+    "returns": 2,
+    "opportunities": 59,
+    "rate": 0.034
+   },
+   {
+    "fork": "how many categories, and by what mapping, is player position collapsed into?",
+    "returns": 3,
+    "opportunities": 89,
+    "rate": 0.034
+   },
+   {
+    "fork": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+    "returns": 1,
+    "opportunities": 40,
+    "rate": 0.025
+   },
+   {
+    "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+    "returns": 3,
+    "opportunities": 144,
+    "rate": 0.021
+   },
+   {
+    "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "returns": 2,
+    "opportunities": 117,
+    "rate": 0.017
+   },
+   {
+    "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "returns": 1,
+    "opportunities": 59,
+    "rate": 0.017
+   },
+   {
+    "fork": "how are the two raters combined into a single skin-tone exposure measure?",
+    "returns": 2,
+    "opportunities": 219,
+    "rate": 0.009
+   },
+   {
+    "fork": "which version of the source dataset is loaded?",
+    "returns": 0,
+    "opportunities": 209,
+    "rate": 0.0
+   },
+   {
+    "fork": "How are dyads with a missing skin-tone rating handled?",
+    "returns": 0,
+    "opportunities": 145,
+    "rate": 0.0
+   },
+   {
+    "fork": "How is the middle (Medium) skin-tone category handled?",
+    "returns": 0,
+    "opportunities": 23,
+    "rate": 0.0
+   },
+   {
+    "fork": "how is the binary dark-skin exposure variable defined?",
+    "returns": 0,
+    "opportunities": 17,
+    "rate": 0.0
+   },
+   {
+    "fork": "what fixed reference date is used to compute player age?",
+    "returns": 0,
+    "opportunities": 44,
+    "rate": 0.0
+   },
+   {
+    "fork": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+    "returns": 0,
+    "opportunities": 20,
+    "rate": 0.0
+   },
+   {
+    "fork": "are goalkeepers included in or excluded from the analysis sample?",
+    "returns": 0,
+    "opportunities": 28,
+    "rate": 0.0
+   }
+  ]
+ },
+ "I5": {
+  "verdict": "PASS",
+  "top_share": 0.232,
+  "top5_share": 0.676,
+  "distinct": 86
+ },
+ "I6": {
+  "verdict": "PASS",
+  "coarse_returns": 600,
+  "coarse_rate": 0.1612,
+  "coarse_runs_with_return": 212
+ },
+ "headline": {
+  "runs": 223,
+  "transitions": 3723,
+  "returns": 694,
+  "runs_with_return": 214,
+  "share_of_runs": 0.96,
+  "pct_of_chance": 57.0
+ }
+}

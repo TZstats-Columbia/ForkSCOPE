@@ -1,0 +1,1728 @@
+{
+ "source": "bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "tie_lines": 2,
+ "runs": 223,
+ "returns": 694,
+ "decisions": 3946,
+ "transitions": 3723,
+ "runs_with_return": 214,
+ "return_rate": 0.1864,
+ "back_pairs": [
+  {
+   "from": "modeling",
+   "to": "data_cleaning",
+   "n": 303
+  },
+  {
+   "from": "communication",
+   "to": "modeling",
+   "n": 193
+  },
+  {
+   "from": "modeling",
+   "to": "eda",
+   "n": 78
+  },
+  {
+   "from": "eda",
+   "to": "data_cleaning",
+   "n": 44
+  },
+  {
+   "from": "modeling",
+   "to": "problem_formulation",
+   "n": 18
+  },
+  {
+   "from": "communication",
+   "to": "data_cleaning",
+   "n": 17
+  },
+  {
+   "from": "communication",
+   "to": "eda",
+   "n": 15
+  },
+  {
+   "from": "data_cleaning",
+   "to": "problem_formulation",
+   "n": 15
+  },
+  {
+   "from": "communication",
+   "to": "problem_formulation",
+   "n": 7
+  },
+  {
+   "from": "modeling",
+   "to": "data_collection",
+   "n": 2
+  },
+  {
+   "from": "data_cleaning",
+   "to": "data_collection",
+   "n": 1
+  },
+  {
+   "from": "eda",
+   "to": "data_collection",
+   "n": 1
+  }
+ ],
+ "triggers": [
+  {
+   "fork": "which effect-size measure is used to express the exposure's effect on red cards?",
+   "returns": 161,
+   "opportunities": 195,
+   "rate": 0.826
+  },
+  {
+   "fork": "what rule determines whether the effect is declared statistically supported?",
+   "returns": 19,
+   "opportunities": 36,
+   "rate": 0.528
+  },
+  {
+   "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+   "returns": 98,
+   "opportunities": 210,
+   "rate": 0.467
+  },
+  {
+   "fork": "how is agreement between the two skin-tone raters quantified?",
+   "returns": 15,
+   "opportunities": 33,
+   "rate": 0.455
+  },
+  {
+   "fork": "how is games-played entered into the model (functional form / transformation)?",
+   "returns": 8,
+   "opportunities": 19,
+   "rate": 0.421
+  },
+  {
+   "fork": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+   "returns": 12,
+   "opportunities": 34,
+   "rate": 0.353
+  },
+  {
+   "fork": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+   "returns": 7,
+   "opportunities": 20,
+   "rate": 0.35
+  },
+  {
+   "fork": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+   "returns": 9,
+   "opportunities": 27,
+   "rate": 0.333
+  },
+  {
+   "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+   "returns": 38,
+   "opportunities": 116,
+   "rate": 0.328
+  },
+  {
+   "fork": "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?",
+   "returns": 6,
+   "opportunities": 19,
+   "rate": 0.316
+  },
+  {
+   "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+   "returns": 145,
+   "opportunities": 478,
+   "rate": 0.303
+  },
+  {
+   "fork": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+   "returns": 3,
+   "opportunities": 15,
+   "rate": 0.2
+  },
+  {
+   "fork": "Is the adjustment set expanded by adding covariates as a robustness check?",
+   "returns": 3,
+   "opportunities": 15,
+   "rate": 0.2
+  },
+  {
+   "fork": "how is the crude, unadjusted association estimated and tested?",
+   "returns": 15,
+   "opportunities": 86,
+   "rate": 0.174
+  },
+  {
+   "fork": "which covariates make up the model's adjustment set?",
+   "returns": 27,
+   "opportunities": 164,
+   "rate": 0.165
+  },
+  {
+   "fork": "which regression model and outcome family estimates the exposure–red-card association?",
+   "returns": 5,
+   "opportunities": 45,
+   "rate": 0.111
+  },
+  {
+   "fork": "what bootstrap resampling scheme is used to compute the confidence interval?",
+   "returns": 5,
+   "opportunities": 51,
+   "rate": 0.098
+  },
+  {
+   "fork": "How are raw group red-card rates reported descriptively?",
+   "returns": 3,
+   "opportunities": 38,
+   "rate": 0.079
+  },
+  {
+   "fork": "which covariates does the primary model adjust for (if any)?",
+   "returns": 1,
+   "opportunities": 15,
+   "rate": 0.067
+  },
+  {
+   "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+   "returns": 9,
+   "opportunities": 145,
+   "rate": 0.062
+  },
+  {
+   "fork": "how are the regression model's standard errors estimated?",
+   "returns": 8,
+   "opportunities": 130,
+   "rate": 0.062
+  },
+  {
+   "fork": "what minimum number of shared games per dyad is required for inclusion?",
+   "returns": 2,
+   "opportunities": 33,
+   "rate": 0.061
+  },
+  {
+   "fork": "how is complete-case/listwise deletion applied and over which variable set?",
+   "returns": 3,
+   "opportunities": 57,
+   "rate": 0.053
+  },
+  {
+   "fork": "Which control variables and functional forms enter the regression model?",
+   "returns": 2,
+   "opportunities": 59,
+   "rate": 0.034
+  },
+  {
+   "fork": "how many categories, and by what mapping, is player position collapsed into?",
+   "returns": 3,
+   "opportunities": 89,
+   "rate": 0.034
+  },
+  {
+   "fork": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+   "returns": 1,
+   "opportunities": 40,
+   "rate": 0.025
+  },
+  {
+   "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+   "returns": 3,
+   "opportunities": 144,
+   "rate": 0.021
+  },
+  {
+   "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+   "returns": 2,
+   "opportunities": 117,
+   "rate": 0.017
+  },
+  {
+   "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+   "returns": 1,
+   "opportunities": 59,
+   "rate": 0.017
+  },
+  {
+   "fork": "how are the two raters combined into a single skin-tone exposure measure?",
+   "returns": 2,
+   "opportunities": 219,
+   "rate": 0.009
+  },
+  {
+   "fork": "which version of the source dataset is loaded?",
+   "returns": 0,
+   "opportunities": 209,
+   "rate": 0.0
+  },
+  {
+   "fork": "How are dyads with a missing skin-tone rating handled?",
+   "returns": 0,
+   "opportunities": 145,
+   "rate": 0.0
+  },
+  {
+   "fork": "How is the middle (Medium) skin-tone category handled?",
+   "returns": 0,
+   "opportunities": 23,
+   "rate": 0.0
+  },
+  {
+   "fork": "how is the binary dark-skin exposure variable defined?",
+   "returns": 0,
+   "opportunities": 17,
+   "rate": 0.0
+  },
+  {
+   "fork": "what fixed reference date is used to compute player age?",
+   "returns": 0,
+   "opportunities": 44,
+   "rate": 0.0
+  },
+  {
+   "fork": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+   "returns": 0,
+   "opportunities": 20,
+   "rate": 0.0
+  },
+  {
+   "fork": "are goalkeepers included in or excluded from the analysis sample?",
+   "returns": 0,
+   "opportunities": 28,
+   "rate": 0.0
+  }
+ ],
+ "by_arm": [
+  {
+   "arm": "confirmation_seeking",
+   "returns": 159,
+   "transitions": 872,
+   "rate": 0.182
+  },
+  {
+   "arm": "human",
+   "returns": 26,
+   "transitions": 262,
+   "rate": 0.099
+  },
+  {
+   "arm": "negative",
+   "returns": 152,
+   "transitions": 761,
+   "rate": 0.2
+  },
+  {
+   "arm": "positive",
+   "returns": 121,
+   "transitions": 560,
+   "rate": 0.216
+  },
+  {
+   "arm": "standard",
+   "returns": 138,
+   "transitions": 766,
+   "rate": 0.18
+  },
+  {
+   "arm": "strong_confirmation_seeking",
+   "returns": 98,
+   "transitions": 502,
+   "rate": 0.195
+  }
+ ],
+ "by_outcome": [
+  {
+   "measure": "log odds-ratio",
+   "high": 0.1818,
+   "low": 0.1852,
+   "diff": -0.0034,
+   "ci": [
+    -0.0225,
+    0.0177
+   ],
+   "detectable": false
+  },
+  {
+   "measure": "verdict = supported",
+   "high": 0.6522,
+   "low": 0.6429,
+   "diff": 0.0093,
+   "ci": [
+    -0.1281,
+    0.144
+   ],
+   "detectable": false
+  }
+ ],
+ "matrix": {
+  "data_collection->eda": 6,
+  "eda->data_cleaning": 44,
+  "data_cleaning->data_cleaning": 378,
+  "data_cleaning->modeling": 442,
+  "modeling->modeling": 1114,
+  "modeling->data_cleaning": 331,
+  "data_cleaning->eda": 127,
+  "eda->eda": 43,
+  "eda->modeling": 145,
+  "modeling->communication": 336,
+  "communication->modeling": 196,
+  "communication->communication": 108,
+  "data_collection->data_cleaning": 211,
+  "modeling->eda": 78,
+  "data_cleaning->communication": 22,
+  "communication->data_cleaning": 18,
+  "communication->eda": 15,
+  "eda->communication": 22,
+  "data_cleaning->problem_formulation": 17,
+  "problem_formulation->modeling": 27,
+  "modeling->problem_formulation": 18,
+  "problem_formulation->data_cleaning": 11,
+  "communication->problem_formulation": 7,
+  "problem_formulation->communication": 1,
+  "modeling->data_collection": 2,
+  "data_cleaning->data_collection": 1,
+  "data_collection->modeling": 2,
+  "eda->data_collection": 1
+ },
+ "per_run": {
+  "2025-11-12T09-30-16+0000": {
+   "decisions": 23,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.174
+  },
+  "2025-11-12T09-52-44+0000": {
+   "decisions": 23,
+   "returns": 7,
+   "total_depth": 11,
+   "returns_per_decision": 0.304
+  },
+  "2025-11-12T10-05-42+0000": {
+   "decisions": 18,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.111
+  },
+  "2025-11-12T10-39-00+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-12T11-24-34+0000": {
+   "decisions": 18,
+   "returns": 5,
+   "total_depth": 8,
+   "returns_per_decision": 0.278
+  },
+  "2025-11-12T12-24-45+0000": {
+   "decisions": 15,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.067
+  },
+  "2025-11-12T12-54-24+0000": {
+   "decisions": 22,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.182
+  },
+  "2025-11-12T13-06-46+0000": {
+   "decisions": 14,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.071
+  },
+  "2025-11-12T13-46-32+0000": {
+   "decisions": 18,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.111
+  },
+  "2025-11-12T17-10-55+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-12T17-30-15+0000": {
+   "decisions": 16,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "2025-11-12T18-01-53+0000": {
+   "decisions": 19,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.105
+  },
+  "2025-11-12T18-56-42+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-12T19-55-38+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-12T20-35-40+0000": {
+   "decisions": 23,
+   "returns": 2,
+   "total_depth": 2,
+   "returns_per_decision": 0.087
+  },
+  "2025-11-12T21-15-40+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-12T22-11-51+0000": {
+   "decisions": 20,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-12T22-55-33+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 8,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-13T00-05-19+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 7,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-14T21-21-29+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-14T22-05-46+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 7,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-15T01-08-22+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-15T02-22-25+0000": {
+   "decisions": 25,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.12
+  },
+  "2025-11-15T15-03-11+0000": {
+   "decisions": 18,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.278
+  },
+  "2025-11-15T15-38-19+0000": {
+   "decisions": 14,
+   "returns": 4,
+   "total_depth": 4,
+   "returns_per_decision": 0.286
+  },
+  "2025-11-15T17-13-29+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 8,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-15T18-59-03+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-15T20-23-37+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-15T22-00-27+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-15T23-57-58+0000": {
+   "decisions": 23,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.217
+  },
+  "2025-11-16T00-54-53+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 3,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-16T02-42-50+0000": {
+   "decisions": 15,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.267
+  },
+  "2025-11-16T04-53-17+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-16T07-53-05+0000": {
+   "decisions": 21,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-16T09-53-00+0000": {
+   "decisions": 17,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.294
+  },
+  "2025-11-16T11-59-47+0000": {
+   "decisions": 20,
+   "returns": 5,
+   "total_depth": 11,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-16T17-04-39+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-16T18-27-13+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-16T21-46-30+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 9,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-16T23-15-36+0000": {
+   "decisions": 15,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.267
+  },
+  "2025-11-17T01-20-10+0000": {
+   "decisions": 30,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.033
+  },
+  "2025-11-17T03-01-51+0000": {
+   "decisions": 22,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.045
+  },
+  "2025-11-17T05-02-45+0000": {
+   "decisions": 21,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-17T14-46-19+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-17T15-56-59+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-17T16-55-57+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-17T18-58-32+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-17T20-22-41+0000": {
+   "decisions": 22,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.091
+  },
+  "2025-11-17T21-31-42+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-17T23-27-27+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 3,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-18T01-05-44+0000": {
+   "decisions": 14,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.214
+  },
+  "2025-11-18T02-52-55+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 7,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-18T04-16-31+0000": {
+   "decisions": 22,
+   "returns": 6,
+   "total_depth": 8,
+   "returns_per_decision": 0.273
+  },
+  "2025-11-19T03-21-59+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-19T04-30-13+0000": {
+   "decisions": 18,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.278
+  },
+  "2025-11-19T05-56-22+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-19T07-38-28+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-19T09-10-20+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-19T10-27-52+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-19T11-29-03+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-19T13-48-49+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 10,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-19T14-47-53+0000": {
+   "decisions": 14,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.214
+  },
+  "2025-11-19T16-04-43+0000": {
+   "decisions": 12,
+   "returns": 3,
+   "total_depth": 3,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-19T17-56-42+0000": {
+   "decisions": 22,
+   "returns": 7,
+   "total_depth": 9,
+   "returns_per_decision": 0.318
+  },
+  "2025-11-19T19-09-24+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-19T20-38-58+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-19T22-14-21+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-20T00-05-27+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-20T01-31-19+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-20T02-49-33+0000": {
+   "decisions": 17,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.118
+  },
+  "2025-11-20T04-21-39+0000": {
+   "decisions": 22,
+   "returns": 5,
+   "total_depth": 10,
+   "returns_per_decision": 0.227
+  },
+  "2025-11-20T06-03-23+0000": {
+   "decisions": 21,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.19
+  },
+  "2025-11-20T07-33-53+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-20T09-31-10+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-20T10-56-52+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 11,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-20T12-28-12+0000": {
+   "decisions": 19,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.105
+  },
+  "2025-11-20T14-10-42+0000": {
+   "decisions": 13,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.231
+  },
+  "2025-11-20T16-42-37+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-20T18-12-31+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-20T20-17-27+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 8,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-20T20-25-41+0000": {
+   "decisions": 14,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-20T20-40-17+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 2,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-20T21-05-32+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-20T22-11-22+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 5,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-20T22-17-42+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 6,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-20T22-37-30+0000": {
+   "decisions": 13,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.154
+  },
+  "2025-11-20T22-39-34+0000": {
+   "decisions": 21,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-20T23-33-39+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-20T23-42-14+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-21T00-16-02+0000": {
+   "decisions": 14,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.071
+  },
+  "2025-11-21T00-55-35+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-21T01-21-19+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-21T01-32-10+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-21T01-57-03+0000": {
+   "decisions": 16,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.062
+  },
+  "2025-11-21T02-18-05+0000": {
+   "decisions": 20,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-21T02-39-07+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-21T03-02-44+0000": {
+   "decisions": 19,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.053
+  },
+  "2025-11-21T03-48-39+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-21T03-54-46+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-22T00-10-57+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-22T00-38-59+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 6,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-22T00-56-43+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 8,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-22T01-21-47+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-22T01-58-59+0000": {
+   "decisions": 21,
+   "returns": 7,
+   "total_depth": 10,
+   "returns_per_decision": 0.333
+  },
+  "2025-11-22T02-11-01+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-22T02-37-05+0000": {
+   "decisions": 19,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.105
+  },
+  "2025-11-22T03-06-18+0000": {
+   "decisions": 15,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.067
+  },
+  "2025-11-22T03-48-48+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-22T04-02-51+0000": {
+   "decisions": 14,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-22T04-24-20+0000": {
+   "decisions": 22,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.227
+  },
+  "2025-11-22T04-54-12+0000": {
+   "decisions": 22,
+   "returns": 6,
+   "total_depth": 8,
+   "returns_per_decision": 0.273
+  },
+  "2025-11-22T05-51-21+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-22T06-06-50+0000": {
+   "decisions": 22,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.182
+  },
+  "2025-11-22T06-36-51+0000": {
+   "decisions": 13,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.154
+  },
+  "2025-11-22T06-59-05+0000": {
+   "decisions": 17,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.118
+  },
+  "2025-11-22T07-51-01+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 6,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-22T08-00-17+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-22T08-15-09+0000": {
+   "decisions": 14,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-22T09-40-01+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 7,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-22T09-56-46+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 5,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-22T10-30-44+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 9,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-22T11-04-38+0000": {
+   "decisions": 25,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.08
+  },
+  "2025-11-22T11-14-05+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 9,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-22T12-02-23+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-22T12-45-22+0000": {
+   "decisions": 23,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.217
+  },
+  "2025-11-22T12-56-26+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-22T14-03-14+0000": {
+   "decisions": 21,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-22T14-12-20+0000": {
+   "decisions": 22,
+   "returns": 5,
+   "total_depth": 8,
+   "returns_per_decision": 0.227
+  },
+  "2025-11-22T14-39-37+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 5,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-22T14-57-09+0000": {
+   "decisions": 16,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.062
+  },
+  "2025-11-22T15-41-58+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-22T16-29-06+0000": {
+   "decisions": 21,
+   "returns": 4,
+   "total_depth": 8,
+   "returns_per_decision": 0.19
+  },
+  "2025-11-22T16-38-37+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-22T17-43-31+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-22T18-22-29+0000": {
+   "decisions": 15,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.267
+  },
+  "2025-11-22T18-41-39+0000": {
+   "decisions": 22,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.182
+  },
+  "2025-11-22T18-52-50+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-26T16-37-23+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-26T17-05-19+0000": {
+   "decisions": 17,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.059
+  },
+  "2025-11-26T17-46-30+0000": {
+   "decisions": 15,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "2025-11-26T18-25-33+0000": {
+   "decisions": 22,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.227
+  },
+  "2025-11-26T19-10-13+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 10,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-26T19-42-16+0000": {
+   "decisions": 13,
+   "returns": 3,
+   "total_depth": 8,
+   "returns_per_decision": 0.231
+  },
+  "2025-11-26T20-27-00+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-26T20-50-08+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-26T21-41-50+0000": {
+   "decisions": 13,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.077
+  },
+  "2025-11-26T22-40-16+0000": {
+   "decisions": 14,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-26T22-51-43+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-26T23-31-05+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-27T00-12-07+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-27T00-58-57+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 6,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-27T01-18-31+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 10,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-27T01-53-05+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 2,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-27T02-22-55+0000": {
+   "decisions": 23,
+   "returns": 5,
+   "total_depth": 7,
+   "returns_per_decision": 0.217
+  },
+  "2025-11-27T02-44-14+0000": {
+   "decisions": 14,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.214
+  },
+  "2025-11-27T03-25-45+0000": {
+   "decisions": 13,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.231
+  },
+  "2025-11-27T04-07-54+0000": {
+   "decisions": 13,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.154
+  },
+  "2025-11-28T18-46-03+0000": {
+   "decisions": 14,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.071
+  },
+  "2025-11-28T19-21-38+0000": {
+   "decisions": 17,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.118
+  },
+  "2025-11-28T19-35-48+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.133
+  },
+  "2025-11-28T20-02-44+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-28T20-35-16+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-28T21-40-17+0000": {
+   "decisions": 19,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.211
+  },
+  "2025-11-28T21-46-20+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-28T22-36-39+0000": {
+   "decisions": 19,
+   "returns": 5,
+   "total_depth": 8,
+   "returns_per_decision": 0.263
+  },
+  "2025-11-28T23-31-55+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 9,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-29T00-13-53+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-29T00-59-18+0000": {
+   "decisions": 23,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.174
+  },
+  "2025-11-29T01-11-34+0000": {
+   "decisions": 22,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.136
+  },
+  "2025-11-29T01-56-48+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-29T02-07-25+0000": {
+   "decisions": 20,
+   "returns": 4,
+   "total_depth": 9,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-29T02-34-48+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 2,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-29T02-42-10+0000": {
+   "decisions": 18,
+   "returns": 2,
+   "total_depth": 2,
+   "returns_per_decision": 0.111
+  },
+  "2025-11-29T04-37-04+0000": {
+   "decisions": 13,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.154
+  },
+  "2025-11-29T05-34-40+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-29T05-43-38+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-29T06-09-11+0000": {
+   "decisions": 21,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.19
+  },
+  "2025-11-29T08-18-50+0000": {
+   "decisions": 14,
+   "returns": 2,
+   "total_depth": 7,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-29T08-21-37+0000": {
+   "decisions": 21,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.143
+  },
+  "2025-11-29T08-36-37+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-29T08-52-24+0000": {
+   "decisions": 18,
+   "returns": 3,
+   "total_depth": 10,
+   "returns_per_decision": 0.167
+  },
+  "2025-11-29T09-34-51+0000": {
+   "decisions": 17,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.176
+  },
+  "2025-11-29T11-15-38+0000": {
+   "decisions": 21,
+   "returns": 5,
+   "total_depth": 12,
+   "returns_per_decision": 0.238
+  },
+  "2025-11-29T11-47-15+0000": {
+   "decisions": 21,
+   "returns": 4,
+   "total_depth": 11,
+   "returns_per_decision": 0.19
+  },
+  "2025-11-29T12-29-02+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-29T12-58-37+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-29T13-19-54+0000": {
+   "decisions": 15,
+   "returns": 3,
+   "total_depth": 9,
+   "returns_per_decision": 0.2
+  },
+  "2025-11-29T14-40-56+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-29T15-01-09+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 6,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-29T15-25-10+0000": {
+   "decisions": 14,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.214
+  },
+  "2025-11-29T16-18-23+0000": {
+   "decisions": 18,
+   "returns": 2,
+   "total_depth": 5,
+   "returns_per_decision": 0.111
+  },
+  "2025-11-29T16-49-58+0000": {
+   "decisions": 22,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.136
+  },
+  "2025-11-29T17-19-34+0000": {
+   "decisions": 16,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.25
+  },
+  "2025-11-29T18-13-22+0000": {
+   "decisions": 16,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.188
+  },
+  "2025-11-29T18-48-28+0000": {
+   "decisions": 18,
+   "returns": 4,
+   "total_depth": 8,
+   "returns_per_decision": 0.222
+  },
+  "2025-11-29T19-18-15+0000": {
+   "decisions": 17,
+   "returns": 4,
+   "total_depth": 7,
+   "returns_per_decision": 0.235
+  },
+  "2025-11-29T20-04-37+0000": {
+   "decisions": 15,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.067
+  },
+  "2025-11-29T21-54-24+0000": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  },
+  "2025-11-29T22-31-38+0000": {
+   "decisions": 20,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.15
+  },
+  "2025-11-29T22-45-38+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 4,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-29T23-23-58+0000": {
+   "decisions": 19,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.158
+  },
+  "2025-11-29T23-55-11+0000": {
+   "decisions": 19,
+   "returns": 6,
+   "total_depth": 10,
+   "returns_per_decision": 0.316
+  },
+  "2025-11-30T00-13-01+0000": {
+   "decisions": 19,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.105
+  },
+  "2026-02-13T14-52-16+0000": {
+   "decisions": 15,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.133
+  },
+  "team-01": {
+   "decisions": 21,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.048
+  },
+  "team-02": {
+   "decisions": 23,
+   "returns": 2,
+   "total_depth": 4,
+   "returns_per_decision": 0.087
+  },
+  "team-03": {
+   "decisions": 7,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-05": {
+   "decisions": 13,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-06": {
+   "decisions": 26,
+   "returns": 3,
+   "total_depth": 5,
+   "returns_per_decision": 0.115
+  },
+  "team-07": {
+   "decisions": 6,
+   "returns": 1,
+   "total_depth": 1,
+   "returns_per_decision": 0.167
+  },
+  "team-08": {
+   "decisions": 25,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.08
+  },
+  "team-09": {
+   "decisions": 4,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-10": {
+   "decisions": 26,
+   "returns": 3,
+   "total_depth": 6,
+   "returns_per_decision": 0.115
+  },
+  "team-11": {
+   "decisions": 16,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.062
+  },
+  "team-12": {
+   "decisions": 2,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-13": {
+   "decisions": 20,
+   "returns": 5,
+   "total_depth": 9,
+   "returns_per_decision": 0.25
+  },
+  "team-17": {
+   "decisions": 9,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-18": {
+   "decisions": 20,
+   "returns": 2,
+   "total_depth": 5,
+   "returns_per_decision": 0.1
+  },
+  "team-20": {
+   "decisions": 4,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-24": {
+   "decisions": 14,
+   "returns": 0,
+   "total_depth": 0,
+   "returns_per_decision": 0.0
+  },
+  "team-25": {
+   "decisions": 16,
+   "returns": 1,
+   "total_depth": 2,
+   "returns_per_decision": 0.062
+  },
+  "team-27": {
+   "decisions": 13,
+   "returns": 3,
+   "total_depth": 6,
+   "returns_per_decision": 0.231
+  },
+  "team-28": {
+   "decisions": 16,
+   "returns": 2,
+   "total_depth": 3,
+   "returns_per_decision": 0.125
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "run_id": "2025-11-19T03-21-59+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 317,
+   "functional_lines": 133,
+   "functional_share": 0.4196,
+   "by_type": {
+    "print": 77,
+    "comment": 47,
+    "plot": 45,
+    "import": 9,
+    "config": 3,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 269,
+   "functional_lines": 131,
+   "functional_share": 0.487,
+   "by_type": {
+    "heading": 91,
+    "other": 26,
+    "boilerplate": 26,
+    "hedging": 11
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 124,
+  "action_claims": 54,
+  "result_claims": 70,
+  "links": 76,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 70
+ },
+ "silent_decisions": [],
+ "misalignments": []
+}

@@ -1,0 +1,1159 @@
+{
+ "n_lines": 304,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path as the entire analytic universe",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     55
+    ]
+   ],
+   "operation": "compute Pearson and Spearman inter-rater agreement on pairwise-complete ratings and report it",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "operation": "drop dyads with no skin-tone rating available",
+   "targets": [
+    "skinTone",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     76
+    ]
+   ],
+   "operation": "keep only the extreme skin-tone bands (<=0.25 or >=0.75), discarding the middle range, and dichotomize into a darkSkin exposure indicator",
+   "targets": [
+    "skinTone",
+    "darkSkin",
+    "df_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "operation": "exclude goalkeepers from the sample",
+   "targets": [
+    "position",
+    "df_noGK"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     86
+    ]
+   ],
+   "operation": "restrict to dyads with at least 3 games together as the exposure floor",
+   "targets": [
+    "games",
+    "df_analytic"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     99
+    ],
+    [
+     102,
+     103
+    ],
+    [
+     231,
+     235
+    ],
+    [
+     255,
+     259
+    ]
+   ],
+   "operation": "one-hot encode position and league into dummy columns with the first category dropped as reference",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "position_clean",
+    "position_dummies",
+    "league_dummies"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     106
+    ],
+    [
+     236,
+     236
+    ],
+    [
+     260,
+     260
+    ]
+   ],
+   "operation": "log-transform games played to use as an exposure adjustment",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     109,
+     112
+    ]
+   ],
+   "operation": "z-score standardize referees' mean implicit-association-test score",
+   "targets": [
+    "meanIAT",
+    "meanIAT_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "operation": "drop remaining rows missing the standardized implicit-bias measure",
+   "targets": [
+    "meanIAT_std",
+    "df_final"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     156,
+     157
+    ],
+    [
+     160,
+     161
+    ]
+   ],
+   "operation": "choose the covariate set (position dummies, league dummies, log games, IAT) and assemble the primary regression formula",
+   "targets": [
+    "position_vars",
+    "league_vars",
+    "log_games",
+    "meanIAT_std",
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     166
+    ],
+    [
+     169,
+     173
+    ]
+   ],
+   "operation": "fit an OLS linear probability model with referee-clustered standard errors and derive a normal-approximation 95% CI and p-value for the darkSkin effect",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     190,
+     193
+    ],
+    [
+     196,
+     197
+    ],
+    [
+     200,
+     203
+    ]
+   ],
+   "operation": "refit the same covariate set as a logistic regression and exponentiate the darkSkin coefficient and its Wald CI into an odds ratio",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "position_vars",
+    "league_vars",
+    "meanIAT_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     218,
+     224
+    ],
+    [
+     226,
+     227
+    ]
+   ],
+   "operation": "refit the primary model with the implicit-bias covariate removed to test sensitivity of the estimate",
+   "targets": [
+    "darkSkin",
+    "anyRedCard",
+    "position_vars",
+    "league_vars",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     230,
+     230
+    ],
+    [
+     238,
+     241
+    ],
+    [
+     243,
+     247
+    ],
+    [
+     250,
+     251
+    ]
+   ],
+   "operation": "relax the exposure floor to >=2 games and refit the no-IAT model on this looser sample",
+   "targets": [
+    "games",
+    "df_noGK",
+    "df_sens2",
+    "darkSkin",
+    "anyRedCard",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     254,
+     254
+    ],
+    [
+     262,
+     265
+    ],
+    [
+     267,
+     271
+    ],
+    [
+     274,
+     275
+    ]
+   ],
+   "operation": "drop the games-played exclusion entirely and refit the no-IAT model on the full non-goalkeeper sample",
+   "targets": [
+    "df_noGK",
+    "df_sens3",
+    "darkSkin",
+    "anyRedCard",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     291,
+     299
+    ]
+   ],
+   "operation": "declare the hypothesis 'SUPPORTED' by interpreting the sign, significance, and cross-specification consistency of the estimates",
+   "targets": [
+    "coef",
+    "pval",
+    "or_val"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     20
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "suppress warnings and fix random seed"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     29
+    ]
+   ],
+   "note": "banner header"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "note": "print dataset size summary"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     40,
+     44
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     45,
+     45
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     46,
+     47
+    ]
+   ],
+   "note": "comment preceding skinTone construction"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     49,
+     50
+    ]
+   ],
+   "note": "comment preceding reliability calc"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     56,
+     57
+    ]
+   ],
+   "note": "comment preceding outcome definition"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     59,
+     63
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     64,
+     64
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "note": "comment preceding exclusion 1"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     69
+    ]
+   ],
+   "note": "print post-exclusion sample size"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "note": "comment describing exposure bands"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     79
+    ]
+   ],
+   "note": "print group sizes"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     80,
+     81
+    ]
+   ],
+   "note": "comment preceding goalkeeper exclusion"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "print post-exclusion sample size"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     84,
+     85
+    ]
+   ],
+   "note": "comment preceding games threshold"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     87,
+     88
+    ]
+   ],
+   "note": "print final analytic sample size"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     89,
+     93
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     94
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     95,
+     96
+    ]
+   ],
+   "note": "comment preceding position dummies"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     100,
+     101
+    ]
+   ],
+   "note": "comment preceding league dummies"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     104,
+     105
+    ]
+   ],
+   "note": "comment preceding log games transform"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     107,
+     108
+    ]
+   ],
+   "note": "comment preceding IAT standardization"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     113,
+     114
+    ]
+   ],
+   "note": "comment preceding final missing-data drop"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     116,
+     120
+    ]
+   ],
+   "note": "print final sample descriptives"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     121,
+     125
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     126,
+     126
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     127,
+     130
+    ]
+   ],
+   "note": "splits the already-labeled darkSkin groups into light/dark subframes for descriptive reporting"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     131,
+     144
+    ]
+   ],
+   "note": "print descriptive group statistics and unadjusted difference"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     145,
+     149
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     150,
+     153
+    ]
+   ],
+   "note": "print model description"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     154,
+     155
+    ]
+   ],
+   "note": "comment preceding variable name extraction"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     158,
+     159
+    ]
+   ],
+   "note": "comment preceding formula construction"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "note": "comment preceding model fit"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     167,
+     168
+    ]
+   ],
+   "note": "comment preceding result extraction"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     174,
+     180
+    ]
+   ],
+   "note": "print primary estimand results"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     181,
+     185
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     186,
+     187
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     188,
+     189
+    ]
+   ],
+   "note": "comment preceding logistic data prep"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     194,
+     195
+    ]
+   ],
+   "note": "comment preceding logit fit"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     198,
+     199
+    ]
+   ],
+   "note": "comment preceding odds ratio computation"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     204,
+     209
+    ]
+   ],
+   "note": "print secondary estimand results"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     210,
+     214
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     215,
+     215
+    ]
+   ],
+   "note": "section announcement"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     216,
+     217
+    ]
+   ],
+   "note": "comment preceding sensitivity 1"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     225,
+     225
+    ]
+   ],
+   "note": "print sensitivity 1 header"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     228,
+     229
+    ]
+   ],
+   "note": "comment preceding sensitivity 2"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     237,
+     237
+    ]
+   ],
+   "note": "blank separator line"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     242,
+     242
+    ]
+   ],
+   "note": "blank separator line"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     248,
+     249
+    ]
+   ],
+   "note": "print sensitivity 2 header and N"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     252,
+     253
+    ]
+   ],
+   "note": "comment preceding sensitivity 3"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     261,
+     261
+    ]
+   ],
+   "note": "blank separator line"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     266,
+     266
+    ]
+   ],
+   "note": "blank separator line"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     272,
+     273
+    ]
+   ],
+   "note": "print sensitivity 3 header and N"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     276,
+     280
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     290
+    ]
+   ],
+   "note": "print summary banner and restated primary/secondary estimates"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     300,
+     304
+    ]
+   ],
+   "note": "print closing banner"
+  }
+ ]
+}

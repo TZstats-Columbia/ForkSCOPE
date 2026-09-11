@@ -1,0 +1,114 @@
+{
+ "run_id": "team-28",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 75,
+   "functional_lines": 49,
+   "functional_share": 0.6533,
+   "by_type": {
+    "glue": 18,
+    "comment": 3,
+    "print": 3,
+    "import": 2
+   }
+  },
+  "prose": {
+   "n_lines": 269,
+   "functional_lines": 217,
+   "functional_share": 0.8067,
+   "by_type": {
+    "heading": 54,
+    "boilerplate": 22,
+    "citation": 20,
+    "background": 14,
+    "framing": 13
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 73,
+  "action_claims": 34,
+  "result_claims": 39,
+  "links": 29,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 18,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [
+  {
+   "id": 13,
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "confidence": "high",
+   "operation": "define the non-red-card game count as games minus redCards, to use as the binomial 'failure' count",
+   "targets": [
+    "games",
+    "redCards",
+    "no_redCards"
+   ]
+  },
+  {
+   "id": 28,
+   "lines": [
+    [
+     50,
+     50
+    ],
+    [
+     62,
+     62
+    ],
+    [
+     74,
+     74
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "exponentiate fixed-effect estimates to report them as odds ratios instead of log-odds",
+   "targets": [
+    "logit_glmer",
+    "logit_glmer_exp",
+    "logit_glmer_iat"
+   ]
+  },
+  {
+   "id": 31,
+   "lines": [
+    [
+     54,
+     59
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit a binomial mixed model testing the interaction between standardized skintone and standardized playing experience, with an enlarged optimizer iteration limit to reach convergence",
+   "targets": [
+    "redCards",
+    "no_redCards",
+    "skintone",
+    "meanExp",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ]
+  }
+ ],
+ "misalignments": []
+}

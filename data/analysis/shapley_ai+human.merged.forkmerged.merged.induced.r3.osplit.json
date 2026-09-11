@@ -1,0 +1,2861 @@
+{
+ "corpus": "ai+human.merged.forkmerged.merged.induced.r3.osplit",
+ "min_level": 10,
+ "min_levels": 2,
+ "lambda_grid": [
+  1,
+  3,
+  10,
+  30,
+  100,
+  300,
+  1000
+ ],
+ "bootstrap": 2000,
+ "seed": 20260822,
+ "runs": 223,
+ "players": [
+  "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+  "which version of the source dataset is loaded?",
+  "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+  "which effect-size measure is used to express the exposure's effect on red cards?",
+  "How are dyads with a missing skin-tone rating handled?",
+  "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+  "which covariates make up the model's adjustment set?",
+  "what rule determines whether the effect is declared statistically supported?",
+  "how are the confidence interval and p-value for the exposure effect computed?",
+  "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+  "how are the regression model's standard errors estimated?",
+  "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+  "how many categories, and by what mapping, is player position collapsed into?",
+  "how is the crude, unadjusted association estimated and tested?",
+  "Which control variables and functional forms enter the regression model?",
+  "how are continuous predictors transformed and z-scored/standardized before modeling?",
+  "how is complete-case/listwise deletion applied and over which variable set?",
+  "what bootstrap resampling scheme is used to compute the confidence interval?",
+  "what fixed reference date is used to compute player age?",
+  "which regression model and outcome family estimates the exposure–red-card association?",
+  "how are player positions categorized and how are missing / uncategorizable positions handled?",
+  "How are raw group red-card rates reported descriptively?",
+  "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+  "how is agreement between the two skin-tone raters quantified?",
+  "what minimum number of shared games per dyad is required for inclusion?",
+  "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?",
+  "are goalkeepers included in or excluded from the analysis sample?",
+  "How is the middle (Medium) skin-tone category handled?",
+  "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+  "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+  "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+  "Is the adjustment set expanded by adding covariates as a robustness check?",
+  "how is the binary dark-skin exposure variable defined?",
+  "which covariates does the primary model adjust for (if any)?",
+  "what secondary/sensitivity logistic regression is fit alongside the primary model?",
+  "What covariate-balance descriptives are reported?"
+ ],
+ "payouts": {
+  "verdict": {
+   "n": 204,
+   "r2": 0.4858,
+   "r2_cv": 0.2934,
+   "lambda": 30,
+   "lambda_sweep": {
+    "1": -0.0181,
+    "3": 0.1637,
+    "10": 0.284,
+    "30": 0.2934,
+    "100": 0.2029,
+    "300": 0.0996,
+    "1000": 0.0333
+   },
+   "players": {
+    "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?": {
+     "strength": 0.03689,
+     "ci": [
+      0.0129,
+      0.06609
+     ],
+     "coverage": 0.946,
+     "levels": {
+      "(other option)": -0.0244,
+      "single-cutoff dichotomize at 0.75": -0.02966,
+      "enter continuous, raw (per-unit, full range)": 0.04176,
+      "trichotomize at 0.25/0.75": -0.07561,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": -0.03872,
+      "search single cutoff maximizing effect size": -0.01032,
+      "drop-middle dichotomize 0.25/0.75": -0.01121,
+      "single-cutoff dichotomize at 0.5": -0.05948,
+      "single-cutoff dichotomize at 0.25": 0.00656
+     },
+     "level_n": {
+      "(other option)": 28,
+      "single-cutoff dichotomize at 0.75": 2,
+      "enter continuous, raw (per-unit, full range)": 89,
+      "trichotomize at 0.25/0.75": 5,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 21,
+      "search single cutoff maximizing effect size": 10,
+      "drop-middle dichotomize 0.25/0.75": 16,
+      "single-cutoff dichotomize at 0.5": 26,
+      "single-cutoff dichotomize at 0.25": 7
+     }
+    },
+    "which version of the source dataset is loaded?": {
+     "strength": 0.00061,
+     "ci": [
+      0.0,
+      0.00275
+     ],
+     "coverage": 0.937,
+     "levels": {
+      "load the raw, unfiltered player-referee dyad dataset": -0.00031,
+      "(did not reach this fork)": 0.01549
+     },
+     "level_n": {
+      "load the raw, unfiltered player-referee dyad dataset": 200,
+      "(did not reach this fork)": 4
+     }
+    },
+    "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?": {
+     "strength": 0.00529,
+     "ci": [
+      0.00029,
+      0.01587
+     ],
+     "coverage": 0.91,
+     "levels": {
+      "Poisson regression on raw counts with log(games) exposure offset": 0.03907,
+      "(did not reach this fork)": 0.01759,
+      "binarize into a binary any-red indicator (logistic/binary model)": -0.00287
+     },
+     "level_n": {
+      "Poisson regression on raw counts with log(games) exposure offset": 12,
+      "(did not reach this fork)": 4,
+      "binarize into a binary any-red indicator (logistic/binary model)": 188
+     }
+    },
+    "which effect-size measure is used to express the exposure's effect on red cards?": {
+     "strength": 0.0029,
+     "ci": [
+      0.00078,
+      0.02125
+     ],
+     "coverage": 0.785,
+     "levels": {
+      "report a risk difference plus an odds ratio": -0.02005,
+      "(other option)": 0.00972,
+      "(did not reach this fork)": 0.00856,
+      "report only an odds ratio": -0.00141
+     },
+     "level_n": {
+      "report a risk difference plus an odds ratio": 3,
+      "(other option)": 4,
+      "(did not reach this fork)": 30,
+      "report only an odds ratio": 167
+     }
+    },
+    "How are dyads with a missing skin-tone rating handled?": {
+     "strength": 0.03963,
+     "ci": [
+      0.01054,
+      0.06659
+     ],
+     "coverage": 0.65,
+     "levels": {
+      "(other option)": -0.05691,
+      "(did not reach this fork)": -0.06153,
+      "complete-case: drop dyad if either rater's rating is missing": 0.02929
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 62,
+      "complete-case: drop dyad if either rater's rating is missing": 138
+     }
+    },
+    "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?": {
+     "strength": 0.01889,
+     "ci": [
+      0.00133,
+      0.0425
+     ],
+     "coverage": 0.614,
+     "levels": {
+      "(other option)": -0.04525,
+      "(did not reach this fork)": -0.02605,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": 0.01449
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 67,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": 133
+     }
+    },
+    "which covariates make up the model's adjustment set?": {
+     "strength": 0.02037,
+     "ci": [
+      0.00855,
+      0.04416
+     ],
+     "coverage": 0.57,
+     "levels": {
+      "full standard set: games, position, league, height, weight, player+referee ids": -0.06688,
+      "(other option)": 0.02345,
+      "raw games + position + league": -0.02844,
+      "games only": 0.01197,
+      "(did not reach this fork)": -0.00963,
+      "log(games) + position + league": 0.0199
+     },
+     "level_n": {
+      "full standard set: games, position, league, height, weight, player+referee ids": 15,
+      "(other option)": 66,
+      "raw games + position + league": 10,
+      "games only": 11,
+      "(did not reach this fork)": 82,
+      "log(games) + position + league": 20
+     }
+    },
+    "what rule determines whether the effect is declared statistically supported?": {
+     "strength": 0.02747,
+     "ci": [
+      0.01427,
+      0.04522
+     ],
+     "coverage": 0.534,
+     "levels": {
+      "(other option)": 0.03786,
+      "conjunction: p<0.05 AND CI excludes null": -0.01748,
+      "bare p<0.05 alone": -0.0897,
+      "binary: p<0.05 AND direction": 0.02498,
+      "(did not reach this fork)": 0.00898
+     },
+     "level_n": {
+      "(other option)": 38,
+      "conjunction: p<0.05 AND CI excludes null": 32,
+      "bare p<0.05 alone": 25,
+      "binary: p<0.05 AND direction": 24,
+      "(did not reach this fork)": 85
+     }
+    },
+    "how are the confidence interval and p-value for the exposure effect computed?": {
+     "strength": 0.01647,
+     "ci": [
+      0.00945,
+      0.03623
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "model-based Wald CI/p from the GLM coefficient SE": -0.0807,
+      "(other option)": 0.01217,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 0.0118,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 0.03123,
+      "percentile bootstrap CI (resampling unspecified)": -0.01905,
+      "(did not reach this fork)": -0.0004,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": -0.01213
+     },
+     "level_n": {
+      "model-based Wald CI/p from the GLM coefficient SE": 17,
+      "(other option)": 4,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 35,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 39,
+      "percentile bootstrap CI (resampling unspecified)": 11,
+      "(did not reach this fork)": 93,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": 5
+     }
+    },
+    "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?": {
+     "strength": 0.02013,
+     "ci": [
+      0.0043,
+      0.04927
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 0.05306,
+      "(other option)": 0.00842,
+      "(did not reach this fork)": 0.01238,
+      "complete-case / listwise deletion": -0.02567
+     },
+     "level_n": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 14,
+      "(other option)": 13,
+      "(did not reach this fork)": 97,
+      "complete-case / listwise deletion": 80
+     }
+    },
+    "how are the regression model's standard errors estimated?": {
+     "strength": 0.1146,
+     "ci": [
+      0.07937,
+      0.14059
+     ],
+     "coverage": 0.484,
+     "levels": {
+      "(other option)": 0.14758,
+      "(did not reach this fork)": 0.10121,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": -0.12435
+     },
+     "level_n": {
+      "(other option)": 12,
+      "(did not reach this fork)": 98,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": 94
+     }
+    },
+    "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?": {
+     "strength": 0.04047,
+     "ci": [
+      0.01665,
+      0.06162
+     ],
+     "coverage": 0.417,
+     "levels": {
+      "(other option)": -0.08236,
+      "log(games) as covariate, no offset": 0.08256,
+      "(did not reach this fork)": -0.01395,
+      "LPM (OLS) with cluster-robust SEs": -0.04776
+     },
+     "level_n": {
+      "(other option)": 24,
+      "log(games) as covariate, no offset": 50,
+      "(did not reach this fork)": 120,
+      "LPM (OLS) with cluster-robust SEs": 10
+     }
+    },
+    "how many categories, and by what mapping, is player position collapsed into?": {
+     "strength": 0.02097,
+     "ci": [
+      0.00637,
+      0.03937
+     ],
+     "coverage": 0.399,
+     "levels": {
+      "(other option)": -0.01563,
+      "collapse into 5 categories (four core + single catch-all)": 0.03919,
+      "(did not reach this fork)": -0.01588,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": 0.01971
+     },
+     "level_n": {
+      "(other option)": 19,
+      "collapse into 5 categories (four core + single catch-all)": 40,
+      "(did not reach this fork)": 116,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": 29
+     }
+    },
+    "how is the crude, unadjusted association estimated and tested?": {
+     "strength": 0.02416,
+     "ci": [
+      0.00495,
+      0.04779
+     ],
+     "coverage": 0.368,
+     "levels": {
+      "(other option)": 0.03798,
+      "crude risk difference, point estimate only (no test or CI)": -0.04324,
+      "(did not reach this fork)": 0.01685,
+      "crude risk difference with Wald SE/CI": 0.00552
+     },
+     "level_n": {
+      "(other option)": 8,
+      "crude risk difference, point estimate only (no test or CI)": 57,
+      "(did not reach this fork)": 123,
+      "crude risk difference with Wald SE/CI": 16
+     }
+    },
+    "Which control variables and functional forms enter the regression model?": {
+     "strength": 0.00839,
+     "ci": [
+      0.0021,
+      0.02627
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.01246,
+      "games raw linear + position + league + height + weight": -0.02217,
+      "(did not reach this fork)": 0.00582
+     },
+     "level_n": {
+      "(other option)": 42,
+      "games raw linear + position + league + height + weight": 15,
+      "(did not reach this fork)": 147
+     }
+    },
+    "how are continuous predictors transformed and z-scored/standardized before modeling?": {
+     "strength": 0.01099,
+     "ci": [
+      0.00254,
+      0.02949
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.02496,
+      "(did not reach this fork)": 0.00762,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": -0.01657
+     },
+     "level_n": {
+      "(other option)": 21,
+      "(did not reach this fork)": 147,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": 36
+     }
+    },
+    "how is complete-case/listwise deletion applied and over which variable set?": {
+     "strength": 0.02678,
+     "ci": [
+      0.00619,
+      0.04699
+     ],
+     "coverage": 0.251,
+     "levels": {
+      "(other option)": -0.0211,
+      "(did not reach this fork)": 0.01809,
+      "listwise deletion over the model's variable set (covariates + outcome)": -0.05542
+     },
+     "level_n": {
+      "(other option)": 6,
+      "(did not reach this fork)": 151,
+      "listwise deletion over the model's variable set (covariates + outcome)": 47
+     }
+    },
+    "what bootstrap resampling scheme is used to compute the confidence interval?": {
+     "strength": 0.0058,
+     "ci": [
+      0.00151,
+      0.01848
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": -0.01312,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 0.02465,
+      "(did not reach this fork)": -0.00143,
+      "player-level cluster bootstrap, refit logistic, percentile CI": -0.01836
+     },
+     "level_n": {
+      "(other option)": 1,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 24,
+      "(did not reach this fork)": 160,
+      "player-level cluster bootstrap, refit logistic, percentile CI": 19
+     }
+    },
+    "what fixed reference date is used to compute player age?": {
+     "strength": 0.0076,
+     "ci": [
+      0.00158,
+      0.02027
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": 0.01212,
+      "(did not reach this fork)": -0.00475,
+      "year-only subtraction, fixed 2012 reference year": 0.03064
+     },
+     "level_n": {
+      "(other option)": 26,
+      "(did not reach this fork)": 163,
+      "year-only subtraction, fixed 2012 reference year": 15
+     }
+    },
+    "which regression model and outcome family estimates the exposure–red-card association?": {
+     "strength": 0.00753,
+     "ci": [
+      0.00164,
+      0.01747
+     ],
+     "coverage": 0.184,
+     "levels": {
+      "(other option)": 0.03373,
+      "logistic regression on binary red-card indicator": -0.03491,
+      "(did not reach this fork)": 0.00214
+     },
+     "level_n": {
+      "(other option)": 12,
+      "logistic regression on binary red-card indicator": 22,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how are player positions categorized and how are missing / uncategorizable positions handled?": {
+     "strength": 0.00558,
+     "ci": [
+      0.00272,
+      0.01584
+     ],
+     "coverage": 0.179,
+     "levels": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": -0.00594,
+      "(other option)": -0.01329,
+      "recode missing position as a single explicit Unknown/Missing category": -0.00447,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 0.05173,
+      "(did not reach this fork)": -0.00241
+     },
+     "level_n": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 18,
+      "(other option)": 2,
+      "recode missing position as a single explicit Unknown/Missing category": 9,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 11,
+      "(did not reach this fork)": 164
+     }
+    },
+    "How are raw group red-card rates reported descriptively?": {
+     "strength": 0.00676,
+     "ci": [
+      0.00042,
+      0.02452
+     ],
+     "coverage": 0.166,
+     "levels": {
+      "(did not reach this fork)": 0.00413,
+      "report raw unadjusted rates by group, no formal test/differencing": -0.01863
+     },
+     "level_n": {
+      "(did not reach this fork)": 167,
+      "report raw unadjusted rates by group, no formal test/differencing": 37
+     }
+    },
+    "Are categorical predictors parameterized by dropping a reference level and the intercept?": {
+     "strength": 0.00252,
+     "ci": [
+      0.00028,
+      0.0192
+     ],
+     "coverage": 0.152,
+     "levels": {
+      "drop the reference level (+ intercept)": -0.00755,
+      "(did not reach this fork)": 0.00151
+     },
+     "level_n": {
+      "drop the reference level (+ intercept)": 34,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how is agreement between the two skin-tone raters quantified?": {
+     "strength": 0.00476,
+     "ci": [
+      0.00168,
+      0.01459
+     ],
+     "coverage": 0.148,
+     "levels": {
+      "(other option)": 0.0018,
+      "single correlation only, no exact-match": -0.04064,
+      "(did not reach this fork)": 0.00272,
+      "one correlation plus exact-match rate": -0.0066
+     },
+     "level_n": {
+      "(other option)": 11,
+      "single correlation only, no exact-match": 10,
+      "(did not reach this fork)": 171,
+      "one correlation plus exact-match rate": 12
+     }
+    },
+    "what minimum number of shared games per dyad is required for inclusion?": {
+     "strength": 0.01148,
+     "ci": [
+      0.00326,
+      0.02055
+     ],
+     "coverage": 0.135,
+     "levels": {
+      "require at least 2 games per dyad": 0.0494,
+      "(other option)": -0.00155,
+      "(did not reach this fork)": -0.00671,
+      "require at least 3 games per dyad": 0.02584
+     },
+     "level_n": {
+      "require at least 2 games per dyad": 19,
+      "(other option)": 2,
+      "(did not reach this fork)": 174,
+      "require at least 3 games per dyad": 9
+     }
+    },
+    "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?": {
+     "strength": 0.00702,
+     "ci": [
+      0.00059,
+      0.01938
+     ],
+     "coverage": 0.126,
+     "levels": {
+      "report the average marginal effect / risk difference (RD) as primary": 0.02765,
+      "(other option)": 0.01231,
+      "(did not reach this fork)": -0.00404
+     },
+     "level_n": {
+      "report the average marginal effect / risk difference (RD) as primary": 25,
+      "(other option)": 2,
+      "(did not reach this fork)": 177
+     }
+    },
+    "are goalkeepers included in or excluded from the analysis sample?": {
+     "strength": 0.01504,
+     "ci": [
+      0.00544,
+      0.02589
+     ],
+     "coverage": 0.117,
+     "levels": {
+      "(other option)": -0.00027,
+      "exclude goalkeepers from the sample": 0.06391,
+      "(did not reach this fork)": -0.00861
+     },
+     "level_n": {
+      "(other option)": 2,
+      "exclude goalkeepers from the sample": 24,
+      "(did not reach this fork)": 178
+     }
+    },
+    "How is the middle (Medium) skin-tone category handled?": {
+     "strength": 0.02508,
+     "ci": [
+      0.00865,
+      0.04244
+     ],
+     "coverage": 0.099,
+     "levels": {
+      "(did not reach this fork)": 0.01406,
+      "drop the Medium group, keep only Light and Dark": -0.11628
+     },
+     "level_n": {
+      "(did not reach this fork)": 182,
+      "drop the Medium group, keep only Light and Dark": 22
+     }
+    },
+    "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": {
+     "strength": 0.00914,
+     "ci": [
+      0.00061,
+      0.02267
+     ],
+     "coverage": 0.09,
+     "levels": {
+      "(other option)": 0.00071,
+      "Pearson correlation only": -0.05181,
+      "(did not reach this fork)": 0.00506
+     },
+     "level_n": {
+      "(other option)": 2,
+      "Pearson correlation only": 18,
+      "(did not reach this fork)": 184
+     }
+    },
+    "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": {
+     "strength": 0.00224,
+     "ci": [
+      0.00044,
+      0.00854
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": 0.02012,
+      "drop rows with a missing bias score (complete-case)": 0.01135,
+      "(did not reach this fork)": -0.00122
+     },
+     "level_n": {
+      "(other option)": 4,
+      "drop rows with a missing bias score (complete-case)": 13,
+      "(did not reach this fork)": 187
+     }
+    },
+    "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": {
+     "strength": 0.00829,
+     "ci": [
+      0.00186,
+      0.0169
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": 0.01938,
+      "(did not reach this fork)": -0.00457,
+      "drop a single covariate from the adjustment set": 0.05123
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 185,
+      "drop a single covariate from the adjustment set": 15
+     }
+    },
+    "Is the adjustment set expanded by adding covariates as a robustness check?": {
+     "strength": 0.01068,
+     "ci": [
+      0.00314,
+      0.02041
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "robustness: ADD a covariate to the adjustment set": 0.06409,
+      "(did not reach this fork)": -0.00583
+     },
+     "level_n": {
+      "robustness: ADD a covariate to the adjustment set": 17,
+      "(did not reach this fork)": 187
+     }
+    },
+    "how is the binary dark-skin exposure variable defined?": {
+     "strength": 0.0004,
+     "ci": [
+      0.00026,
+      0.01102
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "(other option)": 0.01455,
+      "(did not reach this fork)": 6e-05,
+      "recode an existing light/dark category into a 0/1 binary": -0.00273
+     },
+     "level_n": {
+      "(other option)": 2,
+      "(did not reach this fork)": 187,
+      "recode an existing light/dark category into a 0/1 binary": 15
+     }
+    },
+    "which covariates does the primary model adjust for (if any)?": {
+     "strength": 0.00888,
+     "ci": [
+      0.00177,
+      0.02039
+     ],
+     "coverage": 0.067,
+     "levels": {
+      "(other option)": 0.0005,
+      "unadjusted, no covariates (crude OR)": -0.09057,
+      "(did not reach this fork)": 0.00476
+     },
+     "level_n": {
+      "(other option)": 4,
+      "unadjusted, no covariates (crude OR)": 10,
+      "(did not reach this fork)": 190
+     }
+    },
+    "what secondary/sensitivity logistic regression is fit alongside the primary model?": {
+     "strength": 0.00125,
+     "ci": [
+      0.00011,
+      0.00743
+     ],
+     "coverage": 0.054,
+     "levels": {
+      "(did not reach this fork)": 0.00066,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": -0.01062
+     },
+     "level_n": {
+      "(did not reach this fork)": 192,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": 12
+     }
+    },
+    "What covariate-balance descriptives are reported?": {
+     "strength": 0.00292,
+     "ci": [
+      0.00011,
+      0.00984
+     ],
+     "coverage": 0.049,
+     "levels": {
+      "(did not reach this fork)": 0.00154,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": -0.02708
+     },
+     "level_n": {
+      "(did not reach this fork)": 193,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 11
+     }
+    }
+   }
+  },
+  "log_or": {
+   "n": 204,
+   "r2": 0.2892,
+   "r2_cv": 0.0808,
+   "lambda": 30,
+   "lambda_sweep": {
+    "1": -0.1607,
+    "3": -0.0457,
+    "10": 0.0459,
+    "30": 0.0808,
+    "100": 0.0607,
+    "300": 0.0279,
+    "1000": 0.0067
+   },
+   "players": {
+    "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?": {
+     "strength": 0.00374,
+     "ci": [
+      0.00271,
+      0.00812
+     ],
+     "coverage": 0.946,
+     "levels": {
+      "(other option)": 0.00026,
+      "single-cutoff dichotomize at 0.75": 0.00791,
+      "enter continuous, raw (per-unit, full range)": 0.00058,
+      "trichotomize at 0.25/0.75": -0.00274,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 0.01028,
+      "search single cutoff maximizing effect size": -0.00108,
+      "drop-middle dichotomize 0.25/0.75": 0.0057,
+      "single-cutoff dichotomize at 0.5": -0.01317,
+      "single-cutoff dichotomize at 0.25": -0.0021
+     },
+     "level_n": {
+      "(other option)": 28,
+      "single-cutoff dichotomize at 0.75": 2,
+      "enter continuous, raw (per-unit, full range)": 89,
+      "trichotomize at 0.25/0.75": 5,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 21,
+      "search single cutoff maximizing effect size": 10,
+      "drop-middle dichotomize 0.25/0.75": 16,
+      "single-cutoff dichotomize at 0.5": 26,
+      "single-cutoff dichotomize at 0.25": 7
+     }
+    },
+    "which version of the source dataset is loaded?": {
+     "strength": 0.0,
+     "ci": [
+      0.0,
+      0.00017
+     ],
+     "coverage": 0.937,
+     "levels": {
+      "load the raw, unfiltered player-referee dyad dataset": -0.0,
+      "(did not reach this fork)": 0.00013
+     },
+     "level_n": {
+      "load the raw, unfiltered player-referee dyad dataset": 200,
+      "(did not reach this fork)": 4
+     }
+    },
+    "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?": {
+     "strength": 0.00022,
+     "ci": [
+      5e-05,
+      0.00224
+     ],
+     "coverage": 0.91,
+     "levels": {
+      "Poisson regression on raw counts with log(games) exposure offset": 0.00152,
+      "(did not reach this fork)": 0.00093,
+      "binarize into a binary any-red indicator (logistic/binary model)": -0.00012
+     },
+     "level_n": {
+      "Poisson regression on raw counts with log(games) exposure offset": 12,
+      "(did not reach this fork)": 4,
+      "binarize into a binary any-red indicator (logistic/binary model)": 188
+     }
+    },
+    "which effect-size measure is used to express the exposure's effect on red cards?": {
+     "strength": 0.00021,
+     "ci": [
+      0.00012,
+      0.00272
+     ],
+     "coverage": 0.785,
+     "levels": {
+      "report a risk difference plus an odds ratio": -0.00559,
+      "(other option)": 0.00087,
+      "(did not reach this fork)": -0.00016,
+      "report only an odds ratio": 0.00011
+     },
+     "level_n": {
+      "report a risk difference plus an odds ratio": 3,
+      "(other option)": 4,
+      "(did not reach this fork)": 30,
+      "report only an odds ratio": 167
+     }
+    },
+    "How are dyads with a missing skin-tone rating handled?": {
+     "strength": 0.00193,
+     "ci": [
+      0.00017,
+      0.00574
+     ],
+     "coverage": 0.65,
+     "levels": {
+      "(other option)": -0.00545,
+      "(did not reach this fork)": -0.00282,
+      "complete-case: drop dyad if either rater's rating is missing": 0.00142
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 62,
+      "complete-case: drop dyad if either rater's rating is missing": 138
+     }
+    },
+    "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?": {
+     "strength": 0.00116,
+     "ci": [
+      0.00013,
+      0.00508
+     ],
+     "coverage": 0.614,
+     "levels": {
+      "(other option)": -0.00097,
+      "(did not reach this fork)": 0.00176,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": -0.00086
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 67,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": 133
+     }
+    },
+    "which covariates make up the model's adjustment set?": {
+     "strength": 0.00289,
+     "ci": [
+      0.00144,
+      0.00681
+     ],
+     "coverage": 0.57,
+     "levels": {
+      "full standard set: games, position, league, height, weight, player+referee ids": -0.0115,
+      "(other option)": 0.00375,
+      "raw games + position + league": -0.00474,
+      "games only": -0.00209,
+      "(did not reach this fork)": -0.00063,
+      "log(games) + position + league": 0.00235
+     },
+     "level_n": {
+      "full standard set: games, position, league, height, weight, player+referee ids": 15,
+      "(other option)": 66,
+      "raw games + position + league": 10,
+      "games only": 11,
+      "(did not reach this fork)": 82,
+      "log(games) + position + league": 20
+     }
+    },
+    "what rule determines whether the effect is declared statistically supported?": {
+     "strength": 0.00324,
+     "ci": [
+      0.0013,
+      0.00821
+     ],
+     "coverage": 0.534,
+     "levels": {
+      "(other option)": 0.00062,
+      "conjunction: p<0.05 AND CI excludes null": -0.00525,
+      "bare p<0.05 alone": 0.01032,
+      "binary: p<0.05 AND direction": -0.00676,
+      "(did not reach this fork)": 0.00057
+     },
+     "level_n": {
+      "(other option)": 38,
+      "conjunction: p<0.05 AND CI excludes null": 32,
+      "bare p<0.05 alone": 25,
+      "binary: p<0.05 AND direction": 24,
+      "(did not reach this fork)": 85
+     }
+    },
+    "how are the confidence interval and p-value for the exposure effect computed?": {
+     "strength": 0.0029,
+     "ci": [
+      0.00131,
+      0.00568
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "model-based Wald CI/p from the GLM coefficient SE": -0.00511,
+      "(other option)": 0.00363,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 0.00132,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": -0.00476,
+      "percentile bootstrap CI (resampling unspecified)": -0.0013,
+      "(did not reach this fork)": 0.00253,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": -0.00178
+     },
+     "level_n": {
+      "model-based Wald CI/p from the GLM coefficient SE": 17,
+      "(other option)": 4,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 35,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 39,
+      "percentile bootstrap CI (resampling unspecified)": 11,
+      "(did not reach this fork)": 93,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": 5
+     }
+    },
+    "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?": {
+     "strength": 0.00318,
+     "ci": [
+      0.00057,
+      0.00732
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 0.00289,
+      "(other option)": -0.00056,
+      "(did not reach this fork)": 0.00292,
+      "complete-case / listwise deletion": -0.00396
+     },
+     "level_n": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 14,
+      "(other option)": 13,
+      "(did not reach this fork)": 97,
+      "complete-case / listwise deletion": 80
+     }
+    },
+    "how are the regression model's standard errors estimated?": {
+     "strength": 0.00836,
+     "ci": [
+      0.00371,
+      0.01303
+     ],
+     "coverage": 0.484,
+     "levels": {
+      "(other option)": 0.01672,
+      "(did not reach this fork)": 0.00665,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": -0.00907
+     },
+     "level_n": {
+      "(other option)": 12,
+      "(did not reach this fork)": 98,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": 94
+     }
+    },
+    "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?": {
+     "strength": 0.00182,
+     "ci": [
+      0.00075,
+      0.00463
+     ],
+     "coverage": 0.417,
+     "levels": {
+      "(other option)": -0.00684,
+      "log(games) as covariate, no offset": 0.00364,
+      "(did not reach this fork)": 3e-05,
+      "LPM (OLS) with cluster-robust SEs": -0.0021
+     },
+     "level_n": {
+      "(other option)": 24,
+      "log(games) as covariate, no offset": 50,
+      "(did not reach this fork)": 120,
+      "LPM (OLS) with cluster-robust SEs": 10
+     }
+    },
+    "how many categories, and by what mapping, is player position collapsed into?": {
+     "strength": 0.00352,
+     "ci": [
+      0.00106,
+      0.00903
+     ],
+     "coverage": 0.399,
+     "levels": {
+      "(other option)": -0.00076,
+      "collapse into 5 categories (four core + single catch-all)": 0.00899,
+      "(did not reach this fork)": -0.00284,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": -0.00052
+     },
+     "level_n": {
+      "(other option)": 19,
+      "collapse into 5 categories (four core + single catch-all)": 40,
+      "(did not reach this fork)": 116,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": 29
+     }
+    },
+    "how is the crude, unadjusted association estimated and tested?": {
+     "strength": 0.00303,
+     "ci": [
+      0.00047,
+      0.00714
+     ],
+     "coverage": 0.368,
+     "levels": {
+      "(other option)": 0.00021,
+      "crude risk difference, point estimate only (no test or CI)": -0.00542,
+      "(did not reach this fork)": 0.00235,
+      "crude risk difference with Wald SE/CI": 0.00111
+     },
+     "level_n": {
+      "(other option)": 8,
+      "crude risk difference, point estimate only (no test or CI)": 57,
+      "(did not reach this fork)": 123,
+      "crude risk difference with Wald SE/CI": 16
+     }
+    },
+    "Which control variables and functional forms enter the regression model?": {
+     "strength": 0.00213,
+     "ci": [
+      0.00051,
+      0.00474
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.0032,
+      "games raw linear + position + league + height + weight": -0.00555,
+      "(did not reach this fork)": 0.00148
+     },
+     "level_n": {
+      "(other option)": 42,
+      "games raw linear + position + league + height + weight": 15,
+      "(did not reach this fork)": 147
+     }
+    },
+    "how are continuous predictors transformed and z-scored/standardized before modeling?": {
+     "strength": 0.00137,
+     "ci": [
+      0.00033,
+      0.00376
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": 0.00486,
+      "(did not reach this fork)": 0.00026,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": -0.00389
+     },
+     "level_n": {
+      "(other option)": 21,
+      "(did not reach this fork)": 147,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": 36
+     }
+    },
+    "how is complete-case/listwise deletion applied and over which variable set?": {
+     "strength": 0.0024,
+     "ci": [
+      0.00021,
+      0.00523
+     ],
+     "coverage": 0.251,
+     "levels": {
+      "(other option)": 0.00024,
+      "(did not reach this fork)": 0.00161,
+      "listwise deletion over the model's variable set (covariates + outcome)": -0.0052
+     },
+     "level_n": {
+      "(other option)": 6,
+      "(did not reach this fork)": 151,
+      "listwise deletion over the model's variable set (covariates + outcome)": 47
+     }
+    },
+    "what bootstrap resampling scheme is used to compute the confidence interval?": {
+     "strength": 0.00052,
+     "ci": [
+      0.00032,
+      0.00478
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": 0.00104,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 0.00215,
+      "(did not reach this fork)": -0.00033,
+      "player-level cluster bootstrap, refit logistic, percentile CI": -1e-05
+     },
+     "level_n": {
+      "(other option)": 1,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 24,
+      "(did not reach this fork)": 160,
+      "player-level cluster bootstrap, refit logistic, percentile CI": 19
+     }
+    },
+    "what fixed reference date is used to compute player age?": {
+     "strength": 0.00014,
+     "ci": [
+      0.00017,
+      0.00273
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": 0.00022,
+      "(did not reach this fork)": -9e-05,
+      "year-only subtraction, fixed 2012 reference year": 0.00054
+     },
+     "level_n": {
+      "(other option)": 26,
+      "(did not reach this fork)": 163,
+      "year-only subtraction, fixed 2012 reference year": 15
+     }
+    },
+    "which regression model and outcome family estimates the exposure–red-card association?": {
+     "strength": 0.00131,
+     "ci": [
+      0.00025,
+      0.00346
+     ],
+     "coverage": 0.184,
+     "levels": {
+      "(other option)": 0.01113,
+      "logistic regression on binary red-card indicator": -0.0002,
+      "(did not reach this fork)": -0.00076
+     },
+     "level_n": {
+      "(other option)": 12,
+      "logistic regression on binary red-card indicator": 22,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how are player positions categorized and how are missing / uncategorizable positions handled?": {
+     "strength": 0.00068,
+     "ci": [
+      0.00037,
+      0.00206
+     ],
+     "coverage": 0.179,
+     "levels": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 0.00214,
+      "(other option)": -0.00149,
+      "recode missing position as a single explicit Unknown/Missing category": -0.00737,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 0.00207,
+      "(did not reach this fork)": 5e-05
+     },
+     "level_n": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 18,
+      "(other option)": 2,
+      "recode missing position as a single explicit Unknown/Missing category": 9,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 11,
+      "(did not reach this fork)": 164
+     }
+    },
+    "How are raw group red-card rates reported descriptively?": {
+     "strength": 2e-05,
+     "ci": [
+      4e-05,
+      0.00277
+     ],
+     "coverage": 0.166,
+     "levels": {
+      "(did not reach this fork)": 1e-05,
+      "report raw unadjusted rates by group, no formal test/differencing": -6e-05
+     },
+     "level_n": {
+      "(did not reach this fork)": 167,
+      "report raw unadjusted rates by group, no formal test/differencing": 37
+     }
+    },
+    "Are categorical predictors parameterized by dropping a reference level and the intercept?": {
+     "strength": 0.00229,
+     "ci": [
+      0.00057,
+      0.00406
+     ],
+     "coverage": 0.152,
+     "levels": {
+      "drop the reference level (+ intercept)": -0.00687,
+      "(did not reach this fork)": 0.00137
+     },
+     "level_n": {
+      "drop the reference level (+ intercept)": 34,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how is agreement between the two skin-tone raters quantified?": {
+     "strength": 0.00114,
+     "ci": [
+      0.00036,
+      0.00237
+     ],
+     "coverage": 0.148,
+     "levels": {
+      "(other option)": -0.0059,
+      "single correlation only, no exact-match": -0.00077,
+      "(did not reach this fork)": 0.00068,
+      "one correlation plus exact-match rate": -0.00366
+     },
+     "level_n": {
+      "(other option)": 11,
+      "single correlation only, no exact-match": 10,
+      "(did not reach this fork)": 171,
+      "one correlation plus exact-match rate": 12
+     }
+    },
+    "what minimum number of shared games per dyad is required for inclusion?": {
+     "strength": 0.00066,
+     "ci": [
+      0.00025,
+      0.00197
+     ],
+     "coverage": 0.135,
+     "levels": {
+      "require at least 2 games per dyad": -0.00297,
+      "(other option)": -0.00191,
+      "(did not reach this fork)": -4e-05,
+      "require at least 3 games per dyad": 0.00743
+     },
+     "level_n": {
+      "require at least 2 games per dyad": 19,
+      "(other option)": 2,
+      "(did not reach this fork)": 174,
+      "require at least 3 games per dyad": 9
+     }
+    },
+    "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?": {
+     "strength": 0.00152,
+     "ci": [
+      0.0001,
+      0.0037
+     ],
+     "coverage": 0.126,
+     "levels": {
+      "report the average marginal effect / risk difference (RD) as primary": 0.00621,
+      "(other option)": -0.00168,
+      "(did not reach this fork)": -0.00086
+     },
+     "level_n": {
+      "report the average marginal effect / risk difference (RD) as primary": 25,
+      "(other option)": 2,
+      "(did not reach this fork)": 177
+     }
+    },
+    "are goalkeepers included in or excluded from the analysis sample?": {
+     "strength": 0.00369,
+     "ci": [
+      0.00096,
+      0.00643
+     ],
+     "coverage": 0.117,
+     "levels": {
+      "(other option)": -0.00383,
+      "exclude goalkeepers from the sample": 0.01567,
+      "(did not reach this fork)": -0.00207
+     },
+     "level_n": {
+      "(other option)": 2,
+      "exclude goalkeepers from the sample": 24,
+      "(did not reach this fork)": 178
+     }
+    },
+    "How is the middle (Medium) skin-tone category handled?": {
+     "strength": 0.00111,
+     "ci": [
+      8e-05,
+      0.00239
+     ],
+     "coverage": 0.099,
+     "levels": {
+      "(did not reach this fork)": 0.00062,
+      "drop the Medium group, keep only Light and Dark": -0.00514
+     },
+     "level_n": {
+      "(did not reach this fork)": 182,
+      "drop the Medium group, keep only Light and Dark": 22
+     }
+    },
+    "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": {
+     "strength": 0.00021,
+     "ci": [
+      4e-05,
+      0.00143
+     ],
+     "coverage": 0.09,
+     "levels": {
+      "(other option)": 0.00319,
+      "Pearson correlation only": -0.00122,
+      "(did not reach this fork)": 8e-05
+     },
+     "level_n": {
+      "(other option)": 2,
+      "Pearson correlation only": 18,
+      "(did not reach this fork)": 184
+     }
+    },
+    "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": {
+     "strength": 0.00081,
+     "ci": [
+      0.00013,
+      0.00179
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": -0.0028,
+      "drop rows with a missing bias score (complete-case)": -0.00551,
+      "(did not reach this fork)": 0.00044
+     },
+     "level_n": {
+      "(other option)": 4,
+      "drop rows with a missing bias score (complete-case)": 13,
+      "(did not reach this fork)": 187
+     }
+    },
+    "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": {
+     "strength": 0.0005,
+     "ci": [
+      6e-05,
+      0.00151
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": 0.00345,
+      "(did not reach this fork)": -0.00027,
+      "drop a single covariate from the adjustment set": 0.00245
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 185,
+      "drop a single covariate from the adjustment set": 15
+     }
+    },
+    "Is the adjustment set expanded by adding covariates as a robustness check?": {
+     "strength": 0.00307,
+     "ci": [
+      0.0008,
+      0.00559
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "robustness: ADD a covariate to the adjustment set": 0.01845,
+      "(did not reach this fork)": -0.00168
+     },
+     "level_n": {
+      "robustness: ADD a covariate to the adjustment set": 17,
+      "(did not reach this fork)": 187
+     }
+    },
+    "how is the binary dark-skin exposure variable defined?": {
+     "strength": 0.00055,
+     "ci": [
+      5e-05,
+      0.00138
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "(other option)": 0.00169,
+      "(did not reach this fork)": -0.0003,
+      "recode an existing light/dark category into a 0/1 binary": 0.00353
+     },
+     "level_n": {
+      "(other option)": 2,
+      "(did not reach this fork)": 187,
+      "recode an existing light/dark category into a 0/1 binary": 15
+     }
+    },
+    "which covariates does the primary model adjust for (if any)?": {
+     "strength": 0.00074,
+     "ci": [
+      7e-05,
+      0.00184
+     ],
+     "coverage": 0.067,
+     "levels": {
+      "(other option)": -0.0015,
+      "unadjusted, no covariates (crude OR)": -0.00692,
+      "(did not reach this fork)": 0.0004
+     },
+     "level_n": {
+      "(other option)": 4,
+      "unadjusted, no covariates (crude OR)": 10,
+      "(did not reach this fork)": 190
+     }
+    },
+    "what secondary/sensitivity logistic regression is fit alongside the primary model?": {
+     "strength": 0.00021,
+     "ci": [
+      1e-05,
+      0.00118
+     ],
+     "coverage": 0.054,
+     "levels": {
+      "(did not reach this fork)": 0.00011,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": -0.00183
+     },
+     "level_n": {
+      "(did not reach this fork)": 192,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": 12
+     }
+    },
+    "What covariate-balance descriptives are reported?": {
+     "strength": 3e-05,
+     "ci": [
+      1e-05,
+      0.00108
+     ],
+     "coverage": 0.049,
+     "levels": {
+      "(did not reach this fork)": -2e-05,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 0.00032
+     },
+     "level_n": {
+      "(did not reach this fork)": 193,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 11
+     }
+    }
+   }
+  },
+  "z": {
+   "n": 204,
+   "r2": 0.5691,
+   "r2_cv": 0.3072,
+   "lambda": 10,
+   "lambda_sweep": {
+    "1": 0.0643,
+    "3": 0.2199,
+    "10": 0.3072,
+    "30": 0.3007,
+    "100": 0.203,
+    "300": 0.0971,
+    "1000": 0.03
+   },
+   "players": {
+    "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?": {
+     "strength": 0.06429,
+     "ci": [
+      0.03333,
+      0.12046
+     ],
+     "coverage": 0.946,
+     "levels": {
+      "(other option)": 0.01733,
+      "single-cutoff dichotomize at 0.75": -0.02938,
+      "enter continuous, raw (per-unit, full range)": 0.03978,
+      "trichotomize at 0.25/0.75": -0.11061,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": -0.0749,
+      "search single cutoff maximizing effect size": 0.08072,
+      "drop-middle dichotomize 0.25/0.75": -0.01079,
+      "single-cutoff dichotomize at 0.5": -0.16156,
+      "single-cutoff dichotomize at 0.25": 0.24649
+     },
+     "level_n": {
+      "(other option)": 28,
+      "single-cutoff dichotomize at 0.75": 2,
+      "enter continuous, raw (per-unit, full range)": 89,
+      "trichotomize at 0.25/0.75": 5,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 21,
+      "search single cutoff maximizing effect size": 10,
+      "drop-middle dichotomize 0.25/0.75": 16,
+      "single-cutoff dichotomize at 0.5": 26,
+      "single-cutoff dichotomize at 0.25": 7
+     }
+    },
+    "which version of the source dataset is loaded?": {
+     "strength": 0.00098,
+     "ci": [
+      1e-05,
+      0.00643
+     ],
+     "coverage": 0.937,
+     "levels": {
+      "load the raw, unfiltered player-referee dyad dataset": 0.0005,
+      "(did not reach this fork)": -0.025
+     },
+     "level_n": {
+      "load the raw, unfiltered player-referee dyad dataset": 200,
+      "(did not reach this fork)": 4
+     }
+    },
+    "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?": {
+     "strength": 0.00335,
+     "ci": [
+      0.0007,
+      0.02597
+     ],
+     "coverage": 0.91,
+     "levels": {
+      "Poisson regression on raw counts with log(games) exposure offset": 0.02526,
+      "(did not reach this fork)": 0.00965,
+      "binarize into a binary any-red indicator (logistic/binary model)": -0.00182
+     },
+     "level_n": {
+      "Poisson regression on raw counts with log(games) exposure offset": 12,
+      "(did not reach this fork)": 4,
+      "binarize into a binary any-red indicator (logistic/binary model)": 188
+     }
+    },
+    "which effect-size measure is used to express the exposure's effect on red cards?": {
+     "strength": 0.00548,
+     "ci": [
+      0.00274,
+      0.04491
+     ],
+     "coverage": 0.785,
+     "levels": {
+      "report a risk difference plus an odds ratio": -0.10949,
+      "(other option)": -0.05752,
+      "(did not reach this fork)": 0.00591,
+      "report only an odds ratio": 0.00228
+     },
+     "level_n": {
+      "report a risk difference plus an odds ratio": 3,
+      "(other option)": 4,
+      "(did not reach this fork)": 30,
+      "report only an odds ratio": 167
+     }
+    },
+    "How are dyads with a missing skin-tone rating handled?": {
+     "strength": 0.06284,
+     "ci": [
+      0.00846,
+      0.12121
+     ],
+     "coverage": 0.65,
+     "levels": {
+      "(other option)": -0.10353,
+      "(did not reach this fork)": -0.09671,
+      "complete-case: drop dyad if either rater's rating is missing": 0.04645
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 62,
+      "complete-case: drop dyad if either rater's rating is missing": 138
+     }
+    },
+    "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?": {
+     "strength": 0.03371,
+     "ci": [
+      0.00309,
+      0.10399
+     ],
+     "coverage": 0.614,
+     "levels": {
+      "(other option)": -0.02368,
+      "(did not reach this fork)": 0.05132,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": -0.02514
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 67,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": 133
+     }
+    },
+    "which covariates make up the model's adjustment set?": {
+     "strength": 0.07783,
+     "ci": [
+      0.03436,
+      0.14626
+     ],
+     "coverage": 0.57,
+     "levels": {
+      "full standard set: games, position, league, height, weight, player+referee ids": -0.22258,
+      "(other option)": 0.10787,
+      "raw games + position + league": -0.18992,
+      "games only": 0.05161,
+      "(did not reach this fork)": -0.03294,
+      "log(games) + position + league": 0.01259
+     },
+     "level_n": {
+      "full standard set: games, position, league, height, weight, player+referee ids": 15,
+      "(other option)": 66,
+      "raw games + position + league": 10,
+      "games only": 11,
+      "(did not reach this fork)": 82,
+      "log(games) + position + league": 20
+     }
+    },
+    "what rule determines whether the effect is declared statistically supported?": {
+     "strength": 0.03153,
+     "ci": [
+      0.01962,
+      0.08263
+     ],
+     "coverage": 0.534,
+     "levels": {
+      "(other option)": 0.03554,
+      "conjunction: p<0.05 AND CI excludes null": -0.10049,
+      "bare p<0.05 alone": 0.03116,
+      "binary: p<0.05 AND direction": 0.00636,
+      "(did not reach this fork)": 0.01098
+     },
+     "level_n": {
+      "(other option)": 38,
+      "conjunction: p<0.05 AND CI excludes null": 32,
+      "bare p<0.05 alone": 25,
+      "binary: p<0.05 AND direction": 24,
+      "(did not reach this fork)": 85
+     }
+    },
+    "how are the confidence interval and p-value for the exposure effect computed?": {
+     "strength": 0.03287,
+     "ci": [
+      0.01596,
+      0.0848
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "model-based Wald CI/p from the GLM coefficient SE": -0.08382,
+      "(other option)": -0.03978,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 0.00716,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 0.07955,
+      "percentile bootstrap CI (resampling unspecified)": -0.05931,
+      "(did not reach this fork)": -0.00733,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": -0.08692
+     },
+     "level_n": {
+      "model-based Wald CI/p from the GLM coefficient SE": 17,
+      "(other option)": 4,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 35,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 39,
+      "percentile bootstrap CI (resampling unspecified)": 11,
+      "(did not reach this fork)": 93,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": 5
+     }
+    },
+    "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?": {
+     "strength": 0.05881,
+     "ci": [
+      0.00829,
+      0.12564
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 0.02478,
+      "(other option)": 0.0485,
+      "(did not reach this fork)": 0.05176,
+      "complete-case / listwise deletion": -0.07498
+     },
+     "level_n": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 14,
+      "(other option)": 13,
+      "(did not reach this fork)": 97,
+      "complete-case / listwise deletion": 80
+     }
+    },
+    "how are the regression model's standard errors estimated?": {
+     "strength": 0.20909,
+     "ci": [
+      0.1424,
+      0.2687
+     ],
+     "coverage": 0.484,
+     "levels": {
+      "(other option)": 0.42737,
+      "(did not reach this fork)": 0.1653,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": -0.22689
+     },
+     "level_n": {
+      "(other option)": 12,
+      "(did not reach this fork)": 98,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": 94
+     }
+    },
+    "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?": {
+     "strength": 0.03831,
+     "ci": [
+      0.01526,
+      0.07699
+     ],
+     "coverage": 0.417,
+     "levels": {
+      "(other option)": -0.11356,
+      "log(games) as covariate, no offset": 0.05825,
+      "(did not reach this fork)": 0.00829,
+      "LPM (OLS) with cluster-robust SEs": -0.11825
+     },
+     "level_n": {
+      "(other option)": 24,
+      "log(games) as covariate, no offset": 50,
+      "(did not reach this fork)": 120,
+      "LPM (OLS) with cluster-robust SEs": 10
+     }
+    },
+    "how many categories, and by what mapping, is player position collapsed into?": {
+     "strength": 0.0611,
+     "ci": [
+      0.02286,
+      0.12564
+     ],
+     "coverage": 0.399,
+     "levels": {
+      "(other option)": 0.06298,
+      "collapse into 5 categories (four core + single catch-all)": 0.12589,
+      "(did not reach this fork)": -0.05332,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": -0.00162
+     },
+     "level_n": {
+      "(other option)": 19,
+      "collapse into 5 categories (four core + single catch-all)": 40,
+      "(did not reach this fork)": 116,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": 29
+     }
+    },
+    "how is the crude, unadjusted association estimated and tested?": {
+     "strength": 0.06503,
+     "ci": [
+      0.02469,
+      0.11799
+     ],
+     "coverage": 0.368,
+     "levels": {
+      "(other option)": -0.00938,
+      "crude risk difference, point estimate only (no test or CI)": -0.11018,
+      "(did not reach this fork)": 0.05393,
+      "crude risk difference with Wald SE/CI": -0.01737
+     },
+     "level_n": {
+      "(other option)": 8,
+      "crude risk difference, point estimate only (no test or CI)": 57,
+      "(did not reach this fork)": 123,
+      "crude risk difference with Wald SE/CI": 16
+     }
+    },
+    "Which control variables and functional forms enter the regression model?": {
+     "strength": 0.03016,
+     "ci": [
+      0.00869,
+      0.07161
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.03249,
+      "games raw linear + position + league + height + weight": -0.11411,
+      "(did not reach this fork)": 0.02093
+     },
+     "level_n": {
+      "(other option)": 42,
+      "games raw linear + position + league + height + weight": 15,
+      "(did not reach this fork)": 147
+     }
+    },
+    "how are continuous predictors transformed and z-scored/standardized before modeling?": {
+     "strength": 0.01887,
+     "ci": [
+      0.00539,
+      0.06816
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.0784,
+      "(did not reach this fork)": -0.00189,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": 0.05346
+     },
+     "level_n": {
+      "(other option)": 21,
+      "(did not reach this fork)": 147,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": 36
+     }
+    },
+    "how is complete-case/listwise deletion applied and over which variable set?": {
+     "strength": 0.04455,
+     "ci": [
+      0.00309,
+      0.10553
+     ],
+     "coverage": 0.251,
+     "levels": {
+      "(other option)": 0.00885,
+      "(did not reach this fork)": 0.02974,
+      "listwise deletion over the model's variable set (covariates + outcome)": -0.09668
+     },
+     "level_n": {
+      "(other option)": 6,
+      "(did not reach this fork)": 151,
+      "listwise deletion over the model's variable set (covariates + outcome)": 47
+     }
+    },
+    "what bootstrap resampling scheme is used to compute the confidence interval?": {
+     "strength": 0.02559,
+     "ci": [
+      0.00897,
+      0.06133
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": -0.02426,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": -0.01704,
+      "(did not reach this fork)": 0.01631,
+      "player-level cluster bootstrap, refit logistic, percentile CI": -0.11457
+     },
+     "level_n": {
+      "(other option)": 1,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 24,
+      "(did not reach this fork)": 160,
+      "player-level cluster bootstrap, refit logistic, percentile CI": 19
+     }
+    },
+    "what fixed reference date is used to compute player age?": {
+     "strength": 0.01355,
+     "ci": [
+      0.00297,
+      0.0549
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": 0.05271,
+      "(did not reach this fork)": -0.00848,
+      "year-only subtraction, fixed 2012 reference year": 0.00078
+     },
+     "level_n": {
+      "(other option)": 26,
+      "(did not reach this fork)": 163,
+      "year-only subtraction, fixed 2012 reference year": 15
+     }
+    },
+    "which regression model and outcome family estimates the exposure–red-card association?": {
+     "strength": 0.02235,
+     "ci": [
+      0.00576,
+      0.04585
+     ],
+     "coverage": 0.184,
+     "levels": {
+      "(other option)": 0.02804,
+      "logistic regression on binary red-card indicator": -0.10364,
+      "(did not reach this fork)": 0.01143
+     },
+     "level_n": {
+      "(other option)": 12,
+      "logistic regression on binary red-card indicator": 22,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how are player positions categorized and how are missing / uncategorizable positions handled?": {
+     "strength": 0.02783,
+     "ci": [
+      0.00805,
+      0.05419
+     ],
+     "coverage": 0.179,
+     "levels": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": -0.09348,
+      "(other option)": 0.01871,
+      "recode missing position as a single explicit Unknown/Missing category": -0.12847,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 0.05634,
+      "(did not reach this fork)": 0.0133
+     },
+     "level_n": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 18,
+      "(other option)": 2,
+      "recode missing position as a single explicit Unknown/Missing category": 9,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 11,
+      "(did not reach this fork)": 164
+     }
+    },
+    "How are raw group red-card rates reported descriptively?": {
+     "strength": 0.00926,
+     "ci": [
+      0.00084,
+      0.06286
+     ],
+     "coverage": 0.166,
+     "levels": {
+      "(did not reach this fork)": -0.00565,
+      "report raw unadjusted rates by group, no formal test/differencing": 0.02552
+     },
+     "level_n": {
+      "(did not reach this fork)": 167,
+      "report raw unadjusted rates by group, no formal test/differencing": 37
+     }
+    },
+    "Are categorical predictors parameterized by dropping a reference level and the intercept?": {
+     "strength": 0.00064,
+     "ci": [
+      0.00052,
+      0.04097
+     ],
+     "coverage": 0.152,
+     "levels": {
+      "drop the reference level (+ intercept)": 0.00192,
+      "(did not reach this fork)": -0.00038
+     },
+     "level_n": {
+      "drop the reference level (+ intercept)": 34,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how is agreement between the two skin-tone raters quantified?": {
+     "strength": 0.03829,
+     "ci": [
+      0.01603,
+      0.06442
+     ],
+     "coverage": 0.148,
+     "levels": {
+      "(other option)": -0.19295,
+      "single correlation only, no exact-match": 0.06039,
+      "(did not reach this fork)": 0.01931,
+      "one correlation plus exact-match rate": -0.1486
+     },
+     "level_n": {
+      "(other option)": 11,
+      "single correlation only, no exact-match": 10,
+      "(did not reach this fork)": 171,
+      "one correlation plus exact-match rate": 12
+     }
+    },
+    "what minimum number of shared games per dyad is required for inclusion?": {
+     "strength": 0.01557,
+     "ci": [
+      0.00459,
+      0.04163
+     ],
+     "coverage": 0.135,
+     "levels": {
+      "require at least 2 games per dyad": -0.00308,
+      "(other option)": -0.01769,
+      "(did not reach this fork)": -0.00859,
+      "require at least 3 games per dyad": 0.1765
+     },
+     "level_n": {
+      "require at least 2 games per dyad": 19,
+      "(other option)": 2,
+      "(did not reach this fork)": 174,
+      "require at least 3 games per dyad": 9
+     }
+    },
+    "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?": {
+     "strength": 0.01737,
+     "ci": [
+      0.00135,
+      0.05229
+     ],
+     "coverage": 0.126,
+     "levels": {
+      "report the average marginal effect / risk difference (RD) as primary": 0.06757,
+      "(other option)": 0.04113,
+      "(did not reach this fork)": -0.01001
+     },
+     "level_n": {
+      "report the average marginal effect / risk difference (RD) as primary": 25,
+      "(other option)": 2,
+      "(did not reach this fork)": 177
+     }
+    },
+    "are goalkeepers included in or excluded from the analysis sample?": {
+     "strength": 0.04902,
+     "ci": [
+      0.01482,
+      0.0857
+     ],
+     "coverage": 0.117,
+     "levels": {
+      "(other option)": -0.04209,
+      "exclude goalkeepers from the sample": 0.20832,
+      "(did not reach this fork)": -0.02762
+     },
+     "level_n": {
+      "(other option)": 2,
+      "exclude goalkeepers from the sample": 24,
+      "(did not reach this fork)": 178
+     }
+    },
+    "How is the middle (Medium) skin-tone category handled?": {
+     "strength": 0.04494,
+     "ci": [
+      0.01305,
+      0.07793
+     ],
+     "coverage": 0.099,
+     "levels": {
+      "(did not reach this fork)": 0.02519,
+      "drop the Medium group, keep only Light and Dark": -0.20836
+     },
+     "level_n": {
+      "(did not reach this fork)": 182,
+      "drop the Medium group, keep only Light and Dark": 22
+     }
+    },
+    "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": {
+     "strength": 0.00201,
+     "ci": [
+      0.00066,
+      0.02521
+     ],
+     "coverage": 0.09,
+     "levels": {
+      "(other option)": 0.05051,
+      "Pearson correlation only": 0.00578,
+      "(did not reach this fork)": -0.00111
+     },
+     "level_n": {
+      "(other option)": 2,
+      "Pearson correlation only": 18,
+      "(did not reach this fork)": 184
+     }
+    },
+    "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": {
+     "strength": 0.01578,
+     "ci": [
+      0.00179,
+      0.03548
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": 0.05688,
+      "drop rows with a missing bias score (complete-case)": -0.12379,
+      "(did not reach this fork)": 0.00739
+     },
+     "level_n": {
+      "(other option)": 4,
+      "drop rows with a missing bias score (complete-case)": 13,
+      "(did not reach this fork)": 187
+     }
+    },
+    "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": {
+     "strength": 0.00603,
+     "ci": [
+      0.00114,
+      0.01915
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": 0.07646,
+      "(did not reach this fork)": -0.00332,
+      "drop a single covariate from the adjustment set": 0.02059
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 185,
+      "drop a single covariate from the adjustment set": 15
+     }
+    },
+    "Is the adjustment set expanded by adding covariates as a robustness check?": {
+     "strength": 0.05445,
+     "ci": [
+      0.01589,
+      0.09293
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "robustness: ADD a covariate to the adjustment set": 0.32669,
+      "(did not reach this fork)": -0.0297
+     },
+     "level_n": {
+      "robustness: ADD a covariate to the adjustment set": 17,
+      "(did not reach this fork)": 187
+     }
+    },
+    "how is the binary dark-skin exposure variable defined?": {
+     "strength": 0.00161,
+     "ci": [
+      0.00044,
+      0.02155
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "(other option)": -0.00852,
+      "(did not reach this fork)": 0.00088,
+      "recode an existing light/dark category into a 0/1 binary": -0.00979
+     },
+     "level_n": {
+      "(other option)": 2,
+      "(did not reach this fork)": 187,
+      "recode an existing light/dark category into a 0/1 binary": 15
+     }
+    },
+    "which covariates does the primary model adjust for (if any)?": {
+     "strength": 0.02116,
+     "ci": [
+      0.00259,
+      0.0517
+     ],
+     "coverage": 0.067,
+     "levels": {
+      "(other option)": 0.05533,
+      "unadjusted, no covariates (crude OR)": -0.21585,
+      "(did not reach this fork)": 0.0102
+     },
+     "level_n": {
+      "(other option)": 4,
+      "unadjusted, no covariates (crude OR)": 10,
+      "(did not reach this fork)": 190
+     }
+    },
+    "what secondary/sensitivity logistic regression is fit alongside the primary model?": {
+     "strength": 0.00023,
+     "ci": [
+      0.00023,
+      0.01932
+     ],
+     "coverage": 0.054,
+     "levels": {
+      "(did not reach this fork)": 0.00012,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": -0.00198
+     },
+     "level_n": {
+      "(did not reach this fork)": 192,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": 12
+     }
+    },
+    "What covariate-balance descriptives are reported?": {
+     "strength": 0.0039,
+     "ci": [
+      0.00035,
+      0.02605
+     ],
+     "coverage": 0.049,
+     "levels": {
+      "(did not reach this fork)": -0.00206,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 0.03612
+     },
+     "level_n": {
+      "(did not reach this fork)": 193,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 11
+     }
+    }
+   }
+  },
+  "ci_width": {
+   "n": 204,
+   "r2": 0.1462,
+   "r2_cv": 0.0381,
+   "lambda": 100,
+   "lambda_sweep": {
+    "1": -0.4259,
+    "3": -0.2436,
+    "10": -0.0777,
+    "30": 0.0176,
+    "100": 0.0381,
+    "300": 0.0218,
+    "1000": 0.0074
+   },
+   "players": {
+    "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?": {
+     "strength": 0.00383,
+     "ci": [
+      0.00205,
+      0.00688
+     ],
+     "coverage": 0.946,
+     "levels": {
+      "(other option)": 0.00147,
+      "single-cutoff dichotomize at 0.75": 0.0061,
+      "enter continuous, raw (per-unit, full range)": -0.00265,
+      "trichotomize at 0.25/0.75": 0.00426,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 0.01175,
+      "search single cutoff maximizing effect size": -0.00221,
+      "drop-middle dichotomize 0.25/0.75": 0.0043,
+      "single-cutoff dichotomize at 0.5": -0.00393,
+      "single-cutoff dichotomize at 0.25": -0.00433
+     },
+     "level_n": {
+      "(other option)": 28,
+      "single-cutoff dichotomize at 0.75": 2,
+      "enter continuous, raw (per-unit, full range)": 89,
+      "trichotomize at 0.25/0.75": 5,
+      "single-cutoff dichotomize, unspecified cutoff, full sample": 21,
+      "search single cutoff maximizing effect size": 10,
+      "drop-middle dichotomize 0.25/0.75": 16,
+      "single-cutoff dichotomize at 0.5": 26,
+      "single-cutoff dichotomize at 0.25": 7
+     }
+    },
+    "which version of the source dataset is loaded?": {
+     "strength": 5e-05,
+     "ci": [
+      0.0,
+      0.00026
+     ],
+     "coverage": 0.937,
+     "levels": {
+      "load the raw, unfiltered player-referee dyad dataset": -2e-05,
+      "(did not reach this fork)": 0.00115
+     },
+     "level_n": {
+      "load the raw, unfiltered player-referee dyad dataset": 200,
+      "(did not reach this fork)": 4
+     }
+    },
+    "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?": {
+     "strength": 0.00025,
+     "ci": [
+      3e-05,
+      0.00158
+     ],
+     "coverage": 0.91,
+     "levels": {
+      "Poisson regression on raw counts with log(games) exposure offset": -0.00181,
+      "(did not reach this fork)": -0.001,
+      "binarize into a binary any-red indicator (logistic/binary model)": 0.00014
+     },
+     "level_n": {
+      "Poisson regression on raw counts with log(games) exposure offset": 12,
+      "(did not reach this fork)": 4,
+      "binarize into a binary any-red indicator (logistic/binary model)": 188
+     }
+    },
+    "which effect-size measure is used to express the exposure's effect on red cards?": {
+     "strength": 8e-05,
+     "ci": [
+      6e-05,
+      0.00169
+     ],
+     "coverage": 0.785,
+     "levels": {
+      "report a risk difference plus an odds ratio": -0.00093,
+      "(other option)": 0.00201,
+      "(did not reach this fork)": -0.00017,
+      "report only an odds ratio": -0.0
+     },
+     "level_n": {
+      "report a risk difference plus an odds ratio": 3,
+      "(other option)": 4,
+      "(did not reach this fork)": 30,
+      "report only an odds ratio": 167
+     }
+    },
+    "How are dyads with a missing skin-tone rating handled?": {
+     "strength": 0.0021,
+     "ci": [
+      0.00019,
+      0.005
+     ],
+     "coverage": 0.65,
+     "levels": {
+      "(other option)": 0.00148,
+      "(did not reach this fork)": 0.00335,
+      "complete-case: drop dyad if either rater's rating is missing": -0.00155
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 62,
+      "complete-case: drop dyad if either rater's rating is missing": 138
+     }
+    },
+    "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?": {
+     "strength": 0.00096,
+     "ci": [
+      8e-05,
+      0.00387
+     ],
+     "coverage": 0.614,
+     "levels": {
+      "(other option)": 0.00095,
+      "(did not reach this fork)": 0.00141,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": -0.00074
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 67,
+      "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference": 133
+     }
+    },
+    "which covariates make up the model's adjustment set?": {
+     "strength": 0.00056,
+     "ci": [
+      0.00049,
+      0.00397
+     ],
+     "coverage": 0.57,
+     "levels": {
+      "full standard set: games, position, league, height, weight, player+referee ids": 0.00065,
+      "(other option)": -0.00041,
+      "raw games + position + league": 0.00137,
+      "games only": -0.00275,
+      "(did not reach this fork)": 0.00037,
+      "log(games) + position + league": 0.00019
+     },
+     "level_n": {
+      "full standard set: games, position, league, height, weight, player+referee ids": 15,
+      "(other option)": 66,
+      "raw games + position + league": 10,
+      "games only": 11,
+      "(did not reach this fork)": 82,
+      "log(games) + position + league": 20
+     }
+    },
+    "what rule determines whether the effect is declared statistically supported?": {
+     "strength": 0.00245,
+     "ci": [
+      0.00132,
+      0.00525
+     ],
+     "coverage": 0.534,
+     "levels": {
+      "(other option)": -0.00176,
+      "conjunction: p<0.05 AND CI excludes null": -0.00013,
+      "bare p<0.05 alone": 0.00955,
+      "binary: p<0.05 AND direction": -0.00743,
+      "(did not reach this fork)": 0.00013
+     },
+     "level_n": {
+      "(other option)": 38,
+      "conjunction: p<0.05 AND CI excludes null": 32,
+      "bare p<0.05 alone": 25,
+      "binary: p<0.05 AND direction": 24,
+      "(did not reach this fork)": 85
+     }
+    },
+    "how are the confidence interval and p-value for the exposure effect computed?": {
+     "strength": 0.00225,
+     "ci": [
+      0.00107,
+      0.00443
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "model-based Wald CI/p from the GLM coefficient SE": 0.00017,
+      "(other option)": 0.00292,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": -0.00042,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": -0.00551,
+      "percentile bootstrap CI (resampling unspecified)": 0.00308,
+      "(did not reach this fork)": 0.00182,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": 0.00245
+     },
+     "level_n": {
+      "model-based Wald CI/p from the GLM coefficient SE": 17,
+      "(other option)": 4,
+      "analytic delta-method SE via g-computation gradient, Wald CI/p": 35,
+      "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)": 39,
+      "percentile bootstrap CI (resampling unspecified)": 11,
+      "(did not reach this fork)": 93,
+      "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified": 5
+     }
+    },
+    "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?": {
+     "strength": 0.00092,
+     "ci": [
+      0.00037,
+      0.00441
+     ],
+     "coverage": 0.498,
+     "levels": {
+      "overall median-impute continuous covariates (height/weight, ±age)": -0.00156,
+      "(other option)": -0.00354,
+      "(did not reach this fork)": -0.00027,
+      "complete-case / listwise deletion": 0.00118
+     },
+     "level_n": {
+      "overall median-impute continuous covariates (height/weight, ±age)": 14,
+      "(other option)": 13,
+      "(did not reach this fork)": 97,
+      "complete-case / listwise deletion": 80
+     }
+    },
+    "how are the regression model's standard errors estimated?": {
+     "strength": 0.00606,
+     "ci": [
+      0.00243,
+      0.00933
+     ],
+     "coverage": 0.484,
+     "levels": {
+      "(other option)": -0.00642,
+      "(did not reach this fork)": -0.00552,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": 0.00657
+     },
+     "level_n": {
+      "(other option)": 12,
+      "(did not reach this fork)": 98,
+      "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)": 94
+     }
+    },
+    "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?": {
+     "strength": 0.00063,
+     "ci": [
+      0.00028,
+      0.0029
+     ],
+     "coverage": 0.417,
+     "levels": {
+      "(other option)": 0.0005,
+      "log(games) as covariate, no offset": -0.00128,
+      "(did not reach this fork)": 0.00024,
+      "LPM (OLS) with cluster-robust SEs": 0.00236
+     },
+     "level_n": {
+      "(other option)": 24,
+      "log(games) as covariate, no offset": 50,
+      "(did not reach this fork)": 120,
+      "LPM (OLS) with cluster-robust SEs": 10
+     }
+    },
+    "how many categories, and by what mapping, is player position collapsed into?": {
+     "strength": 0.00025,
+     "ci": [
+      0.00041,
+      0.00354
+     ],
+     "coverage": 0.399,
+     "levels": {
+      "(other option)": 0.00035,
+      "collapse into 5 categories (four core + single catch-all)": 0.0001,
+      "(did not reach this fork)": 0.00013,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": -0.00089
+     },
+     "level_n": {
+      "(other option)": 19,
+      "collapse into 5 categories (four core + single catch-all)": 40,
+      "(did not reach this fork)": 116,
+      "collapse into 4 categories (GK/Def/Mid/Fwd), no residual": 29
+     }
+    },
+    "how is the crude, unadjusted association estimated and tested?": {
+     "strength": 0.00104,
+     "ci": [
+      0.00031,
+      0.00365
+     ],
+     "coverage": 0.368,
+     "levels": {
+      "(other option)": -0.00036,
+      "crude risk difference, point estimate only (no test or CI)": 0.00127,
+      "(did not reach this fork)": -0.00084,
+      "crude risk difference with Wald SE/CI": 0.00213
+     },
+     "level_n": {
+      "(other option)": 8,
+      "crude risk difference, point estimate only (no test or CI)": 57,
+      "(did not reach this fork)": 123,
+      "crude risk difference with Wald SE/CI": 16
+     }
+    },
+    "Which control variables and functional forms enter the regression model?": {
+     "strength": 8e-05,
+     "ci": [
+      9e-05,
+      0.00208
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": -0.0002,
+      "games raw linear + position + league + height + weight": 0.00034,
+      "(did not reach this fork)": 2e-05
+     },
+     "level_n": {
+      "(other option)": 42,
+      "games raw linear + position + league + height + weight": 15,
+      "(did not reach this fork)": 147
+     }
+    },
+    "how are continuous predictors transformed and z-scored/standardized before modeling?": {
+     "strength": 0.00115,
+     "ci": [
+      0.00029,
+      0.00306
+     ],
+     "coverage": 0.265,
+     "levels": {
+      "(other option)": 0.00559,
+      "(did not reach this fork)": -0.0002,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": -0.00244
+     },
+     "level_n": {
+      "(other option)": 21,
+      "(did not reach this fork)": 147,
+      "z-score a varying subset of continuous covariates (umbrella/aggregate)": 36
+     }
+    },
+    "how is complete-case/listwise deletion applied and over which variable set?": {
+     "strength": 0.00137,
+     "ci": [
+      0.00011,
+      0.00336
+     ],
+     "coverage": 0.251,
+     "levels": {
+      "(other option)": -7e-05,
+      "(did not reach this fork)": -0.00092,
+      "listwise deletion over the model's variable set (covariates + outcome)": 0.00297
+     },
+     "level_n": {
+      "(other option)": 6,
+      "(did not reach this fork)": 151,
+      "listwise deletion over the model's variable set (covariates + outcome)": 47
+     }
+    },
+    "what bootstrap resampling scheme is used to compute the confidence interval?": {
+     "strength": 0.00107,
+     "ci": [
+      0.00037,
+      0.00309
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": 0.00117,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 0.00026,
+      "(did not reach this fork)": -0.00068,
+      "player-level cluster bootstrap, refit logistic, percentile CI": 0.00536
+     },
+     "level_n": {
+      "(other option)": 1,
+      "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI": 24,
+      "(did not reach this fork)": 160,
+      "player-level cluster bootstrap, refit logistic, percentile CI": 19
+     }
+    },
+    "what fixed reference date is used to compute player age?": {
+     "strength": 0.0006,
+     "ci": [
+      0.00013,
+      0.00227
+     ],
+     "coverage": 0.197,
+     "levels": {
+      "(other option)": -0.00207,
+      "(did not reach this fork)": 0.00038,
+      "year-only subtraction, fixed 2012 reference year": -0.00053
+     },
+     "level_n": {
+      "(other option)": 26,
+      "(did not reach this fork)": 163,
+      "year-only subtraction, fixed 2012 reference year": 15
+     }
+    },
+    "which regression model and outcome family estimates the exposure–red-card association?": {
+     "strength": 0.00113,
+     "ci": [
+      0.0002,
+      0.00256
+     ],
+     "coverage": 0.184,
+     "levels": {
+      "(other option)": 0.00534,
+      "logistic regression on binary red-card indicator": 0.00234,
+      "(did not reach this fork)": -0.00068
+     },
+     "level_n": {
+      "(other option)": 12,
+      "logistic regression on binary red-card indicator": 22,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how are player positions categorized and how are missing / uncategorizable positions handled?": {
+     "strength": 0.0009,
+     "ci": [
+      0.0002,
+      0.0021
+     ],
+     "coverage": 0.179,
+     "levels": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 0.00508,
+      "(other option)": -0.00147,
+      "recode missing position as a single explicit Unknown/Missing category": -0.00089,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": -0.00045,
+      "(did not reach this fork)": -0.00046
+     },
+     "level_n": {
+      "drop rows/dyads with missing/uncategorizable position everywhere (complete-case deletion)": 18,
+      "(other option)": 2,
+      "recode missing position as a single explicit Unknown/Missing category": 9,
+      "six-category scheme: four positions plus separate Other and Missing/Unknown residuals": 11,
+      "(did not reach this fork)": 164
+     }
+    },
+    "How are raw group red-card rates reported descriptively?": {
+     "strength": 5e-05,
+     "ci": [
+      3e-05,
+      0.00208
+     ],
+     "coverage": 0.166,
+     "levels": {
+      "(did not reach this fork)": 3e-05,
+      "report raw unadjusted rates by group, no formal test/differencing": -0.00012
+     },
+     "level_n": {
+      "(did not reach this fork)": 167,
+      "report raw unadjusted rates by group, no formal test/differencing": 37
+     }
+    },
+    "Are categorical predictors parameterized by dropping a reference level and the intercept?": {
+     "strength": 2e-05,
+     "ci": [
+      2e-05,
+      0.00168
+     ],
+     "coverage": 0.152,
+     "levels": {
+      "drop the reference level (+ intercept)": 7e-05,
+      "(did not reach this fork)": -1e-05
+     },
+     "level_n": {
+      "drop the reference level (+ intercept)": 34,
+      "(did not reach this fork)": 170
+     }
+    },
+    "how is agreement between the two skin-tone raters quantified?": {
+     "strength": 0.00039,
+     "ci": [
+      0.00013,
+      0.0011
+     ],
+     "coverage": 0.148,
+     "levels": {
+      "(other option)": 0.00059,
+      "single correlation only, no exact-match": -0.00163,
+      "(did not reach this fork)": -0.00014,
+      "one correlation plus exact-match rate": 0.00281
+     },
+     "level_n": {
+      "(other option)": 11,
+      "single correlation only, no exact-match": 10,
+      "(did not reach this fork)": 171,
+      "one correlation plus exact-match rate": 12
+     }
+    },
+    "what minimum number of shared games per dyad is required for inclusion?": {
+     "strength": 0.00087,
+     "ci": [
+      0.00017,
+      0.00192
+     ],
+     "coverage": 0.135,
+     "levels": {
+      "require at least 2 games per dyad": -0.00437,
+      "(other option)": -0.00045,
+      "(did not reach this fork)": 0.00051,
+      "require at least 3 games per dyad": -0.00059
+     },
+     "level_n": {
+      "require at least 2 games per dyad": 19,
+      "(other option)": 2,
+      "(did not reach this fork)": 174,
+      "require at least 3 games per dyad": 9
+     }
+    },
+    "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?": {
+     "strength": 0.00025,
+     "ci": [
+      3e-05,
+      0.00157
+     ],
+     "coverage": 0.126,
+     "levels": {
+      "report the average marginal effect / risk difference (RD) as primary": 0.00104,
+      "(other option)": -0.00172,
+      "(did not reach this fork)": -0.00013
+     },
+     "level_n": {
+      "report the average marginal effect / risk difference (RD) as primary": 25,
+      "(other option)": 2,
+      "(did not reach this fork)": 177
+     }
+    },
+    "are goalkeepers included in or excluded from the analysis sample?": {
+     "strength": 0.00028,
+     "ci": [
+      3e-05,
+      0.00152
+     ],
+     "coverage": 0.117,
+     "levels": {
+      "(other option)": -0.0013,
+      "exclude goalkeepers from the sample": 0.00118,
+      "(did not reach this fork)": -0.00014
+     },
+     "level_n": {
+      "(other option)": 2,
+      "exclude goalkeepers from the sample": 24,
+      "(did not reach this fork)": 178
+     }
+    },
+    "How is the middle (Medium) skin-tone category handled?": {
+     "strength": 0.0015,
+     "ci": [
+      0.00046,
+      0.00282
+     ],
+     "coverage": 0.099,
+     "levels": {
+      "(did not reach this fork)": -0.00084,
+      "drop the Medium group, keep only Light and Dark": 0.00693
+     },
+     "level_n": {
+      "(did not reach this fork)": 182,
+      "drop the Medium group, keep only Light and Dark": 22
+     }
+    },
+    "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": {
+     "strength": 0.00036,
+     "ci": [
+      2e-05,
+      0.00116
+     ],
+     "coverage": 0.09,
+     "levels": {
+      "(other option)": 5e-05,
+      "Pearson correlation only": 0.00202,
+      "(did not reach this fork)": -0.0002
+     },
+     "level_n": {
+      "(other option)": 2,
+      "Pearson correlation only": 18,
+      "(did not reach this fork)": 184
+     }
+    },
+    "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": {
+     "strength": 0.00019,
+     "ci": [
+      3e-05,
+      0.00073
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": -0.00254,
+      "drop rows with a missing bias score (complete-case)": -0.00069,
+      "(did not reach this fork)": 0.0001
+     },
+     "level_n": {
+      "(other option)": 4,
+      "drop rows with a missing bias score (complete-case)": 13,
+      "(did not reach this fork)": 187
+     }
+    },
+    "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": {
+     "strength": 8e-05,
+     "ci": [
+      2e-05,
+      0.00074
+     ],
+     "coverage": 0.085,
+     "levels": {
+      "(other option)": -0.00018,
+      "(did not reach this fork)": 5e-05,
+      "drop a single covariate from the adjustment set": -0.00052
+     },
+     "level_n": {
+      "(other option)": 4,
+      "(did not reach this fork)": 185,
+      "drop a single covariate from the adjustment set": 15
+     }
+    },
+    "Is the adjustment set expanded by adding covariates as a robustness check?": {
+     "strength": 0.00024,
+     "ci": [
+      1e-05,
+      0.00109
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "robustness: ADD a covariate to the adjustment set": 0.00145,
+      "(did not reach this fork)": -0.00013
+     },
+     "level_n": {
+      "robustness: ADD a covariate to the adjustment set": 17,
+      "(did not reach this fork)": 187
+     }
+    },
+    "how is the binary dark-skin exposure variable defined?": {
+     "strength": 0.0008,
+     "ci": [
+      0.00022,
+      0.00174
+     ],
+     "coverage": 0.076,
+     "levels": {
+      "(other option)": 0.00102,
+      "(did not reach this fork)": -0.00044,
+      "recode an existing light/dark category into a 0/1 binary": 0.00533
+     },
+     "level_n": {
+      "(other option)": 2,
+      "(did not reach this fork)": 187,
+      "recode an existing light/dark category into a 0/1 binary": 15
+     }
+    },
+    "which covariates does the primary model adjust for (if any)?": {
+     "strength": 8e-05,
+     "ci": [
+      2e-05,
+      0.00046
+     ],
+     "coverage": 0.067,
+     "levels": {
+      "(other option)": -0.00123,
+      "unadjusted, no covariates (crude OR)": 0.0008,
+      "(did not reach this fork)": -2e-05
+     },
+     "level_n": {
+      "(other option)": 4,
+      "unadjusted, no covariates (crude OR)": 10,
+      "(did not reach this fork)": 190
+     }
+    },
+    "what secondary/sensitivity logistic regression is fit alongside the primary model?": {
+     "strength": 8e-05,
+     "ci": [
+      1e-05,
+      0.00047
+     ],
+     "coverage": 0.054,
+     "levels": {
+      "(did not reach this fork)": 4e-05,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": -0.00064
+     },
+     "level_n": {
+      "(did not reach this fork)": 192,
+      "fit a secondary logistic regression with the same covariates, reported as an odds ratio": 12
+     }
+    },
+    "What covariate-balance descriptives are reported?": {
+     "strength": 0.00012,
+     "ci": [
+      1e-05,
+      0.00084
+     ],
+     "coverage": 0.049,
+     "levels": {
+      "(did not reach this fork)": -7e-05,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 0.00116
+     },
+     "level_n": {
+      "(did not reach this fork)": 193,
+      "descriptive Table 1 of raw/unadjusted covariate means by group": 11
+     }
+    }
+   }
+  }
+ }
+}

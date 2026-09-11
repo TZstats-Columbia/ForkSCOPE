@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-22T09-56-46+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 325,
+   "functional_lines": 126,
+   "functional_share": 0.3877,
+   "by_type": {
+    "print": 139,
+    "comment": 50,
+    "import": 9,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 280,
+   "functional_lines": 156,
+   "functional_share": 0.5571,
+   "by_type": {
+    "boilerplate": 47,
+    "heading": 44,
+    "other": 38,
+    "framing": 5,
+    "hedging": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 114,
+  "action_claims": 46,
+  "result_claims": 68,
+  "links": 41,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 3,
+  "result_claims_deferred": 68
+ },
+ "silent_decisions": [
+  {
+   "id": 36,
+   "lines": [
+    [
+     168,
+     173
+    ],
+    [
+     250,
+     255
+    ]
+   ],
+   "confidence": "high",
+   "operation": "construct 95% confidence intervals and p-values using a normal (z) approximation with a fixed 1.96 critical value, applied to both the coefficient and the risk difference",
+   "targets": [
+    "dark_skin_coef",
+    "se_twoway",
+    "risk_diff",
+    "se_rd",
+    "ci_lower",
+    "ci_upper",
+    "p_value",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "rd_p_value"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bin the continuous skin-tone average into light/medium/dark categories using cutpoints at -0.01, 0.25, 0.625, 1.01",
+   "claim": "players were categorized as light skin (avg rating ≤0.25) or dark skin (avg rating ≥0.75)",
+   "note": "claim sets the dark threshold at avg rating >=0.75; code bins dark as skin_tone_avg > 0.625"
+  },
+  {
+   "decision": "bin the continuous skin-tone average into light/medium/dark categories using cutpoints at -0.01, 0.25, 0.625, 1.01",
+   "claim": "medium skin tone (0.25<rating<0.75) was excluded from the primary analysis to create a clearer contrast",
+   "note": "claim defines medium as 0.25<rating<0.75; code's medium bin is (0.25, 0.625]"
+  }
+ ]
+}

@@ -1,0 +1,1585 @@
+{
+ "n_lines": 524,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "Title block (team name) and blank lines"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "note": "Paper title, presented as a heading"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     7,
+     8
+    ]
+   ],
+   "note": "Author byline and blank line"
+  },
+  {
+   "id": 4,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     9,
+     16
+    ]
+   ],
+   "note": "Affiliations heading, institution list, correspondence line"
+  },
+  {
+   "id": 5,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "note": "Abstract heading"
+  },
+  {
+   "id": 6,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     18,
+     18
+    ]
+   ],
+   "note": "States the motivating question of whether referees are biased"
+  },
+  {
+   "id": 7,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "the analysis examined the relative likelihood of darker-skinned players receiving a red card using life-history data from players in four major European leagues",
+   "polarity": "did",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "claim",
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "assertion": "using generalized linear mixed models, found that the darkest-skin-tone player was 1.38 times as likely to receive a red card as the brightest-skin-tone player",
+   "polarity": "found",
+   "targets": [
+    "avgrate01",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "claim",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "assertion": "the red-card effect could stem from referee bias, a greater propensity of darker-skinned players to commit severe fouls, or a combination of both",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "low",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 10,
+   "kind": "claim",
+   "lines": [
+    [
+     24,
+     26
+    ]
+   ],
+   "assertion": "examined country-level means of implicit and explicit racial bias as a moderator of the skin-tone effect at the level of referees' country of origin",
+   "polarity": "did",
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    9,
+    11
+   ]
+  },
+  {
+   "id": 11,
+   "kind": "claim",
+   "lines": [
+    [
+     24,
+     26
+    ]
+   ],
+   "assertion": "the results for the country-level bias moderation analysis were inconclusive",
+   "polarity": "found",
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "note": "\"One Sentence Summary\" heading"
+  },
+  {
+   "id": 13,
+   "kind": "claim",
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "assertion": "restates as the paper's one-sentence summary that darker-skinned players are more likely to get a red card",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "note": "\"Results\" section heading and blank line"
+  },
+  {
+   "id": 15,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "note": "\"Data preparation\" subheading"
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "assertion": "the two skin-tone rater scores were averaged into a single score",
+   "polarity": "did",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    17
+   ]
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     32,
+     35
+    ]
+   ],
+   "assertion": "the averaged skin-tone score was rescaled to a 0 (originally 1, brightest) to 1 (originally 5, darkest) range so that brightest-to-darkest differences could be read directly off regression coefficients",
+   "polarity": "did",
+   "targets": [
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    16,
+    18
+   ]
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "assertion": "the new rescaled skin-tone variable was named avgrate01",
+   "polarity": "did",
+   "targets": [
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    17
+   ]
+  },
+  {
+   "id": 19,
+   "kind": "claim",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "assertion": "cases with missing values on skin-tone rating, meanIAT, or meanExp were excluded via listwise deletion",
+   "polarity": "did",
+   "targets": [
+    "skin-tone-rating",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    20
+   ]
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "assertion": "listwise deletion was chosen so that all analyses, including research question 2, would use the same set of cases",
+   "polarity": "did",
+   "targets": [],
+   "confidence": "high",
+   "shares_lines_with": [
+    19
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     39,
+     41
+    ]
+   ],
+   "note": "Restates research question 1 and interest in single-game red-card likelihood"
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     41,
+     43
+    ]
+   ],
+   "assertion": "the original redCards variable was judged uninterpretable because the number of games a player has seen a given referee varies",
+   "polarity": "found",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    23
+   ]
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     41,
+     43
+    ]
+   ],
+   "assertion": "the data were disaggregated to one row per game, with redCards coded as 1 in the first n=redCards rows per player",
+   "polarity": "did",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    22
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "claim",
+   "lines": [
+    [
+     44,
+     46
+    ]
+   ],
+   "assertion": "assumed it does not matter which specific game(s) among a player's games produced a red card, only that the correct number of red-card rows exist among that player's observations",
+   "polarity": "did",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "claim",
+   "lines": [
+    [
+     47,
+     48
+    ]
+   ],
+   "assertion": "a binomial error distribution was used because, after disaggregation, the response variable represents a 0/1 event in a single game",
+   "polarity": "did",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     49,
+     50
+    ]
+   ],
+   "note": "Blank line and \"Modeling strategy\" subheading"
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     51,
+     53
+    ]
+   ],
+   "assertion": "R (version 3.1.1) and the lme4 package's glmer function (version 1.1-7) were used to estimate generalized linear mixed models",
+   "polarity": "did",
+   "targets": [
+    "R",
+    "lme4",
+    "glmer"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    28
+   ]
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     53,
+     55
+    ]
+   ],
+   "assertion": "the modeling approach accounts for random variance of effects across players, referees, and referees' country of origin",
+   "polarity": "did",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    27
+   ]
+  },
+  {
+   "id": 29,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     56,
+     58
+    ]
+   ],
+   "note": "Explains that the data are cross-classified rather than nested, and that lme4 can handle such structures"
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "assertion": "in every model the event of getting a red card in a single game was predicted from the skin-tone variable avgrate01, while exploring different random effects and moderator variables",
+   "polarity": "did",
+   "targets": [
+    "avgrate01",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    31
+   ]
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     61,
+     62
+    ]
+   ],
+   "assertion": "no covariates such as player position were used, and this approach was kept even though reviewers suggested covariates should be added",
+   "polarity": "did_not",
+   "targets": [
+    "player position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    30
+   ]
+  },
+  {
+   "id": 32,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     63,
+     64
+    ]
+   ],
+   "note": "Cites the Silberzahn et al. project description stating the data cannot be used for causal inference"
+  },
+  {
+   "id": 33,
+   "kind": "claim",
+   "lines": [
+    [
+     64,
+     67
+    ]
+   ],
+   "assertion": "reasoned that for a descriptive effect-size goal it does not matter why a player accumulates more red cards, and that including such information as covariates might bias the result",
+   "polarity": "found",
+   "targets": [
+    "covariates",
+    "player position"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     68,
+     71
+    ]
+   ],
+   "note": "Blank line, Research Question 1 heading, blank line"
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     72,
+     74
+    ]
+   ],
+   "assertion": "performed a simple visual comparison (Figure 1) of expected versus observed relative frequencies of red cards across five skin-tone categories, rounding avgrate01 values to avoid small cell frequencies",
+   "polarity": "did",
+   "targets": [
+    "avgrate01",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    36
+   ]
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     74,
+     76
+    ]
+   ],
+   "assertion": "observed relative frequencies were calculated from the subset of player-game combinations in which a player received a red card (n=1589)",
+   "polarity": "did",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    35
+   ]
+  },
+  {
+   "id": 37,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     77,
+     106
+    ]
+   ],
+   "note": "Figure 1: bar chart of expected vs observed red-card frequencies by skin-tone (title, axis labels, values)"
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     107,
+     109
+    ]
+   ],
+   "assertion": "observed in Figure 1 what appears to be a linear increase in red-card percentage from the lowest to the highest skin-tone category",
+   "polarity": "found",
+   "targets": [
+    "redCards",
+    "skin-tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    39
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     109,
+     110
+    ]
+   ],
+   "assertion": "four models were compared to test the skin-tone/red-card relationship more formally",
+   "polarity": "did",
+   "targets": [
+    "gm0",
+    "gm1",
+    "gm2",
+    "gm3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    38
+   ]
+  },
+  {
+   "id": 40,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     111,
+     112
+    ]
+   ],
+   "note": "R code defining model gm0"
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     113,
+     116
+    ]
+   ],
+   "assertion": "gm0 was specified as a reference model with only a fixed intercept plus random intercepts for refNum (referee red-card propensity) and playerShort (player red-card propensity)",
+   "polarity": "did",
+   "targets": [
+    "gm0",
+    "refNum",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "Blank line, R code defining model gm1, blank line"
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     121,
+     122
+    ]
+   ],
+   "assertion": "gm1 adds a fixed effect of skin-tone (avgrate01, 0=brightest, 1=darkest)",
+   "polarity": "did",
+   "targets": [
+    "gm1",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     123,
+     127
+    ]
+   ],
+   "note": "Blank line, R code defining model gm2, blank line"
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     128,
+     128
+    ]
+   ],
+   "assertion": "gm2 adds a random effect of skin-tone across referees",
+   "polarity": "did",
+   "targets": [
+    "gm2",
+    "refNum",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     129,
+     133
+    ]
+   ],
+   "note": "Blank line, R code defining model gm3, blank line"
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     134,
+     134
+    ]
+   ],
+   "assertion": "gm3 adds a random effect of skin-tone across referees' countries of origin",
+   "polarity": "did",
+   "targets": [
+    "gm3",
+    "refCountry",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     135,
+     136
+    ]
+   ],
+   "note": "Pointer to Table 1 and blank line"
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     137,
+     139
+    ]
+   ],
+   "assertion": "gm1 fit better than gm0 by AIC and a likelihood ratio test, suggesting skin-tone predicts the odds of getting a red card",
+   "polarity": "found",
+   "targets": [
+    "gm0",
+    "gm1",
+    "AIC"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    50
+   ]
+  },
+  {
+   "id": 50,
+   "kind": "claim",
+   "lines": [
+    [
+     139,
+     141
+    ]
+   ],
+   "assertion": "gm2 was not superior to gm1 (higher AIC/BIC), suggesting the skin-tone effect does not vary across referees (near-zero variance)",
+   "polarity": "found",
+   "targets": [
+    "gm1",
+    "gm2",
+    "AIC",
+    "BIC"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    49,
+    51
+   ]
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     141,
+     143
+    ]
+   ],
+   "assertion": "gm3 fit better than gm1 by AIC and a likelihood ratio test, indicating some variance of the skin-tone effect across referees' countries of origin",
+   "polarity": "found",
+   "targets": [
+    "gm1",
+    "gm3",
+    "AIC",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    50,
+    52
+   ]
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     141,
+     143
+    ]
+   ],
+   "assertion": "chose to interpret the coefficients from gm3 as the selected model",
+   "polarity": "did",
+   "targets": [
+    "gm3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    51
+   ]
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     144,
+     149
+    ]
+   ],
+   "assertion": "converting the gm3 intercept to a probability gives a brightest-skin-tone player about a 0.36% chance of a red card in a single game, close to the raw mean (.0039) for that category",
+   "polarity": "found",
+   "targets": [
+    "gm3",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    54
+   ]
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     149,
+     154
+    ]
+   ],
+   "assertion": "converting the sum of the intercept and avgrate01 coefficient to a probability gives a darkest-skin-tone player about a 0.5% chance of a red card in a single game, close to the raw mean (.0051) for that category, assuming a linear log-odds increase with skin tone",
+   "polarity": "found",
+   "targets": [
+    "gm3",
+    "avgrate01",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    53
+   ]
+  },
+  {
+   "id": 55,
+   "kind": "claim",
+   "lines": [
+    [
+     155,
+     159
+    ]
+   ],
+   "assertion": "the odds of a red card were 1.38 times higher for the darkest vs brightest skin-tone category (95% Wald CI 1.10–1.75), corresponding to a small effect size (d≈0.18)",
+   "polarity": "found",
+   "targets": [
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     160,
+     163
+    ]
+   ],
+   "note": "Blank line, Research Question 2 heading, blank line"
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     164,
+     166
+    ]
+   ],
+   "assertion": "visualized (scatterplot with loess line) the relationship between country-level meanIAT and gm3's random effects of avgrate01",
+   "polarity": "did",
+   "targets": [
+    "meanIAT",
+    "gm3",
+    "avgrate01",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     167,
+     183
+    ]
+   ],
+   "note": "Figure 2: scatterplot of meanIAT vs random effects of avgrate01 from gm3"
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     184,
+     186
+    ]
+   ],
+   "assertion": "Figure 2 reveals no evidence of a relationship, linear or otherwise, between country-level meanIAT and the skin-tone effect; the avgrate01×meanIAT interaction was .55 (SE=3.80, p=.89)",
+   "polarity": "found",
+   "targets": [
+    "meanIAT",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    60
+   ]
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     186,
+     191
+    ]
+   ],
+   "assertion": "the meanIAT interaction odds-ratio was 1.73 with a 95% CI of 0.001 to 2983, reflecting considerable uncertainty about the true effect size",
+   "polarity": "found",
+   "targets": [
+    "meanIAT",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    59
+   ]
+  },
+  {
+   "id": 61,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     192,
+     192
+    ]
+   ],
+   "note": "Blank line"
+  },
+  {
+   "id": 62,
+   "kind": "claim",
+   "lines": [
+    [
+     193,
+     194
+    ]
+   ],
+   "assertion": "visualized the relationship between country-level meanExp and gm3's random effects of avgrate01",
+   "polarity": "did",
+   "targets": [
+    "meanExp",
+    "gm3",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     195,
+     212
+    ]
+   ],
+   "note": "Figure 3: scatterplot of meanExp vs random effects of avgrate01 from gm3"
+  },
+  {
+   "id": 64,
+   "kind": "claim",
+   "lines": [
+    [
+     213,
+     215
+    ]
+   ],
+   "assertion": "consistent with the implicit-bias result, Figure 3 shows no evidence of a relationship between meanExp and the skin-tone effect; the avgrate01×meanExp interaction was .33 (SE=.55, p=.55)",
+   "polarity": "found",
+   "targets": [
+    "meanExp",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    65
+   ]
+  },
+  {
+   "id": 65,
+   "kind": "claim",
+   "lines": [
+    [
+     215,
+     217
+    ]
+   ],
+   "assertion": "the meanExp interaction odds-ratio was 1.39",
+   "polarity": "found",
+   "targets": [
+    "meanExp",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    64
+   ]
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     218,
+     221
+    ]
+   ],
+   "assertion": "the meanExp interaction 95% CI was .47 to 4.10, indicating considerable uncertainty about the true effect size",
+   "polarity": "found",
+   "targets": [
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     222,
+     224
+    ]
+   ],
+   "note": "Blank line, Conclusion heading, blank line"
+  },
+  {
+   "id": 68,
+   "kind": "claim",
+   "lines": [
+    [
+     225,
+     227
+    ]
+   ],
+   "assertion": "concluded darker skin-tone increases red-card likelihood, with darkest-category players 1.38 times as likely as brightest-category players to get a red card",
+   "polarity": "found",
+   "targets": [
+    "avgrate01",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    69
+   ]
+  },
+  {
+   "id": 69,
+   "kind": "claim",
+   "lines": [
+    [
+     227,
+     230
+    ]
+   ],
+   "assertion": "the effect is stated to be consistent with several explanations: referee bias against darker-skinned players, a greater propensity of darker-skinned players to commit severe fouls, or both",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    68,
+    70
+   ]
+  },
+  {
+   "id": 70,
+   "kind": "claim",
+   "lines": [
+    [
+     230,
+     232
+    ]
+   ],
+   "assertion": "an experiment showing professional referees identical fouls committed by players of different skin-tones is proposed as useful for disentangling the explanations, but was not conducted",
+   "polarity": "would_have",
+   "targets": [],
+   "confidence": "medium",
+   "shares_lines_with": [
+    69,
+    71
+   ]
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     232,
+     236
+    ]
+   ],
+   "assertion": "suspected the high margin of error for the country-level bias moderation arose because most referees and players come from countries with similar racial-bias scores (especially IAT), leaving the extremes of the bias scale underrepresented",
+   "polarity": "found",
+   "targets": [
+    "meanIAT",
+    "refCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    70
+   ]
+  },
+  {
+   "id": 72,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     237,
+     239
+    ]
+   ],
+   "note": "Blank line, \"Tables\" heading, blank line"
+  },
+  {
+   "id": 73,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     240,
+     258
+    ]
+   ],
+   "note": "Table 1: model fit statistics, random-effect variances, and fixed effects for gm0-gm3, plus explanatory note"
+  },
+  {
+   "id": 74,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     259,
+     260
+    ]
+   ],
+   "note": "Blank lines"
+  },
+  {
+   "id": 75,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     261,
+     261
+    ]
+   ],
+   "note": "\"Data and Output\" heading"
+  },
+  {
+   "id": 76,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     262,
+     270
+    ]
+   ],
+   "note": "R script header comments, require(lme4), read.csv, blank lines"
+  },
+  {
+   "id": 77,
+   "kind": "claim",
+   "lines": [
+    [
+     271,
+     272
+    ]
+   ],
+   "assertion": "created a player-referee combination variable (p_ref) by concatenating playerShort and refNum",
+   "polarity": "did",
+   "targets": [
+    "p_ref",
+    "playerShort",
+    "refNum"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     273,
+     295
+    ]
+   ],
+   "note": "R code averaging skin-tone ratings, disaggregating data to one row per game, and building the per-game redCards vector"
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     296,
+     298
+    ]
+   ],
+   "assertion": "the exclusion code filters out cases with missing avgrate or meanIAT values, without conditioning on meanExp",
+   "polarity": "did",
+   "targets": [
+    "avgrate",
+    "meanIAT"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     299,
+     301
+    ]
+   ],
+   "note": "R code rescaling avgrate to avgrate01"
+  },
+  {
+   "id": 81,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     302,
+     304
+    ]
+   ],
+   "note": "R code subsetting to red-card games for the frequency plot"
+  },
+  {
+   "id": 82,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     305,
+     308
+    ]
+   ],
+   "note": "R code building observed/expected frequency tables"
+  },
+  {
+   "id": 83,
+   "kind": "claim",
+   "lines": [
+    [
+     309,
+     315
+    ]
+   ],
+   "assertion": "ran a chi-square test comparing observed red-card frequencies per skin-tone category against expected frequencies based on the overall skin-tone distribution, and printed the results",
+   "polarity": "did",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 84,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     316,
+     328
+    ]
+   ],
+   "note": "R code producing the Figure 1 barplot"
+  },
+  {
+   "id": 85,
+   "kind": "claim",
+   "lines": [
+    [
+     329,
+     331
+    ]
+   ],
+   "assertion": "used the nAGQ=0 option in all glmer fits for research question 1 to speed up processing at the cost of slightly reduced accuracy",
+   "polarity": "did",
+   "targets": [
+    "gm0",
+    "gm1",
+    "gm2",
+    "gm3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 86,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     332,
+     346
+    ]
+   ],
+   "note": "R code re-fitting gm0 through gm3"
+  },
+  {
+   "id": 87,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     347,
+     385
+    ]
+   ],
+   "note": "R console output: summary(gm3) and confint(gm3)"
+  },
+  {
+   "id": 88,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     386,
+     402
+    ]
+   ],
+   "note": "R comments and code aggregating meanIAT by refCountry and plotting against gm3 random effects"
+  },
+  {
+   "id": 89,
+   "kind": "claim",
+   "lines": [
+    [
+     403,
+     405
+    ]
+   ],
+   "assertion": "fit an additional model gm4 including an avgrate01 × meanIAT interaction term",
+   "polarity": "did",
+   "targets": [
+    "gm4",
+    "avgrate01",
+    "meanIAT"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 90,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     406,
+     449
+    ]
+   ],
+   "note": "R console output: summary(gm4) and confint(gm4)"
+  },
+  {
+   "id": 91,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     450,
+     452
+    ]
+   ],
+   "note": "Comment marking Research Question 2b code"
+  },
+  {
+   "id": 92,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     453,
+     464
+    ]
+   ],
+   "note": "R code aggregating meanExp by refCountry and plotting against gm3 random effects"
+  },
+  {
+   "id": 93,
+   "kind": "claim",
+   "lines": [
+    [
+     465,
+     467
+    ]
+   ],
+   "assertion": "fit an additional model gm5 including an avgrate01 × meanExp interaction term",
+   "polarity": "did",
+   "targets": [
+    "gm5",
+    "avgrate01",
+    "meanExp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 94,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     468,
+     511
+    ]
+   ],
+   "note": "R console output: summary(gm5) and confint(gm5)"
+  },
+  {
+   "id": 95,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     512,
+     514
+    ]
+   ],
+   "note": "Blank lines"
+  },
+  {
+   "id": 96,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     515,
+     516
+    ]
+   ],
+   "note": "\"References and Notes\" heading and blank line"
+  },
+  {
+   "id": 97,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     517,
+     521
+    ]
+   ],
+   "note": "Bates references for lme4"
+  },
+  {
+   "id": 98,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     522,
+     523
+    ]
+   ],
+   "note": "R Core Team reference"
+  },
+  {
+   "id": 99,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     524,
+     524
+    ]
+   ],
+   "note": "Trailing form-feed/end-of-document marker"
+  }
+ ]
+}

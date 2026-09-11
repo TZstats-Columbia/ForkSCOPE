@@ -1,0 +1,3830 @@
+{
+ "kind": "silent",
+ "n_items": 333,
+ "n_runs": 234,
+ "residual_new": 0,
+ "categories": [
+  {
+   "id": "data_source",
+   "name": "Data source and universe",
+   "definition": "Choosing which file to read and treating its contents as the full analysis population, with no scoping beyond the file itself.",
+   "criterion": "If the decision is which raw input to load or that its whole contents are the sample, it goes here; once specific rows are excluded it is cohort_filtering.",
+   "examples": [
+    17,
+    42,
+    188
+   ]
+  },
+  {
+   "id": "cohort_filtering",
+   "name": "Which observations are kept",
+   "definition": "Removing rows from the analysis sample via inclusion thresholds, subset restrictions, or complete-case dropping of records with missing fields.",
+   "criterion": "The decision drops observations from a sample; if it instead alters values within kept rows it is value_cleaning.",
+   "examples": [
+    43,
+    211,
+    190
+   ]
+  },
+  {
+   "id": "value_cleaning",
+   "name": "Missingness and type coercion",
+   "definition": "Detecting missing tokens, converting string fields to numeric, or imputing values while keeping every row.",
+   "criterion": "The operation transforms or fills cell values without deriving a new analytic measure and without dropping rows.",
+   "examples": [
+    249,
+    253,
+    256
+   ]
+  },
+  {
+   "id": "measurement_derivation",
+   "name": "Derived measures",
+   "definition": "Computing a new information-preserving variable from raw fields by a largely mechanical rule, such as age from birthdate, averaging raters, or a numeric clustering id.",
+   "criterion": "The mapping preserves granularity and hinges on a formula/reference choice; if it lumps values or imposes a boundary it is categorization_and_cutoffs.",
+   "examples": [
+    27,
+    18,
+    216
+   ]
+  },
+  {
+   "id": "categorization_and_cutoffs",
+   "name": "Coarsening and coding",
+   "definition": "Reducing granularity through grouping, cutoffs, or binary coding where the boundary or default itself is a judgment: position buckets, dichotomizing skin tone, collapsing card counts, exposure coding.",
+   "criterion": "The decision discards levels or sets a threshold/default that feeds a model or estimate; if the coarsening is only for a chart it is descriptive_summaries.",
+   "examples": [
+    3,
+    189,
+    257
+   ]
+  },
+  {
+   "id": "model_specification",
+   "name": "Model form and adjustment set",
+   "definition": "Choices in the fitted model: which columns enter, covariate additions, dummy/reference-level encoding, clustering, and alternate specifications refit for robustness.",
+   "criterion": "The decision defines or alters an estimating equation or its variable set; extraction/formatting of its output is result_reporting.",
+   "examples": [
+    6,
+    259,
+    8
+   ]
+  },
+  {
+   "id": "uncertainty_and_tests",
+   "name": "Uncertainty and significance",
+   "definition": "How error is quantified: manual Wald/normal-approximation CIs and SEs, error-bar multipliers, SE backed out of a bootstrap width, or a hypothesis test.",
+   "criterion": "The decision is the method for producing an interval, standard error, or p-value, regardless of whether it feeds a plot or a table.",
+   "examples": [
+    7,
+    44,
+    193
+   ]
+  },
+  {
+   "id": "resampling_robustness",
+   "name": "Resampling and failure handling",
+   "definition": "How the bootstrap or multi-fit machinery behaves: discarding under-sized or under-event draws, iteration caps, warning suppression, and silently skipping fits that raise or fail to converge.",
+   "criterion": "The decision governs which resampled or per-group fits are retained or dropped during repeated fitting.",
+   "examples": [
+    30,
+    32,
+    143
+   ]
+  },
+  {
+   "id": "descriptive_summaries",
+   "name": "Descriptive and crude picture",
+   "definition": "Pre-modeling exploratory output: crude/unadjusted rate gaps, summary-statistic table contents, and distribution plots including their display binning and top-N truncation.",
+   "criterion": "The decision produces an unadjusted or descriptive display; if it selects among fitted-model estimates it is result_reporting.",
+   "examples": [
+    187,
+    141,
+    84
+   ]
+  },
+  {
+   "id": "result_reporting",
+   "name": "Reporting and estimand framing",
+   "definition": "Selecting which model estimates to assemble and format, naming the primary versus secondary estimand, extracting a coefficient by position, and manual cross-checks of the headline estimate.",
+   "criterion": "The decision concerns which adjusted results are presented, in what role, or how they are pulled and verified from the fit.",
+   "examples": [
+    9,
+    213,
+    214
+   ]
+  },
+  {
+   "id": "model_specification",
+   "name": "Model specification and predictor transforms",
+   "definition": "A decision that fixes what is estimated — the model family, the terms and interactions tested, or how predictors are transformed before fitting.",
+   "criterion": "if the choice changes the estimand or hypothesis being tested it belongs here, not with numerical convergence aids",
+   "examples": [
+    332
+   ]
+  },
+  {
+   "id": "convergence_coaxing",
+   "name": "Convergence coaxing",
+   "definition": "A numerical fitting aid — optimizer choice, starting values, or iteration/tolerance limits — meant only to make the same fit converge, not to change what it estimates.",
+   "criterion": "if it affects only whether or how fast estimation succeeds, leaving the estimand intact, it lands here",
+   "examples": [
+    286,
+    314
+   ]
+  },
+  {
+   "id": "column_pruning",
+   "name": "Column pruning",
+   "definition": "Restricting the working data to a fixed subset of columns and silently discarding the rest before downstream steps.",
+   "criterion": "if the operation drops fields from a single table without combining sources, it is pruning rather than a join",
+   "examples": [
+    308,
+    329
+   ]
+  },
+  {
+   "id": "table_join",
+   "name": "Table assembly and relabeling",
+   "definition": "Merging two data sources into one analysis table on a shared key and renaming the combined columns.",
+   "criterion": "if records from separate sources are matched and stitched together it is a join, even if columns are also renamed",
+   "examples": [
+    300
+   ]
+  },
+  {
+   "id": "ingestion_format",
+   "name": "Ingestion representation",
+   "definition": "Choosing how raw data is loaded into memory — the parsing path and in-memory type — rather than what is kept or estimated.",
+   "criterion": "if the decision concerns the reader/container that first materializes the raw rows, it belongs here",
+   "examples": [
+    327
+   ]
+  }
+ ],
+ "items": [
+  {
+   "run": "2025-11-12T09-30-16+0000",
+   "arm": "ai",
+   "text": "load the full soccer referee-player dyad dataset from a fixed CSV path with no additional row-level scope restriction",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T09-30-16+0000",
+   "arm": "ai",
+   "text": "discard bootstrap draws whose resampled dataset has fewer than 1000 rows",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T09-30-16+0000",
+   "arm": "ai",
+   "text": "rebuild the covariate design matrix for each bootstrap draw and refit the logistic GLM with a plain (non-cluster-robust) fit, silently skipping draws whose fit raises an exception",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T09-52-44+0000",
+   "arm": "ai",
+   "text": "bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T09-52-44+0000",
+   "arm": "ai",
+   "text": "drop remaining dyads missing height or weight before fitting the continuous-exposure model",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T10-05-42+0000",
+   "arm": "ai",
+   "text": "loads the raw player-referee dyad dataset from CSV as the analysis input",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T10-39-00+0000",
+   "arm": "ai",
+   "text": "one-hot encode position and league with drop_first=True, fixing the omitted category as the implicit reference level",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T10-39-00+0000",
+   "arm": "ai",
+   "text": "construct the odds-ratio confidence interval via a manual normal (Wald) approximation on the log-odds scale using a fixed 1.96 multiplier, rather than the model's own CI method",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T12-24-45+0000",
+   "arm": "ai",
+   "text": "use continuous skin tone instead of the binarized exposure and refit the adjusted model",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T12-24-45+0000",
+   "arm": "ai",
+   "text": "assemble a single summary table choosing which of the primary, secondary, stratified, and sensitivity estimates to report together and how to format them",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T12-54-24+0000",
+   "arm": "ai",
+   "text": "recode the detailed playing position into four coarse role groups, sending anything unmapped to Other",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T13-46-32+0000",
+   "arm": "negative",
+   "text": "choose which columns define a complete case for modeling (outcome, exposure, covariates, id fields)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T13-46-32+0000",
+   "arm": "negative",
+   "text": "require at least 100 dyads in the extreme-comparison sample before fitting a model",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "cohort_filtering",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T17-30-15+0000",
+   "arm": "ai",
+   "text": "load the full soccer dataset from a fixed file path as the analysis source",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T17-30-15+0000",
+   "arm": "ai",
+   "text": "encode the treatment indicator so that dark skin tone is coded 1 and light is the reference 0",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T17-30-15+0000",
+   "arm": "ai",
+   "text": "narrow the working data down to just the outcome, treatment, covariates, and identifiers that will enter the model",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T18-01-53+0000",
+   "arm": "ai",
+   "text": "bin continuous skin tone into five display categories with custom edges for the bar chart",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T18-56-42+0000",
+   "arm": "standard",
+   "text": "load the specific source CSV as the analysis input",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T18-56-42+0000",
+   "arm": "standard",
+   "text": "average the two rater columns into one continuous skin-tone score",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T18-56-42+0000",
+   "arm": "standard",
+   "text": "encode player identity as a numeric ID to use as the clustering unit",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T19-55-38+0000",
+   "arm": "ai",
+   "text": "load the raw player-referee dyad soccer dataset from CSV",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T19-55-38+0000",
+   "arm": "ai",
+   "text": "encode dark-skin group membership as a binary exposure variable",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T19-55-38+0000",
+   "arm": "ai",
+   "text": "select and restrict the columns carried into the modeling dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T21-15-40+0000",
+   "arm": "ai",
+   "text": "impute missing player position with the literal category 'Unknown'",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T22-55-33+0000",
+   "arm": "standard",
+   "text": "average two independent raters' skin-tone scores into a single continuous skin_tone_avg measure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-12T22-55-33+0000",
+   "arm": "standard",
+   "text": "bin continuous skin tone into quarter-range categories for a bar-chart summary of red card rate",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-13T00-05-19+0000",
+   "arm": "standard",
+   "text": "encode dark skin tone as the exposure indicator (1) versus light (0)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-14T22-05-46+0000",
+   "arm": "standard",
+   "text": "derive player age at a fixed reference year (2012) from birthday",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T01-08-22+0000",
+   "arm": "standard",
+   "text": "compute player age at a fixed end-of-season reference date",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T02-22-25+0000",
+   "arm": "standard",
+   "text": "collapse the red-card count into a binary any-red-card outcome",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T02-22-25+0000",
+   "arm": "standard",
+   "text": "discard a bootstrap replicate if it has fewer than 1000 dyads or fewer than 10 red-card events",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T02-22-25+0000",
+   "arm": "standard",
+   "text": "cap bootstrap model fitting at 50 iterations and suppress convergence warnings",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T02-22-25+0000",
+   "arm": "standard",
+   "text": "silently drop any bootstrap replicate whose fit raises an exception",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T15-03-11+0000",
+   "arm": "ai",
+   "text": "choose which columns enter the modeling dataset, fixing the covariate set available to later models",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T15-03-11+0000",
+   "arm": "ai",
+   "text": "choose which covariates to check for balance across skin-tone groups and normalize their means relative to the light-skin group",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T15-38-19+0000",
+   "arm": "positive",
+   "text": "fit an unadjusted logistic regression of red card receipt on dark_skin alone, with standard errors clustered by player",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T17-13-29+0000",
+   "arm": "ai",
+   "text": "load the raw soccer referee dataset from a fixed CSV path with no filtering at read time",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T17-13-29+0000",
+   "arm": "ai",
+   "text": "binarize skin category into a dark-skin indicator used as the exposure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T17-13-29+0000",
+   "arm": "ai",
+   "text": "collapse free-text position strings into a small set of position buckets via keyword matching, with an Unknown catch-all",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T17-13-29+0000",
+   "arm": "ai",
+   "text": "choose the fixed set of variables (outcome, exposure, covariates, IDs) that will be carried into modeling",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T17-13-29+0000",
+   "arm": "ai",
+   "text": "drop skin-tone values supported by fewer than 100 dyads before plotting the rate-by-skin-tone curve",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T18-59-03+0000",
+   "arm": "ai",
+   "text": "compute player age as a fixed reference year (2012) minus birth year rather than age at time of match",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T20-23-37+0000",
+   "arm": "positive",
+   "text": "point the analysis at a specific local CSV file as the full data source",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T22-00-27+0000",
+   "arm": "negative",
+   "text": "restrict the interaction-sensitivity sample to dyads with non-missing referee implicit-bias score",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T23-57-58+0000",
+   "arm": "negative",
+   "text": "compute normal-approximation (Wald) confidence intervals for the odds ratios from their log-scale standard errors, for the forest-style comparison plot",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-15T23-57-58+0000",
+   "arm": "negative",
+   "text": "restrict the position-distribution panel to the 8 most common positions rather than showing all categories",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T04-53-17+0000",
+   "arm": "negative",
+   "text": "load the raw soccer referee-player dyad dataset from a fixed path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T07-53-05+0000",
+   "arm": "ai",
+   "text": "choose a set of covariates and compute their unadjusted group means to check pre-adjustment balance",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T07-53-05+0000",
+   "arm": "ai",
+   "text": "refit the model excluding yellow cards from the adjustment set to check whether it acts as a mediator",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T07-53-05+0000",
+   "arm": "ai",
+   "text": "restrict the sample to only the most extreme rater scores (0.00 vs 1.00) as an alternative exposure contrast",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T11-59-47+0000",
+   "arm": "ai",
+   "text": "load the raw player-referee dyad dataset from CSV",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T11-59-47+0000",
+   "arm": "ai",
+   "text": "collapse detailed playing positions into four broad position groups",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T11-59-47+0000",
+   "arm": "ai",
+   "text": "pick which covariates to compare across skin-tone groups as a balance check",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T21-46-30+0000",
+   "arm": "ai",
+   "text": "approximate the AME's standard error via a delta-method scaling of the logit coefficient's SE",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T21-46-30+0000",
+   "arm": "ai",
+   "text": "compute the red-card rate and a normal-approximation 95% CI separately for every distinct observed skin-tone value",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-16T23-15-36+0000",
+   "arm": "ai",
+   "text": "hardcode the point estimates and confidence intervals for four of the six specifications as literal numbers in the plotting code rather than reading them from the result objects fitted earlier",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "announce a sensitivity sweep over alternative skin-tone cutoffs",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "announce swapping the dichotomized exposure for the raw continuous skin-tone score",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "announce adding league-country fixed effects to the adjustment set",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "announce dropping yellow-card count from the adjustment set",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "announce a minimally-adjusted specification",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "populate the forest plot's robustness-check row values with hand-typed literal numbers instead of referencing the actually-computed rd/rd_cont/rd_league/rd_noyellow/rd_min variables from section 5",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T01-20-10+0000",
+   "arm": "ai",
+   "text": "substitute a single hand-picked approximate CI half-width for every forest-plot row instead of the CI actually computed for each specification",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T03-01-51+0000",
+   "arm": "ai",
+   "text": "restrict the working dataset to a fixed set of variables carried into all downstream models",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T03-01-51+0000",
+   "arm": "ai",
+   "text": "derive a two-sided p-value via a normal-approximation z-test built from the bootstrap standard error rather than from the bootstrap distribution's own tails",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T05-02-45+0000",
+   "arm": "ai",
+   "text": "derive player age by subtracting birth year from a fixed 2012 season-reference year, coercing bad dates to missing",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T05-02-45+0000",
+   "arm": "ai",
+   "text": "choose which covariates (age, height, weight, games) to inspect for balance across skin-tone groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T14-46-19+0000",
+   "arm": "standard",
+   "text": "load the player-referee dyad dataset from a fixed CSV path as the entire analysis input",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T14-46-19+0000",
+   "arm": "standard",
+   "text": "bin the continuous skin-tone score into 9 groups to plot red-card rate against tone",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T15-56-59+0000",
+   "arm": "standard",
+   "text": "derive player age by anchoring to a fixed reference year (2012) rather than to game date or current date",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T15-56-59+0000",
+   "arm": "standard",
+   "text": "pick which columns enter the modeling dataset, fixing the covariate and identifier set for everything downstream",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T16-55-57+0000",
+   "arm": "standard",
+   "text": "code dark-skinned players as 1 and light-skinned as 0, making light the reference category",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T18-58-32+0000",
+   "arm": "standard",
+   "text": "draw the 0.5 dichotomization cutoff as a reference line on the skin tone histogram",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T18-58-32+0000",
+   "arm": "standard",
+   "text": "exclude players with missing position from the by-position red card rate chart",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T20-22-41+0000",
+   "arm": "standard",
+   "text": "code dark skin tone as the exposure indicator with light as reference",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T20-22-41+0000",
+   "arm": "standard",
+   "text": "silently discard bootstrap iterations where the model fails to fit, rather than counting or flagging them",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-17T21-31-42+0000",
+   "arm": "standard",
+   "text": "parse birthday strings and derive player age relative to a fixed mid-season reference date",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-18T01-05-44+0000",
+   "arm": "standard",
+   "text": "build every reported 95% interval with a fixed normal-approximation multiplier of 1.96 rather than an exact or resampled critical value",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T04-30-13+0000",
+   "arm": "ai",
+   "text": "summarizes the unadjusted contrast as both a risk difference and a relative risk",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T04-30-13+0000",
+   "arm": "ai",
+   "text": "approximates confidence intervals for the plotted unadjusted rates using a normal (1.96 x SE) approximation",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T05-56-22+0000",
+   "arm": "ai",
+   "text": "load the raw player-referee dyad dataset from a specific CSV path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T05-56-22+0000",
+   "arm": "ai",
+   "text": "map p-values to significance-star annotations using conventional alpha thresholds (0.001/0.01/0.05)",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T07-38-28+0000",
+   "arm": "positive",
+   "text": "restrict this sensitivity sample to dyads with non-missing referee bias scores",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T07-38-28+0000",
+   "arm": "positive",
+   "text": "compute the plotted error bars from a normal-approximation SE of the raw proportions times 1.96",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T07-38-28+0000",
+   "arm": "positive",
+   "text": "limit the position breakdown plot to the 10 most frequent positions",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T10-27-52+0000",
+   "arm": "positive",
+   "text": "choose which covariate effects to report in detail: all listed continuous covariates but only the first five position categories",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T10-27-52+0000",
+   "arm": "positive",
+   "text": "bin games-played into discrete exposure categories for the exposure-stratified plot",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T10-27-52+0000",
+   "arm": "positive",
+   "text": "compute a normal-approximation (Wald) confidence interval for the unadjusted risk difference for the summary table, a different method than the delta-method CI used for the adjusted estimate",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T11-29-03+0000",
+   "arm": "positive",
+   "text": "pick which columns carry into the modeling dataset (outcome, exposure, covariates, cluster id)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T11-29-03+0000",
+   "arm": "positive",
+   "text": "redefine exposure using extreme skin-tone cutoffs (>=0.75 vs <=0.25) and exclude the ambiguous middle group",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T11-29-03+0000",
+   "arm": "positive",
+   "text": "refit the adjusted logistic model on the extreme-only subsample using the extreme exposure coding",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T13-48-49+0000",
+   "arm": "positive",
+   "text": "derive player age by subtracting birthday from a fixed reference date and converting days to years",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T13-48-49+0000",
+   "arm": "positive",
+   "text": "compute the raw, unadjusted red-card rate for each skin-tone group as a descriptive baseline",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T14-47-53+0000",
+   "arm": "positive",
+   "text": "load the raw player-referee dyad dataset from a fixed file path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T17-56-42+0000",
+   "arm": "negative",
+   "text": "bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T17-56-42+0000",
+   "arm": "negative",
+   "text": "one-hot encode position and league categories keeping all levels (no reference level dropped)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T17-56-42+0000",
+   "arm": "negative",
+   "text": "build a separate sample for the continuous-exposure check using all rows with a non-missing skin-tone score, not just the dichotomized dark/light rows",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T17-56-42+0000",
+   "arm": "negative",
+   "text": "pull the skin-tone marginal effect out of the margeff array by a hard-coded position index",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T19-09-24+0000",
+   "arm": "negative",
+   "text": "point the whole analysis at one specific CSV file as the raw player-referee dyad data",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T19-09-24+0000",
+   "arm": "negative",
+   "text": "report the raw, unadjusted difference in red-card rate between the two skin-tone groups before any modeling",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T20-38-58+0000",
+   "arm": "negative",
+   "text": "choose which identifiers, outcome and candidate covariates are carried into the modeling dataset",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-19T22-14-21+0000",
+   "arm": "negative",
+   "text": "hard-code the unadjusted odds ratio and its confidence interval as literal numbers in the forest-plot summary table rather than computing them from the data already in scope",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T00-05-27+0000",
+   "arm": "negative",
+   "text": "compute an unadjusted odds ratio for red cards by skin group with a log-scale normal-approximation CI",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T00-05-27+0000",
+   "arm": "negative",
+   "text": "hardcode the per-league odds ratios used in the plot as literal numbers instead of the values computed in the stratified-by-league loop above",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T01-31-19+0000",
+   "arm": "negative",
+   "text": "report the crude, unadjusted red-card rate split by skin-tone group before any covariate adjustment",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T02-49-33+0000",
+   "arm": "negative",
+   "text": "split the sample by dark_skin and compute crude (unadjusted) risk difference and odds ratio between groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T04-21-39+0000",
+   "arm": "negative",
+   "text": "collapse red-card counts into a binary any-red-card outcome",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T04-21-39+0000",
+   "arm": "negative",
+   "text": "bucket free-text playing positions into five coarse groups (Goalkeeper/Defender/Midfielder/Forward/Other) and apply that mapping at both player and dyad level",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T04-21-39+0000",
+   "arm": "negative",
+   "text": "bin the continuous skin-tone score into eighths to plot red-card rate by category",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T06-03-23+0000",
+   "arm": "negative",
+   "text": "assess whether missingness in skin-tone photos is related to the outcome, via group comparison of red-card rates and a chi-square test",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T07-33-53+0000",
+   "arm": "negative",
+   "text": "silently drop bootstrap iterations whose model fit throws an exception, excluding them from the CI",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T10-56-52+0000",
+   "arm": "ai",
+   "text": "drop remaining rows missing the standardized implicit-bias measure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T10-56-52+0000",
+   "arm": "ai",
+   "text": "relax the exposure floor to >=2 games and refit the no-IAT model on this looser sample",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T10-56-52+0000",
+   "arm": "ai",
+   "text": "drop the games-played exclusion entirely and refit the no-IAT model on the full non-goalkeeper sample",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T18-12-31+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T18-12-31+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "exclude dyads with zero recorded games (no exposure)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T18-12-31+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "compute the raw, unadjusted risk difference between dark- and light-skin groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T20-17-27+0000",
+   "arm": "standard",
+   "text": "approximate standard errors/confidence intervals for the descriptive plot panels using a normal (Wald) approximation on the binomial rates and log-odds ratio",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T20-40-17+0000",
+   "arm": "standard",
+   "text": "curate which three estimates (primary risk difference, referee-clustered risk difference, odds ratio) get featured in the final summary table, leaving the continuous-exposure result out",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-11-22+0000",
+   "arm": "standard",
+   "text": "read the raw player-referee dyad CSV in as the full working dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-11-22+0000",
+   "arm": "standard",
+   "text": "parse birthday and derive age as a plain year subtraction from a fixed reference year (2012)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-17-42+0000",
+   "arm": "standard",
+   "text": "choose which columns are carried into the modeling dataset (outcome, exposure, adjustment covariates, clustering/grouping ids)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-17-42+0000",
+   "arm": "standard",
+   "text": "compute normal-approximation (Wald) confidence intervals on the raw red-card rate per skin-tone group for the bar chart error bars",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-37-30+0000",
+   "arm": "standard",
+   "text": "choose which columns (outcome, group, covariates, ID fields) enter the modeling dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T22-39-34+0000",
+   "arm": "standard",
+   "text": "compute a normal-approximation (Wald) 95% CI as mean plus/minus 1.96 times SEM for the descriptive red-card rate chart",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T23-33-39+0000",
+   "arm": "standard",
+   "text": "choose which columns (outcome, exposure, covariates, IDs) are carried into the regression dataset",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T23-33-39+0000",
+   "arm": "standard",
+   "text": "derive p-values and 95% confidence intervals via a normal-approximation (Wald) z-test with cluster-robust SEs",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-20T23-42-14+0000",
+   "arm": "standard",
+   "text": "test the unadjusted group difference in red-card rates with a two-proportion z-test",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T00-55-35+0000",
+   "arm": "standard",
+   "text": "load the raw player-referee dyad dataset from CSV as the analysis population",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T01-21-19+0000",
+   "arm": "standard",
+   "text": "compute the unadjusted (crude) risk difference in red-card rate between dark- and light-skinned players",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T01-21-19+0000",
+   "arm": "standard",
+   "text": "compute descriptive red-card rates per skin-tone category with normal-approximation 95% confidence intervals for the chart's error bars",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T01-57-03+0000",
+   "arm": "standard",
+   "text": "load the raw dyad-level dataset from a fixed CSV path as the analysis population",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T01-57-03+0000",
+   "arm": "standard",
+   "text": "parse birthday strings and derive player age relative to a fixed mid-season reference date (2012.5)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T02-18-05+0000",
+   "arm": "standard",
+   "text": "one-hot encode position and league without dropping a reference column at the get_dummies step",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T03-02-44+0000",
+   "arm": "standard",
+   "text": "assemble the model design matrix with an intercept term and cast dummy columns to numeric, and fix the outcome vector",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-21T03-54-46+0000",
+   "arm": "standard",
+   "text": "derive player age as a fixed season year (2012) minus birth year",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T00-10-57+0000",
+   "arm": "positive",
+   "text": "encode dark skin tone as the positive class of a binary indicator (dark=1, light=0)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T00-38-59+0000",
+   "arm": "positive",
+   "text": "compute the unadjusted red-card rate difference between dark- and light-skinned groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T01-21-47+0000",
+   "arm": "positive",
+   "text": "collapse free-text position strings into four broad role buckets (Goalkeeper/Defender/Midfielder/Forward) plus Unknown",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T01-58-59+0000",
+   "arm": "positive",
+   "text": "drop any dyad with a missing modeling covariate instead of imputing (complete-case analysis)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T01-58-59+0000",
+   "arm": "positive",
+   "text": "one-hot encode position and league into dummy columns, keeping all levels at encoding time",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T03-06-18+0000",
+   "arm": "positive",
+   "text": "compute the unadjusted risk difference as the raw gap between group red-card rates",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T04-24-20+0000",
+   "arm": "positive",
+   "text": "compute the crude red-card rate separately for the light- and dark-skin groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T04-24-20+0000",
+   "arm": "positive",
+   "text": "silently skip and flag any country whose model fails to converge instead of halting the run",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T06-06-50+0000",
+   "arm": "positive",
+   "text": "pick which columns (exposure, position, league, height, weight, player and ref IDs) travel forward into the modeling frame",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T06-06-50+0000",
+   "arm": "positive",
+   "text": "only report a threshold's sensitivity result if both groups have more than 100 dyads",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "resampling_robustness",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T06-06-50+0000",
+   "arm": "positive",
+   "text": "check multicollinearity via VIF on darkSkin, log_games, height_std and weight_std, leaving the categorical position/league dummies out of the check",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "low",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T06-06-50+0000",
+   "arm": "positive",
+   "text": "generate in-sample predicted probabilities from the adjusted model to compare against the observed rate",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T06-59-05+0000",
+   "arm": "positive",
+   "text": "choose which columns carry forward into the modeling dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T07-51-01+0000",
+   "arm": "positive",
+   "text": "strip the referee fixed effects out of the covariate set for the logit model so it doesn't hit a singularity",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T08-00-17+0000",
+   "arm": "positive",
+   "text": "computes the raw, unadjusted difference in red-card rates between dark- and light-skin groups with no covariate control",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T08-00-17+0000",
+   "arm": "positive",
+   "text": "discards any bootstrap replicate with fewer than 5 red-card events before fitting it",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T08-15-09+0000",
+   "arm": "positive",
+   "text": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T09-40-01+0000",
+   "arm": "negative",
+   "text": "exclude goalkeepers from the sample and refit the primary model as a sensitivity check",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T09-56-46+0000",
+   "arm": "negative",
+   "text": "construct 95% confidence intervals and p-values using a normal (z) approximation with a fixed 1.96 critical value, applied to both the coefficient and the risk difference",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T10-30-44+0000",
+   "arm": "negative",
+   "text": "estimate the unadjusted risk difference between skin-tone groups using a normal-approximation SE, Wald CI, and two-sided z-test",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T11-04-38+0000",
+   "arm": "negative",
+   "text": "recode missing position values into an explicit 'Unknown' category rather than leaving them null",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T11-04-38+0000",
+   "arm": "negative",
+   "text": "recode the light/dark exposure category into a 0/1 numeric indicator for regression",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T11-04-38+0000",
+   "arm": "negative",
+   "text": "report interval estimates at the 95% confidence level throughout",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T11-04-38+0000",
+   "arm": "negative",
+   "text": "discard a bootstrap replicate as degenerate if it has fewer than 1000 dyads or fewer than 10 red-card events",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T11-04-38+0000",
+   "arm": "negative",
+   "text": "only report/plot a league's stratified effect if it has more than 100 dyads and more than 5 red-card events",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-02-23+0000",
+   "arm": "negative",
+   "text": "recode the three-level skin_group into a binary dark-skin exposure indicator with light skin as reference",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-45-22+0000",
+   "arm": "negative",
+   "text": "load the raw player-referee dyad dataset from CSV as the analysis starting point",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-45-22+0000",
+   "arm": "negative",
+   "text": "recode skin_group into a binary is_dark exposure indicator with Light as the reference level",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-45-22+0000",
+   "arm": "negative",
+   "text": "strip spaces from column names before building model formulas",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "value_cleaning",
+   "confidence": "low",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-45-22+0000",
+   "arm": "negative",
+   "text": "discard bootstrap resamples with fewer than 10 dyads in either exposure group as too imbalanced to fit",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "resampling_robustness",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-45-22+0000",
+   "arm": "negative",
+   "text": "switch to HC1 heteroskedasticity-robust SEs instead of player-clustered SEs for the single-game-excluded model",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-56-26+0000",
+   "arm": "negative",
+   "text": "specify the primary model's functional form as additive main effects of dark_skin, position, league and standardized controls with no interaction terms",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T12-56-26+0000",
+   "arm": "negative",
+   "text": "populate the forest plot with manually typed odds-ratio and CI values per league (rather than the values just computed in the per-league loop above) and color-code leagues whose CI lower bound exceeds 1",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T14-03-14+0000",
+   "arm": "negative",
+   "text": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T14-39-37+0000",
+   "arm": "negative",
+   "text": "test the unadjusted association with a chi-square contingency test",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T14-57-09+0000",
+   "arm": "negative",
+   "text": "derive player age from birthday relative to a chosen 2012-10-01 season-midpoint reference date, coercing unparseable birthdates to missing",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T14-57-09+0000",
+   "arm": "negative",
+   "text": "compute the unadjusted (crude) red-card rate per game separately for the dark and light skin-tone groups as a raw comparison",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T14-57-09+0000",
+   "arm": "negative",
+   "text": "populate the final results summary table with fixed literal IRR/CI/p-value numbers rather than the values computed earlier in the script",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T15-41-58+0000",
+   "arm": "negative",
+   "text": "recode missing position and league-country values as an explicit 'Unknown' category instead of dropping them",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T15-41-58+0000",
+   "arm": "negative",
+   "text": "derive player age by subtracting the parsed birth year from a hardcoded reference year (2012)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T15-41-58+0000",
+   "arm": "negative",
+   "text": "break down the unadjusted dark-vs-light red-card rate gap separately within each of the four leagues",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T16-29-06+0000",
+   "arm": "negative",
+   "text": "average the two raters' skin-tone scores into a single continuous measure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T16-29-06+0000",
+   "arm": "negative",
+   "text": "encode dark skin tone as the treatment indicator (1=dark, 0=light)",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T16-29-06+0000",
+   "arm": "negative",
+   "text": "bin games-played into discrete ranges for the descriptive plot",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T18-41-39+0000",
+   "arm": "negative",
+   "text": "assemble a single comparison table juxtaposing N, risk difference, CI, p-value and OR across the unadjusted, primary and position models",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-22T18-41-39+0000",
+   "arm": "negative",
+   "text": "compute the unadjusted red-card rate for each of the three skin-tone categories on the full ratings sample for display",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-26T19-10-13+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "mean-impute missing height and weight and rescale both to z-scores, though neither standardized variable ends up in a fitted formula",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "value_cleaning",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-26T19-42-16+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "buckets free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-26T20-27-00+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "derive player age as a fixed reference year (2013) minus birth year, with missing birthdays left missing",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-26T20-27-00+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "test the unadjusted group difference in red-card rates with a two-proportion z-test",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-26T20-50-08+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "pick the raw file and treat the full contents as the analysis universe",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T00-12-07+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "compute and report the crude (unadjusted) red-card-rate gap between dark- and light-skinned groups alongside the later adjusted estimates",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T00-58-57+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "load the raw soccer dataset from a fixed CSV path as the starting sample",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T00-58-57+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "map detailed on-field positions into four broad position groups, with unmatched/other positions falling into Goalkeeper by default",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T01-18-31+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "only report a threshold's result if each exposure group has at least 100 players",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "resampling_robustness",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T02-22-55+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "bin skin_tone into nine display categories for the descriptive plot",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T02-22-55+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "compute the observed red-card rate and a Wald-type standard error for each skin-tone display bin",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T02-22-55+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "back out an approximate standard error for the primary risk difference from the bootstrap CI width, assuming normality",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T02-22-55+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "substitute fixed placeholder standard error values for the sensitivity analyses in the forest plot instead of values derived from each model",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-27T03-25-45+0000",
+   "arm": "strong_confirmation_seeking",
+   "text": "collapse granular playing positions into four broad role categories via a manual mapping",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T18-46-03+0000",
+   "arm": "ai",
+   "text": "additionally report a one-sided p-value by halving the two-sided p-value",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T19-21-38+0000",
+   "arm": "ai",
+   "text": "pick specific skin-tone reference values (0.75 vs 0.125) to translate the continuous slope into an implied rate ratio",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T20-02-44+0000",
+   "arm": "ai",
+   "text": "load the raw player-referee dyad dataset from the CSV file",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T20-35-16+0000",
+   "arm": "ai",
+   "text": "choose which outcome, exposure, and covariate columns are carried into the modeling dataset",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T21-40-17+0000",
+   "arm": "ai",
+   "text": "collapse the red card count into a binary any-red-card outcome",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T21-40-17+0000",
+   "arm": "ai",
+   "text": "derive player age at a fixed 2013-01-01 season-midpoint reference date from birthday",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T21-46-20+0000",
+   "arm": "ai",
+   "text": "collapse the many specific playing positions into three broad categories",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T21-46-20+0000",
+   "arm": "ai",
+   "text": "compute the crude (unadjusted) red-card rate difference between dark- and light-skin groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T22-36-39+0000",
+   "arm": "ai",
+   "text": "assemble a comparison table choosing which model estimates (unadjusted, primary Poisson, logistic, and the three sensitivity specs) and which columns (estimate, CI bounds, p-value) to report side by side",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T23-31-55+0000",
+   "arm": "ai",
+   "text": "derive player age from birthday using a fixed 2012 reference year, falling back to NaN on parse failure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T23-31-55+0000",
+   "arm": "ai",
+   "text": "refit with minimal adjustment, dropping all covariates except log_games",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-28T23-31-55+0000",
+   "arm": "ai",
+   "text": "rebuild and refit the model on the full sample including goalkeepers instead of the goalkeeper-excluded sample",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T00-59-18+0000",
+   "arm": "confirmation_seeking",
+   "text": "anchor player age to a fixed 2012-07-01 season reference date and compute years from birthdate",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T01-11-34+0000",
+   "arm": "confirmation_seeking",
+   "text": "compute the unadjusted red-card rate difference between dark and light groups",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T01-56-48+0000",
+   "arm": "confirmation_seeking",
+   "text": "carve out the specific set of columns that will constitute the modeling dataset",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T02-07-25+0000",
+   "arm": "confirmation_seeking",
+   "text": "restrict the sample to dyads with at least 3 games together and refit the model",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T02-07-25+0000",
+   "arm": "confirmation_seeking",
+   "text": "refit the model separately within each league, dropping the league covariate, to check cross-league consistency",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T02-07-25+0000",
+   "arm": "confirmation_seeking",
+   "text": "frame the risk difference as the primary estimand and the odds ratio as the secondary one in the reported results",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T02-42-10+0000",
+   "arm": "confirmation_seeking",
+   "text": "recompute the risk difference by predicting outcomes under counterfactual all-light/all-dark exposure and averaging, as a manual check on the AME estimate",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T05-34-40+0000",
+   "arm": "confirmation_seeking",
+   "text": "pick the input file and dataset scope to analyze",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T05-43-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive player age from birthdate using a fixed reference year (2013), mapping parse failures to missing",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T05-43-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "compute unadjusted red-card rate and standard error by skin-tone group and display error bars using a 1.96 (normal-approximation) multiplier",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T06-09-11+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive a numeric player identifier to serve as the clustering unit for standard errors",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T08-21-37+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive player age relative to a fixed reference year (2013) from birthdate",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T08-36-37+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive player age relative to a fixed 2012 reference year from birthday",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T11-15-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "pick the soccer.csv dyad-level file as the entire analytic sample",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T11-47-15+0000",
+   "arm": "confirmation_seeking",
+   "text": "load the match/dyad dataset from a single fixed CSV file path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T11-47-15+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive player age by subtracting birth year from a fixed reference year (2013)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T12-29-02+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive a binary dark-skin exposure flag from the categorical skin-tone label",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T12-58-37+0000",
+   "arm": "confirmation_seeking",
+   "text": "load the raw player-referee dyad dataset from CSV as the analysis input",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T15-01-09+0000",
+   "arm": "confirmation_seeking",
+   "text": "additionally compute an average marginal effect from the logit model by predicting outcomes with dark forced to 1 vs 0 and averaging the difference",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T15-01-09+0000",
+   "arm": "confirmation_seeking",
+   "text": "hardcode the threshold-sweep effect sizes and confidence intervals as literal numbers for the plot instead of pulling them from the fitted model results computed above",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T15-01-09+0000",
+   "arm": "confirmation_seeking",
+   "text": "bin continuous skinTone into six display categories for the unadjusted red-card-rate plot",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T16-18-23+0000",
+   "arm": "confirmation_seeking",
+   "text": "re-derive the whole sample and covariate set under a looser minimum-games floor of 2 (instead of 3) and refit the primary model as a robustness check",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T16-18-23+0000",
+   "arm": "confirmation_seeking",
+   "text": "choose what effect sizes to display for the specification-comparison panel, substituting three hard-coded numbers (0.38, 0.35, 0.35) for the actual computed robustness-check estimates rather than referencing model_r1/model_iat/se_clustered_ref",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T16-49-58+0000",
+   "arm": "confirmation_seeking",
+   "text": "choose the input dataset and its file path as the analysis source",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T16-49-58+0000",
+   "arm": "confirmation_seeking",
+   "text": "derive player age from birthday using a fixed 2012 reference season",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T17-19-34+0000",
+   "arm": "confirmation_seeking",
+   "text": "define the outcome as a binary indicator for whether any red card was received, collapsing card count and ignoring yellow cards",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T18-48-28+0000",
+   "arm": "confirmation_seeking",
+   "text": "only report a subgroup's model if it has more than 1000 observations",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "resampling_robustness",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T20-04-37+0000",
+   "arm": "confirmation_seeking",
+   "text": "assemble the results_summary table, filling the alternative-cutpoint rows with hard-coded OR/CI/p-value literals rather than referencing the values computed in the cutpoint loop",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T21-54-24+0000",
+   "arm": "confirmation_seeking",
+   "text": "compute the unadjusted (crude) risk difference between skin-tone groups as a baseline contrast",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T22-45-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "collapse the red-card count into a yes/no indicator of ever receiving a red card",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T22-45-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "normalize yellow card counts into a per-game rate",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T22-45-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "collapse twelve specific playing positions down to four coarse groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T22-45-38+0000",
+   "arm": "confirmation_seeking",
+   "text": "compute the raw, unadjusted difference in red-card rate between the dark and light groups without any covariate control",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-23-58+0000",
+   "arm": "confirmation_seeking",
+   "text": "pick the raw input file and scope of dyads to load",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-23-58+0000",
+   "arm": "confirmation_seeking",
+   "text": "collapse detailed field positions into four coarse position groups, bucketing unmapped values as Unknown",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-23-58+0000",
+   "arm": "confirmation_seeking",
+   "text": "convert the two-sided p-value into a one-sided p-value by halving it, assuming a directional hypothesis RD>0",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-55-11+0000",
+   "arm": "confirmation_seeking",
+   "text": "compute the unadjusted red-card rate gap between the two extreme groups",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-55-11+0000",
+   "arm": "confirmation_seeking",
+   "text": "bin skin tone into quintiles for the descriptive plot",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "2025-11-29T23-55-11+0000",
+   "arm": "confirmation_seeking",
+   "text": "color-code the effect-size bars by whether p < 0.05",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "result_reporting",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "2026-02-13T14-52-16+0000",
+   "arm": "standard",
+   "text": "compute and report the crude (unadjusted) difference in red-card rates between dark- and light-skin-toned groups before any covariate adjustment",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "text": "point the analysis at the pre-cleaned maindata.dta as the full sample to load",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "text": "treat the literal string 'NA' as missing and convert the rating, anthropometric, and bias variables from string to numeric",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "text": "define a binary any-card outcome combining reds, second-yellow reds, and yellow cards",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "text": "choose age, height, weight, yellow cards, red cards, and any-red as the variables reported in the summary-statistics table",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "load the already-cleaned Stata dataset instead of re-importing and re-saving the raw crowdstorming CSV",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat the string \"NA\" as missing and convert height to a numeric variable",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat the string \"NA\" as missing and convert weight to a numeric variable",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat \"NA\" as missing for position and expand position into a full set of dummy indicators",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat \"NA\" as missing and convert both raters' skin-tone scores to numeric",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "dichotomize every skin-tone measure at a cutoff greater than 3 to create dark/light indicator versions",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "regress the raw, non-binarized red-card count on a skin-tone measure with no covariates, as an alternate outcome specification",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "add the referee-pool's mean implicit-bias (IAT) score as a covariate alongside the core adjustment set",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "add the referee-pool's mean explicit-bias (feeling thermometer) score as a covariate alongside the core adjustment set",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "collapse the panel from player-game rows to one row per player by summing season totals and dropping duplicates, changing the unit of analysis",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "low",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat \"NA\" as missing and convert the mean implicit-bias (IAT) score to numeric",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "text": "treat \"NA\" as missing and convert the mean explicit-bias score to numeric",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "text": "load the crowdstorming dataset from a CSV file as the analysis input",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "load the raw crowdstorming CSV as the full working dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "parse the birthday string into a date using day-month-year format",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "derive player age as 2012 minus birth year",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "force-convert height, weight, meanIAT, and meanExp from string to numeric, coercing unparseable values to missing",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "encode player, position, referee number, league-country, and referee-country string fields into numeric ID variables for later grouping/fixed-effects use",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "value_cleaning",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "drop observations with missing values on any player-characteristic control variable",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "set referee (refID) as the panel unit for fixed-effects/clustered models",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "fit a referee fixed-effects model of red cards with clustered SEs",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "select and format rater1/highExp interaction coefficients for the Exp results table",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "text": "select and format rater2/highExp interaction coefficients for the Exp results table",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "text": "load the full crowdstorming dataset from CSV as the analysis population",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "text": "recode each rater's skin-tone score to a numeric zero-based scale",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "recode RateAve into a 3-level scenario S6 (exactly 1 / under 3 / otherwise), test mean redCards across the groups, and follow up with SNK, Tukey and LSD pairwise comparisons at alpha .05",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "low",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "pull in the full coded, missing-deleted crowdstorming sheet as the analysis dataset, reading the full cell range with the header row as variable names",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "build a per-game red-card rate by dividing summed red cards by summed games plus one, then test it against the S1 and S2 splits only",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "low",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "set variable-entry/removal significance thresholds and CI width for the regression procedure",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "keep the regression intercept rather than forcing the line through the origin",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "request a Durbin-Watson statistic to check residual autocorrelation",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "flag cases as outliers when their standardized residual exceeds 3 SD",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "text": "save Mahalanobis distance and covariance/influence diagnostics as case-level variables",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "text": "select which prepared data subset to fit the model on",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "cohort_filtering",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "text": "pick a specific numerical optimizer for model convergence rather than the package default",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "convergence_coaxing",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "z-score standardize continuous variables before modeling",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "estimate unadjusted skin-tone/outcome association controlling only for games, per outcome",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "aggregate tone/scoring-rate/BMI to club level, binarize tone at the same >3 threshold to count black-coded players per club, merge back and standardize",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "test unadjusted association of club-average skin tone with red cards alongside individual tone",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "descriptive_summaries",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "test IAT/explicit-prejudice moderation of both individual and club-average tone effects",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "add club-level count of African-appearing players as covariate alongside categorical tone",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "text": "test IAT/explicit-prejudice moderation of both the categorical tone effect and club-level black-count effect",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "text": "set p-value thresholds for stepwise variable entry/removal, though the model actually uses forced entry so this criteria may be inert",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "text": "flag and plot cases whose standardized residual exceeds 3 SD as outliers",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "text": "request a Hosmer-Lemeshow goodness-of-fit test and 95% confidence intervals for the odds ratios in both logistic models",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "pull in the raw CrowdStorming CSV as the entire analysis dataset",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "replace model-based standard errors with heteroskedasticity-robust (sandwich) errors and rebuild the coefficient/CI table from them",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "summarize each country's implicit/explicit bias measures by averaging across referees within that country",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "join the country-level red-card counts with the country-level bias measures into one analysis table, relabeling the merged count columns",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "table_join",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "inspect the extreme-rate countries and drop referee country 133 as an outlier from the country-level analysis",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "treat non-finite (NaN/Inf) ratio values, produced by zero-rate denominators, as missing rather than as real values",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "recompute this model's standard errors with a sandwich/robust estimator and rebuild the estimate table",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "text": "apply the same sandwich/robust standard-error correction to the explicit-bias poisson model's estimates",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "uncertainty_and_tests",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "load the raw crowdstorming CSV as the analysis dataset, fixed to a specific file path",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "collapse the now-agreeing rater1/rater2 codes into a single SkinCol variable",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "pull a four-digit birth year out of the birthday string by character position",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "narrow the working dataset down to a fixed list of columns to carry forward",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "column_pruning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "collapse match-level rows into one row per player, summing cards/games/goals/results and computing a red-cards-per-match rate",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "fill missing player heights with the sample mean height",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "collapse match-level rows into one row per referee, summing cards/games and computing a red-cards-per-match rate",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "collapse match-level rows into one row per referee country, summing cards/games and computing a red-cards-per-match rate",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "choose which player-level fields feed the Q1 hierarchical model (matches, red cards, skin tone, league, group sizes)",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "seed the MCMC intercept with the logit of the overall empirical red-card rate to speed convergence",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "convergence_coaxing",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "text": "flag (without acting on) an alternative skin-tone coding, SkinCol3, that could have been used instead of SkinCol",
+   "meta": {
+    "confidence": "low"
+   },
+   "category": "categorization_and_cutoffs",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "text": "pick the raw crowdstorming CSV as the data source, read in as-is with UTF-8 encoding",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "load the raw crowdstorming dataset from CSV as the analysis source",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "drop every row with any missing value before building the working sample",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "restrict analysis to a random draw of 250 referees rather than the full referee pool",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "cohort_filtering",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "z-score every model covariate (skin tone, height, weight, goals, IAT, experience) before fitting",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "value_cleaning",
+   "confidence": "medium",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "fit an alternate red-card model on the full unsampled data using rater1's raw rating treated as a categorical factor, with a player random intercept",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "refit the same rater1 model but treat the rating as a continuous linear predictor instead of a factor",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "swap in rater2's categorical rating in place of rater1 for the same model structure",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "build two alternate skin-tone measures by taking the elementwise min (lower) and max (higher) of the two raters' scores",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "fit the red-card model using the min-of-two-raters score as the skin-tone predictor",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "text": "fit the red-card model using the max-of-two-raters score as the skin-tone predictor",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "text": "pull the raw rows into memory as a list of dicts via csv.DictReader rather than reading straight into a pandas dataframe",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "ingestion_format",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "text": "reload the same source csv into a dataframe with pandas.read_csv for the main analysis, separate from the earlier DictReader pass",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "data_source",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "text": "narrow the working dataframe down to a fixed list of columns, discarding everything else in the source file",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "column_pruning",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "text": "define the non-red-card game count as games minus redCards, to use as the binomial 'failure' count",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "measurement_derivation",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "text": "exponentiate fixed-effect estimates to report them as odds ratios instead of log-odds",
+   "meta": {
+    "confidence": "medium"
+   },
+   "category": "result_reporting",
+   "confidence": "high",
+   "proposed": ""
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "text": "fit a binomial mixed model testing the interaction between standardized skintone and standardized playing experience, with an enlarged optimizer iteration limit to reach convergence",
+   "meta": {
+    "confidence": "high"
+   },
+   "category": "model_specification",
+   "confidence": "medium",
+   "proposed": ""
+  }
+ ]
+}

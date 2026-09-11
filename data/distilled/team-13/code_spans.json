@@ -1,0 +1,764 @@
+{
+ "n_lines": 153,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     6
+    ]
+   ],
+   "note": "title and research-question framing comments"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     7,
+     9
+    ]
+   ],
+   "note": "import heading comment, setwd() file path, blank line"
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     10,
+     11
+    ]
+   ],
+   "operation": "pull in the raw CrowdStorming CSV as the entire analysis dataset",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "note": "heading before initial data inspection"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     13,
+     15
+    ]
+   ],
+   "note": "head() and summary() console inspection of raw data"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     16,
+     16
+    ]
+   ],
+   "note": "coerce refNum to a factor for grouping, no analytic content"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     17,
+     21
+    ]
+   ],
+   "note": "console exploration of referee levels and per-referee player/redCard summaries via by()"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     23
+    ]
+   ],
+   "note": "section heading introducing the reliability check"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     24,
+     24
+    ]
+   ],
+   "note": "library(psy)"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "operation": "quantify agreement between the two continuous rater scores with Cronbach's alpha",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     31
+    ]
+   ],
+   "operation": "cut each rater's continuous score into light/dark categories at the midpoint value of 3, dropping the exact-3 cases as missing, then check the two raters' categorical agreement with kappa",
+   "targets": [
+    "rater1",
+    "rater2",
+    "rater1skincolor",
+    "rater2skincolor"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "operation": "collapse the two raters' scores into one continuous skin-tone rating by averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinrating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "summary of the averaged rating"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     36,
+     36
+    ]
+   ],
+   "note": "histogram of averaged rating"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "note": "note on non-normal distribution of ratings"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": "research question 1 section header"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     43
+    ],
+    [
+     45,
+     46
+    ]
+   ],
+   "operation": "split the averaged skin-tone score into a binary light/dark grouping variable at 3, excluding the neutral midpoint, for use as the main predictor",
+   "targets": [
+    "skinrating",
+    "skincolor"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "tally of the new categorical variable"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     47,
+     52
+    ]
+   ],
+   "note": "cross-tabulations of skincolor against redCards and position"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "note": "histogram of redCards"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     54,
+     61
+    ]
+   ],
+   "operation": "model red cards as poisson counts predicted by skin color and position, using log(games) as an exposure offset, on the reasoning that red cards are rare events roughly consistent with mean≈variance and that exposure/position need to be accounted for",
+   "targets": [
+    "redCards",
+    "skincolor",
+    "position",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "note": "model summary output"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     63,
+     64
+    ]
+   ],
+   "note": "note on interpreting poisson coefficients as log counts"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     65,
+     65
+    ],
+    [
+     67,
+     70
+    ]
+   ],
+   "operation": "replace model-based standard errors with heteroskedasticity-robust (sandwich) errors and rebuild the coefficient/CI table from them",
+   "targets": [
+    "poissonmodel"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     66,
+     66
+    ]
+   ],
+   "note": "library(sandwich)"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "note": "display the robust-SE estimate table"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     77
+    ]
+   ],
+   "note": "blank lines and research question 2 section header"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     78,
+     82
+    ]
+   ],
+   "operation": "collapse player-level rows up to one row per referee country by summing games and red cards separately within each skin-color group, then reshape those sums to wide form",
+   "targets": [
+    "data",
+    "refCountry",
+    "skincolor",
+    "games",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     84
+    ]
+   ],
+   "note": "preview of the reshaped wide country-level table"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     87
+    ]
+   ],
+   "operation": "summarize each country's implicit/explicit bias measures by averaging across referees within that country",
+   "targets": [
+    "refCountry",
+    "meanIAT",
+    "nIAT",
+    "seIAT",
+    "meanExp",
+    "nExp",
+    "seExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     90
+    ]
+   ],
+   "operation": "join the country-level red-card counts with the country-level bias measures into one analysis table, relabeling the merged count columns",
+   "targets": [
+    "data3w",
+    "data3other",
+    "refCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     91,
+     96
+    ]
+   ],
+   "operation": "define per-country dark-skin and light-skin red-card rate variables directly from the summed counts (and surface the corresponding games totals) as the basis for a relative rate",
+   "targets": [
+    "redCards.darkskin",
+    "games.darkskin",
+    "redCards.lightskin",
+    "games.lightskin",
+    "p.darkskin",
+    "p.lightskin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     100
+    ]
+   ],
+   "operation": "form a relative-risk-style ratio of dark-skin to light-skin rates, flagging that zero light-skin rates will produce divide-by-zero cases",
+   "targets": [
+    "p.darkskin",
+    "p.lightskin",
+    "ratio.p.darktolight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     101,
+     102
+    ]
+   ],
+   "note": "histograms of the per-country dark/light rates"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     103,
+     104
+    ]
+   ],
+   "note": "note about an outlier in each group"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     107
+    ],
+    [
+     108,
+     109
+    ]
+   ],
+   "operation": "inspect the extreme-rate countries and drop referee country 133 as an outlier from the country-level analysis",
+   "targets": [
+    "data3all",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "note": "histogram of dark-skin rate after removing the outlier country"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     112,
+     112
+    ],
+    [
+     115,
+     117
+    ]
+   ],
+   "operation": "treat non-finite (NaN/Inf) ratio values, produced by zero-rate denominators, as missing rather than as real values",
+   "targets": [
+    "ratio.p.darktolight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     113,
+     114
+    ]
+   ],
+   "note": "display the ratio column before recoding"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "operation": "regress the dark/light red-card ratio on country implicit-bias score, weighting observations by the inverse of that same score",
+   "targets": [
+    "ratio.p.darktolight",
+    "meanIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     119,
+     121
+    ]
+   ],
+   "note": "summary and confidence interval for the IAT-weighted linear model"
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     122
+    ]
+   ],
+   "operation": "regress the same ratio on country explicit-bias score instead, weighting by the inverse of its standard error",
+   "targets": [
+    "ratio.p.darktolight",
+    "meanExp",
+    "seExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "note": "summary and confidence interval for the explicit-bias-weighted linear model"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     127,
+     128
+    ]
+   ],
+   "operation": "switch to a poisson model of dark-skin red-card counts predicted by country implicit bias and the light-skin rate, offset by dark-skin games played",
+   "targets": [
+    "redCards.darkskin",
+    "meanIAT",
+    "p.lightskin",
+    "games.darkskin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     129
+    ]
+   ],
+   "note": "summary of the IAT poisson model"
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "operation": "recompute this model's standard errors with a sandwich/robust estimator and rebuild the estimate table",
+   "targets": [
+    "linearmodel.imp.o"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     136
+    ]
+   ],
+   "note": "display the robust-SE estimate table for the IAT poisson model"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     137,
+     137
+    ]
+   ],
+   "operation": "fit the parallel poisson model using explicit bias in place of implicit bias, again offset by dark-skin games played",
+   "targets": [
+    "redCards.darkskin",
+    "meanExp",
+    "p.lightskin",
+    "games.darkskin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     138,
+     138
+    ]
+   ],
+   "note": "summary of the explicit-bias poisson model"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     139,
+     142
+    ]
+   ],
+   "operation": "apply the same sandwich/robust standard-error correction to the explicit-bias poisson model's estimates",
+   "targets": [
+    "linearmodel.exp.o"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     143,
+     144
+    ]
+   ],
+   "note": "display the final robust-SE estimate table"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     145,
+     153
+    ]
+   ],
+   "note": "trailing blank lines at end of file"
+  }
+ ]
+}

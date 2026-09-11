@@ -1,0 +1,2000 @@
+{
+ "n_lines": 352,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     8,
+     8
+    ]
+   ],
+   "operation": "average two raters' ratings into one continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "meanrate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     9,
+     9
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     14
+    ],
+    [
+     15,
+     15
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "operation": "z-score standardize continuous variables before modeling",
+   "targets": [
+    "meanrate",
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "meanIAT",
+    "meanExp",
+    "totbook"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     18,
+     18
+    ]
+   ],
+   "operation": "compute BMI from weight and height via standard formula",
+   "targets": [
+    "weight",
+    "height",
+    "bmi"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "operation": "combine card types into one bookings score, weighting yellow-red double",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "totbook"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     25,
+     25
+    ]
+   ],
+   "operation": "compute losing rate as defeats per game",
+   "targets": [
+    "defeats",
+    "games",
+    "losep"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "operation": "compute scoring rate as goals per game",
+   "targets": [
+    "goals",
+    "games",
+    "gpgame"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "operation": "dichotomize skin tone into African-appearing vs. not via <3/>3 threshold, dropping the ambiguous middle category",
+   "targets": [
+    "meanrate",
+    "tonecode"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     4,
+     5
+    ],
+    [
+     41,
+     41
+    ],
+    [
+     44,
+     44
+    ],
+    [
+     47,
+     47
+    ],
+    [
+     50,
+     51
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     58,
+     61
+    ],
+    [
+     64,
+     64
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     71,
+     71
+    ],
+    [
+     74,
+     75
+    ]
+   ],
+   "operation": "set referee/country grouping factors and compare nested random-effects structures (fixed vs random intercept, referee vs country vs nested, with/without random tone slope) via LRTs to pick the specification used later",
+   "targets": [
+    "refCountry",
+    "refNum",
+    "redCards",
+    "games",
+    "meanrate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     86
+    ],
+    [
+     89,
+     92
+    ],
+    [
+     95,
+     97
+    ],
+    [
+     100,
+     103
+    ],
+    [
+     106,
+     107
+    ]
+   ],
+   "operation": "build a player-level table aggregating match stats by player x club x position (with missing position recoded to 'unknown'), merge the aggregates, derive player-level rates",
+   "targets": [
+    "goals",
+    "games",
+    "playerShort",
+    "club",
+    "position",
+    "poscode",
+    "bmi",
+    "meanrate",
+    "defeats",
+    "daysold"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     110
+    ]
+   ],
+   "operation": "choose which player-level variables to correlate against skin tone as a confound screen",
+   "targets": [
+    "meanrate",
+    "plevgpgame",
+    "plevlosep",
+    "bmi",
+    "daysold"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     113,
+     114
+    ]
+   ],
+   "operation": "test position's association with skin tone, excluding unknown-position players",
+   "targets": [
+    "meanrate",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     117,
+     118
+    ]
+   ],
+   "operation": "test club's association with skin tone",
+   "targets": [
+    "meanrate",
+    "club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     122
+    ],
+    [
+     126,
+     126
+    ],
+    [
+     226,
+     226
+    ],
+    [
+     230,
+     230
+    ],
+    [
+     268,
+     268
+    ],
+    [
+     272,
+     272
+    ],
+    [
+     310,
+     310
+    ],
+    [
+     314,
+     314
+    ]
+   ],
+   "operation": "fit models testing whether club and whether position predict the disciplinary outcome, repeated for every outcome",
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "club",
+    "position",
+    "refCountry",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     133
+    ],
+    [
+     235,
+     235
+    ],
+    [
+     277,
+     277
+    ],
+    [
+     319,
+     319
+    ]
+   ],
+   "operation": "estimate unadjusted skin-tone/outcome association controlling only for games, per outcome",
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "ztone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     138,
+     138
+    ],
+    [
+     239,
+     239
+    ],
+    [
+     281,
+     281
+    ],
+    [
+     323,
+     323
+    ]
+   ],
+   "operation": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "position",
+    "club",
+    "ztone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     144,
+     144
+    ],
+    [
+     244,
+     244
+    ],
+    [
+     286,
+     286
+    ],
+    [
+     328,
+     328
+    ]
+   ],
+   "operation": "test IAT as a moderator of the skin-tone effect via interaction term",
+   "targets": [
+    "ztone",
+    "meanIAT",
+    "zIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     150,
+     150
+    ],
+    [
+     249,
+     249
+    ],
+    [
+     291,
+     291
+    ],
+    [
+     333,
+     333
+    ]
+   ],
+   "operation": "test explicit prejudice as a moderator of the skin-tone effect via interaction term",
+   "targets": [
+    "ztone",
+    "meanExp",
+    "zExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     156,
+     168
+    ]
+   ],
+   "operation": "aggregate tone/scoring-rate/BMI to club level, binarize tone at the same >3 threshold to count black-coded players per club, merge back and standardize",
+   "targets": [
+    "club",
+    "meanrate",
+    "plevgpgame",
+    "bmi",
+    "black",
+    "clubtone",
+    "clubgpg",
+    "clubbmi",
+    "clubblack"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    2,
+    7
+   ]
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     171,
+     171
+    ]
+   ],
+   "operation": "test unadjusted association of club-average skin tone with red cards alongside individual tone",
+   "targets": [
+    "zrcard",
+    "zgames",
+    "ztone",
+    "clubtone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     177,
+     177
+    ],
+    [
+     254,
+     254
+    ],
+    [
+     296,
+     296
+    ],
+    [
+     338,
+     338
+    ]
+   ],
+   "operation": "add club-average skin tone as covariate alongside individual tone and position, per outcome",
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "position",
+    "ztone",
+    "zclubtone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     183,
+     183
+    ],
+    [
+     189,
+     189
+    ],
+    [
+     259,
+     259
+    ],
+    [
+     262,
+     262
+    ]
+   ],
+   "operation": "test IAT/explicit-prejudice moderation of both individual and club-average tone effects",
+   "targets": [
+    "ztone",
+    "zclubtone",
+    "zIAT",
+    "zExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     195,
+     195
+    ]
+   ],
+   "operation": "rerun confound-adjusted red-card model swapping continuous tone for categorical tonecode",
+   "targets": [
+    "zrcard",
+    "zgames",
+    "position",
+    "club",
+    "tonecode"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     202,
+     202
+    ],
+    [
+     205,
+     205
+    ]
+   ],
+   "operation": "test IAT/explicit-prejudice moderation of the categorical skin-tone effect on red cards",
+   "targets": [
+    "tonecode",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     210,
+     210
+    ]
+   ],
+   "operation": "add club-level count of African-appearing players as covariate alongside categorical tone",
+   "targets": [
+    "zrcard",
+    "zgames",
+    "position",
+    "tonecode",
+    "clubblack"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     215,
+     215
+    ],
+    [
+     218,
+     218
+    ],
+    [
+     301,
+     301
+    ],
+    [
+     304,
+     304
+    ]
+   ],
+   "operation": "test IAT/explicit-prejudice moderation of both the categorical tone effect and club-level black-count effect",
+   "targets": [
+    "tonecode",
+    "zclubblack",
+    "zIAT",
+    "zExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     343,
+     343
+    ],
+    [
+     346,
+     346
+    ]
+   ],
+   "operation": "for total bookings, test moderation of a model mixing categorical tonecode with continuous club-average tone; object naming here doesn't match the following report calls, unlike every parallel block",
+   "targets": [
+    "tonecode",
+    "zclubtone",
+    "zIAT",
+    "zExp",
+    "zbook"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     2
+    ]
+   ],
+   "note": "header 'VARIABLE CREATION AND RECODING' + blank"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     3,
+     3
+    ]
+   ],
+   "note": "label 'label variables as factors'"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     6,
+     7
+    ]
+   ],
+   "note": "blank + label 'aggregate and standardize IVS and DVS'"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     16,
+     17
+    ]
+   ],
+   "note": "blank + label 'Body-Mass Index'"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     19,
+     20
+    ]
+   ],
+   "note": "blank + label 'total carded fouls (bookings)'"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "note": "blank + label 'player losing percentage'"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     27
+    ]
+   ],
+   "note": "blank + label 'player scoring rate'"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "note": "blank + label on recoding skin tone"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     33,
+     39
+    ]
+   ],
+   "note": "blanks + section header 'EVALUATING RANDOM COMPONENTS OF VARIANCE'"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "note": "label 'fixed intercept model'"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "blank + label 'random intercept by referee'"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "note": "blank + label 'random intercept model with referee country'"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "note": "blank + label 'model comparison'"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "note": "blank + label 'random skintone slope models'"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     56,
+     57
+    ]
+   ],
+   "note": "blank + label 'model comparisons'"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     62,
+     63
+    ]
+   ],
+   "note": "blank + label on three-level nested intercept"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "note": "blank + label 'model comparisons'"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     69,
+     70
+    ]
+   ],
+   "note": "blank + label on three-level model with random slope"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     72,
+     73
+    ]
+   ],
+   "note": "blank + label 'model comparison'"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     76,
+     82
+    ]
+   ],
+   "note": "blanks + section header 'EXAMINING POSSIBLE CONFOUNDS WITH SKIN TONE'"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     83,
+     85
+    ]
+   ],
+   "note": "note on poscode dataset + label 'create a player-level matrix'"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     87,
+     88
+    ]
+   ],
+   "note": "blank + label 'multiple steps required...'"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     93,
+     94
+    ]
+   ],
+   "note": "blank + label 'retaining only nonredundant variables'"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     99
+    ]
+   ],
+   "note": "blank + label 'merging into a single matrix'"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     104,
+     105
+    ]
+   ],
+   "note": "blank + label 'calculating player-level indices'"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     108,
+     109
+    ]
+   ],
+   "note": "blank + label 'correlating player factors with skin tone'"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     115,
+     116
+    ]
+   ],
+   "note": "tapply mean/sd of tone by position, descriptive output"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     111,
+     112
+    ]
+   ],
+   "note": "blank + label 'evaluating associations of position and club with skin tone'"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     119,
+     121
+    ]
+   ],
+   "note": "blanks + label 'do club and position predict Red Cards?'"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     123,
+     125
+    ]
+   ],
+   "note": "anova/summary output for club effect on red cards + trailing blank"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     128
+    ]
+   ],
+   "note": "anova/summary output for position effect on red cards"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     129,
+     132
+    ]
+   ],
+   "note": "blank + header 'PRIMARY ANALYSES OF RED CARDS' + blank + label 'zero order skin tone effect'"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     135
+    ]
+   ],
+   "note": "anova/summary output for zero-order tone effect"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     136,
+     137
+    ]
+   ],
+   "note": "blank + label 'skin tone with confounds'"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     141
+    ]
+   ],
+   "note": "anova/summary/confint output for confound-adjusted tone model"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     142,
+     143
+    ]
+   ],
+   "note": "blank + label 'moderated by IAT?'"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     145,
+     147
+    ]
+   ],
+   "note": "anova/summary/confint output for IAT-moderated model"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     148,
+     149
+    ]
+   ],
+   "note": "blank + label 'moderated by Explicit Prejudice?'"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     151,
+     153
+    ]
+   ],
+   "note": "anova/summary/confint output for Exp-moderated model"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     154,
+     155
+    ]
+   ],
+   "note": "blank + label on creating club-level variables"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     169,
+     170
+    ]
+   ],
+   "note": "blank + label 'zero order club level skin tone effect'"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     173
+    ]
+   ],
+   "note": "anova/summary output for club-level zero-order model"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     174,
+     176
+    ]
+   ],
+   "note": "blanks + label 'mean club skin tone analysis with confounds'"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     180
+    ]
+   ],
+   "note": "anova/summary/confint output for club-level adjusted model"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     181,
+     182
+    ]
+   ],
+   "note": "blank + label 'moderated by IAT?'"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     184,
+     186
+    ]
+   ],
+   "note": "anova/summary/confint output for club-level IAT moderation"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     187,
+     188
+    ]
+   ],
+   "note": "blank + label 'moderated by Explicit Prejudice?'"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     192
+    ]
+   ],
+   "note": "anova/summary/confint output for club-level Exp moderation"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     193,
+     194
+    ]
+   ],
+   "note": "blank + label on categorical African vs non-African analysis"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     196,
+     198
+    ]
+   ],
+   "note": "anova/summary/confint output for categorical tonecode model"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     199,
+     201
+    ]
+   ],
+   "note": "blank + label 'moderation w/categorical analysis' + blank"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     203,
+     204
+    ]
+   ],
+   "note": "anova/summary output for categorical IAT moderation"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     206,
+     207
+    ]
+   ],
+   "note": "anova/summary output for categorical Exp moderation"
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     208,
+     209
+    ]
+   ],
+   "note": "blank + label on club total African-appearing players analysis"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     211,
+     212
+    ]
+   ],
+   "note": "anova/summary output for club-black-count model"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     213,
+     214
+    ]
+   ],
+   "note": "blank + label 'moderator analyses'"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     216,
+     217
+    ]
+   ],
+   "note": "anova/summary output for tonecode/clubblack IAT moderation"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     219,
+     220
+    ]
+   ],
+   "note": "anova/summary output for tonecode/clubblack Exp moderation"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     221,
+     225
+    ]
+   ],
+   "note": "blanks + header 'SUPPLEMENTARY ANALYSES OF YELLOW CARDS AND TOTAL BOOKINGS' + label 'do club and position predict Yellow Cards?'"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     227,
+     229
+    ]
+   ],
+   "note": "anova/summary output for club effect on yellow cards + trailing blank"
+  },
+  {
+   "id": 87,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     231,
+     232
+    ]
+   ],
+   "note": "anova/summary output for position effect on yellow cards"
+  },
+  {
+   "id": 88,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     233,
+     234
+    ]
+   ],
+   "note": "blank + label 'zero order skin tone effect'"
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     236
+    ]
+   ],
+   "note": "summary output for zero-order tone effect on yellow cards"
+  },
+  {
+   "id": 90,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     237,
+     238
+    ]
+   ],
+   "note": "blank + label 'skin tone with confounds'"
+  },
+  {
+   "id": 91,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     240,
+     241
+    ]
+   ],
+   "note": "anova/summary output for confound-adjusted yellow-card model"
+  },
+  {
+   "id": 92,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     242,
+     243
+    ]
+   ],
+   "note": "blank + label 'moderated by IAT?'"
+  },
+  {
+   "id": 93,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     245,
+     246
+    ]
+   ],
+   "note": "anova/summary output for IAT-moderated yellow-card model"
+  },
+  {
+   "id": 94,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     247,
+     248
+    ]
+   ],
+   "note": "blank + label 'moderated by Explicit Prejudice?'"
+  },
+  {
+   "id": 95,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     250,
+     251
+    ]
+   ],
+   "note": "anova/summary output for Exp-moderated yellow-card model"
+  },
+  {
+   "id": 96,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     252,
+     253
+    ]
+   ],
+   "note": "blank + label 'mean club skin tone analysis'"
+  },
+  {
+   "id": 97,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     255,
+     256
+    ]
+   ],
+   "note": "anova/summary output for club-level adjusted yellow-card model"
+  },
+  {
+   "id": 98,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     257,
+     258
+    ]
+   ],
+   "note": "blank + label 'moderator analyses'"
+  },
+  {
+   "id": 99,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     261
+    ]
+   ],
+   "note": "anova/summary output for club-level IAT moderation, yellow cards"
+  },
+  {
+   "id": 100,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     263,
+     264
+    ]
+   ],
+   "note": "anova/summary output for club-level Exp moderation, yellow cards"
+  },
+  {
+   "id": 101,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     265,
+     267
+    ]
+   ],
+   "note": "blank + label 'do club and position predict Yellow-Red Cards?' + blank"
+  },
+  {
+   "id": 102,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     271
+    ]
+   ],
+   "note": "anova/summary output for club effect on yellow-red cards + trailing blank"
+  },
+  {
+   "id": 103,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     274
+    ]
+   ],
+   "note": "anova/summary output for position effect on yellow-red cards"
+  },
+  {
+   "id": 104,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     275,
+     276
+    ]
+   ],
+   "note": "blank + label 'zero order skin tone effect'"
+  },
+  {
+   "id": 105,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     278
+    ]
+   ],
+   "note": "summary output for zero-order tone effect on yellow-red cards"
+  },
+  {
+   "id": 106,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     279,
+     280
+    ]
+   ],
+   "note": "blank + label 'skin tone with confounds'"
+  },
+  {
+   "id": 107,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     283
+    ]
+   ],
+   "note": "anova/summary output for confound-adjusted yellow-red-card model"
+  },
+  {
+   "id": 108,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     284,
+     285
+    ]
+   ],
+   "note": "blank + label 'moderated by IAT?'"
+  },
+  {
+   "id": 109,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     287,
+     288
+    ]
+   ],
+   "note": "anova/summary output for IAT-moderated yellow-red-card model"
+  },
+  {
+   "id": 110,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     289,
+     290
+    ]
+   ],
+   "note": "blank + label 'moderated by Explicit Prejudice?'"
+  },
+  {
+   "id": 111,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     292,
+     293
+    ]
+   ],
+   "note": "anova/summary output for Exp-moderated yellow-red-card model"
+  },
+  {
+   "id": 112,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     294,
+     295
+    ]
+   ],
+   "note": "blank + label 'mean club skin tone analysis'"
+  },
+  {
+   "id": 113,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     297,
+     298
+    ]
+   ],
+   "note": "anova/summary output for club-level adjusted yellow-red-card model"
+  },
+  {
+   "id": 114,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     299,
+     300
+    ]
+   ],
+   "note": "blank + label 'moderator analyses'"
+  },
+  {
+   "id": 115,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     302,
+     303
+    ]
+   ],
+   "note": "anova/summary output for tonecode/clubblack IAT moderation, yellow-red cards"
+  },
+  {
+   "id": 116,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     305,
+     306
+    ]
+   ],
+   "note": "anova/summary output for tonecode/clubblack Exp moderation, yellow-red cards"
+  },
+  {
+   "id": 117,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     307,
+     309
+    ]
+   ],
+   "note": "blank + label 'do club and position predict total bookings?' + blank"
+  },
+  {
+   "id": 118,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     311,
+     313
+    ]
+   ],
+   "note": "anova/summary output for club effect on total bookings + trailing blank"
+  },
+  {
+   "id": 119,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     315,
+     316
+    ]
+   ],
+   "note": "anova/summary output for position effect on total bookings"
+  },
+  {
+   "id": 120,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     317,
+     318
+    ]
+   ],
+   "note": "blank + label 'zero order skin tone effect'"
+  },
+  {
+   "id": 121,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     320,
+     320
+    ]
+   ],
+   "note": "summary output for zero-order tone effect on total bookings"
+  },
+  {
+   "id": 122,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     321,
+     322
+    ]
+   ],
+   "note": "blank + label 'skin tone with confounds'"
+  },
+  {
+   "id": 123,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     324,
+     325
+    ]
+   ],
+   "note": "anova/summary output for confound-adjusted total-bookings model"
+  },
+  {
+   "id": 124,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     326,
+     327
+    ]
+   ],
+   "note": "blank + label 'moderated by IAT?'"
+  },
+  {
+   "id": 125,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     329,
+     330
+    ]
+   ],
+   "note": "anova/summary output for IAT-moderated total-bookings model"
+  },
+  {
+   "id": 126,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     331,
+     332
+    ]
+   ],
+   "note": "blank + label 'moderated by Explicit Prejudice?'"
+  },
+  {
+   "id": 127,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     334,
+     335
+    ]
+   ],
+   "note": "anova/summary output for Exp-moderated total-bookings model"
+  },
+  {
+   "id": 128,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     336,
+     337
+    ]
+   ],
+   "note": "blank + label 'mean club skin tone analysis'"
+  },
+  {
+   "id": 129,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     340
+    ]
+   ],
+   "note": "anova/summary output for club-level adjusted total-bookings model"
+  },
+  {
+   "id": 130,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     341,
+     342
+    ]
+   ],
+   "note": "blank + label 'moderator analyses'"
+  },
+  {
+   "id": 131,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     344,
+     345
+    ]
+   ],
+   "note": "anova/summary output referencing 'clubtonecodeiat.totbook', an object not defined by the preceding assignment"
+  },
+  {
+   "id": 132,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     347,
+     352
+    ]
+   ],
+   "note": "anova/summary output referencing 'clubtonecodeexp.totbook', plus trailing blank lines at end of file"
+  }
+ ]
+}

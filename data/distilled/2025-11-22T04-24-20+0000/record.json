@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-22T04-24-20+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 545,
+   "functional_lines": 167,
+   "functional_share": 0.3064,
+   "by_type": {
+    "glue": 139,
+    "print": 125,
+    "plot": 89,
+    "comment": 14,
+    "import": 8,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 252,
+   "functional_lines": 144,
+   "functional_share": 0.5714,
+   "by_type": {
+    "other": 53,
+    "heading": 51,
+    "boilerplate": 12,
+    "framing": 11
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 135,
+  "action_claims": 49,
+  "result_claims": 86,
+  "links": 96,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 86
+ },
+ "silent_decisions": [
+  {
+   "id": 24,
+   "lines": [
+    [
+     119,
+     122
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the crude red-card rate separately for the light- and dark-skin groups",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ]
+  },
+  {
+   "id": 55,
+   "lines": [
+    [
+     307,
+     308
+    ]
+   ],
+   "confidence": "low",
+   "operation": "silently skip and flag any country whose model fails to converge instead of halting the run",
+   "targets": [
+    "model_country"
+   ]
+  }
+ ],
+ "misalignments": []
+}

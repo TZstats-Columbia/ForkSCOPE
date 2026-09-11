@@ -1,0 +1,670 @@
+{
+ "n_lines": 294,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "operation": "load the full soccer referee-player dyad dataset from a fixed CSV path without any pre-filtering",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "operation": "average the two independent raters' skin-tone scores into a single composite skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     41
+    ],
+    [
+     72,
+     72
+    ],
+    [
+     186,
+     186
+    ],
+    [
+     197,
+     197
+    ]
+   ],
+   "operation": "define the outcome as a binary indicator for whether any red card was received, collapsing card count and ignoring yellow cards",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14,
+    15
+   ]
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "operation": "drop dyads lacking a skin-tone rating (no player photo) before any further analysis",
+   "targets": [
+    "skinTone",
+    "df",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     62
+    ]
+   ],
+   "operation": "split skinTone into light (<=0.125), dark (>0.25) and middle groups using fixed, asymmetric cutoffs chosen to maximize contrast",
+   "targets": [
+    "skinTone",
+    "skin_group"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     71
+    ]
+   ],
+   "operation": "discard the middle skin-tone group entirely and encode the remaining dark group as a binary exposure variable isDark",
+   "targets": [
+    "skin_group",
+    "isDark",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     75,
+     77
+    ]
+   ],
+   "operation": "drop remaining dyads with missing player position before fitting any model",
+   "targets": [
+    "position",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     116
+    ]
+   ],
+   "operation": "fit a logistic regression of the red-card outcome on skin-tone exposure, choosing log(games), position and league country as the adjustment set",
+   "targets": [
+    "anyRedCard",
+    "isDark",
+    "games",
+    "position",
+    "leagueCountry",
+    "model_main"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     131
+    ]
+   ],
+   "operation": "convert the primary model's exposure coefficient and confidence interval into an odds ratio for secondary reporting",
+   "targets": [
+    "model_main",
+    "coef",
+    "ci",
+    "or_est"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     136,
+     147
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by predicting every dyad's outcome under counterfactual isDark=0 and isDark=1 and averaging the difference (marginal standardization / G-computation)",
+   "targets": [
+    "model_main",
+    "isDark",
+    "pred_all_light",
+    "pred_all_dark",
+    "rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     157
+    ]
+   ],
+   "operation": "approximate the risk difference's standard error, 95% CI and two-sided p-value with a simple binomial-variance formula and normal approximation rather than a model-based method",
+   "targets": [
+    "rd",
+    "se_rd",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "pval_rd",
+    "n_light",
+    "n_dark"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     171
+    ]
+   ],
+   "operation": "refit the primary model adding yellow-card count as an extra covariate to probe robustness",
+   "targets": [
+    "yellowCards",
+    "modelA",
+    "rd_A"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     172,
+     180
+    ]
+   ],
+   "operation": "restrict to dyads with known height and weight and refit the model including those physical covariates",
+   "targets": [
+    "height",
+    "weight",
+    "modelB",
+    "rd_B",
+    "df_model_hw"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     181,
+     185
+    ],
+    [
+     187,
+     192
+    ]
+   ],
+   "operation": "recompute exposure using a single median-split threshold (skinTone>0.25) on the full non-middle-excluded sample instead of the three-way cutoff, as an alternative categorization",
+   "targets": [
+    "skinTone",
+    "isDark_alt",
+    "modelC",
+    "rd_C",
+    "df_alt"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     193,
+     196
+    ],
+    [
+     198,
+     203
+    ]
+   ],
+   "operation": "model skin tone as a continuous predictor rescaled by 10 instead of a binary exposure, and report the effect over the full range",
+   "targets": [
+    "skinTone",
+    "skinTone_10",
+    "modelD",
+    "rd_D",
+    "df_continuous"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     269,
+     289
+    ]
+   ],
+   "operation": "declare the hypothesis 'SUPPORTED' and frame the risk-difference effect as statistically significant, substantively meaningful, and robust across specifications",
+   "targets": [
+    "rd",
+    "pval_rd",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "or_est"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     18
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     19
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "set RNG seed for reproducibility"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "banner header"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     45,
+     49
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     51
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     55
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     63,
+     67
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     73,
+     74
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     80,
+     83
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     84,
+     88
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     89,
+     95
+    ]
+   ],
+   "note": "compute unadjusted group sizes and red-card rates for the descriptive summary"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     100
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     101,
+     104
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "model convergence/fit diagnostics"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     121,
+     127
+    ]
+   ],
+   "note": "pull coefficient, SE, z, p-value and CI for isDark out of the fitted model object"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     132,
+     135
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     158,
+     161
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     204,
+     208
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     209,
+     268
+    ]
+   ],
+   "note": "print already-computed results summary and sensitivity table"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     290,
+     294
+    ]
+   ],
+   "note": "closing banner"
+  }
+ ]
+}

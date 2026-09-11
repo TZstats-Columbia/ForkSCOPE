@@ -1,0 +1,69 @@
+{
+ "run_id": "2025-11-21T03-54-46+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 429,
+   "functional_lines": 118,
+   "functional_share": 0.2751,
+   "by_type": {
+    "print": 126,
+    "plot": 87,
+    "glue": 75,
+    "comment": 10,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 215,
+   "functional_lines": 117,
+   "functional_share": 0.5442,
+   "by_type": {
+    "boilerplate": 71,
+    "heading": 34,
+    "hedging": 12,
+    "framing": 3,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 102,
+  "action_claims": 44,
+  "result_claims": 58,
+  "links": 52,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 58
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     64,
+     66
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age as a fixed season year (2012) minus birth year",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": []
+}

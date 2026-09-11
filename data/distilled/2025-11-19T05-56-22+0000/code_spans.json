@@ -1,0 +1,769 @@
+{
+ "n_lines": 362,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     11
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     22
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     25
+    ]
+   ],
+   "note": "random seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a specific CSV path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "note": "row count"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     40
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ],
+    [
+     44,
+     45
+    ]
+   ],
+   "operation": "restrict to dyads with both ratings present and quantify inter-rater agreement via Pearson and Spearman correlation",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_rated"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "note": "local import of pearsonr/spearmanr"
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     46,
+     49
+    ]
+   ],
+   "note": "reliability correlations"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     57
+    ]
+   ],
+   "operation": "dichotomize continuous skin tone into light (<=0.25) vs dark (>=0.75) groups, dropping the middle range",
+   "targets": [
+    "skinTone",
+    "skinTone_category"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     60
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     63
+    ]
+   ],
+   "operation": "drop dyads lacking a defined light/dark category to form the analysis sample",
+   "targets": [
+    "df",
+    "skinTone_category",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     64,
+     68
+    ]
+   ],
+   "note": "sample sizes"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     92
+    ]
+   ],
+   "operation": "bucket free-text position strings into a fixed set of position categories via keyword matching",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     95
+    ]
+   ],
+   "operation": "log-transform games played for use as a covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     100,
+     103
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     104,
+     106
+    ]
+   ],
+   "operation": "choose which variables (outcome, exposure, id, covariates) are carried into the modeling dataset",
+   "targets": [
+    "anyRedCard",
+    "skinTone_category",
+    "playerShort",
+    "log_games",
+    "position_cat",
+    "leagueCountry",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     108
+    ]
+   ],
+   "operation": "drop rows with any missing covariate via listwise deletion",
+   "targets": [
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     109,
+     114
+    ]
+   ],
+   "note": "final sample composition"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     115,
+     122
+    ]
+   ],
+   "note": "unadjusted rate by group"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     123,
+     134
+    ]
+   ],
+   "operation": "test the unadjusted association between skin tone and red cards via chi-square, odds ratio, and risk difference",
+   "targets": [
+    "skinTone_category",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     135,
+     139
+    ]
+   ],
+   "note": "unadjusted stats"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     140,
+     143
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     144,
+     147
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     157
+    ]
+   ],
+   "operation": "specify and fit a logistic regression of any-red-card on skin tone adjusted for log games, position, and league, with player-clustered standard errors",
+   "targets": [
+    "anyRedCard",
+    "skinTone_category",
+    "log_games",
+    "position_cat",
+    "leagueCountry",
+    "playerShort",
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     166
+    ]
+   ],
+   "note": "model spec description"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     169
+    ]
+   ],
+   "note": "full model summary"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     170,
+     173
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     174,
+     177
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     178,
+     189
+    ]
+   ],
+   "operation": "compute the adjusted risk difference as an average marginal effect by predicting outcomes under counterfactual light vs dark skin tone for every observation",
+   "targets": [
+    "skinTone_category",
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     194
+    ]
+   ],
+   "note": "AME result"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     195,
+     233
+    ],
+    [
+     235,
+     239
+    ],
+    [
+     240,
+     242
+    ]
+   ],
+   "operation": "construct a confidence interval and p-value for the AME via player-level cluster bootstrap with 200 resamples, refitting the model each time",
+   "targets": [
+    "playerShort",
+    "df_model",
+    "formula",
+    "ames_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     234,
+     234
+    ]
+   ],
+   "note": "bootstrap progress message"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     243,
+     249
+    ]
+   ],
+   "note": "primary estimand results"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     250,
+     253
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     254,
+     257
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     258,
+     261
+    ]
+   ],
+   "operation": "exponentiate the logistic coefficient to report an adjusted odds ratio as a secondary effect measure",
+   "targets": [
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     262,
+     266
+    ]
+   ],
+   "note": "secondary estimand results"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     267,
+     270
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     271,
+     318
+    ]
+   ],
+   "note": "bar chart of unadjusted rates and effect-size error bar figure setup"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     319,
+     328
+    ]
+   ],
+   "operation": "map p-values to significance-star annotations using conventional alpha thresholds (0.001/0.01/0.05)",
+   "targets": [
+    "p_chi2",
+    "p_ame"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     329,
+     330
+    ]
+   ],
+   "note": "layout"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     331,
+     331
+    ]
+   ],
+   "note": "save figure to disk"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     332,
+     332
+    ]
+   ],
+   "note": "figure saved message"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     333,
+     333
+    ]
+   ],
+   "note": "close figure"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     334,
+     338
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     342
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     343,
+     347
+    ]
+   ],
+   "note": "primary estimand summary"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     348,
+     352
+    ]
+   ],
+   "note": "secondary estimand summary"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     353,
+     358
+    ]
+   ],
+   "note": "conclusion narrative"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     359,
+     362
+    ]
+   ],
+   "note": "closing banner"
+  }
+ ]
+}

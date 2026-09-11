@@ -1,0 +1,602 @@
+{
+ "n_lines": 218,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     7
+    ]
+   ],
+   "note": "leading blank line and module docstring describing the analysis and hypothesis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     8,
+     16
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     18
+    ]
+   ],
+   "note": "suppress warnings globally, plus trailing blank line"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     19,
+     22
+    ]
+   ],
+   "note": "section header: Data Loading and Preparation"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "operation": "choose the raw input file and load the full soccer dataset as the analysis starting point",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "note": "print raw dataset size"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     32
+    ]
+   ],
+   "operation": "split the continuous skin-tone score into a binary dark/light exposure at the 0.5 midpoint",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "operation": "recode missing position values as an explicit 'Unknown' category instead of dropping them",
+   "targets": [
+    "position",
+    "position_clean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "note": "section header: Create Analysis Dataset"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     49
+    ]
+   ],
+   "operation": "pick which columns carry into the modeling dataset (outcome, exposure, covariates, cluster id)",
+   "targets": [
+    "model_vars",
+    "df_model",
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     52
+    ]
+   ],
+   "operation": "restrict to complete cases by dropping rows missing skin tone, height, or weight",
+   "targets": [
+    "skinTone",
+    "height",
+    "weight",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     53,
+     57
+    ]
+   ],
+   "note": "print analysis dataset size and group counts"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "note": "section header: Descriptive Statistics"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     65
+    ]
+   ],
+   "note": "print descriptive statistics banner"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     66,
+     71
+    ]
+   ],
+   "note": "display crosstab of skin tone by red card"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     72,
+     76
+    ]
+   ],
+   "operation": "compute the crude (unadjusted) red-card rate difference between dark- and light-skinned groups",
+   "targets": [
+    "darkSkin",
+    "anyRedCard",
+    "risk_light",
+    "risk_dark",
+    "unadjusted_rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     81
+    ]
+   ],
+   "note": "print unadjusted rate results"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "note": "section header: Primary Analysis"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "print primary analysis banner"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     90,
+     100
+    ]
+   ],
+   "operation": "fit a covariate-adjusted logistic regression of any red card on the binary dark-skin exposure with referee-clustered standard errors",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "position_clean",
+    "leagueCountry",
+    "refNum",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     101,
+     105
+    ]
+   ],
+   "operation": "extract the average marginal effect of dark skin as the primary risk-difference estimate",
+   "targets": [
+    "logit_model",
+    "darkSkin",
+    "darkSkin_mfx"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     106,
+     112
+    ]
+   ],
+   "note": "print primary risk-difference estimand results"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     113,
+     117
+    ]
+   ],
+   "operation": "convert the model's dark-skin coefficient to an odds ratio as a secondary effect measure",
+   "targets": [
+    "logit_model",
+    "darkSkin",
+    "or_dark",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     122
+    ]
+   ],
+   "note": "print secondary odds-ratio estimand results"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "note": "section header: Sensitivity Analyses"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     130
+    ]
+   ],
+   "note": "print sensitivity analyses banner"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     131,
+     140
+    ]
+   ],
+   "operation": "refit the adjusted logistic model using continuous skin tone instead of the binary exposure, as a sensitivity check",
+   "targets": [
+    "anyRedCard",
+    "skinTone",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "position_clean",
+    "leagueCountry",
+    "refNum",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     141,
+     143
+    ]
+   ],
+   "operation": "extract the average marginal effect of continuous skin tone from the sensitivity model",
+   "targets": [
+    "logit_continuous",
+    "skinTone"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     144,
+     148
+    ]
+   ],
+   "note": "print continuous-exposure sensitivity results"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     153
+    ]
+   ],
+   "operation": "redefine exposure using extreme skin-tone cutoffs (>=0.75 vs <=0.25) and exclude the ambiguous middle group",
+   "targets": [
+    "skinTone",
+    "darkSkin_extreme",
+    "df_extremes",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     154,
+     162
+    ]
+   ],
+   "operation": "refit the adjusted logistic model on the extreme-only subsample using the extreme exposure coding",
+   "targets": [
+    "anyRedCard",
+    "darkSkin_extreme",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "position_clean",
+    "leagueCountry",
+    "refNum",
+    "df_extremes"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     165
+    ]
+   ],
+   "operation": "extract the average marginal effect of the extreme dark-skin exposure from the sensitivity model",
+   "targets": [
+    "logit_extremes",
+    "darkSkin_extreme"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     166,
+     171
+    ]
+   ],
+   "note": "print extreme-group sensitivity results"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "note": "section header: Summary"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     176,
+     179
+    ]
+   ],
+   "note": "print summary banner"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     180,
+     212
+    ]
+   ],
+   "operation": "assemble a side-by-side comparison table of effect estimates, CIs, and p-values across the primary and sensitivity specifications",
+   "targets": [
+    "darkSkin_mfx",
+    "mfx_continuous_summary",
+    "mfx_extremes_summary",
+    "df_model",
+    "df_extremes",
+    "summary_results"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     213,
+     218
+    ]
+   ],
+   "note": "print final summary table and end-of-analysis banner, trailing blank line at EOF"
+  }
+ ]
+}

@@ -1,0 +1,2389 @@
+{
+ "n_lines": 731,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     1,
+     19
+    ]
+   ],
+   "note": "title, author names, affiliation, correspondence emails"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     20,
+     21
+    ]
+   ],
+   "note": "Abstract"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     22,
+     29
+    ]
+   ],
+   "note": "states the two research questions the analyses were designed to address"
+  },
+  {
+   "id": 4,
+   "kind": "claim",
+   "lines": [
+    [
+     30,
+     36
+    ]
+   ],
+   "assertion": "after accounting for shared variability among covariates, the analyses found support for a bivariate relation between player skin tone and red cards received",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards",
+    "position",
+    "height",
+    "weight",
+    "age",
+    "games_played",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    5
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "claim",
+   "lines": [
+    [
+     30,
+     36
+    ]
+   ],
+   "assertion": "found no support that referees' countries' racial biases moderate the skin tone-red card relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "explicit_bias",
+    "referee_country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    4
+   ]
+  },
+  {
+   "id": 6,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "note": "One Sentence Summary"
+  },
+  {
+   "id": 7,
+   "kind": "claim",
+   "lines": [
+    [
+     40,
+     44
+    ]
+   ],
+   "assertion": "restates that there was statistical support for a unique bivariate relation between player skin tone and red cards received",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "claim",
+   "lines": [
+    [
+     40,
+     44
+    ]
+   ],
+   "assertion": "restates that there was no support for implicit or explicit referee-country biases as moderators of that relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "explicit_bias",
+    "referee_country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     45,
+     48
+    ]
+   ],
+   "note": "Results / Relation Between Player Skin Tone and Red Cards Received"
+  },
+  {
+   "id": 10,
+   "kind": "claim",
+   "lines": [
+    [
+     49,
+     56
+    ]
+   ],
+   "assertion": "in this variant analysis, player club was excluded as a covariate at the project leaders' request, otherwise identical to the Final Approach",
+   "polarity": "did_not",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     60
+    ]
+   ],
+   "assertion": "player position was included as a covariate because it significantly related to both skin tone (F=5.33) and red cards (F=8.27)",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "claim",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "assertion": "total games played was included as a potential covariate because it correlated with skin tone (r=-.06) and red cards (r=.40)",
+   "polarity": "did",
+   "targets": [
+    "games_played",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "claim",
+   "lines": [
+    [
+     65,
+     68
+    ]
+   ],
+   "assertion": "player height was included as a potential covariate because it correlated with skin tone (r=-.06) and red cards (r=.07)",
+   "polarity": "did",
+   "targets": [
+    "player_height",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     74
+    ]
+   ],
+   "assertion": "red cards significantly correlated with player age (r=.35), player weight (r=.09), and total goals scored (r=.19)",
+   "polarity": "found",
+   "targets": [
+    "player_age",
+    "player_weight",
+    "goals_scored",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     74
+    ]
+   ],
+   "assertion": "age, weight, and goals scored were consequently also examined as potential covariates",
+   "polarity": "did",
+   "targets": [
+    "player_age",
+    "player_weight",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     75,
+     82
+    ]
+   ],
+   "assertion": "ran a multiple linear regression with total red cards as outcome, average skin tone as main predictor, and all identified variables as covariates, using simultaneous forced-entry",
+   "polarity": "did",
+   "targets": [
+    "player_skin_tone",
+    "red_cards",
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     83,
+     84
+    ]
+   ],
+   "assertion": "overall model significantly predicted red cards, F(17,1401)=20.37, p<.001, R2=.20",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     85,
+     88
+    ]
+   ],
+   "assertion": "player weight and player height coefficients were not significant (β=.003,p=.93; β=-.044,p=.26)",
+   "polarity": "found",
+   "targets": [
+    "player_weight",
+    "player_height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "claim",
+   "lines": [
+    [
+     89,
+     93
+    ]
+   ],
+   "assertion": "skin tone had a significant unique relation with red cards after accounting for other predictors, β=.060, p=.02",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     94,
+     97
+    ]
+   ],
+   "assertion": "weight and height were removed from the model due to nonsignificant unique relations",
+   "polarity": "did",
+   "targets": [
+    "player_weight",
+    "player_height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     98,
+     99
+    ]
+   ],
+   "assertion": "removal of weight and height did not significantly worsen model fit, ΔF(2,1401)=0.95, p=.39",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     100,
+     101
+    ]
+   ],
+   "assertion": "the trimmed final model significantly predicted red cards, F(15,1417)=23.54, p<.001, R2=.20",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     102,
+     105
+    ]
+   ],
+   "assertion": "final model showed a significant unique skin tone-red card relation, β=.062, p=.01",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "claim",
+   "lines": [
+    [
+     106,
+     111
+    ]
+   ],
+   "assertion": "converted the standardized coefficient to Cohen's d = 0.124, 95% CI [0.028, 0.220]",
+   "polarity": "found",
+   "targets": [
+    "cohens_d"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     114
+    ]
+   ],
+   "assertion": "average player skin tone was computed as the arithmetic mean of two research assistants' ratings per player",
+   "polarity": "did",
+   "targets": [
+    "player_skin_tone",
+    "raters"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "claim",
+   "lines": [
+    [
+     115,
+     116
+    ]
+   ],
+   "assertion": "the two raters' skin-tone ratings were highly correlated (r=.924, p<.001), cited to justify averaging them",
+   "polarity": "found",
+   "targets": [
+    "raters"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "assertion": "player age was calculated using a fixed reference date (01/01/2013) and each player's birthdate",
+   "polarity": "did",
+   "targets": [
+    "player_age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     121,
+     129
+    ]
+   ],
+   "assertion": "contrast coding (11 contrasts for 12 positions) was used to represent player position, and the same method was used for player club",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "claim",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "assertion": "data were restructured from player-referee dyad rows into one row per player",
+   "polarity": "did",
+   "targets": [
+    "player_referee_dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     134,
+     135
+    ]
+   ],
+   "assertion": "restructuring reduced the case count from 146,028 player-referee dyads to 2,053 players",
+   "polarity": "found",
+   "targets": [
+    "sample_size"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     136,
+     144
+    ]
+   ],
+   "assertion": "per-dyad games-played, goals-scored, and red-card variables were summed across dyads to create total games played, total goals scored, and total red cards received",
+   "polarity": "did",
+   "targets": [
+    "games_played",
+    "goals_scored",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "claim",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "assertion": "cases with missing data on the relevant variables were excluded, so sample size and degrees of freedom vary across analyses",
+   "polarity": "did",
+   "targets": [
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "claim",
+   "lines": [
+    [
+     149,
+     158
+    ]
+   ],
+   "assertion": "the final skin tone-red card regression used 1,433 of 2,053 players (69.8%); exclusions were missing position data (152), skin tone ratings (253), or both (215)",
+   "polarity": "found",
+   "targets": [
+    "sample_size",
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     159,
+     169
+    ]
+   ],
+   "assertion": "multiple linear regression was chosen to test skin tone against total red cards, with additional covariates considered to isolate a unique relation",
+   "polarity": "did",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     170,
+     171
+    ]
+   ],
+   "note": "stray duplicated sentence fragment (repeats an earlier correlation statistic); no independent assertion"
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "assertion": "player club was included as a covariate because it significantly related to skin tone (F=3.20) and red cards (F=1.49)",
+   "polarity": "did",
+   "targets": [
+    "player_club",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "claim",
+   "lines": [
+    [
+     176,
+     179
+    ]
+   ],
+   "assertion": "player position was again included as a covariate, related to skin tone (F=5.33) and red cards (F=8.27)",
+   "polarity": "did",
+   "targets": [
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     180,
+     182
+    ]
+   ],
+   "assertion": "total games played was included as a covariate, correlated with skin tone (r=-.06) and red cards (r=.40)",
+   "polarity": "did",
+   "targets": [
+    "games_played"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     183,
+     186
+    ]
+   ],
+   "assertion": "player height was included as a covariate, correlated with skin tone (r=-.06) and red cards (r=.07)",
+   "polarity": "did",
+   "targets": [
+    "player_height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "claim",
+   "lines": [
+    [
+     187,
+     192
+    ]
+   ],
+   "assertion": "red cards correlated with player age (r=.35), weight (r=.09), and goals scored (r=.19)",
+   "polarity": "found",
+   "targets": [
+    "player_age",
+    "player_weight",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    41
+   ]
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     187,
+     192
+    ]
+   ],
+   "assertion": "these variables were also examined as potential covariates in this club-included model",
+   "polarity": "did",
+   "targets": [
+    "player_age",
+    "player_weight",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    40
+   ]
+  },
+  {
+   "id": 42,
+   "kind": "claim",
+   "lines": [
+    [
+     193,
+     199
+    ]
+   ],
+   "assertion": "ran a regression with total red cards as outcome, skin tone as main predictor, and all covariates including player club, simultaneous forced entry",
+   "polarity": "did",
+   "targets": [
+    "regression_model",
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     200,
+     201
+    ]
+   ],
+   "assertion": "overall model (with player club) significantly predicted red cards, F(105,1313)=4.45, p<.001, R2=.26",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "claim",
+   "lines": [
+    [
+     202,
+     205
+    ]
+   ],
+   "assertion": "weight and height coefficients were not significant (β=.006,p=.87; β=-.001,p=.98)",
+   "polarity": "found",
+   "targets": [
+    "player_weight",
+    "player_height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     206,
+     212
+    ]
+   ],
+   "assertion": "with player club included, skin tone did NOT have a significant unique relation with red cards, β=.038, p=.16",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards",
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "claim",
+   "lines": [
+    [
+     213,
+     216
+    ]
+   ],
+   "assertion": "weight and height were removed again from this (club-included) model",
+   "polarity": "did",
+   "targets": [
+    "player_weight",
+    "player_height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     217,
+     218
+    ]
+   ],
+   "assertion": "removal did not significantly worsen fit, ΔF(2,1313)=0.02, p=.983",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     219,
+     220
+    ]
+   ],
+   "assertion": "final club-included model was significant, F(104,1328)=4.60, p<.001, R2=.27",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     221,
+     225
+    ]
+   ],
+   "assertion": "in the final club-included model, skin tone was NOT significantly related to red cards, β=.039, p=.14",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "claim",
+   "lines": [
+    [
+     226,
+     227
+    ]
+   ],
+   "assertion": "converted β to Cohen's d = 0.078 (non-significant), 95% CI [-0.026, 0.182]",
+   "polarity": "found",
+   "targets": [
+    "cohens_d"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     228,
+     231
+    ]
+   ],
+   "assertion": "ran a sensitivity analysis using listwise deletion across all variables (n=1,419 players)",
+   "polarity": "did",
+   "targets": [
+    "missing_data",
+    "sample_size"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     232,
+     241
+    ]
+   ],
+   "assertion": "listwise deletion changed degrees of freedom, test values, p-values, and effect sizes somewhat, but the same variables remained in the model and the skin tone-red card relation stayed similar (β=.038, p=.15)",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     242,
+     249
+    ]
+   ],
+   "assertion": "checked the linearity assumption visually via scatterplots of residuals against each predictor with Lowess lines",
+   "polarity": "did",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     250,
+     255
+    ]
+   ],
+   "assertion": "Lowess lines showed slight departures from a zero mean in places, but the relation was generally judged correctly specified as linear",
+   "polarity": "found",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "claim",
+   "lines": [
+    [
+     256,
+     257
+    ]
+   ],
+   "assertion": "used the same scatterplots to visually check homoscedasticity of residuals",
+   "polarity": "did",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "claim",
+   "lines": [
+    [
+     258,
+     259
+    ]
+   ],
+   "assertion": "no large differences in residual variance across predictor values were observed",
+   "polarity": "found",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     260,
+     261
+    ]
+   ],
+   "assertion": "randomly assigned case numbers and plotted residuals against case number to check independence",
+   "polarity": "did",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     262,
+     265
+    ]
+   ],
+   "assertion": "visual inspection did not reveal obvious departures from independence of residuals",
+   "polarity": "found",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     266,
+     270
+    ]
+   ],
+   "assertion": "checked normality of residuals using a histogram with overlaid normal curve and a normal P-P plot",
+   "polarity": "did",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     271,
+     274
+    ]
+   ],
+   "assertion": "residuals showed somewhat heavier tails than a normal distribution",
+   "polarity": "found",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "claim",
+   "lines": [
+    [
+     275,
+     280
+    ]
+   ],
+   "assertion": "authors decided not to be concerned about the heavy-tailed residuals, citing that in large samples nonnormality does not seriously affect significance tests or CIs (Cohen et al., 2003)",
+   "polarity": "did_not",
+   "targets": [
+    "residuals"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 62,
+   "kind": "claim",
+   "lines": [
+    [
+     281,
+     285
+    ]
+   ],
+   "assertion": "in the initial approach, player position contrasts were included or excluded based on individual coefficient significance",
+   "polarity": "did",
+   "targets": [
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "claim",
+   "lines": [
+    [
+     286,
+     288
+    ]
+   ],
+   "assertion": "in the final approach, all player position contrasts were retained to fully represent the position variable",
+   "polarity": "did",
+   "targets": [
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 64,
+   "kind": "claim",
+   "lines": [
+    [
+     289,
+     292
+    ]
+   ],
+   "assertion": "player club was added as a covariate in the final approach (not the initial approach) based on a reviewer's recommendation",
+   "polarity": "did",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "claim",
+   "lines": [
+    [
+     293,
+     296
+    ]
+   ],
+   "assertion": "country of player club, originally included, was removed as a covariate for the final approach per instructions from the lead authors to all teams",
+   "polarity": "did_not",
+   "targets": [
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     297,
+     300
+    ]
+   ],
+   "assertion": "the skin-tone rating scale was rescaled from 1-5 to 0/.25/.5/.75/1 for the final approach",
+   "polarity": "did",
+   "targets": [
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "claim",
+   "lines": [
+    [
+     301,
+     315
+    ]
+   ],
+   "assertion": "the initial approach's starting model included position (certain contrasts), age, height, weight, games played, goals scored, country-of-club (certain contrasts), and skin tone; it differed from the final approach by excluding player club, using only some position contrasts, and including some country-of-club contrasts",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "player_club",
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 68,
+   "kind": "claim",
+   "lines": [
+    [
+     316,
+     317
+    ]
+   ],
+   "assertion": "initial-approach model was significant, F(17,1401)=21.84, p<.001, R2=.21",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 69,
+   "kind": "claim",
+   "lines": [
+    [
+     318,
+     323
+    ]
+   ],
+   "assertion": "initial-approach model showed a significant unique skin tone-red card relation, β=.051, p=.045",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "claim",
+   "lines": [
+    [
+     324,
+     330
+    ]
+   ],
+   "assertion": "height, weight, and several position contrasts were dropped from the initial-approach model without significant loss of fit",
+   "polarity": "did",
+   "targets": [
+    "player_height",
+    "player_weight",
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     331,
+     334
+    ]
+   ],
+   "assertion": "the trimmed initial-approach model remained significant, F(11,1421)=34.5, p<.001, R2=.21",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 72,
+   "kind": "claim",
+   "lines": [
+    [
+     335,
+     341
+    ]
+   ],
+   "assertion": "the trimmed model retained a significant unique skin tone-red card relation, β=.051, p=.037",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 73,
+   "kind": "claim",
+   "lines": [
+    [
+     342,
+     346
+    ]
+   ],
+   "assertion": "neither the initial nor final approach accounted for non-independence in the data; authors were aware of this, having received reviewer feedback on it",
+   "polarity": "did_not",
+   "targets": [
+    "non_independence"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 74,
+   "kind": "claim",
+   "lines": [
+    [
+     347,
+     351
+    ]
+   ],
+   "assertion": "authors would have pursued multi-level modeling to address the non-independence had they had more time or control over submission timing",
+   "polarity": "would_have",
+   "targets": [
+    "multi_level_modeling",
+    "non_independence"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 75,
+   "kind": "claim",
+   "lines": [
+    [
+     352,
+     356
+    ]
+   ],
+   "assertion": "given the short project timeframe, authors decided they lacked adequate time to learn multi-level modeling well enough to use it",
+   "polarity": "did_not",
+   "targets": [
+    "multi_level_modeling"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 76,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     357,
+     359
+    ]
+   ],
+   "note": "Implicit Bias of Referee Country as a Moderator..."
+  },
+  {
+   "id": 77,
+   "kind": "claim",
+   "lines": [
+    [
+     360,
+     367
+    ]
+   ],
+   "assertion": "in this alternate implicit-bias analysis, player club was again excluded as a covariate per the project leaders' request",
+   "polarity": "did_not",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "claim",
+   "lines": [
+    [
+     368,
+     369
+    ]
+   ],
+   "assertion": "overall model (club excluded) significantly predicted red card received, χ2(17)=1055.82, p<.001, Nagelkerke R2=.07",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     370,
+     379
+    ]
+   ],
+   "assertion": "the implicit-bias by skin-tone interaction did not significantly predict red card received (eβ=0.057, Wald χ2(1)=1.061, p=.30); implicit bias of referee country was not found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "claim",
+   "lines": [
+    [
+     380,
+     383
+    ]
+   ],
+   "assertion": "for moderation analyses, data were NOT restructured into one row per player; each case remained a player-referee dyad",
+   "polarity": "did_not",
+   "targets": [
+    "player_referee_dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 81,
+   "kind": "claim",
+   "lines": [
+    [
+     384,
+     389
+    ]
+   ],
+   "assertion": "per-dyad games-played and goals-scored variables (not the totals) were used in the moderation analyses",
+   "polarity": "did",
+   "targets": [
+    "games_played",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 82,
+   "kind": "claim",
+   "lines": [
+    [
+     390,
+     397
+    ]
+   ],
+   "assertion": "number of red cards per dyad was dichotomized (0 = none, 1 = one or more)",
+   "polarity": "did",
+   "targets": [
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 83,
+   "kind": "claim",
+   "lines": [
+    [
+     398,
+     401
+    ]
+   ],
+   "assertion": "only 0.017120% (25 of 146,028) of dyads had more than one red card, cited to justify the dichotomization",
+   "polarity": "found",
+   "targets": [
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 84,
+   "kind": "claim",
+   "lines": [
+    [
+     402,
+     408
+    ]
+   ],
+   "assertion": "implicit bias score and average skin tone were mean-centered, and an interaction term was created by multiplying the two centered variables",
+   "polarity": "did",
+   "targets": [
+    "implicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 85,
+   "kind": "claim",
+   "lines": [
+    [
+     409,
+     410
+    ]
+   ],
+   "assertion": "missing data were handled by excluding cases missing data on relevant variables",
+   "polarity": "did",
+   "targets": [
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 86,
+   "kind": "claim",
+   "lines": [
+    [
+     411,
+     422
+    ]
+   ],
+   "assertion": "final analysis included 116,014 of 146,028 dyads (79.5%); exclusions were missing position (8,454), skin tone (12,134), implicit bias (146), position+skin tone (9,263), skin tone+implicit bias (8), position+implicit bias (7), all three (2)",
+   "polarity": "found",
+   "targets": [
+    "sample_size",
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 87,
+   "kind": "claim",
+   "lines": [
+    [
+     423,
+     436
+    ]
+   ],
+   "assertion": "binary logistic regression tested implicit bias as a moderator using centered implicit bias, centered skin tone, their interaction, and covariates (position, club, games played, goals scored, age), simultaneous forced entry",
+   "polarity": "did",
+   "targets": [
+    "implicit_bias",
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 88,
+   "kind": "claim",
+   "lines": [
+    [
+     437,
+     438
+    ]
+   ],
+   "assertion": "overall model was significant, χ2(106)=1282.17, p<.001, Nagelkerke R2=.09",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 89,
+   "kind": "claim",
+   "lines": [
+    [
+     439,
+     447
+    ]
+   ],
+   "assertion": "implicit-bias by skin-tone interaction did not significantly predict red card received (eβ=0.329, Wald χ2(1)=0.149, p=.70); implicit bias was not found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 90,
+   "kind": "claim",
+   "lines": [
+    [
+     448,
+     455
+    ]
+   ],
+   "assertion": "in the initial approach for the implicit-bias model, position contrasts were included/excluded by individual significance; the final approach retained all contrasts",
+   "polarity": "did",
+   "targets": [
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 91,
+   "kind": "claim",
+   "lines": [
+    [
+     456,
+     459
+    ]
+   ],
+   "assertion": "player club was added as a covariate in the final approach only, per reviewer recommendation",
+   "polarity": "did",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 92,
+   "kind": "claim",
+   "lines": [
+    [
+     460,
+     463
+    ]
+   ],
+   "assertion": "country-of-club was removed as a covariate for the final approach per the lead authors' instruction",
+   "polarity": "did_not",
+   "targets": [
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 93,
+   "kind": "claim",
+   "lines": [
+    [
+     464,
+     467
+    ]
+   ],
+   "assertion": "skin-tone scale was rescaled from 1-5 to 0-1 for the final approach",
+   "polarity": "did",
+   "targets": [
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 94,
+   "kind": "claim",
+   "lines": [
+    [
+     468,
+     483
+    ]
+   ],
+   "assertion": "initial-approach model (implicit-bias) included position (certain contrasts), age, games played, goals scored, country-of-club (certain contrasts), and skin tone; differed from final approach by excluding club, using partial position contrasts, and including some country-of-club contrasts",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "player_club",
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 95,
+   "kind": "claim",
+   "lines": [
+    [
+     484,
+     487
+    ]
+   ],
+   "assertion": "initial-approach model was significant, χ2(13)=1132.01, p<.001, Nagelkerke R2=.08",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 96,
+   "kind": "claim",
+   "lines": [
+    [
+     488,
+     494
+    ]
+   ],
+   "assertion": "implicit-bias by skin-tone interaction was also not significant in the initial approach (eβ=0.937, Wald χ2(1)=0.008, p=.93); not found to moderate",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 97,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     495,
+     498
+    ]
+   ],
+   "note": "Explicit Bias of Referee Country as a Moderator..."
+  },
+  {
+   "id": 98,
+   "kind": "claim",
+   "lines": [
+    [
+     499,
+     506
+    ]
+   ],
+   "assertion": "in this alternate explicit-bias analysis, player club was again excluded as a covariate per the project leaders' request",
+   "polarity": "did_not",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 99,
+   "kind": "claim",
+   "lines": [
+    [
+     507,
+     508
+    ]
+   ],
+   "assertion": "overall model (club excluded) was significant, χ2(17)=1042.55, p<.001, Nagelkerke R2=.07",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 100,
+   "kind": "claim",
+   "lines": [
+    [
+     509,
+     518
+    ]
+   ],
+   "assertion": "explicit-bias by skin-tone interaction did not significantly predict red card received (eβ=0.981, Wald χ2(1)=0.002, p=.96); explicit bias not found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "explicit_bias",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 101,
+   "kind": "claim",
+   "lines": [
+    [
+     519,
+     522
+    ]
+   ],
+   "assertion": "for explicit-bias moderation analyses, data again were not restructured into one row per player; kept as player-referee dyads",
+   "polarity": "did_not",
+   "targets": [
+    "player_referee_dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 102,
+   "kind": "claim",
+   "lines": [
+    [
+     523,
+     528
+    ]
+   ],
+   "assertion": "per-dyad games-played and goals-scored variables (not totals) were used again",
+   "polarity": "did",
+   "targets": [
+    "games_played",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 103,
+   "kind": "claim",
+   "lines": [
+    [
+     529,
+     535
+    ]
+   ],
+   "assertion": "red cards per dyad were again dichotomized (0/1)",
+   "polarity": "did",
+   "targets": [
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 104,
+   "kind": "claim",
+   "lines": [
+    [
+     536,
+     539
+    ]
+   ],
+   "assertion": "again noted that only 0.017120% (25 of 146,028) of dyads had more than one red card, repeating the justification",
+   "polarity": "found",
+   "targets": [
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 105,
+   "kind": "claim",
+   "lines": [
+    [
+     540,
+     547
+    ]
+   ],
+   "assertion": "explicit bias score and skin tone were mean-centered, and an interaction term was created by multiplying them",
+   "polarity": "did",
+   "targets": [
+    "explicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 106,
+   "kind": "claim",
+   "lines": [
+    [
+     548,
+     550
+    ]
+   ],
+   "assertion": "missing data were handled by exclusion, as before",
+   "polarity": "did",
+   "targets": [
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 107,
+   "kind": "claim",
+   "lines": [
+    [
+     551,
+     561
+    ]
+   ],
+   "assertion": "explicit-bias analysis included 116,014 of 146,028 dyads (79.5%); exclusions were position (8,454), skin tone (12,134), explicit bias (146), position+skin tone (9,263), skin tone+explicit bias (8), position+explicit bias (7), all three (2)",
+   "polarity": "found",
+   "targets": [
+    "sample_size",
+    "missing_data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 108,
+   "kind": "claim",
+   "lines": [
+    [
+     562,
+     575
+    ]
+   ],
+   "assertion": "binary logistic regression tested explicit bias as a moderator using centered explicit bias, centered skin tone, their interaction, and covariates (position, club, games played, goals scored, age), simultaneous forced entry",
+   "polarity": "did",
+   "targets": [
+    "explicit_bias",
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 109,
+   "kind": "claim",
+   "lines": [
+    [
+     576,
+     577
+    ]
+   ],
+   "assertion": "overall model was significant, χ2(106)=1277.83, p<.001, Nagelkerke R2=.09",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 110,
+   "kind": "claim",
+   "lines": [
+    [
+     578,
+     586
+    ]
+   ],
+   "assertion": "explicit-bias by skin-tone interaction was not significant (eβ=1.255, Wald χ2(1)=0.285, p=.59); explicit bias not found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "explicit_bias",
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 111,
+   "kind": "claim",
+   "lines": [
+    [
+     587,
+     594
+    ]
+   ],
+   "assertion": "in the initial approach (explicit bias), position contrasts were included/excluded by significance; final approach retains all contrasts",
+   "polarity": "did",
+   "targets": [
+    "player_position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 112,
+   "kind": "claim",
+   "lines": [
+    [
+     595,
+     598
+    ]
+   ],
+   "assertion": "player club added in final approach only, per reviewer recommendation",
+   "polarity": "did",
+   "targets": [
+    "player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 113,
+   "kind": "claim",
+   "lines": [
+    [
+     599,
+     602
+    ]
+   ],
+   "assertion": "country-of-club removed per lead authors' instruction",
+   "polarity": "did_not",
+   "targets": [
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 114,
+   "kind": "claim",
+   "lines": [
+    [
+     603,
+     606
+    ]
+   ],
+   "assertion": "skin tone scale rescaled to the 0-1 range",
+   "polarity": "did",
+   "targets": [
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 115,
+   "kind": "claim",
+   "lines": [
+    [
+     607,
+     622
+    ]
+   ],
+   "assertion": "initial-approach model (explicit-bias) composition and its differences from the final approach mirrored the implicit-bias version",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "player_club",
+    "country_of_player_club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 116,
+   "kind": "claim",
+   "lines": [
+    [
+     623,
+     625
+    ]
+   ],
+   "assertion": "initial-approach model was significant, χ2(13)=1129.28, p<.001, Nagelkerke R2=.08",
+   "polarity": "found",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 117,
+   "kind": "claim",
+   "lines": [
+    [
+     626,
+     633
+    ]
+   ],
+   "assertion": "interaction was not significant in the initial approach either (eβ=1.092, Wald χ2(1)=0.707, p=.40); not found to moderate",
+   "polarity": "found",
+   "targets": [
+    "explicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 118,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     634,
+     635
+    ]
+   ],
+   "note": "Conclusion"
+  },
+  {
+   "id": 119,
+   "kind": "claim",
+   "lines": [
+    [
+     636,
+     641
+    ]
+   ],
+   "assertion": "recap: data were restructured to one row per player (146,028 dyads reduced to 2,053 players)",
+   "polarity": "did",
+   "targets": [
+    "player_referee_dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 120,
+   "kind": "claim",
+   "lines": [
+    [
+     642,
+     647
+    ]
+   ],
+   "assertion": "covariates were identified via correlation with skin tone and/or red cards; final model covariates were player position, total games played, player age, and total goals scored",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "games_played",
+    "player_age",
+    "goals_scored"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 121,
+   "kind": "claim",
+   "lines": [
+    [
+     648,
+     655
+    ]
+   ],
+   "assertion": "recap: ran a multiple linear regression with red cards outcome, skin tone predictor, and listed covariates, simultaneous forced entry",
+   "polarity": "did",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 122,
+   "kind": "claim",
+   "lines": [
+    [
+     656,
+     665
+    ]
+   ],
+   "assertion": "overall model was significant and skin tone had a significant unique relation with red cards, such that darker skin tone was associated with more red cards",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 123,
+   "kind": "claim",
+   "lines": [
+    [
+     666,
+     672
+    ]
+   ],
+   "assertion": "for moderation tests, the player-referee dyad was again used as the unit of analysis rather than one row per player",
+   "polarity": "did",
+   "targets": [
+    "player_referee_dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 124,
+   "kind": "claim",
+   "lines": [
+    [
+     673,
+     676
+    ]
+   ],
+   "assertion": "red cards per dyad were dichotomized (0/1) for the moderation analyses",
+   "polarity": "did",
+   "targets": [
+    "red_cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 125,
+   "kind": "claim",
+   "lines": [
+    [
+     677,
+     680
+    ]
+   ],
+   "assertion": "implicit and explicit bias scores and skin tone were mean-centered before creating the interaction terms",
+   "polarity": "did",
+   "targets": [
+    "implicit_bias",
+    "explicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 126,
+   "kind": "claim",
+   "lines": [
+    [
+     681,
+     682
+    ]
+   ],
+   "assertion": "simultaneous binary logistic regressions were used to test the moderation effects",
+   "polarity": "did",
+   "targets": [
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 127,
+   "kind": "claim",
+   "lines": [
+    [
+     683,
+     684
+    ]
+   ],
+   "assertion": "position, games played, goals scored, and age were included as covariates in the moderation models",
+   "polarity": "did",
+   "targets": [
+    "player_position",
+    "games_played",
+    "goals_scored",
+    "player_age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 128,
+   "kind": "claim",
+   "lines": [
+    [
+     685,
+     688
+    ]
+   ],
+   "assertion": "the overall implicit-bias moderation model significantly predicted red cards taken together",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 129,
+   "kind": "claim",
+   "lines": [
+    [
+     689,
+     695
+    ]
+   ],
+   "assertion": "restates that the implicit-bias by skin-tone interaction was not significant, so implicit bias was not found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 130,
+   "kind": "claim",
+   "lines": [
+    [
+     696,
+     699
+    ]
+   ],
+   "assertion": "the overall explicit-bias moderation model significantly predicted red cards taken together",
+   "polarity": "found",
+   "targets": [
+    "explicit_bias",
+    "regression_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 131,
+   "kind": "claim",
+   "lines": [
+    [
+     700,
+     707
+    ]
+   ],
+   "assertion": "restates that the explicit-bias interaction was not significant, so neither implicit nor explicit bias was found to moderate the relation",
+   "polarity": "found",
+   "targets": [
+    "explicit_bias",
+    "implicit_bias",
+    "player_skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 132,
+   "kind": "claim",
+   "lines": [
+    [
+     708,
+     713
+    ]
+   ],
+   "assertion": "overall conclusion: a significant, unique relation between skin tone and red cards, possibly indicating referees use skin tone when issuing red cards",
+   "polarity": "found",
+   "targets": [
+    "player_skin_tone",
+    "red_cards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 133,
+   "kind": "claim",
+   "lines": [
+    [
+     714,
+     715
+    ]
+   ],
+   "assertion": "implicit and explicit biases of referees' countries do not appear to moderate the skin tone-red card relation",
+   "polarity": "found",
+   "targets": [
+    "implicit_bias",
+    "explicit_bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 134,
+   "kind": "claim",
+   "lines": [
+    [
+     716,
+     718
+    ]
+   ],
+   "assertion": "the analyses did not account for potential non-independence in the data",
+   "polarity": "did_not",
+   "targets": [
+    "non_independence"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 135,
+   "kind": "claim",
+   "lines": [
+    [
+     719,
+     723
+    ]
+   ],
+   "assertion": "an alternate technique such as multi-level modeling would provide a more accurate depiction of the relation, implying it would have been preferable but was not used",
+   "polarity": "would_have",
+   "targets": [
+    "multi_level_modeling",
+    "non_independence"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 136,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     724,
+     725
+    ]
+   ],
+   "note": "Data and Output"
+  },
+  {
+   "id": 137,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     726,
+     731
+    ]
+   ],
+   "note": "statement that SPSS data, syntax, and output files are available via an OSF link"
+  }
+ ]
+}

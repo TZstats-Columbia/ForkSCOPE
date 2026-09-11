@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-19T14-47-53+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 368,
+   "functional_lines": 158,
+   "functional_share": 0.4293,
+   "by_type": {
+    "print": 106,
+    "comment": 46,
+    "plot": 46,
+    "import": 8,
+    "config": 3,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 214,
+   "functional_lines": 110,
+   "functional_share": 0.514,
+   "by_type": {
+    "heading": 61,
+    "boilerplate": 23,
+    "other": 17,
+    "hedging": 14,
+    "background": 2,
+    "framing": 1,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 89,
+  "action_claims": 50,
+  "result_claims": 39,
+  "links": 43,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 18,
+  "R_only_consistent_negative": 12,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     26,
+     28
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw player-referee dyad dataset from a fixed file path",
+   "targets": [
+    "df"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "cut continuous skin tone into light/dark groups at 0.25/0.75, drop the ambiguous middle band, and recode the surviving rows into a binary dark-skin exposure",
+   "claim": "medium skin tone (0.375-0.625) was excluded to maximize contrast between the light and dark groups",
+   "note": "code excludes the whole band between the 0.25 and 0.75 cutoffs; claim states the excluded medium band is 0.375-0.625"
+  },
+  {
+   "decision": "cut continuous skin tone into light/dark groups at 0.25/0.75, drop the ambiguous middle band, and recode the surviving rows into a binary dark-skin exposure",
+   "claim": "17,015 dyads (11.7%) were excluded for medium skin tone (0.375-0.625)",
+   "note": "code excludes the band between 0.25 and 0.75; claim states the excluded medium band is 0.375-0.625"
+  }
+ ]
+}

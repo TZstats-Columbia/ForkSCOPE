@@ -1,0 +1,1268 @@
+{
+ "n_lines": 386,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     19
+    ]
+   ],
+   "note": "blank line plus library imports and warning suppression"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     24,
+     26
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     31
+    ]
+   ],
+   "note": "console header for data loading section"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "operation": "load the full soccer referee-player dyad dataset as the analysis population, with no pre-filtering of rows or columns",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "note": "print row/column counts of loaded data"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "comment introducing skin tone averaging"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     37
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin_tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "note": "comment introducing the missingness exclusion"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "operation": "exclude dyads with a missing skin_tone rating from the analysis sample",
+   "targets": [
+    "skin_tone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "report post-exclusion sample size"
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "comment introducing the binary outcome"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     44
+    ],
+    [
+     110,
+     110
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome per dyad",
+   "targets": [
+    "redCards",
+    "any_red_card",
+    "y"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "note": "comment introducing the skin-tone threshold"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "operation": "dichotomize continuous skin_tone at a 0.5 cutoff into dark vs. light skin groups",
+   "targets": [
+    "skin_tone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     48,
+     51
+    ]
+   ],
+   "note": "print counts of light vs dark skin groups"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     52,
+     54
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     68
+    ]
+   ],
+   "note": "console header and per-group loop printing unadjusted red-card rates"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     70
+    ]
+   ],
+   "operation": "compute the raw (unadjusted) difference in red-card rate between dark- and light-skin groups as a descriptive comparison",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "note": "print the raw difference"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     75
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     76,
+     80
+    ]
+   ],
+   "note": "console header for modeling-data prep section"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     81,
+     81
+    ]
+   ],
+   "note": "comment introducing dummy-variable creation"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "note": "copy df_analysis into df_model"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "operation": "one-hot encode position and leagueCountry, dropping the first category as reference level",
+   "targets": [
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     84,
+     85
+    ]
+   ],
+   "note": "comment introducing missing-value handling"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     90
+    ]
+   ],
+   "operation": "impute missing height and weight values with each column's median",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     91,
+     92
+    ]
+   ],
+   "note": "comment introducing covariate list construction"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     95
+    ],
+    [
+     109,
+     109
+    ],
+    [
+     163,
+     163
+    ]
+   ],
+   "operation": "select the confounders to adjust for (games, yellow cards, height, weight, position dummies, league dummies) and use that list plus the exposure to build the model design matrices",
+   "targets": [
+    "games",
+    "yellowCards",
+    "height",
+    "weight",
+    "position_cols",
+    "league_cols",
+    "covariate_list",
+    "dark_skin",
+    "X",
+    "X_reset"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    80
+   ]
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "print covariate count and final sample size"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     100,
+     102
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     103,
+     107
+    ]
+   ],
+   "note": "console header for model-fitting section"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     108,
+     108
+    ]
+   ],
+   "note": "comment introducing X/y prep"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     111,
+     112
+    ]
+   ],
+   "note": "comment introducing boolean conversion"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     113,
+     116
+    ]
+   ],
+   "note": "convert boolean dummy columns to int for statsmodels"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     117,
+     117
+    ]
+   ],
+   "note": "comment introducing constant term"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "note": "add intercept constant column"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     119,
+     120
+    ]
+   ],
+   "note": "comment introducing clustered-SE model fit"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     123
+    ],
+    [
+     194,
+     195
+    ]
+   ],
+   "operation": "specify the outcome model as a binomial GLM (logistic regression) and, for the primary fit, cluster standard errors by player",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "covariate_list",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    80
+   ]
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     124,
+     127
+    ]
+   ],
+   "note": "print convergence status and observation count"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     128,
+     130
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     131,
+     135
+    ]
+   ],
+   "note": "console header for primary estimand section"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     136,
+     136
+    ]
+   ],
+   "note": "comment introducing marginal-effects calculation"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     137,
+     146
+    ],
+    [
+     198,
+     205
+    ]
+   ],
+   "operation": "define the primary effect as the average predicted-probability difference between counterfactually setting dark_skin to 1 vs 0 for every dyad",
+   "targets": [
+    "dark_skin",
+    "logit_result",
+    "pred_dark",
+    "pred_light",
+    "risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     151
+    ]
+   ],
+   "note": "print predicted probabilities and risk difference"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     152,
+     154
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     155,
+     159
+    ]
+   ],
+   "note": "console header for bootstrap section"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     160,
+     160
+    ]
+   ],
+   "note": "comment introducing index reset"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     161,
+     162
+    ]
+   ],
+   "note": "reset dataframe index and re-extract y for bootstrap"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     164,
+     165
+    ]
+   ],
+   "note": "comment introducing numeric conversion for bootstrap matrix"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     166,
+     169
+    ]
+   ],
+   "note": "convert boolean columns and add constant for bootstrap design matrix"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     170,
+     171
+    ]
+   ],
+   "note": "comment introducing numeric player IDs"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     172,
+     173
+    ],
+    [
+     176,
+     176
+    ],
+    [
+     187,
+     188
+    ],
+    [
+     215,
+     218
+    ]
+   ],
+   "operation": "build a percentile confidence interval and normal-approximation p-value for the risk difference via a 200-iteration bootstrap that resamples players with replacement (cluster bootstrap)",
+   "targets": [
+    "player_id",
+    "n_bootstrap",
+    "risk_diffs",
+    "risk_diff_se",
+    "risk_diff_ci",
+    "z_stat",
+    "p_value"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     174,
+     175
+    ]
+   ],
+   "note": "comment introducing clustered bootstrap"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     177,
+     179
+    ]
+   ],
+   "note": "collect unique player ids and initialize results list"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     180,
+     181
+    ]
+   ],
+   "note": "print bootstrap start message"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     182,
+     183
+    ]
+   ],
+   "note": "bootstrap loop and progress condition"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     184,
+     184
+    ]
+   ],
+   "note": "print bootstrap iteration progress"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     185,
+     186
+    ]
+   ],
+   "note": "comment introducing player resampling"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     189,
+     193
+    ]
+   ],
+   "note": "slice resampled rows into boot_y/boot_X and open try block"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     196,
+     197
+    ]
+   ],
+   "note": "comment introducing bootstrap marginal-effect calc"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     206,
+     207
+    ]
+   ],
+   "note": "append bootstrap risk difference to results list"
+  },
+  {
+   "id": 64,
+   "kind": "decision",
+   "lines": [
+    [
+     208,
+     209
+    ]
+   ],
+   "operation": "silently drop bootstrap iterations whose model fit throws an exception, excluding them from the CI",
+   "targets": [
+    "risk_diffs"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     210,
+     211
+    ]
+   ],
+   "note": "convert accumulated bootstrap results to an array"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     212,
+     212
+    ]
+   ],
+   "note": "print number of successful bootstrap iterations"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     213,
+     214
+    ]
+   ],
+   "note": "comment introducing CI/p-value calculation"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     219,
+     228
+    ]
+   ],
+   "note": "print risk difference, SE, CI, z-stat, p-value"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     229,
+     231
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     232,
+     235
+    ]
+   ],
+   "note": "console header for odds-ratio section"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     236,
+     236
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 72,
+   "kind": "decision",
+   "lines": [
+    [
+     237,
+     244
+    ]
+   ],
+   "operation": "exponentiate the dark_skin coefficient and its confidence interval to report an adjusted odds ratio as a secondary estimand",
+   "targets": [
+    "dark_skin_coef",
+    "dark_skin_se",
+    "dark_skin_pval",
+    "dark_skin_ci",
+    "or_dark",
+    "or_ci_low",
+    "or_ci_high"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     245,
+     249
+    ]
+   ],
+   "note": "print odds ratio, CI, p-value"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     250,
+     252
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     272
+    ]
+   ],
+   "note": "console printout of model/sample details (unit of analysis, N, covariates, SE method, missing-data note)"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     273,
+     275
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     276,
+     280
+    ]
+   ],
+   "note": "console header for robustness section"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     281,
+     281
+    ]
+   ],
+   "note": "comment introducing continuous skin-tone model"
+  },
+  {
+   "id": 79,
+   "kind": "decision",
+   "lines": [
+    [
+     282,
+     282
+    ],
+    [
+     286,
+     286
+    ],
+    [
+     288,
+     289
+    ],
+    [
+     291,
+     294
+    ]
+   ],
+   "operation": "refit the outcome model using continuous skin_tone in place of the binary dark_skin threshold, as a robustness/sensitivity check on how exposure is operationalized",
+   "targets": [
+    "skin_tone",
+    "covariate_list",
+    "logit_cont_result",
+    "skin_coef",
+    "or_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    30,
+    40
+   ]
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     283,
+     285
+    ]
+   ],
+   "note": "convert boolean columns to int for continuous-exposure design matrix"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     287,
+     287
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     290,
+     290
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     295,
+     300
+    ]
+   ],
+   "note": "print continuous-model coefficient, SE, p-value, odds ratio"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     301,
+     303
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     304,
+     307
+    ]
+   ],
+   "note": "console header for conclusion section"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     308,
+     308
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 87,
+   "kind": "decision",
+   "lines": [
+    [
+     309,
+     325
+    ]
+   ],
+   "operation": "classify the hypothesis as SUPPORTED only if the bootstrap p-value is below 0.05 and the CI lower bound exceeds zero, otherwise NOT SUPPORTED/inconclusive",
+   "targets": [
+    "p_value",
+    "risk_diff_ci",
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 88,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     326,
+     330
+    ]
+   ],
+   "note": "print effect size, relative increase, baseline risk"
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     331,
+     333
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 90,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     334,
+     337
+    ]
+   ],
+   "note": "console header for summary table section"
+  },
+  {
+   "id": 91,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     338,
+     379
+    ]
+   ],
+   "note": "assemble summary_data dict of metric labels and formatted values for display"
+  },
+  {
+   "id": 92,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     380,
+     386
+    ]
+   ],
+   "note": "build summary dataframe and print it, plus completion banner"
+  }
+ ]
+}

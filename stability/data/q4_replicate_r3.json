@@ -1,0 +1,143 @@
+{
+ "circle_a": "data/analysis/circle_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "circle_b": "<replicate root>/B-vocab/data/analysis/circle_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "corpus_a": "ai+human.merged.forkmerged.merged.induced.r3",
+ "corpus_b": "ai+human.merged.forkmerged.merged.induced.r3",
+ "runs_a": 223,
+ "runs_b": 223,
+ "nodes_a": 148,
+ "nodes_b": 163,
+ "routes_a": 225,
+ "routes_b": 212,
+ "forks_a": 317,
+ "forks_b": 351,
+ "forks_matched_strongly": 164,
+ "fork_match_rate": 0.5174,
+ "median_jaccard": 0.5,
+ "edges_a": 225,
+ "edges_b": 212,
+ "edges_unmatchable": 180,
+ "edges_overlapping": 42,
+ "edges_lost": 3,
+ "dyad_overlap_rate": 0.1867,
+ "traffic_spearman": 0.9512,
+ "traffic_spearman_null_mean": 0.0011,
+ "traffic_spearman_null_sd": 0.1563,
+ "traffic_spearman_z": 6.08,
+ "traffic_spearman_p": 0.0005,
+ "enriched_a": 10,
+ "enriched_b": 3,
+ "enriched_reproduced": 1,
+ "enrichment_detail": [
+  {
+   "persona": "confirmation_seeking",
+   "n": 28,
+   "edge_total": 59,
+   "edge_a": [
+    "How is the red-card outcome operationalised and modelled \u2014 a binary indicator, a raw count, or a count with an exposure offset?",
+    "how are the two raters combined into a single skin-tone exposure measure?"
+   ],
+   "reproduced": true,
+   "matchable": true
+  },
+  {
+   "persona": "confirmation_seeking",
+   "n": 17,
+   "edge_total": 31,
+   "edge_a": [
+    "which covariates make up the model's adjustment set?",
+    "which effect-size measure is used to express the exposure's effect on red cards?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  },
+  {
+   "persona": "standard",
+   "n": 13,
+   "edge_total": 21,
+   "edge_a": [
+    "how are the regression model's standard errors estimated?",
+    "which covariates make up the model's adjustment set?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  },
+  {
+   "persona": "negative",
+   "n": 8,
+   "edge_total": 10,
+   "edge_a": [
+    "How is the middle (Medium) skin-tone category handled?",
+    "How is the red-card outcome operationalised and modelled \u2014 a binary indicator, a raw count, or a count with an exposure offset?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  },
+  {
+   "persona": "strong_confirmation_seeking",
+   "n": 5,
+   "edge_total": 6,
+   "edge_a": [
+    "How are dyads with a missing skin-tone rating handled?",
+    "what minimum number of shared games per dyad is required for inclusion?"
+   ],
+   "reproduced": false,
+   "matchable": true
+  },
+  {
+   "persona": "positive",
+   "n": 8,
+   "edge_total": 13,
+   "edge_a": [
+    "how are the confidence interval and p-value for the exposure effect computed?",
+    "what rule determines whether the effect is declared statistically supported?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  },
+  {
+   "persona": "positive",
+   "n": 33,
+   "edge_total": 164,
+   "edge_a": [
+    "how are the two raters combined into a single skin-tone exposure measure?",
+    "which version of the source dataset is loaded?"
+   ],
+   "reproduced": false,
+   "matchable": true
+  },
+  {
+   "persona": "negative",
+   "n": 5,
+   "edge_total": 5,
+   "edge_a": [
+    "How is the middle (Medium) skin-tone category handled?",
+    "how is the binary dark-skin exposure variable defined?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  },
+  {
+   "persona": "standard",
+   "n": 39,
+   "edge_total": 145,
+   "edge_a": [
+    "How is the red-card outcome operationalised and modelled \u2014 a binary indicator, a raw count, or a count with an exposure offset?",
+    "how is the skin-tone rating entered as the exposure \u2014 continuous or split/binned at which cutpoints?"
+   ],
+   "reproduced": false,
+   "matchable": true
+  },
+  {
+   "persona": "standard",
+   "n": 8,
+   "edge_total": 12,
+   "edge_a": [
+    "how are the regression model's standard errors estimated?",
+    "which regression model and outcome family estimates the exposure\u2013red-card association?"
+   ],
+   "reproduced": false,
+   "matchable": false
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+{
+ "G1": {
+  "verdict": "PASS",
+  "screened": 28,
+  "excluded": 19,
+  "examples": [
+   {
+    "jaccard": 0.625,
+    "co": 2,
+    "a": "what covariate/adjustment set does the primary model include?",
+    "b": "what covariate set and functional form does the primary adjustment model use?"
+   },
+   {
+    "jaccard": 0.556,
+    "co": 2,
+    "a": "how is the risk difference for skin tone estimated from the fitted model?",
+    "b": "how is the adjusted risk difference estimated/computed from the fitted model?"
+   },
+   {
+    "jaccard": 0.545,
+    "co": 2,
+    "a": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "b": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?"
+   },
+   {
+    "jaccard": 0.5,
+    "co": 3,
+    "a": "which minimum-games threshold defines the sensitivity subsample?",
+    "b": "what minimum-games threshold defines the analytic sample?"
+   },
+   {
+    "jaccard": 0.444,
+    "co": 9,
+    "a": "what covariate/adjustment set does the primary model include?",
+    "b": "which covariates make up the (primary) adjustment set for the outcome model?"
+   },
+   {
+    "jaccard": 0.444,
+    "co": 2,
+    "a": "what adjustment/confound set defines the primary regression model?",
+    "b": "what covariate/adjustment set does the primary model include?"
+   },
+   {
+    "jaccard": 0.417,
+    "co": 13,
+    "a": "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+    "b": "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?"
+   },
+   {
+    "jaccard": 0.417,
+    "co": 5,
+    "a": "how is the unadjusted/crude association between skin tone and red cards summarized?",
+    "b": "what is the unadjusted/crude baseline comparison between skin-tone groups?"
+   },
+   {
+    "jaccard": 0.4,
+    "co": 10,
+    "a": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "b": "how is the adjusted risk difference estimated/computed from the fitted model?"
+   },
+   {
+    "jaccard": 0.4,
+    "co": 4,
+    "a": "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+    "b": "how is the continuous skin-tone score turned into an exposure by dropping the middle band (extreme-contrast check)?"
+   },
+   {
+    "jaccard": 0.4,
+    "co": 4,
+    "a": "how is missing skin-tone rating data handled / which rows are excluded?",
+    "b": "which rows are excluded due to missing covariate data?"
+   },
+   {
+    "jaccard": 0.4,
+    "co": 2,
+    "a": "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?",
+    "b": "how is the adjusted association/effect of skin tone on red cards estimated or quantified?"
+   }
+  ]
+ },
+ "G2": {
+  "verdict": "REVIEW",
+  "clique_density_min": 0.381,
+  "conflicts": []
+ },
+ "G3": {
+  "nodes_before": 463,
+  "nodes_after": 441,
+  "universal_before": 3,
+  "universal_after": 4
+ },
+ "G4": {
+  "verdict": "REVIEW",
+  "observed": 1,
+  "null_mean": 1.148,
+  "p": 0.652,
+  "tested": 1
+ },
+ "G5": {
+  "verdict": "PASS",
+  "agree": 1,
+  "disagree": 0
+ },
+ "G6": {
+  "verdict": "PASS",
+  "runs": 122,
+  "observed_paths": 111,
+  "null_mean": 115.72,
+  "p": 0.056
+ }
+}

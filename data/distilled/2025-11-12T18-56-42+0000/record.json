@@ -1,0 +1,97 @@
+{
+ "run_id": "2025-11-12T18-56-42+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 224,
+   "functional_lines": 89,
+   "functional_share": 0.3973,
+   "by_type": {
+    "print": 73,
+    "comment": 33,
+    "glue": 15,
+    "import": 8,
+    "config": 6
+   }
+  },
+  "prose": {
+   "n_lines": 263,
+   "functional_lines": 160,
+   "functional_share": 0.6084,
+   "by_type": {
+    "other": 49,
+    "heading": 42,
+    "boilerplate": 41,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 146,
+  "action_claims": 41,
+  "result_claims": 105,
+  "links": 42,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 12,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 105
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the specific source CSV as the analysis input",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 7,
+   "lines": [
+    [
+     28,
+     29
+    ]
+   ],
+   "confidence": "high",
+   "operation": "average the two rater columns into one continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ]
+  },
+  {
+   "id": 28,
+   "lines": [
+    [
+     96,
+     96
+    ]
+   ],
+   "confidence": "high",
+   "operation": "encode player identity as a numeric ID to use as the clustering unit",
+   "targets": [
+    "playerShort",
+    "player_id"
+   ]
+  }
+ ],
+ "misalignments": []
+}

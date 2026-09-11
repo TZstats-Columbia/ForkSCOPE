@@ -1,0 +1,119 @@
+{
+ "n_lines": 11,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "note": "standalone comment noting other cleaning code is excluded"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     2,
+     2
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     11,
+     11
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     3,
+     3
+    ]
+   ],
+   "note": "load pscl package"
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "operation": "fit a zero-inflated count model of red cards on skin tone and a main-effects covariate set (no interactions)",
+   "targets": [
+    "redCards",
+    "darkSkin",
+    "weight",
+    "position",
+    "games",
+    "meanIAT",
+    "meanExp",
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     6,
+     6
+    ],
+    [
+     9,
+     9
+    ]
+   ],
+   "note": "print model summary to console"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     8,
+     8
+    ]
+   ],
+   "operation": "refit the zero-inflated model replacing darkSkin's main effect with its interactions against meanIAT and meanExp",
+   "targets": [
+    "redCards",
+    "weight",
+    "position",
+    "games",
+    "darkSkin",
+    "meanIAT",
+    "meanExp",
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  }
+ ]
+}

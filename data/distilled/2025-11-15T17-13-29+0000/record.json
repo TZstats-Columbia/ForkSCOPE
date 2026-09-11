@@ -1,0 +1,127 @@
+{
+ "run_id": "2025-11-15T17-13-29+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 417,
+   "functional_lines": 149,
+   "functional_share": 0.3573,
+   "by_type": {
+    "print": 105,
+    "comment": 90,
+    "plot": 50,
+    "glue": 11,
+    "import": 9,
+    "other": 3
+   }
+  },
+  "prose": {
+   "n_lines": 257,
+   "functional_lines": 154,
+   "functional_share": 0.5992,
+   "by_type": {
+    "heading": 45,
+    "boilerplate": 30,
+    "hedging": 27,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 64,
+  "action_claims": 25,
+  "result_claims": 39,
+  "links": 37,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 5,
+  "R_only_unbacked_action_claim": 5,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw soccer referee dataset from a fixed CSV path with no filtering at read time",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 5,
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "confidence": "high",
+   "operation": "binarize skin category into a dark-skin indicator used as the exposure",
+   "targets": [
+    "skinCategory",
+    "darkSkin"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     56,
+     71
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse free-text position strings into a small set of position buckets via keyword matching, with an Unknown catch-all",
+   "targets": [
+    "position",
+    "positionCategory"
+   ]
+  },
+  {
+   "id": 8,
+   "lines": [
+    [
+     85,
+     89
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose the fixed set of variables (outcome, exposure, covariates, IDs) that will be carried into modeling",
+   "targets": [
+    "model_vars",
+    "model_df"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     401,
+     402
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "drop skin-tone values supported by fewer than 100 dyads before plotting the rate-by-skin-tone curve",
+   "targets": [
+    "rate_by_skin",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

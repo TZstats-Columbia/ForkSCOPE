@@ -1,0 +1,77 @@
+{
+ "run_id": "2025-11-28T20-35-16+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 374,
+   "functional_lines": 120,
+   "functional_share": 0.3209,
+   "by_type": {
+    "print": 143,
+    "comment": 49,
+    "glue": 48,
+    "import": 9,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 292,
+   "functional_lines": 186,
+   "functional_share": 0.637,
+   "by_type": {
+    "heading": 52,
+    "boilerplate": 36,
+    "other": 16,
+    "framing": 7,
+    "background": 3,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 106,
+  "action_claims": 49,
+  "result_claims": 57,
+  "links": 68,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 57
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     81,
+     84
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which outcome, exposure, and covariate columns are carried into the modeling dataset",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "games",
+    "age",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight",
+    "yellowCards",
+    "df_model"
+   ]
+  }
+ ],
+ "misalignments": []
+}

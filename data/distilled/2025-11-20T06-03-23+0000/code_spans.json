@@ -1,0 +1,1035 @@
+{
+ "n_lines": 479,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     16
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     17,
+     26
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     30,
+     32
+    ]
+   ],
+   "note": "fix numpy random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     33,
+     36
+    ]
+   ],
+   "note": "section divider: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "operation": "load the full soccer player-referee dyad dataset from a fixed CSV path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     43,
+     46
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     48
+    ],
+    [
+     336,
+     336
+    ]
+   ],
+   "operation": "keep only rows with a valid skin-tone rating before including them in an analysis",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     49,
+     51
+    ]
+   ],
+   "note": "reports inter-rater correlation as a diagnostic; computation feeds only the print"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     54
+    ]
+   ],
+   "operation": "average the two raters' scores into one continuous skin-tone score per dyad",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     59
+    ],
+    [
+     123,
+     125
+    ],
+    [
+     372,
+     373
+    ]
+   ],
+   "operation": "cut the continuous skin-tone score into Light/Medium/Dark bins at 0.25 and 0.75 and collapse that into a binary dark-skin flag",
+   "targets": [
+    "skin_tone_avg",
+    "skin_group",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     60,
+     63
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     64,
+     67
+    ]
+   ],
+   "note": "section divider: CREATE PLAYER-LEVEL DATASET"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     71
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     72,
+     84
+    ],
+    [
+     104,
+     106
+    ],
+    [
+     323,
+     323
+    ],
+    [
+     338,
+     338
+    ],
+    [
+     375,
+     375
+    ]
+   ],
+   "operation": "collapse detailed position labels into four broad role buckets (Goalkeeper/Defender/Midfielder/Forward/Other)",
+   "targets": [
+    "position",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     100
+    ]
+   ],
+   "operation": "aggregate dyad-level rows to one row per player, taking the first value for fixed attributes and summing counts across the season",
+   "targets": [
+    "playerShort",
+    "games",
+    "redCards",
+    "yellowCards",
+    "goals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     101,
+     103
+    ],
+    [
+     404,
+     404
+    ]
+   ],
+   "operation": "define the outcome as binary: whether a player received at least one red card",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     107,
+     112
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     113,
+     116
+    ]
+   ],
+   "note": "section divider: ANALYSIS SAMPLE LIGHT VS DARK ONLY"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     122
+    ],
+    [
+     374,
+     374
+    ]
+   ],
+   "operation": "drop the Medium skin-tone group and restrict the comparison to Light vs Dark only",
+   "targets": [
+    "skin_group",
+    "player_df",
+    "dyad_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     126,
+     128
+    ],
+    [
+     322,
+     322
+    ],
+    [
+     337,
+     337
+    ],
+    [
+     377,
+     377
+    ]
+   ],
+   "operation": "log-transform total games played, used either as a covariate or as a model offset for playing-time exposure",
+   "targets": [
+    "games",
+    "log_games",
+    "log_games_offset"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     129,
+     132
+    ],
+    [
+     324,
+     324
+    ],
+    [
+     339,
+     339
+    ],
+    [
+     376,
+     376
+    ]
+   ],
+   "operation": "drop players/dyads missing any adjustment covariate (complete-case analysis)",
+   "targets": [
+    "position_broad",
+    "leagueCountry",
+    "height",
+    "weight",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     133,
+     138
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     148
+    ]
+   ],
+   "note": "descriptive-statistics header and crude group counts, computed only to be printed"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     151
+    ]
+   ],
+   "operation": "compute the crude (unadjusted) risk difference between dark- and light-skinned groups as a comparison point",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     152,
+     163
+    ]
+   ],
+   "note": "prints unadjusted RD and position/league distribution crosstabs"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     164,
+     167
+    ]
+   ],
+   "note": "section divider: PRIMARY ANALYSIS ADJUSTED LOGISTIC REGRESSION"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     168,
+     171
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     172,
+     174
+    ],
+    [
+     236,
+     238
+    ],
+    [
+     328,
+     328
+    ],
+    [
+     360,
+     361
+    ]
+   ],
+   "operation": "specify and (re)fit a logistic regression of the red-card outcome on dark_skin adjusting for position, league, and log games (league dropped when stratifying by league)",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "position_broad",
+    "leagueCountry",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    32
+   ]
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     178
+    ]
+   ],
+   "note": "prints full model summary"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     182
+    ]
+   ],
+   "operation": "extract the exponentiated logistic coefficient and treat it as a secondary effect measure (adjusted odds ratio)",
+   "targets": [
+    "model_primary",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     183,
+     190
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     191,
+     194
+    ]
+   ],
+   "note": "section divider: PRIMARY ESTIMAND ADJUSTED RISK DIFFERENCE"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     199
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     200,
+     211
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference via g-formula: predict every player's outcome under both counterfactual exposure levels and difference the averages",
+   "targets": [
+    "model_primary",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     212,
+     216
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     217,
+     220
+    ]
+   ],
+   "note": "section divider: BOOTSTRAP CONFIDENCE INTERVALS"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     222
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     223,
+     235
+    ],
+    [
+     239,
+     261
+    ]
+   ],
+   "operation": "quantify uncertainty in the adjusted risk difference via nonparametric bootstrap (2000 resamples, percentile CI, drop failed/NaN fits, two-sided p-value from the smaller tail proportion doubled)",
+   "targets": [
+    "analysis_complete",
+    "rd_adj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    31
+   ]
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     262,
+     269
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     270,
+     273
+    ]
+   ],
+   "note": "section divider: DELTA METHOD"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     274,
+     275
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     276,
+     304
+    ]
+   ],
+   "operation": "cross-check the bootstrap uncertainty with a delta-method standard error, using a manually reimplemented prediction function and a numerical finite-difference gradient",
+   "targets": [
+    "model_primary",
+    "rd_adj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     305,
+     309
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     310,
+     313
+    ]
+   ],
+   "note": "section divider: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     314,
+     319
+    ]
+   ],
+   "note": "sensitivity-analyses header plus extreme-skin-tone subsection header"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     320,
+     321
+    ],
+    [
+     329,
+     330
+    ]
+   ],
+   "operation": "redefine the exposure contrast to only the most extreme skin-tone scores (0.0 vs 1.0) instead of the 0.25/0.75 bins, as a sensitivity check",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     325,
+     327
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     331,
+     335
+    ]
+   ],
+   "note": "extreme-contrast results printout plus continuous-skin-tone subsection header"
+  },
+  {
+   "id": 52,
+   "kind": "decision",
+   "lines": [
+    [
+     340,
+     344
+    ]
+   ],
+   "operation": "model skin tone as a continuous predictor instead of a binarized exposure, as a sensitivity check",
+   "targets": [
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     345,
+     350
+    ]
+   ],
+   "note": "continuous-model results printout plus stratified-by-league subsection header"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     351,
+     359
+    ],
+    [
+     362,
+     368
+    ]
+   ],
+   "operation": "refit the adjusted model separately within each league as a sensitivity check, only when both exposure groups have at least 10 players",
+   "targets": [
+    "leagueCountry",
+    "analysis_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     369,
+     370
+    ]
+   ],
+   "note": "dyad-level Poisson subsection header"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     371,
+     371
+    ]
+   ],
+   "note": "copies df_with_ratings as the starting frame for the dyad-level analysis"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     378,
+     380
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 58,
+   "kind": "decision",
+   "lines": [
+    [
+     381,
+     387
+    ]
+   ],
+   "operation": "switch to dyad-level unit of analysis with a Poisson GLM of red-card counts, using log(games) as an offset rather than a covariate, as a sensitivity check",
+   "targets": [
+    "redCards",
+    "dark_skin",
+    "position_broad",
+    "leagueCountry",
+    "log_games_offset"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     388,
+     390
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     391,
+     394
+    ]
+   ],
+   "note": "section divider: MISSING DATA ASSESSMENT"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     395,
+     398
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 62,
+   "kind": "decision",
+   "lines": [
+    [
+     399,
+     403
+    ],
+    [
+     411,
+     411
+    ],
+    [
+     418,
+     419
+    ]
+   ],
+   "operation": "assess whether missingness in skin-tone photos is related to the outcome, via group comparison of red-card rates and a chi-square test",
+   "targets": [
+    "rater1",
+    "any_red_card"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     405,
+     410
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     412,
+     412
+    ]
+   ],
+   "note": "relabels crosstab index for display"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     413,
+     417
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     420,
+     422
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     423,
+     426
+    ]
+   ],
+   "note": "section divider: FINAL SUMMARY"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     427,
+     479
+    ]
+   ],
+   "note": "final console report of previously computed estimates plus a hardcoded conclusion statement"
+  }
+ ]
+}

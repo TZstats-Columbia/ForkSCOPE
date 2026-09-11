@@ -1,0 +1,130 @@
+{
+ "run_id": "2025-11-20T10-56-52+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 304,
+   "functional_lines": 101,
+   "functional_share": 0.3322,
+   "by_type": {
+    "comment": 100,
+    "print": 81,
+    "import": 10,
+    "config": 4,
+    "other": 4,
+    "glue": 4
+   }
+  },
+  "prose": {
+   "n_lines": 228,
+   "functional_lines": 108,
+   "functional_share": 0.4737,
+   "by_type": {
+    "boilerplate": 99,
+    "heading": 31,
+    "framing": 6,
+    "citation": 6,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 102,
+  "action_claims": 51,
+  "result_claims": 51,
+  "links": 51,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 51
+ },
+ "silent_decisions": [
+  {
+   "id": 12,
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "confidence": "high",
+   "operation": "drop remaining rows missing the standardized implicit-bias measure",
+   "targets": [
+    "meanIAT_std",
+    "df_final"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     230,
+     230
+    ],
+    [
+     238,
+     241
+    ],
+    [
+     243,
+     247
+    ],
+    [
+     250,
+     251
+    ]
+   ],
+   "confidence": "high",
+   "operation": "relax the exposure floor to >=2 games and refit the no-IAT model on this looser sample",
+   "targets": [
+    "games",
+    "df_noGK",
+    "df_sens2",
+    "darkSkin",
+    "anyRedCard",
+    "refNum"
+   ]
+  },
+  {
+   "id": 18,
+   "lines": [
+    [
+     254,
+     254
+    ],
+    [
+     262,
+     265
+    ],
+    [
+     267,
+     271
+    ],
+    [
+     274,
+     275
+    ]
+   ],
+   "confidence": "high",
+   "operation": "drop the games-played exclusion entirely and refit the no-IAT model on the full non-goalkeeper sample",
+   "targets": [
+    "df_noGK",
+    "df_sens3",
+    "darkSkin",
+    "anyRedCard",
+    "refNum"
+   ]
+  }
+ ],
+ "misalignments": []
+}

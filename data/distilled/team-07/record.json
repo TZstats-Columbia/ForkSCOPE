@@ -1,0 +1,89 @@
+{
+ "run_id": "team-07",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 18,
+   "functional_lines": 14,
+   "functional_share": 0.7778,
+   "by_type": {
+    "import": 2,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 311,
+   "functional_lines": 105,
+   "functional_share": 0.3376,
+   "by_type": {
+    "other": 84,
+    "boilerplate": 54,
+    "framing": 38,
+    "heading": 23,
+    "citation": 8,
+    "hedging": 6,
+    "background": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 6,
+  "claims": 57,
+  "action_claims": 29,
+  "result_claims": 28,
+  "links": 14,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 4,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 28
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the full crowdstorming dataset from CSV as the analysis population",
+   "targets": [
+    "full_data",
+    "CrowdstormingDataset.csv"
+   ]
+  },
+  {
+   "id": 4,
+   "lines": [
+    [
+     4,
+     5
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode each rater's skin-tone score to a numeric zero-based scale",
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "restrict the working sample to referee-player rows with at least one red card",
+   "claim": "decided to include all player-referee dyads in the analysis following the feedback round",
+   "note": "code restricts the working sample to referee-player rows with at least one red card, while the claim states the final analysis included all player-referee dyads"
+  }
+ ]
+}

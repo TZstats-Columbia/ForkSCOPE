@@ -1,0 +1,97 @@
+{
+ "run_id": "2025-11-22T15-41-58+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 277,
+   "functional_lines": 107,
+   "functional_share": 0.3863,
+   "by_type": {
+    "print": 115,
+    "comment": 48,
+    "import": 5,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 192,
+   "functional_lines": 98,
+   "functional_share": 0.5104,
+   "by_type": {
+    "boilerplate": 57,
+    "heading": 52,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 95,
+  "action_claims": 37,
+  "result_claims": 58,
+  "links": 53,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 5,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 58
+ },
+ "silent_decisions": [
+  {
+   "id": 8,
+   "lines": [
+    [
+     89,
+     92
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode missing position and league-country values as an explicit 'Unknown' category instead of dropping them",
+   "targets": [
+    "position",
+    "leagueCountry"
+   ]
+  },
+  {
+   "id": 14,
+   "lines": [
+    [
+     183,
+     187
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "derive player age by subtracting the parsed birth year from a hardcoded reference year (2012)",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     225,
+     231
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "break down the unadjusted dark-vs-light red-card rate gap separately within each of the four leagues",
+   "targets": [
+    "leagueCountry",
+    "isDark",
+    "isLight",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

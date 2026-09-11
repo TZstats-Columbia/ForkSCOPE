@@ -1,0 +1,104 @@
+{
+ "run_id": "2025-11-29T16-49-58+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 406,
+   "functional_lines": 182,
+   "functional_share": 0.4483,
+   "by_type": {
+    "print": 101,
+    "plot": 59,
+    "comment": 45,
+    "import": 9,
+    "config": 5,
+    "glue": 5
+   }
+  },
+  "prose": {
+   "n_lines": 277,
+   "functional_lines": 201,
+   "functional_share": 0.7256,
+   "by_type": {
+    "heading": 61,
+    "boilerplate": 27,
+    "framing": 16,
+    "hedging": 11
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 100,
+  "action_claims": 60,
+  "result_claims": 40,
+  "links": 65,
+  "misaligned": 4
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 23,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 8,
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose the input dataset and its file path as the analysis source",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 18,
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age from birthday using a fixed 2012 reference season",
+   "targets": [
+    "birthday",
+    "birthYear",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "standardize height, weight, and age to z-scores before modeling",
+   "claim": "continuous covariates (number of games, number of yellow cards, player height, weight, age) were included in the model, standardized",
+   "note": "claim states games and yellow cards were standardized; code standardizes only height, weight, and age, leaving games and yellowCards on their raw scale in the model"
+  },
+  {
+   "decision": "bootstrap the risk difference with 500 resamples-with-replacement, refitting the primary model each iteration and silently discarding non-converging fits",
+   "claim": "bootstrap convergence was achieved in 500 of 500 iterations",
+   "note": "claim reports 500 of 500 iterations converged, but the code silently discards non-converging fits, so retained iterations may be fewer than 500 and full convergence is not guaranteed"
+  },
+  {
+   "decision": "re-run the primary model at alternative skin-tone cutpoints (0.30, 0.35, 0.375) as a robustness check",
+   "claim": "seven skin tone cutpoints were tested: 0.25, 0.30, 0.35, 0.375, 0.40, 0.45, 0.50",
+   "note": "claim states seven cutpoints (incl. 0.40, 0.45, 0.50) were tested; code only re-runs at 0.25, 0.30, 0.35, and 0.375"
+  },
+  {
+   "decision": "drop yellowCards from the adjustment set and rerun the model as a robustness check",
+   "claim": "multiple covariate set combinations were tested (with/without yellow cards, with/without physical characteristics, with/without league/position)",
+   "note": "claim states with/without physical characteristics and with/without league/position were also tested; code only drops yellowCards as a covariate-set variation"
+  }
+ ]
+}

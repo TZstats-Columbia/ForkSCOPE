@@ -1,0 +1,70 @@
+{
+ "run_id": "2025-11-20T20-40-17+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 267,
+   "functional_lines": 84,
+   "functional_share": 0.3146,
+   "by_type": {
+    "print": 90,
+    "comment": 53,
+    "glue": 27,
+    "import": 12,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 352,
+   "functional_lines": 228,
+   "functional_share": 0.6477,
+   "by_type": {
+    "heading": 84,
+    "boilerplate": 29,
+    "other": 11,
+    "hedging": 3,
+    "citation": 2,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 143,
+  "action_claims": 55,
+  "result_claims": 88,
+  "links": 56,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 88
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     235,
+     243
+    ]
+   ],
+   "confidence": "low",
+   "operation": "curate which three estimates (primary risk difference, referee-clustered risk difference, odds ratio) get featured in the final summary table, leaving the continuous-exposure result out",
+   "targets": [
+    "rd_coef",
+    "rd_ref",
+    "or_coef"
+   ]
+  }
+ ],
+ "misalignments": []
+}

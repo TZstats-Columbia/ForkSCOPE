@@ -1,0 +1,514 @@
+{
+ "n_lines": 222,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     7
+    ]
+   ],
+   "note": "file header stating the hypothesis under test"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     8,
+     15
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     16,
+     20
+    ]
+   ],
+   "note": "suppress warnings and fix random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "section header: data loading and preparation"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "operation": "read the full soccer referee-player dyad dataset from CSV as the starting analysis sample",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     34
+    ]
+   ],
+   "note": "print raw dataset size and unique player/referee counts"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     38
+    ]
+   ],
+   "note": "section header: quality control and sample selection"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "operation": "drop dyads that are missing a skin-tone rating from either rater",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "note": "print sample size after skin-tone exclusion"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "drop goalkeepers from the sample on the grounds of minimal field contact",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "note": "print sample size after goalkeeper exclusion"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     51
+    ]
+   ],
+   "operation": "restrict to dyads with at least 3 games together as a minimum-exposure cutoff",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     52,
+     58
+    ]
+   ],
+   "note": "print sample size after games filter and final sample composition"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     59,
+     62
+    ]
+   ],
+   "note": "section header: variable construction"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     64
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     65,
+     69
+    ]
+   ],
+   "operation": "dichotomize the continuous skin-tone average at 0.25 to define the dark-skin exposure group",
+   "targets": [
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "operation": "z-score the games count before using it as a model covariate",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     74,
+     82
+    ]
+   ],
+   "note": "print descriptive stats header and skin-tone group distribution"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     83,
+     90
+    ]
+   ],
+   "operation": "compute and report the unadjusted red-card rate separately for the light- and dark-skin groups",
+   "targets": [
+    "dark_skin",
+    "red_card_any"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     91,
+     95
+    ]
+   ],
+   "note": "section header: primary analysis, adjusted logistic regression"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "print primary analysis header"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     100,
+     104
+    ]
+   ],
+   "operation": "fit a logistic regression of any-red-card on dark-skin status, adjusting only for standardized games",
+   "targets": [
+    "red_card_any",
+    "dark_skin",
+    "games_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     105,
+     113
+    ]
+   ],
+   "note": "print model specification description and full regression summary"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     117
+    ]
+   ],
+   "note": "section header: primary estimand, adjusted risk difference"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "note": "function definition line"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     119,
+     119
+    ]
+   ],
+   "note": "function docstring"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     120,
+     156
+    ],
+    [
+     158,
+     158
+    ]
+   ],
+   "operation": "derive the covariate-adjusted risk difference by predicting outcome probabilities under both skin-tone levels for every dyad, averaging the contrast, and computing a delta-method SE with a normal-approximation 95% CI and two-sided p-value",
+   "targets": [
+    "model_primary",
+    "df_qc",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     157,
+     157
+    ]
+   ],
+   "note": "blank separator line"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     171
+    ]
+   ],
+   "note": "print adjusted risk difference estimate, CI, p-value, and interpretation"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "note": "section header: secondary estimand, adjusted odds ratio"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     176,
+     181
+    ]
+   ],
+   "operation": "exponentiate the dark-skin coefficient and its Wald interval to report an adjusted odds ratio as a secondary estimand",
+   "targets": [
+    "model_primary",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     182,
+     194
+    ]
+   ],
+   "note": "print odds ratio estimate, CI, p-value, and interpretation"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     195,
+     198
+    ]
+   ],
+   "note": "section header: conclusion"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     199,
+     202
+    ]
+   ],
+   "note": "print conclusion header"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     203,
+     205
+    ]
+   ],
+   "operation": "express the adjusted risk difference as a percentage of the raw (unadjusted) light-skin baseline rate",
+   "targets": [
+    "light_rate",
+    "rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     206,
+     222
+    ]
+   ],
+   "note": "print baseline rate, absolute/relative increase, significance summary, and final hypothesis conclusion"
+  }
+ ]
+}

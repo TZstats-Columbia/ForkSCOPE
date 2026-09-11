@@ -1,0 +1,104 @@
+{
+ "run_id": "2025-11-12T09-30-16+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 349,
+   "functional_lines": 166,
+   "functional_share": 0.4756,
+   "by_type": {
+    "print": 112,
+    "comment": 56,
+    "import": 9,
+    "config": 3,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 308,
+   "functional_lines": 195,
+   "functional_share": 0.6331,
+   "by_type": {
+    "heading": 48,
+    "hedging": 35,
+    "boilerplate": 29,
+    "framing": 13,
+    "background": 13
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 87,
+  "action_claims": 36,
+  "result_claims": 51,
+  "links": 81,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 51
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "load the full soccer referee-player dyad dataset from a fixed CSV path with no additional row-level scope restriction",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 45,
+   "lines": [
+    [
+     189,
+     191
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "discard bootstrap draws whose resampled dataset has fewer than 1000 rows",
+   "targets": [
+    "boot_sample"
+   ]
+  },
+  {
+   "id": 46,
+   "lines": [
+    [
+     192,
+     205
+    ],
+    [
+     212,
+     214
+    ]
+   ],
+   "confidence": "high",
+   "operation": "rebuild the covariate design matrix for each bootstrap draw and refit the logistic GLM with a plain (non-cluster-robust) fit, silently skipping draws whose fit raises an exception",
+   "targets": [
+    "boot_sample",
+    "X_boot",
+    "y_boot",
+    "model_boot",
+    "result_boot"
+   ]
+  }
+ ],
+ "misalignments": [],
+ "provenance": "itinerary"
+}

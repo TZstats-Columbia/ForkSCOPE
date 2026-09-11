@@ -1,0 +1,70 @@
+{
+ "run_id": "2025-11-29T20-04-37+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 335,
+   "functional_lines": 136,
+   "functional_share": 0.406,
+   "by_type": {
+    "print": 126,
+    "comment": 38,
+    "glue": 23,
+    "import": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 256,
+   "functional_lines": 196,
+   "functional_share": 0.7656,
+   "by_type": {
+    "heading": 56,
+    "boilerplate": 31,
+    "framing": 10,
+    "hedging": 10,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 90,
+  "action_claims": 52,
+  "result_claims": 38,
+  "links": 61,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 38
+ },
+ "silent_decisions": [
+  {
+   "id": 15,
+   "lines": [
+    [
+     284,
+     304
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "assemble the results_summary table, filling the alternative-cutpoint rows with hard-coded OR/CI/p-value literals rather than referencing the values computed in the cutpoint loop",
+   "targets": [
+    "or_primary",
+    "or_league",
+    "or_cont",
+    "results_summary"
+   ]
+  }
+ ],
+ "misalignments": []
+}

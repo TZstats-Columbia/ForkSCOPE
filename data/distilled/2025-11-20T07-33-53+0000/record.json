@@ -1,0 +1,66 @@
+{
+ "run_id": "2025-11-20T07-33-53+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 386,
+   "functional_lines": 86,
+   "functional_share": 0.2228,
+   "by_type": {
+    "print": 135,
+    "comment": 77,
+    "glue": 75,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 301,
+   "functional_lines": 141,
+   "functional_share": 0.4684,
+   "by_type": {
+    "boilerplate": 83,
+    "heading": 55,
+    "hedging": 26,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 113,
+  "action_claims": 46,
+  "result_claims": 67,
+  "links": 56,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 13,
+  "R_only_consistent_negative": 3,
+  "result_claims_deferred": 67
+ },
+ "silent_decisions": [
+  {
+   "id": 64,
+   "lines": [
+    [
+     208,
+     209
+    ]
+   ],
+   "confidence": "low",
+   "operation": "silently drop bootstrap iterations whose model fit throws an exception, excluding them from the CI",
+   "targets": [
+    "risk_diffs"
+   ]
+  }
+ ],
+ "misalignments": []
+}

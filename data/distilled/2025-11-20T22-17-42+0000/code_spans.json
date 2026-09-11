@@ -1,0 +1,845 @@
+{
+ "n_lines": 424,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     7
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     8,
+     16
+    ]
+   ],
+   "note": "leading blank + library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     18
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "note": "set numpy random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     25
+    ]
+   ],
+   "note": "section 1 banner"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "operation": "load the match-level soccer dataset from a fixed CSV path as the analysis source",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     39
+    ]
+   ],
+   "note": "report dataset shape and rater value counts"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "operation": "restrict to dyads where both raters supplied a skin-tone rating, dropping incomplete cases",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "report N with complete ratings"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "operation": "check agreement between the two skin-tone raters via a Pearson correlation",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     46,
+     47
+    ]
+   ],
+   "note": "report inter-rater correlation"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     50
+    ]
+   ],
+   "operation": "average the two raters' scores into one continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     53
+    ]
+   ],
+   "operation": "collapse red-card counts into a binary indicator of whether the dyad ever received a red card",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     54,
+     61
+    ],
+    [
+     73,
+     75
+    ],
+    [
+     81,
+     83
+    ]
+   ],
+   "operation": "band the continuous skin-tone score into light/medium/dark at 0.25 and 0.75, drop the medium band from the primary comparison, and recode the remaining two bands into a dark_skin indicator",
+   "targets": [
+    "skin_tone_avg",
+    "skin_category",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     64
+    ]
+   ],
+   "note": "report skin category distribution"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     68
+    ]
+   ],
+   "note": "section 2 banner"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     80
+    ]
+   ],
+   "operation": "drop dyads with missing player position since position is needed for adjustment",
+   "targets": [
+    "position",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     84,
+     87
+    ]
+   ],
+   "note": "report final sample sizes by exposure group"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     91
+    ]
+   ],
+   "operation": "choose which columns are carried into the modeling dataset (outcome, exposure, adjustment covariates, clustering/grouping ids)",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "games",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     92,
+     95
+    ]
+   ],
+   "note": "section 3 banner"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     100,
+     103
+    ]
+   ],
+   "note": "print red-card rate table"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     104,
+     111
+    ]
+   ],
+   "operation": "summarize the unadjusted association as a risk difference (percentage-point gap in red-card rate) between dark- and light-skinned players",
+   "targets": [
+    "any_red_card",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     112,
+     118
+    ],
+    [
+     119,
+     125
+    ]
+   ],
+   "operation": "pick which covariates and which categorical breakdown to inspect for balance across the skin-tone groups",
+   "targets": [
+    "games",
+    "yellowCards",
+    "victories",
+    "ties",
+    "defeats",
+    "goals",
+    "leagueCountry",
+    "dark_skin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     126,
+     129
+    ]
+   ],
+   "note": "section 4 banner"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     134,
+     140
+    ]
+   ],
+   "operation": "specify the primary regression's adjustment set as games, player position, and league country alongside the skin-tone exposure",
+   "targets": [
+    "dark_skin",
+    "games",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     141,
+     144
+    ]
+   ],
+   "operation": "model the binary red-card outcome with an (unclustered) logistic regression",
+   "targets": [
+    "any_red_card",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     145,
+     157
+    ],
+    [
+     166,
+     176
+    ],
+    [
+     284,
+     292
+    ],
+    [
+     315,
+     317
+    ]
+   ],
+   "operation": "report the exposure effect as an odds ratio with a 95% Wald interval built from the coefficient and its standard error",
+   "targets": [
+    "dark_skin",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     158,
+     165
+    ]
+   ],
+   "operation": "refit the same logistic model with standard errors clustered on player instead of assuming independent observations",
+   "targets": [
+    "playerShort",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     177,
+     181
+    ]
+   ],
+   "note": "section 5 banner"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     182,
+     185
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     186,
+     205
+    ]
+   ],
+   "operation": "obtain the adjusted risk difference by predicting outcomes for the whole sample under counterfactual all-dark and all-light exposure and differencing the average predicted probabilities",
+   "targets": [
+    "logit_model",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     206,
+     210
+    ]
+   ],
+   "note": "section 6 banner"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     211,
+     214
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     215,
+     246
+    ],
+    [
+     250,
+     257
+    ]
+   ],
+   "operation": "quantify uncertainty in the adjusted risk difference by resampling dyads with replacement 1000 times, refitting the model each time, and taking the percentile interval and two-sided proportion p-value of the resampled differences",
+   "targets": [
+    "model_df",
+    "boot_rds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     249
+    ]
+   ],
+   "note": "report count of successful bootstrap fits"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     258,
+     263
+    ]
+   ],
+   "note": "print bootstrap CI/SE/p-value results"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     264,
+     268
+    ]
+   ],
+   "note": "section 7 banner"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     272
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     273,
+     277
+    ]
+   ],
+   "operation": "build a separate sensitivity sample that keeps the full skin-tone range, only dropping missing position rather than the medium band",
+   "targets": [
+    "df_complete",
+    "df_all_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     278,
+     283
+    ]
+   ],
+   "operation": "refit the outcome model using the continuous skin-tone score as exposure instead of the binary dark/light contrast, again with player-clustered SE",
+   "targets": [
+    "skin_tone_avg",
+    "df_all_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     293,
+     314
+    ],
+    [
+     318,
+     320
+    ]
+   ],
+   "operation": "re-run the adjusted association separately within each of four league countries, dropping league country from the covariates and only fitting a model when a country has enough dark-skinned observations with at least one red card",
+   "targets": [
+    "leagueCountry",
+    "dark_skin",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     321,
+     324
+    ]
+   ],
+   "note": "section 8 banner"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     325,
+     328
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     329,
+     330
+    ]
+   ],
+   "note": "create figure/axes"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     331,
+     345
+    ]
+   ],
+   "note": "bootstrap distribution histogram panel"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     346,
+     352
+    ]
+   ],
+   "operation": "compute normal-approximation (Wald) confidence intervals on the raw red-card rate per skin-tone group for the bar chart error bars",
+   "targets": [
+    "any_red_card",
+    "dark_skin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     353,
+     378
+    ]
+   ],
+   "note": "bar chart construction, annotation, and figure save"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     379,
+     382
+    ]
+   ],
+   "note": "section 9 banner"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     383,
+     386
+    ]
+   ],
+   "note": "banner print statements"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     387,
+     410
+    ]
+   ],
+   "note": "print primary/secondary estimand summary and model details"
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     411,
+     414
+    ],
+    [
+     417,
+     419
+    ]
+   ],
+   "operation": "declare the hypothesis supported or not by thresholding the bootstrap p-value against alpha = 0.05",
+   "targets": [
+    "p_value_bootstrap"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     415,
+     416
+    ]
+   ],
+   "note": "print conclusion header line"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     420,
+     424
+    ]
+   ],
+   "note": "final completion banner"
+  }
+ ]
+}

@@ -1,0 +1,729 @@
+{
+ "n_lines": 325,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis, with surrounding blank lines"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     22
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     26
+    ]
+   ],
+   "note": "suppress warnings and fix the numpy random seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     27,
+     31
+    ]
+   ],
+   "note": "section banner: Data Loading and Preparation"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     35
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a specific CSV path with latin1 encoding",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     38,
+     41
+    ]
+   ],
+   "note": "prints raw row/player/referee counts"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     49
+    ]
+   ],
+   "operation": "assess and report inter-rater agreement (correlation and exact-match rate) between the two skin-tone raters",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     50,
+     53
+    ]
+   ],
+   "note": "section banner: Define Exposure and Outcome"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     54,
+     55
+    ]
+   ],
+   "operation": "drop rows without a valid skinTone rating before building the analysis dataset",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     69
+    ]
+   ],
+   "operation": "classify players into light/dark skin groups using cutoffs (<=0.25 light, >=0.75 dark), discard the excluded middle range, and encode the result as a binary darkSkin indicator",
+   "targets": [
+    "skinTone",
+    "skinGroup",
+    "df_model",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     70
+    ]
+   ],
+   "operation": "binarize the outcome as whether any red card occurred, rather than using the red-card count",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     75
+    ]
+   ],
+   "note": "prints analysis-dataset counts by group"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     76,
+     79
+    ]
+   ],
+   "note": "section banner: Descriptive Statistics"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     83
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     84,
+     91
+    ]
+   ],
+   "note": "loop computing and printing red-card rates per skin group"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     92,
+     100
+    ]
+   ],
+   "operation": "compute and report the unadjusted (crude) risk difference between dark- and light-skin groups",
+   "targets": [
+    "anyRedCard",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     101,
+     105
+    ]
+   ],
+   "operation": "test the unadjusted association with a chi-square contingency test",
+   "targets": [
+    "anyRedCard",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     106,
+     110
+    ]
+   ],
+   "note": "section banner: Complete Case Analysis"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     111,
+     116
+    ],
+    [
+     223,
+     227
+    ]
+   ],
+   "operation": "restrict the sample to complete cases on height, position, and weight",
+   "targets": [
+    "height",
+    "position",
+    "weight",
+    "df_complete",
+    "df_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     121
+    ]
+   ],
+   "note": "prints complete-case counts"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     124
+    ],
+    [
+     228,
+     229
+    ]
+   ],
+   "operation": "encode player position and league country as categorical (dummy-coded) covariates",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "position_cat",
+    "leagueCountry_cat"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     125,
+     129
+    ]
+   ],
+   "note": "section banner: Primary Analysis"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     134,
+     139
+    ]
+   ],
+   "operation": "fit the primary model as an OLS linear probability model of any-red-card on dark skin plus the covariate set, with player-clustered standard errors",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "position_cat",
+    "height",
+    "leagueCountry_cat",
+    "yellowCards",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     140,
+     145
+    ]
+   ],
+   "note": "extract coefficient, SE, p-value and CI from the fitted primary model"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     146,
+     152
+    ]
+   ],
+   "operation": "designate the LPM coefficient as the primary estimand and report it as a risk difference with a 95% CI and two-sided p-value against alpha=0.05",
+   "targets": [
+    "darkSkin_coef",
+    "darkSkin_se",
+    "darkSkin_pval",
+    "darkSkin_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     153,
+     157
+    ]
+   ],
+   "note": "section banner: Secondary Analysis"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     161
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     162,
+     169
+    ]
+   ],
+   "operation": "fit a secondary logistic regression (same covariates, player-clustered SEs) to obtain an odds ratio",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "position_cat",
+    "height",
+    "leagueCountry_cat",
+    "yellowCards",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     170,
+     175
+    ]
+   ],
+   "note": "extract coefficient, SE, p-value and CI from the fitted logit model"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     176,
+     180
+    ]
+   ],
+   "operation": "report the secondary estimand as an exponentiated odds ratio with a 95% CI",
+   "targets": [
+    "or_coef",
+    "or_ci",
+    "or_pval"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     181,
+     185
+    ]
+   ],
+   "note": "section banner: Model Specification and Diagnostics"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     186,
+     189
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     201
+    ]
+   ],
+   "note": "prints a summary of the outcome/exposure/covariate/SE choices already made earlier in the script"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     202,
+     212
+    ]
+   ],
+   "operation": "justify player-level SE clustering by computing the intraclass correlation and cluster-size distribution of dyads per player",
+   "targets": [
+    "playerShort",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     213,
+     217
+    ]
+   ],
+   "note": "section banner: Sensitivity Analyses"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     218,
+     221
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     222,
+     222
+    ],
+    [
+     230,
+     240
+    ]
+   ],
+   "operation": "sensitivity check refitting with continuous skinTone as the exposure instead of the binary light/dark group",
+   "targets": [
+    "skinTone",
+    "df_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     241,
+     247
+    ]
+   ],
+   "operation": "sensitivity check adding a darkSkin by league interaction term to test effect heterogeneity across leagues",
+   "targets": [
+    "darkSkin",
+    "leagueCountry_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     248,
+     258
+    ]
+   ],
+   "note": "loop computing and printing crude rates per league plus the interaction term/p-value"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     259,
+     268
+    ],
+    [
+     272,
+     276
+    ]
+   ],
+   "operation": "sensitivity check modeling red-card counts with a Poisson regression using log(games) as an exposure offset",
+   "targets": [
+    "redCards",
+    "games",
+    "darkSkin",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     269,
+     271
+    ]
+   ],
+   "note": "extract incidence rate ratio and CI from the fitted Poisson model"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     277,
+     281
+    ]
+   ],
+   "note": "section banner: Final Summary"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     285
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     286,
+     306
+    ]
+   ],
+   "note": "f-string echoing sample sizes, outcome rates, and the already-computed primary/secondary estimates"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     307,
+     319
+    ]
+   ],
+   "operation": "characterize the overall conclusion by judging the effect as small in magnitude, barely significant, heterogeneous across leagues, and hedging on generalizability",
+   "targets": [
+    "darkSkin_coef",
+    "darkSkin_pval",
+    "darkSkin_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     320,
+     325
+    ]
+   ],
+   "note": "closes the summary f-string and prints the closing banner"
+  }
+ ]
+}

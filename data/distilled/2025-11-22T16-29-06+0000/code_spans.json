@@ -1,0 +1,1043 @@
+{
+ "n_lines": 341,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     22,
+     22
+    ]
+   ],
+   "operation": "load the raw referee-dyad dataset from CSV, fixing the full analysis scope",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous measure",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     45
+    ]
+   ],
+   "operation": "bin the averaged skin-tone score into light/medium/dark categories using 0.25 and 0.75 cutoffs",
+   "targets": [
+    "skinTone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     47
+    ],
+    [
+     151,
+     151
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     61
+    ]
+   ],
+   "operation": "drop the medium skin-tone group, restricting the primary comparison to light vs dark only",
+   "targets": [
+    "skin_category"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     64,
+     64
+    ]
+   ],
+   "operation": "encode dark skin tone as the treatment indicator (1=dark, 0=light)",
+   "targets": [
+    "skin_category"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     67,
+     67
+    ],
+    [
+     152,
+     152
+    ]
+   ],
+   "operation": "exclude dyads with missing player position as a required confounder",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     70
+    ],
+    [
+     153,
+     153
+    ]
+   ],
+   "operation": "log-transform games played before entering it as a covariate",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     98,
+     99
+    ]
+   ],
+   "operation": "fit an unadjusted linear probability model with standard errors clustered by player",
+   "targets": [
+    "any_redcard",
+    "dark_skin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     107
+    ]
+   ],
+   "operation": "choose the covariate adjustment set for the main model (position, league country, log games, yellow cards)",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "log_games",
+    "yellowCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     109
+    ]
+   ],
+   "operation": "fit the primary adjusted linear probability model with player-clustered standard errors",
+   "targets": [
+    "any_redcard",
+    "dark_skin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     127,
+     129
+    ]
+   ],
+   "operation": "refit the adjusted association as a logistic regression instead of a linear probability model",
+   "targets": [
+    "any_redcard",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "operation": "exponentiate the logistic coefficient and its CI to report an odds ratio instead of a log-odds coefficient",
+   "targets": [
+    "logit_model"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     150
+    ],
+    [
+     154,
+     157
+    ]
+   ],
+   "operation": "recode exposure via a median split on skin tone and refit the adjusted model on this alternative exposure",
+   "targets": [
+    "skinTone_avg",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     148
+    ]
+   ],
+   "operation": "build an alternative analysis sample spanning the full skin-tone range instead of only light/dark, for sensitivity checks",
+   "targets": [
+    "skinTone_avg",
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     166
+    ]
+   ],
+   "operation": "treat skin tone as a continuous linear predictor instead of a categorical exposure",
+   "targets": [
+    "skinTone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     173,
+     174
+    ]
+   ],
+   "operation": "recompute standard errors clustering by referee instead of by player",
+   "targets": [
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     181,
+     183
+    ]
+   ],
+   "operation": "drop goalkeepers and refit the adjusted model on the remaining positions",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     197,
+     204
+    ]
+   ],
+   "operation": "compute a minimum detectable effect via a normal-approximation power formula at 80% power and alpha=0.05",
+   "targets": [
+    "any_redcard",
+    "dark_skin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     285,
+     286
+    ]
+   ],
+   "operation": "bin games-played into discrete ranges for the descriptive plot",
+   "targets": [
+    "games"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "operation": "restrict the inter-rater reliability check to complete-case dyads with both ratings present",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     6
+    ]
+   ],
+   "note": "module docstring plus surrounding blank lines"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     7,
+     14
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     15,
+     15
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     16,
+     21
+    ]
+   ],
+   "note": "section header and load comment"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     23,
+     29
+    ]
+   ],
+   "note": "loading summary output"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "blank line plus reliability comment"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "inter-rater correlation output"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "note": "blank line plus category definition comments"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     48,
+     54
+    ]
+   ],
+   "note": "category and red card summary output"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     55,
+     60
+    ]
+   ],
+   "note": "section header and restrict comment"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     62,
+     63
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     68,
+     69
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     87
+    ]
+   ],
+   "note": "sample description and raw rate output"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     88,
+     92
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "note": "header for primary analysis output"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     97,
+     97
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     100,
+     104
+    ]
+   ],
+   "note": "model1 result output"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     105,
+     106
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     110,
+     118
+    ]
+   ],
+   "note": "model2 result output"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     119,
+     122
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "note": "header for secondary analysis output"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": "odds ratio output"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     138,
+     142
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     143,
+     146
+    ]
+   ],
+   "note": "header for sensitivity analyses"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     147,
+     147
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     162
+    ]
+   ],
+   "note": "median split result output"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     163,
+     163
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     171
+    ]
+   ],
+   "note": "continuous sensitivity result output"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     172,
+     172
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     178
+    ]
+   ],
+   "note": "referee-cluster result output"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     179,
+     180
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     184,
+     187
+    ]
+   ],
+   "note": "goalkeeper-exclusion result output"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     188,
+     192
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     193,
+     196
+    ]
+   ],
+   "note": "header for power analysis"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     205,
+     209
+    ]
+   ],
+   "note": "MDE result output"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     210,
+     213
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     214,
+     214
+    ]
+   ],
+   "note": "create figure/axes grid"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     215,
+     216
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     217,
+     231
+    ]
+   ],
+   "note": "bar chart of red card rates by skin category"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     232,
+     233
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     234,
+     243
+    ]
+   ],
+   "note": "histogram of skin tone distribution"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     244,
+     245
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     246,
+     281
+    ]
+   ],
+   "note": "forest plot of effect estimates across models"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     282,
+     283
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     284,
+     284
+    ]
+   ],
+   "note": "select subplot axis"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     287,
+     296
+    ]
+   ],
+   "note": "bar chart of red card rate by games and skin tone, plus layout"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     297,
+     297
+    ]
+   ],
+   "note": "write figure to disk"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     298,
+     298
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     299,
+     303
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     304,
+     307
+    ]
+   ],
+   "note": "header for summary table"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     308,
+     334
+    ]
+   ],
+   "note": "assemble summary table data structure from prior model results"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     335,
+     336
+    ]
+   ],
+   "note": "build and print summary DataFrame"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     337,
+     341
+    ]
+   ],
+   "note": "completion banner"
+  }
+ ]
+}

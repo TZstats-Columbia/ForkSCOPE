@@ -1,0 +1,370 @@
+{
+ "n_lines": 96,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "note": "standalone warning comment about whitespace, not tied to any specific code"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     2,
+     9
+    ]
+   ],
+   "note": "blank line plus library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     10,
+     13
+    ]
+   ],
+   "note": "blank lines and function signature for test_ratings(), no analytic content itself"
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     14,
+     18
+    ]
+   ],
+   "operation": "pull the raw rows into memory as a list of dicts via csv.DictReader rather than reading straight into a pandas dataframe",
+   "targets": [
+    "data"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     19,
+     34
+    ]
+   ],
+   "operation": "restrict the IRR check to rows where neither rater score is missing, test the two rating distributions for normality (D'Agostino-Pearson test plus histograms), and on that basis use Spearman's rank correlation instead of Pearson to summarize inter-rater agreement",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     35,
+     37
+    ]
+   ],
+   "note": "call to test_ratings() is commented out, so the whole function above never actually executes in a normal run"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "reload the same source csv into a dataframe with pandas.read_csv for the main analysis, separate from the earlier DictReader pass",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "operation": "narrow the working dataframe down to a fixed list of columns, discarding everything else in the source file",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "games",
+    "goals",
+    "yellowCards",
+    "redCards",
+    "meanIAT",
+    "meanExp",
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     45
+    ]
+   ],
+   "operation": "drop rows missing either rater score and construct a single 'rating' exposure variable as the sum of rater1 and rater2 (the comment calls it an average, but no division happens)",
+   "targets": [
+    "rater1",
+    "rater2",
+    "rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "bare literal '2' on its own line, evaluated and discarded; likely a leftover fragment of an intended '/2' averaging step that was never wired in"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "operation": "rescale meanIAT and meanExp by a factor of 100 before modeling",
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     53
+    ]
+   ],
+   "operation": "check redCards' variance against its mean as an informal diagnostic of whether the equidispersion assumption behind a Poisson model is reasonable",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     58
+    ],
+    [
+     66,
+     70
+    ],
+    [
+     81,
+     86
+    ]
+   ],
+   "note": "console section headers announcing each question, plus the pre-drop sample-size prints before each dropna call"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     60
+    ]
+   ],
+   "operation": "specify the Question 1 formula: redCards regressed on rating with pairwise interactions against games, goals, yellowCards, meanIAT, and meanExp",
+   "targets": [
+    "redCards",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     64
+    ],
+    [
+     76,
+     79
+    ],
+    [
+     92,
+     95
+    ]
+   ],
+   "operation": "fit each question's model as a Poisson regression via statsmodels rather than some other count-model family",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     65,
+     65
+    ],
+    [
+     80,
+     80
+    ],
+    [
+     96,
+     96
+    ]
+   ],
+   "note": "dump the fitted model's full summary table to the console for each question"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     71,
+     71
+    ]
+   ],
+   "operation": "restrict the Question 2a sample to rows with a non-missing meanIAT value",
+   "targets": [
+    "meanIAT",
+    "df_2a"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     72
+    ],
+    [
+     88,
+     88
+    ]
+   ],
+   "note": "post-drop sample-size prints reporting the effect of the exclusion decisions"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     75
+    ]
+   ],
+   "operation": "specify the Question 2a formula: redCards regressed on meanIAT with interactions against rating, games, goals, yellowCards, and meanExp",
+   "targets": [
+    "redCards",
+    "meanIAT",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     87,
+     87
+    ]
+   ],
+   "operation": "restrict the Question 2b sample to rows with a non-missing meanExp value",
+   "targets": [
+    "meanExp",
+    "df_2b"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     89,
+     91
+    ]
+   ],
+   "operation": "specify the Question 2b formula: redCards regressed on meanExp with interactions against rating, games, goals, yellowCards, and meanIAT",
+   "targets": [
+    "redCards",
+    "meanExp",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  }
+ ]
+}

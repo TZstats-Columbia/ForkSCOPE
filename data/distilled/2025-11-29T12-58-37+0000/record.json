@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-29T12-58-37+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 330,
+   "functional_lines": 100,
+   "functional_share": 0.303,
+   "by_type": {
+    "print": 171,
+    "comment": 40,
+    "import": 6,
+    "glue": 5,
+    "config": 4,
+    "other": 4
+   }
+  },
+  "prose": {
+   "n_lines": 228,
+   "functional_lines": 132,
+   "functional_share": 0.5789,
+   "by_type": {
+    "heading": 52,
+    "boilerplate": 23,
+    "background": 12,
+    "framing": 7,
+    "hedging": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 87,
+  "action_claims": 48,
+  "result_claims": 39,
+  "links": 54,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw player-referee dyad dataset from CSV as the analysis input",
+   "targets": [
+    "df"
+   ]
+  }
+ ],
+ "misalignments": []
+}

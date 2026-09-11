@@ -1,0 +1,126 @@
+{
+  "study": "soccer",
+  "title": "Many analysts, one dataset — red cards and skin tone",
+  "question": "Are soccer players with darker skin tone more likely to be given a red card by referees?",
+  "intake": "INTAKE.md",
+  "final_tag": "ai+human.merged.forkmerged.merged.induced.r3.osplit",
+  "corpora": {
+    "ai": {
+      "label": "agentic runs",
+      "env": "FORKSCOPE_RAW_AI",
+      "default": "data/raw/afp",
+      "glob": "experiment_data/workspaces/*/bedrock_us.anthropic.claude-sonnet-4-5-20250929-v1_0/sample_soccer/*",
+      "artifacts": {
+        "code": "final_analysis.py",
+        "prose": "mirrored_report.txt"
+      },
+      "required": ["code", "prose"],
+      "min_bytes": {"prose": 400},
+      "_discover_note": "A run counts only with both artifacts, and a report under 400 bytes is a stub rather than a write-up. These were hardcoded in distill.py until they moved here; the values are unchanged.",
+      "arm_from_path": "/workspaces/([^/]+)/",
+      "arms": [
+        "standard",
+        "positive",
+        "negative",
+        "confirmation_seeking",
+        "strong_confirmation_seeking"
+      ],
+      "source": "amazon-science/agentic-forking-path",
+      "vendored": false
+    },
+    "human": {
+      "label": "human teams",
+      "env": "FORKSCOPE_RAW_HUMAN",
+      "default": "data/raw/human_corpus",
+      "glob": "team-*",
+      "artifacts": {
+        "code": "script.txt",
+        "prose": [
+          "survey.txt",
+          "report.txt"
+        ]
+      },
+      "required": ["prose"],
+      "_discover_note": "Code is OPTIONAL here -- 12 of 31 teams deposited no script, and they still count as runs that contribute zero decisions, which is the study's largest caveat. A list under a role means candidates: the largest present becomes the role, the next becomes <role>_secondary. survey and report are two prose channels at two time points.",
+      "arm": "human",
+      "source": "Silberzahn et al. 2018, via OSF",
+      "vendored": false,
+      "note": "12 of 31 teams deposited no script and contribute zero decisions"
+    }
+  },
+  "context": {
+    "_comment": "Domain context, appended to prompts as DATA. It never edits prompt text, so prompt_hash is identical across studies and the shared-instrument claim is checkable. See templates/intake.md section C.",
+    "dataset": "One row per player-referee dyad, European leagues 2012-13.",
+    "glossary": {
+      "dyad": "one player-referee pair; rows are dyads, not matches or players",
+      "rater1, rater2": "two independent skin-tone ratings, 5-point, normalised 0-1",
+      "redCards": "count over all games in that dyad",
+      "games": "appearances in the dyad; the natural exposure offset",
+      "IAT, Exp": "implicit and explicit bias scores for the referee's country"
+    },
+    "not_decisions": [
+      "loading the CSV from a fixed path",
+      "setting a random seed",
+      "library imports and plot theming"
+    ],
+    "easily_missed_decisions": [
+      "combining the two skin-tone raters into one exposure",
+      "the reference date age is computed from",
+      "which columns survive into the modelling frame",
+      "whether dyads with zero games are dropped"
+    ]
+  },
+  "research_questions": [
+    "Is the garden of forking paths a real, mappable object, and what shape is it?",
+    "Where do analysts agree, and where is disagreement concentrated?",
+    "Do fork choices predict the reported conclusion out of sample?",
+    "Does the assigned brief change what analysts do, or only what they report?",
+    "How much of what is done is never written down?"
+  ],
+  "predictions": {
+    "_comment": "Recorded before results where possible, so a later match is a prediction rather than a story. Reconstructed here; binding in a new study.",
+    "expected_to_matter": [
+      "dichotomisation cutpoint",
+      "adjustment set",
+      "accounting for repeated referees"
+    ],
+    "outcome": "all three are contested; the fork choices DO predict the reported conclusion out of sample (verdict cross-validated R2 0.26, z 0.25). CORRECTED 2026-08-30: the earlier claim that none predicts out of sample was an artifact of a cross-validation bug -- per-fold design matrices were aligned by column position rather than identity, misaligning 41-48 of ~50 columns in all five folds. See report, Shapley attribution."
+  },
+  "outcomes": {
+    "file": "data/outcomes/outcomes.json",
+    "fragments": "data/outcomes/fragments",
+    "covers_corpora": [
+      "ai"
+    ],
+    "scale": "or_scale_estimate",
+    "note": "no generator in this package; 52 of 207 records have no provenance. See data/outcomes/README.md"
+  },
+  "provenance": {
+    "_comment": "Every run carries one of these. Provenance stratifies, it does not filter -- every run counts toward the statistics, and stability.py reports them with and without non-corpus runs so any drift is visible.",
+    "corpus": "extracted from an analysis a real analyst wrote",
+    "itinerary": "assembled from options the corpus already contains",
+    "authored": "contains an operation no run in the corpus performed"
+  },
+  "stages": [
+    "problem_formulation",
+    "data_collection",
+    "data_cleaning",
+    "eda",
+    "modeling",
+    "communication"
+  ],
+  "comparisons": {
+    "fair": [
+      {
+        "between": "persona arms",
+        "why": "randomly assigned"
+      }
+    ],
+    "unfair": [
+      {
+        "between": "ai vs human",
+        "why": "no human outcomes; 19 of 31 teams code-backed; different brief"
+      }
+    ]
+  }
+}

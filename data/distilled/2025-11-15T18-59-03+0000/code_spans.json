@@ -1,0 +1,892 @@
+{
+ "n_lines": 344,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     39
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from CSV as the analysis source",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "operation": "average two independent raters' skin-tone scores into a single continuous skinTone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     47
+    ],
+    [
+     60,
+     60
+    ]
+   ],
+   "operation": "dichotomize continuous skin tone into a dark/light binary at the 0.5 cutoff, preserving missingness, then cast to an integer binary indicator for modeling",
+   "targets": [
+    "skinTone",
+    "darkSkin",
+    "darkSkin_binary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome (any red card >0)",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "operation": "compute player age as a fixed reference year (2012) minus birth year rather than age at time of match",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     56
+    ]
+   ],
+   "operation": "restrict the analysis sample to dyads that have non-missing skin tone data",
+   "targets": [
+    "darkSkin",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     59
+    ]
+   ],
+   "operation": "further restrict to complete cases by dropping dyads missing position, height, or weight (complete-case analysis)",
+   "targets": [
+    "position",
+    "height",
+    "weight",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     85
+    ]
+   ],
+   "operation": "compute the unadjusted (crude) red-card rate separately for light- and dark-skin groups as a descriptive comparison",
+   "targets": [
+    "darkSkin_binary",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     109,
+     113
+    ]
+   ],
+   "operation": "specify and fit a logistic regression of any red card on dark-skin indicator adjusting for position, league country, age, height, weight, games, and yellow cards",
+   "targets": [
+    "anyRedCard",
+    "darkSkin_binary",
+    "position",
+    "leagueCountry",
+    "age",
+    "height",
+    "weight",
+    "games",
+    "yellowCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     127,
+     128
+    ]
+   ],
+   "operation": "exponentiate the dark-skin coefficient and its CI to report effect on the odds-ratio scale",
+   "targets": [
+    "dark_coef",
+    "dark_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     160
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by marginal standardization: predict outcome probabilities under counterfactual all-dark and all-light skin exposure and average the difference",
+   "targets": [
+    "df_complete",
+    "darkSkin_binary",
+    "logit_result"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     173,
+     209
+    ]
+   ],
+   "operation": "propagate model uncertainty via a parametric bootstrap that draws 5000 coefficient vectors from the multivariate normal approximation to the fitted model and recomputes risk difference and odds ratio for each draw",
+   "targets": [
+    "logit_result",
+    "coef",
+    "cov",
+    "df_dark",
+    "df_light"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     210,
+     215
+    ]
+   ],
+   "operation": "derive percentile-based bootstrap confidence intervals and a two-sided empirical p-value from the bootstrap distribution",
+   "targets": [
+    "bootstrap_rd",
+    "bootstrap_or"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     264,
+     269
+    ]
+   ],
+   "operation": "redefine skin tone exposure using a stricter 0.75 threshold (very dark vs. rest) and refit the adjusted model as a sensitivity check",
+   "targets": [
+    "skinTone",
+    "veryDarkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     246,
+     246
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' using a specific significance rule: bootstrap CI lower bound above zero and p<0.05",
+   "targets": [
+    "rd_ci",
+    "rd_pval"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     22
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     23
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     24,
+     25
+    ]
+   ],
+   "note": "comment preceding seed setting"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "note": "set numpy random seed"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     30
+    ]
+   ],
+   "note": "banner header output"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     31,
+     34
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "note": "comment before data load"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "note": "comment describing skin tone variable"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "note": "comment describing dichotomization"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "note": "comment describing outcome variable"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     51,
+     52
+    ]
+   ],
+   "note": "comment describing age variable"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     54,
+     55
+    ]
+   ],
+   "note": "comment describing skin-tone filter"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     57,
+     58
+    ]
+   ],
+   "note": "comment describing complete-case filter"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     61,
+     66
+    ]
+   ],
+   "note": "sample size summary output"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     67,
+     70
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     73,
+     81
+    ]
+   ],
+   "note": "descriptive counts output"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     83
+    ]
+   ],
+   "note": "comment before unadjusted rate calc"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "unadjusted rate output"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     96,
+     108
+    ]
+   ],
+   "note": "comment enumerating model formula and covariates"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     114,
+     119
+    ]
+   ],
+   "note": "model fit summary output"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     120,
+     120
+    ]
+   ],
+   "note": "comment before result extraction"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     121,
+     124
+    ]
+   ],
+   "note": "extract already-fitted coefficient/SE/p-value/CI into variables"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     125,
+     126
+    ]
+   ],
+   "note": "comment before odds ratio conversion"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     137
+    ]
+   ],
+   "note": "coefficient and odds-ratio output"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     138,
+     141
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     142,
+     143
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     144,
+     148
+    ]
+   ],
+   "note": "comment describing marginal standardization approach"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     161,
+     164
+    ]
+   ],
+   "note": "adjusted probability/risk-difference output"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     165,
+     169
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     170,
+     172
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     216,
+     220
+    ]
+   ],
+   "note": "bootstrap summary output"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     221,
+     224
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     225,
+     245
+    ]
+   ],
+   "note": "final results and interpretation output"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     249
+    ]
+   ],
+   "note": "supported-branch message"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     250,
+     250
+    ]
+   ],
+   "note": "else control flow"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     251,
+     253
+    ]
+   ],
+   "note": "not-supported-branch message"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     254,
+     258
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     259,
+     262
+    ]
+   ],
+   "note": "sensitivity section banner output"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     263,
+     263
+    ]
+   ],
+   "note": "comment before alternative dichotomization"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     270,
+     277
+    ]
+   ],
+   "note": "sensitivity result output"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     278,
+     281
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     283
+    ]
+   ],
+   "note": "section progress message"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     284,
+     337
+    ]
+   ],
+   "note": "three-panel figure construction (bootstrap histograms, predicted probability bars)"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     338,
+     338
+    ]
+   ],
+   "note": "save figure to disk"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     339
+    ]
+   ],
+   "note": "figure-saved confirmation"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     340,
+     344
+    ]
+   ],
+   "note": "completion banner output and trailing blank line"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "S1": {
+  "verdict": "PASS",
+  "runs": 30,
+  "verbatim_f1": 0.176,
+  "lenient_f1": 0.7132,
+  "core_f1": 0.8947,
+  "jitter_share": 0.7532,
+  "median_boundary_jitter_lines": 1,
+  "prose_group_ari": 0.4802
+ },
+ "S2": {
+  "verdict": "REVIEW",
+  "ari": 0.8528,
+  "bcubed_f1": 0.7586,
+  "direction": "B finer than A (both signals agree)"
+ },
+ "S3": {
+  "verdict": "REVIEW",
+  "ari": 0.6947,
+  "bcubed_f1": 0.6637,
+  "direction": "balanced (|p-r| <= 0.02); cluster count says finer"
+ },
+ "S4": {
+  "verdict": "REVIEW",
+  "unstable_clusters": 379,
+  "unstable_rate": 0.5206,
+  "action": "unstable pairs default to UNMERGED; route to review"
+ },
+ "S5": {
+  "verdict": "PASS",
+  "stability_over_union": 0.7963,
+  "agreement_given_both": 0.872,
+  "transitions": {
+   "same_option -> vaguer": 25,
+   "same_option -> same_fork_different_option": 8,
+   "vaguer -> same_option": 7
+  }
+ },
+ "S6": {
+  "verdict": "PASS",
+  "results_without_provenance": []
+ },
+ "S7": {
+  "verdict": "REVIEW",
+  "semantic_f1": 0.4889,
+  "n_a": 51,
+  "n_b": 39,
+  "matched": 22,
+  "structural_f1": 0.4889,
+  "flipped_fraction": 0.526,
+  "action": "quote residue counts with uncertainty, not as point estimates"
+ }
+}

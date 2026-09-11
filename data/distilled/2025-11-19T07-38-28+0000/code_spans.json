@@ -1,0 +1,803 @@
+{
+ "n_lines": 412,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "operation": "read the raw player-referee dyad CSV as the dataset and unit of analysis",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     42
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "operation": "collapse red card counts into a yes/no indicator of any red card in the dyad",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     55
+    ]
+   ],
+   "operation": "cut continuous skin tone into light/medium/dark bins at fixed thresholds",
+   "targets": [
+    "skinTone",
+    "skinCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     69
+    ],
+    [
+     73,
+     73
+    ],
+    [
+     236,
+     236
+    ]
+   ],
+   "operation": "keep only light and dark dyads and code dark skin as the binary exposure",
+   "targets": [
+    "skinCategory",
+    "darkSkin",
+    "df_analysis",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     76
+    ]
+   ],
+   "operation": "drop dyads missing position, height, or weight before modeling",
+   "targets": [
+    "position",
+    "height",
+    "weight",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     84
+    ],
+    [
+     238,
+     240
+    ],
+    [
+     279,
+     280
+    ]
+   ],
+   "operation": "z-score the continuous covariates before entering them in the model",
+   "targets": [
+    "height",
+    "weight",
+    "games",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     111
+    ],
+    [
+     243,
+     244
+    ],
+    [
+     263,
+     264
+    ],
+    [
+     281,
+     284
+    ]
+   ],
+   "operation": "pick position, league, height, weight and games played as the covariates to adjust for",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "height_std",
+    "weight_std",
+    "games_std",
+    "formula"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     120
+    ],
+    [
+     245,
+     247
+    ],
+    [
+     265,
+     267
+    ],
+    [
+     286,
+     288
+    ]
+   ],
+   "operation": "fit a logistic regression with standard errors clustered by player",
+   "targets": [
+    "model",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     143
+    ]
+   ],
+   "operation": "use g-computation, predicting outcomes under everyone-light and everyone-dark, to get a marginal risk difference",
+   "targets": [
+    "darkSkin",
+    "model",
+    "risk_light",
+    "risk_dark",
+    "risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     158,
+     163
+    ],
+    [
+     168,
+     171
+    ],
+    [
+     173,
+     173
+    ],
+    [
+     176,
+     189
+    ]
+   ],
+   "operation": "resample players with replacement 1000 times and refit the model to build a bootstrap distribution, silently dropping non-converging draws",
+   "targets": [
+    "playerShort",
+    "bootstrap_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     193,
+     197
+    ]
+   ],
+   "operation": "take the 2.5/97.5 percentiles of the bootstrap draws as the CI and derive a p-value from a normal approximation to the bootstrap SE",
+   "targets": [
+    "bootstrap_rd",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "p_value"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     214,
+     221
+    ]
+   ],
+   "operation": "convert the logistic coefficient to an odds ratio with a Wald-type exponentiated CI",
+   "targets": [
+    "model",
+    "darkSkin",
+    "or_dark",
+    "or_ci"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     234,
+     235
+    ],
+    [
+     237,
+     237
+    ],
+    [
+     241,
+     242
+    ]
+   ],
+   "operation": "rerun the model on the full sample including medium skin tone, adding a separate medium-tone dummy",
+   "targets": [
+    "skinCategory",
+    "darkSkin",
+    "mediumSkin",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6,
+    8
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     258,
+     260
+    ],
+    [
+     261,
+     262
+    ]
+   ],
+   "operation": "rerun the model treating skin tone as a standardized continuous exposure instead of a category",
+   "targets": [
+    "skinTone",
+    "skinTone_std",
+    "df_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     277,
+     278
+    ]
+   ],
+   "operation": "restrict this sensitivity sample to dyads with non-missing referee bias scores",
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "df_bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     285,
+     285
+    ]
+   ],
+   "operation": "add the referee's implicit and explicit bias scores as extra covariates",
+   "targets": [
+    "meanIAT_std",
+    "meanExp_std",
+    "formula_bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     324,
+     325
+    ],
+    [
+     330,
+     330
+    ]
+   ],
+   "operation": "compute the plotted error bars from a normal-approximation SE of the raw proportions times 1.96",
+   "targets": [
+    "anyRedCard",
+    "se_light",
+    "se_dark"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     340,
+     340
+    ]
+   ],
+   "operation": "limit the position breakdown plot to the 10 most frequent positions",
+   "targets": [
+    "position"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     403,
+     406
+    ]
+   ],
+   "operation": "declare the hypothesis unsupported using an uncorrected 0.05 significance threshold on the bootstrap p-value, without adjusting for the multiple analyses run",
+   "targets": [
+    "p_value",
+    "risk_diff"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     22
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     23
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "note": "warning suppression and RNG seed"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ],
+    [
+     24,
+     25
+    ],
+    [
+     27,
+     30
+    ],
+    [
+     40,
+     41
+    ],
+    [
+     45,
+     46
+    ],
+    [
+     49,
+     51
+    ],
+    [
+     59,
+     62
+    ],
+    [
+     67,
+     68
+    ],
+    [
+     71,
+     72
+    ],
+    [
+     74,
+     75
+    ],
+    [
+     80,
+     81
+    ],
+    [
+     85,
+     86
+    ],
+    [
+     96,
+     99
+    ],
+    [
+     104,
+     105
+    ],
+    [
+     114,
+     115
+    ],
+    [
+     123,
+     126
+    ],
+    [
+     131,
+     132
+    ],
+    [
+     149,
+     152
+    ],
+    [
+     166,
+     167
+    ],
+    [
+     172,
+     172
+    ],
+    [
+     174,
+     175
+    ],
+    [
+     191,
+     192
+    ],
+    [
+     206,
+     209
+    ],
+    [
+     226,
+     229
+    ],
+    [
+     252,
+     253
+    ],
+    [
+     271,
+     272
+    ],
+    [
+     294,
+     297
+    ],
+    [
+     304,
+     305
+    ],
+    [
+     317,
+     318
+    ],
+    [
+     337,
+     338
+    ],
+    [
+     357,
+     358
+    ],
+    [
+     377,
+     380
+    ]
+   ],
+   "note": "docstring, section-divider headers, and inline explanatory comments (with adjacent blank lines)"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     31,
+     34
+    ],
+    [
+     37,
+     39
+    ],
+    [
+     43,
+     44
+    ],
+    [
+     48,
+     48
+    ],
+    [
+     56,
+     58
+    ],
+    [
+     63,
+     66
+    ],
+    [
+     70,
+     70
+    ],
+    [
+     77,
+     79
+    ],
+    [
+     87,
+     89
+    ],
+    [
+     90,
+     95
+    ],
+    [
+     100,
+     103
+    ],
+    [
+     112,
+     113
+    ],
+    [
+     121,
+     122
+    ],
+    [
+     127,
+     130
+    ],
+    [
+     144,
+     148
+    ],
+    [
+     153,
+     157
+    ],
+    [
+     164,
+     165
+    ],
+    [
+     190,
+     190
+    ],
+    [
+     198,
+     205
+    ],
+    [
+     210,
+     213
+    ],
+    [
+     222,
+     225
+    ],
+    [
+     230,
+     233
+    ],
+    [
+     248,
+     251
+    ],
+    [
+     254,
+     257
+    ],
+    [
+     268,
+     270
+    ],
+    [
+     273,
+     276
+    ],
+    [
+     289,
+     293
+    ],
+    [
+     298,
+     301
+    ],
+    [
+     375,
+     375
+    ],
+    [
+     381,
+     402
+    ],
+    [
+     407,
+     412
+    ]
+   ],
+   "note": "console reporting of progress and results"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     302,
+     303
+    ],
+    [
+     306,
+     316
+    ],
+    [
+     319,
+     323
+    ],
+    [
+     326,
+     329
+    ],
+    [
+     331,
+     336
+    ],
+    [
+     339,
+     339
+    ],
+    [
+     341,
+     344
+    ],
+    [
+     345,
+     356
+    ],
+    [
+     359,
+     371
+    ],
+    [
+     372,
+     373
+    ],
+    [
+     376,
+     376
+    ]
+   ],
+   "note": "figure/axes construction, styling, labels, legends"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     374,
+     374
+    ]
+   ],
+   "note": "writing the figure to disk"
+  }
+ ]
+}

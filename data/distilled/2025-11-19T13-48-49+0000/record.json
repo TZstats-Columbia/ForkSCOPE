@@ -1,0 +1,80 @@
+{
+ "run_id": "2025-11-19T13-48-49+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 309,
+   "functional_lines": 125,
+   "functional_share": 0.4045,
+   "by_type": {
+    "print": 118,
+    "comment": 46,
+    "import": 9,
+    "glue": 6,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 248,
+   "functional_lines": 142,
+   "functional_share": 0.5726,
+   "by_type": {
+    "boilerplate": 91,
+    "heading": 35
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 132,
+  "action_claims": 58,
+  "result_claims": 74,
+  "links": 74,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 13,
+  "result_claims_deferred": 74
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     60,
+     64
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age by subtracting birthday from a fixed reference date and converting days to years",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 27,
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the raw, unadjusted red-card rate for each skin-tone group as a descriptive baseline",
+   "targets": [
+    "skin_dark",
+    "any_red"
+   ]
+  }
+ ],
+ "misalignments": []
+}

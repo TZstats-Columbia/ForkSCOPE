@@ -1,0 +1,76 @@
+{
+ "run_id": "2025-11-22T14-39-37+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 325,
+   "functional_lines": 141,
+   "functional_share": 0.4338,
+   "by_type": {
+    "print": 100,
+    "comment": 56,
+    "glue": 15,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 321,
+   "functional_lines": 116,
+   "functional_share": 0.3614,
+   "by_type": {
+    "heading": 86,
+    "boilerplate": 43,
+    "hedging": 35,
+    "other": 31,
+    "framing": 15,
+    "citation": 4,
+    "background": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 114,
+  "action_claims": 35,
+  "result_claims": 79,
+  "links": 54,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 79
+ },
+ "silent_decisions": [
+  {
+   "id": 19,
+   "lines": [
+    [
+     101,
+     105
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "test the unadjusted association with a chi-square contingency test",
+   "targets": [
+    "anyRedCard",
+    "darkSkin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "classify players into light/dark skin groups using cutoffs (<=0.25 light, >=0.75 dark), discard the excluded middle range, and encode the result as a binary darkSkin indicator",
+   "claim": "the middle skin-tone category (0.375-0.625) was excluded from the primary analysis for clearer comparison",
+   "note": "code excludes the middle range (0.25, 0.75); claim states the excluded middle category is 0.375-0.625"
+  }
+ ]
+}

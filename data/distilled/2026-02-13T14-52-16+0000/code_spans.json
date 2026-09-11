@@ -1,0 +1,726 @@
+{
+ "n_lines": 236,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring: title, hypothesis, author, date"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     16
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     18
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     19,
+     22
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "operation": "load the raw soccer referee/player dataset from CSV as the analysis universe",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     25
+    ]
+   ],
+   "note": "print total observation count"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     26,
+     28
+    ]
+   ],
+   "operation": "average the two independent raters' skin-tone scores into a single continuous skin_tone_avg measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "operation": "drop players/dyads with no skin-tone rating before any further analysis",
+   "targets": [
+    "skin_tone_avg",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "print count with skin tone data"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "operation": "dichotomize the continuous skin-tone score into dark vs light using a 0.5 cutpoint",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     40,
+     43
+    ]
+   ],
+   "note": "section banner: COMPLETE CASE ANALYSIS"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     47
+    ],
+    [
+     82,
+     83
+    ]
+   ],
+   "operation": "choose which player/match covariates (games, position, league country, height, weight, yellow cards) enter the adjustment set and regression formulas",
+   "targets": [
+    "games",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight",
+    "yellowCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "operation": "restrict the main regression sample to complete cases via listwise deletion",
+   "targets": [
+    "regression_df",
+    "regression_vars"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "note": "print complete-case count"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     50,
+     53
+    ]
+   ],
+   "note": "section banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     64
+    ]
+   ],
+   "note": "print descriptive header and skin-tone distribution counts/percentages"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     65,
+     71
+    ]
+   ],
+   "operation": "compute and report the crude (unadjusted) difference in red-card rates between dark- and light-skin-toned groups before any covariate adjustment",
+   "targets": [
+    "dark_skin",
+    "any_red_card",
+    "red_by_skin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     72,
+     75
+    ]
+   ],
+   "note": "section banner: LOGISTIC REGRESSION MODEL"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     76,
+     79
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     80,
+     81
+    ],
+    [
+     84,
+     85
+    ]
+   ],
+   "operation": "fit the exposure-outcome relationship as a logistic regression rather than another model family, with default optimizer settings",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "model_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     88
+    ]
+   ],
+   "note": "print model summary"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     89,
+     92
+    ]
+   ],
+   "note": "section banner: PRIMARY ESTIMAND"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     106
+    ]
+   ],
+   "operation": "summarize the exposure effect as an average marginal effect (risk difference in percentage points) rather than only a coefficient/odds ratio",
+   "targets": [
+    "model_full",
+    "dark_skin_me"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     107,
+     110
+    ]
+   ],
+   "note": "print risk difference, CI, p-value"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     111,
+     111
+    ],
+    [
+     134,
+     134
+    ],
+    [
+     205,
+     206
+    ],
+    [
+     225,
+     226
+    ]
+   ],
+   "operation": "declare statistical significance using a two-sided α=0.05 cutoff, and for the final conclusion additionally require the marginal-effect CI to exclude zero",
+   "targets": [
+    "dark_skin_me_pval",
+    "dark_skin_pval",
+    "dark_skin_me_ci_lower"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": "section banner: SECONDARY ESTIMAND"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     116,
+     119
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     120,
+     129
+    ]
+   ],
+   "operation": "compute a secondary effect measure, the adjusted odds ratio, with a Wald-type 95% CI built from a 1.96 z-multiplier on the log-odds scale",
+   "targets": [
+    "dark_skin_coef",
+    "dark_skin_se",
+    "or_adjusted"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "note": "print odds ratio, CI, p-value"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     135,
+     138
+    ]
+   ],
+   "note": "section banner: MODEL DIAGNOSTICS"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     145
+    ]
+   ],
+   "note": "print diagnostics header and pseudo R2/log-likelihood/AIC"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     146,
+     153
+    ]
+   ],
+   "operation": "re-express the absolute risk difference as a percentage relative to the baseline red-card rate",
+   "targets": [
+    "baseline_rate",
+    "dark_skin_me",
+    "relative_increase"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     154,
+     157
+    ]
+   ],
+   "note": "section banner: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     161
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     162,
+     166
+    ]
+   ],
+   "operation": "re-estimate the same model with heteroskedasticity-robust (HC1) standard errors as a robustness check",
+   "targets": [
+    "model_robust",
+    "dark_skin_se_robust"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     170
+    ]
+   ],
+   "note": "print default vs robust SE and p-value"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     171,
+     172
+    ],
+    [
+     177,
+     186
+    ]
+   ],
+   "operation": "re-run the model using the untransformed continuous skin-tone score instead of the binarized exposure, as a sensitivity check on the thresholding choice",
+   "targets": [
+    "skin_tone_avg",
+    "model_continuous",
+    "regression_df_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     173,
+     176
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     187,
+     189
+    ]
+   ],
+   "note": "print continuous-model odds ratio and p-value"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     190,
+     194
+    ]
+   ],
+   "note": "section banner: FINAL SUMMARY"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     197
+    ]
+   ],
+   "note": "print header"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     198,
+     204
+    ]
+   ],
+   "note": "build summary_data dict of formatted result strings for display"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     207,
+     209
+    ]
+   ],
+   "note": "close dict literal and wrap into summary_df DataFrame"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     210,
+     210
+    ]
+   ],
+   "note": "print summary table"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     211,
+     220
+    ]
+   ],
+   "note": "print model-specification summary and exclusion counts"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     224
+    ]
+   ],
+   "note": "print conclusion header"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     227,
+     231
+    ]
+   ],
+   "note": "print hypothesis-supported message"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     232,
+     232
+    ]
+   ],
+   "note": "else branch of conclusion if/else"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     233,
+     236
+    ]
+   ],
+   "note": "print hypothesis-not-supported message and closing banner"
+  }
+ ]
+}

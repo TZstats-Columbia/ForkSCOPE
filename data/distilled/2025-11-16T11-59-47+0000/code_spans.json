@@ -1,0 +1,1220 @@
+{
+ "n_lines": 591,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from CSV",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     43
+    ]
+   ],
+   "operation": "average the two raters' photo scores into one continuous skin_tone variable",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     51
+    ]
+   ],
+   "operation": "collapse the red card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     66
+    ]
+   ],
+   "operation": "drop dyads that lack a photo-based skin tone rating",
+   "targets": [
+    "skin_tone",
+    "df",
+    "df_valid"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     67,
+     71
+    ],
+    [
+     439,
+     440
+    ],
+    [
+     466,
+     467
+    ]
+   ],
+   "operation": "dichotomize continuous skin tone into dark vs light at a 0.25 cutoff",
+   "targets": [
+    "skin_tone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     92
+    ]
+   ],
+   "operation": "collapse detailed playing positions into four broad position groups",
+   "targets": [
+    "position",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     97
+    ]
+   ],
+   "operation": "choose which outcome, exposure and covariate columns are carried into the modeling dataset",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "skin_tone",
+    "position_broad",
+    "leagueCountry",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "refNum",
+    "refCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     98,
+     103
+    ]
+   ],
+   "operation": "drop dyads with no assignable broad position",
+   "targets": [
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     104,
+     112
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median instead of dropping those rows",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     138,
+     139
+    ]
+   ],
+   "operation": "pick which covariates to compare across skin-tone groups as a balance check",
+   "targets": [
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "dark_skin"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     151,
+     153
+    ],
+    [
+     159,
+     161
+    ]
+   ],
+   "operation": "specify a logistic regression of any red card on dark_skin adjusted for position, league, games, yellow cards, goals, height and weight",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "position_broad",
+    "leagueCountry",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     195
+    ]
+   ],
+   "operation": "standardize the fitted model over counterfactual dark_skin values to compute an average marginal risk difference (g-computation)",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     200,
+     204
+    ]
+   ],
+   "operation": "approximate the risk difference's standard error via a delta-method scaling of the logit coefficient SE",
+   "targets": [
+    "dark_se",
+    "baseline_prob"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     205,
+     208
+    ]
+   ],
+   "operation": "build a 95% CI for the risk difference using a normal (±1.96·SE) approximation",
+   "targets": [
+    "mean_rd",
+    "se_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     213,
+     218
+    ],
+    [
+     409,
+     409
+    ]
+   ],
+   "operation": "declare statistical significance using a two-sided 0.05 threshold",
+   "targets": [
+    "dark_pval",
+    "p_value"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     223,
+     227
+    ]
+   ],
+   "operation": "exponentiate the coefficient and CI to report an adjusted odds ratio as a secondary estimand",
+   "targets": [
+    "dark_coef",
+    "dark_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     248,
+     248
+    ],
+    [
+     252,
+     264
+    ],
+    [
+     268,
+     276
+    ]
+   ],
+   "operation": "refit the adjustment model with skin_tone left continuous instead of dichotomized",
+   "targets": [
+    "skin_tone",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     277,
+     278
+    ],
+    [
+     282,
+     285
+    ],
+    [
+     291,
+     304
+    ],
+    [
+     308,
+     321
+    ],
+    [
+     325,
+     332
+    ]
+   ],
+   "operation": "restrict to the extreme tails of skin tone (<=0.125 vs >=0.75) and refit",
+   "targets": [
+    "skin_tone",
+    "very_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     333,
+     334
+    ],
+    [
+     338,
+     338
+    ],
+    [
+     342,
+     355
+    ],
+    [
+     359,
+     366
+    ]
+   ],
+   "operation": "refit the model excluding goalkeepers",
+   "targets": [
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     367,
+     368
+    ],
+    [
+     372,
+     372
+    ],
+    [
+     376,
+     389
+    ],
+    [
+     393,
+     400
+    ]
+   ],
+   "operation": "refit the model excluding dyads with fewer than two shared games",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     21
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     22,
+     25
+    ]
+   ],
+   "note": "warning suppression and RNG seed"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     44,
+     48
+    ]
+   ],
+   "note": "inter-rater correlation check"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     54,
+     57
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     75
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     113,
+     116
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     121,
+     125
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     126,
+     133
+    ]
+   ],
+   "note": "red card rate table build and print"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     140,
+     140
+    ]
+   ],
+   "note": "relabel index for display"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     141,
+     142
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     143,
+     146
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     150
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     154,
+     158
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     162,
+     167
+    ]
+   ],
+   "note": "model summary printout"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     168,
+     174
+    ]
+   ],
+   "note": "extract already-fit coefficient/SE/p/CI"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     178
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     196,
+     199
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     209,
+     212
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     219,
+     222
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     228,
+     236
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     237,
+     241
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     242,
+     245
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     246,
+     247
+    ]
+   ],
+   "note": "init results list"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     249,
+     251
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     265,
+     267
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     279,
+     281
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     286,
+     290
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     305,
+     307
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     322,
+     324
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     335,
+     337
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     341
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     356,
+     358
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     369,
+     371
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     373,
+     375
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     390,
+     392
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     401,
+     406
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     407,
+     408
+    ]
+   ],
+   "note": "assemble/format sensitivity summary dataframe"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     410,
+     418
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     419,
+     423
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     424,
+     427
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     428,
+     438
+    ]
+   ],
+   "note": "figure setup and panel 1 scatter/line/mean reference"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     441,
+     447
+    ]
+   ],
+   "note": "panel 1 labeling"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     448,
+     459
+    ]
+   ],
+   "note": "panel 2 bar chart"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     460,
+     465
+    ]
+   ],
+   "note": "panel 3 histogram"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     468,
+     473
+    ]
+   ],
+   "note": "panel 3 labeling"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     474,
+     502
+    ]
+   ],
+   "note": "panel 4 forest plot"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     503,
+     504
+    ]
+   ],
+   "note": "save figure to disk"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     505,
+     506
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     507,
+     510
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     511,
+     514
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     515,
+     520
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     521,
+     529
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     530,
+     540
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     541,
+     553
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     554,
+     562
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     563,
+     573
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     574,
+     583
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     584,
+     591
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

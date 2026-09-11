@@ -1,0 +1,58 @@
+{
+ "run_id": "team-12",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 11,
+   "functional_lines": 2,
+   "functional_share": 0.1818,
+   "by_type": {
+    "glue": 5,
+    "print": 2,
+    "comment": 1,
+    "import": 1
+   }
+  },
+  "prose": {
+   "n_lines": 166,
+   "functional_lines": 118,
+   "functional_share": 0.7108,
+   "by_type": {
+    "heading": 33,
+    "boilerplate": 32,
+    "hedging": 6,
+    "citation": 5,
+    "background": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 2,
+  "claims": 42,
+  "action_claims": 22,
+  "result_claims": 20,
+  "links": 22,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 2,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 20
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "fit a zero-inflated count model of red cards on skin tone and a main-effects covariate set (no interactions)",
+   "claim": "a mixed-effects model was used to test whether darker player skin tone had a systematic impact on likelihood of penalization",
+   "note": "claim says a mixed-effects model was used to test skin tone on penalization; the code fits a zero-inflated count model, a different estimator"
+  }
+ ]
+}

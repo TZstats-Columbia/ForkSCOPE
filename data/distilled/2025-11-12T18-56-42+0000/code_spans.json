@@ -1,0 +1,693 @@
+{
+ "n_lines": 224,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "header banner stating hypothesis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     7,
+     14
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     15,
+     20
+    ]
+   ],
+   "note": "suppress warnings; blank line; section header comment"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "operation": "load the specific source CSV as the analysis input",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     23,
+     27
+    ]
+   ],
+   "note": "blank line and dataset size summary prints"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     29
+    ]
+   ],
+   "operation": "average the two rater columns into one continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     33
+    ]
+   ],
+   "operation": "restrict inter-rater correlation check to dyads with non-missing rater1 and rater2",
+   "targets": [
+    "rater1",
+    "rater2",
+    "valid_ratings"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     40
+    ],
+    [
+     46,
+     46
+    ]
+   ],
+   "operation": "collapse continuous skin tone into a binary light/dark grouping using ≤0.25 / ≥0.75 cutoffs, dropping the middle range from the analysis sample",
+   "targets": [
+    "skinTone",
+    "skinTone_binary",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "operation": "binarize the red card outcome as any red card (redCards > 0) vs none",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "note": "blank line and comment preceding analysis_df construction"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     47,
+     51
+    ]
+   ],
+   "note": "sample size summary prints and blank line"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     52,
+     55
+    ]
+   ],
+   "note": "section header for descriptive statistics"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     56,
+     59
+    ]
+   ],
+   "note": "section banner prints"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     60,
+     72
+    ]
+   ],
+   "note": "compute and print descriptive rates by group and unadjusted risk difference (reporting, not a distinct analytic fork)"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     77
+    ]
+   ],
+   "note": "blank line and section header for modeling dataset prep"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "operation": "restrict modeling sample to complete cases on position, treating it as a key confounder to require",
+   "targets": [
+    "position",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     82
+    ]
+   ],
+   "note": "blank line and sample size print"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "comment introducing variable construction"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     85
+    ]
+   ],
+   "operation": "treat position and league country as unordered categorical covariates",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "position_cat",
+    "leagueCountry_cat"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    24
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     88
+    ]
+   ],
+   "operation": "standardize games, yellowCards, and height covariates to z-scores before modeling",
+   "targets": [
+    "games",
+    "yellowCards",
+    "height",
+    "games_std",
+    "yellowCards_std",
+    "height_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     89,
+     89
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "operation": "select the final adjustment/covariate set for modeling and drop any remaining rows with missing values on those columns",
+   "targets": [
+    "model_df",
+    "model_df_clean",
+    "anyRedCard",
+    "skinTone_binary",
+    "games_std",
+    "yellowCards_std",
+    "height_std",
+    "position_cat",
+    "leagueCountry_cat",
+    "playerShort",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    23
+   ]
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "blank line and comment"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     96
+    ]
+   ],
+   "operation": "encode player identity as a numeric ID to use as the clustering unit",
+   "targets": [
+    "playerShort",
+    "player_id"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     97,
+     101
+    ]
+   ],
+   "note": "blank line and final sample size prints"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     102,
+     105
+    ]
+   ],
+   "note": "blank line and section header for model fitting"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     106,
+     109
+    ]
+   ],
+   "note": "section banner prints"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "operation": "specify the logistic regression model formula and covariate/adjustment set for the primary outcome model",
+   "targets": [
+    "anyRedCard",
+    "skinTone_binary",
+    "games_std",
+    "yellowCards_std",
+    "height_std",
+    "position_cat",
+    "leagueCountry_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     112,
+     113
+    ]
+   ],
+   "note": "blank line and comment"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     114,
+     119
+    ]
+   ],
+   "operation": "fit logistic regression via IRLS with player-clustered robust standard errors instead of default SEs",
+   "targets": [
+    "model_cluster",
+    "model_df_clean",
+    "player_id"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     120,
+     122
+    ]
+   ],
+   "note": "blank line and model summary print"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "note": "section header for adjusted odds ratio"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     130
+    ]
+   ],
+   "note": "section banner prints"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     131,
+     137
+    ]
+   ],
+   "operation": "report the adjusted odds ratio (exponentiated coefficient) with Wald CI and p-value as a secondary estimand",
+   "targets": [
+    "model_cluster",
+    "or_adjusted",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     138,
+     142
+    ]
+   ],
+   "note": "blank line and section header for adjusted risk difference"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     143,
+     146
+    ]
+   ],
+   "note": "section banner prints"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     147,
+     163
+    ]
+   ],
+   "operation": "compute the adjusted risk difference as the primary estimand via g-computation: set all dyads to light then dark counterfactually, predict outcome probabilities from the fitted model, and average the difference",
+   "targets": [
+    "model_df_clean",
+    "df_light",
+    "df_dark",
+    "skinTone_binary",
+    "pred_light",
+    "pred_dark",
+    "rd_adjusted"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     164,
+     167
+    ]
+   ],
+   "note": "blank line, comment, import of expit, blank line"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     168,
+     168
+    ]
+   ],
+   "note": "comment"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     169,
+     197
+    ]
+   ],
+   "operation": "derive the standard error, 95% CI, and p-value for the adjusted risk difference via the delta method (analytic gradient of predicted-probability contrast propagated through the model covariance)",
+   "targets": [
+    "model_cluster",
+    "dark_col",
+    "X_dark",
+    "X_light",
+    "grad",
+    "vcov",
+    "rd_var",
+    "rd_se",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "z_stat",
+    "p_value",
+    "rd_adjusted"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     198,
+     203
+    ]
+   ],
+   "note": "blank line and prints of SE/CI/z/p for risk difference"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     204,
+     207
+    ]
+   ],
+   "note": "section header for results summary"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     208,
+     224
+    ]
+   ],
+   "note": "final results summary print statements and closing banner"
+  }
+ ]
+}

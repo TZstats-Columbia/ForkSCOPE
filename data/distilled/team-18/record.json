@@ -1,0 +1,261 @@
+{
+ "run_id": "team-18",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 280,
+   "functional_lines": 145,
+   "functional_share": 0.5179,
+   "by_type": {
+    "comment": 53,
+    "glue": 36,
+    "plot": 22,
+    "print": 14,
+    "import": 5,
+    "dead": 3,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 99,
+   "functional_lines": 69,
+   "functional_share": 0.697,
+   "by_type": {
+    "other": 28,
+    "heading": 10,
+    "framing": 6,
+    "citation": 6,
+    "boilerplate": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 35,
+  "action_claims": 25,
+  "result_claims": 10,
+  "links": 24,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 9,
+  "C_only_silent_decision": 11,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 10
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw crowdstorming CSV as the analysis dataset, fixed to a specific file path",
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "id": 11,
+   "lines": [
+    [
+     15,
+     16
+    ],
+    [
+     18,
+     18
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse the now-agreeing rater1/rater2 codes into a single SkinCol variable",
+   "targets": [
+    "rater1",
+    "rater2",
+    "SkinCol"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pull a four-digit birth year out of the birthday string by character position",
+   "targets": [
+    "birthday",
+    "birth.year"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     29,
+     29
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "narrow the working dataset down to a fixed list of columns to carry forward",
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "id": 23,
+   "lines": [
+    [
+     36,
+     44
+    ],
+    [
+     47,
+     47
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse match-level rows into one row per player, summing cards/games/goals/results and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "goals",
+    "victories",
+    "ties",
+    "defeats",
+    "playerShort"
+   ]
+  },
+  {
+   "id": 26,
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fill missing player heights with the sample mean height",
+   "targets": [
+    "height"
+   ]
+  },
+  {
+   "id": 28,
+   "lines": [
+    [
+     52,
+     56
+    ],
+    [
+     57,
+     57
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse match-level rows into one row per referee, summing cards/games and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refNum"
+   ]
+  },
+  {
+   "id": 30,
+   "lines": [
+    [
+     60,
+     64
+    ],
+    [
+     65,
+     65
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse match-level rows into one row per referee country, summing cards/games and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refCountry"
+   ]
+  },
+  {
+   "id": 41,
+   "lines": [
+    [
+     88,
+     96
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose which player-level fields feed the Q1 hierarchical model (matches, red cards, skin tone, league, group sizes)",
+   "targets": [
+    "PlayerMatches",
+    "PlayerRedCards",
+    "SkinCol",
+    "leagueCountry"
+   ]
+  },
+  {
+   "id": 44,
+   "lines": [
+    [
+     104,
+     105
+    ],
+    [
+     244,
+     245
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "seed the MCMC intercept with the logit of the overall empirical red-card rate to speed convergence",
+   "targets": [
+    "PlayerRedCards",
+    "PlayerMatches",
+    "redCards",
+    "games"
+   ]
+  },
+  {
+   "id": 68,
+   "lines": [
+    [
+     177,
+     178
+    ]
+   ],
+   "confidence": "low",
+   "operation": "flag (without acting on) an alternative skin-tone coding, SkinCol3, that could have been used instead of SkinCol",
+   "targets": [
+    "SkinCol"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "keep only rows where both raters logged a skin-tone rating and the two ratings match exactly",
+   "claim": "for cases where raters disagreed, the average of their skin tone ratings was used",
+   "note": "claim states rater disagreements were resolved by averaging the two ratings; code instead drops every row where the two ratings differ"
+  }
+ ]
+}

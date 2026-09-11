@@ -1,0 +1,18 @@
+# Source corpora are fetched, not vendored. See data/raw/MANIFEST.md.
+data/raw/afp/
+data/raw/human_corpus/
+
+__pycache__/
+*.pyc
+
+# Scratch.
+.tmp_*
+*.bak
+
+# Local environment. Holds machine-specific paths to the two source corpora,
+# which are deliberately outside the package -- committing it would ship one
+# operator's filesystem layout as though it were configuration, and would put
+# a path to participant documents in a public repo.
+.env
+.env.*
+!.env.example

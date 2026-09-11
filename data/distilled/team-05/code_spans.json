@@ -1,0 +1,666 @@
+{
+ "n_lines": 108,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     2
+    ]
+   ],
+   "note": "header naming the analysis and documenting the refCountry numeric coding (3=Spain, 8=Germany, 44=England, 7=France)"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     3,
+     6
+    ]
+   ],
+   "note": "load car and lme4 packages"
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     7,
+     7
+    ]
+   ],
+   "operation": "load the crowdstorming dataset from a CSV file as the analysis input",
+   "targets": [
+    "dat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     8,
+     10
+    ]
+   ],
+   "note": "copy the imported data frame into a working variable"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     11,
+     12
+    ]
+   ],
+   "operation": "concatenate playerShort and refNum into a single player-referee pair identifier",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "p_ref"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     13,
+     13
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     14,
+     15
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores per player into one continuous rating, ignoring missing rater values",
+   "targets": [
+    "rater1",
+    "rater2",
+    "avgrate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     16,
+     16
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     17,
+     33
+    ]
+   ],
+   "operation": "expand each player-referee aggregate row into one row per game played, and recode red cards received as a binary per-game outcome, turning count totals into bernoulli trials for a later binomial model",
+   "targets": [
+    "games",
+    "redCards",
+    "data.games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "operation": "drop rows with a missing average skin-tone rating or missing meanIAT, restricting the sample to complete cases",
+   "targets": [
+    "avgrate",
+    "meanIAT",
+    "data.games.nona"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     37,
+     37
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "rescale the average skin-tone rating from its 1-5 scale onto a 0-1 scale",
+   "targets": [
+    "avgrate",
+    "avgrate01"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "operation": "restrict to games where at least one red card was shown, defining the comparison group for the observed-frequency plot",
+   "targets": [
+    "redCards",
+    "data.red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     46
+    ],
+    [
+     48,
+     49
+    ],
+    [
+     51,
+     51
+    ]
+   ],
+   "operation": "truncate skin-tone ratings to integer bins and run a chi-square goodness-of-fit test comparing the rating distribution among red-carded games against the overall expected distribution",
+   "targets": [
+    "avgrate",
+    "redCards",
+    "null.probs",
+    "chi"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "note": "bare evaluation of sum(x), auto-printing the total rating count"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "note": "print the chi-square test result and a table of expected vs. observed counts by rating"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     55,
+     65
+    ]
+   ],
+   "note": "build and render the barplot comparing expected vs. observed rating frequencies, with legend"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     66,
+     66
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     67,
+     67
+    ],
+    [
+     69,
+     70
+    ],
+    [
+     72,
+     73
+    ],
+    [
+     75,
+     76
+    ],
+    [
+     78,
+     79
+    ]
+   ],
+   "operation": "fit a sequence of mixed-effects logistic regression models with progressively richer random-effects structure (intercepts only, then add the fixed skin-tone effect, then a random slope by referee, then a random slope by referee country) to model red cards from skin-tone rating, treating gm3 as the preferred specification",
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "playerShort",
+    "refNum",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     68,
+     68
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     71,
+     71
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     74,
+     74
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     77,
+     77
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     81,
+     82
+    ],
+    [
+     84,
+     85
+    ],
+    [
+     87,
+     87
+    ]
+   ],
+   "operation": "compute each referee country's mean implicit-bias score (meanIAT) and pair it with that country's estimated random slope of the skin-tone effect from gm3, to inspect a country-level association",
+   "targets": [
+    "meanIAT",
+    "refCountry",
+    "gm3",
+    "refag"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     86,
+     86
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     88,
+     88
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     89,
+     89
+    ]
+   ],
+   "note": "scatterplot of country-mean meanIAT against gm3's random slopes (research question 2a)"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     90,
+     91
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     92,
+     93
+    ]
+   ],
+   "operation": "add a cross-level interaction between individual skin-tone rating and country-mean implicit bias to the preferred random-effects model",
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "meanIAT",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     97
+    ],
+    [
+     99,
+     100
+    ],
+    [
+     102,
+     102
+    ]
+   ],
+   "operation": "repeat the country-level aggregation and random-slope extraction for a second country-level measure labeled meanExp (the code re-aggregates data.games.nona$meanIAT and relabels it, rather than referencing a distinct explicit-bias column), pairing it with gm3's random slopes",
+   "targets": [
+    "meanIAT",
+    "refCountry",
+    "gm3",
+    "refag"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     98,
+     98
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     101,
+     101
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     103,
+     103
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     104,
+     104
+    ]
+   ],
+   "note": "scatterplot of country-mean meanExp against gm3's random slopes (research question 2b)"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     105,
+     105
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     107
+    ]
+   ],
+   "operation": "add a cross-level interaction between individual skin-tone rating and the country-level meanExp measure to the preferred random-effects model",
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "meanExp",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     108,
+     108
+    ]
+   ],
+   "note": "trailing blank line"
+  }
+ ]
+}

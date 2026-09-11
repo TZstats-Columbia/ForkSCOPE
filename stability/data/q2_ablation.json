@@ -1,0 +1,37 @@
+{
+ "matched_a": 808,
+ "matched_b": 845,
+ "matched_both": 789,
+ "matched_union": 864,
+ "only_a": 19,
+ "only_b": 56,
+ "identical": 688,
+ "same_partner_diff_verdict": 33,
+ "diff_partner_same_verdict": 61,
+ "diff_partner_and_verdict": 7,
+ "agreement_given_both": 0.872,
+ "stability_over_union": 0.7963,
+ "verdict_transitions": {
+  "same_option -> vaguer": 25,
+  "same_option -> same_fork_different_option": 8,
+  "vaguer -> same_option": 7
+ },
+ "build_a": "data/ablation/matches.json",
+ "build_b": "<ai-only rerun root>/data/ablation/matches.json",
+ "comparison_type": "replicate",
+ "runs": 80,
+ "identical_run_sample": true,
+ "n_code_a": 1363,
+ "n_code_b": 1363,
+ "identical_code_inputs": true,
+ "verdict_mix_a": {
+  "same_option": 769,
+  "vaguer": 26,
+  "same_fork_different_option": 13
+ },
+ "verdict_mix_b": {
+  "same_option": 767,
+  "vaguer": 55,
+  "same_fork_different_option": 23
+ }
+}

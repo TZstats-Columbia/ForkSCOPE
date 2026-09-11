@@ -1,0 +1,80 @@
+{
+ "run_id": "2025-11-20T22-11-22+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 347,
+   "functional_lines": 143,
+   "functional_share": 0.4121,
+   "by_type": {
+    "print": 138,
+    "comment": 41,
+    "glue": 11,
+    "import": 10,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 238,
+   "functional_lines": 197,
+   "functional_share": 0.8277,
+   "by_type": {
+    "heading": 48,
+    "boilerplate": 28,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 91,
+  "action_claims": 28,
+  "result_claims": 63,
+  "links": 17,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 63
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "confidence": "high",
+   "operation": "read the raw player-referee dyad CSV in as the full working dataset",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     55,
+     58
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "parse birthday and derive age as a plain year subtraction from a fixed reference year (2012)",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": []
+}

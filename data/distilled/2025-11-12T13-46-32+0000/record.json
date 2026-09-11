@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-12T13-46-32+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 519,
+   "functional_lines": 180,
+   "functional_share": 0.3468,
+   "by_type": {
+    "print": 131,
+    "plot": 129,
+    "comment": 62,
+    "import": 9,
+    "config": 5,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 278,
+   "functional_lines": 160,
+   "functional_share": 0.5755,
+   "by_type": {
+    "heading": 109,
+    "boilerplate": 27,
+    "hedging": 8,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 160,
+  "action_claims": 68,
+  "result_claims": 92,
+  "links": 62,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 21,
+  "result_claims_deferred": 92
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     79,
+     82
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose which columns define a complete case for modeling (outcome, exposure, covariates, id fields)",
+   "targets": [
+    "any_red_card",
+    "dark_skin",
+    "position_broad",
+    "leagueCountry",
+    "games",
+    "height",
+    "weight",
+    "yellowCards",
+    "playerShort",
+    "refNum"
+   ]
+  },
+  {
+   "id": 49,
+   "lines": [
+    [
+     324,
+     324
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "require at least 100 dyads in the extreme-comparison sample before fitting a model",
+   "targets": [
+    "df_extreme_complete"
+   ]
+  }
+ ],
+ "misalignments": []
+}

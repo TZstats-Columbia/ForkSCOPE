@@ -1,0 +1,44 @@
+{
+ "corpus": "ai+human.merged.forkmerged.merged.induced.r3.osplit",
+ "players": "pivotal",
+ "n_players": 17,
+ "folds": 5,
+ "payouts": {
+  "verdict": {
+   "n": 204,
+   "ridge_lambda": 10,
+   "ridge": 0.2622,
+   "stumps_additive": 0.2132,
+   "depth3": 0.0642,
+   "forest": 0.2537,
+   "interaction_gain": -0.149
+  },
+  "log_or": {
+   "n": 204,
+   "ridge_lambda": 100,
+   "ridge": 0.0317,
+   "stumps_additive": -0.0791,
+   "depth3": -0.6363,
+   "forest": -0.0281,
+   "interaction_gain": -0.5572
+  },
+  "z": {
+   "n": 204,
+   "ridge_lambda": 10,
+   "ridge": 0.2457,
+   "stumps_additive": 0.2361,
+   "depth3": 0.1143,
+   "forest": 0.2089,
+   "interaction_gain": -0.1218
+  },
+  "ci_width": {
+   "n": 204,
+   "ridge_lambda": 30,
+   "ridge": 0.0462,
+   "stumps_additive": -0.0184,
+   "depth3": -0.0755,
+   "forest": -0.015,
+   "interaction_gain": -0.057
+  }
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "run_id": "2025-11-20T23-42-14+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 337,
+   "functional_lines": 112,
+   "functional_share": 0.3323,
+   "by_type": {
+    "print": 87,
+    "comment": 47,
+    "plot": 45,
+    "glue": 32,
+    "import": 12,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 263,
+   "functional_lines": 111,
+   "functional_share": 0.4221,
+   "by_type": {
+    "boilerplate": 85,
+    "heading": 54,
+    "background": 9,
+    "other": 7,
+    "hedging": 6,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 111,
+  "action_claims": 45,
+  "result_claims": 66,
+  "links": 57,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 66
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "confidence": "high",
+   "operation": "test the unadjusted group difference in red-card rates with a two-proportion z-test",
+   "targets": [
+    "dark_redcards",
+    "light_redcards",
+    "dark_total",
+    "light_total"
+   ]
+  }
+ ],
+ "misalignments": []
+}

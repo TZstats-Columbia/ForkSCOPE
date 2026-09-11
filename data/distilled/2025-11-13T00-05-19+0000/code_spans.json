@@ -1,0 +1,1204 @@
+{
+ "n_lines": 367,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     11
+    ]
+   ],
+   "note": "module docstring: title, dataset, author, date, purpose"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     20
+    ]
+   ],
+   "note": "leading blank plus package imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     22
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     25
+    ]
+   ],
+   "note": "set numpy random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "operation": "load the full soccer dyad dataset from a fixed csv path as the analysis population",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "report loaded row count, plus trailing blank"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "operation": "average the two independent raters' scores into one continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     36,
+     36
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     41
+    ]
+   ],
+   "operation": "bin the continuous skin-tone score into light/medium/dark categories using fixed cutpoints (0.375, 0.625)",
+   "targets": [
+    "skinTone",
+    "skinCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     42,
+     42
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome indicator",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     45,
+     45
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     61
+    ]
+   ],
+   "operation": "map free-text position strings into a small set of position categories (Forward/Midfielder/Defender/Goalkeeper/Other) via keyword matching, then apply it to every row",
+   "targets": [
+    "position",
+    "positionCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "operation": "derive player age by subtracting birthdate from a chosen fixed mid-season reference date (2013-01-01)",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     68,
+     71
+    ]
+   ],
+   "note": "section banner: SAMPLE SELECTION"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     73
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     75
+    ]
+   ],
+   "operation": "drop medium skin-tone dyads and restrict the analytic sample to the light-vs-dark comparison",
+   "targets": [
+    "skinCategory",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     76,
+     77
+    ]
+   ],
+   "note": "report post-exclusion row count, plus blank"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "operation": "encode dark skin tone as the exposure indicator (1) versus light (0)",
+   "targets": [
+    "skinCategory",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     81,
+     84
+    ]
+   ],
+   "operation": "drop dyads with missing position, age, height, or weight to form a complete-case analytic sample",
+   "targets": [
+    "positionCategory",
+    "age",
+    "height",
+    "weight",
+    "analysis_df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     88
+    ]
+   ],
+   "note": "report complete-case counts by exposure group"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     89,
+     89
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": "section banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     97
+    ]
+   ],
+   "note": "console header lines"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     98,
+     105
+    ]
+   ],
+   "operation": "select which variables and summary statistics (sum/mean) to tabulate by exposure group for the descriptive table",
+   "targets": [
+    "anyRedCard",
+    "games",
+    "age",
+    "height",
+    "weight",
+    "darkSkin"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     106,
+     107
+    ]
+   ],
+   "note": "print descriptive table, plus blank"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     111
+    ]
+   ],
+   "operation": "compute the crude, unadjusted risk difference and implicit risk ratio between exposure groups before covariate adjustment",
+   "targets": [
+    "anyRedCard",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     114
+    ]
+   ],
+   "note": "report unadjusted risk difference and risk ratio"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     116,
+     119
+    ]
+   ],
+   "note": "section banner: COVARIATE PREPARATION"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     127
+    ]
+   ],
+   "operation": "z-score standardize the continuous covariates (games, age, height, weight) before entering them in the model",
+   "targets": [
+    "games",
+    "age",
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     128,
+     128
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     129,
+     139
+    ]
+   ],
+   "operation": "dummy-code position category into indicator variables, leaving Midfielder as the implicit reference level",
+   "targets": [
+    "positionCategory",
+    "position_Defender",
+    "position_Forward",
+    "position_Goalkeeper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     140,
+     140
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     141,
+     144
+    ]
+   ],
+   "note": "section banner: LOGISTIC REGRESSION MODEL"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "note": "console header lines"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     155
+    ]
+   ],
+   "operation": "choose logistic regression as the model family and pick the adjustment set of covariates (darkSkin, standardized games/age/height/weight, position dummies, league country, referee bias scores) for the outcome model",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games_std",
+    "age_std",
+    "height_std",
+    "weight_std",
+    "position_Defender",
+    "position_Forward",
+    "position_Goalkeeper",
+    "leagueCountry",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     156,
+     156
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     157,
+     159
+    ]
+   ],
+   "note": "print model summary table"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     160,
+     163
+    ]
+   ],
+   "note": "section banner: PRIMARY ESTIMAND - ADJUSTED RISK DIFFERENCE"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     164,
+     167
+    ]
+   ],
+   "note": "console header lines"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     168,
+     183
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference via g-computation, setting exposure to all-dark and all-light counterfactual scenarios and averaging the model's predicted probabilities",
+   "targets": [
+    "darkSkin",
+    "model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     184,
+     184
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     185,
+     189
+    ]
+   ],
+   "note": "report adjusted risks and risk difference"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     190,
+     193
+    ]
+   ],
+   "note": "section banner: BOOTSTRAP CONFIDENCE INTERVAL FOR RISK DIFFERENCE"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     194,
+     196
+    ]
+   ],
+   "note": "console status messages"
+  },
+  {
+   "id": 53,
+   "kind": "decision",
+   "lines": [
+    [
+     197,
+     198
+    ]
+   ],
+   "operation": "choose the number of bootstrap resamples (200) used to characterize sampling variability",
+   "targets": [
+    "n_bootstrap"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     199,
+     200
+    ]
+   ],
+   "note": "blank plus bootstrap loop control"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     201,
+     202
+    ]
+   ],
+   "note": "bootstrap progress message"
+  },
+  {
+   "id": 56,
+   "kind": "decision",
+   "lines": [
+    [
+     203,
+     209
+    ],
+    [
+     211,
+     226
+    ],
+    [
+     230,
+     230
+    ]
+   ],
+   "operation": "resample dyads with replacement, refit the same logistic model and g-computation procedure on each resample to build a bootstrap distribution of the risk difference",
+   "targets": [
+    "analysis_df_complete",
+    "formula",
+    "risk_diffs_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     210,
+     210
+    ]
+   ],
+   "note": "try block start wrapping bootstrap fit"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     227,
+     229
+    ]
+   ],
+   "note": "except/continue: silently skip iterations where the bootstrap fit fails, plus blank"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     231,
+     231
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 60,
+   "kind": "decision",
+   "lines": [
+    [
+     232,
+     234
+    ]
+   ],
+   "operation": "construct the 95% confidence interval from the 2.5th/97.5th percentiles of the bootstrap distribution",
+   "targets": [
+    "risk_diffs_boot",
+    "ci_lower",
+    "ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     235,
+     235
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 62,
+   "kind": "decision",
+   "lines": [
+    [
+     236,
+     237
+    ]
+   ],
+   "operation": "define a two-sided bootstrap p-value as twice the proportion of bootstrap estimates at or below zero",
+   "targets": [
+    "risk_diffs_boot",
+    "p_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     238,
+     242
+    ]
+   ],
+   "note": "report bootstrap CI and p-value"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     243,
+     247
+    ]
+   ],
+   "note": "section banner: SECONDARY ESTIMAND - ADJUSTED ODDS RATIO"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     248,
+     251
+    ]
+   ],
+   "note": "console header lines"
+  },
+  {
+   "id": 66,
+   "kind": "decision",
+   "lines": [
+    [
+     252,
+     261
+    ]
+   ],
+   "operation": "extract the exposure coefficient and use its Wald-based standard error/CI to report an exponentiated odds ratio as the secondary estimand",
+   "targets": [
+    "darkSkin",
+    "model"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     262,
+     262
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     263,
+     267
+    ]
+   ],
+   "note": "report adjusted odds ratio, CI, p-value, and interpretation"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     268,
+     272
+    ]
+   ],
+   "note": "section banner: FINAL SUMMARY"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     276
+    ]
+   ],
+   "note": "print primary estimand summary block"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     277,
+     281
+    ]
+   ],
+   "note": "print secondary estimand summary block"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     286
+    ]
+   ],
+   "note": "print secondary estimand summary block (odds ratio)"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     287,
+     294
+    ]
+   ],
+   "note": "print model detail summary lines"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     295,
+     304
+    ]
+   ],
+   "note": "print covariate list summary"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     305,
+     309
+    ]
+   ],
+   "note": "print exclusion counts already computed earlier"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     310,
+     313
+    ]
+   ],
+   "note": "section banner: VISUALIZATION"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     314,
+     315
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     316,
+     317
+    ]
+   ],
+   "note": "create 2x2 figure/axes grid"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     318,
+     326
+    ]
+   ],
+   "note": "bar chart of skin tone category distribution"
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     327,
+     335
+    ]
+   ],
+   "note": "bar chart of unadjusted red card rates"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     336,
+     348
+    ]
+   ],
+   "note": "histogram of bootstrap risk-difference distribution with reference lines"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     349,
+     360
+    ]
+   ],
+   "note": "bar chart of red card rates by position and exposure"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     361,
+     361
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     362,
+     362
+    ]
+   ],
+   "note": "finalize figure layout"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     363,
+     363
+    ]
+   ],
+   "note": "write figure to disk"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     364,
+     364
+    ]
+   ],
+   "note": "confirm plots saved"
+  },
+  {
+   "id": 87,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     365,
+     365
+    ]
+   ],
+   "note": "blank separator"
+  },
+  {
+   "id": 88,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     366,
+     366
+    ]
+   ],
+   "note": "final completion message"
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     367,
+     367
+    ]
+   ],
+   "note": "trailing blank line at end of file"
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "run_id": "2025-11-22T06-06-50+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 338,
+   "functional_lines": 113,
+   "functional_share": 0.3343,
+   "by_type": {
+    "comment": 108,
+    "print": 106,
+    "import": 9,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 260,
+   "functional_lines": 210,
+   "functional_share": 0.8077,
+   "by_type": {
+    "heading": 64,
+    "boilerplate": 21,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 106,
+  "action_claims": 39,
+  "result_claims": 67,
+  "links": 51,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 3,
+  "result_claims_deferred": 67
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "confidence": "high",
+   "operation": "pick which columns (exposure, position, league, height, weight, player and ref IDs) travel forward into the modeling frame",
+   "targets": [
+    "games",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight",
+    "playerShort",
+    "refNum",
+    "anyRedCard",
+    "skinTone_binary"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     261,
+     262
+    ]
+   ],
+   "confidence": "high",
+   "operation": "only report a threshold's sensitivity result if both groups have more than 100 dyads",
+   "targets": [
+    "darkSkin_alt"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     298,
+     301
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "check multicollinearity via VIF on darkSkin, log_games, height_std and weight_std, leaving the categorical position/league dummies out of the check",
+   "targets": [
+    "darkSkin",
+    "log_games",
+    "height_std",
+    "weight_std"
+   ]
+  },
+  {
+   "id": 21,
+   "lines": [
+    [
+     306,
+     306
+    ]
+   ],
+   "confidence": "low",
+   "operation": "generate in-sample predicted probabilities from the adjusted model to compare against the observed rate",
+   "targets": [
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,833 @@
+{
+ "n_lines": 391,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     15
+    ]
+   ],
+   "note": "module docstring describing study and reproducibility seed"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     16,
+     22
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     27
+    ]
+   ],
+   "note": "suppress warnings; set global RNG seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     35
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "operation": "pick the raw input file and scope of dyads to load",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     38,
+     41
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "operation": "collapse the two independent raters into a single skin-tone score by averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "collapse red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     53
+    ]
+   ],
+   "operation": "drop dyads lacking a skin-tone rating (no player photo) and tally how many were dropped",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     56
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     57,
+     60
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     65,
+     68
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     86
+    ]
+   ],
+   "operation": "collapse detailed field positions into four coarse position groups, bucketing unmapped values as Unknown",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     87,
+     89
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     90,
+     97
+    ]
+   ],
+   "operation": "define the primary dark/light exposure contrast by cutting skin tone at the top quartile vs bottom ~10%, leaving the middle range unclassified",
+   "targets": [
+    "skinTone",
+    "dark_primary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     98,
+     102
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     103,
+     106
+    ]
+   ],
+   "operation": "restrict to dyads with complete exposure and categorical covariate data",
+   "targets": [
+    "dark_primary",
+    "position_cat",
+    "leagueCountry",
+    "df_primary"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     114
+    ]
+   ],
+   "operation": "z-score yellow cards and height for numerical stability in the model",
+   "targets": [
+    "yellowCards",
+    "height",
+    "yellowCards_std",
+    "height_std"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     115,
+     117
+    ]
+   ],
+   "operation": "drop remaining rows missing the standardized covariates",
+   "targets": [
+    "yellowCards_std",
+    "height_std",
+    "df_primary"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     124
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     125,
+     127
+    ]
+   ],
+   "operation": "compute the unadjusted red-card rate for each exposure group as a descriptive baseline",
+   "targets": [
+    "dark_primary",
+    "anyRedCard",
+    "rate_dark_raw",
+    "rate_light_raw"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     132
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     133,
+     136
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     137,
+     140
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     141,
+     149
+    ]
+   ],
+   "note": "prose description of the upcoming model spec"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     150,
+     150
+    ]
+   ],
+   "operation": "choose the covariate/adjustment set for the primary model",
+   "targets": [
+    "anyRedCard",
+    "dark_primary",
+    "position_cat",
+    "leagueCountry",
+    "yellowCards_std",
+    "height_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     151,
+     156
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     157,
+     171
+    ]
+   ],
+   "operation": "fit a binomial GLM with identity link (risk-difference scale) weighted by games played, using HC1 robust SEs, and pull out the dark_primary coefficient/SE/CI/z/p",
+   "targets": [
+    "anyRedCard",
+    "dark_primary",
+    "games",
+    "mod_primary_hc1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     177
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     178,
+     178
+    ]
+   ],
+   "operation": "convert the two-sided p-value into a one-sided p-value by halving it, assuming a directional hypothesis RD>0",
+   "targets": [
+    "p_hc1"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     179,
+     185
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     186,
+     189
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     193
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     194,
+     205
+    ]
+   ],
+   "operation": "refit the same specification with a logit link to report the effect as an odds ratio and pull out its coefficient/CI/p",
+   "targets": [
+    "anyRedCard",
+    "dark_primary",
+    "games",
+    "mod_logit_hc1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     206,
+     216
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     217,
+     220
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     224
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     225
+    ],
+    [
+     230,
+     240
+    ]
+   ],
+   "operation": "re-estimate the primary model with standard errors clustered by player instead of HC1, to test robustness to within-player correlation",
+   "targets": [
+    "playerShort",
+    "mod_primary_cluster_player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     226,
+     229
+    ]
+   ],
+   "note": "rationale text"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     241,
+     247
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     248,
+     248
+    ],
+    [
+     252,
+     272
+    ]
+   ],
+   "operation": "rebuild the analysis sample keeping the full continuous skin-tone range (no dark/light dichotomization) and refit the risk-difference model on it",
+   "targets": [
+    "skinTone",
+    "df_cont",
+    "mod_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     249,
+     251
+    ]
+   ],
+   "note": "rationale text"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     277
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     278,
+     278
+    ],
+    [
+     282,
+     290
+    ]
+   ],
+   "operation": "refit the primary model dropping the games frequency weights, to test robustness to the weighting choice",
+   "targets": [
+    "mod_unwt"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     279,
+     281
+    ]
+   ],
+   "note": "rationale text"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     291,
+     295
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     296,
+     296
+    ],
+    [
+     299,
+     329
+    ]
+   ],
+   "operation": "sweep three alternative dark/light skin-tone cutoffs and refit the model at each to test robustness of the primary threshold choice",
+   "targets": [
+    "skinTone",
+    "dark_temp",
+    "df_temp",
+    "mod_temp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     297,
+     298
+    ]
+   ],
+   "note": "rationale text"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     330,
+     332
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     333,
+     336
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     337,
+     340
+    ]
+   ],
+   "note": "step banner"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     341,
+     366
+    ]
+   ],
+   "note": "restates previously computed estimates, sample composition, exclusions and model settings"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     367,
+     367
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 56,
+   "kind": "decision",
+   "lines": [
+    [
+     368,
+     368
+    ],
+    [
+     370,
+     370
+    ]
+   ],
+   "operation": "declare the hypothesis outcome as SUPPORTED based on the estimated effects",
+   "targets": [
+    "rd_hc1",
+    "or_hc1"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     369,
+     369
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     371,
+     391
+    ]
+   ],
+   "note": "closing narrative summary of effect sizes, robustness checks and caveats"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "run_id": "2025-11-17T21-31-42+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 344,
+   "functional_lines": 155,
+   "functional_share": 0.4506,
+   "by_type": {
+    "print": 133,
+    "comment": 33,
+    "glue": 12,
+    "import": 7,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 212,
+   "functional_lines": 156,
+   "functional_share": 0.7358,
+   "by_type": {
+    "heading": 37,
+    "boilerplate": 25,
+    "hedging": 8,
+    "framing": 2,
+    "other": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 86,
+  "action_claims": 39,
+  "result_claims": 47,
+  "links": 54,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 5,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 47
+ },
+ "silent_decisions": [
+  {
+   "id": 10,
+   "lines": [
+    [
+     33,
+     37
+    ]
+   ],
+   "confidence": "high",
+   "operation": "parse birthday strings and derive player age relative to a fixed mid-season reference date",
+   "targets": [
+    "birthday",
+    "age",
+    "reference_date"
+   ]
+  }
+ ],
+ "misalignments": []
+}

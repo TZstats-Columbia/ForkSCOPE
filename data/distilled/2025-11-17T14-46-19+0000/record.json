@@ -1,0 +1,99 @@
+{
+ "run_id": "2025-11-17T14-46-19+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 310,
+   "functional_lines": 108,
+   "functional_share": 0.3484,
+   "by_type": {
+    "print": 110,
+    "comment": 37,
+    "plot": 32,
+    "glue": 8,
+    "other": 7,
+    "import": 5,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 180,
+   "functional_lines": 92,
+   "functional_share": 0.5111,
+   "by_type": {
+    "boilerplate": 65,
+    "heading": 31,
+    "hedging": 8,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 87,
+  "action_claims": 38,
+  "result_claims": 49,
+  "links": 46,
+  "misaligned": 3
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 49
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     22,
+     24
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the player-referee dyad dataset from a fixed CSV path as the entire analysis input",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 57,
+   "lines": [
+    [
+     266,
+     268
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin the continuous skin-tone score into 9 groups to plot red-card rate against tone",
+   "targets": [
+    "skin_tone_avg",
+    "any_red_card"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bucket free-text position strings into five keyword-matched categories",
+   "claim": "included player position, collapsed into 4 categories, as a covariate",
+   "note": "code buckets positions into five keyword-matched categories; claim says four"
+  },
+  {
+   "decision": "bucket free-text position strings into five keyword-matched categories",
+   "claim": "aggregated 12 detailed positions into 4 broad position categories",
+   "note": "code buckets positions into five categories; claim says twelve positions aggregated into four"
+  },
+  {
+   "decision": "bucket free-text position strings into five keyword-matched categories",
+   "claim": "collapsed player positions into 4 broad categories",
+   "note": "code creates five position categories; claim says four"
+  }
+ ]
+}

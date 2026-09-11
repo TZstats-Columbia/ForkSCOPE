@@ -1,0 +1,124 @@
+{
+ "run_id": "2025-11-22T12-45-22+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 310,
+   "functional_lines": 150,
+   "functional_share": 0.4839,
+   "by_type": {
+    "print": 113,
+    "comment": 35,
+    "import": 8,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 300,
+   "functional_lines": 205,
+   "functional_share": 0.6833,
+   "by_type": {
+    "heading": 66,
+    "framing": 32,
+    "other": 12,
+    "boilerplate": 7,
+    "background": 3,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 87,
+  "action_claims": 36,
+  "result_claims": 51,
+  "links": 38,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 5,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 51
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw player-referee dyad dataset from CSV as the analysis starting point",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode skin_group into a binary is_dark exposure indicator with Light as the reference level",
+   "targets": [
+    "skin_group",
+    "is_dark"
+   ]
+  },
+  {
+   "id": 22,
+   "lines": [
+    [
+     77,
+     78
+    ]
+   ],
+   "confidence": "low",
+   "operation": "strip spaces from column names before building model formulas",
+   "targets": [
+    "df_analysis.columns"
+   ]
+  },
+  {
+   "id": 41,
+   "lines": [
+    [
+     179,
+     180
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "discard bootstrap resamples with fewer than 10 dyads in either exposure group as too imbalanced to fit",
+   "targets": [
+    "is_dark"
+   ]
+  },
+  {
+   "id": 57,
+   "lines": [
+    [
+     261,
+     261
+    ]
+   ],
+   "confidence": "high",
+   "operation": "switch to HC1 heteroskedasticity-robust SEs instead of player-clustered SEs for the single-game-excluded model",
+   "targets": [
+    "model_multi"
+   ]
+  }
+ ],
+ "misalignments": []
+}

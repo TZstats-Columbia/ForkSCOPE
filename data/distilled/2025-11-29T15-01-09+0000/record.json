@@ -1,0 +1,103 @@
+{
+ "run_id": "2025-11-29T15-01-09+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 399,
+   "functional_lines": 157,
+   "functional_share": 0.3935,
+   "by_type": {
+    "print": 128,
+    "comment": 48,
+    "plot": 34,
+    "glue": 19,
+    "import": 8,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 244,
+   "functional_lines": 125,
+   "functional_share": 0.5123,
+   "by_type": {
+    "heading": 63,
+    "boilerplate": 28,
+    "other": 20,
+    "hedging": 13,
+    "background": 3,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 76,
+  "action_claims": 41,
+  "result_claims": 35,
+  "links": 55,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 35
+ },
+ "silent_decisions": [
+  {
+   "id": 36,
+   "lines": [
+    [
+     201,
+     209
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "additionally compute an average marginal effect from the logit model by predicting outcomes with dark forced to 1 vs 0 and averaging the difference",
+   "targets": [
+    "model_logit",
+    "dark",
+    "ame_logit"
+   ]
+  },
+  {
+   "id": 46,
+   "lines": [
+    [
+     289,
+     293
+    ]
+   ],
+   "confidence": "low",
+   "operation": "hardcode the threshold-sweep effect sizes and confidence intervals as literal numbers for the plot instead of pulling them from the fitted model results computed above",
+   "targets": [
+    "thresholds_plot",
+    "rds_plot",
+    "rds_lower",
+    "rds_upper"
+   ]
+  },
+  {
+   "id": 50,
+   "lines": [
+    [
+     310,
+     313
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin continuous skinTone into six display categories for the unadjusted red-card-rate plot",
+   "targets": [
+    "skinTone",
+    "skin_cat"
+   ]
+  }
+ ],
+ "misalignments": []
+}

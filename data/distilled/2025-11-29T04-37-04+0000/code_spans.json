@@ -1,0 +1,592 @@
+{
+ "n_lines": 282,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     14
+    ]
+   ],
+   "note": "module docstring: title, description, author/date/seed metadata"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     15,
+     19
+    ]
+   ],
+   "note": "pandas, numpy, statsmodels, warnings imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "suppress warnings; set numpy random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "console banner announcing the analysis"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "section header: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "console message before loading data"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "operation": "read the raw player-referee dyad dataset from CSV as the analysis input",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "print raw row count"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     38
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone_avg measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     41
+    ]
+   ],
+   "operation": "restrict to complete cases by dropping rows with missing rater1/rater2 skin-tone ratings",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     42
+    ]
+   ],
+   "note": "print complete-case count and percentage"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "operation": "collapse the red card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "print count/rate of any red card"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "note": "section header: EXPOSURE DEFINITION: EXTREME COMPARISON"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     51,
+     54
+    ]
+   ],
+   "note": "console messages describing the exposure comparison and rationale"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     62
+    ]
+   ],
+   "operation": "define the exposure by splitting skin tone into extreme dark (>=0.75) vs light (<0.25) groups and discarding players in the intermediate range",
+   "targets": [
+    "skinTone_avg",
+    "skin_extreme",
+    "skin_dark",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     67
+    ]
+   ],
+   "operation": "assemble the final analytic sample by selecting the outcome, exposure, and covariate columns and dropping rows with any remaining missing covariate",
+   "targets": [
+    "any_red_card",
+    "redCards",
+    "skin_dark",
+    "games",
+    "yellowCards",
+    "position",
+    "leagueCountry",
+    "meanIAT",
+    "meanExp",
+    "playerShort",
+    "refNum",
+    "df_final"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     72
+    ]
+   ],
+   "note": "print final sample size, group sizes, and event count"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     76
+    ]
+   ],
+   "note": "section header: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     78
+    ]
+   ],
+   "note": "console message introducing descriptive statistics"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     79,
+     96
+    ]
+   ],
+   "note": "compute and print unadjusted red card rates, mean games, and mean yellow cards by exposure group"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     97,
+     100
+    ]
+   ],
+   "note": "section header: PRIMARY MODEL: ADJUSTED LOGISTIC REGRESSION"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     101,
+     107
+    ]
+   ],
+   "note": "console description of the model and its covariates"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     113
+    ]
+   ],
+   "operation": "specify and fit the primary model as logistic regression of any_red_card on skin_dark adjusting for games, yellowCards and position",
+   "targets": [
+    "any_red_card",
+    "skin_dark",
+    "games",
+    "yellowCards",
+    "position",
+    "model_primary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     117
+    ]
+   ],
+   "note": "section header: PRIMARY RESULTS"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     121
+    ]
+   ],
+   "note": "console banner for primary results"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     131
+    ]
+   ],
+   "operation": "convert the logistic coefficient for skin_dark into an odds ratio with a confidence interval, to be reported as the secondary effect measure",
+   "targets": [
+    "model_primary",
+    "skin_dark",
+    "OR",
+    "OR_ci_low",
+    "OR_ci_high"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     132,
+     136
+    ]
+   ],
+   "note": "print logistic coefficient, SE, CI, p-value"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     137,
+     146
+    ]
+   ],
+   "operation": "compute the average marginal effect (risk difference) for skin_dark via dydx margins and treat it as the primary effect measure",
+   "targets": [
+    "model_primary",
+    "skin_dark",
+    "ame",
+    "ame_se",
+    "ame_ci_low",
+    "ame_ci_high",
+    "ame_pval"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     157
+    ]
+   ],
+   "note": "print risk-difference estimand, CI, p-value, and interpretation text"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     166
+    ]
+   ],
+   "note": "print odds-ratio estimand, CI, p-value, and interpretation text"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     186
+    ]
+   ],
+   "note": "print model detail summary: sample composition, covariates, exclusion counts, and notes on transformations/SEs/weighting"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     187,
+     191
+    ]
+   ],
+   "note": "console banner for conclusion section"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     192,
+     203
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' using a significance threshold of p<0.05 combined with a risk-difference confidence interval that excludes zero",
+   "targets": [
+    "ame_pval",
+    "ame_ci_low"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     204,
+     207
+    ]
+   ],
+   "note": "section header: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     208,
+     211
+    ]
+   ],
+   "note": "console banner for sensitivity analyses"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     212,
+     241
+    ]
+   ],
+   "operation": "re-run the exposure/outcome model under two alternative extreme-threshold cutoffs as a robustness check, only reporting a cutoff's result if its resulting sample exceeds 1000 rows",
+   "targets": [
+    "skinTone_avg",
+    "skin_comp",
+    "skin_dark",
+    "df_sens_clean",
+    "thresholds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     242,
+     255
+    ]
+   ],
+   "operation": "refit the model using continuous skinTone_avg in place of the binarized exposure, on the full complete-case sample",
+   "targets": [
+    "skinTone_avg",
+    "df_cont",
+    "mod_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     256,
+     267
+    ]
+   ],
+   "operation": "add leagueCountry as an additional adjustment covariate to the primary model as a further robustness check",
+   "targets": [
+    "leagueCountry",
+    "df_final",
+    "mod_league"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     268,
+     277
+    ]
+   ],
+   "note": "console summary declaring the sensitivity analyses consistent with the primary finding"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     282
+    ]
+   ],
+   "note": "final console banner marking analysis complete"
+  }
+ ]
+}

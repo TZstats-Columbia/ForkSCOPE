@@ -1,0 +1,1170 @@
+{
+ "n_lines": 280,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "operation": "load the raw crowdstorming CSV as the analysis dataset, fixed to a specific file path",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "note": "clear the R workspace"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     2,
+     2
+    ]
+   ],
+   "note": "load plyr package"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     3,
+     5
+    ]
+   ],
+   "note": "section header for read & cleanup"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     7,
+     8
+    ]
+   ],
+   "note": "inspect raw data with head/str"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     9,
+     10
+    ]
+   ],
+   "note": "note introducing rater-agreement check"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     11,
+     11
+    ]
+   ],
+   "note": "cross-tab of rater1 vs rater2"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "note": "note on subsampling rationale"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     13,
+     13
+    ]
+   ],
+   "operation": "keep only rows where both raters logged a skin-tone rating and the two ratings match exactly",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     14,
+     14
+    ]
+   ],
+   "note": "note \"common result\""
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     15,
+     16
+    ],
+    [
+     18,
+     18
+    ]
+   ],
+   "operation": "collapse the now-agreeing rater1/rater2 codes into a single SkinCol variable",
+   "targets": [
+    "rater1",
+    "rater2",
+    "SkinCol"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "note": "note \"rater1+2 now agree\""
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     19,
+     20
+    ]
+   ],
+   "note": "note \"remove missing\""
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "operation": "drop players whose referee-country IAT or explicit-bias scores are missing",
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     23
+    ]
+   ],
+   "note": "note \"cleanups\""
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     24,
+     25
+    ]
+   ],
+   "note": "coerce refNum/refCountry to factor for grouping"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "operation": "pull a four-digit birth year out of the birthday string by character position",
+   "targets": [
+    "birthday",
+    "birth.year"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     27,
+     28
+    ]
+   ],
+   "note": "note \"drop some columns\""
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     29
+    ]
+   ],
+   "operation": "narrow the working dataset down to a fixed list of columns to carry forward",
+   "targets": [
+    "data"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "note": "tabulate redCards frequency"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "note": "notes on red-card rarity"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "note \"aggregate player information\""
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     44
+    ],
+    [
+     47,
+     47
+    ]
+   ],
+   "operation": "collapse match-level rows into one row per player, summing cards/games/goals/results and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "goals",
+    "victories",
+    "ties",
+    "defeats",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "note": "commented-out head(players) call"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "note": "note \"fill in missing\""
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "operation": "fill missing player heights with the sample mean height",
+   "targets": [
+    "height"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     50,
+     51
+    ]
+   ],
+   "note": "note \"aggregate referee information\""
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     56
+    ],
+    [
+     57,
+     57
+    ]
+   ],
+   "operation": "collapse match-level rows into one row per referee, summing cards/games and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     58,
+     59
+    ]
+   ],
+   "note": "note \"aggregate referee country information\""
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     60,
+     64
+    ],
+    [
+     65,
+     65
+    ]
+   ],
+   "operation": "collapse match-level rows into one row per referee country, summing cards/games and computing a red-cards-per-match rate",
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     66,
+     67
+    ]
+   ],
+   "note": "save cleaned/aggregated data to disk"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     68,
+     69
+    ]
+   ],
+   "note": "\"exploration\" section header"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     70,
+     72
+    ]
+   ],
+   "note": "reset workspace and reload saved data"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "note": "histogram of player age"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "note": "notes on age distribution and player counts"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     78,
+     78
+    ]
+   ],
+   "note": "note on skin-color structure"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     79,
+     79
+    ]
+   ],
+   "note": "cross-tab of SkinCol vs leagueCountry"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     80,
+     82
+    ]
+   ],
+   "note": "\"Q1\" section header"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     83,
+     85
+    ]
+   ],
+   "note": "reset workspace and reload data for Q1"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     86,
+     87
+    ]
+   ],
+   "note": "drop unused factor levels on players"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     96
+    ]
+   ],
+   "operation": "choose which player-level fields feed the Q1 hierarchical model (matches, red cards, skin tone, league, group sizes)",
+   "targets": [
+    "PlayerMatches",
+    "PlayerRedCards",
+    "SkinCol",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     97,
+     102
+    ]
+   ],
+   "note": "notes describing model parameters (mu.style, mu.skin, mu)"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     103,
+     103
+    ]
+   ],
+   "note": "note on improving convergence"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     104,
+     105
+    ],
+    [
+     244,
+     245
+    ]
+   ],
+   "operation": "seed the MCMC intercept with the logit of the overall empirical red-card rate to speed convergence",
+   "targets": [
+    "PlayerRedCards",
+    "PlayerMatches",
+    "redCards",
+    "games"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     106,
+     106
+    ]
+   ],
+   "note": "blank spacer"
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     130
+    ]
+   ],
+   "operation": "specify the Q1 logistic hierarchical model structure: binomial red cards per player with player-style and skin-tone random effects and their hyperpriors",
+   "targets": [
+    "mu",
+    "mu.style",
+    "mu.skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "note": "load rjags package"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     133,
+     133
+    ]
+   ],
+   "note": "fix random seed before sampling"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     134,
+     135
+    ],
+    [
+     249,
+     249
+    ],
+    [
+     251,
+     251
+    ]
+   ],
+   "operation": "fix the MCMC run's chain count, adaptation length, iterations, thinning interval, and which parameters get monitored",
+   "targets": [
+    "jags",
+    "samples"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     136,
+     138
+    ]
+   ],
+   "note": "save Q1 posterior samples to disk"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     139,
+     142
+    ]
+   ],
+   "note": "reset workspace, reload data and Q1 samples"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     143,
+     144
+    ]
+   ],
+   "note": "reshape mu.skin posterior draws into a labeled matrix"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     145,
+     147
+    ]
+   ],
+   "note": "print posterior summary statistics for skin effects"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     148
+    ],
+    [
+     164,
+     164
+    ],
+    [
+     275,
+     275
+    ],
+    [
+     279,
+     279
+    ]
+   ],
+   "operation": "summarize posterior uncertainty as a 95% equal-tailed credible interval (2.5%/97.5% quantiles)",
+   "targets": [
+    "mu.skin.matrix",
+    "mu.iat",
+    "mu.exp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     149,
+     150
+    ]
+   ],
+   "note": "autocorrelation plot for mu.skin chains"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     151,
+     151
+    ]
+   ],
+   "note": "Gelman-Rubin convergence diagnostic"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     152,
+     152
+    ]
+   ],
+   "note": "density plot of mu.skin posterior"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     153,
+     155
+    ]
+   ],
+   "note": "autocorrelation/density plots for mu"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     156,
+     158
+    ]
+   ],
+   "note": "boxplots of skin effect and overall average"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     159,
+     161
+    ]
+   ],
+   "note": "note \"odds ratio = exp(beta)\""
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     162,
+     162
+    ]
+   ],
+   "note": "label output \"Q1:age credible odds\""
+  },
+  {
+   "id": 62,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     163
+    ],
+    [
+     274,
+     274
+    ],
+    [
+     278,
+     278
+    ]
+   ],
+   "operation": "exponentiate the logit-scale posterior effects to report them as odds ratios, rounded to 2 decimals",
+   "targets": [
+    "mu.skin.matrix",
+    "mu.iat",
+    "mu.exp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    54
+   ]
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     165,
+     166
+    ]
+   ],
+   "note": "note on v.dark vs v.light comparison"
+  },
+  {
+   "id": 64,
+   "kind": "decision",
+   "lines": [
+    [
+     167,
+     167
+    ]
+   ],
+   "operation": "compute the posterior probability that the darkest skin-tone category's effect exceeds the lightest category's",
+   "targets": [
+    "mu.skin.matrix"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     168,
+     171
+    ]
+   ],
+   "note": "\"Q2a/Q2b\" section header"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     172,
+     174
+    ]
+   ],
+   "note": "reset workspace and reload data for Q2"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     175,
+     176
+    ]
+   ],
+   "note": "sort refs/refscountry to align with model indices"
+  },
+  {
+   "id": 68,
+   "kind": "decision",
+   "lines": [
+    [
+     177,
+     178
+    ]
+   ],
+   "operation": "flag (without acting on) an alternative skin-tone coding, SkinCol3, that could have been used instead of SkinCol",
+   "targets": [
+    "SkinCol"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 69,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     195
+    ]
+   ],
+   "operation": "choose Q2 model inputs, including converting each country's IAT/Explicit standard errors and sample sizes into precision weights",
+   "targets": [
+    "games",
+    "redCards",
+    "SkinCol",
+    "playerShort",
+    "refNum",
+    "refCountry",
+    "meanIAT",
+    "seIAT",
+    "nIAT",
+    "meanExp",
+    "seExp",
+    "nExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "decision",
+   "lines": [
+    [
+     196,
+     241
+    ]
+   ],
+   "operation": "specify the Q2 model structure linking referee-level red-card rates to referee style plus skin-tone-specific slopes on country implicit/explicit bias scores",
+   "targets": [
+    "mu",
+    "mu.style",
+    "mu.ref",
+    "mu.iat",
+    "mu.exp",
+    "IAT",
+    "EXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     242,
+     243
+    ]
+   ],
+   "note": "note on improving convergence"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     246,
+     247
+    ]
+   ],
+   "note": "load rjags package"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     248,
+     248
+    ]
+   ],
+   "note": "fix random seed before sampling"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     250,
+     250
+    ]
+   ],
+   "note": "commented-out longer MCMC run with additional monitored parameters"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     252,
+     254
+    ]
+   ],
+   "note": "save Q2 posterior samples to disk"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     255,
+     258
+    ]
+   ],
+   "note": "reset workspace, reload data and Q2 samples"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     259,
+     266
+    ]
+   ],
+   "note": "autocorrelation/density diagnostic plots for mu, mu.iat, mu.exp"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     267,
+     270
+    ]
+   ],
+   "note": "diagnostic boxplots for mu, mu.iat, mu.exp"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     271,
+     272
+    ]
+   ],
+   "note": "note \"odds ratio = exp(beta)\""
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     273
+    ]
+   ],
+   "note": "label output \"Q2a. implicit scores\""
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     276,
+     277
+    ]
+   ],
+   "note": "label output \"Q2b. explicit scores\""
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     280,
+     280
+    ]
+   ],
+   "note": "trailing blank line"
+  }
+ ]
+}

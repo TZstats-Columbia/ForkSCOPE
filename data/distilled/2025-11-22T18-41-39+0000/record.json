@@ -1,0 +1,86 @@
+{
+ "run_id": "2025-11-22T18-41-39+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 371,
+   "functional_lines": 154,
+   "functional_share": 0.4151,
+   "by_type": {
+    "print": 82,
+    "plot": 69,
+    "comment": 38,
+    "glue": 19,
+    "import": 8,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 225,
+   "functional_lines": 132,
+   "functional_share": 0.5867,
+   "by_type": {
+    "boilerplate": 70,
+    "heading": 43,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 130,
+  "action_claims": 33,
+  "result_claims": 97,
+  "links": 58,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 97
+ },
+ "silent_decisions": [
+  {
+   "id": 55,
+   "lines": [
+    [
+     260,
+     273
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "assemble a single comparison table juxtaposing N, risk difference, CI, p-value and OR across the unadjusted, primary and position models",
+   "targets": [
+    "rd_unadj",
+    "ame",
+    "ame_pos",
+    "or_unadj",
+    "or_adjusted",
+    "or_pos"
+   ]
+  },
+  {
+   "id": 60,
+   "lines": [
+    [
+     297,
+     306
+    ]
+   ],
+   "confidence": "low",
+   "operation": "compute the unadjusted red-card rate for each of the three skin-tone categories on the full ratings sample for display",
+   "targets": [
+    "skin_category",
+    "any_red_card"
+   ]
+  }
+ ],
+ "misalignments": []
+}

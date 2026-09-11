@@ -1,0 +1,1920 @@
+{
+ "n_lines": 161,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "title page team name and blank lines"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     6,
+     7
+    ]
+   ],
+   "note": "paper title"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     8,
+     9
+    ]
+   ],
+   "note": "author line and blank"
+  },
+  {
+   "id": 4,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     10,
+     13
+    ]
+   ],
+   "note": "affiliations"
+  },
+  {
+   "id": 5,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     14,
+     14
+    ]
+   ],
+   "note": "Abstract heading"
+  },
+  {
+   "id": 6,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     15,
+     16
+    ]
+   ],
+   "note": "states purpose: dataset analyzed to test for discrimination against dark skinned players"
+  },
+  {
+   "id": 7,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     17,
+     18
+    ]
+   ],
+   "note": "states second research question: whether discrimination is stronger for referees from high-bias countries"
+  },
+  {
+   "id": 8,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "used a clustered robust binomial regression",
+   "polarity": "did",
+   "targets": [
+    "regression model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    9,
+    10,
+    11
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "adjusted the regression for potentially confounding variables such as player position",
+   "polarity": "did",
+   "targets": [
+    "player position",
+    "confounding variables"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8,
+    10,
+    11
+   ]
+  },
+  {
+   "id": 10,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "found an unexplained effect of dark skinned players receiving more red cards than light skinned players",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8,
+    9,
+    11
+   ]
+  },
+  {
+   "id": 11,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "interprets this effect as suggesting referees discriminate based on skin tone",
+   "polarity": "found",
+   "targets": [
+    "referees",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "claim",
+   "lines": [
+    [
+     22,
+     23
+    ]
+   ],
+   "assertion": "found no indication that the referee's home-country level of implicit or explicit skin tone bias moderates the discrimination effect",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     24,
+     25
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 14,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "note": "One Sentence Summary heading"
+  },
+  {
+   "id": 15,
+   "kind": "claim",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "assertion": "used a clustered robust binomial regression adjusted for several potentially confounding variables",
+   "polarity": "did",
+   "targets": [
+    "regression model",
+    "confounding variables"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    16,
+    17
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "assertion": "found that dark skinned players receive more red cards",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15,
+    17
+   ]
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "assertion": "found this effect is not related to average levels of implicit or explicit skin bias in the referee's home country",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15,
+    16
+   ]
+  },
+  {
+   "id": 18,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "note": "Results section header"
+  },
+  {
+   "id": 19,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "Initial Approach subheading"
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "assertion": "the two skin tone ratings had good internal consistency, alpha = 0.96",
+   "polarity": "found",
+   "targets": [
+    "skin tone ratings"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    21
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "assertion": "averaged the two skin tone ratings into a single index",
+   "polarity": "did",
+   "targets": [
+    "skin tone ratings",
+    "skin tone index"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    20
+   ]
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "assertion": "21407 observations with missing values on the skin tone variable were omitted from the analysis",
+   "polarity": "did",
+   "targets": [
+    "observations",
+    "skin tone variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "assertion": "of the remaining 124,621 observations, 123,056 had zero red cards, 1541 had one, and 24 had two",
+   "polarity": "found",
+   "targets": [
+    "observations",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "notes a red card across 47 games differs from one in a single game"
+  },
+  {
+   "id": 25,
+   "kind": "claim",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "assertion": "considered but rejected disaggregating player-referee dyads into individual games because the correlation of other aggregated variables (e.g. yellow cards, goals) at the game level was unknown",
+   "polarity": "did_not",
+   "targets": [
+    "dyads",
+    "games",
+    "yellow cards",
+    "goals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "claim",
+   "lines": [
+    [
+     39,
+     41
+    ]
+   ],
+   "assertion": "instead divided each game-specific outcome (red cards, yellow cards, victories, defeats, goals, ties) by number of games played to get a per-game likelihood",
+   "polarity": "did",
+   "targets": [
+    "red cards",
+    "yellow cards",
+    "victories",
+    "defeats",
+    "goals",
+    "ties"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     41,
+     43
+    ]
+   ],
+   "assertion": "this approach yields fewer observations than full disaggregation, but the multiple observations should add to the reliability of the estimate",
+   "polarity": "found",
+   "targets": [
+    "observations"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "assertion": "found very little variation in the outcome beyond 0 or 1 red card",
+   "polarity": "found",
+   "targets": [
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    29,
+    30,
+    31
+   ]
+  },
+  {
+   "id": 29,
+   "kind": "claim",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "assertion": "decided to treat the dependent variable as a dummy (binary)",
+   "polarity": "did",
+   "targets": [
+    "dependent variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    28,
+    30,
+    31
+   ]
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "assertion": "chose to analyze the results by means of binary logistic regression",
+   "polarity": "did",
+   "targets": [
+    "logistic regression"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    28,
+    29,
+    31
+   ]
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "assertion": "treated any non-zero probability as having received at least one red card",
+   "polarity": "did",
+   "targets": [
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "id": 32,
+   "kind": "claim",
+   "lines": [
+    [
+     46,
+     48
+    ]
+   ],
+   "assertion": "notes the 124,621 dyads come from 1572 unique players and 3147 unique referees, implying non-independent observations and potentially downward-biased standard errors",
+   "polarity": "found",
+   "targets": [
+    "players",
+    "referees",
+    "standard errors"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "claim",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "assertion": "used a two-way clustering approach suggested by Petersen (2009) to correct for non-independence",
+   "polarity": "did",
+   "targets": [
+    "clustering",
+    "standard errors"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     49,
+     50
+    ]
+   ],
+   "assertion": "analyzed the data in STATA 12.1 using the logit2 add-on (Petersen 2014) allowing two-way clustering",
+   "polarity": "did",
+   "targets": [
+    "STATA",
+    "logit2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     50,
+     52
+    ]
+   ],
+   "assertion": "used logistic regression with two-way clustering on referee and player, with DV = whether a single player-referee encounter resulted in a red card",
+   "polarity": "did",
+   "targets": [
+    "logistic regression",
+    "referee",
+    "player",
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "assertion": "first examined the unadjusted effect, then added controls for player height, weight and position",
+   "polarity": "did",
+   "targets": [
+    "height",
+    "weight",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "claim",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "assertion": "found unadjusted odds ratio of 1.07, 95% CI [1.01,1.13] for one SD darker skin tone",
+   "polarity": "found",
+   "targets": [
+    "odds ratio",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     54,
+     57
+    ]
+   ],
+   "assertion": "darker skin tone is associated with a higher likelihood of receiving a red card, a weak but detectable discrimination effect",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    39
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     54,
+     57
+    ]
+   ],
+   "assertion": "this effect cannot be explained by differences between dark and light skinned players in height, weight or position",
+   "polarity": "found",
+   "targets": [
+    "height",
+    "weight",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    38
+   ]
+  },
+  {
+   "id": 40,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     58
+    ]
+   ],
+   "assertion": "found the adjusted effect virtually identical, OR = 1.07, 95% CI [1.02,1.14]",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "assertion": "notes implicit/explicit bias measures are not referee-specific but based on the referee's home country overall values, so dyads are nested within home country (N=155)",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "claim",
+   "lines": [
+    [
+     61,
+     62
+    ]
+   ],
+   "assertion": "conducted a logistic regression clustering on referee's home country using STATA logit",
+   "polarity": "did",
+   "targets": [
+    "logistic regression",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     62,
+     63
+    ]
+   ],
+   "assertion": "started the model without controls",
+   "polarity": "did",
+   "targets": [
+    "controls"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "claim",
+   "lines": [
+    [
+     63,
+     65
+    ]
+   ],
+   "assertion": "the first model included standardized predictors: skin tone rating, implicit bias, explicit bias, and their interactions with skin tone",
+   "polarity": "did",
+   "targets": [
+    "skin tone rating",
+    "implicit bias",
+    "explicit bias",
+    "interaction terms"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     65,
+     65
+    ]
+   ],
+   "assertion": "designated the interaction effects as the analytic answer to research question 2",
+   "polarity": "did",
+   "targets": [
+    "interaction effects"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     65,
+     67
+    ]
+   ],
+   "note": "hypothesis: a positive interaction effect would indicate implicit/explicit bias matters"
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     68,
+     68
+    ]
+   ],
+   "assertion": "found the effect of skin tone remains similar in size, OR = 1.08, 95% CI [0.98,1.18]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     71
+    ]
+   ],
+   "assertion": "found the main effects of implicit (OR=1.12) and explicit (OR=.87) measures have CIs too wide to draw conclusions",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     71,
+     71
+    ]
+   ],
+   "assertion": "states these main effects have no direct theoretical interpretation",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "note": "interaction effects deemed more relevant since a positive value would indicate moderation"
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     72,
+     73
+    ]
+   ],
+   "assertion": "found the interaction for the implicit measure close to zero, OR = .97, 95% CI [0.90,1.05]",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "interaction effect"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "assertion": "found the interaction for the explicit measure only slightly positive, OR = 1.04, 95% CI [.97,1.11]",
+   "polarity": "found",
+   "targets": [
+    "explicit bias",
+    "interaction effect"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     74,
+     75
+    ]
+   ],
+   "assertion": "found these interaction effects remain similar after adding controls (position, height, weight): implicit OR=.97 CI[.90,1.05], explicit OR=1.05 CI[.98,1.12]",
+   "polarity": "found",
+   "targets": [
+    "interaction effects",
+    "controls"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     76,
+     76
+    ]
+   ],
+   "note": "Final Approach subheading"
+  },
+  {
+   "id": 55,
+   "kind": "claim",
+   "lines": [
+    [
+     77,
+     78
+    ]
+   ],
+   "assertion": "the two skin tone ratings had good internal consistency, alpha = 0.96",
+   "polarity": "found",
+   "targets": [
+    "skin tone ratings"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    56
+   ]
+  },
+  {
+   "id": 56,
+   "kind": "claim",
+   "lines": [
+    [
+     77,
+     78
+    ]
+   ],
+   "assertion": "averaged the two ratings into a single index",
+   "polarity": "did",
+   "targets": [
+    "skin tone ratings",
+    "skin tone index"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    55
+   ]
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "assertion": "21407 observations with missing values were omitted, leaving 124,621 observations",
+   "polarity": "did",
+   "targets": [
+    "observations"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     79,
+     81
+    ]
+   ],
+   "assertion": "each observation summarizes games played (1-47, M=2.99, SD=3.58) and red cards received (0-2, M=.013, SD=.11) per player-referee dyad",
+   "polarity": "found",
+   "targets": [
+    "games",
+    "red cards",
+    "dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     81,
+     82
+    ]
+   ],
+   "note": "notes a red card across 47 games differs from one in a single game"
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     83
+    ]
+   ],
+   "assertion": "decided to view the dependent variable as the probability of receiving a red card during a single game",
+   "polarity": "did",
+   "targets": [
+    "dependent variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    61
+   ]
+  },
+  {
+   "id": 61,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "assertion": "used binomial logistic regression (STATA binreg command) for all analyses, accounting for the number of games played",
+   "polarity": "did",
+   "targets": [
+    "binomial logistic regression",
+    "STATA binreg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    60
+   ]
+  },
+  {
+   "id": 62,
+   "kind": "claim",
+   "lines": [
+    [
+     86,
+     88
+    ]
+   ],
+   "assertion": "notes the 124,621 dyads come from 1572 players and 3147 referees, implying non-independence and potentially downward-biased standard errors",
+   "polarity": "found",
+   "targets": [
+    "players",
+    "referees",
+    "standard errors"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "claim",
+   "lines": [
+    [
+     88,
+     89
+    ]
+   ],
+   "assertion": "used a two-way robust clustering approach suggested by Petersen (2009)",
+   "polarity": "did",
+   "targets": [
+    "clustering"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 64,
+   "kind": "claim",
+   "lines": [
+    [
+     89,
+     91
+    ]
+   ],
+   "assertion": "used a modified version of the logit2.ado STATA add-on (Petersen 2014) to make two-way clustering work with binomial regression, since STATA cannot handle multi-dimensional clustering natively",
+   "polarity": "did",
+   "targets": [
+    "logit2.ado",
+    "STATA",
+    "binomial regression"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     92,
+     92
+    ]
+   ],
+   "note": "transition to discussing predictors"
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     92,
+     93
+    ]
+   ],
+   "assertion": "the skin tone rating (0-1, M=.28, SD=.29) is the focal predictor for research question 1",
+   "polarity": "did",
+   "targets": [
+    "skin tone rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "note": "reasoning that referees may be influenced by player age, height, weight, and position"
+  },
+  {
+   "id": 68,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     96,
+     97
+    ]
+   ],
+   "note": "reasoning that leagues may differ in red cards given and proportion of black players"
+  },
+  {
+   "id": 69,
+   "kind": "claim",
+   "lines": [
+    [
+     97,
+     99
+    ]
+   ],
+   "assertion": "the final model included skin tone rating, age/weight/height as standardized continuous controls, and position/league as dummy-coded controls",
+   "polarity": "did",
+   "targets": [
+    "skin tone rating",
+    "age",
+    "weight",
+    "height",
+    "position",
+    "league"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "claim",
+   "lines": [
+    [
+     100,
+     101
+    ]
+   ],
+   "assertion": "found darkest vs lightest skin tone increases probability of receiving a red card, OR = 1.28, 95% CI [1.04,1.57]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red card",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     101,
+     102
+    ]
+   ],
+   "assertion": "interprets this as a weak but detectable discrimination effect against dark skinned players",
+   "polarity": "found",
+   "targets": [
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 72,
+   "kind": "claim",
+   "lines": [
+    [
+     102,
+     103
+    ]
+   ],
+   "assertion": "found the unadjusted effect (without controls) highly similar, OR = 1.34, 95% CI [1.10,1.62]",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 73,
+   "kind": "claim",
+   "lines": [
+    [
+     104,
+     106
+    ]
+   ],
+   "assertion": "notes implicit/explicit measures are based on referee's home-country values, so dyads are nested within home country (N=155)",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 74,
+   "kind": "claim",
+   "lines": [
+    [
+     106,
+     107
+    ]
+   ],
+   "assertion": "used the built-in STATA binreg command clustering on referee home country only",
+   "polarity": "did",
+   "targets": [
+    "STATA binreg",
+    "referee's home country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 75,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     108,
+     109
+    ]
+   ],
+   "note": "hypothesis that bias should not directly relate to red cards; a direct relationship would indicate a confound"
+  },
+  {
+   "id": 76,
+   "kind": "claim",
+   "lines": [
+    [
+     109,
+     112
+    ]
+   ],
+   "assertion": "did not examine whether countries with higher skin tone bias have soccer cultures that generally give more red cards, deeming it beyond the scope of the analysis, and instead focused on the interaction effect",
+   "polarity": "did_not",
+   "targets": [
+    "skin tone bias",
+    "red cards",
+    "soccer culture"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 77,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     112,
+     114
+    ]
+   ],
+   "note": "hypothesis that skin tone discrimination should be stronger for referees from countries with stronger implicit/explicit bias"
+  },
+  {
+   "id": 78,
+   "kind": "claim",
+   "lines": [
+    [
+     115,
+     116
+    ]
+   ],
+   "assertion": "examined whether IAT-measured implicit bias moderates the skin tone discrimination effect",
+   "polarity": "did",
+   "targets": [
+    "Implicit Association Test",
+    "implicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     116,
+     118
+    ]
+   ],
+   "assertion": "included the same controls as before plus added standardized IAT score and an IAT × skin tone interaction term",
+   "polarity": "did",
+   "targets": [
+    "IAT score",
+    "interaction term",
+    "controls"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "claim",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "assertion": "found skin tone discrimination remained similar in this model, OR = 1.29, 95% CI [1.06,1.57]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 81,
+   "kind": "claim",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "assertion": "found the main effect of IAT, OR = 1.09, CI [.98,1.22]",
+   "polarity": "found",
+   "targets": [
+    "IAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 82,
+   "kind": "claim",
+   "lines": [
+    [
+     118,
+     119
+    ]
+   ],
+   "assertion": "found the IAT × skin tone interaction OR = 1.00, 95% CI [.86,1.17]",
+   "polarity": "found",
+   "targets": [
+    "interaction effect",
+    "IAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 83,
+   "kind": "claim",
+   "lines": [
+    [
+     119,
+     120
+    ]
+   ],
+   "assertion": "concludes there is no change in the skin tone discrimination effect, but the CI is too wide to be informative",
+   "polarity": "found",
+   "targets": [
+    "skin tone discrimination"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 84,
+   "kind": "claim",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "assertion": "found this conclusion holds even when removing the controls, OR = .92, CI [.76,1.12]",
+   "polarity": "found",
+   "targets": [
+    "controls",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 85,
+   "kind": "claim",
+   "lines": [
+    [
+     121,
+     122
+    ]
+   ],
+   "assertion": "found in the unadjusted model some indication that IAT affects red card probability, OR = 1.19, 95% CI [1.01,1.39]",
+   "polarity": "found",
+   "targets": [
+    "IAT",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 86,
+   "kind": "claim",
+   "lines": [
+    [
+     122,
+     124
+    ]
+   ],
+   "assertion": "offers a possible explanation that referees from certain home countries are stricter with red cards regardless of player skin tone",
+   "polarity": "found",
+   "targets": [
+    "referee's home country",
+    "red cards"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 87,
+   "kind": "claim",
+   "lines": [
+    [
+     125,
+     126
+    ]
+   ],
+   "assertion": "found skin tone discrimination similarly present in the explicit-bias model, OR = 1.30, 95% CI [1.07,1.58]",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 88,
+   "kind": "claim",
+   "lines": [
+    [
+     126,
+     127
+    ]
+   ],
+   "assertion": "found no detectable main effect of explicit bias, OR = 1.04, 95% CI [.92,1.17]",
+   "polarity": "found",
+   "targets": [
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    89
+   ]
+  },
+  {
+   "id": 89,
+   "kind": "claim",
+   "lines": [
+    [
+     126,
+     127
+    ]
+   ],
+   "assertion": "found no detectable interaction between explicit bias and skin tone discrimination, OR = 1.08, CI [.91,1.27]",
+   "polarity": "found",
+   "targets": [
+    "explicit bias",
+    "interaction effect"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    88
+   ]
+  },
+  {
+   "id": 90,
+   "kind": "claim",
+   "lines": [
+    [
+     127,
+     128
+    ]
+   ],
+   "assertion": "notes this interaction is stronger than that of the IAT, but the CI is too wide to draw conclusions",
+   "polarity": "found",
+   "targets": [
+    "interaction effect",
+    "IAT",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 91,
+   "kind": "claim",
+   "lines": [
+    [
+     129,
+     130
+    ]
+   ],
+   "assertion": "found removing the controls makes the explicit-bias interaction disappear entirely, OR = .98, CI [.80,1.20]",
+   "polarity": "found",
+   "targets": [
+    "controls",
+    "interaction effect"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    92
+   ]
+  },
+  {
+   "id": 92,
+   "kind": "claim",
+   "lines": [
+    [
+     129,
+     130
+    ]
+   ],
+   "assertion": "found removing the controls makes the explicit-bias main effect slightly more prevalent, OR = 1.13, 95% CI [.94,1.35]",
+   "polarity": "found",
+   "targets": [
+    "controls",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    91
+   ]
+  },
+  {
+   "id": 93,
+   "kind": "claim",
+   "lines": [
+    [
+     130,
+     131
+    ]
+   ],
+   "assertion": "suggests an effect of explicit bias without an accompanying interaction effect is most likely due to some confound",
+   "polarity": "found",
+   "targets": [
+    "explicit bias",
+    "confound"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 94,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     132,
+     132
+    ]
+   ],
+   "note": "Conclusion heading"
+  },
+  {
+   "id": 95,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     133,
+     133
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 96,
+   "kind": "claim",
+   "lines": [
+    [
+     134,
+     135
+    ]
+   ],
+   "assertion": "found a small positive association between dark skin tone and probability of receiving a red card",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 97,
+   "kind": "claim",
+   "lines": [
+    [
+     135,
+     136
+    ]
+   ],
+   "assertion": "found the effect remained robust when controlling for player age, weight, height, position and league",
+   "polarity": "found",
+   "targets": [
+    "age",
+    "weight",
+    "height",
+    "position",
+    "league"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 98,
+   "kind": "claim",
+   "lines": [
+    [
+     136,
+     138
+    ]
+   ],
+   "assertion": "interprets the unexplained difference as reasonably indicating referees discriminate based on skin tone",
+   "polarity": "found",
+   "targets": [
+    "referees",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 99,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     138,
+     140
+    ]
+   ],
+   "note": "caveat that the difference could lie in unobserved differences between light and dark skinned players"
+  },
+  {
+   "id": 100,
+   "kind": "claim",
+   "lines": [
+    [
+     140,
+     141
+    ]
+   ],
+   "assertion": "judges this alternative (unobserved differences) explanation unlikely, since the discrimination effect was highly insensitive to the included controls",
+   "polarity": "found",
+   "targets": [
+    "controls",
+    "discrimination effect"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 101,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     141,
+     142
+    ]
+   ],
+   "note": "calls for future experimental research to provide a more definitive answer"
+  },
+  {
+   "id": 102,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     143,
+     144
+    ]
+   ],
+   "note": "restates the goal of examining whether explicit/implicit bias levels moderated the discrimination"
+  },
+  {
+   "id": 103,
+   "kind": "claim",
+   "lines": [
+    [
+     144,
+     145
+    ]
+   ],
+   "assertion": "found the results offer no evidence that implicit or explicit bias levels moderate the discrimination",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "discrimination"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 104,
+   "kind": "claim",
+   "lines": [
+    [
+     145,
+     146
+    ]
+   ],
+   "assertion": "suggests the discrimination effect is so weak it is an unlikely candidate to be moderated in the first place",
+   "polarity": "found",
+   "targets": [
+    "discrimination effect"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 105,
+   "kind": "claim",
+   "lines": [
+    [
+     146,
+     147
+    ]
+   ],
+   "assertion": "notes that measuring bias at the level of the referee's home country lacks precision",
+   "polarity": "found",
+   "targets": [
+    "referee's home country",
+    "implicit bias",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 106,
+   "kind": "claim",
+   "lines": [
+    [
+     147,
+     148
+    ]
+   ],
+   "assertion": "concludes the present research is informative as to whether implicit or explicit skin tone bias is behind the discrimination effect",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "discrimination effect"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 107,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     149,
+     151
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 108,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     152,
+     152
+    ]
+   ],
+   "note": "References and Notes heading"
+  },
+  {
+   "id": 109,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     153,
+     155
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 110,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     156,
+     157
+    ]
+   ],
+   "note": "Petersen (2009) reference"
+  },
+  {
+   "id": 111,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     158,
+     158
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 112,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     159,
+     160
+    ]
+   ],
+   "note": "Petersen (2014) reference"
+  },
+  {
+   "id": 113,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     161,
+     161
+    ]
+   ],
+   "note": "trailing page break"
+  }
+ ]
+}

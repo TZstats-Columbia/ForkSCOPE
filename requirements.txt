@@ -1,0 +1,7 @@
+# Python 3.12 or newer.
+#
+# The `claude` CLI needs to be on PATH only for a stage that makes an uncached
+# model call. Every committed analysis, audit and figure re-runs from cache/
+# without it; see README.md, "Reproduce".
+numpy
+scipy

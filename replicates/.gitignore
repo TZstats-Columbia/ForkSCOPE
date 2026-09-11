@@ -1,0 +1,24 @@
+# What is committed here: manifests, results, and this file. Nothing else.
+#
+# Replicate roots hold model-response caches worth hundreds of dollars and tens
+# of megabytes of copied study data. Their PARENTS -- the promoted study roots a
+# replicate freezes its options from -- are the same shape, and belong outside
+# the package beside the builds they came from, in `../../replicates/`. A parent
+# kept inside is either a duplicate of `data/vocabulary/` (build A's was, byte
+# for byte) or a whole second study root (build B's was, 2,556 files).
+#
+# `!*/` is load-bearing and must stay above the file negations. Git does not
+# descend into an excluded DIRECTORY, so with a bare `*` the later
+# `!*/manifest.json` never fires -- silently, which is how the first version of
+# this file dropped every manifest while appearing to keep them.
+#
+# The second version said `!parents/**`, which was correct while parents/ held
+# two vocabulary files and wrong the moment a full study root was created there.
+# A negation whose scope is "whatever ends up in this directory" is not a rule.
+# There is no parents/ rule now because there is no parents/ directory.
+*
+!*/
+!.gitignore
+!/README.md
+!*/manifest.json
+!results/**

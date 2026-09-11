@@ -1,0 +1,46 @@
+{
+ "level": "fork",
+ "draws": 200,
+ "instances": 3946,
+ "clusters": {
+  "a_base": 463,
+  "b_base": 489,
+  "a_final": 317,
+  "b_final": 351
+ },
+ "base": {
+  "ari": 0.5646,
+  "bcubed_f1": 0.583
+ },
+ "final": {
+  "ari": 0.6947,
+  "bcubed_f1": 0.6637
+ },
+ "ari_vs_null": {
+  "observed": 0.6947,
+  "null_mean": 0.2191,
+  "null_sd": 0.0039,
+  "null_min": 0.2122,
+  "null_max": 0.2345,
+  "z": 122.03,
+  "p_empirical": 0.005
+ },
+ "bcubed_vs_null": {
+  "observed": 0.6637,
+  "null_mean": 0.3236,
+  "null_sd": 0.0034,
+  "null_min": 0.3166,
+  "null_max": 0.3349,
+  "z": 99.47,
+  "p_empirical": 0.005
+ },
+ "files": {
+  "a_base": "data/vocabulary/bottom_up_ai+human.json",
+  "b_base": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.json",
+  "a_final": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+  "b_final": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json"
+ },
+ "comparison_type": "replicate",
+ "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json"
+}

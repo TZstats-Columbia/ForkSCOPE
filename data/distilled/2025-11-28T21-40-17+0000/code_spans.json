@@ -1,0 +1,1116 @@
+{
+ "n_lines": 357,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path, defining the full analysis universe",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "operation": "drop dyads lacking a skin tone score before any modeling",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "operation": "collapse the red card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     63
+    ]
+   ],
+   "operation": "derive player age at a fixed 2013-01-01 season-midpoint reference date from birthday",
+   "targets": [
+    "birthday",
+    "age",
+    "reference_date"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     66,
+     66
+    ],
+    [
+     207,
+     207
+    ]
+   ],
+   "operation": "dichotomize skin tone into dark/light using a 0.25 cut point and reuse that exposure in the binary sensitivity model formula",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     83
+    ]
+   ],
+   "operation": "collapse the many detailed field positions into four broad position categories",
+   "targets": [
+    "position",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     86
+    ]
+   ],
+   "operation": "restrict to complete cases on position, height, weight, and the two IAT/exposure covariates",
+   "targets": [
+    "position",
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp",
+    "df_main"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     94,
+     99
+    ]
+   ],
+   "operation": "z-score the continuous covariates (age, height, weight, games, yellow cards) before entering them in the model",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "games",
+    "yellowCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     110
+    ]
+   ],
+   "operation": "specify the primary model's exposure and adjustment set (skin tone plus position, league country, and yellow cards)",
+   "targets": [
+    "skinTone",
+    "position_broad",
+    "leagueCountry",
+    "yellowCards_std",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     113,
+     117
+    ],
+    [
+     208,
+     213
+    ],
+    [
+     270,
+     275
+    ],
+    [
+     284,
+     289
+    ]
+   ],
+   "operation": "fit a logistic regression with standard errors clustered on player to account for repeated dyads per player",
+   "targets": [
+    "anyRedCard",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     123,
+     128
+    ],
+    [
+     214,
+     219
+    ],
+    [
+     276,
+     277
+    ],
+    [
+     290,
+     291
+    ]
+   ],
+   "operation": "convert the fitted coefficient to an odds ratio and derive its CI/p-value from a normal approximation to the Wald statistic",
+   "targets": [
+    "coef_skin",
+    "or_skin",
+    "coef_binary",
+    "coef_t",
+    "coef_unadj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     142,
+     145
+    ],
+    [
+     148,
+     149
+    ],
+    [
+     152,
+     154
+    ],
+    [
+     226,
+     230
+    ],
+    [
+     231,
+     233
+    ],
+    [
+     295,
+     298
+    ],
+    [
+     299,
+     301
+    ]
+   ],
+   "operation": "estimate the risk difference by g-computation: set exposure to its two extreme values and average the model-predicted probabilities",
+   "targets": [
+    "skinTone",
+    "darkSkin",
+    "risk_diff",
+    "rd_binary",
+    "rd_unadj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     161,
+     166
+    ],
+    [
+     169,
+     170
+    ],
+    [
+     173,
+     186
+    ],
+    [
+     236,
+     241
+    ],
+    [
+     242,
+     244
+    ],
+    [
+     245,
+     257
+    ]
+   ],
+   "operation": "quantify uncertainty in the risk difference by simulating parameter draws from the model's covariance matrix and recomputing the contrast for each draw",
+   "targets": [
+    "model_primary.params",
+    "model_primary.cov_params",
+    "model_binary.cov_params",
+    "rd_sim",
+    "rd_sim_b"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     192,
+     193
+    ]
+   ],
+   "operation": "test the primary risk difference with a Wald z-statistic built from the simulated standard error",
+   "targets": [
+    "risk_diff",
+    "se_rd",
+    "p_value"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     264,
+     264
+    ],
+    [
+     265,
+     268
+    ],
+    [
+     269,
+     269
+    ]
+   ],
+   "operation": "sweep the skin-tone binarization cut point across four alternative thresholds to check robustness",
+   "targets": [
+    "skinTone",
+    "thresholds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     283,
+     283
+    ]
+   ],
+   "operation": "refit the primary exposure model with no covariate adjustment at all",
+   "targets": [
+    "anyRedCard",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     341,
+     351
+    ]
+   ],
+   "operation": "classify the finding as supported / marginally supported / not supported using fixed 0.05 and 0.10 p-value cutoffs plus a CI-excludes-zero check",
+   "targets": [
+    "p_value",
+    "ci_lower"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     352,
+     352
+    ]
+   ],
+   "operation": "additionally report a one-sided version of the p-value alongside the two-sided result",
+   "targets": [
+    "p_value"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     8
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     9,
+     19
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "warning suppression and RNG seed"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     25,
+     29
+    ]
+   ],
+   "note": "section banner + inline comment"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     31,
+     38
+    ]
+   ],
+   "note": "dataset shape/summary console output"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "builds a subset for inter-rater reliability diagnostic only; not used downstream in the analysis"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "note": "inter-rater reliability diagnostic output"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     53
+    ]
+   ],
+   "note": "section banner + inline comment"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     55
+    ]
+   ],
+   "note": "console output"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     56,
+     57
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     59,
+     60
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     64,
+     65
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     67,
+     68
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     84,
+     85
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     87,
+     91
+    ]
+   ],
+   "note": "post-exclusion sample counts"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     92,
+     93
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     100,
+     104
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     105,
+     108
+    ]
+   ],
+   "note": "section header banner output"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     109,
+     109
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     111,
+     112
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     120
+    ]
+   ],
+   "note": "model coefficient table output"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     121,
+     122
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     133
+    ]
+   ],
+   "note": "odds ratio result output"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     134,
+     138
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     140
+    ]
+   ],
+   "note": "section header output"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     141,
+     141
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     146,
+     147
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     150,
+     151
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     155,
+     158
+    ]
+   ],
+   "note": "risk estimate output"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     159,
+     160
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     167,
+     168
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     171,
+     172
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     187,
+     191
+    ]
+   ],
+   "note": "risk difference CI/SE output"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     194,
+     195
+    ]
+   ],
+   "note": "z-statistic/p-value output"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     196,
+     200
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     201,
+     204
+    ]
+   ],
+   "note": "section header output"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     205,
+     205
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     206,
+     206
+    ]
+   ],
+   "note": "subsection header output"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     220,
+     223
+    ]
+   ],
+   "note": "binary-threshold OR result output"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     224,
+     225
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     234,
+     235
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     258,
+     260
+    ]
+   ],
+   "note": "binary-threshold RD result output"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     261,
+     262
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     263,
+     263
+    ]
+   ],
+   "note": "subsection header output"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     279
+    ]
+   ],
+   "note": "per-threshold result output"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     280,
+     281
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     282
+    ]
+   ],
+   "note": "subsection header output"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     292,
+     292
+    ]
+   ],
+   "note": "unadjusted OR result output"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     293,
+     294
+    ]
+   ],
+   "note": "inline comment"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     302,
+     302
+    ]
+   ],
+   "note": "unadjusted RD result output"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     303,
+     307
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     308,
+     311
+    ]
+   ],
+   "note": "section header output"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     312,
+     338
+    ]
+   ],
+   "note": "final summary reporting of already-computed estimates, sample sizes, and exclusions"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     340
+    ]
+   ],
+   "note": "conclusion header output"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     353,
+     357
+    ]
+   ],
+   "note": "closing footer output"
+  }
+ ]
+}

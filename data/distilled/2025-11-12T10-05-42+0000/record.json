@@ -1,0 +1,75 @@
+{
+ "run_id": "2025-11-12T10-05-42+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 379,
+   "functional_lines": 97,
+   "functional_share": 0.2559,
+   "by_type": {
+    "print": 149,
+    "plot": 65,
+    "comment": 40,
+    "glue": 14,
+    "import": 9,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 281,
+   "functional_lines": 137,
+   "functional_share": 0.4875,
+   "by_type": {
+    "other": 82,
+    "heading": 39,
+    "boilerplate": 18,
+    "hedging": 9,
+    "framing": 1,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 82,
+  "action_claims": 41,
+  "result_claims": 41,
+  "links": 53,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 41
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "confidence": "high",
+   "operation": "loads the raw player-referee dyad dataset from CSV as the analysis input",
+   "targets": [
+    "df"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "specifies and fits a logistic regression of any-red-card on darkSkin plus covariates, with standard errors clustered by player",
+   "claim": "the analysis adjusted for position and yellow cards to address behavioral confounding, though could not fully rule out residual behavioral differences",
+   "note": "claim says the model adjusted for yellow cards, but the fitted logistic covariates are only darkSkin, log_games, position, leagueCountry, height, weight — yellow cards is not in the model"
+  }
+ ]
+}

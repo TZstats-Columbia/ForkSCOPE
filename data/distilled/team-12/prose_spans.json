@@ -1,0 +1,1152 @@
+{
+ "n_lines": 166,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "title page: title, author, affiliation, correspondence email"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     13,
+     13
+    ]
+   ],
+   "note": "Abstract heading"
+  },
+  {
+   "id": 3,
+   "kind": "claim",
+   "lines": [
+    [
+     14,
+     16
+    ]
+   ],
+   "assertion": "a mixed-effects model was used to test whether darker player skin tone had a systematic impact on likelihood of penalization",
+   "polarity": "did",
+   "targets": [
+    "skin tone",
+    "mixed-effects model",
+    "penalization"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    4
+   ]
+  },
+  {
+   "id": 4,
+   "kind": "claim",
+   "lines": [
+    [
+     16,
+     17
+    ]
+   ],
+   "assertion": "standard regression procedures such as OLS were judged unsuitable because they would likely yield incorrect coefficients given the highly non-normal dependent variable",
+   "polarity": "did_not",
+   "targets": [
+    "OLS",
+    "dependent variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3,
+    5
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "claim",
+   "lines": [
+    [
+     17,
+     19
+    ]
+   ],
+   "assertion": "a zero-inflated Poisson model was used to determine the impact of skin color on receiving red cards",
+   "polarity": "did",
+   "targets": [
+    "zero-inflated Poisson model",
+    "skin color",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    4,
+    6,
+    7
+   ]
+  },
+  {
+   "id": 6,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "the analysis found a slim (p < .10) interaction effect between skin color and referee-country implicit bias on red card issuance",
+   "polarity": "found",
+   "targets": [
+    "skin color",
+    "implicit bias",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    5,
+    7
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     21
+    ]
+   ],
+   "assertion": "no direct effect of skin color itself on red card issuance was found",
+   "polarity": "found",
+   "targets": [
+    "skin color",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    5,
+    6
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     22,
+     22
+    ]
+   ],
+   "note": "One Sentence Summary heading"
+  },
+  {
+   "id": 9,
+   "kind": "claim",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "assertion": "there is a significant (p < .10) relationship among player skin color, referee-country implicit racial bias, and red card issuance",
+   "polarity": "found",
+   "targets": [
+    "skin color",
+    "implicit bias",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     25,
+     29
+    ]
+   ],
+   "note": "repeated page header and blank lines"
+  },
+  {
+   "id": 11,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "note": "Results heading"
+  },
+  {
+   "id": 12,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "Initial Approach: Analytical method heading"
+  },
+  {
+   "id": 13,
+   "kind": "claim",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "assertion": "an OLS approach was ruled out because it assumes normality of the dependent variable, which does not hold here",
+   "polarity": "did_not",
+   "targets": [
+    "OLS",
+    "dependent variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "claim",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "assertion": "the data were found to contain far more zero counts than a standard Poisson distribution can account for",
+   "polarity": "found",
+   "targets": [
+    "red card counts",
+    "Poisson distribution"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "note": "general explanation of hurdle vs. zero-inflated mixture distributions"
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "assertion": "a zero-inflated distribution (rather than a hurdle distribution) was used in this analysis",
+   "polarity": "did",
+   "targets": [
+    "zero-inflated distribution",
+    "hurdle distribution"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "note": "notes that the dual-coefficient structure of the model makes interpretation harder"
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "assertion": "reported regression coefficients are taken from the binomial zero-inflated portion of the model rather than the count portion",
+   "polarity": "did",
+   "targets": [
+    "binomial zero-inflated coefficients",
+    "Table 1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    19
+   ]
+  },
+  {
+   "id": 19,
+   "kind": "claim",
+   "lines": [
+    [
+     49,
+     50
+    ]
+   ],
+   "assertion": "cases without skin color ratings were removed from the dataset",
+   "polarity": "did",
+   "targets": [
+    "skin color ratings",
+    "dataset"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    18
+   ]
+  },
+  {
+   "id": 20,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     51,
+     53
+    ]
+   ],
+   "note": "Initial Approach: Variables heading"
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     54,
+     55
+    ]
+   ],
+   "assertion": "the dependent variable was defined as the number of red cards given in a referee-player dyad",
+   "polarity": "did",
+   "targets": [
+    "dependent variable",
+    "red cards",
+    "referee-player dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     56,
+     56
+    ]
+   ],
+   "assertion": "the primary predictor of interest was the focal player's skin color",
+   "polarity": "did",
+   "targets": [
+    "skin color"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     58
+    ]
+   ],
+   "assertion": "the skin color variable was created by averaging the two raters' ratings",
+   "polarity": "did",
+   "targets": [
+    "raters",
+    "skin color"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    24,
+    25
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     58
+    ]
+   ],
+   "assertion": "skin color was treated as a continuous variable",
+   "polarity": "did",
+   "targets": [
+    "skin color"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    23,
+    25
+   ]
+  },
+  {
+   "id": 25,
+   "kind": "claim",
+   "lines": [
+    [
+     58,
+     59
+    ]
+   ],
+   "assertion": "secondary predictors were mean implicit and explicit bias in the referee's country of origin",
+   "polarity": "did",
+   "targets": [
+    "implicit bias",
+    "explicit bias",
+    "referee country"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    23,
+    24
+   ]
+  },
+  {
+   "id": 26,
+   "kind": "claim",
+   "lines": [
+    [
+     60,
+     63
+    ]
+   ],
+   "assertion": "player weight was included as a control, under the assumption that heavier players appear more physical and thus draw more penalization",
+   "polarity": "did",
+   "targets": [
+    "player weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    27
+   ]
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     63,
+     65
+    ]
+   ],
+   "assertion": "player position was included as a control to address differing penalty propensities between defensive and offensive roles",
+   "polarity": "did",
+   "targets": [
+    "player position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    26,
+    28
+   ]
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "assertion": "number of games played was included as a control for differing exposure across dyads",
+   "polarity": "did",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    27
+   ]
+  },
+  {
+   "id": 29,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     67,
+     69
+    ]
+   ],
+   "note": "caveat about theoretical ambiguity of the games-played control, with citation to Harrison et al. 2002"
+  },
+  {
+   "id": 30,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     70,
+     72
+    ]
+   ],
+   "note": "Initial Approach: Results heading"
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     73,
+     75
+    ]
+   ],
+   "assertion": "two models were fit for interpretation: one with main effects only, and one adding interactions between skin color and the two bias predictors",
+   "polarity": "did",
+   "targets": [
+    "Model 1",
+    "Model 2",
+    "skin color",
+    "implicit bias",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     76,
+     80
+    ]
+   ],
+   "note": "repeated page header and blank lines"
+  },
+  {
+   "id": 33,
+   "kind": "claim",
+   "lines": [
+    [
+     81,
+     82
+    ]
+   ],
+   "assertion": "Model 1 found no support for skin color affecting the quantity of red cards received (-0.030, ns)",
+   "polarity": "found",
+   "targets": [
+    "Model 1",
+    "skin color",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    34
+   ]
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     84
+    ]
+   ],
+   "assertion": "Model 2 found a marginally significant skin color × implicit bias interaction (11.763, p < .10)",
+   "polarity": "found",
+   "targets": [
+    "Model 2",
+    "skin color",
+    "implicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    33,
+    35
+   ]
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     84
+    ]
+   ],
+   "assertion": "Model 2 found no significant skin color × explicit bias interaction (-1.431, ns)",
+   "polarity": "found",
+   "targets": [
+    "Model 2",
+    "skin color",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    34
+   ]
+  },
+  {
+   "id": 36,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     85,
+     88
+    ]
+   ],
+   "note": "Final Approach: Analytical method heading"
+  },
+  {
+   "id": 37,
+   "kind": "claim",
+   "lines": [
+    [
+     89,
+     90
+    ]
+   ],
+   "assertion": "feedback on the initial approach identified a need to address nesting of observations by referee",
+   "polarity": "found",
+   "targets": [
+    "referee nesting"
+   ],
+   "confidence": "low",
+   "shares_lines_with": [
+    38
+   ]
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     90,
+     91
+    ]
+   ],
+   "assertion": "several mixed-effects models (Poisson and binomial) were attempted",
+   "polarity": "did",
+   "targets": [
+    "mixed-effects model",
+    "Poisson",
+    "binomial"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    37,
+    39
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     90,
+     91
+    ]
+   ],
+   "assertion": "all attempted mixed-effects models failed to converge",
+   "polarity": "found",
+   "targets": [
+    "mixed-effects model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    38,
+    40
+   ]
+  },
+  {
+   "id": 40,
+   "kind": "claim",
+   "lines": [
+    [
+     91,
+     92
+    ]
+   ],
+   "assertion": "dummy codes for referee were used in the ZIP regression as a conservative alternative to a mixed-effects model",
+   "polarity": "did",
+   "targets": [
+    "referee dummy codes",
+    "ZIP regression"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    39,
+    41
+   ]
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     92,
+     93
+    ]
+   ],
+   "assertion": "the dummy-code approach accounts for systematic referee fixed effects but is less efficient (costs more degrees of freedom) than a true mixed-effects model",
+   "polarity": "found",
+   "targets": [
+    "referee dummy codes",
+    "mixed-effects model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    40
+   ]
+  },
+  {
+   "id": 42,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     94,
+     96
+    ]
+   ],
+   "note": "Final Approach: Variables heading"
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     97,
+     98
+    ]
+   ],
+   "assertion": "the same variables were reused in the final approach, except the skin color variable was rescaled to a 0-1 continuous variable",
+   "polarity": "did",
+   "targets": [
+    "skin color"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     99,
+     101
+    ]
+   ],
+   "note": "Final approach: Results heading"
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     102,
+     103
+    ]
+   ],
+   "assertion": "Model 3 found no support for a direct effect of skin color on red carding (-0.119, ns)",
+   "polarity": "found",
+   "targets": [
+    "Model 3",
+    "skin color",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    46
+   ]
+  },
+  {
+   "id": 46,
+   "kind": "claim",
+   "lines": [
+    [
+     103,
+     104
+    ]
+   ],
+   "assertion": "Model 4 found a marginally significant skin color × implicit bias interaction (45.090, p < .10)",
+   "polarity": "found",
+   "targets": [
+    "Model 4",
+    "skin color",
+    "implicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    45,
+    47
+   ]
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     104,
+     105
+    ]
+   ],
+   "assertion": "Model 4 found no significant skin color × explicit bias interaction (-5.334, ns)",
+   "polarity": "found",
+   "targets": [
+    "Model 4",
+    "skin color",
+    "explicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    46,
+    48
+   ]
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     105,
+     107
+    ]
+   ],
+   "assertion": "the results are interpreted as showing that player race has no impact on red card issuance",
+   "polarity": "found",
+   "targets": [
+    "player race",
+    "red cards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    47,
+    49
+   ]
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     105,
+     107
+    ]
+   ],
+   "assertion": "the results are interpreted as showing that referee implicit bias does impact red card issuance",
+   "polarity": "found",
+   "targets": [
+    "implicit bias",
+    "red cards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    48
+   ]
+  },
+  {
+   "id": 50,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     108,
+     110
+    ]
+   ],
+   "note": "Conclusion heading"
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     111,
+     113
+    ]
+   ],
+   "assertion": "the overall conclusion is that player skin color is not categorically associated with higher penalization, except when the referee is from a country with higher implicit racial bias",
+   "polarity": "found",
+   "targets": [
+    "skin color",
+    "penalization",
+    "implicit bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    52
+   ]
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     113,
+     115
+    ]
+   ],
+   "assertion": "a more standard OLS approach was additionally attempted by the author as a check",
+   "polarity": "did",
+   "targets": [
+    "OLS"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    51,
+    53
+   ]
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     113,
+     115
+    ]
+   ],
+   "assertion": "that OLS approach would indicate a large and significant effect of player skin color on red card receipt",
+   "polarity": "found",
+   "targets": [
+    "OLS",
+    "skin color",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    52,
+    54
+   ]
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "assertion": "the discrepancy between the OLS and ZIP results is taken to show the results are sensitive to the analytical assumptions used",
+   "polarity": "found",
+   "targets": [
+    "OLS",
+    "zero-inflated Poisson model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    53
+   ]
+  },
+  {
+   "id": 55,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     116,
+     120
+    ]
+   ],
+   "note": "repeated page header and blank lines"
+  },
+  {
+   "id": 56,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     121,
+     122
+    ]
+   ],
+   "note": "Tables heading"
+  },
+  {
+   "id": 57,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     123,
+     123
+    ]
+   ],
+   "note": "Table 1 caption"
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     124,
+     136
+    ]
+   ],
+   "assertion": "Table 1 reports binomial zero-inflated logit coefficients for Models 1-4 (intercept, dark skin, weight, games, mean IAT, mean explicit bias, and skin×IAT / skin×explicit interactions), controlling for position and, in Models 3-4, referee",
+   "polarity": "found",
+   "targets": [
+    "Model 1",
+    "Model 2",
+    "Model 3",
+    "Model 4",
+    "dark skin",
+    "weight",
+    "games",
+    "mean IAT",
+    "mean explicit bias",
+    "position",
+    "referee"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     137,
+     137
+    ]
+   ],
+   "assertion": "the dark skin variable was scaled 1-5 in Models 1 and 2, and 0-1 in Models 3 and 4",
+   "polarity": "did",
+   "targets": [
+    "dark skin scaling"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 60,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     138,
+     141
+    ]
+   ],
+   "note": "blank spacer lines"
+  },
+  {
+   "id": 61,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     142,
+     142
+    ]
+   ],
+   "note": "Table 2 caption"
+  },
+  {
+   "id": 62,
+   "kind": "claim",
+   "lines": [
+    [
+     143,
+     155
+    ]
+   ],
+   "assertion": "Table 2 reports Poisson count-model log coefficients for Models 1-4, including a significant dark skin effect in Model 1 (0.073, p=.034) and Model 3 (0.293, p=.032), controlling for position and, in Models 3-4, referee",
+   "polarity": "found",
+   "targets": [
+    "Model 1",
+    "Model 2",
+    "Model 3",
+    "Model 4",
+    "dark skin",
+    "weight",
+    "games",
+    "mean IAT",
+    "mean explicit bias",
+    "position",
+    "referee"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "claim",
+   "lines": [
+    [
+     156,
+     156
+    ]
+   ],
+   "assertion": "the dark skin variable was scaled 1-5 in Models 1 and 2, and 0-1 in Models 3 and 4 (repeated note for Table 2)",
+   "polarity": "did",
+   "targets": [
+    "dark skin scaling"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 64,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     157,
+     160
+    ]
+   ],
+   "note": "References and Notes heading with blank lines"
+  },
+  {
+   "id": 65,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     161,
+     165
+    ]
+   ],
+   "note": "bibliographic reference to Harrison, Price, Gavin, & Florey 2002"
+  },
+  {
+   "id": 66,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     166,
+     166
+    ]
+   ],
+   "note": "trailing page break character"
+  }
+ ]
+}

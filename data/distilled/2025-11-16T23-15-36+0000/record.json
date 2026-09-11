@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-16T23-15-36+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 419,
+   "functional_lines": 158,
+   "functional_share": 0.3771,
+   "by_type": {
+    "print": 123,
+    "comment": 52,
+    "plot": 52,
+    "glue": 21,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 214,
+   "functional_lines": 159,
+   "functional_share": 0.743,
+   "by_type": {
+    "heading": 74,
+    "boilerplate": 12,
+    "framing": 10,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 91,
+  "action_claims": 36,
+  "result_claims": 55,
+  "links": 49,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     337,
+     345
+    ]
+   ],
+   "confidence": "low",
+   "operation": "hardcode the point estimates and confidence intervals for four of the six specifications as literal numbers in the plotting code rather than reading them from the result objects fitted earlier",
+   "targets": [
+    "spec_rds",
+    "spec_cis"
+   ]
+  }
+ ],
+ "misalignments": []
+}

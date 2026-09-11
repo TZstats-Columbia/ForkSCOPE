@@ -1,0 +1,96 @@
+{
+ "run_id": "2025-11-29T16-18-23+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 390,
+   "functional_lines": 144,
+   "functional_share": 0.3692,
+   "by_type": {
+    "print": 104,
+    "comment": 90,
+    "plot": 38,
+    "import": 10,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 236,
+   "functional_lines": 121,
+   "functional_share": 0.5127,
+   "by_type": {
+    "framing": 44,
+    "boilerplate": 42,
+    "heading": 35,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 83,
+  "action_claims": 51,
+  "result_claims": 32,
+  "links": 58,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 13,
+  "R_only_consistent_negative": 13,
+  "result_claims_deferred": 32
+ },
+ "silent_decisions": [
+  {
+   "id": 52,
+   "lines": [
+    [
+     245,
+     259
+    ]
+   ],
+   "confidence": "high",
+   "operation": "re-derive the whole sample and covariate set under a looser minimum-games floor of 2 (instead of 3) and refit the primary model as a robustness check",
+   "targets": [
+    "games",
+    "df_robust1",
+    "model_r1"
+   ]
+  },
+  {
+   "id": 62,
+   "lines": [
+    [
+     321,
+     322
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose what effect sizes to display for the specification-comparison panel, substituting three hard-coded numbers (0.38, 0.35, 0.35) for the actual computed robustness-check estimates rather than referencing model_r1/model_iat/se_clustered_ref",
+   "targets": [
+    "coefs",
+    "specs",
+    "risk_diff"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "fill missing standardized height/weight with 0 (i.e., the sample mean under standardization, despite the adjacent comment calling it median imputation)",
+   "claim": "missing height (6 observations) and weight (121 observations) were imputed using the median, with standardized variables centered at zero so the median imputation equals zero",
+   "note": "claim states missing values were median-imputed; code fills with 0, which is the mean under standardization, not the median"
+  },
+  {
+   "decision": "test the skin-tone coefficient with a two-sided Wald z-test derived from the model's coefficient and standard error",
+   "claim": "conventional robust (Huber-White) standard errors were used for the primary analysis, with referee-clustered standard errors used as a robustness check",
+   "note": "claim says the primary analysis used Huber-White robust SEs; the primary test uses the model's default non-robust MLE covariance"
+  }
+ ]
+}

@@ -1,0 +1,126 @@
+{
+ "vocab": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "note": "comparison only; never an input",
+ "aws_runs": 207,
+ "aws_slots_declared": 21,
+ "aws_slots_real": 10,
+ "our_forks_comparable": 22,
+ "match_threshold_ami": 0.15,
+ "degenerate_slots_excluded": [
+  "exposure_measurement.skin_tone_rater_aggregation"
+ ],
+ "slots_recovered": 7,
+ "recovery_rate": 0.7,
+ "our_forks_unmatched": 16,
+ "aws_unmapped_decisions": 1120,
+ "per_slot": [
+  {
+   "slot": "missing_data.missing_data_strategy",
+   "fork": "how are records with missing covariates handled \u2014 complete-case, impute, or recode as explicit category?",
+   "ari": 0.7915,
+   "ami": 0.5713,
+   "shared_runs": 106,
+   "their_choices": 24,
+   "our_options": 8
+  },
+  {
+   "slot": "statistical_modeling.primary_model_type",
+   "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+   "ari": 0.5452,
+   "ami": 0.4488,
+   "shared_runs": 84,
+   "their_choices": 4,
+   "our_options": 16
+  },
+  {
+   "slot": "outcome_measurement.red_card_operationalization",
+   "fork": "How is the red-card outcome operationalised and modelled \u2014 a binary indicator, a raw count, or a count with an exposure offset?",
+   "ari": 0.4297,
+   "ami": 0.2998,
+   "shared_runs": 199,
+   "their_choices": 5,
+   "our_options": 2
+  },
+  {
+   "slot": "statistical_modeling.standard_error_method",
+   "fork": "how are the regression model's standard errors estimated?",
+   "ari": 0.2517,
+   "ami": 0.2356,
+   "shared_runs": 105,
+   "their_choices": 19,
+   "our_options": 5
+  },
+  {
+   "slot": "sample_definition.exclusion_criteria",
+   "fork": "how are records with missing covariates handled \u2014 complete-case, impute, or recode as explicit category?",
+   "ari": 0.1616,
+   "ami": 0.2222,
+   "shared_runs": 106,
+   "their_choices": 41,
+   "our_options": 8
+  },
+  {
+   "slot": "model_comparison.multiple_models_strategy",
+   "fork": "How are dyads with a missing skin-tone rating handled?",
+   "ari": 0.2228,
+   "ami": 0.1705,
+   "shared_runs": 141,
+   "their_choices": 3,
+   "our_options": 4
+  },
+  {
+   "slot": "statistical_modeling.covariate_adjustment",
+   "fork": "which covariates make up the model's adjustment set?",
+   "ari": 0.0873,
+   "ami": 0.1554,
+   "shared_runs": 122,
+   "their_choices": 15,
+   "our_options": 35
+  },
+  {
+   "slot": "statistical_modeling.variable_transformations",
+   "fork": "which covariates make up the model's adjustment set?",
+   "ari": 0.1569,
+   "ami": 0.141,
+   "shared_runs": 122,
+   "their_choices": 37,
+   "our_options": 35
+  },
+  {
+   "slot": "data_structure.unit_of_analysis",
+   "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+   "ari": 0.1012,
+   "ami": 0.138,
+   "shared_runs": 57,
+   "their_choices": 2,
+   "our_options": 9
+  },
+  {
+   "slot": "exposure_measurement.skin_tone_operationalization",
+   "fork": "how is the skin-tone rating entered as the exposure \u2014 continuous or split/binned at which cutpoints?",
+   "ari": 0.0809,
+   "ami": 0.1067,
+   "shared_runs": 203,
+   "their_choices": 32,
+   "our_options": 17
+  }
+ ],
+ "our_forks_unmatched_list": [
+  "what minimum number of shared games per dyad is required for inclusion?",
+  "how is the skin-tone rating entered as the exposure \u2014 continuous or split/binned at which cutpoints?",
+  "which effect-size measure is used to express the exposure's effect on red cards?",
+  "how are the confidence interval and p-value for the exposure effect computed?",
+  "what rule determines whether the effect is declared statistically supported?",
+  "how are player positions categorized and how are missing / uncategorizable positions handled?",
+  "how is agreement between the two skin-tone raters quantified?",
+  "Which control variables and functional forms enter the regression model?",
+  "what bootstrap resampling scheme is used to compute the confidence interval?",
+  "what fixed reference date is used to compute player age?",
+  "how is the crude, unadjusted association estimated and tested?",
+  "how many categories, and by what mapping, is player position collapsed into?",
+  "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+  "how are continuous predictors transformed and z-scored/standardized before modeling?",
+  "how is complete-case/listwise deletion applied and over which variable set?",
+  "which regression model and outcome family estimates the exposure\u2013red-card association?"
+ ]
+}

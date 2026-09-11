@@ -1,0 +1,83 @@
+{
+ "run_id": "2025-11-29T11-47-15+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 331,
+   "functional_lines": 121,
+   "functional_share": 0.3656,
+   "by_type": {
+    "print": 100,
+    "plot": 55,
+    "comment": 39,
+    "import": 9,
+    "config": 4,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 266,
+   "functional_lines": 211,
+   "functional_share": 0.7932,
+   "by_type": {
+    "heading": 51,
+    "boilerplate": 23,
+    "framing": 7,
+    "background": 3,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 77,
+  "action_claims": 40,
+  "result_claims": 37,
+  "links": 56,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 37
+ },
+ "silent_decisions": [
+  {
+   "id": 8,
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the match/dyad dataset from a single fixed CSV file path",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age by subtracting birth year from a fixed reference year (2013)",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": []
+}

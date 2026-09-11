@@ -1,0 +1,67 @@
+{
+ "run_id": "2025-11-21T02-18-05+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 428,
+   "functional_lines": 213,
+   "functional_share": 0.4977,
+   "by_type": {
+    "print": 108,
+    "comment": 44,
+    "plot": 42,
+    "import": 9,
+    "glue": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 268,
+   "functional_lines": 167,
+   "functional_share": 0.6231,
+   "by_type": {
+    "heading": 110,
+    "other": 13,
+    "hedging": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 126,
+  "action_claims": 53,
+  "result_claims": 73,
+  "links": 67,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 18,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 73
+ },
+ "silent_decisions": [
+  {
+   "id": 22,
+   "lines": [
+    [
+     123,
+     126
+    ]
+   ],
+   "confidence": "high",
+   "operation": "one-hot encode position and league without dropping a reference column at the get_dummies step",
+   "targets": [
+    "positionSimple",
+    "leagueCountry"
+   ]
+  }
+ ],
+ "misalignments": []
+}

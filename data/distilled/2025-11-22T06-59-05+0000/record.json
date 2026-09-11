@@ -1,0 +1,66 @@
+{
+ "run_id": "2025-11-22T06-59-05+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 337,
+   "functional_lines": 115,
+   "functional_share": 0.3412,
+   "by_type": {
+    "print": 137,
+    "comment": 46,
+    "glue": 29,
+    "import": 8,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 251,
+   "functional_lines": 138,
+   "functional_share": 0.5498,
+   "by_type": {
+    "heading": 63,
+    "boilerplate": 59,
+    "hedging": 19
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 117,
+  "action_claims": 52,
+  "result_claims": 65,
+  "links": 58,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 65
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     102,
+     107
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose which columns carry forward into the modeling dataset",
+   "targets": [
+    "model_vars",
+    "df_model"
+   ]
+  }
+ ],
+ "misalignments": []
+}

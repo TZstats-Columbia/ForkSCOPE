@@ -1,0 +1,84 @@
+{
+ "run_id": "2025-11-21T01-57-03+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 323,
+   "functional_lines": 76,
+   "functional_share": 0.2353,
+   "by_type": {
+    "print": 129,
+    "comment": 47,
+    "plot": 41,
+    "glue": 20,
+    "import": 8,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 323,
+   "functional_lines": 168,
+   "functional_share": 0.5201,
+   "by_type": {
+    "heading": 112,
+    "boilerplate": 34,
+    "framing": 10,
+    "hedging": 6,
+    "background": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 144,
+  "action_claims": 51,
+  "result_claims": 93,
+  "links": 81,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 93
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw dyad-level dataset from a fixed CSV path as the analysis population",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ]
+  },
+  {
+   "id": 15,
+   "lines": [
+    [
+     60,
+     63
+    ]
+   ],
+   "confidence": "high",
+   "operation": "parse birthday strings and derive player age relative to a fixed mid-season reference date (2012.5)",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  }
+ ],
+ "misalignments": []
+}

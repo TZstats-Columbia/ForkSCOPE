@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-28T18-46-03+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 164,
+   "functional_lines": 76,
+   "functional_share": 0.4634,
+   "by_type": {
+    "print": 61,
+    "glue": 10,
+    "import": 9,
+    "comment": 5,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 251,
+   "functional_lines": 165,
+   "functional_share": 0.6574,
+   "by_type": {
+    "heading": 48,
+    "boilerplate": 33,
+    "hedging": 12,
+    "framing": 6,
+    "background": 3,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 118,
+  "action_claims": 57,
+  "result_claims": 61,
+  "links": 43,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 23,
+  "R_only_consistent_negative": 17,
+  "result_claims_deferred": 61
+ },
+ "silent_decisions": [
+  {
+   "id": 22,
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "confidence": "high",
+   "operation": "additionally report a one-sided p-value by halving the two-sided p-value",
+   "targets": [
+    "pval_dark"
+   ]
+  }
+ ],
+ "misalignments": []
+}

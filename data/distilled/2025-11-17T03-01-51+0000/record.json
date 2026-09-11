@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-17T03-01-51+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 402,
+   "functional_lines": 206,
+   "functional_share": 0.5124,
+   "by_type": {
+    "print": 143,
+    "comment": 43,
+    "import": 5,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 259,
+   "functional_lines": 144,
+   "functional_share": 0.556,
+   "by_type": {
+    "other": 76,
+    "heading": 34,
+    "boilerplate": 28,
+    "framing": 6,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 140,
+  "action_claims": 67,
+  "result_claims": 73,
+  "links": 72,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 25,
+  "R_only_consistent_negative": 12,
+  "result_claims_deferred": 73
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     73,
+     80
+    ]
+   ],
+   "confidence": "high",
+   "operation": "restrict the working dataset to a fixed set of variables carried into all downstream models",
+   "targets": [
+    "df_clean"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     222,
+     225
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "derive a two-sided p-value via a normal-approximation z-test built from the bootstrap standard error rather than from the bootstrap distribution's own tails",
+   "targets": [
+    "risk_diff",
+    "se_rd"
+   ]
+  }
+ ],
+ "misalignments": []
+}

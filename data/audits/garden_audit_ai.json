@@ -1,0 +1,111 @@
+{
+ "G1": {
+  "verdict": "PASS",
+  "screened": 25,
+  "excluded": 21,
+  "examples": [
+   {
+    "jaccard": 0.714,
+    "co": 6,
+    "a": "which covariates are included in the primary adjustment set/outcome model?",
+    "b": "what covariates are included in the primary adjustment set?"
+   },
+   {
+    "jaccard": 0.667,
+    "co": 12,
+    "a": "how is the continuous/categorical skin-tone score turned into a binary exposure?",
+    "b": "how is the continuous skin-tone score turned into an exposure category?"
+   },
+   {
+    "jaccard": 0.636,
+    "co": 41,
+    "a": "how is the continuous/categorical skin-tone score turned into a binary exposure?",
+    "b": "how is the continuous skin-tone score turned into a binary dark/light exposure, and at what cutoff?"
+   },
+   {
+    "jaccard": 0.6,
+    "co": 2,
+    "a": "what estimator is used for the primary model?",
+    "b": "what estimator and clustering are used for the primary outcome model?"
+   },
+   {
+    "jaccard": 0.556,
+    "co": 2,
+    "a": "how is the continuous skin-tone score turned into an exposure category?",
+    "b": "is skin tone modeled as a continuous score or a dichotomized exposure?"
+   },
+   {
+    "jaccard": 0.545,
+    "co": 2,
+    "a": "how is uncertainty (SE/CI/p-value) for the adjusted risk difference / effect estimate quantified?",
+    "b": "how is sampling uncertainty/the confidence interval for the adjusted risk difference (effect) quantified?"
+   },
+   {
+    "jaccard": 0.538,
+    "co": 12,
+    "a": "how is the continuous skin-tone score turned into a binary dark/light exposure, and at what cutoff?",
+    "b": "how is the skin-tone exposure defined/coded — continuous score vs. dichotomized dark/light?"
+   },
+   {
+    "jaccard": 0.538,
+    "co": 9,
+    "a": "how is the continuous skin-tone score turned into a binary dark/light exposure, and at what cutoff?",
+    "b": "what cutpoint is used to dichotomize the continuous skin-tone score into the primary dark/light exposure?"
+   },
+   {
+    "jaccard": 0.538,
+    "co": 4,
+    "a": "what cutpoint is used to dichotomize the continuous skin-tone score into the primary dark/light exposure?",
+    "b": "how is the skin-tone exposure defined/coded — continuous score vs. dichotomized dark/light?"
+   },
+   {
+    "jaccard": 0.5,
+    "co": 5,
+    "a": "how is the continuous/categorical skin-tone score turned into a binary exposure?",
+    "b": "is skin tone modeled as a continuous score or a dichotomized exposure?"
+   },
+   {
+    "jaccard": 0.417,
+    "co": 13,
+    "a": "how is the continuous/categorical skin-tone score turned into a binary exposure?",
+    "b": "how is the binary/categorical skin-tone exposure encoded as a numeric variable for regression?"
+   },
+   {
+    "jaccard": 0.417,
+    "co": 9,
+    "a": "how is the continuous skin-tone score turned into a binary dark/light exposure, and at what cutoff?",
+    "b": "is skin tone modeled as a continuous score or a dichotomized exposure?"
+   }
+  ]
+ },
+ "G2": {
+  "verdict": "PASS",
+  "clique_density_min": 0.667,
+  "conflicts": []
+ },
+ "G3": {
+  "nodes_before": 359,
+  "nodes_after": 344,
+  "universal_before": 4,
+  "universal_after": 5
+ },
+ "G4": {
+  "verdict": "REVIEW",
+  "observed": 3,
+  "null_mean": 1.575,
+  "p": 0.222,
+  "tested": 3
+ },
+ "G5": {
+  "verdict": "REVIEW",
+  "agree": 1,
+  "disagree": 2
+ },
+ "G6": {
+  "verdict": "PASS",
+  "runs": 68,
+  "observed_paths": 63,
+  "null_mean": 59.7,
+  "p": 0.939
+ }
+}

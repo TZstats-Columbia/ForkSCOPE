@@ -1,0 +1,67 @@
+{
+ "run_id": "2025-11-20T22-37-30+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 276,
+   "functional_lines": 105,
+   "functional_share": 0.3804,
+   "by_type": {
+    "print": 94,
+    "comment": 46,
+    "plot": 17,
+    "import": 10,
+    "config": 3,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 290,
+   "functional_lines": 162,
+   "functional_share": 0.5586,
+   "by_type": {
+    "heading": 94,
+    "hedging": 27,
+    "boilerplate": 18,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 95,
+  "action_claims": 45,
+  "result_claims": 50,
+  "links": 43,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 12,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 50
+ },
+ "silent_decisions": [
+  {
+   "id": 18,
+   "lines": [
+    [
+     69,
+     73
+    ]
+   ],
+   "confidence": "high",
+   "operation": "choose which columns (outcome, group, covariates, ID fields) enter the modeling dataset",
+   "targets": [
+    "model_vars"
+   ]
+  }
+ ],
+ "misalignments": []
+}

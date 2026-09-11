@@ -1,0 +1,831 @@
+{
+ "n_lines": 362,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     16
+    ]
+   ],
+   "note": "blank line plus pandas/numpy/statsmodels/scipy/warnings imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "note": "suppress warnings globally"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     20
+    ]
+   ],
+   "note": "set numpy random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     21,
+     25
+    ]
+   ],
+   "note": "section header banner and spacing"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "console banner announcing data loading step"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     30
+    ]
+   ],
+   "operation": "load the player-referee dyad dataset from the fixed source csv",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "note": "print original dataset row count"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     33,
+     36
+    ]
+   ],
+   "note": "section header banner for exclusions"
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "note": "console banner for data quality control"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     44
+    ]
+   ],
+   "operation": "drop dyads where either skin-tone rater score is missing",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "note": "print count and remainder after missing-rating exclusion"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     54
+    ]
+   ],
+   "operation": "dichotomize skin tone into dark vs light using a 0.25 cutoff",
+   "targets": [
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     57
+    ]
+   ],
+   "operation": "collapse red-card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     63
+    ]
+   ],
+   "operation": "drop goalkeeper dyads from the analysis sample",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     64,
+     66
+    ]
+   ],
+   "note": "print goalkeeper exclusion count and final sample size"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     67,
+     70
+    ]
+   ],
+   "note": "section header banner for descriptive statistics"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     97
+    ]
+   ],
+   "note": "print/loop over outcome, exposure, games, league, and position distributions"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     98,
+     102
+    ]
+   ],
+   "note": "section header banner for primary model"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     103,
+     106
+    ]
+   ],
+   "note": "console banner for primary model section"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     111
+    ],
+    [
+     114,
+     117
+    ]
+   ],
+   "operation": "fit a logistic regression of any red card on the dark-skin exposure, adjusting for position, league country, and games played",
+   "targets": [
+    "any_red",
+    "dark_025",
+    "position",
+    "leagueCountry",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     113
+    ]
+   ],
+   "note": "blank line and 'fitting model' status message"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     118,
+     123
+    ]
+   ],
+   "note": "mechanical extraction of coefficient, SE, p-value, and CI from the fitted model"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     124,
+     127
+    ]
+   ],
+   "operation": "exponentiate the exposure coefficient and its CI to report an odds ratio",
+   "targets": [
+    "dark_coef",
+    "dark_ci_log"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     140
+    ]
+   ],
+   "note": "print regression coefficient, SE, CI, p-value, odds ratio, and interpretation sentence"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     141,
+     144
+    ]
+   ],
+   "note": "section header banner for risk difference"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "note": "console banner for risk difference section"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     152
+    ],
+    [
+     159,
+     177
+    ]
+   ],
+   "operation": "standardize predictions at the mean games value and modal position/league, then difference the dark- vs light-skin predicted probabilities to obtain a risk difference in percentage points",
+   "targets": [
+    "games",
+    "position",
+    "leagueCountry",
+    "dark_025"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     153,
+     158
+    ]
+   ],
+   "note": "print the chosen covariate values used for prediction"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     182
+    ]
+   ],
+   "note": "print predicted probabilities and resulting risk difference"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     183,
+     187
+    ]
+   ],
+   "note": "section header banner for delta-method CI"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     188,
+     191
+    ]
+   ],
+   "note": "console banner for CI section"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     192,
+     199
+    ],
+    [
+     201,
+     235
+    ]
+   ],
+   "operation": "obtain a CI for the risk difference by simulating parameter draws from the model's asymptotic multivariate normal distribution and recomputing the risk difference for each draw",
+   "targets": [
+    "params",
+    "cov_matrix"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     200,
+     200
+    ]
+   ],
+   "note": "print number of simulation draws"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     239
+    ]
+   ],
+   "note": "print simulated risk difference, SE, and CI"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     240,
+     243
+    ]
+   ],
+   "note": "section header banner for sensitivity analyses"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     244,
+     247
+    ]
+   ],
+   "note": "console banner for sensitivity analyses section"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     248,
+     248
+    ],
+    [
+     250,
+     254
+    ]
+   ],
+   "operation": "refit the primary model on the full sample including goalkeepers to test sensitivity to that exclusion",
+   "targets": [
+    "df_work",
+    "position"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     249,
+     249
+    ]
+   ],
+   "note": "print sensitivity analysis 1 label"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     255,
+     259
+    ]
+   ],
+   "note": "mechanical extraction of coefficient, SE, p-value, OR, CI for sensitivity model 1"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     264
+    ]
+   ],
+   "note": "print sensitivity analysis 1 results"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     265,
+     265
+    ],
+    [
+     267,
+     271
+    ]
+   ],
+   "operation": "refit using a 0.5 cutoff for dark skin instead of 0.25 to test sensitivity to the threshold",
+   "targets": [
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     266,
+     266
+    ]
+   ],
+   "note": "print sensitivity analysis 2 label"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     272,
+     276
+    ]
+   ],
+   "note": "mechanical extraction of coefficient, SE, p-value, OR, CI for sensitivity model 2"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     277,
+     281
+    ]
+   ],
+   "note": "print sensitivity analysis 2 results"
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     282,
+     282
+    ],
+    [
+     284,
+     287
+    ]
+   ],
+   "operation": "refit using continuous skin tone as the exposure instead of the binarized version",
+   "targets": [
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     283,
+     283
+    ]
+   ],
+   "note": "print sensitivity analysis 3 label"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     288,
+     292
+    ]
+   ],
+   "note": "mechanical extraction of coefficient, SE, p-value, OR, CI for sensitivity model 3"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     293,
+     297
+    ]
+   ],
+   "note": "print sensitivity analysis 3 results"
+  },
+  {
+   "id": 51,
+   "kind": "decision",
+   "lines": [
+    [
+     298,
+     298
+    ],
+    [
+     300,
+     303
+    ]
+   ],
+   "operation": "refit the primary model with HC3 heteroskedasticity-robust standard errors instead of MLE-based SEs",
+   "targets": [
+    "dark_025"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     299,
+     299
+    ]
+   ],
+   "note": "print sensitivity analysis 4 label"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     304,
+     308
+    ]
+   ],
+   "note": "mechanical extraction of coefficient, SE, p-value, OR, CI for sensitivity model 4"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     309,
+     313
+    ]
+   ],
+   "note": "print sensitivity analysis 4 results"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     314,
+     317
+    ]
+   ],
+   "note": "section header banner for final summary"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     318,
+     321
+    ]
+   ],
+   "note": "console banner for final results summary"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     322,
+     343
+    ]
+   ],
+   "note": "formatted summary of estimand, odds ratio, sample, covariates, and exclusions"
+  },
+  {
+   "id": 58,
+   "kind": "decision",
+   "lines": [
+    [
+     344,
+     344
+    ],
+    [
+     346,
+     356
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' based on the observed effect direction and statistical significance",
+   "targets": [
+    "dark_pval",
+    "or_est",
+    "rd"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     345,
+     345
+    ]
+   ],
+   "note": "blank line inside summary f-string"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     357,
+     362
+    ]
+   ],
+   "note": "close summary print statement and print closing banner / completion message"
+  }
+ ]
+}

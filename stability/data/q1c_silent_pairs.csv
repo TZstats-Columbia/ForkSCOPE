@@ -1,0 +1,62 @@
+run,verdict,a_operation,b_operation,why
+2025-11-12T09-30-16+0000,only_in_A,discard bootstrap draws whose resampled dataset has fewer than 1000 rows,,
+2025-11-12T09-30-16+0000,only_in_A,"rebuild the covariate design matrix for each bootstrap draw and refit the logistic GLM with a plain (non-cluster-robust) fit, silently skipping draws whose fit raises an exception",,
+2025-11-12T09-30-16+0000,only_in_A,load the full soccer referee-player dyad dataset from a fixed CSV path with no additional row-level scope restriction,,
+2025-11-12T09-30-16+0000,only_in_B,,"choose which variables (exposure, outcome, covariates, ID fields) carry into the analytic dataset",
+2025-11-12T09-52-44+0000,same,bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching,"map free-text position strings into Goalkeeper/Defender/Midfielder/Forward buckets, else Unknown",both bucket free-text position strings into GK/Def/Mid/Fwd/Unknown
+2025-11-12T09-52-44+0000,only_in_B,,"choose the set of variables (exposure, outcome, behavior/body covariates, position, league, ID fields) that define the working dataset",
+2025-11-12T09-52-44+0000,only_in_A,drop remaining dyads missing height or weight before fitting the continuous-exposure model,,
+2025-11-12T10-05-42+0000,same,loads the raw player-referee dyad dataset from CSV as the analysis input,"load the raw referee-player dataset from a fixed CSV path, fixing the data source and scope of analysis",both load the raw referee-player dyad dataset from the same CSV at lines 31-32
+2025-11-12T10-05-42+0000,only_in_B,,"silently drop bootstrap iterations whose resampled model fit fails, rather than logging or erroring",
+2025-11-12T10-39-00+0000,same,"one-hot encode position and league with drop_first=True, fixing the omitted category as the implicit reference level",one-hot encode the categorical covariates with a dropped reference level,both one-hot encode position and league with a dropped reference level
+2025-11-12T10-39-00+0000,only_in_B,,assemble the primary model's design matrix: which regressors enter plus an intercept,
+2025-11-12T10-39-00+0000,only_in_A,"construct the odds-ratio confidence interval via a manual normal (Wald) approximation on the log-odds scale using a fixed 1.96 multiplier, rather than the model's own CI method",,
+2025-11-12T12-24-45+0000,same,use continuous skin tone instead of the binarized exposure and refit the adjusted model,test sensitivity to exposure coding by refitting the adjusted model with skin tone entered as a continuous 0-1 score instead of the dichotomized variable,both refit the adjusted model using continuous skin tone instead of the dichotomized exposure
+2025-11-12T12-24-45+0000,only_in_A,"assemble a single summary table choosing which of the primary, secondary, stratified, and sensitivity estimates to report together and how to format them",,
+2025-11-12T17-30-15+0000,same,encode the treatment indicator so that dark skin tone is coded 1 and light is the reference 0,encode dark skin as 1 with light skin as the implicit reference level,both encode dark skin as 1 with light as reference
+2025-11-12T17-30-15+0000,only_in_A,load the full soccer dataset from a fixed file path as the analysis source,,
+2025-11-12T17-30-15+0000,only_in_A,"narrow the working data down to just the outcome, treatment, covariates, and identifiers that will enter the model",,
+2025-11-12T18-01-53+0000,same,bin continuous skin tone into five display categories with custom edges for the bar chart,bin continuous skin tone into 5 categories with chosen edges/labels and compute red-card rate per category for the descriptive plot,both bin continuous skin tone into 5 categories with chosen edges for the descriptive plot
+2025-11-12T18-01-53+0000,only_in_B,,"select and arrange the three adjusted risk-difference estimates (primary cutoff, alternate cutoff, continuous) side by side for the comparison plot",
+2025-11-12T18-01-53+0000,only_in_B,,"cast position_simple and leagueCountry to categorical dtype, implicitly fixing their reference levels for the regression formulas via default ordering",
+2025-11-12T18-01-53+0000,only_in_B,,load the raw player-referee dyad dataset from a fixed local CSV path,
+2025-11-12T18-56-42+0000,same,load the specific source CSV as the analysis input,pick the source CSV file as the entire dataset to analyze,both load the source CSV as the analysis dataset
+2025-11-12T18-56-42+0000,only_in_A,encode player identity as a numeric ID to use as the clustering unit,,
+2025-11-12T18-56-42+0000,only_in_A,average the two rater columns into one continuous skin-tone score,,
+2025-11-12T19-55-38+0000,same,encode dark-skin group membership as a binary exposure variable,recode the skin group label into a binary exposure variable with Dark coded as 1,both recode dark-skin group membership into a binary exposure at lines 83-85
+2025-11-12T19-55-38+0000,only_in_B,,derive player age by subtracting birth year from a fixed reference year of 2012,
+2025-11-12T19-55-38+0000,only_in_B,,"derive the unadjusted risk difference's standard error, z-statistic, p-value and 95% CI via a normal (Wald) approximation",
+2025-11-12T19-55-38+0000,only_in_B,,bucket free-text player positions into Defensive/Goalkeeper/Attacking/Midfield/Missing groups via keyword matching rules,
+2025-11-12T19-55-38+0000,only_in_A,select and restrict the columns carried into the modeling dataset,,
+2025-11-12T19-55-38+0000,only_in_A,load the raw player-referee dyad soccer dataset from CSV,,
+2025-11-15T15-03-11+0000,same,"choose which columns enter the modeling dataset, fixing the covariate set available to later models","pick which player, referee, outcome and covariate columns carry forward into the modeling table","both select columns entering the modeling dataset, same lines ~92-97, same covariates"
+2025-11-15T15-03-11+0000,only_in_A,choose which covariates to check for balance across skin-tone groups and normalize their means relative to the light-skin group,,
+2025-11-15T15-38-19+0000,same,"fit an unadjusted logistic regression of red card receipt on dark_skin alone, with standard errors clustered by player",fit an unadjusted logistic regression of red-card receipt on dark_skin alone with player-clustered standard errors,both fit unadjusted logistic of red card on dark_skin with player-clustered SEs
+2025-11-15T17-13-29+0000,same,drop skin-tone values supported by fewer than 100 dyads before plotting the rate-by-skin-tone curve,drop skin-tone values with fewer than 100 dyads before plotting the rate-by-skin-tone curve,both drop skin-tone values with fewer than 100 dyads before the rate-by-skin plot
+2025-11-15T17-13-29+0000,same,binarize skin category into a dark-skin indicator used as the exposure,recode skin category into a 0/1 darkSkin indicator with light skin as the reference level,both binarize skin category into a dark-skin indicator at line 53
+2025-11-15T17-13-29+0000,only_in_A,"choose the fixed set of variables (outcome, exposure, covariates, IDs) that will be carried into modeling",,
+2025-11-15T17-13-29+0000,only_in_A,load the raw soccer referee dataset from a fixed CSV path with no filtering at read time,,
+2025-11-15T17-13-29+0000,only_in_A,"collapse free-text position strings into a small set of position buckets via keyword matching, with an Unknown catch-all",,
+2025-11-15T18-59-03+0000,same,compute player age as a fixed reference year (2012) minus birth year rather than age at time of match,derive player age using a fixed 2012 season-start reference year instead of the actual match date,both derive age from fixed 2012 reference year instead of actual match date
+2025-11-16T11-59-47+0000,same,load the raw player-referee dyad dataset from CSV,pick the soccer dyad CSV as the input dataset and load it in full,both load the raw dyad CSV as input
+2025-11-16T11-59-47+0000,same,pick which covariates to compare across skin-tone groups as a balance check,choose which covariates to compare for balance across the skin-tone groups,both pick covariates to compare for skin-tone balance check
+2025-11-16T11-59-47+0000,only_in_A,collapse detailed playing positions into four broad position groups,,
+2025-11-16T11-59-47+0000,only_in_B,,declare a result statistically significant using a 0.05 p-value threshold,
+2025-11-16T11-59-47+0000,only_in_B,,choose which columns from df_valid become the modeling dataset,
+2025-11-16T11-59-47+0000,only_in_B,,"choose which four model specifications (primary, continuous, extremes, outfield) to show on the forest plot, leaving out the multi-game sensitivity",
+2025-11-16T21-46-30+0000,same,approximate the AME's standard error via a delta-method scaling of the logit coefficient's SE,"approximate the marginal-effect standard error via a delta-method scaling of the logistic coefficient's SE by p(1-p), as an analytic alternative to a bootstrap SE",both approximate the marginal-effect SE by delta-method scaling of the logit coefficient's SE
+2025-11-16T21-46-30+0000,same,compute the red-card rate and a normal-approximation 95% CI separately for every distinct observed skin-tone value,"compute an unadjusted red-card rate and a normal-approximation (Wald) confidence interval for each distinct raw skin-tone value, for the descriptive plot panel",both compute red-card rate and normal-approximation CI per distinct skin-tone value
+2025-11-17T01-20-10+0000,same,substitute a single hand-picked approximate CI half-width for every forest-plot row instead of the CI actually computed for each specification,approximate each specification's confidence-interval half-width in the forest plot with a fixed constant rather than each model's actual computed CI,both replace each spec's real CI with one fixed approximate half-width
+2025-11-17T01-20-10+0000,same,populate the forest plot's robustness-check row values with hand-typed literal numbers instead of referencing the actually-computed rd/rd_cont/rd_league/rd_noyellow/rd_min variables from section 5,hardcode the robustness-check risk-difference values shown in the forest plot as literal constants instead of referencing the rd/rd_cont/rd_league/rd_noyellow/rd_min variables computed earlier,both hardcode forest-plot risk-diff values instead of the computed rd variables
+2025-11-17T01-20-10+0000,only_in_A,announce adding league-country fixed effects to the adjustment set,,
+2025-11-17T01-20-10+0000,only_in_A,announce swapping the dichotomized exposure for the raw continuous skin-tone score,,
+2025-11-17T01-20-10+0000,only_in_A,announce dropping yellow-card count from the adjustment set,,
+2025-11-17T01-20-10+0000,only_in_A,announce a minimally-adjusted specification,,
+2025-11-17T01-20-10+0000,only_in_A,announce a sensitivity sweep over alternative skin-tone cutoffs,,
+2025-11-17T03-01-51+0000,same,restrict the working dataset to a fixed set of variables carried into all downstream models,cut the dataset down to just the variables carried forward into the analysis,both restrict the dataset to the fixed variable set carried into the analysis
+2025-11-17T03-01-51+0000,only_in_B,,exclude any position subgroup with fewer than 100 dyads from the subgroup analysis,
+2025-11-17T03-01-51+0000,only_in_A,derive a two-sided p-value via a normal-approximation z-test built from the bootstrap standard error rather than from the bootstrap distribution's own tails,,
+2025-11-17T05-02-45+0000,same,"derive player age by subtracting birth year from a fixed 2012 season-reference year, coercing bad dates to missing","derive player age from birthday using a fixed 2012 reference year, coercing unparseable dates to missing","both derive player age from birthday using fixed 2012 reference, coercing bad dates to missing"
+2025-11-17T05-02-45+0000,only_in_B,,compute a two-sided normal-approximation p-value (z = estimate/SE) for every effect estimate across the primary and robustness models,
+2025-11-17T05-02-45+0000,only_in_A,"choose which covariates (age, height, weight, games) to inspect for balance across skin-tone groups",,
+2025-11-28T18-46-03+0000,same,additionally report a one-sided p-value by halving the two-sided p-value,additionally report a one-sided p-value obtained by halving the two-sided p-value for the primary exposure effect,both report a one-sided p-value by halving the two-sided p-value for pval_dark

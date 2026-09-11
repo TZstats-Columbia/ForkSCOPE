@@ -1,0 +1,821 @@
+{
+ "n_lines": 318,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "operation": "load the player-referee dyad dataset from soccer.csv as the analysis population",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "operation": "average the two raters' skin-tone codings into a single continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skintone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     54
+    ]
+   ],
+   "operation": "assess inter-rater agreement on skin tone via correlation and exact-match rate rather than adjudicating or discarding disagreements",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     62
+    ]
+   ],
+   "operation": "dichotomize the skin-tone score at the 0.5 midpoint to define dark vs light exposure groups",
+   "targets": [
+    "skintone_avg",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     65
+    ]
+   ],
+   "operation": "collapse red-card counts into a binary any-red-card outcome rather than modeling counts or severity",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     77,
+     84
+    ]
+   ],
+   "operation": "restrict the analytic sample to complete cases on the outcome, exposure, and chosen covariate list, dropping rows missing any of them",
+   "targets": [
+    "model_vars",
+    "df",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     100,
+     104
+    ]
+   ],
+   "operation": "compute the unadjusted red-card rate difference and relative risk by skin-tone group as the baseline comparison",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     115,
+     121
+    ]
+   ],
+   "operation": "z-score standardize the continuous covariates before entering them in the model",
+   "targets": [
+    "height",
+    "weight",
+    "games",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     124
+    ]
+   ],
+   "operation": "encode player position and league as categorical fixed effects rather than continuous or omitted variables",
+   "targets": [
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     136
+    ]
+   ],
+   "operation": "fix the adjustment covariate set (games, height, weight, implicit-bias score, experience, position, league) for the primary regression",
+   "targets": [
+    "games_std",
+    "height_std",
+    "weight_std",
+    "meanIAT_std",
+    "meanExp_std",
+    "position_cat",
+    "league_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     137,
+     142
+    ],
+    [
+     194,
+     198
+    ],
+    [
+     243,
+     246
+    ],
+    [
+     267,
+     271
+    ]
+   ],
+   "operation": "fit a logistic regression via smf.logit with standard errors clustered on player identity",
+   "targets": [
+    "playerShort",
+    "df_complete",
+    "df_extremes"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14,
+    17,
+    18
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     153,
+     157
+    ],
+    [
+     204,
+     206
+    ],
+    [
+     230,
+     233
+    ]
+   ],
+   "operation": "exponentiate the model coefficient to obtain an adjusted odds ratio with a Wald 95% CI on the coefficient scale",
+   "targets": [
+    "dark_skin_coef",
+    "dark_skin_se",
+    "model_sens1",
+    "model_sens2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14,
+    15
+   ]
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     171
+    ],
+    [
+     199,
+     203
+    ],
+    [
+     221,
+     225
+    ],
+    [
+     247,
+     250
+    ],
+    [
+     284,
+     287
+    ]
+   ],
+   "operation": "use the average marginal effect of the exposure as the risk-difference estimator, with a normal-approximation 95% CI",
+   "targets": [
+    "model",
+    "mfx",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14,
+    15,
+    17,
+    19
+   ]
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     185,
+     193
+    ]
+   ],
+   "operation": "redefine exposure as very-dark vs very-light at 0.75/0.25 and drop the middle skin-tone group for this sensitivity check",
+   "targets": [
+    "skintone_avg",
+    "very_dark",
+    "very_light",
+    "df_extremes",
+    "dark_extreme"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     214,
+     217
+    ],
+    [
+     226,
+     229
+    ]
+   ],
+   "operation": "re-specify skin tone as a continuous exposure and rescale the resulting effect to a 0.25-unit change for interpretability",
+   "targets": [
+    "skintone_avg",
+    "me_skin_sens2",
+    "me_skin_025"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     218,
+     220
+    ]
+   ],
+   "operation": "swap the variance estimator to heteroskedasticity-robust (HC1) instead of player-clustered for the continuous-exposure model",
+   "targets": [
+    "model_sens2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     240,
+     242
+    ]
+   ],
+   "operation": "specify an unadjusted single-predictor model as a formal comparator to the adjusted estimate",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     263,
+     266
+    ],
+    [
+     272,
+     273
+    ]
+   ],
+   "operation": "add a dark_skin by implicit-bias interaction term to test whether referee bias moderates the skin-tone effect",
+   "targets": [
+    "dark_skin",
+    "meanIAT_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    10
+   ]
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     278,
+     283
+    ]
+   ],
+   "operation": "recompute standard errors clustered by referee instead of by player as an alternative dependence structure",
+   "targets": [
+    "refNum",
+    "model_ref_cluster"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     301,
+     302
+    ]
+   ],
+   "operation": "declare the hypothesis 'not supported' whenever the primary p-value exceeds 0.05 or the risk-difference CI crosses zero, else 'supported'",
+   "targets": [
+    "me_pval",
+    "me_ci_lower",
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     18
+    ]
+   ],
+   "note": "module docstring: title, author, dataset, hypothesis, estimands"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     19,
+     28
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     29,
+     29
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "note": "section header banner: Data loading and preparation"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     42
+    ]
+   ],
+   "note": "console header and dataset shape"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     43,
+     46
+    ]
+   ],
+   "note": "section header banner: Variable creation"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     58
+    ]
+   ],
+   "note": "print inter-rater reliability results"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     66,
+     69
+    ]
+   ],
+   "note": "print exposure definition counts"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     70,
+     72
+    ]
+   ],
+   "note": "print outcome rate"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     76
+    ]
+   ],
+   "note": "section header banner: Complete case analysis dataset"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     91
+    ]
+   ],
+   "note": "print sample selection counts"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     92,
+     95
+    ]
+   ],
+   "note": "section header banner: Descriptive statistics"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "print unadjusted analysis header"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     105,
+     110
+    ]
+   ],
+   "note": "print unadjusted rates and RD/RR"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     111,
+     114
+    ]
+   ],
+   "note": "section header banner: Standardize continuous variables"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     125,
+     128
+    ]
+   ],
+   "note": "section header banner: Primary analysis"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     132
+    ]
+   ],
+   "note": "print primary analysis header"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     143,
+     147
+    ]
+   ],
+   "note": "print model convergence/summary"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     148,
+     152
+    ]
+   ],
+   "note": "mechanical extraction of fitted coefficient, SE, p-value"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     162
+    ]
+   ],
+   "note": "print secondary estimand (OR)"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     176
+    ]
+   ],
+   "note": "print primary estimand (RD)"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     177,
+     180
+    ]
+   ],
+   "note": "section header banner: Sensitivity analyses"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     181,
+     184
+    ]
+   ],
+   "note": "print sensitivity analyses header"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     207,
+     213
+    ]
+   ],
+   "note": "print sensitivity 1 results"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     234,
+     239
+    ]
+   ],
+   "note": "print sensitivity 2 results"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     251,
+     254
+    ]
+   ],
+   "note": "print unadjusted-estimate comparison"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     255,
+     258
+    ]
+   ],
+   "note": "section header banner: Robustness checks"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     259,
+     262
+    ]
+   ],
+   "note": "print robustness checks header"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     274,
+     277
+    ]
+   ],
+   "note": "print interaction results"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     288,
+     292
+    ]
+   ],
+   "note": "print referee-clustering results"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     293,
+     296
+    ]
+   ],
+   "note": "section header banner: Final summary"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     297,
+     300
+    ]
+   ],
+   "note": "print final results header"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     303,
+     318
+    ]
+   ],
+   "note": "print conclusion and key-findings summary"
+  }
+ ]
+}

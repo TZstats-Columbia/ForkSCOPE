@@ -1,0 +1,110 @@
+{
+ "run_id": "2025-11-19T11-29-03+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 218,
+   "functional_lines": 113,
+   "functional_share": 0.5183,
+   "by_type": {
+    "print": 63,
+    "comment": 31,
+    "import": 9,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 281,
+   "functional_lines": 157,
+   "functional_share": 0.5587,
+   "by_type": {
+    "heading": 47,
+    "boilerplate": 25,
+    "framing": 23,
+    "hedging": 16,
+    "other": 15,
+    "background": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 100,
+  "action_claims": 43,
+  "result_claims": 57,
+  "links": 58,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 57
+ },
+ "silent_decisions": [
+  {
+   "id": 12,
+   "lines": [
+    [
+     43,
+     49
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pick which columns carry into the modeling dataset (outcome, exposure, covariates, cluster id)",
+   "targets": [
+    "model_vars",
+    "df_model",
+    "df"
+   ]
+  },
+  {
+   "id": 32,
+   "lines": [
+    [
+     149,
+     153
+    ]
+   ],
+   "confidence": "high",
+   "operation": "redefine exposure using extreme skin-tone cutoffs (>=0.75 vs <=0.25) and exclude the ambiguous middle group",
+   "targets": [
+    "skinTone",
+    "darkSkin_extreme",
+    "df_extremes",
+    "df_model"
+   ]
+  },
+  {
+   "id": 33,
+   "lines": [
+    [
+     154,
+     162
+    ]
+   ],
+   "confidence": "high",
+   "operation": "refit the adjusted logistic model on the extreme-only subsample using the extreme exposure coding",
+   "targets": [
+    "anyRedCard",
+    "darkSkin_extreme",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight",
+    "position_clean",
+    "leagueCountry",
+    "refNum",
+    "df_extremes"
+   ]
+  }
+ ],
+ "misalignments": []
+}

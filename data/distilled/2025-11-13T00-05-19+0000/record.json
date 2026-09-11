@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-13T00-05-19+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 367,
+   "functional_lines": 131,
+   "functional_share": 0.3569,
+   "by_type": {
+    "print": 98,
+    "comment": 53,
+    "plot": 46,
+    "glue": 25,
+    "import": 9,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 293,
+   "functional_lines": 152,
+   "functional_share": 0.5188,
+   "by_type": {
+    "heading": 54,
+    "other": 43,
+    "boilerplate": 35,
+    "hedging": 6,
+    "background": 5,
+    "framing": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 66,
+  "action_claims": 35,
+  "result_claims": 31,
+  "links": 43,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 31
+ },
+ "silent_decisions": [
+  {
+   "id": 23,
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "encode dark skin tone as the exposure indicator (1) versus light (0)",
+   "targets": [
+    "skinCategory",
+    "darkSkin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bin the continuous skin-tone score into light/medium/dark categories using fixed cutpoints (0.375, 0.625)",
+   "claim": "skin tone was dichotomized using thresholds of ≤0.375 for light skin (n=89,107) and ≥0.75 for dark skin (n=15,990)",
+   "note": "code bins dark skin above the 0.625 cutpoint; claim states the dark threshold is ≥0.75"
+  },
+  {
+   "decision": "bin the continuous skin-tone score into light/medium/dark categories using fixed cutpoints (0.375, 0.625)",
+   "claim": "players with medium skin tone ratings (0.375–0.75) were excluded to create a clearer contrast between groups",
+   "note": "code sets the medium band upper bound at 0.625; claim states medium spans 0.375–0.75"
+  }
+ ]
+}

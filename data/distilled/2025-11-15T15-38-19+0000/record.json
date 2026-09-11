@@ -1,0 +1,69 @@
+{
+ "run_id": "2025-11-15T15-38-19+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 327,
+   "functional_lines": 163,
+   "functional_share": 0.4985,
+   "by_type": {
+    "print": 104,
+    "comment": 47,
+    "import": 10,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 299,
+   "functional_lines": 171,
+   "functional_share": 0.5719,
+   "by_type": {
+    "heading": 69,
+    "boilerplate": 27,
+    "hedging": 18,
+    "other": 12,
+    "framing": 6,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 122,
+  "action_claims": 67,
+  "result_claims": 55,
+  "links": 85,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 16,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 26,
+   "lines": [
+    [
+     142,
+     150
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit an unadjusted logistic regression of red card receipt on dark_skin alone, with standard errors clustered by player",
+   "targets": [
+    "red_card_received",
+    "dark_skin",
+    "playerShort"
+   ]
+  }
+ ],
+ "misalignments": []
+}

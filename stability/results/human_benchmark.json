@@ -1,0 +1,2319 @@
+{
+ "raters_returned": 3,
+ "raters_scored": 3,
+ "gold_failures": {},
+ "gold": {
+  "items": 4,
+  "retired": [
+   "O041"
+  ],
+  "live": [
+   "O040",
+   "O042",
+   "O043"
+  ]
+ },
+ "hypothesis": "If humans also split on the unstable pairs, model instability tracks genuine ambiguity. If humans agree confidently where the builds disagree, it is model noise. Registered before rating.",
+ "strata": {
+  "option:stable_same": {
+   "pairs_rated": 13,
+   "human_human": 0.7436,
+   "human_human_committed": 0.8286,
+   "committed_pairs": 35,
+   "model_model": 1.0,
+   "unsure_rate": 0.0513
+  },
+  "option:stable_diff": {
+   "pairs_rated": 13,
+   "human_human": 0.8205,
+   "human_human_committed": 0.8649,
+   "committed_pairs": 37,
+   "model_model": 1.0,
+   "unsure_rate": 0.0256
+  },
+  "option:unstable": {
+   "pairs_rated": 13,
+   "human_human": 0.4872,
+   "human_human_committed": 0.6552,
+   "committed_pairs": 29,
+   "model_model": 0.0,
+   "unsure_rate": 0.1282
+  },
+  "fork:stable_same": {
+   "pairs_rated": 20,
+   "human_human": 0.7167,
+   "human_human_committed": 0.8542,
+   "committed_pairs": 48,
+   "model_model": 1.0,
+   "unsure_rate": 0.1167
+  },
+  "fork:stable_diff": {
+   "pairs_rated": 20,
+   "human_human": 0.6207,
+   "human_human_committed": 0.6923,
+   "committed_pairs": 52,
+   "model_model": 1.0,
+   "unsure_rate": 0.05
+  },
+  "fork:unstable": {
+   "pairs_rated": 20,
+   "human_human": 0.5667,
+   "human_human_committed": 0.7021,
+   "committed_pairs": 47,
+   "model_model": 0.0,
+   "unsure_rate": 0.1167
+  }
+ },
+ "confidence_use": {
+  "rater-1": {
+   "n": 103,
+   "mean": 4.864,
+   "sd": 0.344,
+   "min": 4.0,
+   "max": 5.0,
+   "unsure_rate": 0.1165
+  },
+  "rater-2": {
+   "n": 102,
+   "mean": 3.882,
+   "sd": 1.12,
+   "min": 1.0,
+   "max": 5.0,
+   "unsure_rate": 0.0098
+  },
+  "rater-3": {
+   "n": 103,
+   "mean": 4.165,
+   "sd": 0.729,
+   "min": 2.0,
+   "max": 5.0,
+   "unsure_rate": 0.1262
+  }
+ },
+ "by_part": {
+  "option:stable_same": {
+   "items": 13,
+   "unjudgeable": 0.0513,
+   "rater_x_rater": 0.7436,
+   "rater_x_rater_pooled": 0.8286,
+   "rater_x_rater_items": 13,
+   "rater_x_buildA": 0.7692,
+   "rater_x_buildA_pooled": 0.7838,
+   "rater_x_buildA_items": 13,
+   "buildA_x_buildB": 1.0
+  },
+  "option:stable_diff": {
+   "items": 13,
+   "unjudgeable": 0.0256,
+   "rater_x_rater": 0.8205,
+   "rater_x_rater_pooled": 0.8649,
+   "rater_x_rater_items": 13,
+   "rater_x_buildA": 0.8846,
+   "rater_x_buildA_pooled": 0.8947,
+   "rater_x_buildA_items": 13,
+   "buildA_x_buildB": 1.0
+  },
+  "option:unstable": {
+   "items": 13,
+   "unjudgeable": 0.1282,
+   "rater_x_rater": 0.641,
+   "rater_x_rater_pooled": 0.6552,
+   "rater_x_rater_items": 13,
+   "rater_x_buildA": 0.4615,
+   "rater_x_buildA_pooled": 0.4706,
+   "rater_x_buildA_items": 13,
+   "buildA_x_buildB": 0.0
+  },
+  "fork:stable_same": {
+   "items": 20,
+   "unjudgeable": 0.1167,
+   "rater_x_rater": 0.8333,
+   "rater_x_rater_pooled": 0.8542,
+   "rater_x_rater_items": 18,
+   "rater_x_buildA": 0.925,
+   "rater_x_buildA_pooled": 0.9245,
+   "rater_x_buildA_items": 20,
+   "buildA_x_buildB": 1.0
+  },
+  "fork:stable_diff": {
+   "items": 20,
+   "unjudgeable": 0.0508,
+   "rater_x_rater": 0.6667,
+   "rater_x_rater_pooled": 0.6923,
+   "rater_x_rater_items": 20,
+   "rater_x_buildA": 0.7167,
+   "rater_x_buildA_pooled": 0.7143,
+   "rater_x_buildA_items": 20,
+   "buildA_x_buildB": 1.0
+  },
+  "fork:unstable": {
+   "items": 20,
+   "unjudgeable": 0.1167,
+   "rater_x_rater": 0.7544,
+   "rater_x_rater_pooled": 0.7021,
+   "rater_x_rater_items": 19,
+   "rater_x_buildA": 0.45,
+   "rater_x_buildA_pooled": 0.4906,
+   "rater_x_buildA_items": 20,
+   "buildA_x_buildB": 0.0
+  }
+ },
+ "rater_pairs": {
+  "rater-1|rater-2": {
+   "agreement": 0.7529,
+   "committed": 85,
+   "shared": 98
+  },
+  "rater-1|rater-3": {
+   "agreement": 0.7436,
+   "committed": 78,
+   "shared": 99
+  },
+  "rater-2|rater-3": {
+   "agreement": 0.8,
+   "committed": 85,
+   "shared": 98
+  }
+ },
+ "verdict": {
+  "option": {
+   "human_on_stable": 0.7821,
+   "human_on_unstable": 0.641,
+   "gap": 0.1411,
+   "basis": "per-item, committed"
+  },
+  "fork": {
+   "human_on_stable": 0.75,
+   "human_on_unstable": 0.7544,
+   "gap": -0.0044,
+   "basis": "per-item, committed"
+  }
+ },
+ "pool_weighted": {
+  "option": {
+   "human": 0.8183,
+   "weights": {
+    "stable_diff": 0.4394,
+    "stable_same": 0.4092,
+    "unstable": 0.1514
+   },
+   "restricted": false,
+   "model": 0.8486,
+   "gap": 0.0303
+  },
+  "fork": {
+   "human": 0.729,
+   "weights": {
+    "unstable": 0.7798,
+    "stable_same": 0.1795,
+    "stable_diff": 0.0407
+   },
+   "restricted": true,
+   "model": null,
+   "jaccard_co_membership": 0.1871,
+   "why_no_model_rate": "pool restricted to pairs at least one build grouped, with synthetic negatives; a model rate over it restates the pool's construction"
+  }
+ },
+ "validity": {
+  "option:stable_same": {
+   "n_decided": 11,
+   "a_said": "same",
+   "human_majority_same": 0.8182,
+   "endorsement": 0.8182,
+   "binom_p_vs_even": 0.06543
+  },
+  "option:stable_diff": {
+   "n_decided": 12,
+   "a_said": "different",
+   "human_majority_same": 0.0833,
+   "endorsement": 0.9167,
+   "binom_p_vs_even": 0.00635
+  },
+  "option:unstable": {
+   "n_decided": 11,
+   "a_said": "split",
+   "human_majority_same": 0.4545,
+   "endorsement": null,
+   "binom_p_vs_even": 1.0
+  },
+  "fork:stable_same": {
+   "n_decided": 19,
+   "a_said": "same",
+   "human_majority_same": 1.0,
+   "endorsement": 1.0,
+   "binom_p_vs_even": 0.0
+  },
+  "fork:stable_diff": {
+   "n_decided": 18,
+   "a_said": "different",
+   "human_majority_same": 0.1667,
+   "endorsement": 0.8333,
+   "binom_p_vs_even": 0.00754
+  },
+  "fork:unstable": {
+   "n_decided": 20,
+   "a_said": "split",
+   "human_majority_same": 0.6,
+   "endorsement": null,
+   "binom_p_vs_even": 0.50344
+  }
+ },
+ "contradicts_both_builds": [
+  {
+   "pair_id": "O019",
+   "stratum": "stable_diff",
+   "builds": "different",
+   "humans": "same",
+   "verdicts": [
+    "same",
+    "same",
+    "different"
+   ],
+   "a_text": "compute Pearson and Spearman inter-rater agreement on pairwise-complete ratings and report it",
+   "b_text": "quantify inter-rater agreement via Pearson correlation and exact-match rate between the two raters"
+  },
+  {
+   "pair_id": "O012",
+   "stratum": "stable_same",
+   "builds": "same",
+   "humans": "different",
+   "verdicts": [
+    "different",
+    "different",
+    "different"
+   ],
+   "a_text": "build a counterfactual dataset where every dyad is forced to dark-skin status and predict from the fitted model",
+   "b_text": "estimate the adjusted risk difference via marginal standardization (g-computation): set every dyad to dark then to light skin, predict outcome probabilities under each, and average the difference"
+  },
+  {
+   "pair_id": "O009",
+   "stratum": "stable_same",
+   "builds": "same",
+   "humans": "different",
+   "verdicts": [
+    "different",
+    "different",
+    "same"
+   ],
+   "a_text": "require at least 3 games in a dyad to keep it in the sample, later re-testing the cutoff at 4 games",
+   "b_text": "require at least 3 games in a dyad to keep it in the sample"
+  },
+  {
+   "pair_id": "F030",
+   "stratum": "stable_diff",
+   "builds": "different",
+   "humans": "same",
+   "verdicts": [
+    "same",
+    "same",
+    "same"
+   ],
+   "a_text": "median-impute height/weight/age + impute bias scores with column median",
+   "b_text": "impute missing bias score with the country/group mean"
+  },
+  {
+   "pair_id": "F040",
+   "stratum": "stable_diff",
+   "builds": "different",
+   "humans": "same",
+   "verdicts": [
+    "different",
+    "same",
+    "same"
+   ],
+   "a_text": "build a smoothed per-game red-card rate (sum/(games+1)) tested against S1/S2 splits",
+   "b_text": "combine card types into one bookings score, weighting yellow-red double"
+  },
+  {
+   "pair_id": "F026",
+   "stratum": "stable_diff",
+   "builds": "different",
+   "humans": "same",
+   "verdicts": [
+    "same",
+    "same",
+    "same"
+   ],
+   "a_text": "median-impute height/weight + impute bias scores with zero",
+   "b_text": "impute missing bias score with the country/group mean"
+  }
+ ],
+ "difficulty": {
+  "option": {
+   "items": 39,
+   "mean_split": 0.265,
+   "mean_unjudgeable": 0.0684,
+   "auc_split": 0.5902,
+   "auc_unjudgeable": 0.6346,
+   "auc_low_confidence": 0.5355,
+   "auc_combined": 0.5843,
+   "perm_p": 0.40708,
+   "items_judgeable": 31,
+   "auc_judgeable_only": 0.606,
+   "perm_p_judgeable_only": 0.38228
+  },
+  "fork": {
+   "items": 60,
+   "mean_split": 0.2515,
+   "mean_unjudgeable": 0.0944,
+   "auc_split": 0.4986,
+   "auc_unjudgeable": 0.5475,
+   "auc_low_confidence": 0.55,
+   "auc_combined": 0.5533,
+   "perm_p": 0.51522,
+   "items_judgeable": 46,
+   "auc_judgeable_only": 0.6317,
+   "perm_p_judgeable_only": 0.16244
+  },
+  "both": {
+   "items": 99,
+   "mean_split": 0.257,
+   "mean_unjudgeable": 0.0842,
+   "auc_split": 0.5376,
+   "auc_unjudgeable": 0.5808,
+   "auc_low_confidence": 0.5296,
+   "auc_combined": 0.5645,
+   "perm_p": 0.30718,
+   "items_judgeable": 77,
+   "auc_judgeable_only": 0.624,
+   "perm_p_judgeable_only": 0.08685
+  }
+ },
+ "hardest_items": [
+  {
+   "pair_id": "O011",
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -1.1745,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.2936
+  },
+  {
+   "pair_id": "F004",
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.8021,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.2005
+  },
+  {
+   "pair_id": "O036",
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -2.0892,
+   "labels": [
+    "different",
+    "same",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 1.189
+  },
+  {
+   "pair_id": "O026",
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.6639,
+   "labels": [
+    "different",
+    "unsure",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.166
+  },
+  {
+   "pair_id": "F038",
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.0,
+   "z_conf": -0.6018,
+   "labels": [
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.1504
+  },
+  {
+   "pair_id": "O007",
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.5044,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.1261
+  },
+  {
+   "pair_id": "O030",
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -1.4723,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 1.0348
+  },
+  {
+   "pair_id": "F021",
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.1218,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.0305
+  }
+ ],
+ "unanimous_unsure": [],
+ "audit": {
+  "raters": [
+   "rater-1",
+   "rater-2",
+   "rater-3"
+  ],
+  "forks": 30,
+  "queue": [
+   {
+    "fork": "which covariates make up the model's adjustment set?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "over-merged",
+      "instruction": "How games are handled is showing interesting pattern here."
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "over-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 2,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 127.0,
+    "coverage": 0.57,
+    "n_options": 49.0,
+    "eff_options": 13.71
+   },
+   {
+    "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "both",
+      "instruction": "Transformation of games should be its own fork. The rest of transformation can be organized."
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 2,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 59.0,
+    "coverage": 0.265,
+    "n_options": 9.0,
+    "eff_options": 2.23
+   },
+   {
+    "fork": "How is the middle (Medium) skin-tone category handled?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": "Or reorganize with skin tone fork above"
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "over-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 2,
+    "n_instructed": 1,
+    "stratum": "random",
+    "runs": 22.0,
+    "coverage": 0.099,
+    "n_options": 1.0,
+    "eff_options": 1.0
+   },
+   {
+    "fork": "how is games-played entered into the model (functional form / transformation)?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": "Should be re-organized with the one above"
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 2,
+    "n_instructed": 1,
+    "stratum": "random",
+    "runs": 18.0,
+    "coverage": 0.081,
+    "n_options": 6.0,
+    "eff_options": 3.31
+   },
+   {
+    "fork": "how are records with missing covariates handled \u2014 complete-case, impute, or recode as explicit category?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "correct",
+      "instruction": "But could be improved."
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 111.0,
+    "coverage": 0.498,
+    "n_options": 10.0,
+    "eff_options": 1.83
+   },
+   {
+    "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": "Could be separated into model categories and covariate categories."
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 93.0,
+    "coverage": 0.417,
+    "n_options": 32.0,
+    "eff_options": 3.55
+   },
+   {
+    "fork": "Which control variables and functional forms enter the regression model?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": "Can be re-organized into one fork about how to transform variables (which to transform and how) and another forks on what to include."
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 59.0,
+    "coverage": 0.265,
+    "n_options": 17.0,
+    "eff_options": 8.27
+   },
+   {
+    "fork": "In what form is the yellow-card (and related count) covariate entered \u2014 raw, log-transformed, standardized, or a per-game rate?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": "See above"
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 1,
+    "stratum": "targeted",
+    "runs": 17.0,
+    "coverage": 0.076,
+    "n_options": 7.0,
+    "eff_options": 4.19
+   },
+   {
+    "fork": "how are records with a missing referee bias score (IAT/explicit) handled \u2014 dropped or imputed?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": ""
+     },
+     {
+      "rater": "rater-3",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 2,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 19.0,
+    "coverage": 0.085,
+    "n_options": 5.0,
+    "eff_options": 1.72
+   },
+   {
+    "fork": "how is complete-case/listwise deletion applied and over which variable set?",
+    "entries": [
+     {
+      "rater": "rater-3",
+      "verdict": "over-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 56.0,
+    "coverage": 0.251,
+    "n_options": 3.0,
+    "eff_options": 1.29
+   },
+   {
+    "fork": "How are raw group red-card rates reported descriptively?",
+    "entries": [
+     {
+      "rater": "rater-3",
+      "verdict": "over-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 37.0,
+    "coverage": 0.166,
+    "n_options": 1.0,
+    "eff_options": 1.0
+   },
+   {
+    "fork": "Is the adjustment set expanded by adding covariates as a robustness check?",
+    "entries": [
+     {
+      "rater": "rater-3",
+      "verdict": "over-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 17.0,
+    "coverage": 0.076,
+    "n_options": 1.0,
+    "eff_options": 1.0
+   },
+   {
+    "fork": "how is the binary dark-skin exposure variable defined?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 17.0,
+    "coverage": 0.076,
+    "n_options": 2.0,
+    "eff_options": 1.26
+   },
+   {
+    "fork": "how is the final conclusion characterized in the writeup?",
+    "entries": [
+     {
+      "rater": "rater-1",
+      "verdict": "under-merged",
+      "instruction": ""
+     }
+    ],
+    "n_flagged": 1,
+    "n_instructed": 0,
+    "stratum": "random",
+    "runs": 13.0,
+    "coverage": 0.058,
+    "n_options": 5.0,
+    "eff_options": 4.33
+   }
+  ],
+  "recurring_terms": {
+   "fork": [
+    "How is the middle (Medium) skin-tone category handled?",
+    "Which control variables and functional forms enter the regression model?",
+    "how are continuous predictors transformed and z-scored/standardized before modeling?"
+   ],
+   "games": [
+    "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "which covariates make up the model's adjustment set?"
+   ]
+  },
+  "per_rater": {
+   "rater-1": {
+    "correct": 20,
+    "flagged": 10,
+    "unsure": 0,
+    "instructions": 8
+   },
+   "rater-2": {
+    "correct": 26,
+    "flagged": 0,
+    "unsure": 4,
+    "instructions": 0
+   },
+   "rater-3": {
+    "correct": 18,
+    "flagged": 9,
+    "unsure": 3,
+    "instructions": 0
+   }
+  },
+  "endorse_rate": 0.7111,
+  "unjudgeable_rate": 0.0778,
+  "agreement_strict": 0.5111,
+  "agreement_flag_or_not": 0.6889,
+  "silent_raters": [
+   "rater-2"
+  ],
+  "auc_eff_options": 0.5246,
+  "auc_n_options": 0.4933,
+  "auc_coverage": 0.3214,
+  "flag_rate_targeted": 0.4,
+  "flag_rate_random": 0.5333
+ },
+ "items": {
+  "O011": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -1.1745,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.2936
+  },
+  "O013": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "O006": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.5484,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.1371
+  },
+  "O024": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "O019": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.6639,
+   "labels": [
+    "same",
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.8327
+  },
+  "O004": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -1.0364,
+   "labels": [
+    "same",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.9258
+  },
+  "O017": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "O003": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "O015": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0517
+  },
+  "O039": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "same",
+    "unsure"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.9772
+  },
+  "O002": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0228
+  },
+  "O028": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.0911,
+   "labels": [
+    "unsure",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0228
+  },
+  "O014": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.8021,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.2005
+  },
+  "O007": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.5044,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.1261
+  },
+  "O010": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "O001": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "O025": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.2507,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0627
+  },
+  "O012": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -2.0892,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.5223
+  },
+  "O032": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.3889,
+   "labels": [
+    "unsure",
+    "same",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.9028
+  },
+  "O030": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -1.4723,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 1.0348
+  },
+  "O035": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.7172,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.1793
+  },
+  "O031": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.0911,
+   "labels": [
+    "same",
+    "same",
+    "unsure"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0228
+  },
+  "O016": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.8235,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.2059
+  },
+  "O021": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0517
+  },
+  "O029": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.7183
+  },
+  "O009": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.4195,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7716
+  },
+  "O026": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.6639,
+   "labels": [
+    "different",
+    "unsure",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.166
+  },
+  "O005": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "O020": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.6439
+  },
+  "O036": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -2.0892,
+   "labels": [
+    "different",
+    "same",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 1.189
+  },
+  "O027": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.2115
+  },
+  "O023": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.3662,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0916
+  },
+  "O033": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.2115
+  },
+  "O018": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "O008": {
+   "part": "option",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0517
+  },
+  "O034": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -1.9296,
+   "labels": [
+    "same",
+    "same",
+    "unsure"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.4824
+  },
+  "O038": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.8768,
+   "labels": [
+    "different",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.8859
+  },
+  "O037": {
+   "part": "option",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.2115
+  },
+  "O022": {
+   "part": "option",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.6639,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.166
+  },
+  "F014": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F057": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.2507,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0627
+  },
+  "F019": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F023": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.2066,
+   "labels": [
+    "different",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0517
+  },
+  "F006": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F051": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": null,
+   "committed_pairs": 0,
+   "unjudgeable": 0.6667,
+   "z_conf": 0.3889,
+   "labels": [
+    "unsure",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0972
+  },
+  "F025": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.8768,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.2192
+  },
+  "F037": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7183
+  },
+  "F060": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.3662,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.7582
+  },
+  "F043": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.2507,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0627
+  },
+  "F036": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.5484,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.5296
+  },
+  "F033": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "different",
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.4551
+  },
+  "F018": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "same",
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7183
+  },
+  "F021": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.1218,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.0305
+  },
+  "F035": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.0471,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0118
+  },
+  "F030": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F001": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F022": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.6439
+  },
+  "F042": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.6439
+  },
+  "F004": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.8021,
+   "labels": [
+    "same",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.2005
+  },
+  "F058": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0228
+  },
+  "F008": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F038": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 1.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.0,
+   "z_conf": -0.6018,
+   "labels": [
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 1.1504
+  },
+  "F015": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F024": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0228
+  },
+  "F005": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F050": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.2066,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.0517
+  },
+  "F032": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.9617,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.2404
+  },
+  "F048": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.5044,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.1261
+  },
+  "F027": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.5044,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7928
+  },
+  "F056": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.8462,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.2115
+  },
+  "F010": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F002": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": null,
+   "committed_pairs": 0,
+   "unjudgeable": 0.6667,
+   "z_conf": -0.1218,
+   "labels": [
+    "unsure",
+    "same",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0305
+  },
+  "F055": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.2066,
+   "labels": [
+    "unsure",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.0517
+  },
+  "F053": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.6639,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.8327
+  },
+  "F029": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F011": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "same",
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7183
+  },
+  "F044": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.2066,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.0517
+  },
+  "F009": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": null,
+   "committed_pairs": 0,
+   "unjudgeable": 0.6667,
+   "z_conf": 0.3889,
+   "labels": [
+    "unsure",
+    "same",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F028": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -1.1745,
+   "labels": [
+    "different",
+    "different",
+    "unsure"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.2936
+  },
+  "F040": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.5044,
+   "labels": [
+    "different",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.7928
+  },
+  "F013": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.3889,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F020": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0228
+  },
+  "F045": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.5484,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.1371
+  },
+  "F039": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0228
+  },
+  "F049": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0972
+  },
+  "F017": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F007": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.8462,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.2115
+  },
+  "F031": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0228
+  },
+  "F041": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.5484,
+   "labels": [
+    "same",
+    "different",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.5296
+  },
+  "F047": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0228
+  },
+  "F054": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.2066,
+   "labels": [
+    "different",
+    "same",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.7183
+  },
+  "F003": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": -0.0471,
+   "labels": [
+    "same",
+    "different",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.6785
+  },
+  "F059": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "different",
+    "different"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.5695
+  },
+  "F026": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F016": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": -0.1218,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.0305
+  },
+  "F034": {
+   "part": "fork",
+   "stratum": "stable_diff",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.5484,
+   "labels": [
+    "different",
+    "same",
+    "different"
+   ],
+   "model_disagree": 0,
+   "difficulty": 0.5296
+  },
+  "F046": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.6667,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.0911,
+   "labels": [
+    "different",
+    "different",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": 0.6439
+  },
+  "F012": {
+   "part": "fork",
+   "stratum": "stable_same",
+   "split": 0.0,
+   "committed_pairs": 3,
+   "unjudgeable": 0.0,
+   "z_conf": 0.3889,
+   "labels": [
+    "same",
+    "same",
+    "same"
+   ],
+   "model_disagree": 0,
+   "difficulty": -0.0972
+  },
+  "F052": {
+   "part": "fork",
+   "stratum": "unstable",
+   "split": 0.0,
+   "committed_pairs": 1,
+   "unjudgeable": 0.3333,
+   "z_conf": 0.3889,
+   "labels": [
+    "unsure",
+    "same",
+    "same"
+   ],
+   "model_disagree": 1,
+   "difficulty": -0.0972
+  }
+ }
+}

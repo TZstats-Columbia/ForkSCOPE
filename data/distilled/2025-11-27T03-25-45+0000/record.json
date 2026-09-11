@@ -1,0 +1,65 @@
+{
+ "run_id": "2025-11-27T03-25-45+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 169,
+   "functional_lines": 93,
+   "functional_share": 0.5503,
+   "by_type": {
+    "print": 58,
+    "comment": 11,
+    "import": 4,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 183,
+   "functional_lines": 188,
+   "functional_share": 1.0273,
+   "by_type": {
+    "boilerplate": 32,
+    "heading": 27,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 101,
+  "action_claims": 44,
+  "result_claims": 57,
+  "links": 43,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 12,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 57
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     24,
+     40
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse granular playing positions into four broad role categories via a manual mapping",
+   "targets": [
+    "position",
+    "position_broad"
+   ]
+  }
+ ],
+ "misalignments": []
+}

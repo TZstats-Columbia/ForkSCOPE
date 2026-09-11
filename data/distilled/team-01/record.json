@@ -1,0 +1,130 @@
+{
+ "run_id": "team-01",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 600,
+   "functional_lines": 474,
+   "functional_share": 0.79,
+   "by_type": {
+    "glue": 59,
+    "comment": 38,
+    "dead": 15,
+    "other": 8,
+    "config": 5,
+    "print": 1
+   }
+  },
+  "prose": {
+   "n_lines": 421,
+   "functional_lines": 404,
+   "functional_share": 0.9596,
+   "by_type": {
+    "boilerplate": 20,
+    "heading": 16,
+    "framing": 12,
+    "hedging": 8
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 51,
+  "action_claims": 19,
+  "result_claims": 32,
+  "links": 60,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 3,
+  "R_only_consistent_negative": 1,
+  "result_claims_deferred": 32
+ },
+ "silent_decisions": [
+  {
+   "id": 2,
+   "lines": [
+    [
+     6,
+     7
+    ]
+   ],
+   "confidence": "high",
+   "operation": "point the analysis at the pre-cleaned maindata.dta as the full sample to load",
+   "targets": [
+    "maindata.dta"
+   ]
+  },
+  {
+   "id": 7,
+   "lines": [
+    [
+     26,
+     32
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat the literal string 'NA' as missing and convert the rating, anthropometric, and bias variables from string to numeric",
+   "targets": [
+    "rater1",
+    "rater2",
+    "height",
+    "weight",
+    "meaniat",
+    "niat",
+    "seiat",
+    "meanexp",
+    "nexp",
+    "seexp",
+    "birth_month",
+    "birth_day",
+    "birth_year"
+   ]
+  },
+  {
+   "id": 14,
+   "lines": [
+    [
+     80,
+     83
+    ]
+   ],
+   "confidence": "high",
+   "operation": "define a binary any-card outcome combining reds, second-yellow reds, and yellow cards",
+   "targets": [
+    "redcards",
+    "yellowreds",
+    "yellowcards",
+    "anycard"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     132,
+     142
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose age, height, weight, yellow cards, red cards, and any-red as the variables reported in the summary-statistics table",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "yellowcards",
+    "redcards",
+    "anyred"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,246 @@
+{
+ "run_id": "team-02",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 204,
+   "functional_lines": 81,
+   "functional_share": 0.3971,
+   "by_type": {
+    "comment": 87,
+    "glue": 20,
+    "dead": 13,
+    "config": 2,
+    "print": 1
+   }
+  },
+  "prose": {
+   "n_lines": 116,
+   "functional_lines": 117,
+   "functional_share": 1.0086,
+   "by_type": {
+    "other": 15,
+    "heading": 9,
+    "background": 7,
+    "boilerplate": 4,
+    "hedging": 4,
+    "citation": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 57,
+  "action_claims": 23,
+  "result_claims": 34,
+  "links": 25,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 11,
+  "C_only_silent_decision": 12,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 34
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the already-cleaned Stata dataset instead of re-importing and re-saving the raw crowdstorming CSV",
+   "targets": [
+    "Dataset.dta"
+   ]
+  },
+  {
+   "id": 2,
+   "lines": [
+    [
+     27,
+     28
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat the string \"NA\" as missing and convert height to a numeric variable",
+   "targets": [
+    "height"
+   ]
+  },
+  {
+   "id": 3,
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat the string \"NA\" as missing and convert weight to a numeric variable",
+   "targets": [
+    "weight"
+   ]
+  },
+  {
+   "id": 4,
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat \"NA\" as missing for position and expand position into a full set of dummy indicators",
+   "targets": [
+    "position",
+    "positionbin"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     45,
+     48
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat \"NA\" as missing and convert both raters' skin-tone scores to numeric",
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "id": 10,
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "confidence": "high",
+   "operation": "dichotomize every skin-tone measure at a cutoff greater than 3 to create dark/light indicator versions",
+   "targets": [
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "id": 12,
+   "lines": [
+    [
+     74,
+     74
+    ],
+    [
+     77,
+     77
+    ]
+   ],
+   "confidence": "high",
+   "operation": "regress the raw, non-binarized red-card count on a skin-tone measure with no covariates, as an alternate outcome specification",
+   "targets": [
+    "redcards",
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     166,
+     166
+    ]
+   ],
+   "confidence": "high",
+   "operation": "add the referee-pool's mean implicit-bias (IAT) score as a covariate alongside the core adjustment set",
+   "targets": [
+    "meaniat"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     188,
+     188
+    ]
+   ],
+   "confidence": "high",
+   "operation": "add the referee-pool's mean explicit-bias (feeling thermometer) score as a covariate alongside the core adjustment set",
+   "targets": [
+    "meanexp"
+   ]
+  },
+  {
+   "id": 21,
+   "lines": [
+    [
+     116,
+     121
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse the panel from player-game rows to one row per player by summing season totals and dropping duplicates, changing the unit of analysis",
+   "targets": [
+    "games",
+    "victories",
+    "ties",
+    "defeats",
+    "goals",
+    "yellowcards",
+    "yellowreds",
+    "redcards",
+    "playershort"
+   ]
+  },
+  {
+   "id": 22,
+   "lines": [
+    [
+     154,
+     155
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat \"NA\" as missing and convert the mean implicit-bias (IAT) score to numeric",
+   "targets": [
+    "meaniat"
+   ]
+  },
+  {
+   "id": 23,
+   "lines": [
+    [
+     158,
+     159
+    ]
+   ],
+   "confidence": "high",
+   "operation": "treat \"NA\" as missing and convert the mean explicit-bias score to numeric",
+   "targets": [
+    "meanexp"
+   ]
+  }
+ ],
+ "misalignments": []
+}

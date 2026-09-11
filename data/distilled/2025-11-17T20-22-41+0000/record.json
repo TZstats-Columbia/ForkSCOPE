@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-17T20-22-41+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 286,
+   "functional_lines": 106,
+   "functional_share": 0.3706,
+   "by_type": {
+    "glue": 71,
+    "print": 65,
+    "comment": 34,
+    "import": 8,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 326,
+   "functional_lines": 218,
+   "functional_share": 0.6687,
+   "by_type": {
+    "heading": 69,
+    "boilerplate": 30,
+    "hedging": 17,
+    "framing": 10,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 149,
+  "action_claims": 57,
+  "result_claims": 92,
+  "links": 89,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 17,
+  "result_claims_deferred": 92
+ },
+ "silent_decisions": [
+  {
+   "id": 51,
+   "lines": [
+    [
+     125,
+     126
+    ]
+   ],
+   "confidence": "high",
+   "operation": "code dark skin tone as the exposure indicator with light as reference",
+   "targets": [
+    "skinCategory",
+    "dark"
+   ]
+  },
+  {
+   "id": 88,
+   "lines": [
+    [
+     219,
+     219
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "silently discard bootstrap iterations where the model fails to fit, rather than counting or flagging them",
+   "targets": [
+    "bootstrap_rds"
+   ]
+  }
+ ],
+ "misalignments": []
+}

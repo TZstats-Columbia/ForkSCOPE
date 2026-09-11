@@ -1,0 +1,654 @@
+{
+ "n_lines": 314,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     29
+    ]
+   ],
+   "operation": "read the raw player-referee dyad csv as the analysis input, fixing the data source and starting scope",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "operation": "drop dyads lacking both rater1 and rater2 skin-tone scores before any tone-based analysis",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_with_ratings"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     45
+    ],
+    [
+     47,
+     51
+    ]
+   ],
+   "operation": "quantify agreement between the two skin-tone raters via Pearson and Spearman correlation and report it as a diagnostic",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     54
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin_tone_avg measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     62
+    ],
+    [
+     87,
+     89
+    ]
+   ],
+   "operation": "cut the continuous skin-tone score into light/medium/dark bands at 0.25 and 0.75 cutoffs, then collapse that to a dark-vs-not binary indicator",
+   "targets": [
+    "skin_tone_avg",
+    "skin_category_primary",
+    "skin_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     65
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card indicator per dyad",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     66,
+     70
+    ]
+   ],
+   "operation": "restrict the primary analysis sample to light vs dark, dropping medium-toned dyads as a contrast choice",
+   "targets": [
+    "skin_category_primary",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     79,
+     81
+    ]
+   ],
+   "operation": "drop dyads with missing player position because it is required as a covariate",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     83,
+     86
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median rather than dropping those rows",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     145
+    ],
+    [
+     170,
+     175
+    ]
+   ],
+   "operation": "fit a linear-probability (OLS) model of any_red_card on skin_dark across five nested covariate tiers with SEs clustered by player, then treat the fully-adjusted model as the primary estimate",
+   "targets": [
+    "any_red_card",
+    "skin_dark",
+    "games",
+    "position",
+    "height",
+    "weight",
+    "yellowCards",
+    "goals",
+    "leagueCountry",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     203,
+     212
+    ]
+   ],
+   "operation": "manually one-hot encode position and leagueCountry (dropping the first level) to build the logistic-regression design matrix",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "skin_dark",
+    "games",
+    "height",
+    "weight",
+    "yellowCards",
+    "goals"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     213,
+     218
+    ]
+   ],
+   "operation": "fit a binomial GLM (logistic regression) as the secondary model, again clustering SEs by player",
+   "targets": [
+    "any_red_card",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     226,
+     229
+    ]
+   ],
+   "operation": "exponentiate the logistic coefficient and its CI to express the effect on an odds-ratio scale instead of log-odds",
+   "targets": [
+    "coef_logit",
+    "ci_logit"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     246,
+     249
+    ]
+   ],
+   "operation": "re-run the adjusted model treating skin tone as a continuous exposure instead of the binary dark/light split, as a robustness check",
+   "targets": [
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     256,
+     259
+    ]
+   ],
+   "operation": "re-run the primary model clustering standard errors by referee instead of by player",
+   "targets": [
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     274,
+     307
+    ]
+   ],
+   "operation": "adopt a two-sided alpha=0.05 threshold with a CI-includes-zero rule to declare the red-card/skin-tone hypothesis 'not supported', and frame the covariate list as adequate adjustment",
+   "targets": [
+    "coef_primary",
+    "ci_primary",
+    "p_primary",
+    "or_est",
+    "or_ci_low",
+    "or_ci_high"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     11
+    ]
+   ],
+   "note": "module docstring describing the research question and dataset"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     21
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     22,
+     22
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     27
+    ]
+   ],
+   "note": "section header banner: LOAD AND PREPARE DATA"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     36
+    ]
+   ],
+   "note": "print dataset overview counts"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "note": "section header banner: SKIN TONE VARIABLE CREATION"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "note": "print count/percent of dyads with ratings"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "inline import of pearsonr/spearmanr"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     74
+    ]
+   ],
+   "note": "print primary sample sizes by category"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     75,
+     78
+    ]
+   ],
+   "note": "section header banner: HANDLE MISSING DATA"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "note": "print count after position filter"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     96
+    ]
+   ],
+   "note": "print final dataset composition summary"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     97,
+     100
+    ]
+   ],
+   "note": "section header banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     101,
+     112
+    ]
+   ],
+   "note": "print unadjusted red-card rates and raw group difference"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     113,
+     116
+    ]
+   ],
+   "note": "section header banner: PRIMARY ANALYSIS"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "print primary analysis header"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     146,
+     169
+    ]
+   ],
+   "note": "assemble model/name lists and print the model-comparison table"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     176,
+     194
+    ]
+   ],
+   "note": "print the primary model specification and result"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     195,
+     198
+    ]
+   ],
+   "note": "section header banner: SECONDARY ANALYSIS"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     199,
+     202
+    ]
+   ],
+   "note": "print secondary analysis header"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     219,
+     225
+    ]
+   ],
+   "note": "mechanically extract fitted coefficient/SE/CI/p-value from the logit model by index position"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     230,
+     237
+    ]
+   ],
+   "note": "print odds-ratio results"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     238,
+     241
+    ]
+   ],
+   "note": "section header banner: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     242,
+     245
+    ]
+   ],
+   "note": "print sensitivity analyses header"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     250,
+     255
+    ]
+   ],
+   "note": "print continuous-exposure sensitivity results"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     265
+    ]
+   ],
+   "note": "print referee-clustering sensitivity results"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     266,
+     269
+    ]
+   ],
+   "note": "section header banner: FINAL CONCLUSION"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     270,
+     273
+    ]
+   ],
+   "note": "print conclusion header"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     308,
+     314
+    ]
+   ],
+   "note": "print the conclusion text and closing banner"
+  }
+ ]
+}

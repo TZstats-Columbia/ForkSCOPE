@@ -1,0 +1,65 @@
+{
+ "run_id": "2025-11-12T12-54-24+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 350,
+   "functional_lines": 163,
+   "functional_share": 0.4657,
+   "by_type": {
+    "print": 136,
+    "comment": 37,
+    "import": 10,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 315,
+   "functional_lines": 144,
+   "functional_share": 0.4571,
+   "by_type": {
+    "boilerplate": 100,
+    "heading": 57,
+    "hedging": 17,
+    "framing": 12
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 136,
+  "action_claims": 41,
+  "result_claims": 95,
+  "links": 74,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 21,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 95
+ },
+ "silent_decisions": [
+  {
+   "id": 15,
+   "lines": [
+    [
+     56,
+     72
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode the detailed playing position into four coarse role groups, sending anything unmapped to Other",
+   "targets": [
+    "position"
+   ]
+  }
+ ],
+ "misalignments": []
+}

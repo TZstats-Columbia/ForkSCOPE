@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-28T21-40-17+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 357,
+   "functional_lines": 160,
+   "functional_share": 0.4482,
+   "by_type": {
+    "print": 98,
+    "comment": 82,
+    "import": 11,
+    "config": 5,
+    "other": 1
+   }
+  },
+  "prose": {
+   "n_lines": 246,
+   "functional_lines": 155,
+   "functional_share": 0.6301,
+   "by_type": {
+    "heading": 46,
+    "boilerplate": 20,
+    "framing": 15,
+    "hedging": 14,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 99,
+  "action_claims": 44,
+  "result_claims": 55,
+  "links": 54,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 12,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse the red card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ]
+  },
+  {
+   "id": 5,
+   "lines": [
+    [
+     61,
+     63
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age at a fixed 2013-01-01 season-midpoint reference date from birthday",
+   "targets": [
+    "birthday",
+    "age",
+    "reference_date"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "restrict to complete cases on position, height, weight, and the two IAT/exposure covariates",
+   "claim": "excluded 9,164 dyads (6.3% of remaining) for missing covariates: position, height/weight, referee country",
+   "note": "code restricts complete cases on meanIAT/meanExp; claim lists referee country as the additional missing covariate"
+  }
+ ]
+}

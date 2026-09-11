@@ -1,0 +1,734 @@
+{
+ "n_lines": 327,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     7
+    ]
+   ],
+   "note": "module docstring describing the analysis and hypothesis, plus trailing blank line"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     8,
+     17
+    ]
+   ],
+   "note": "package imports plus trailing blank line"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     20
+    ]
+   ],
+   "note": "set numpy random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "section header banner: Data Loading and Preparation"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "console banner announcing data loading"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "operation": "load the raw soccer referee dataset and treat it as the full analysis scope",
+   "targets": [
+    "soccer.csv",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     31,
+     33
+    ]
+   ],
+   "note": "print dataset size and variable count"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     36
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single skin_tone measure, dropping dyads missing either rating",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone",
+    "valid_ratings"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "note": "print count of dyads with valid skin-tone ratings"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "operation": "check agreement between the two raters by computing their correlation",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     43,
+     46
+    ]
+   ],
+   "note": "section header banner: Define Skin Tone Groups"
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "note": "console banner announcing skin tone group definition"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     60
+    ],
+    [
+     65,
+     67
+    ]
+   ],
+   "operation": "bin continuous skin_tone into light (<=0.25) vs dark (>=0.50) groups, drop the middle band, and recode the group as a binary dark_skin indicator",
+   "targets": [
+    "skin_tone",
+    "skin_group",
+    "dark_skin",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "note": "print analysis sample size and per-group counts"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     70
+    ],
+    [
+     261,
+     261
+    ]
+   ],
+   "operation": "define the outcome as a binary indicator for whether any red card was received",
+   "targets": [
+    "redCards",
+    "red_card_received"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     71,
+     74
+    ]
+   ],
+   "note": "section header banner: Descriptive Statistics"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     78
+    ]
+   ],
+   "note": "console banner announcing descriptive statistics"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     79,
+     96
+    ]
+   ],
+   "operation": "compute and report the raw (unadjusted) red-card rate difference between skin-tone groups as a descriptive benchmark",
+   "targets": [
+    "skin_group",
+    "red_card_received",
+    "redCards",
+    "games"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     97,
+     100
+    ]
+   ],
+   "note": "section header banner: Prepare Covariates"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     101,
+     104
+    ]
+   ],
+   "note": "console banner announcing covariate preparation"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     122
+    ],
+    [
+     262,
+     263
+    ]
+   ],
+   "operation": "collapse free-text position strings into a small set of position categories (Forward/Defender/Midfielder/Goalkeeper/Other/Unknown)",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     123,
+     128
+    ],
+    [
+     264,
+     268
+    ]
+   ],
+   "operation": "impute missing height and weight with the sample median and missing implicit-bias scores (meanIAT/meanExp) with zero",
+   "targets": [
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     133
+    ]
+   ],
+   "note": "print summary of missing-data handling choices"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": "section header banner: Unadjusted Model"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     138,
+     141
+    ]
+   ],
+   "note": "console banner announcing unadjusted model"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     142,
+     150
+    ]
+   ],
+   "operation": "fit an unadjusted logistic regression of red card receipt on dark_skin alone, with standard errors clustered by player",
+   "targets": [
+    "red_card_received",
+    "dark_skin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     151,
+     152
+    ]
+   ],
+   "note": "print statsmodels summary table for model 1"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     153,
+     154
+    ],
+    [
+     191,
+     193
+    ]
+   ],
+   "operation": "convert the logit coefficient on dark_skin into an odds ratio by exponentiating it and its confidence interval",
+   "targets": [
+    "dark_skin",
+    "result1",
+    "result2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     155,
+     156
+    ]
+   ],
+   "note": "print unadjusted odds ratio and CI"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     157,
+     160
+    ]
+   ],
+   "note": "section header banner: Adjusted Model"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     161,
+     164
+    ]
+   ],
+   "note": "console banner announcing adjusted model"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     165,
+     188
+    ]
+   ],
+   "operation": "specify the adjusted model's covariate set (games, height, weight, leagueCountry, position_cat, meanIAT, meanExp), dummy-encode the categoricals, and fit a logistic regression clustered by player",
+   "targets": [
+    "games",
+    "height",
+    "weight",
+    "leagueCountry",
+    "position_cat",
+    "meanIAT",
+    "meanExp",
+    "dark_skin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     189,
+     190
+    ]
+   ],
+   "note": "print statsmodels summary table for model 2"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     194,
+     195
+    ]
+   ],
+   "note": "print adjusted odds ratio and CI"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     196,
+     199
+    ]
+   ],
+   "note": "section header banner: Primary Estimand"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     200,
+     203
+    ]
+   ],
+   "note": "console banner announcing primary estimand"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     204,
+     213
+    ]
+   ],
+   "operation": "treat the average marginal effect (risk difference) of dark_skin from the adjusted model as the primary estimand",
+   "targets": [
+    "dark_skin",
+    "result2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     214,
+     219
+    ]
+   ],
+   "note": "print risk difference, CI, SE, and p-value"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     220,
+     223
+    ]
+   ],
+   "note": "section header banner: Predicted Probabilities"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     224,
+     227
+    ]
+   ],
+   "note": "console banner announcing predicted probabilities"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     228,
+     246
+    ]
+   ],
+   "operation": "compute predicted red-card probabilities for light vs dark skin holding all other covariates at their sample means",
+   "targets": [
+    "X2",
+    "result2",
+    "dark_skin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     250
+    ]
+   ],
+   "note": "print predicted probabilities for light/dark and their difference"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     251,
+     254
+    ]
+   ],
+   "note": "section header banner: Sensitivity Analyses"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     255,
+     258
+    ]
+   ],
+   "note": "console banner announcing continuous skin-tone sensitivity analysis"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     259,
+     260
+    ],
+    [
+     269,
+     285
+    ],
+    [
+     289,
+     290
+    ]
+   ],
+   "operation": "run a sensitivity analysis that keeps skin_tone continuous and uses the full rated sample (no dark/light exclusion), refitting the adjusted-style model",
+   "targets": [
+    "skin_tone",
+    "valid_ratings",
+    "cont_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     286,
+     288
+    ]
+   ],
+   "note": "print continuous skin_tone coefficient and p-value from sensitivity model"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     291,
+     294
+    ]
+   ],
+   "note": "print marginal effect and p-value from sensitivity model"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     295,
+     298
+    ]
+   ],
+   "note": "section header banner: Final Summary"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     299,
+     302
+    ]
+   ],
+   "note": "console banner announcing final results summary"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     303,
+     325
+    ]
+   ],
+   "note": "print final multi-line narrative summary of results and conclusion"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     326,
+     327
+    ]
+   ],
+   "note": "print completion message plus trailing blank/EOF"
+  }
+ ]
+}

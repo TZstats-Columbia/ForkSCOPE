@@ -1,0 +1,1203 @@
+{
+ "n_lines": 374,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "pull the raw player-referee dyad table from a specific CSV file using latin-1 encoding",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     54
+    ],
+    [
+     296,
+     296
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     69
+    ],
+    [
+     71,
+     71
+    ],
+    [
+     83,
+     83
+    ]
+   ],
+   "operation": "keep only extreme-contrast dyads (skin_avg <=0.25 or >=0.75) and dichotomize skin tone into a very-dark exposure flag at that same cutoff",
+   "targets": [
+    "skin_avg",
+    "df_extreme",
+    "skin_very_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     75,
+     76
+    ],
+    [
+     78,
+     78
+    ],
+    [
+     295,
+     295
+    ]
+   ],
+   "operation": "drop dyads with fewer than 2 shared games as too unstable to use",
+   "targets": [
+    "games",
+    "df_analysis",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     85
+    ],
+    [
+     298,
+     298
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     86,
+     87
+    ],
+    [
+     89,
+     90
+    ],
+    [
+     299,
+     299
+    ]
+   ],
+   "operation": "restrict to complete cases on the chosen covariate set before modeling",
+   "targets": [
+    "height",
+    "weight",
+    "position",
+    "meanIAT",
+    "meanExp",
+    "df_model",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     152,
+     157
+    ],
+    [
+     300,
+     305
+    ]
+   ],
+   "operation": "z-standardize the continuous covariates before entering them in the model",
+   "targets": [
+    "height",
+    "weight",
+    "games",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     158,
+     161
+    ],
+    [
+     306,
+     307
+    ]
+   ],
+   "operation": "cast position and league country to categorical types for dummy-coding in the model",
+   "targets": [
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     162,
+     164
+    ],
+    [
+     167,
+     167
+    ]
+   ],
+   "operation": "choose the model's adjustment set and fit a logistic regression of any red card on the dark-skin flag plus games/yellowCards/height/weight/position/league/implicit-bias/explicit-bias",
+   "targets": [
+    "any_red",
+    "skin_very_dark",
+    "games_z",
+    "yellowCards",
+    "height_z",
+    "weight_z",
+    "position_cat",
+    "league_cat",
+    "meanIAT_z",
+    "meanExp_z"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     198,
+     208
+    ]
+   ],
+   "operation": "estimate the primary effect as a standardized/counterfactual average risk difference rather than reading off the raw logit coefficient",
+   "targets": [
+    "skin_very_dark",
+    "logit_model",
+    "risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     227
+    ],
+    [
+     232,
+     234
+    ],
+    [
+     236,
+     237
+    ],
+    [
+     238,
+     241
+    ],
+    [
+     242,
+     245
+    ],
+    [
+     246,
+     247
+    ],
+    [
+     250,
+     251
+    ],
+    [
+     254,
+     258
+    ],
+    [
+     262,
+     265
+    ]
+   ],
+   "operation": "quantify uncertainty for the risk difference via a 500-replicate nonparametric bootstrap with a percentile CI and a normal-approximation p-value",
+   "targets": [
+    "df_model",
+    "boot_rd",
+    "ci_lower",
+    "ci_upper",
+    "se_boot",
+    "p_value_normal"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     277,
+     280
+    ]
+   ],
+   "operation": "convert the logit coefficient to an odds ratio with a Wald-based 95% CI as a secondary effect measure",
+   "targets": [
+    "coef",
+    "se",
+    "or_est",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     292,
+     292
+    ],
+    [
+     297,
+     297
+    ],
+    [
+     308,
+     310
+    ],
+    [
+     311,
+     315
+    ]
+   ],
+   "operation": "re-run the analysis with an alternative dichotomization threshold (dark >=0.5) on the full, non-extreme-restricted sample as a sensitivity check",
+   "targets": [
+    "skin_avg",
+    "skin_dark",
+    "df_full"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     321,
+     321
+    ],
+    [
+     323,
+     324
+    ],
+    [
+     325,
+     329
+    ]
+   ],
+   "operation": "re-fit the primary model dropping yellowCards from the adjustment set as a sensitivity check",
+   "targets": [
+    "any_red",
+    "skin_very_dark",
+    "games_z",
+    "height_z",
+    "weight_z",
+    "position_cat",
+    "league_cat",
+    "meanIAT_z",
+    "meanExp_z"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     359,
+     369
+    ]
+   ],
+   "operation": "classify the overall finding into SUPPORTED/BORDERLINE/SUGGESTIVE/NOT SUPPORTED tiers using p<0.05, CI-excludes-zero, and p<0.10 cutoffs",
+   "targets": [
+    "pval",
+    "ci_lower"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     118
+    ],
+    [
+     120,
+     126
+    ]
+   ],
+   "operation": "compute an unadjusted (crude) risk difference and two-proportion z-test as a baseline comparison to the adjusted result",
+   "targets": [
+    "skin_very_dark",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     17
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     18,
+     23
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     24,
+     24
+    ]
+   ],
+   "note": "import warnings"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     27,
+     29
+    ]
+   ],
+   "note": "set random seed"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     37
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     43
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     44,
+     47
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     48,
+     51
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     59
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     60,
+     63
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     64,
+     67
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     70,
+     70
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     74
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     77
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     79,
+     81
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "note": "generic label comment"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     88,
+     88
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     93
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     97
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     101
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     102,
+     105
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     106,
+     109
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     110,
+     114
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     119,
+     119
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     127
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     131
+    ]
+   ],
+   "note": "includes describe() summary output"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     132,
+     135
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     136,
+     139
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     140,
+     151
+    ]
+   ],
+   "note": "narrates model spec already fixed by the formula string"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     165,
+     166
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     168,
+     172
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     173,
+     176
+    ]
+   ],
+   "note": "extract already-fitted coefficient/se/pvalue for reporting"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     177,
+     185
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     186,
+     189
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     193
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     194,
+     197
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     209,
+     211
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     212,
+     215
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     216,
+     219
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     220,
+     224
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     228,
+     228
+    ]
+   ],
+   "note": "for loop control"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     229,
+     231
+    ]
+   ],
+   "note": "progress reporting"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     235,
+     235
+    ]
+   ],
+   "note": "try block control"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     248,
+     249
+    ]
+   ],
+   "note": "except block control"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     252,
+     253
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     259,
+     261
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     266,
+     268
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     269,
+     272
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     276
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     283
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     284,
+     287
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     288,
+     291
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     293,
+     294
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     316,
+     320
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     322,
+     322
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     330,
+     333
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     334,
+     337
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     338,
+     341
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     342,
+     347
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     348,
+     353
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     354,
+     357
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     358,
+     358
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     370,
+     374
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

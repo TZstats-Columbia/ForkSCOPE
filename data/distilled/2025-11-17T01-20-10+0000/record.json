@@ -1,0 +1,164 @@
+{
+ "run_id": "2025-11-17T01-20-10+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 440,
+   "functional_lines": 183,
+   "functional_share": 0.4159,
+   "by_type": {
+    "print": 151,
+    "comment": 40,
+    "plot": 40,
+    "glue": 13,
+    "import": 8,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 176,
+   "functional_lines": 116,
+   "functional_share": 0.6591,
+   "by_type": {
+    "heading": 36,
+    "boilerplate": 31,
+    "other": 31,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 30,
+  "claims": 116,
+  "action_claims": 69,
+  "result_claims": 47,
+  "links": 101,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 23,
+  "C_only_silent_decision": 7,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 47
+ },
+ "silent_decisions": [
+  {
+   "id": 47,
+   "lines": [
+    [
+     227,
+     227
+    ]
+   ],
+   "confidence": "high",
+   "operation": "announce a sensitivity sweep over alternative skin-tone cutoffs",
+   "targets": [
+    "skinTone"
+   ]
+  },
+  {
+   "id": 52,
+   "lines": [
+    [
+     252,
+     252
+    ]
+   ],
+   "confidence": "high",
+   "operation": "announce swapping the dichotomized exposure for the raw continuous skin-tone score",
+   "targets": [
+    "skinTone"
+   ]
+  },
+  {
+   "id": 57,
+   "lines": [
+    [
+     273,
+     273
+    ]
+   ],
+   "confidence": "high",
+   "operation": "announce adding league-country fixed effects to the adjustment set",
+   "targets": [
+    "leagueCountry"
+   ]
+  },
+  {
+   "id": 62,
+   "lines": [
+    [
+     294,
+     294
+    ]
+   ],
+   "confidence": "high",
+   "operation": "announce dropping yellow-card count from the adjustment set",
+   "targets": [
+    "yellowCards"
+   ]
+  },
+  {
+   "id": 67,
+   "lines": [
+    [
+     315,
+     315
+    ]
+   ],
+   "confidence": "high",
+   "operation": "announce a minimally-adjusted specification",
+   "targets": [
+    "darkSkin",
+    "games"
+   ]
+  },
+  {
+   "id": 80,
+   "lines": [
+    [
+     364,
+     364
+    ]
+   ],
+   "confidence": "low",
+   "operation": "populate the forest plot's robustness-check row values with hand-typed literal numbers instead of referencing the actually-computed rd/rd_cont/rd_league/rd_noyellow/rd_min variables from section 5",
+   "targets": [
+    "rds",
+    "risk_diff"
+   ]
+  },
+  {
+   "id": 83,
+   "lines": [
+    [
+     372,
+     373
+    ]
+   ],
+   "confidence": "low",
+   "operation": "substitute a single hand-picked approximate CI half-width for every forest-plot row instead of the CI actually computed for each specification",
+   "targets": [
+    "ci_w"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "refit the same adjusted logistic model with the dark-skin cutoff swapped to 0.125, 0.375 and 0.5 in turn, recomputing the risk difference and odds ratio for each",
+   "claim": "the specification search explored multiple cutoffs (0.125, 0.25, 0.375, 0.5, 0.625)",
+   "note": "claim lists a 0.625 cutoff among those explored, but the code only refits at 0.125, 0.375, and 0.5 besides the 0.25 primary"
+  },
+  {
+   "decision": "dichotomize the continuous skin-tone score into a binary dark-skin exposure at a 0.25 cut point that the code itself notes was chosen because it was most supportive during a specification search",
+   "claim": "0.25 was chosen as a conceptually defensible, substantive threshold",
+   "note": "the code comment on decision 16 states 0.25 was chosen because it was most supportive during a specification search, contradicting the claim that it was chosen as a conceptually defensible substantive threshold"
+  }
+ ]
+}

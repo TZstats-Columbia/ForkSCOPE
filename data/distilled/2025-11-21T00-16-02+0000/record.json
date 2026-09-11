@@ -1,0 +1,60 @@
+{
+ "run_id": "2025-11-21T00-16-02+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 314,
+   "functional_lines": 103,
+   "functional_share": 0.328,
+   "by_type": {
+    "print": 103,
+    "comment": 47,
+    "plot": 40,
+    "glue": 10,
+    "import": 8,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 247,
+   "functional_lines": 125,
+   "functional_share": 0.5061,
+   "by_type": {
+    "boilerplate": 91,
+    "heading": 28,
+    "hedging": 14,
+    "citation": 3,
+    "framing": 1,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 100,
+  "action_claims": 60,
+  "result_claims": 40,
+  "links": 57,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 17,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "define the secondary effect measure as the conditional odds ratio obtained by exponentiating the darkSkin coefficient and its Wald CI, rather than a marginal/standardized OR",
+   "claim": "secondary estimand (odds ratio) confidence interval was obtained via profile likelihood from the logistic regression model",
+   "note": "claim states the OR CI was obtained via profile likelihood; code exponentiates the darkSkin coefficient's Wald confidence interval"
+  }
+ ]
+}

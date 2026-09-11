@@ -1,0 +1,710 @@
+{
+ "n_lines": 324,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "operation": "load the raw referee-player dyad dataset from CSV as the full source population for the analysis",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "operation": "drop dyads lacking both skin-tone rater scores, restricting the sample to rated players only",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "operation": "collapse the two raters' scores into a single continuous skin-tone measure by averaging them",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     38
+    ]
+   ],
+   "operation": "reduce the red-card count to a binary any/none outcome for the dyad",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     41
+    ],
+    [
+     277,
+     277
+    ]
+   ],
+   "operation": "split the continuous skin-tone score into dark/light groups at a 0.5 cutoff, and mark that same cutoff on the ratings plot",
+   "targets": [
+    "skinTone",
+    "skinDark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "operation": "derive player age by anchoring to a fixed reference year (2012) rather than to game date or current date",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     53,
+     56
+    ]
+   ],
+   "operation": "pick which columns enter the modeling dataset, fixing the covariate and identifier set for everything downstream",
+   "targets": [
+    "anyRedCard",
+    "skinDark",
+    "position",
+    "games",
+    "leagueCountry",
+    "age",
+    "height",
+    "weight",
+    "yellowCards",
+    "refNum",
+    "refCountry",
+    "playerShort",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     59
+    ]
+   ],
+   "operation": "handle missing covariate data by complete-case deletion rather than imputation",
+   "targets": [
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     65,
+     65
+    ]
+   ],
+   "operation": "log-transform games played instead of using the raw count",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     72
+    ]
+   ],
+   "operation": "z-score the continuous covariates before entering them into the model",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     91,
+     93
+    ]
+   ],
+   "operation": "compute the raw, unadjusted rate gap between dark- and light-skinned groups as a descriptive baseline",
+   "targets": [
+    "skinDark",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     109,
+     112
+    ]
+   ],
+   "operation": "choose logistic regression with skinDark plus position, playing time, age, height, weight and league as the main effect model",
+   "targets": [
+    "anyRedCard",
+    "skinDark",
+    "position",
+    "log_games_std",
+    "age_std",
+    "height_std",
+    "weight_std",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15
+   ]
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     119,
+     123
+    ]
+   ],
+   "operation": "convert the skinDark coefficient to an odds ratio with a Wald-based 95% interval as the secondary effect measure",
+   "targets": [
+    "model1",
+    "skinDark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     138,
+     149
+    ],
+    [
+     177,
+     184
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by g-computation: set everyone's skin tone to light then dark, predict, and average the gap, repeating the same recipe inside each bootstrap resample",
+   "targets": [
+    "skinDark",
+    "model1",
+    "model_boot",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     161,
+     162
+    ],
+    [
+     169,
+     171
+    ],
+    [
+     174,
+     174
+    ],
+    [
+     185,
+     186
+    ],
+    [
+     190,
+     192
+    ],
+    [
+     195,
+     196
+    ]
+   ],
+   "operation": "quantify uncertainty by resampling dyads with replacement 200 times, refitting the model each time, and taking the empirical percentile interval and a normal-approximation p-value from the resulting bootstrap distribution",
+   "targets": [
+    "df_analysis",
+    "boot_rds",
+    "n_boot",
+    "adj_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    12,
+    14
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     124,
+     124
+    ],
+    [
+     134,
+     134
+    ],
+    [
+     211,
+     211
+    ],
+    [
+     216,
+     216
+    ]
+   ],
+   "operation": "declare the adjusted risk difference as the primary estimand and the adjusted odds ratio as secondary, shaping how results are framed and reported",
+   "targets": [
+    "adj_rd",
+    "or_dark"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     230,
+     236
+    ]
+   ],
+   "operation": "re-run the model dropping the position covariate to check robustness of the skin-tone effect",
+   "targets": [
+    "anyRedCard",
+    "skinDark",
+    "log_games_std",
+    "age_std",
+    "height_std",
+    "weight_std",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     242,
+     248
+    ]
+   ],
+   "operation": "re-run the model adding yellow-card count as an extra covariate to check robustness of the skin-tone effect",
+   "targets": [
+    "yellowCards",
+    "anyRedCard",
+    "skinDark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     10,
+     16
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "package imports, including an unused mid-file datetime import"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     21
+    ]
+   ],
+   "note": "warning suppression and random seed setup"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     9
+    ],
+    [
+     22,
+     25
+    ],
+    [
+     29,
+     30
+    ],
+    [
+     33,
+     34
+    ],
+    [
+     36,
+     37
+    ],
+    [
+     39,
+     40
+    ],
+    [
+     42,
+     43
+    ],
+    [
+     47,
+     52
+    ],
+    [
+     57,
+     58
+    ],
+    [
+     63,
+     64
+    ],
+    [
+     66,
+     67
+    ],
+    [
+     73,
+     77
+    ],
+    [
+     89,
+     90
+    ],
+    [
+     100,
+     103
+    ],
+    [
+     108,
+     108
+    ],
+    [
+     117,
+     118
+    ],
+    [
+     128,
+     132
+    ],
+    [
+     137,
+     137
+    ],
+    [
+     155,
+     159
+    ],
+    [
+     168,
+     168
+    ],
+    [
+     172,
+     172
+    ],
+    [
+     175,
+     176
+    ],
+    [
+     193,
+     194
+    ],
+    [
+     202,
+     205
+    ],
+    [
+     220,
+     224
+    ],
+    [
+     229,
+     229
+    ],
+    [
+     241,
+     241
+    ],
+    [
+     252,
+     256
+    ],
+    [
+     261,
+     261
+    ],
+    [
+     272,
+     273
+    ],
+    [
+     283,
+     283
+    ],
+    [
+     304,
+     305
+    ]
+   ],
+   "note": "module docstring, section-header banners, and inline labels preceding code, plus their surrounding blank lines"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     26,
+     26
+    ],
+    [
+     28,
+     28
+    ],
+    [
+     32,
+     32
+    ],
+    [
+     60,
+     62
+    ],
+    [
+     78,
+     88
+    ],
+    [
+     94,
+     99
+    ],
+    [
+     104,
+     107
+    ],
+    [
+     113,
+     116
+    ],
+    [
+     125,
+     127
+    ],
+    [
+     133,
+     133
+    ],
+    [
+     135,
+     136
+    ],
+    [
+     150,
+     154
+    ],
+    [
+     160,
+     160
+    ],
+    [
+     197,
+     201
+    ],
+    [
+     206,
+     210
+    ],
+    [
+     212,
+     215
+    ],
+    [
+     217,
+     219
+    ],
+    [
+     225,
+     228
+    ],
+    [
+     237,
+     240
+    ],
+    [
+     249,
+     251
+    ],
+    [
+     257,
+     258
+    ],
+    [
+     319,
+     320
+    ],
+    [
+     321,
+     324
+    ]
+   ],
+   "note": "console reporting of sample sizes, rates, model fit stats, and results"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     259,
+     260
+    ],
+    [
+     262,
+     271
+    ],
+    [
+     274,
+     276
+    ],
+    [
+     278,
+     282
+    ],
+    [
+     284,
+     303
+    ],
+    [
+     306,
+     316
+    ],
+    [
+     317,
+     317
+    ]
+   ],
+   "note": "matplotlib figure construction: bar chart, distribution histogram, forest plot, bootstrap histogram, and layout"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     163,
+     167
+    ],
+    [
+     173,
+     173
+    ],
+    [
+     187,
+     189
+    ],
+    [
+     318,
+     318
+    ]
+   ],
+   "note": "loop/try-except control flow around the bootstrap iterations and writing the figure to disk"
+  }
+ ]
+}

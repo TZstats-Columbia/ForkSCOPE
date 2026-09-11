@@ -1,0 +1,834 @@
+{
+ "n_lines": 224,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     2
+    ]
+   ],
+   "note": "author byline and blank line"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     3,
+     5
+    ]
+   ],
+   "note": "filename-suffix local macro and blanks"
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "operation": "pick refCountryID as the variable on which standard errors are clustered in every regression model",
+   "targets": [
+    "refCountryID",
+    "cluster_var"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     7,
+     8
+    ]
+   ],
+   "note": "change directory to data folder"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     9,
+     10
+    ]
+   ],
+   "operation": "load the raw crowdstorming CSV as the full working dataset",
+   "targets": [
+    "1. Crowdstorming Dataset 05.10.14.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     11,
+     11
+    ]
+   ],
+   "operation": "parse the birthday string into a date using day-month-year format",
+   "targets": [
+    "birthday",
+    "bdate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "operation": "derive player age as 2012 minus birth year",
+   "targets": [
+    "bdate",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     13,
+     16
+    ]
+   ],
+   "operation": "force-convert height, weight, meanIAT, and meanExp from string to numeric, coercing unparseable values to missing",
+   "targets": [
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     17,
+     24
+    ]
+   ],
+   "operation": "encode player, position, referee number, league-country, and referee-country string fields into numeric ID variables for later grouping/fixed-effects use",
+   "targets": [
+    "playerShort",
+    "position",
+    "refNum",
+    "leagueCountry",
+    "refCountry"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "operation": "restrict the sample to rows with non-missing rater1/rater2 ratings and games==1",
+   "targets": [
+    "rater1",
+    "rater2",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     27,
+     28
+    ]
+   ],
+   "note": "persist intermediate dataset to disk"
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "note": "reload the saved dataset"
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "code-fold open marker"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     36
+    ]
+   ],
+   "operation": "dichotomize implicit-bias score (meanIAT) into a high/low indicator split at the sample mean",
+   "targets": [
+    "meanIAT",
+    "highIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "operation": "dichotomize explicit-bias score (meanExp) into a high/low indicator split at the sample mean",
+   "targets": [
+    "meanExp",
+    "highExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "operation": "expand position, rater x highIAT, rater x highExp, and club into indicator/interaction dummy variables for the design matrix",
+   "targets": [
+    "position",
+    "rater1",
+    "rater2",
+    "highIAT",
+    "highExp",
+    "club"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "note": "code-fold close marker and blank"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "operation": "choose age, height, and weight as the player-characteristic control variables",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "player_char"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "operation": "drop observations with missing values on any player-characteristic control variable",
+   "targets": [
+    "age",
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     55
+    ]
+   ],
+   "operation": "define four alternative right-hand-side specifications (rater dummies with/without player controls, club fixed effects) for the main models",
+   "targets": [
+    "rater1",
+    "rater2",
+    "club",
+    "player_char"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     56,
+     56
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     57,
+     59
+    ]
+   ],
+   "note": "code-fold open marker and sort before panel-set"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     60,
+     60
+    ],
+    [
+     115,
+     116
+    ],
+    [
+     170,
+     171
+    ]
+   ],
+   "operation": "set referee (refID) as the panel unit for fixed-effects/clustered models",
+   "targets": [
+    "refID"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     61,
+     62
+    ]
+   ],
+   "note": "loop over rhs specification index"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     63
+    ]
+   ],
+   "operation": "fit an OLS/linear-probability model of red cards on the chosen specification with clustered SEs",
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3
+   ]
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     64,
+     65
+    ]
+   ],
+   "note": "store OLS estimates"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "dead",
+   "lines": [
+    [
+     66,
+     68
+    ],
+    [
+     122,
+     125
+    ],
+    [
+     177,
+     180
+    ]
+   ],
+   "note": "commented-out logit alternative model, never executed"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     69
+    ]
+   ],
+   "operation": "fit a referee fixed-effects model of red cards with clustered SEs",
+   "targets": [
+    "redCards",
+    "rhs",
+    "refID",
+    "cluster_var"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3,
+    24
+   ]
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     70,
+     77
+    ]
+   ],
+   "note": "store FE estimates, close loop, change to output directory"
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     78,
+     91
+    ]
+   ],
+   "operation": "select rater1-block OLS/FE coefficients and formatting to report in the main LaTeX results table",
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2",
+    "fe_redcards_2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     92,
+     104
+    ]
+   ],
+   "operation": "select rater2-block OLS/FE coefficients and formatting to report in the main LaTeX results table",
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4",
+    "fe_redcards_4"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     105,
+     106
+    ]
+   ],
+   "note": "code-fold close marker and blank"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     111
+    ]
+   ],
+   "operation": "define right-hand-side specifications adding the rater x highIAT interaction terms for the implicit-bias-moderation models",
+   "targets": [
+    "rater1",
+    "rater2",
+    "highIAT",
+    "club",
+    "player_char"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     112,
+     112
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     113,
+     114
+    ]
+   ],
+   "note": "code-fold open marker and blank"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     117,
+     118
+    ]
+   ],
+   "note": "loop over rhs specification index"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     119,
+     119
+    ]
+   ],
+   "operation": "fit the rater x highIAT interaction model of red cards with clustered SEs",
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "note": "store OLS estimates"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     126,
+     132
+    ]
+   ],
+   "note": "close loop, change to output directory"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     133,
+     146
+    ]
+   ],
+   "operation": "select and format rater1/highIAT interaction coefficients for the IAT results table",
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     147,
+     159
+    ]
+   ],
+   "operation": "select and format rater2/highIAT interaction coefficients for the IAT results table",
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     160,
+     162
+    ]
+   ],
+   "note": "code-fold close marker and blanks"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     166
+    ]
+   ],
+   "operation": "define right-hand-side specifications adding the rater x highExp interaction terms for the explicit-bias-moderation models",
+   "targets": [
+    "rater1",
+    "rater2",
+    "highExp",
+    "club",
+    "player_char"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     167,
+     167
+    ]
+   ],
+   "note": "section header comment"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     168,
+     169
+    ]
+   ],
+   "note": "code-fold open marker and blank"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     172,
+     173
+    ]
+   ],
+   "note": "loop over rhs specification index"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     174,
+     174
+    ]
+   ],
+   "operation": "fit the rater x highExp interaction model of red cards with clustered SEs",
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3
+   ]
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     175,
+     176
+    ]
+   ],
+   "note": "store OLS estimates"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     181,
+     187
+    ]
+   ],
+   "note": "close loop, change to output directory"
+  },
+  {
+   "id": 51,
+   "kind": "decision",
+   "lines": [
+    [
+     188,
+     201
+    ]
+   ],
+   "operation": "select and format rater1/highExp interaction coefficients for the Exp results table",
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "decision",
+   "lines": [
+    [
+     202,
+     214
+    ]
+   ],
+   "operation": "select and format rater2/highExp interaction coefficients for the Exp results table",
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     215,
+     222
+    ]
+   ],
+   "note": "code-fold close marker, return to parent directory, blanks"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     223,
+     224
+    ]
+   ],
+   "note": "end-of-program comment and trailing blank"
+  }
+ ]
+}

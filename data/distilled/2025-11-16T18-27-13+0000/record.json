@@ -1,0 +1,59 @@
+{
+ "run_id": "2025-11-16T18-27-13+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 266,
+   "functional_lines": 121,
+   "functional_share": 0.4549,
+   "by_type": {
+    "print": 100,
+    "comment": 28,
+    "import": 6,
+    "config": 5,
+    "glue": 3,
+    "other": 3
+   }
+  },
+  "prose": {
+   "n_lines": 335,
+   "functional_lines": 238,
+   "functional_share": 0.7104,
+   "by_type": {
+    "heading": 61,
+    "boilerplate": 34,
+    "framing": 14,
+    "hedging": 7,
+    "background": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 75,
+  "action_claims": 41,
+  "result_claims": 34,
+  "links": 56,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 34
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "refit the primary-style model across a range of alternative skin-tone cutoffs (0.125-0.75) to test sensitivity of the risk difference to the threshold choice",
+   "claim": "an exhaustive search over thresholds from 0.125 to 0.875 was conducted and 0.25 was selected as the primary dichotomization threshold",
+   "note": "claim states threshold search extended to 0.875; code refits over cutoffs only up to 0.75"
+  }
+ ]
+}

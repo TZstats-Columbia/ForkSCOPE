@@ -1,0 +1,99 @@
+{
+ "run_id": "2025-11-29T23-55-11+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 393,
+   "functional_lines": 156,
+   "functional_share": 0.3969,
+   "by_type": {
+    "print": 130,
+    "glue": 40,
+    "plot": 28,
+    "comment": 18,
+    "import": 9,
+    "other": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 203,
+   "functional_lines": 144,
+   "functional_share": 0.7094,
+   "by_type": {
+    "heading": 40,
+    "boilerplate": 30,
+    "hedging": 6,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 97,
+  "action_claims": 59,
+  "result_claims": 38,
+  "links": 53,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 18,
+  "result_claims_deferred": 38
+ },
+ "silent_decisions": [
+  {
+   "id": 22,
+   "lines": [
+    [
+     93,
+     97
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the unadjusted red-card rate gap between the two extreme groups",
+   "targets": [
+    "anyRedCard",
+    "very_dark"
+   ]
+  },
+  {
+   "id": 61,
+   "lines": [
+    [
+     315,
+     321
+    ]
+   ],
+   "confidence": "low",
+   "operation": "bin skin tone into quintiles for the descriptive plot",
+   "targets": [
+    "skinTone",
+    "skinTone_quintile",
+    "anyRedCard"
+   ]
+  },
+  {
+   "id": 64,
+   "lines": [
+    [
+     338,
+     339
+    ]
+   ],
+   "confidence": "low",
+   "operation": "color-code the effect-size bars by whether p < 0.05",
+   "targets": [
+    "p_value"
+   ]
+  }
+ ],
+ "misalignments": []
+}

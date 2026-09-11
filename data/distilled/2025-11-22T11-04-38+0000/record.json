@@ -1,0 +1,138 @@
+{
+ "run_id": "2025-11-22T11-04-38+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 385,
+   "functional_lines": 97,
+   "functional_share": 0.2519,
+   "by_type": {
+    "print": 118,
+    "comment": 62,
+    "glue": 52,
+    "plot": 35,
+    "import": 10,
+    "other": 7,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 257,
+   "functional_lines": 115,
+   "functional_share": 0.4475,
+   "by_type": {
+    "other": 78,
+    "heading": 31,
+    "hedging": 21,
+    "boilerplate": 20,
+    "framing": 7
+   }
+  }
+ },
+ "counts": {
+  "decisions": 25,
+  "claims": 115,
+  "action_claims": 47,
+  "result_claims": 68,
+  "links": 67,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 5,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 68
+ },
+ "silent_decisions": [
+  {
+   "id": 26,
+   "lines": [
+    [
+     99,
+     99
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "recode missing position values into an explicit 'Unknown' category rather than leaving them null",
+   "targets": [
+    "position",
+    "position_clean"
+   ]
+  },
+  {
+   "id": 35,
+   "lines": [
+    [
+     130,
+     131
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode the light/dark exposure category into a 0/1 numeric indicator for regression",
+   "targets": [
+    "skin_binary",
+    "dark_skin"
+   ]
+  },
+  {
+   "id": 43,
+   "lines": [
+    [
+     149,
+     149
+    ],
+    [
+     247,
+     248
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "report interval estimates at the 95% confidence level throughout",
+   "targets": [
+    "dark_ci",
+    "boot_results"
+   ]
+  },
+  {
+   "id": 54,
+   "lines": [
+    [
+     205,
+     207
+    ]
+   ],
+   "confidence": "high",
+   "operation": "discard a bootstrap replicate as degenerate if it has fewer than 1000 dyads or fewer than 10 red-card events",
+   "targets": [
+    "df_boot",
+    "any_red_card"
+   ]
+  },
+  {
+   "id": 81,
+   "lines": [
+    [
+     289,
+     289
+    ],
+    [
+     335,
+     335
+    ]
+   ],
+   "confidence": "high",
+   "operation": "only report/plot a league's stratified effect if it has more than 100 dyads and more than 5 red-card events",
+   "targets": [
+    "df_league",
+    "any_red_card"
+   ]
+  }
+ ],
+ "misalignments": []
+}

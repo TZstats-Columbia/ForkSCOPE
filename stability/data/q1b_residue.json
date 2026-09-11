@@ -1,0 +1,29 @@
+{
+ "build_a": "data/distilled",
+ "build_b": "<replicate root>/B-distill/data/distilled",
+ "comparison_type": "replicate",
+ "runs_compared": 30,
+ "option_layer_input": {
+  "decisions_matched_on_lines": 393,
+  "of_those_text_agrees": 142,
+  "text_agreement_rate": 0.3613,
+  "median_text_overlap": 0.4,
+  "note": "lexical overlap of descriptions for decisions that DID match on lines; a floor, not an estimate"
+ },
+ "silent_decisions": {
+  "n_a": 51,
+  "n_b": 39,
+  "matched_on_lines": 20,
+  "f1_lines": 0.4444,
+  "matched_core": 22,
+  "f1_core": 0.4889,
+  "matched_on_text": 14,
+  "f1_text": 0.3111
+ },
+ "misalignments": {
+  "n_a": 6,
+  "n_b": 10,
+  "matched_on_text": 3,
+  "f1": 0.375
+ }
+}

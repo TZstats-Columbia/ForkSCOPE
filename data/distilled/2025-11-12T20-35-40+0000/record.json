@@ -1,0 +1,58 @@
+{
+ "run_id": "2025-11-12T20-35-40+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 430,
+   "functional_lines": 195,
+   "functional_share": 0.4535,
+   "by_type": {
+    "print": 88,
+    "comment": 67,
+    "plot": 46,
+    "glue": 19,
+    "import": 10,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 280,
+   "functional_lines": 152,
+   "functional_share": 0.5429,
+   "by_type": {
+    "heading": 65,
+    "hedging": 35,
+    "boilerplate": 34,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 96,
+  "action_claims": 39,
+  "result_claims": 57,
+  "links": 63,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 23,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 57
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "estimate cluster-robust standard errors clustered at the player level rather than assuming independent dyads",
+   "claim": "player-level and referee-level clustering was addressed through cluster-robust standard errors",
+   "note": "code clusters standard errors on player only; claim asserts referee-level clustering was also addressed"
+  }
+ ]
+}

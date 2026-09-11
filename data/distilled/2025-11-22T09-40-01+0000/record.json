@@ -1,0 +1,72 @@
+{
+ "run_id": "2025-11-22T09-40-01+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 419,
+   "functional_lines": 169,
+   "functional_share": 0.4033,
+   "by_type": {
+    "print": 124,
+    "plot": 54,
+    "comment": 50,
+    "import": 10,
+    "glue": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 341,
+   "functional_lines": 181,
+   "functional_share": 0.5308,
+   "by_type": {
+    "heading": 105,
+    "boilerplate": 30,
+    "other": 13,
+    "hedging": 7,
+    "framing": 4,
+    "citation": 2,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 141,
+  "action_claims": 40,
+  "result_claims": 101,
+  "links": 105,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 101
+ },
+ "silent_decisions": [
+  {
+   "id": 51,
+   "lines": [
+    [
+     280,
+     285
+    ]
+   ],
+   "confidence": "high",
+   "operation": "exclude goalkeepers from the sample and refit the primary model as a sensitivity check",
+   "targets": [
+    "position_broad",
+    "analysis_df",
+    "no_gk"
+   ]
+  }
+ ],
+ "misalignments": []
+}

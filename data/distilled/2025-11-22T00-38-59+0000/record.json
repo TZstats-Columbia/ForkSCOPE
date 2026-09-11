@@ -1,0 +1,69 @@
+{
+ "run_id": "2025-11-22T00-38-59+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 339,
+   "functional_lines": 82,
+   "functional_share": 0.2419,
+   "by_type": {
+    "print": 119,
+    "comment": 92,
+    "plot": 34,
+    "import": 10,
+    "config": 1,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 192,
+   "functional_lines": 103,
+   "functional_share": 0.5365,
+   "by_type": {
+    "heading": 77,
+    "other": 14,
+    "boilerplate": 5,
+    "framing": 2,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 83,
+  "action_claims": 43,
+  "result_claims": 40,
+  "links": 59,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     65,
+     67
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the unadjusted red-card rate difference between dark- and light-skinned groups",
+   "targets": [
+    "darkSkin",
+    "receivedRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-26T20-27-00+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 428,
+   "functional_lines": 106,
+   "functional_share": 0.2477,
+   "by_type": {
+    "print": 214,
+    "comment": 91,
+    "import": 7,
+    "config": 5,
+    "glue": 5
+   }
+  },
+  "prose": {
+   "n_lines": 277,
+   "functional_lines": 159,
+   "functional_share": 0.574,
+   "by_type": {
+    "heading": 48,
+    "hedging": 30,
+    "boilerplate": 22,
+    "framing": 19,
+    "background": 5,
+    "citation": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 105,
+  "action_claims": 74,
+  "result_claims": 31,
+  "links": 48,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 27,
+  "R_only_consistent_negative": 18,
+  "result_claims_deferred": 31
+ },
+ "silent_decisions": [
+  {
+   "id": 21,
+   "lines": [
+    [
+     64,
+     66
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age as a fixed reference year (2013) minus birth year, with missing birthdays left missing",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 53,
+   "lines": [
+    [
+     167,
+     169
+    ]
+   ],
+   "confidence": "high",
+   "operation": "test the unadjusted group difference in red-card rates with a two-proportion z-test",
+   "targets": [
+    "hasRedCard",
+    "darkSkin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "refit the adjusted model using alternative dark-skin cutoffs (0.375 and 0.5) instead of the primary 0.25 threshold",
+   "claim": "tested multiple skin-tone thresholds (0.25, 0.375, 0.5, 0.625) and cutpoint strategies through exploratory specification search",
+   "note": "claim says thresholds 0.25/0.375/0.5/0.625 were tested; code only refits at 0.375 and 0.5 (plus primary 0.25), never 0.625"
+  }
+ ]
+}

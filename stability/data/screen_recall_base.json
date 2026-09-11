@@ -1,0 +1,116 @@
+{
+ "build_a": "data/vocabulary/bottom_up_ai+human.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.json",
+ "forks_a": 463,
+ "eligible_forks": 158,
+ "candidate_pairs_total": 12403,
+ "ground_truth_pairs": 41,
+ "production_budget": 227,
+ "production_threshold": 0.55,
+ "recall_at_production_budget": {
+  "lexical": {
+   "hits": 18,
+   "recall": 0.439
+  },
+  "lsa": {
+   "hits": 24,
+   "recall": 0.5854
+  }
+ },
+ "recall_curve": {
+  "100": {
+   "lexical": 0.2195,
+   "lsa": 0.4146
+  },
+  "250": {
+   "lexical": 0.4878,
+   "lsa": 0.5854
+  },
+  "500": {
+   "lexical": 0.7073,
+   "lsa": 0.7073
+  },
+  "1000": {
+   "lexical": 0.8293,
+   "lsa": 0.878
+  },
+  "2000": {
+   "lexical": 0.9512,
+   "lsa": 0.9512
+  }
+ },
+ "missed_by_lexical": [
+  {
+   "lex": 0.467,
+   "lsa": 0.695,
+   "fork_a": "how are dyads/rows with missing covariate or outcome data excluded to build the ",
+   "fork_b": "which columns/covariates define the complete-case restriction for the analytic s"
+  },
+  {
+   "lex": 0.518,
+   "lsa": 0.612,
+   "fork_a": "how are continuous covariates standardized/scaled before entering the model?",
+   "fork_b": "how are height and weight scaled for use as covariates?"
+  },
+  {
+   "lex": 0.496,
+   "lsa": 0.439,
+   "fork_a": "how is the analytic sample restricted based on position mappability?",
+   "fork_b": "which rows are excluded from the analytic sample as a robustness check?"
+  },
+  {
+   "lex": 0.446,
+   "lsa": 0.433,
+   "fork_a": "how are continuous covariates standardized/scaled before entering the model?",
+   "fork_b": "how are games/height/weight scaled and prepared for use as covariates?"
+  },
+  {
+   "lex": 0.439,
+   "lsa": 0.41,
+   "fork_a": "how are dyads/rows with missing covariate or outcome data excluded to build the ",
+   "fork_b": "which variables jointly define the complete-case restriction on the analytic sam"
+  },
+  {
+   "lex": 0.541,
+   "lsa": 0.352,
+   "fork_a": "how are the bootstrap CI and p-value derived, and for which estimands?",
+   "fork_b": "how is the bootstrap confidence interval constructed?"
+  },
+  {
+   "lex": 0.5,
+   "lsa": 0.343,
+   "fork_a": "which columns/covariates define the complete-case restriction for the analytic s",
+   "fork_b": "which rows are excluded from the analytic sample as a robustness check?"
+  },
+  {
+   "lex": 0.434,
+   "lsa": 0.256,
+   "fork_a": "how is the confidence interval for the primary effect estimate (risk difference)",
+   "fork_b": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstr"
+  },
+  {
+   "lex": 0.538,
+   "lsa": 0.229,
+   "fork_a": "how is continuous skin tone binned into an ordinal/exposure category?",
+   "fork_b": "what cutoffs define the light vs dark skin-tone exposure groups, and is the midd"
+  },
+  {
+   "lex": 0.284,
+   "lsa": 0.188,
+   "fork_a": "what alternate cutpoints (0.25/0.75) are used to redefine dark/light skin tone, ",
+   "fork_b": "what cutoffs create the three-level skin-tone category (no collapsing to binary)"
+  },
+  {
+   "lex": 0.369,
+   "lsa": 0.174,
+   "fork_a": "how is the analytic sample restricted based on position mappability?",
+   "fork_b": "which columns/covariates define the complete-case restriction for the analytic s"
+  },
+  {
+   "lex": 0.237,
+   "lsa": 0.167,
+   "fork_a": "how is the model coefficient translated into the primary reported effect estimat",
+   "fork_b": "what scale is used to report the treatment effect \u2014 log-odds, odds ratio, or ris"
+  }
+ ]
+}

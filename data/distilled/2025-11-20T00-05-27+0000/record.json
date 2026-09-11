@@ -1,0 +1,83 @@
+{
+ "run_id": "2025-11-20T00-05-27+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 461,
+   "functional_lines": 156,
+   "functional_share": 0.3384,
+   "by_type": {
+    "print": 189,
+    "plot": 50,
+    "comment": 49,
+    "import": 10,
+    "glue": 5,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 234,
+   "functional_lines": 116,
+   "functional_share": 0.4957,
+   "by_type": {
+    "boilerplate": 84,
+    "heading": 54,
+    "framing": 1,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 99,
+  "action_claims": 39,
+  "result_claims": 60,
+  "links": 58,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 60
+ },
+ "silent_decisions": [
+  {
+   "id": 24,
+   "lines": [
+    [
+     127,
+     134
+    ]
+   ],
+   "confidence": "high",
+   "operation": "compute an unadjusted odds ratio for red cards by skin group with a log-scale normal-approximation CI",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ]
+  },
+  {
+   "id": 61,
+   "lines": [
+    [
+     378,
+     378
+    ]
+   ],
+   "confidence": "high",
+   "operation": "hardcode the per-league odds ratios used in the plot as literal numbers instead of the values computed in the stratified-by-league loop above",
+   "targets": [
+    "league_ors",
+    "leagues"
+   ]
+  }
+ ],
+ "misalignments": []
+}

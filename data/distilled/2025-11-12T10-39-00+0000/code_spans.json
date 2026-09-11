@@ -1,0 +1,789 @@
+{
+ "n_lines": 301,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     11
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     19
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     20,
+     23
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     29
+    ]
+   ],
+   "operation": "read the raw player-referee dyad dataset from a fixed CSV path as the analysis input",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     37
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     44
+    ]
+   ],
+   "operation": "bucket the continuous skin tone score into Light/Medium/Dark categories using fixed cutpoints at 0.375 and 0.625",
+   "targets": [
+    "skinTone",
+    "skinCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     61
+    ],
+    [
+     226,
+     226
+    ]
+   ],
+   "operation": "collapse detailed playing positions into four broad position groups via a hand-built lookup table",
+   "targets": [
+    "position",
+    "positionBroad",
+    "position_mapping"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     65
+    ]
+   ],
+   "operation": "restrict the analysis sample to Light and Dark players only, dropping Medium, and encode Dark as the treatment indicator",
+   "targets": [
+    "skinCategory",
+    "analysis_df",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     66,
+     69
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     85
+    ]
+   ],
+   "note": "prints descriptive rates and unadjusted difference computed inline"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     94,
+     97
+    ],
+    [
+     111,
+     116
+    ]
+   ],
+   "operation": "choose which covariates enter the primary adjustment model (games, position group, league, height, weight) and build the corresponding design-matrix column list",
+   "targets": [
+    "model_vars",
+    "X_vars",
+    "analysis_df",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     98,
+     99
+    ]
+   ],
+   "operation": "handle missing covariate/outcome data by complete-case (listwise) deletion rather than imputation",
+   "targets": [
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     100,
+     104
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     110
+    ]
+   ],
+   "operation": "one-hot encode position and league with drop_first=True, fixing the omitted category as the implicit reference level",
+   "targets": [
+    "positionBroad",
+    "leagueCountry",
+    "model_df_dummies"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "assemble X/y matrices, add intercept"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     124
+    ]
+   ],
+   "operation": "fit the primary effect as a linear probability model (OLS on the binary outcome) with standard errors clustered by player rather than by referee or dyad",
+   "targets": [
+    "y",
+    "X",
+    "playerShort",
+    "lpm_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     125,
+     130
+    ]
+   ],
+   "note": "pull coefficient/SE/CI/p-value out of fitted model"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     131,
+     139
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     140,
+     141
+    ]
+   ],
+   "operation": "declare statistical significance using a 0.05 two-sided alpha threshold",
+   "targets": [
+    "darkSkin_pval"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     146,
+     149
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     150,
+     157
+    ]
+   ],
+   "operation": "add a secondary logistic-regression specification to express the same contrast as an odds ratio",
+   "targets": [
+    "model_df",
+    "logit_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     158,
+     161
+    ]
+   ],
+   "note": "extract log-odds coefficient and SE"
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "operation": "construct the odds-ratio confidence interval via a manual normal (Wald) approximation on the log-odds scale using a fixed 1.96 multiplier, rather than the model's own CI method",
+   "targets": [
+    "darkSkin_log_or",
+    "darkSkin_or_se"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     164,
+     165
+    ]
+   ],
+   "note": "extract p-value for odds ratio"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     166,
+     173
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     174,
+     177
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     181
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     182,
+     182
+    ]
+   ],
+   "note": "sub-section label"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     183,
+     184
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     185,
+     188
+    ]
+   ],
+   "operation": "add an unadjusted (no-covariate) sensitivity model regressing outcome on darkSkin alone",
+   "targets": [
+    "model_df_dummies",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     189,
+     192
+    ]
+   ],
+   "note": "extract unadjusted coefficient/p-value/CI"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     193,
+     196
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     197,
+     197
+    ]
+   ],
+   "note": "sub-section label"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     198,
+     199
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     200,
+     218
+    ]
+   ],
+   "operation": "re-run the effect model using the continuous skinTone score instead of the dichotomized category, then rescale the per-unit coefficient by 0.5 to approximate the light-to-dark contrast",
+   "targets": [
+    "skinTone",
+    "cont_df",
+    "X_cont",
+    "comparison_effect"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     219,
+     222
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     223,
+     223
+    ]
+   ],
+   "note": "sub-section label"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     224,
+     225
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     227,
+     230
+    ]
+   ],
+   "operation": "for the three-category sensitivity model, keep all rows with non-missing skin-tone category (including Medium) instead of excluding them",
+   "targets": [
+    "skinCategory",
+    "three_cat_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     231,
+     235
+    ]
+   ],
+   "note": "prints N and per-category rates via loop"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     236,
+     241
+    ]
+   ],
+   "operation": "fit a three-level categorical model of skin tone with Light set as the reference category",
+   "targets": [
+    "skinCategory",
+    "three_cat_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     242,
+     246
+    ]
+   ],
+   "note": "select and extract the Dark-vs-Light coefficient"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     248
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     249,
+     252
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     256
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     257,
+     294
+    ]
+   ],
+   "note": "package already-computed results into a summary table dict"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     295,
+     295
+    ]
+   ],
+   "note": "build summary DataFrame"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     296,
+     297
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     298,
+     301
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

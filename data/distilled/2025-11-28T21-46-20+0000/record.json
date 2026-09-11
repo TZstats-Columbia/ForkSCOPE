@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-28T21-46-20+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 393,
+   "functional_lines": 194,
+   "functional_share": 0.4936,
+   "by_type": {
+    "print": 134,
+    "comment": 52,
+    "config": 6,
+    "import": 5,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 248,
+   "functional_lines": 115,
+   "functional_share": 0.4637,
+   "by_type": {
+    "boilerplate": 100,
+    "heading": 37,
+    "framing": 10,
+    "hedging": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 91,
+  "action_claims": 57,
+  "result_claims": 34,
+  "links": 63,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 34
+ },
+ "silent_decisions": [
+  {
+   "id": 22,
+   "lines": [
+    [
+     82,
+     97
+    ]
+   ],
+   "confidence": "high",
+   "operation": "collapse the many specific playing positions into three broad categories",
+   "targets": [
+    "position",
+    "position_cat"
+   ]
+  },
+  {
+   "id": 30,
+   "lines": [
+    [
+     136,
+     138
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the crude (unadjusted) red-card rate difference between dark- and light-skin groups",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ]
+  }
+ ],
+ "misalignments": []
+}

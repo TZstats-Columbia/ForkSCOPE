@@ -1,0 +1,711 @@
+{
+ "n_lines": 316,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "operation": "read in the raw player-referee dyad table as the analysis population",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "operation": "drop dyads lacking a skin-tone rating from either coder before any further work",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "quantify how well the two coders agree using both a Pearson and a Spearman coefficient",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "operation": "collapse the two raters' scores into one skin_tone value by simple averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     54
+    ],
+    [
+     56,
+     56
+    ]
+   ],
+   "operation": "split skin tone into dark (>0.5) vs light (<=0.25) groups and discard the middle band entirely",
+   "targets": [
+    "skin_tone",
+    "dark_vs_light"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "operation": "turn the red-card count into a yes/no indicator of ever receiving one",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     69,
+     75
+    ]
+   ],
+   "operation": "restrict to complete cases on the confounders that will enter the model",
+   "targets": [
+    "position",
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     81,
+     82
+    ],
+    [
+     149,
+     150
+    ],
+    [
+     152,
+     152
+    ],
+    [
+     155,
+     156
+    ]
+   ],
+   "operation": "treat position and league as categorical factors and fit the fully-adjusted logistic model on the dark/light exposure",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "dark_vs_light",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     89
+    ]
+   ],
+   "operation": "rescale each continuous covariate to a z-score before it enters the model",
+   "targets": [
+    "height",
+    "weight",
+    "games",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     153,
+     154
+    ],
+    [
+     211,
+     212
+    ],
+    [
+     224,
+     225
+    ],
+    [
+     237,
+     238
+    ]
+   ],
+   "operation": "obtain standard errors clustered by player rather than treating dyads as independent",
+   "targets": [
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     110
+    ],
+    [
+     122,
+     122
+    ],
+    [
+     127,
+     130
+    ],
+    [
+     132,
+     135
+    ]
+   ],
+   "operation": "get the unadjusted association from a 2x2 table: risk difference plus a hand-computed odds ratio with Wald CI",
+   "targets": [
+    "dark_vs_light",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     170,
+     172
+    ]
+   ],
+   "operation": "designate the average-marginal-effect risk difference as the headline result",
+   "targets": [
+    "dark_vs_light"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     189,
+     191
+    ]
+   ],
+   "operation": "exponentiate the model coefficient into an adjusted odds ratio as a second-tier result",
+   "targets": [
+    "dark_vs_light"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     207,
+     210
+    ],
+    [
+     213,
+     214
+    ]
+   ],
+   "operation": "re-run the model treating skin tone as continuous rather than dichotomized, as a robustness check",
+   "targets": [
+    "skin_tone",
+    "skin_tone_continuous"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     221,
+     223
+    ],
+    [
+     226,
+     227
+    ]
+   ],
+   "operation": "refit the model with position removed from the adjustment set to check its influence",
+   "targets": [
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     234,
+     234
+    ],
+    [
+     236,
+     236
+    ],
+    [
+     239,
+     240
+    ]
+   ],
+   "operation": "limit the sample to dyads with at least two games and refit the primary model on that subset",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     253,
+     256
+    ],
+    [
+     258,
+     261
+    ]
+   ],
+   "operation": "fix the power/alpha assumptions (80% power, two-sided 0.05) used to back out a minimum detectable effect",
+   "targets": [
+    "any_red_card",
+    "dark_vs_light"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     304,
+     310
+    ]
+   ],
+   "operation": "weigh the effect size against the MDE and p-value and declare the hypothesis unsupported",
+   "targets": [
+    "me_results",
+    "mde"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     19
+    ],
+    [
+     37,
+     37
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "note": "suppress warnings globally"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     11
+    ],
+    [
+     21,
+     26
+    ],
+    [
+     32,
+     32
+    ],
+    [
+     36,
+     36
+    ],
+    [
+     43,
+     43
+    ],
+    [
+     45,
+     51
+    ],
+    [
+     61,
+     61
+    ],
+    [
+     63,
+     68
+    ],
+    [
+     80,
+     80
+    ],
+    [
+     83,
+     84
+    ],
+    [
+     90,
+     94
+    ],
+    [
+     112,
+     116
+    ],
+    [
+     121,
+     121
+    ],
+    [
+     126,
+     126
+    ],
+    [
+     140,
+     143
+    ],
+    [
+     148,
+     148
+    ],
+    [
+     160,
+     164
+    ],
+    [
+     169,
+     169
+    ],
+    [
+     180,
+     184
+    ],
+    [
+     196,
+     200
+    ],
+    [
+     205,
+     205
+    ],
+    [
+     219,
+     219
+    ],
+    [
+     232,
+     232
+    ],
+    [
+     245,
+     248
+    ],
+    [
+     257,
+     257
+    ],
+    [
+     269,
+     272
+    ]
+   ],
+   "note": "section-header banners and inline comments labeling the code that follows, plus their surrounding blank lines"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ],
+    [
+     34,
+     35
+    ],
+    [
+     40,
+     42
+    ],
+    [
+     57,
+     60
+    ],
+    [
+     76,
+     79
+    ],
+    [
+     95,
+     98
+    ],
+    [
+     99,
+     102
+    ],
+    [
+     103,
+     107
+    ],
+    [
+     111,
+     111
+    ],
+    [
+     117,
+     120
+    ],
+    [
+     123,
+     125
+    ],
+    [
+     136,
+     139
+    ],
+    [
+     144,
+     147
+    ],
+    [
+     158,
+     159
+    ],
+    [
+     165,
+     168
+    ],
+    [
+     174,
+     179
+    ],
+    [
+     185,
+     188
+    ],
+    [
+     193,
+     195
+    ],
+    [
+     201,
+     204
+    ],
+    [
+     206,
+     206
+    ],
+    [
+     215,
+     217
+    ],
+    [
+     220,
+     220
+    ],
+    [
+     228,
+     230
+    ],
+    [
+     233,
+     233
+    ],
+    [
+     235,
+     235
+    ],
+    [
+     241,
+     243
+    ],
+    [
+     249,
+     252
+    ],
+    [
+     263,
+     267
+    ],
+    [
+     273,
+     276
+    ],
+    [
+     277,
+     303
+    ],
+    [
+     311,
+     311
+    ],
+    [
+     313,
+     315
+    ]
+   ],
+   "note": "console output reporting counts, descriptive stats, and model/sensitivity results already computed elsewhere"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     55,
+     55
+    ],
+    [
+     131,
+     131
+    ],
+    [
+     151,
+     151
+    ],
+    [
+     157,
+     157
+    ],
+    [
+     173,
+     173
+    ],
+    [
+     192,
+     192
+    ],
+    [
+     218,
+     218
+    ],
+    [
+     231,
+     231
+    ],
+    [
+     244,
+     244
+    ],
+    [
+     262,
+     262
+    ],
+    [
+     268,
+     268
+    ],
+    [
+     312,
+     312
+    ],
+    [
+     316,
+     316
+    ]
+   ],
+   "note": "standalone blank lines separating statements"
+  }
+ ]
+}

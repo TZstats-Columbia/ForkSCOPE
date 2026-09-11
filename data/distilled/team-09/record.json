@@ -1,0 +1,79 @@
+{
+ "run_id": "team-09",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 5,
+   "functional_lines": 4,
+   "functional_share": 0.8,
+   "by_type": {
+    "comment": 4
+   }
+  },
+  "prose": {
+   "n_lines": 249,
+   "functional_lines": 183,
+   "functional_share": 0.7349,
+   "by_type": {
+    "boilerplate": 56,
+    "citation": 29,
+    "heading": 9,
+    "hedging": 8,
+    "background": 6,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 4,
+  "claims": 63,
+  "action_claims": 34,
+  "result_claims": 29,
+  "links": 6,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 2,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 24,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 29
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "select which prepared data subset to fit the model on",
+   "targets": [
+    "d4.test"
+   ]
+  },
+  {
+   "id": 5,
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "confidence": "low",
+   "operation": "pick a specific numerical optimizer for model convergence rather than the package default",
+   "targets": [
+    "glmerControl"
+   ]
+  }
+ ],
+ "misalignments": []
+}

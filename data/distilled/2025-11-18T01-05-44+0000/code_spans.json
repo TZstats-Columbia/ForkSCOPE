@@ -1,0 +1,970 @@
+{
+ "n_lines": 357,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     19
+    ]
+   ],
+   "note": "leading blank line plus library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "note": "suppress warnings globally"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "section header banner for data loading"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     29
+    ]
+   ],
+   "note": "banner prints announcing the analysis"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "operation": "read the raw player-referee dyad CSV in as the entire analysis population",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "note": "print raw row count"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "operation": "average rater1 and rater2 into one continuous skinTone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "note": "print inter-rater correlation"
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     38,
+     44
+    ]
+   ],
+   "note": "prose explanation of the skin-tone bucket scheme, preceding its implementation"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     51
+    ],
+    [
+     262,
+     263
+    ]
+   ],
+   "operation": "cut continuous skinTone into Light/Medium/Dark buckets using 0.375 and 0.625 breakpoints, and later redraw those same breakpoints as reference lines on the histogram",
+   "targets": [
+    "skinTone",
+    "skinTone_category"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     57
+    ],
+    [
+     73,
+     74
+    ]
+   ],
+   "operation": "collapse the three-level bucket into a light(0)/dark(1) indicator (sending Medium to missing), then drop every row whose indicator is missing from the modeling frame",
+   "targets": [
+    "skinTone_category",
+    "dark_vs_light",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     60
+    ]
+   ],
+   "operation": "turn the red-card count into a binary any-red-card flag",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "note": "section header banner for sample selection"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     65,
+     72
+    ]
+   ],
+   "note": "print exclusion-summary framing and missing-skin-tone count"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     76
+    ]
+   ],
+   "note": "print post-exclusion sample size"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     79
+    ]
+   ],
+   "note": "count and print how many dyads fell in the excluded Medium bucket"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     80,
+     80
+    ],
+    [
+     82,
+     82
+    ]
+   ],
+   "operation": "further restrict the modeling frame to dyads with a known player position",
+   "targets": [
+    "position",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     81,
+     81
+    ]
+   ],
+   "note": "bookkeeping variable capturing pre-filter row count, used only for the next print"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     86
+    ]
+   ],
+   "note": "print rows dropped for missing position and final sample size"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     87,
+     87
+    ]
+   ],
+   "note": "header comment for the next two derived-variable lines"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     88
+    ]
+   ],
+   "operation": "put the games-played covariate on a log scale before it enters the model",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     89,
+     89
+    ]
+   ],
+   "note": "human-readable Light/Dark label column, cosmetic for later grouping/plotting"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     90,
+     94
+    ]
+   ],
+   "note": "section header banner for descriptive statistics"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     95,
+     106
+    ]
+   ],
+   "note": "print sample composition descriptives"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     111
+    ]
+   ],
+   "operation": "compute the raw, unadjusted red-card-rate difference between dark and light groups as a reference point before adjustment",
+   "targets": [
+    "dark_vs_light",
+    "anyRedCard",
+    "light_risk",
+    "dark_risk",
+    "crude_rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     116
+    ]
+   ],
+   "note": "print the crude comparison"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "section header banner for regression analysis"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     121,
+     124
+    ]
+   ],
+   "note": "print regression section banner"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     125,
+     126
+    ]
+   ],
+   "operation": "pick the outcome-model specification: red card on the skin-tone indicator plus position, league country, and log(games) as the adjustment set",
+   "targets": [
+    "anyRedCard",
+    "dark_vs_light",
+    "position",
+    "leagueCountry",
+    "log_games",
+    "formula"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     127,
+     133
+    ]
+   ],
+   "note": "print the chosen formula and covariate descriptions"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     134,
+     137
+    ]
+   ],
+   "note": "section header banner for the primary estimand"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     138,
+     142
+    ]
+   ],
+   "note": "print primary-estimand banner and method name"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     143,
+     160
+    ],
+    [
+     163,
+     164
+    ]
+   ],
+   "operation": "fit the adjustment-set formula as an OLS linear probability model and build its reported standard error as a two-way player+referee cluster-robust estimate, combining separately player-clustered, referee-clustered, and HC3 fits (Cameron-Gelbach-Miller)",
+   "targets": [
+    "anyRedCard",
+    "dark_vs_light",
+    "playerShort",
+    "refNum",
+    "lpm_player",
+    "lpm_referee",
+    "lpm_robust",
+    "se_twoway",
+    "beta_dark",
+    "p_twoway"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     161,
+     162
+    ],
+    [
+     197,
+     198
+    ],
+    [
+     276,
+     277
+    ]
+   ],
+   "operation": "build every reported 95% interval with a fixed normal-approximation multiplier of 1.96 rather than an exact or resampled critical value",
+   "targets": [
+    "beta_dark",
+    "se_twoway",
+    "coef_dark_logit",
+    "se_dark_logit",
+    "estimates",
+    "ses",
+    "ci_lows",
+    "ci_highs"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     165,
+     173
+    ]
+   ],
+   "note": "print the two-way clustered estimate, CI, and sensitivity across SE methods framing"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     174,
+     174
+    ],
+    [
+     205,
+     205
+    ],
+    [
+     342,
+     342
+    ],
+    [
+     344,
+     344
+    ]
+   ],
+   "operation": "declare an effect statistically significant / the hypothesis supported by comparing its p-value against a fixed 0.05 cutoff",
+   "targets": [
+    "p_twoway",
+    "p_value_logit",
+    "conclusion"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     175,
+     176
+    ]
+   ],
+   "note": "header comment introducing the SE sensitivity print block"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     177,
+     182
+    ]
+   ],
+   "note": "print SE/p-value under each clustering approach"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     183,
+     186
+    ]
+   ],
+   "note": "section header banner for the secondary estimand"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     187,
+     191
+    ]
+   ],
+   "note": "print secondary-estimand banner and method name"
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     192,
+     196
+    ],
+    [
+     199,
+     199
+    ]
+   ],
+   "operation": "additionally fit a logistic regression on the same formula and re-express its coefficient as an odds ratio via exponentiation",
+   "targets": [
+    "anyRedCard",
+    "dark_vs_light",
+    "model_logit",
+    "or_dark",
+    "p_value_logit"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     200,
+     204
+    ]
+   ],
+   "note": "print the logistic coefficient, odds ratio, CI, p-value"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     206,
+     206
+    ]
+   ],
+   "note": "blank line separating logistic output from marginal-effects block"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     207,
+     214
+    ]
+   ],
+   "operation": "estimate a risk-difference-scale effect from the logistic fit by predicting outcomes under counterfactual dark=0 and dark=1 for every row and averaging the gap",
+   "targets": [
+    "model_logit",
+    "dark_vs_light",
+    "ame_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     215,
+     219
+    ]
+   ],
+   "note": "print the average marginal effect"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     220,
+     223
+    ]
+   ],
+   "note": "section header banner for model diagnostics"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     224,
+     227
+    ]
+   ],
+   "note": "print diagnostics banner"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     228,
+     231
+    ]
+   ],
+   "note": "print LPM R-squared figures"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     232,
+     236
+    ]
+   ],
+   "note": "print logistic pseudo-R2, log-likelihood, AIC"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     237,
+     240
+    ]
+   ],
+   "note": "section header banner for visualization"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     241,
+     244
+    ]
+   ],
+   "note": "print visualization banner"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     245,
+     246
+    ]
+   ],
+   "note": "create the 2x2 figure/axes grid"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     247,
+     261
+    ]
+   ],
+   "note": "build the bar chart of red-card rate by skin tone and start the skin-tone histogram"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     264,
+     275
+    ]
+   ],
+   "note": "label the histogram axes and assemble data for the forest plot from already-computed estimates"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     278,
+     307
+    ]
+   ],
+   "note": "draw the forest plot and the position-by-skin-tone bar chart, finalize layout"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     308,
+     308
+    ]
+   ],
+   "note": "write the figure to disk"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     309,
+     309
+    ]
+   ],
+   "note": "print confirmation that plots were saved"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     310,
+     310
+    ]
+   ],
+   "note": "close the figure"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     311,
+     314
+    ]
+   ],
+   "note": "section header banner for final summary"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     315,
+     318
+    ]
+   ],
+   "note": "print final-summary banner"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     319,
+     326
+    ]
+   ],
+   "note": "print primary-estimand summary and interpretation text"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     327,
+     333
+    ]
+   ],
+   "note": "print secondary-estimand summary and interpretation text"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     334,
+     341
+    ]
+   ],
+   "note": "print model-details recap"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     343,
+     343
+    ]
+   ],
+   "note": "print the conclusion label"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     345,
+     349
+    ]
+   ],
+   "note": "print the not-supported narrative branch"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     350,
+     350
+    ]
+   ],
+   "note": "else branch of the conclusion control flow"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     351,
+     353
+    ]
+   ],
+   "note": "print the supported narrative branch"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     354,
+     357
+    ]
+   ],
+   "note": "print closing banner"
+  }
+ ]
+}

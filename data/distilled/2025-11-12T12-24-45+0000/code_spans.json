@@ -1,0 +1,679 @@
+{
+ "n_lines": 303,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     11,
+     19
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "operation": "load the raw referee-player dyad CSV as the working dataset",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "console output of raw dataset size"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "operation": "dichotomize continuous skin tone at the 0.5 midpoint into a light/dark binary exposure",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "operation": "normalize yellow cards by games played into a per-game rate covariate",
+   "targets": [
+    "yellowCards",
+    "games",
+    "yellowPerGame"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     49
+    ]
+   ],
+   "operation": "derive player age as of the 2012 season from birthdate",
+   "targets": [
+    "birthday",
+    "birthYear",
+    "age2012"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     52
+    ]
+   ],
+   "operation": "restrict the analysis sample to dyads with non-missing skin tone ratings",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "note": "console output of filtered sample size"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     54,
+     57
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     66
+    ]
+   ],
+   "note": "console output of skin tone distribution"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     67,
+     70
+    ]
+   ],
+   "note": "console output of red card distribution"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     77
+    ]
+   ],
+   "note": "compute and print unadjusted red-card rates by skin tone group"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     81
+    ]
+   ],
+   "note": "compute and print inter-rater correlation diagnostic"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     90,
+     95
+    ]
+   ],
+   "operation": "select the adjustment covariate set and drop dyads with any missing value to form the complete-case modeling sample",
+   "targets": [
+    "darkSkin",
+    "anyRedCard",
+    "position",
+    "leagueCountry",
+    "games",
+    "yellowCards",
+    "age2012",
+    "height",
+    "weight",
+    "refNum",
+    "playerShort",
+    "redCards",
+    "yellowPerGame",
+    "df_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     102
+    ]
+   ],
+   "note": "console output describing complete-case sample"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     103,
+     117
+    ]
+   ],
+   "operation": "fit a covariate-adjusted linear probability model with player-clustered standard errors and compute the Wald CI/p-value for the skin-tone effect",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "position",
+    "leagueCountry",
+    "games",
+    "yellowPerGame",
+    "age2012",
+    "height",
+    "weight",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     132
+    ]
+   ],
+   "note": "console output of primary result and interpretation"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     133,
+     136
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     137,
+     140
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     141,
+     151
+    ]
+   ],
+   "operation": "fit an adjusted logistic regression as an alternative model family for the same outcome/exposure and compute its odds ratio and CI",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     152,
+     155
+    ]
+   ],
+   "note": "console output of odds ratio result"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     156,
+     159
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     160,
+     163
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     193
+    ]
+   ],
+   "operation": "stratify the sample by league and refit the adjusted model separately within each of the four leagues, dropping the league term",
+   "targets": [
+    "leagueCountry",
+    "darkSkin",
+    "anyRedCard",
+    "position",
+    "games",
+    "yellowPerGame",
+    "age2012",
+    "height",
+    "weight",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     194,
+     197
+    ]
+   ],
+   "note": "build and print per-league results table"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     198,
+     201
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     202,
+     205
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     206,
+     213
+    ]
+   ],
+   "operation": "recode the exposure using an alternative skin-tone cutoff of 0.375 and refit the adjusted model",
+   "targets": [
+    "skinTone",
+    "darkSkin_0375"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     214,
+     217
+    ]
+   ],
+   "note": "console output of alternative-cutoff sensitivity result"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     218,
+     225
+    ]
+   ],
+   "operation": "use continuous skin tone instead of the binarized exposure and refit the adjusted model",
+   "targets": [
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     226,
+     229
+    ]
+   ],
+   "note": "console output of continuous-exposure sensitivity result"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     230,
+     236
+    ]
+   ],
+   "operation": "drop the yellow-card-per-game covariate, treated as a possible mediator, and refit the adjusted model",
+   "targets": [
+    "yellowPerGame",
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     237,
+     240
+    ]
+   ],
+   "note": "console output of mediator-exclusion sensitivity result"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     241,
+     244
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     245,
+     248
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     249,
+     295
+    ]
+   ],
+   "operation": "assemble a single summary table choosing which of the primary, secondary, stratified, and sensitivity estimates to report together and how to format them",
+   "targets": [
+    "coef_dark",
+    "or_dark",
+    "results_df",
+    "lpm_sens1",
+    "lpm_cont",
+    "lpm_no_yellow"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     296,
+     298
+    ]
+   ],
+   "note": "console output of summary table"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     299,
+     303
+    ]
+   ],
+   "note": "console footer"
+  }
+ ]
+}

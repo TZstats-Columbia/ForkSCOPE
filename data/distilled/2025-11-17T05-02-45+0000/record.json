@@ -1,0 +1,94 @@
+{
+ "run_id": "2025-11-17T05-02-45+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 434,
+   "functional_lines": 194,
+   "functional_share": 0.447,
+   "by_type": {
+    "print": 185,
+    "comment": 44,
+    "import": 6,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 209,
+   "functional_lines": 111,
+   "functional_share": 0.5311,
+   "by_type": {
+    "boilerplate": 79,
+    "heading": 36,
+    "framing": 3,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 94,
+  "action_claims": 44,
+  "result_claims": 50,
+  "links": 66,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 50
+ },
+ "silent_decisions": [
+  {
+   "id": 10,
+   "lines": [
+    [
+     39,
+     43
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age by subtracting birth year from a fixed 2012 season-reference year, coercing bad dates to missing",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 31,
+   "lines": [
+    [
+     172,
+     172
+    ],
+    [
+     175,
+     179
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which covariates (age, height, weight, games) to inspect for balance across skin-tone groups",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "games",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "restrict the working sample to only the extreme light/dark groups, discarding every dyad in the middle skin-tone range",
+   "claim": "asserts no other exclusions were applied beyond the two listed",
+   "note": "code restricts the sample to extreme light/dark groups, discarding all middle-range skin-tone dyads, an exclusion beyond the two the claim lists"
+  }
+ ]
+}

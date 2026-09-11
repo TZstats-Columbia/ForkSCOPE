@@ -1,0 +1,101 @@
+{
+ "n_lines": 5,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     4
+    ]
+   ],
+   "note": "narrative/comment text: a remark about the formula being long, a blank line, and an introduction naming the lme4 package before the model code"
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "operation": "fit a mixed-effects logistic regression (glmer, binomial link) rather than a non-mixed or different-link model",
+   "targets": [
+    "RC"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "operation": "choose the fixed-effect covariate set and random-intercept structure (position, leagueCountry, skintone as fixed effects; player and referee as random intercepts)",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "skintone",
+    "playerShort",
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    2,
+    4,
+    5
+   ]
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "operation": "select which prepared data subset to fit the model on",
+   "targets": [
+    "d4.test"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    2,
+    3,
+    5
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     5
+    ]
+   ],
+   "operation": "pick a specific numerical optimizer for model convergence rather than the package default",
+   "targets": [
+    "glmerControl"
+   ],
+   "confidence": "low",
+   "shares_lines_with": [
+    2,
+    3,
+    4
+   ]
+  }
+ ]
+}

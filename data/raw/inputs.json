@@ -1,0 +1,81 @@
+{
+  "_comment": "Declares what distillation is allowed to read. The distinction is between RAW artifacts -- produced by the analysis run itself -- and DERIVED artifacts, which are somebody else's analysis OF the run. Feeding a derived artifact to the parser would launder their taxonomy into our vocabulary and destroy the free-discovery claim, so the boundary is a data file the pipeline enforces rather than a convention someone has to remember. Derived artifacts stay listed, because they are legitimate as an INDEPENDENT COMPARISON after v2 exists -- just never as input.",
+
+  "corpora": {
+    "ai": {
+      "root": "/corpus/afp/experiment_data/workspaces/*/bedrock_us.anthropic.claude-sonnet-4-5-20250929-v1_0/sample_soccer/*",
+      "run_id": "basename of the workspace directory",
+      "n_runs": 207,
+      "raw": {
+        "final_analysis.py": {
+          "role": "code",
+          "present": 207,
+          "note": "the script the run wrote and executed"
+        },
+        "mirrored_report.txt": {
+          "role": "prose",
+          "present": 206,
+          "note": "the run's own report; median 16 KB. One file is 0 bytes, so 205 are usable."
+        },
+        "transcript.json": {
+          "role": "trace",
+          "present": 207,
+          "note": "the run's own reasoning and tool trace: 127 messages, ~63 assistant turns, ~42k chars of text. Content blocks are stored as Python reprs, so text must be extracted with a pattern rather than parsed as JSON. This is the only artifact that can distinguish a decision the run deliberated from one it took by default."
+        }
+      },
+      "derived_EXCLUDED": {
+        "decisions_mapped.json": {
+          "owner": "amazon-science/agentic-forking-path",
+          "why_excluded": "their decision extraction against a fixed 21-slot schema. Using it as input would import the taxonomy this project exists to avoid.",
+          "keep_for": "independent comparison. 33% of what their own extractor found landed in unmapped_decisions (1,120 items over 207 runs), which is a ready-made inventory of what a fixed schema cannot hold."
+        },
+        "sonnet_llmj.txt": {
+          "owner": "amazon-science/agentic-forking-path",
+          "why_excluded": "an LLM-judge scoring rubric over the run (estimand_alignment, conclusion_discipline, ...). A quality judgement, not a run artifact.",
+          "keep_for": "possible outcome-side comparison, never distillation input."
+        }
+      }
+    },
+
+    "human": {
+      "root": "soccer/human/corpus/team-*",
+      "run_id": "directory name",
+      "n_runs": 31,
+      "raw": {
+        "script.txt": {
+          "role": "code",
+          "present": 19,
+          "note": "R, Stata, SPSS, Stan or Python saved as .txt. 12 teams deposited none."
+        },
+        "survey.txt": {
+          "role": "prose",
+          "present": 28,
+          "note": "the Stage-3 questionnaire, field-structured. Absent for teams 30, 31, 32."
+        },
+        "report.txt": {
+          "role": "prose",
+          "present": 29,
+          "note": "the post-feedback manuscript. Absent for teams 19, 22."
+        }
+      },
+      "derived_EXCLUDED": {
+        "soccer/human/distilled/*": {
+          "owner": "this project, v1",
+          "why_excluded": "v1 decision records. Unreproducible, and never a target, seed or validator for v2."
+        }
+      }
+    }
+  },
+
+  "artifact_matrix": {
+    "_comment": "Corrected from the plan's assumption. The two corpora are near mirror images: the AI runs are code-complete and were prose-blocked until the LFS fetch; the human teams are prose-complete and code-partial.",
+    "code": {"ai": 207, "human": 19, "total": "226 / 238"},
+    "prose": {"ai": 205, "human": 31, "total": "236 / 238"},
+    "trace": {"ai": 207, "human": 0, "total": "207 / 238"}
+  },
+
+  "provenance": {
+    "lfs_fetch": "mirrored_report.txt, transcript.json, decisions_mapped.json and sonnet_llmj.txt were unfetched Git-LFS pointers in the distill-corpus volume. Pulled from origin https://github.com/amazon-science/agentic-forking-path.git, scoped to the sonnet-4-5 sample_soccer workspaces. final_analysis.py was already materialised, which is why the 207-script re-execution worked.",
+    "consequence": "Before the fetch, 205 of 207 AI reports were absent, so exon-to-claim linking and silent-decision detection were impossible for 87% of the corpus. v1 nonetheless carries 4,165 code_refs citing mirrored_report.txt, made upstream where the files were real; none of them can be verified from this repo's prior state."
+  }
+}

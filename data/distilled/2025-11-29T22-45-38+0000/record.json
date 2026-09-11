@@ -1,0 +1,132 @@
+{
+ "run_id": "2025-11-29T22-45-38+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 369,
+   "functional_lines": 156,
+   "functional_share": 0.4228,
+   "by_type": {
+    "print": 144,
+    "comment": 55,
+    "import": 7,
+    "config": 4,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 277,
+   "functional_lines": 163,
+   "functional_share": 0.5884,
+   "by_type": {
+    "heading": 51,
+    "boilerplate": 27,
+    "other": 20,
+    "hedging": 9,
+    "framing": 9,
+    "background": 6,
+    "citation": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 67,
+  "action_claims": 39,
+  "result_claims": 28,
+  "links": 58,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 28
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     57,
+     57
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "collapse the red-card count into a yes/no indicator of ever receiving a red card",
+   "targets": [
+    "redCards",
+    "anyRedCard",
+    "df_analysis"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "normalize yellow card counts into a per-game rate",
+   "targets": [
+    "yellowCards",
+    "games",
+    "yellowCardRate",
+    "df_analysis"
+   ]
+  },
+  {
+   "id": 29,
+   "lines": [
+    [
+     112,
+     127
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "collapse twelve specific playing positions down to four coarse groups",
+   "targets": [
+    "position",
+    "positionGroup",
+    "position_map",
+    "df_clean"
+   ]
+  },
+  {
+   "id": 67,
+   "lines": [
+    [
+     331,
+     331
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the raw, unadjusted difference in red-card rate between the dark and light groups without any covariate control",
+   "targets": [
+    "anyRedCard",
+    "dark_df",
+    "light_df"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "pick the covariate set (position, league, games, yellow rate, height, weight) and fit a logistic model of any-red-card on the dark-skin indicator",
+   "claim": "covariates included were position, league country, log(games+1), yellow card rate, height (mean-imputed for 46 dyads), and weight (mean-imputed for 753 dyads)",
+   "note": "claim lists log(games+1) as a covariate; decision 35's covariate set uses raw games (log_games created only for the Poisson model, decision 59)"
+  },
+  {
+   "decision": "pick the covariate set (position, league, games, yellow rate, height, weight) and fit a logistic model of any-red-card on the dark-skin indicator",
+   "claim": "games was log-transformed to account for a non-linear relationship with red card risk",
+   "note": "claim states games was log-transformed for the model; the main model's covariate set (decision 35) enters raw games, with log transform appearing only in the Poisson offset (decision 59)"
+  }
+ ]
+}

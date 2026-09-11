@@ -1,0 +1,69 @@
+{
+ "run_id": "team-05",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 108,
+   "functional_lines": 57,
+   "functional_share": 0.5278,
+   "by_type": {
+    "glue": 29,
+    "plot": 13,
+    "import": 4,
+    "print": 3,
+    "comment": 2
+   }
+  },
+  "prose": {
+   "n_lines": 524,
+   "functional_lines": 161,
+   "functional_share": 0.3073,
+   "by_type": {
+    "other": 334,
+    "heading": 25,
+    "boilerplate": 19,
+    "citation": 9,
+    "framing": 4,
+    "background": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 52,
+  "action_claims": 31,
+  "result_claims": 21,
+  "links": 49,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 12,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 1,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 21
+ },
+ "silent_decisions": [
+  {
+   "id": 3,
+   "lines": [
+    [
+     7,
+     7
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the crowdstorming dataset from a CSV file as the analysis input",
+   "targets": [
+    "dat"
+   ]
+  }
+ ],
+ "misalignments": []
+}

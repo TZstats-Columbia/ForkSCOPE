@@ -1,0 +1,840 @@
+{
+ "n_lines": 264,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     25,
+     25
+    ]
+   ],
+   "operation": "load the full raw player-referee dyad dataset from CSV with no pre-filtering",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skintone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "operation": "restrict the sample to dyads that have a non-missing skin-tone rating",
+   "targets": [
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "operation": "split continuous skin tone into a binary dark/light exposure at the 0.5 cutoff",
+   "targets": [
+    "skintone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     38
+    ]
+   ],
+   "operation": "drop dyads missing height, weight, or position to form the complete-case analysis set",
+   "targets": [
+    "height",
+    "weight",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     42
+    ]
+   ],
+   "operation": "z-standardize height and weight before entering them as covariates",
+   "targets": [
+    "height",
+    "weight",
+    "height_std",
+    "weight_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     45
+    ],
+    [
+     109,
+     109
+    ]
+   ],
+   "operation": "build a log(games) term and feed it in as the Poisson model's exposure offset",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    11
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "operation": "collapse red card count into a binary any-red-card outcome for the secondary model",
+   "targets": [
+    "redCards",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     67,
+     68
+    ],
+    [
+     86,
+     89
+    ]
+   ],
+   "operation": "split the sample by dark_skin and compute crude (unadjusted) risk difference and odds ratio between groups",
+   "targets": [
+    "dark_skin",
+    "any_red",
+    "redCards",
+    "games"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     108
+    ]
+   ],
+   "operation": "specify the primary model as a Poisson GLM of red card count on skin tone adjusted for position, league, height and weight",
+   "targets": [
+    "redCards",
+    "dark_skin",
+    "position",
+    "leagueCountry",
+    "height_std",
+    "weight_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     110
+    ],
+    [
+     180,
+     181
+    ]
+   ],
+   "operation": "cluster the standard errors of both regression models at the player level",
+   "targets": [
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    16
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     127,
+     131
+    ],
+    [
+     134,
+     135
+    ],
+    [
+     138,
+     139
+    ],
+    [
+     142,
+     144
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by marginal standardization: predict counterfactual outcomes under dark_skin=0/1, convert Poisson rates to P(Y>=1) probabilities, and average",
+   "targets": [
+    "dark_skin",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     152
+    ]
+   ],
+   "operation": "approximate the standard error of the standardized risk difference with a first-order delta-method formula instead of e.g. bootstrapping",
+   "targets": [
+    "coef",
+    "se"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     155,
+     158
+    ]
+   ],
+   "operation": "form a 95% CI and two-sided p-value for the risk difference using a normal-approximation (Wald) reference distribution",
+   "targets": [
+    "risk_diff_pp",
+    "se_rd_pp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     175,
+     175
+    ]
+   ],
+   "operation": "handle exposure to games in the logistic model as a log-transformed covariate rather than an offset, unlike the Poisson model",
+   "targets": [
+    "games",
+    "log_games_cov"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     178,
+     179
+    ]
+   ],
+   "operation": "specify the secondary model as a logistic regression of any-red-card on skin tone with the same covariate set plus log games played",
+   "targets": [
+    "any_red",
+    "dark_skin",
+    "position",
+    "leagueCountry",
+    "height_std",
+    "weight_std",
+    "log_games_cov"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     253,
+     261
+    ]
+   ],
+   "operation": "declare the hypothesis unsupported by reading the small effect size, non-significant p-value, and CI spanning zero together as a null result",
+   "targets": [
+    "risk_diff_pp",
+    "pval_rd",
+    "ci_lower_rd",
+    "ci_upper_rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     7
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     8,
+     17
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     19
+    ]
+   ],
+   "note": "suppress warnings globally"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "section header and lead-in comment"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     27
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     29,
+     30
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     46,
+     47
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     49,
+     57
+    ]
+   ],
+   "note": "data preparation summary counts"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     58,
+     62
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "note": "section header print"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     84
+    ]
+   ],
+   "note": "group-level descriptive stats output"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     85,
+     85
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": "unadjusted association output"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     94,
+     98
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     99,
+     102
+    ]
+   ],
+   "note": "section header print"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     103,
+     104
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     111,
+     112
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     113,
+     117
+    ]
+   ],
+   "note": "extract dark_skin coefficient, SE, CI and p-value from the already-fit Poisson model for reporting"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     123
+    ]
+   ],
+   "note": "Poisson rate-ratio results output"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     124,
+     126
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     132,
+     133
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     136,
+     137
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     140,
+     141
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     153,
+     154
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     164
+    ]
+   ],
+   "note": "primary risk-difference estimand output"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     165,
+     169
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     170,
+     173
+    ]
+   ],
+   "note": "section header print"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     174,
+     174
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     176,
+     177
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     182,
+     182
+    ]
+   ],
+   "note": "suppress optimizer iteration output during logistic fit"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     183,
+     191
+    ]
+   ],
+   "note": "extract dark_skin coefficient, SE, CI and p-value from the fitted logistic model and exponentiate to an odds ratio for reporting"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     192,
+     196
+    ]
+   ],
+   "note": "secondary odds-ratio estimand output"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     197,
+     201
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     202,
+     233
+    ]
+   ],
+   "note": "model specification, covariate, and exclusion summary output"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     234,
+     238
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     252
+    ]
+   ],
+   "note": "primary and secondary finding summary output"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     262,
+     264
+    ]
+   ],
+   "note": "closing divider"
+  }
+ ]
+}

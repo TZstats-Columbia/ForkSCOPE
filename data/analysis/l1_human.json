@@ -1,0 +1,5487 @@
+{
+ "corpus": "human",
+ "n_decisions": 281,
+ "items": [
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "point the analysis at the pre-cleaned maindata.dta as the full sample to load",
+   "line": 6,
+   "targets": [
+    "maindata.dta"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "split the birthday string into day/month/year and compute player age (plus its square) using a fixed reference year of 2013",
+   "line": 19,
+   "targets": [
+    "birthday",
+    "birth_day",
+    "birth_month",
+    "birth_year",
+    "age",
+    "age2"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat the literal string 'NA' as missing and convert the rating, anthropometric, and bias variables from string to numeric",
+   "line": 26,
+   "targets": [
+    "rater1",
+    "rater2",
+    "height",
+    "weight",
+    "meaniat",
+    "niat",
+    "seiat",
+    "meanexp",
+    "nexp",
+    "seexp",
+    "birth_month",
+    "birth_day",
+    "birth_year"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average the two human raters' skin-tone scores into one continuous rating",
+   "line": 38,
+   "targets": [
+    "rater1",
+    "rater2",
+    "rateravg"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "expand each referee-player dyad into one row per game played and assign the dyad's total observed cards to the first N expanded game-rows rather than modeling at the dyad level",
+   "line": 42,
+   "targets": [
+    "games",
+    "yellowcards",
+    "redcards",
+    "yellowreds",
+    "dyadnum",
+    "withinorder"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define a binary any-red-card outcome combining straight reds and second-yellow reds",
+   "line": 75,
+   "targets": [
+    "redcards",
+    "yellowreds",
+    "anyred"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define a binary any-card outcome combining reds, second-yellow reds, and yellow cards",
+   "line": 80,
+   "targets": [
+    "redcards",
+    "yellowreds",
+    "yellowcards",
+    "anycard"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add squared height and weight terms so the card models can fit a nonlinear body-size relationship",
+   "line": 89,
+   "targets": [
+    "height",
+    "weight",
+    "height2",
+    "weight2"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse referees to one observation per country (dropping duplicates and countries missing an IAT or EXP score), z-standardize the country-level implicit and explicit bias scores, and merge them back onto the full sample keeping all original rows",
+   "line": 93,
+   "targets": [
+    "meaniat",
+    "meanexp",
+    "refcountry",
+    "zmeaniat",
+    "zmeanexp"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose age, height, weight, yellow cards, red cards, and any-red as the variables reported in the summary-statistics table",
+   "line": 132,
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "yellowcards",
+    "redcards",
+    "anyred"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "model red cards as a linear function of average skin-tone rating, reporting a nested cascade from bivariate up through body-size/age controls, league and position fixed effects, club fixed effects, and referee fixed effects",
+   "line": 155,
+   "targets": [
+    "redcards",
+    "rateravg",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "re-estimate the red-card/skin-tone relationship as a logit with average marginal effects, using the same nested control cascade up through league, position, and club fixed effects",
+   "line": 170,
+   "targets": [
+    "redcards",
+    "rateravg",
+    "height",
+    "weight",
+    "height2",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "re-run the red-card cascade treating the raw 5-point rater1 score as a categorical predictor instead of the averaged continuous rateravg score",
+   "line": 205,
+   "targets": [
+    "redcards",
+    "rater1",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the linear control cascade with any-red-card as the outcome",
+   "line": 223,
+   "targets": [
+    "anyred",
+    "rateravg",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the logit control cascade with any-red-card as the outcome",
+   "line": 242,
+   "targets": [
+    "anyred",
+    "rateravg",
+    "height",
+    "weight",
+    "height2",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the categorical (i.rater1) nonlinear cascade with any-red-card as the outcome",
+   "line": 277,
+   "targets": [
+    "anyred",
+    "rater1",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the linear control cascade with yellow cards as the outcome",
+   "line": 294,
+   "targets": [
+    "yellowcards",
+    "rateravg",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the logit control cascade with yellow cards as the outcome",
+   "line": 321,
+   "targets": [
+    "yellowcards",
+    "rateravg",
+    "height",
+    "weight",
+    "height2",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the categorical (i.rater1) nonlinear cascade with yellow cards as the outcome",
+   "line": 353,
+   "targets": [
+    "yellowcards",
+    "rater1",
+    "height",
+    "height2",
+    "weight",
+    "weight2",
+    "age",
+    "age2",
+    "leaguecountrynum",
+    "positionnum",
+    "clubnum",
+    "refnum"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the 5-point rater1 skin-tone scale into a binary dark/light group, splitting ratings 1-2 versus 3-5",
+   "line": 378,
+   "targets": [
+    "rater1",
+    "dark"
+   ]
+  },
+  {
+   "run": "team-01",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test whether the implicit/explicit bias-score effect on each card outcome differs between dark- and light-skin-toned players by fitting separate subgroup regressions (with and without player fixed effects) and manually computing a t-test on the coefficient difference, instead of a single interaction model",
+   "line": 384,
+   "targets": [
+    "redcards",
+    "yellowcards",
+    "anyred",
+    "zmeaniat",
+    "zmeanexp",
+    "dark",
+    "playerid"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the already-cleaned Stata dataset instead of re-importing and re-saving the raw crowdstorming CSV",
+   "line": 17,
+   "targets": [
+    "Dataset.dta"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat the string \"NA\" as missing and convert height to a numeric variable",
+   "line": 27,
+   "targets": [
+    "height"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat the string \"NA\" as missing and convert weight to a numeric variable",
+   "line": 31,
+   "targets": [
+    "weight"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat \"NA\" as missing for position and expand position into a full set of dummy indicators",
+   "line": 35,
+   "targets": [
+    "position",
+    "positionbin"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "derive four league-country dummy indicators from the leaguecountry string, leaving Spain unused later as the implicit reference category",
+   "line": 39,
+   "targets": [
+    "leaguecountry",
+    "France",
+    "Germany",
+    "England",
+    "Spain"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat \"NA\" as missing and convert both raters' skin-tone scores to numeric",
+   "line": 45,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average the two raters' scores into a single continuous skin-tone measure",
+   "line": 50,
+   "targets": [
+    "rater1",
+    "rater2",
+    "ratermean"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "take the lower of the two raters' scores as an alternative skin-tone measure",
+   "line": 51,
+   "targets": [
+    "rater1",
+    "rater2",
+    "ratermin"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "take the higher of the two raters' scores as an alternative skin-tone measure",
+   "line": 54,
+   "targets": [
+    "rater1",
+    "rater2",
+    "ratermax"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "dichotomize every skin-tone measure at a cutoff greater than 3 to create dark/light indicator versions",
+   "line": 58,
+   "targets": [
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the red-card count into a binary any-red-card indicator, first at the game-observation level and again with an adjusted threshold once data are summed to one row per player",
+   "line": 64,
+   "targets": [
+    "redcards",
+    "redcardbin"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "regress the raw, non-binarized red-card count on a skin-tone measure with no covariates, as an alternate outcome specification",
+   "line": 74,
+   "targets": [
+    "redcards",
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "estimate the skin-tone/red-card relationship with no covariates at all (bivariate model)",
+   "line": 83,
+   "targets": [
+    "redcardbin",
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "adjust the model for player physical traits, position (positionbin2-12, omitting the first category), and country fixed effects (France/Germany/England, Spain as reference)",
+   "line": 84,
+   "targets": [
+    "height",
+    "weight",
+    "positionbin2-positionbin12",
+    "France",
+    "Germany",
+    "England"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "extend the core-adjusted model with season performance totals as additional controls",
+   "line": 85,
+   "targets": [
+    "games",
+    "victories",
+    "goals"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "re-estimate the corresponding specification using logit instead of a linear probability model, reporting odds ratios (and dropping player clustering once data are player-level)",
+   "line": 102,
+   "targets": [
+    "redcardbin",
+    "rater1",
+    "rater2",
+    "ratermean",
+    "ratermin",
+    "ratermax"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add the referee-pool's mean implicit-bias (IAT) score as a covariate alongside the core adjustment set",
+   "line": 166,
+   "targets": [
+    "meaniat"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "construct and include a skin-tone times implicit-bias interaction term to test moderation, first using continuous then binarized skin tone",
+   "line": 164,
+   "targets": [
+    "ratermean",
+    "ratermeanbin",
+    "meaniat",
+    "raterXiat"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "construct and include a skin-tone times explicit-bias interaction term to test moderation, first using continuous then binarized skin tone",
+   "line": 186,
+   "targets": [
+    "ratermean",
+    "ratermeanbin",
+    "meanexp",
+    "raterXexp"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add the referee-pool's mean explicit-bias (feeling thermometer) score as a covariate alongside the core adjustment set",
+   "line": 188,
+   "targets": [
+    "meanexp"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the panel from player-game rows to one row per player by summing season totals and dropping duplicates, changing the unit of analysis",
+   "line": 116,
+   "targets": [
+    "games",
+    "victories",
+    "ties",
+    "defeats",
+    "goals",
+    "yellowcards",
+    "yellowreds",
+    "redcards",
+    "playershort"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat \"NA\" as missing and convert the mean implicit-bias (IAT) score to numeric",
+   "line": 154,
+   "targets": [
+    "meaniat"
+   ]
+  },
+  {
+   "run": "team-02",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat \"NA\" as missing and convert the mean explicit-bias score to numeric",
+   "line": 158,
+   "targets": [
+    "meanexp"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define the outcome as a binomial count of red cards out of games played, linked to a linear predictor p via binomial_logit",
+   "line": 5,
+   "targets": [
+    "y",
+    "games",
+    "n",
+    "p"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the second model's sample to dyads involving dark-skin-toned players only",
+   "line": 122,
+   "targets": [
+    "n",
+    "y",
+    "games"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat the raters' mean skin-tone score as an ordinal 1-5 exposure, giving each category its own effect shrunk toward a fitted linear trend across categories, via non-centered parameterization",
+   "line": 11,
+   "targets": [
+    "raterMean",
+    "bRater",
+    "bRater_raw",
+    "muRater",
+    "gRater0",
+    "gRater1",
+    "sigmarater",
+    "xi_rater"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "adjust for player position and dyad league/country as confounders, each given its own random effect with non-centered parameterization",
+   "line": 15,
+   "targets": [
+    "position",
+    "positionN",
+    "leagueCountry",
+    "leagueN",
+    "bpos",
+    "bpos_raw",
+    "bleague",
+    "bleague_raw",
+    "sigmapos",
+    "sigmaleague",
+    "xi_pos",
+    "xi_league"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a per-dyad random effect to the linear predictor to absorb overdispersion beyond the binomial model",
+   "line": 46,
+   "targets": [
+    "error",
+    "error_raw",
+    "sigmaerror",
+    "xi_error"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "give the model a single intercept for baseline red-card probability with a normal(0,10) prior",
+   "line": 24,
+   "targets": [
+    "b0"
+   ]
+  },
+  {
+   "run": "team-03",
+   "arm": "human",
+   "corpus": "human",
+   "text": "model referee-country bias as a random country effect whose mean is regressed on that country's average implicit (IAT) and explicit bias scores",
+   "line": 135,
+   "targets": [
+    "refCountry",
+    "countryN",
+    "meanIAT",
+    "meanExp",
+    "bcountry",
+    "bcountry_raw",
+    "mucountry_raw",
+    "g_country",
+    "gIAT",
+    "gExp",
+    "sigmacountry",
+    "xi_country"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the crowdstorming dataset from a CSV file as the analysis input",
+   "line": 7,
+   "targets": [
+    "dat"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "concatenate playerShort and refNum into a single player-referee pair identifier",
+   "line": 11,
+   "targets": [
+    "playerShort",
+    "refNum",
+    "p_ref"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average the two raters' skin-tone scores per player into one continuous rating, ignoring missing rater values",
+   "line": 14,
+   "targets": [
+    "rater1",
+    "rater2",
+    "avgrate"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "expand each player-referee aggregate row into one row per game played, and recode red cards received as a binary per-game outcome, turning count totals into bernoulli trials for a later binomial model",
+   "line": 17,
+   "targets": [
+    "games",
+    "redCards",
+    "data.games"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop rows with a missing average skin-tone rating or missing meanIAT, restricting the sample to complete cases",
+   "line": 35,
+   "targets": [
+    "avgrate",
+    "meanIAT",
+    "data.games.nona"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "rescale the average skin-tone rating from its 1-5 scale onto a 0-1 scale",
+   "line": 38,
+   "targets": [
+    "avgrate",
+    "avgrate01"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict to games where at least one red card was shown, defining the comparison group for the observed-frequency plot",
+   "line": 41,
+   "targets": [
+    "redCards",
+    "data.red"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "truncate skin-tone ratings to integer bins and run a chi-square goodness-of-fit test comparing the rating distribution among red-carded games against the overall expected distribution",
+   "line": 44,
+   "targets": [
+    "avgrate",
+    "redCards",
+    "null.probs",
+    "chi"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a sequence of mixed-effects logistic regression models with progressively richer random-effects structure (intercepts only, then add the fixed skin-tone effect, then a random slope by referee, then a random slope by referee country) to model red cards from skin-tone rating, treating gm3 as the preferred specification",
+   "line": 67,
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "playerShort",
+    "refNum",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute each referee country's mean implicit-bias score (meanIAT) and pair it with that country's estimated random slope of the skin-tone effect from gm3, to inspect a country-level association",
+   "line": 81,
+   "targets": [
+    "meanIAT",
+    "refCountry",
+    "gm3",
+    "refag"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a cross-level interaction between individual skin-tone rating and country-mean implicit bias to the preferred random-effects model",
+   "line": 92,
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "meanIAT",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "repeat the country-level aggregation and random-slope extraction for a second country-level measure labeled meanExp (the code re-aggregates data.games.nona$meanIAT and relabels it, rather than referencing a distinct explicit-bias column), pairing it with gm3's random slopes",
+   "line": 96,
+   "targets": [
+    "meanIAT",
+    "refCountry",
+    "gm3",
+    "refag"
+   ]
+  },
+  {
+   "run": "team-05",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a cross-level interaction between individual skin-tone rating and the country-level meanExp measure to the preferred random-effects model",
+   "line": 106,
+   "targets": [
+    "redCards",
+    "avgrate01",
+    "meanExp",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pick refCountryID as the variable on which standard errors are clustered in every regression model",
+   "line": 6,
+   "targets": [
+    "refCountryID",
+    "cluster_var"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the raw crowdstorming CSV as the full working dataset",
+   "line": 9,
+   "targets": [
+    "1. Crowdstorming Dataset 05.10.14.csv"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "parse the birthday string into a date using day-month-year format",
+   "line": 11,
+   "targets": [
+    "birthday",
+    "bdate"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "derive player age as 2012 minus birth year",
+   "line": 12,
+   "targets": [
+    "bdate",
+    "age"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "force-convert height, weight, meanIAT, and meanExp from string to numeric, coercing unparseable values to missing",
+   "line": 13,
+   "targets": [
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "encode player, position, referee number, league-country, and referee-country string fields into numeric ID variables for later grouping/fixed-effects use",
+   "line": 17,
+   "targets": [
+    "playerShort",
+    "position",
+    "refNum",
+    "leagueCountry",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the sample to rows with non-missing rater1/rater2 ratings and games==1",
+   "line": 25,
+   "targets": [
+    "rater1",
+    "rater2",
+    "games"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "dichotomize implicit-bias score (meanIAT) into a high/low indicator split at the sample mean",
+   "line": 33,
+   "targets": [
+    "meanIAT",
+    "highIAT"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "dichotomize explicit-bias score (meanExp) into a high/low indicator split at the sample mean",
+   "line": 37,
+   "targets": [
+    "meanExp",
+    "highExp"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "expand position, rater x highIAT, rater x highExp, and club into indicator/interaction dummy variables for the design matrix",
+   "line": 41,
+   "targets": [
+    "position",
+    "rater1",
+    "rater2",
+    "highIAT",
+    "highExp",
+    "club"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose age, height, and weight as the player-characteristic control variables",
+   "line": 45,
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "player_char"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop observations with missing values on any player-characteristic control variable",
+   "line": 47,
+   "targets": [
+    "age",
+    "height",
+    "weight"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define four alternative right-hand-side specifications (rater dummies with/without player controls, club fixed effects) for the main models",
+   "line": 51,
+   "targets": [
+    "rater1",
+    "rater2",
+    "club",
+    "player_char"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "set referee (refID) as the panel unit for fixed-effects/clustered models",
+   "line": 60,
+   "targets": [
+    "refID"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit an OLS/linear-probability model of red cards on the chosen specification with clustered SEs",
+   "line": 63,
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a referee fixed-effects model of red cards with clustered SEs",
+   "line": 69,
+   "targets": [
+    "redCards",
+    "rhs",
+    "refID",
+    "cluster_var"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select rater1-block OLS/FE coefficients and formatting to report in the main LaTeX results table",
+   "line": 78,
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2",
+    "fe_redcards_2"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select rater2-block OLS/FE coefficients and formatting to report in the main LaTeX results table",
+   "line": 92,
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4",
+    "fe_redcards_4"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define right-hand-side specifications adding the rater x highIAT interaction terms for the implicit-bias-moderation models",
+   "line": 107,
+   "targets": [
+    "rater1",
+    "rater2",
+    "highIAT",
+    "club",
+    "player_char"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the rater x highIAT interaction model of red cards with clustered SEs",
+   "line": 119,
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select and format rater1/highIAT interaction coefficients for the IAT results table",
+   "line": 133,
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select and format rater2/highIAT interaction coefficients for the IAT results table",
+   "line": 147,
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define right-hand-side specifications adding the rater x highExp interaction terms for the explicit-bias-moderation models",
+   "line": 163,
+   "targets": [
+    "rater1",
+    "rater2",
+    "highExp",
+    "club",
+    "player_char"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the rater x highExp interaction model of red cards with clustered SEs",
+   "line": 174,
+   "targets": [
+    "redCards",
+    "rhs",
+    "cluster_var"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select and format rater1/highExp interaction coefficients for the Exp results table",
+   "line": 188,
+   "targets": [
+    "ols_redcards_1",
+    "ols_redcards_2"
+   ]
+  },
+  {
+   "run": "team-06",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select and format rater2/highExp interaction coefficients for the Exp results table",
+   "line": 202,
+   "targets": [
+    "ols_redcards_3",
+    "ols_redcards_4"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the full crowdstorming dataset from CSV as the analysis population",
+   "line": 1,
+   "targets": [
+    "full_data",
+    "CrowdstormingDataset.csv"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop rows where either rater's skin-tone rating is missing",
+   "line": 3,
+   "targets": [
+    "rater1",
+    "rater2",
+    "full_data"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "recode each rater's skin-tone score to a numeric zero-based scale",
+   "line": 4,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the working sample to referee-player rows with at least one red card",
+   "line": 6,
+   "targets": [
+    "redCards",
+    "subset_index"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a Bayesian Dirichlet-process profile regression with a binomial outcome model of red cards over games played, treating the rater scores as discrete covariates, on the red-card subset, with fixed MCMC settings (sweeps, burn-in, seed)",
+   "line": 8,
+   "targets": [
+    "redCards",
+    "games",
+    "rater1",
+    "rater2",
+    "full_data",
+    "subset_index"
+   ]
+  },
+  {
+   "run": "team-07",
+   "arm": "human",
+   "corpus": "human",
+   "text": "derive dissimilarities between fitted profiles, cluster them into an optimal partition, then compute and plot each cluster's relative risk profile",
+   "line": 14,
+   "targets": [
+    "runInfoObj",
+    "dissimObj",
+    "clusObj",
+    "riskProfileObj"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop every case with a missing rater1 or rater2 score before any analysis",
+   "line": 5,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average the two raters into a single continuous skin-tone score, computed once in Excel and recomputed identically in SPSS",
+   "line": 8,
+   "targets": [
+    "rater1",
+    "rater2",
+    "RateAve",
+    "raterave"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "binarize RateAve at the lowest possible cut (only a perfect 1 counts as 0) into scenario S1, then test mean redCards across this split",
+   "line": 11,
+   "targets": [
+    "RateAve",
+    "S1",
+    "S1_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "binarize RateAve at a <2 cutoff into scenario S2 and test mean redCards across the split",
+   "line": 12,
+   "targets": [
+    "RateAve",
+    "S2",
+    "S2_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "binarize RateAve at a <3 cutoff into scenario S3 and test mean redCards across the split",
+   "line": 13,
+   "targets": [
+    "RateAve",
+    "S3",
+    "S3_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "binarize RateAve at a <4 cutoff into scenario S4 and test mean redCards across the split",
+   "line": 14,
+   "targets": [
+    "RateAve",
+    "S4",
+    "S4_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "binarize RateAve at a <5 cutoff into scenario S5 and test mean redCards across the split",
+   "line": 15,
+   "targets": [
+    "RateAve",
+    "S5",
+    "S5_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "recode RateAve into a 3-level scenario S6 (exactly 1 / under 3 / otherwise), test mean redCards across the groups, and follow up with SNK, Tukey and LSD pairwise comparisons at alpha .05",
+   "line": 16,
+   "targets": [
+    "RateAve",
+    "S6",
+    "S6_mean",
+    "redCards_sum"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pull in the full coded, missing-deleted crowdstorming sheet as the analysis dataset, reading the full cell range with the header row as variable names",
+   "line": 22,
+   "targets": [
+    "crowd-data-coded-nomiss.xlsx",
+    "1. Crowdstorming Dataset 05.10."
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the row-level data to one record per player, summing games and red cards and averaging RateAve within player",
+   "line": 38,
+   "targets": [
+    "playerShort",
+    "games",
+    "redCards",
+    "RateAve"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "build a per-game red-card rate by dividing summed red cards by summed games plus one, then test it against the S1 and S2 splits only",
+   "line": 96,
+   "targets": [
+    "redCards_sum",
+    "games_sum",
+    "Redpergame",
+    "S1_mean",
+    "S2_mean"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "mean-center each predictor by subtracting a fixed constant (the sample mean computed earlier) rather than centering dynamically",
+   "line": 124,
+   "targets": [
+    "RateAve",
+    "meanIAT",
+    "meanExp",
+    "games",
+    "victories",
+    "Dumi1_forward",
+    "Dumi2_mid",
+    "Dumi3_back"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "form two centered interaction terms (implicit bias x rater score, explicit bias x rater score) to test moderation",
+   "line": 148,
+   "targets": [
+    "meanIAT_C",
+    "meanExp_C",
+    "RateAve_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose which regression output to report: means/SDs/correlation matrix with significance plus coefficients, 95% CIs, R, ANOVA table, collinearity diagnostics and R-squared change",
+   "line": 165,
+   "targets": [
+    "redCards",
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C",
+    "RateAve_C",
+    "meanIAT_C",
+    "meanExp_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit an OLS regression with raw redCards (not the aggregated or rate version) as the outcome",
+   "line": 163,
+   "targets": [
+    "redCards"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "exclude any case with missing data on any regression variable (listwise) rather than pairwise or imputed",
+   "line": 167,
+   "targets": [
+    "redCards",
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C",
+    "RateAve_C",
+    "meanIAT_C",
+    "meanExp_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "set variable-entry/removal significance thresholds and CI width for the regression procedure",
+   "line": 171,
+   "targets": []
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "keep the regression intercept rather than forcing the line through the origin",
+   "line": 173,
+   "targets": []
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "enter game-count, win-count and playing-position dummies as the first control block before any bias measures",
+   "line": 177,
+   "targets": [
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add referee rater score as its own block, isolating its main effect from the controls",
+   "line": 179,
+   "targets": [
+    "RateAve_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add implicit and explicit bias measures as a third block after the controls and main rater effect",
+   "line": 181,
+   "targets": [
+    "meanIAT_C",
+    "meanExp_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add the two bias-by-rater interaction terms last to test moderation over and above the main effects",
+   "line": 183,
+   "targets": [
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "request a Durbin-Watson statistic to check residual autocorrelation",
+   "line": 187,
+   "targets": [
+    "ZRESID"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "flag cases as outliers when their standardized residual exceeds 3 SD",
+   "line": 189,
+   "targets": [
+    "ZRESID"
+   ]
+  },
+  {
+   "run": "team-08",
+   "arm": "human",
+   "corpus": "human",
+   "text": "save Mahalanobis distance and covariance/influence diagnostics as case-level variables",
+   "line": 191,
+   "targets": [
+    "MAHAL",
+    "MCIN",
+    "ICIN"
+   ]
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a mixed-effects logistic regression (glmer, binomial link) rather than a non-mixed or different-link model",
+   "line": 5,
+   "targets": [
+    "RC"
+   ]
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose the fixed-effect covariate set and random-intercept structure (position, leagueCountry, skintone as fixed effects; player and referee as random intercepts)",
+   "line": 5,
+   "targets": [
+    "position",
+    "leagueCountry",
+    "skintone",
+    "playerShort",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select which prepared data subset to fit the model on",
+   "line": 5,
+   "targets": [
+    "d4.test"
+   ]
+  },
+  {
+   "run": "team-09",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pick a specific numerical optimizer for model convergence rather than the package default",
+   "line": 5,
+   "targets": [
+    "glmerControl"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average two raters' ratings into one continuous skin-tone score",
+   "line": 8,
+   "targets": [
+    "rater1",
+    "rater2",
+    "meanrate"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "z-score standardize continuous variables before modeling",
+   "line": 9,
+   "targets": [
+    "meanrate",
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "meanIAT",
+    "meanExp",
+    "totbook"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute BMI from weight and height via standard formula",
+   "line": 18,
+   "targets": [
+    "weight",
+    "height",
+    "bmi"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "combine card types into one bookings score, weighting yellow-red double",
+   "line": 21,
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "totbook"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute losing rate as defeats per game",
+   "line": 25,
+   "targets": [
+    "defeats",
+    "games",
+    "losep"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute scoring rate as goals per game",
+   "line": 28,
+   "targets": [
+    "goals",
+    "games",
+    "gpgame"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "dichotomize skin tone into African-appearing vs. not via <3/>3 threshold, dropping the ambiguous middle category",
+   "line": 31,
+   "targets": [
+    "meanrate",
+    "tonecode"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "set referee/country grouping factors and compare nested random-effects structures (fixed vs random intercept, referee vs country vs nested, with/without random tone slope) via LRTs to pick the specification used later",
+   "line": 4,
+   "targets": [
+    "refCountry",
+    "refNum",
+    "redCards",
+    "games",
+    "meanrate"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "build a player-level table aggregating match stats by player x club x position (with missing position recoded to 'unknown'), merge the aggregates, derive player-level rates",
+   "line": 86,
+   "targets": [
+    "goals",
+    "games",
+    "playerShort",
+    "club",
+    "position",
+    "poscode",
+    "bmi",
+    "meanrate",
+    "defeats",
+    "daysold"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose which player-level variables to correlate against skin tone as a confound screen",
+   "line": 110,
+   "targets": [
+    "meanrate",
+    "plevgpgame",
+    "plevlosep",
+    "bmi",
+    "daysold"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test position's association with skin tone, excluding unknown-position players",
+   "line": 113,
+   "targets": [
+    "meanrate",
+    "position"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test club's association with skin tone",
+   "line": 117,
+   "targets": [
+    "meanrate",
+    "club"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit models testing whether club and whether position predict the disciplinary outcome, repeated for every outcome",
+   "line": 122,
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "club",
+    "position",
+    "refCountry",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "estimate unadjusted skin-tone/outcome association controlling only for games, per outcome",
+   "line": 133,
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "ztone"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "line": 138,
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "position",
+    "club",
+    "ztone"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test IAT as a moderator of the skin-tone effect via interaction term",
+   "line": 144,
+   "targets": [
+    "ztone",
+    "meanIAT",
+    "zIAT"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test explicit prejudice as a moderator of the skin-tone effect via interaction term",
+   "line": 150,
+   "targets": [
+    "ztone",
+    "meanExp",
+    "zExp"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "aggregate tone/scoring-rate/BMI to club level, binarize tone at the same >3 threshold to count black-coded players per club, merge back and standardize",
+   "line": 156,
+   "targets": [
+    "club",
+    "meanrate",
+    "plevgpgame",
+    "bmi",
+    "black",
+    "clubtone",
+    "clubgpg",
+    "clubbmi",
+    "clubblack"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test unadjusted association of club-average skin tone with red cards alongside individual tone",
+   "line": 171,
+   "targets": [
+    "zrcard",
+    "zgames",
+    "ztone",
+    "clubtone"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add club-average skin tone as covariate alongside individual tone and position, per outcome",
+   "line": 177,
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "position",
+    "ztone",
+    "zclubtone"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test IAT/explicit-prejudice moderation of both individual and club-average tone effects",
+   "line": 183,
+   "targets": [
+    "ztone",
+    "zclubtone",
+    "zIAT",
+    "zExp"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "rerun confound-adjusted red-card model swapping continuous tone for categorical tonecode",
+   "line": 195,
+   "targets": [
+    "zrcard",
+    "zgames",
+    "position",
+    "club",
+    "tonecode"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test IAT/explicit-prejudice moderation of the categorical skin-tone effect on red cards",
+   "line": 202,
+   "targets": [
+    "tonecode",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add club-level count of African-appearing players as covariate alongside categorical tone",
+   "line": 210,
+   "targets": [
+    "zrcard",
+    "zgames",
+    "position",
+    "tonecode",
+    "clubblack"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test IAT/explicit-prejudice moderation of both the categorical tone effect and club-level black-count effect",
+   "line": 215,
+   "targets": [
+    "tonecode",
+    "zclubblack",
+    "zIAT",
+    "zExp"
+   ]
+  },
+  {
+   "run": "team-10",
+   "arm": "human",
+   "corpus": "human",
+   "text": "for total bookings, test moderation of a model mixing categorical tonecode with continuous club-average tone; object naming here doesn't match the following report calls, unlike every parallel block",
+   "line": 343,
+   "targets": [
+    "tonecode",
+    "zclubtone",
+    "zIAT",
+    "zExp",
+    "zbook"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "declare an OLS multiple regression predicting total red cards received",
+   "line": 4,
+   "targets": [
+    "totalredcards"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "exclude cases with any missing values listwise rather than pairwise or with imputation",
+   "line": 8,
+   "targets": [
+    "totalredcards",
+    "totalgames",
+    "age",
+    "cback",
+    "totalgoals",
+    "amid",
+    "rmid",
+    "cspain",
+    "cfor",
+    "lwing",
+    "cfrance",
+    "averate"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "set p-value thresholds for stepwise variable entry/removal, though the model actually uses forced entry so this criteria may be inert",
+   "line": 12,
+   "targets": []
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose which coefficient, model-fit, collinearity (tolerance/VIF), and R²-change statistics get computed and reported",
+   "line": 10,
+   "targets": [
+    "totalredcards"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "enter the player/position control variables together as the first predictor block",
+   "line": 18,
+   "targets": [
+    "totalgames",
+    "age",
+    "cback",
+    "totalgoals",
+    "amid",
+    "rmid",
+    "cspain",
+    "cfor",
+    "lwing",
+    "cfrance"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add average skin-tone rating as a second block to test its incremental effect over the controls",
+   "line": 20,
+   "targets": [
+    "averate"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "request Durbin-Watson autocorrelation statistic plus residual histogram/normal-probability plots to check regression assumptions",
+   "line": 22,
+   "targets": [
+    "ZRESID"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "flag and plot cases whose standardized residual exceeds 3 SD as outliers",
+   "line": 24,
+   "targets": [
+    "ZRESID"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "switch model family to binary logistic regression predicting a dichotomized red-card indicator instead of the continuous count",
+   "line": 27,
+   "targets": [
+    "redcardsdi"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "enter the same covariate set, including mean skin-tone rating, as the first block in both logistic models",
+   "line": 29,
+   "targets": [
+    "games",
+    "age",
+    "cback",
+    "goals",
+    "amid",
+    "rmid",
+    "cfor",
+    "lwing",
+    "cspain",
+    "cfrance",
+    "averatec"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add mean implicit-association (IAT) bias score as a second block",
+   "line": 31,
+   "targets": [
+    "meanIATc"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an IAT interaction term as a third block to test moderation",
+   "line": 33,
+   "targets": [
+    "IATint"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "use indicator (dummy) contrast coding instead of the default coding scheme for the categorical position variables amid and cback, consistently across both logistic models",
+   "line": 35,
+   "targets": [
+    "amid",
+    "cback"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "request a Hosmer-Lemeshow goodness-of-fit test and 95% confidence intervals for the odds ratios in both logistic models",
+   "line": 41,
+   "targets": []
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add mean explicit-bias score as a second block",
+   "line": 48,
+   "targets": [
+    "meanExpc"
+   ]
+  },
+  {
+   "run": "team-11",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an explicit-bias interaction term as a third block to test moderation",
+   "line": 50,
+   "targets": [
+    "Expint"
+   ]
+  },
+  {
+   "run": "team-12",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a zero-inflated count model of red cards on skin tone and a main-effects covariate set (no interactions)",
+   "line": 5,
+   "targets": [
+    "redCards",
+    "darkSkin",
+    "weight",
+    "position",
+    "games",
+    "meanIAT",
+    "meanExp",
+    "data"
+   ]
+  },
+  {
+   "run": "team-12",
+   "arm": "human",
+   "corpus": "human",
+   "text": "refit the zero-inflated model replacing darkSkin's main effect with its interactions against meanIAT and meanExp",
+   "line": 8,
+   "targets": [
+    "redCards",
+    "weight",
+    "position",
+    "games",
+    "darkSkin",
+    "meanIAT",
+    "meanExp",
+    "data"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pull in the raw CrowdStorming CSV as the entire analysis dataset",
+   "line": 10,
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "quantify agreement between the two continuous rater scores with Cronbach's alpha",
+   "line": 25,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "cut each rater's continuous score into light/dark categories at the midpoint value of 3, dropping the exact-3 cases as missing, then check the two raters' categorical agreement with kappa",
+   "line": 27,
+   "targets": [
+    "rater1",
+    "rater2",
+    "rater1skincolor",
+    "rater2skincolor"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the two raters' scores into one continuous skin-tone rating by averaging",
+   "line": 32,
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinrating"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "split the averaged skin-tone score into a binary light/dark grouping variable at 3, excluding the neutral midpoint, for use as the main predictor",
+   "line": 41,
+   "targets": [
+    "skinrating",
+    "skincolor"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "model red cards as poisson counts predicted by skin color and position, using log(games) as an exposure offset, on the reasoning that red cards are rare events roughly consistent with mean≈variance and that exposure/position need to be accounted for",
+   "line": 54,
+   "targets": [
+    "redCards",
+    "skincolor",
+    "position",
+    "games"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "replace model-based standard errors with heteroskedasticity-robust (sandwich) errors and rebuild the coefficient/CI table from them",
+   "line": 65,
+   "targets": [
+    "poissonmodel"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse player-level rows up to one row per referee country by summing games and red cards separately within each skin-color group, then reshape those sums to wide form",
+   "line": 78,
+   "targets": [
+    "data",
+    "refCountry",
+    "skincolor",
+    "games",
+    "redCards"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "summarize each country's implicit/explicit bias measures by averaging across referees within that country",
+   "line": 85,
+   "targets": [
+    "refCountry",
+    "meanIAT",
+    "nIAT",
+    "seIAT",
+    "meanExp",
+    "nExp",
+    "seExp"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "join the country-level red-card counts with the country-level bias measures into one analysis table, relabeling the merged count columns",
+   "line": 88,
+   "targets": [
+    "data3w",
+    "data3other",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define per-country dark-skin and light-skin red-card rate variables directly from the summed counts (and surface the corresponding games totals) as the basis for a relative rate",
+   "line": 91,
+   "targets": [
+    "redCards.darkskin",
+    "games.darkskin",
+    "redCards.lightskin",
+    "games.lightskin",
+    "p.darkskin",
+    "p.lightskin"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "form a relative-risk-style ratio of dark-skin to light-skin rates, flagging that zero light-skin rates will produce divide-by-zero cases",
+   "line": 97,
+   "targets": [
+    "p.darkskin",
+    "p.lightskin",
+    "ratio.p.darktolight"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "inspect the extreme-rate countries and drop referee country 133 as an outlier from the country-level analysis",
+   "line": 105,
+   "targets": [
+    "data3all",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat non-finite (NaN/Inf) ratio values, produced by zero-rate denominators, as missing rather than as real values",
+   "line": 112,
+   "targets": [
+    "ratio.p.darktolight"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "regress the dark/light red-card ratio on country implicit-bias score, weighting observations by the inverse of that same score",
+   "line": 118,
+   "targets": [
+    "ratio.p.darktolight",
+    "meanIAT"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "regress the same ratio on country explicit-bias score instead, weighting by the inverse of its standard error",
+   "line": 122,
+   "targets": [
+    "ratio.p.darktolight",
+    "meanExp",
+    "seExp"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "switch to a poisson model of dark-skin red-card counts predicted by country implicit bias and the light-skin rate, offset by dark-skin games played",
+   "line": 127,
+   "targets": [
+    "redCards.darkskin",
+    "meanIAT",
+    "p.lightskin",
+    "games.darkskin"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "recompute this model's standard errors with a sandwich/robust estimator and rebuild the estimate table",
+   "line": 130,
+   "targets": [
+    "linearmodel.imp.o"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the parallel poisson model using explicit bias in place of implicit bias, again offset by dark-skin games played",
+   "line": 137,
+   "targets": [
+    "redCards.darkskin",
+    "meanExp",
+    "p.lightskin",
+    "games.darkskin"
+   ]
+  },
+  {
+   "run": "team-13",
+   "arm": "human",
+   "corpus": "human",
+   "text": "apply the same sandwich/robust standard-error correction to the explicit-bias poisson model's estimates",
+   "line": 139,
+   "targets": [
+    "linearmodel.exp.o"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "model the count of cards given out as a binomial draw out of games played, linked to the predictor via a probit function",
+   "line": 4,
+   "targets": [
+    "cards",
+    "games",
+    "p"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "give each player an additive random intercept drawn from a normal distribution whose mean (mu0) and precision (precPlayer) are themselves estimated with weakly informative hyperpriors",
+   "line": 15,
+   "targets": [
+    "playerEffect",
+    "playerIdx",
+    "mu0",
+    "precPlayer"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "give each referee an additive random intercept centered at zero (not estimated) with an estimated precision, so referees are treated as unbiased on average unlike players",
+   "line": 6,
+   "targets": [
+    "refEffect",
+    "refIdx",
+    "precRef"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a main-effect slope for referee IAT score with a N(0,1) prior on its coefficient",
+   "line": 7,
+   "targets": [
+    "slpIAT",
+    "IAT"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a main-effect slope for referee explicit bias score with a N(0,1) prior on its coefficient",
+   "line": 8,
+   "targets": [
+    "slpEbias",
+    "Ebias"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add a main-effect slope for the player's skin-tone rating value with a N(0,1) prior on its coefficient",
+   "line": 9,
+   "targets": [
+    "slpColor",
+    "ratingVals",
+    "ratingIdx"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an interaction term between skin-tone rating and IAT score with a N(0,1) prior on its coefficient",
+   "line": 10,
+   "targets": [
+    "slpColIATint",
+    "ratingVals",
+    "IAT"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an interaction term between skin-tone rating and explicit bias score with a N(0,1) prior on its coefficient",
+   "line": 11,
+   "targets": [
+    "slpColEbiasint",
+    "ratingVals",
+    "Ebias"
+   ]
+  },
+  {
+   "run": "team-17",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat each player's rating as a latent categorical class drawn from probabilities theta, with each category probability given an independent Uniform(0,1) prior rather than a joint simplex prior",
+   "line": 16,
+   "targets": [
+    "ratingIdx",
+    "theta"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the raw crowdstorming CSV as the analysis dataset, fixed to a specific file path",
+   "line": 6,
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "keep only rows where both raters logged a skin-tone rating and the two ratings match exactly",
+   "line": 13,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the now-agreeing rater1/rater2 codes into a single SkinCol variable",
+   "line": 15,
+   "targets": [
+    "rater1",
+    "rater2",
+    "SkinCol"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop players whose referee-country IAT or explicit-bias scores are missing",
+   "line": 21,
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pull a four-digit birth year out of the birthday string by character position",
+   "line": 26,
+   "targets": [
+    "birthday",
+    "birth.year"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "narrow the working dataset down to a fixed list of columns to carry forward",
+   "line": 29,
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse match-level rows into one row per player, summing cards/games/goals/results and computing a red-cards-per-match rate",
+   "line": 36,
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "goals",
+    "victories",
+    "ties",
+    "defeats",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fill missing player heights with the sample mean height",
+   "line": 49,
+   "targets": [
+    "height"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse match-level rows into one row per referee, summing cards/games and computing a red-cards-per-match rate",
+   "line": 52,
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse match-level rows into one row per referee country, summing cards/games and computing a red-cards-per-match rate",
+   "line": 60,
+   "targets": [
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose which player-level fields feed the Q1 hierarchical model (matches, red cards, skin tone, league, group sizes)",
+   "line": 88,
+   "targets": [
+    "PlayerMatches",
+    "PlayerRedCards",
+    "SkinCol",
+    "leagueCountry"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "seed the MCMC intercept with the logit of the overall empirical red-card rate to speed convergence",
+   "line": 104,
+   "targets": [
+    "PlayerRedCards",
+    "PlayerMatches",
+    "redCards",
+    "games"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify the Q1 logistic hierarchical model structure: binomial red cards per player with player-style and skin-tone random effects and their hyperpriors",
+   "line": 107,
+   "targets": [
+    "mu",
+    "mu.style",
+    "mu.skin"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fix the MCMC run's chain count, adaptation length, iterations, thinning interval, and which parameters get monitored",
+   "line": 134,
+   "targets": [
+    "jags",
+    "samples"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "summarize posterior uncertainty as a 95% equal-tailed credible interval (2.5%/97.5% quantiles)",
+   "line": 148,
+   "targets": [
+    "mu.skin.matrix",
+    "mu.iat",
+    "mu.exp"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "exponentiate the logit-scale posterior effects to report them as odds ratios, rounded to 2 decimals",
+   "line": 163,
+   "targets": [
+    "mu.skin.matrix",
+    "mu.iat",
+    "mu.exp"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute the posterior probability that the darkest skin-tone category's effect exceeds the lightest category's",
+   "line": 167,
+   "targets": [
+    "mu.skin.matrix"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "flag (without acting on) an alternative skin-tone coding, SkinCol3, that could have been used instead of SkinCol",
+   "line": 177,
+   "targets": [
+    "SkinCol"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose Q2 model inputs, including converting each country's IAT/Explicit standard errors and sample sizes into precision weights",
+   "line": 179,
+   "targets": [
+    "games",
+    "redCards",
+    "SkinCol",
+    "playerShort",
+    "refNum",
+    "refCountry",
+    "meanIAT",
+    "seIAT",
+    "nIAT",
+    "meanExp",
+    "seExp",
+    "nExp"
+   ]
+  },
+  {
+   "run": "team-18",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify the Q2 model structure linking referee-level red-card rates to referee style plus skin-tone-specific slopes on country implicit/explicit bias scores",
+   "line": 196,
+   "targets": [
+    "mu",
+    "mu.style",
+    "mu.ref",
+    "mu.iat",
+    "mu.exp",
+    "IAT",
+    "EXP"
+   ]
+  },
+  {
+   "run": "team-20",
+   "arm": "human",
+   "corpus": "human",
+   "text": "choose a negative-binomial mixed-effects model for the count outcome and specify meanIAT-by-rater and rater-by-meanExp interaction terms as the effects of interest",
+   "line": 1,
+   "targets": [
+    "redCards",
+    "meanIAT",
+    "rater",
+    "meanExp",
+    "glmer.nb"
+   ]
+  },
+  {
+   "run": "team-20",
+   "arm": "human",
+   "corpus": "human",
+   "text": "select the set of player/match covariates to control for in the model",
+   "line": 2,
+   "targets": [
+    "games",
+    "victories",
+    "defeats",
+    "age",
+    "height",
+    "weight",
+    "goals"
+   ]
+  },
+  {
+   "run": "team-20",
+   "arm": "human",
+   "corpus": "human",
+   "text": "treat playing position as a categorical factor rather than numeric or omitted",
+   "line": 3,
+   "targets": [
+    "position"
+   ]
+  },
+  {
+   "run": "team-20",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify random-intercept clustering structure to account for grouping of observations by player, country, and league",
+   "line": 4,
+   "targets": [
+    "id",
+    "cid",
+    "lid"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pick the raw crowdstorming CSV as the data source, read in as-is with UTF-8 encoding",
+   "line": 6,
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "flag referee-countries whose implicit/explicit bias survey has too few respondents (SE above sd/5, or missing) and drop them when building the bias-interaction models",
+   "line": 23,
+   "targets": [
+    "refCountry",
+    "seIAT",
+    "seExp",
+    "excludeImplicit",
+    "excludeExplicit"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "combine the two raters' scores into a single skin-tone rating by averaging them",
+   "line": 33,
+   "targets": [
+    "rater1",
+    "rater2",
+    "rating"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "expand each player-referee row into one row per game refereed, and allocate that dyad's total red/yellow-red cards to the first N games rather than a specific game",
+   "line": 36,
+   "targets": [
+    "games",
+    "yellowReds",
+    "redCards",
+    "red"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "derive a per-player career goals total from the player list and merge it back in as a new column",
+   "line": 58,
+   "targets": [
+    "goals",
+    "games",
+    "players"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse left/right variants of winger, fullback and midfielder into a single side-agnostic position category",
+   "line": 70,
+   "targets": [
+    "position",
+    "position.short"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute player age as of the script's run date from birthdate and z-standardize it at creation; also z-standardize height, weight and goals in the modeling frame",
+   "line": 87,
+   "targets": [
+    "birthday",
+    "age",
+    "height",
+    "weight",
+    "goals"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "mean-center the implicit and explicit bias scores using the average over non-excluded referee-countries (the corresponding sd is computed but not applied)",
+   "line": 95,
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "excludeImplicit",
+    "excludeExplicit"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "standardize the rating variable using the mean and sd of each player's first-listed rater-average rating",
+   "line": 101,
+   "targets": [
+    "rating",
+    "players",
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "backward-eliminate predictors from the full mixed model via drop1, dropping goals then age across successive models",
+   "line": 109,
+   "targets": [
+    "red",
+    "weight",
+    "height",
+    "rating",
+    "age",
+    "position.short",
+    "goals",
+    "refNum",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the exploratory model fits to complete cases only, via listwise deletion of any row with an NA",
+   "line": 111,
+   "targets": [
+    "p"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the primary model of rating's effect on red cards on the full (unfiltered) sample, then report the effect as a percentage-point change with a Wald confidence interval",
+   "line": 122,
+   "targets": [
+    "red",
+    "rating",
+    "weight",
+    "height",
+    "position.short"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an implicit-bias (meanIAT) by rating interaction, fit only on countries with adequate implicit-bias data, and report the interaction as a percentage-point change with Wald CI",
+   "line": 128,
+   "targets": [
+    "red",
+    "rating",
+    "meanIAT",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-24",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add an explicit-bias (meanExp) by rating interaction, fit only on countries with adequate explicit-bias data, and report the interaction as a percentage-point change with Wald CI",
+   "line": 134,
+   "targets": [
+    "red",
+    "rating",
+    "meanExp",
+    "refCountry"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the raw crowdstorming dataset from CSV as the analysis source",
+   "line": 1,
+   "targets": [
+    "red"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop every row with any missing value before building the working sample",
+   "line": 3,
+   "targets": [
+    "red",
+    "tred"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict analysis to a random draw of 250 referees rather than the full referee pool",
+   "line": 4,
+   "targets": [
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the two raters' skin-tone judgments into one averaged score per player",
+   "line": 9,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "z-score every model covariate (skin tone, height, weight, goals, IAT, experience) before fitting",
+   "line": 10,
+   "targets": [
+    "meanSkinCol",
+    "height",
+    "weight",
+    "goals",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a poisson GLMM for red cards on height, weight, goals and position with a referee random intercept, holding skin tone out entirely",
+   "line": 18,
+   "targets": [
+    "redCards",
+    "height",
+    "weight",
+    "goals",
+    "position",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "add the standardized skin-tone score as a fixed effect on top of the baseline covariates, keeping the referee term as a plain random intercept",
+   "line": 22,
+   "targets": [
+    "redCards",
+    "meanSkinCol",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "let the skin-tone effect vary by referee via a random slope instead of forcing it constant across referees",
+   "line": 24,
+   "targets": [
+    "redCards",
+    "meanSkinCol",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test whether the skin-tone effect is moderated by referees' implicit-bias (IAT) score via an interaction term",
+   "line": 27,
+   "targets": [
+    "redCards",
+    "meanSkinCol",
+    "meanIAT",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "test whether the skin-tone effect is moderated by referee experience instead, dropping back to a simple random intercept",
+   "line": 31,
+   "targets": [
+    "redCards",
+    "meanSkinCol",
+    "meanExp",
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit an alternate red-card model on the full unsampled data using rater1's raw rating treated as a categorical factor, with a player random intercept",
+   "line": 37,
+   "targets": [
+    "redCards",
+    "rater1",
+    "player"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "refit the same rater1 model but treat the rating as a continuous linear predictor instead of a factor",
+   "line": 40,
+   "targets": [
+    "redCards",
+    "rater1",
+    "player"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "swap in rater2's categorical rating in place of rater1 for the same model structure",
+   "line": 45,
+   "targets": [
+    "redCards",
+    "rater2",
+    "player"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "build two alternate skin-tone measures by taking the elementwise min (lower) and max (higher) of the two raters' scores",
+   "line": 49,
+   "targets": [
+    "rater1",
+    "rater2",
+    "lower",
+    "higher"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the red-card model using the min-of-two-raters score as the skin-tone predictor",
+   "line": 52,
+   "targets": [
+    "redCards",
+    "lower",
+    "player"
+   ]
+  },
+  {
+   "run": "team-25",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit the red-card model using the max-of-two-raters score as the skin-tone predictor",
+   "line": 56,
+   "targets": [
+    "redCards",
+    "higher",
+    "player"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "pull the raw rows into memory as a list of dicts via csv.DictReader rather than reading straight into a pandas dataframe",
+   "line": 14,
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the IRR check to rows where neither rater score is missing, test the two rating distributions for normality (D'Agostino-Pearson test plus histograms), and on that basis use Spearman's rank correlation instead of Pearson to summarize inter-rater agreement",
+   "line": 19,
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "reload the same source csv into a dataframe with pandas.read_csv for the main analysis, separate from the earlier DictReader pass",
+   "line": 38,
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "narrow the working dataframe down to a fixed list of columns, discarding everything else in the source file",
+   "line": 40,
+   "targets": [
+    "playerShort",
+    "refNum",
+    "games",
+    "goals",
+    "yellowCards",
+    "redCards",
+    "meanIAT",
+    "meanExp",
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop rows missing either rater score and construct a single 'rating' exposure variable as the sum of rater1 and rater2 (the comment calls it an average, but no division happens)",
+   "line": 42,
+   "targets": [
+    "rater1",
+    "rater2",
+    "rating"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "rescale meanIAT and meanExp by a factor of 100 before modeling",
+   "line": 47,
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "check redCards' variance against its mean as an informal diagnostic of whether the equidispersion assumption behind a Poisson model is reasonable",
+   "line": 50,
+   "targets": [
+    "redCards"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify the Question 1 formula: redCards regressed on rating with pairwise interactions against games, goals, yellowCards, meanIAT, and meanExp",
+   "line": 59,
+   "targets": [
+    "redCards",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit each question's model as a Poisson regression via statsmodels rather than some other count-model family",
+   "line": 61,
+   "targets": [
+    "redCards"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the Question 2a sample to rows with a non-missing meanIAT value",
+   "line": 71,
+   "targets": [
+    "meanIAT",
+    "df_2a"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify the Question 2a formula: redCards regressed on meanIAT with interactions against rating, games, goals, yellowCards, and meanExp",
+   "line": 73,
+   "targets": [
+    "redCards",
+    "meanIAT",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanExp"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "restrict the Question 2b sample to rows with a non-missing meanExp value",
+   "line": 87,
+   "targets": [
+    "meanExp",
+    "df_2b"
+   ]
+  },
+  {
+   "run": "team-27",
+   "arm": "human",
+   "corpus": "human",
+   "text": "specify the Question 2b formula: redCards regressed on meanExp with interactions against rating, games, goals, yellowCards, and meanIAT",
+   "line": 89,
+   "targets": [
+    "redCards",
+    "meanExp",
+    "rating",
+    "games",
+    "goals",
+    "yellowCards",
+    "meanIAT"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "load the referee/player match dataset from CSV as the analysis sample",
+   "line": 2,
+   "targets": [
+    "football_data",
+    "data.csv"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "average the two raters' skin-tone ratings into a single continuous skintone score",
+   "line": 4,
+   "targets": [
+    "rater1",
+    "rater2",
+    "skintone"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "collapse the detailed playing-position labels into three broader groups (Back/Front/Middle) and store as a factor",
+   "line": 8,
+   "targets": [
+    "position"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop players lacking a photo/skintone rating from the sample",
+   "line": 14,
+   "targets": [
+    "photoID"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop rows lacking referee implicit-bias (IAT) scores from the sample",
+   "line": 15,
+   "targets": [
+    "meanIAT"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "drop players lacking position information from the sample",
+   "line": 16,
+   "targets": [
+    "position"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "exclude referees who encountered only one player, based on a computed frequency table of appearances",
+   "line": 17,
+   "targets": [
+    "refNum"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "define the non-red-card game count as games minus redCards, to use as the binomial 'failure' count",
+   "line": 20,
+   "targets": [
+    "games",
+    "redCards",
+    "no_redCards"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "build a player-level table and chi-square test whether skintone is associated with position or league, to check confounding before choosing covariates",
+   "line": 24,
+   "targets": [
+    "player_data",
+    "skintone",
+    "position",
+    "leagueCountry",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a binomial mixed-effects logistic model of red-card counts on skintone, position, and league, with crossed random intercepts for referee and player",
+   "line": 31,
+   "targets": [
+    "redCards",
+    "no_redCards",
+    "skintone",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit an alternative Poisson mixed-effects model of red-card counts with an offset for games played, instead of the binomial specification",
+   "line": 37,
+   "targets": [
+    "redCards",
+    "games",
+    "skintone",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compare the Poisson and binomial models via an AIC table to judge which model family fits better",
+   "line": 44,
+   "targets": [
+    "poisson_glmer",
+    "logit_glmer"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "exponentiate fixed-effect estimates to report them as odds ratios instead of log-odds",
+   "line": 50,
+   "targets": [
+    "logit_glmer",
+    "logit_glmer_exp",
+    "logit_glmer_iat"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "compute confidence intervals for the exponentiated coefficients using the Wald approximation rather than profile or bootstrap methods",
+   "line": 51,
+   "targets": [
+    "logit_glmer",
+    "logit_glmer_exp",
+    "logit_glmer_iat"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a binomial mixed model testing the interaction between standardized skintone and standardized playing experience, with an enlarged optimizer iteration limit to reach convergence",
+   "line": 54,
+   "targets": [
+    "redCards",
+    "no_redCards",
+    "skintone",
+    "meanExp",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ]
+  },
+  {
+   "run": "team-28",
+   "arm": "human",
+   "corpus": "human",
+   "text": "fit a binomial mixed model testing the interaction between standardized skintone and standardized referee-country implicit bias (IAT), with an enlarged optimizer iteration limit to reach convergence",
+   "line": 66,
+   "targets": [
+    "redCards",
+    "no_redCards",
+    "skintone",
+    "meanIAT",
+    "position",
+    "leagueCountry",
+    "refNum",
+    "playerShort"
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "label": "load the raw crowdstorming CSV as-is as the analysis dataset",
+   "question": "which raw data file/format is loaded as the starting dataset?",
+   "ids": [
+    65,
+    90,
+    198,
+    222,
+    169,
+    51,
+    265
+   ]
+  },
+  {
+   "label": "load the pre-coded, missing-deleted crowdstorming xlsx sheet as the dataset",
+   "question": "which raw data file/format is loaded as the starting dataset?",
+   "ids": [
+    104
+   ]
+  },
+  {
+   "label": "read raw CSV rows as a list of dicts via csv.DictReader instead of a dataframe",
+   "question": "which raw data file/format is loaded as the starting dataset?",
+   "ids": [
+    252
+   ]
+  },
+  {
+   "label": "drop referee country 133 as an outlier from the country-level analysis",
+   "question": "how are outlier countries handled in the country-level analysis?",
+   "ids": [
+    181
+   ]
+  },
+  {
+   "label": "merge country-level red-card counts with country-level bias measures into one table",
+   "question": "how are the country-level red-card and bias datasets combined?",
+   "ids": [
+    178
+   ]
+  },
+  {
+   "label": "drop rows missing age, height, or weight",
+   "question": "which rows are excluded due to missing data?",
+   "ids": [
+    75
+   ]
+  },
+  {
+   "label": "listwise-delete rows missing any variable in the broader control/outcome set",
+   "question": "which rows are excluded due to missing data?",
+   "ids": [
+    152
+   ]
+  },
+  {
+   "label": "use dummy/indicator coding for the position variables amid and cback",
+   "question": "how are the categorical position variables coded in the models?",
+   "ids": [
+    163
+   ]
+  },
+  {
+   "label": "define anycard outcome as reds + second-yellow-reds + yellows",
+   "question": "how is the card outcome variable defined?",
+   "ids": [
+    6
+   ]
+  },
+  {
+   "label": "define anyred outcome as straight reds + second-yellow-reds",
+   "question": "how is the card outcome variable defined?",
+   "ids": [
+    5
+   ]
+  },
+  {
+   "label": "select age, height, weight, yellow/red cards, anyred for the summary table",
+   "question": "which variables are reported in the descriptive summary-statistics table?",
+   "ids": [
+    9
+   ]
+  },
+  {
+   "label": "linear OLS cascade of redcards on rateravg through referee fixed effects",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    10
+   ]
+  },
+  {
+   "label": "logit cascade (avg. marginal effects) of redcards on rateravg through club fixed effects",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    11
+   ]
+  },
+  {
+   "label": "categorical rater1 nonlinear cascade of redcards through referee fixed effects",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    12
+   ]
+  },
+  {
+   "label": "linear cascade repeated with anyred as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    13
+   ]
+  },
+  {
+   "label": "logit cascade repeated with anyred as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    14
+   ]
+  },
+  {
+   "label": "categorical rater1 cascade repeated with anyred as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    15
+   ]
+  },
+  {
+   "label": "linear cascade repeated with yellowcards as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    16
+   ]
+  },
+  {
+   "label": "logit cascade repeated with yellowcards as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    17
+   ]
+  },
+  {
+   "label": "categorical rater1 cascade repeated with yellowcards as the outcome",
+   "question": "what outcome and control cascade is used for the main skin-tone/cards model?",
+   "ids": [
+    18
+   ]
+  },
+  {
+   "label": "add average skin tone as a second hierarchical-regression block over controls",
+   "question": "how is skin tone entered into the hierarchical/blocked regression?",
+   "ids": [
+    156
+   ]
+  },
+  {
+   "label": "include mean skin-tone rating with covariates in block 1 of both logistic models",
+   "question": "how is skin tone entered into the hierarchical/blocked regression?",
+   "ids": [
+    160
+   ]
+  },
+  {
+   "label": "average rater1 and rater2 into a continuous avgrate score, ignoring missing raters",
+   "question": "how are the two raters' skin-tone scores combined into one exposure?",
+   "ids": [
+    53
+   ]
+  },
+  {
+   "label": "rescale avgrate from a 1-5 scale to a 0-1 scale",
+   "question": "how is the continuous skin-tone score scaled/transformed?",
+   "ids": [
+    56
+   ]
+  },
+  {
+   "label": "fit mixed-effects logistic cascade (intercept, fixed slope, random slope by referee, random slope by country), taking gm3 as preferred",
+   "question": "what random-effects structure is used for the multilevel red-card model?",
+   "ids": [
+    59
+   ]
+  },
+  {
+   "label": "add skin-tone x country-mean-IAT cross-level interaction to the preferred multilevel model",
+   "question": "does the multilevel model include a cross-level interaction with a country bias measure?",
+   "ids": [
+    61
+   ]
+  },
+  {
+   "label": "add skin-tone x country-mean-Exp cross-level interaction to the preferred multilevel model",
+   "question": "does the multilevel model include a cross-level interaction with a country bias measure?",
+   "ids": [
+    63
+   ]
+  },
+  {
+   "label": "give the baseline intercept a Normal(0,10) prior",
+   "question": "what prior is specified for the model's baseline intercept?",
+   "ids": [
+    49
+   ]
+  },
+  {
+   "label": "model country-level bias as a random effect regressed on country mean IAT and Exp scores",
+   "question": "how is referee-country bias modeled relative to IAT/Exp measures?",
+   "ids": [
+    50
+   ]
+  },
+  {
+   "label": "parse birthday string as a day-month-year date",
+   "question": "how is the birthdate field parsed?",
+   "ids": [
+    66
+   ]
+  },
+  {
+   "label": "compute age as 2012 minus birth year",
+   "question": "how is player age derived from birthdate?",
+   "ids": [
+    67
+   ]
+  },
+  {
+   "label": "compute age from birthdate as of the script's run date; z-standardize age, height, weight, goals",
+   "question": "how is player age derived from birthdate?",
+   "ids": [
+    228
+   ]
+  },
+  {
+   "label": "split birthday into day/month/year and compute age (and age^2) using fixed reference year 2013",
+   "question": "how is player age derived from birthdate?",
+   "ids": [
+    1
+   ]
+  },
+  {
+   "label": "extract birth year from the birthday string by character position",
+   "question": "how is birth year extracted from the birthday string?",
+   "ids": [
+    202
+   ]
+  },
+  {
+   "label": "treat 'NA' strings as missing and coerce rating/anthropometric/bias fields to numeric",
+   "question": "how are string-typed variables cleaned and converted to numeric?",
+   "ids": [
+    2
+   ]
+  },
+  {
+   "label": "aggregate tone/scoring-rate/BMI to club level and binarize tone at >3 to count black-coded players per club",
+   "question": "how are club-level tone/black-count covariates constructed?",
+   "ids": [
+    142
+   ]
+  },
+  {
+   "label": "give player position and league/country dyad their own non-centered random effects",
+   "question": "how are position and league/country confounders incorporated into the multilevel model?",
+   "ids": [
+    47
+   ]
+  },
+  {
+   "label": "compute BMI from height and weight via the standard formula",
+   "question": "how is BMI derived from anthropometric variables?",
+   "ids": [
+    127
+   ]
+  },
+  {
+   "label": "treat mean rating as an ordinal 1-5 exposure with partially-pooled category effects shrunk to a linear trend",
+   "question": "how is the continuous skin-tone score turned into an exposure?",
+   "ids": [
+    46
+   ]
+  },
+  {
+   "label": "model cards as binomial draws out of games played with a probit link",
+   "question": "what outcome distribution/link is used for the cards-per-game model?",
+   "ids": [
+    189
+   ]
+  },
+  {
+   "label": "truncate ratings to integer bins and chi-square test the rating distribution in red-carded vs overall games",
+   "question": "how is the skin-tone/red-card association tested?",
+   "ids": [
+    58
+   ]
+  },
+  {
+   "label": "add random intercepts for player, country, and league clustering",
+   "question": "what clustering structure accounts for grouped observations?",
+   "ids": [
+    221
+   ]
+  },
+  {
+   "label": "add club-level count of African-appearing players as a covariate alongside categorical tone",
+   "question": "what club-level covariates are included alongside individual skin tone?",
+   "ids": [
+    148
+   ]
+  },
+  {
+   "label": "test unadjusted club-average skin tone alongside individual tone",
+   "question": "is club-level skin tone tested as its own predictor alongside individual tone?",
+   "ids": [
+    143
+   ]
+  },
+  {
+   "label": "cluster fitted profiles by dissimilarity and compute per-cluster relative risk profiles",
+   "question": "how are player/referee profiles clustered and summarized (profile regression)?",
+   "ids": [
+    95
+   ]
+  },
+  {
+   "label": "select the prepared data subset (d4.test) used to fit the model",
+   "question": "which prepared data subset is used to fit the model?",
+   "ids": [
+    123
+   ]
+  },
+  {
+   "label": "dichotomize rater1 into dark (1-2) vs light (3-5)",
+   "question": "how is the continuous skin-tone score turned into an exposure?",
+   "ids": [
+    19
+   ]
+  },
+  {
+   "label": "fit zero-inflated count model of red cards on skin tone with main-effects covariates only",
+   "question": "does the zero-inflated red-card model include interactions with country bias measures?",
+   "ids": [
+    167
+   ]
+  },
+  {
+   "label": "refit zero-inflated model with darkSkin x meanIAT/meanExp interactions instead of a main effect",
+   "question": "does the zero-inflated red-card model include interactions with country bias measures?",
+   "ids": [
+    168
+   ]
+  },
+  {
+   "label": "subset the working dataframe to a fixed list of needed columns",
+   "question": "which columns are retained in the working dataset?",
+   "ids": [
+    203,
+    255
+   ]
+  },
+  {
+   "label": "reload the source csv fresh via pandas.read_csv for the main analysis",
+   "question": "how is the raw data loaded into the analysis environment?",
+   "ids": [
+    254
+   ]
+  },
+  {
+   "label": "restrict Question 2a sample to non-missing meanIAT",
+   "question": "which rows are included in the question-specific analysis sample?",
+   "ids": [
+    261
+   ]
+  },
+  {
+   "label": "restrict Question 2b sample to non-missing meanExp",
+   "question": "which rows are included in the question-specific analysis sample?",
+   "ids": [
+    263
+   ]
+  },
+  {
+   "label": "mean-center predictors using a fixed precomputed sample mean",
+   "question": "how are continuous predictors centered before entering the regression?",
+   "ids": [
+    107
+   ]
+  },
+  {
+   "label": "select which regression output elements to report (descriptives, CIs, ANOVA, collinearity, R2 change)",
+   "question": "which pieces of the regression output get reported?",
+   "ids": [
+    109
+   ]
+  },
+  {
+   "label": "use listwise deletion for missing regression variables",
+   "question": "how are missing values on model variables handled?",
+   "ids": [
+    111
+   ]
+  },
+  {
+   "label": "enter games/wins/position dummies as the first control block",
+   "question": "in what order/blocks are predictors entered into the hierarchical regression?",
+   "ids": [
+    114
+   ]
+  },
+  {
+   "label": "expand dyads to one row per game, assigning total cards to the first N rows",
+   "question": "how is dyad-level card-count data expanded to game-level rows?",
+   "ids": [
+    4
+   ]
+  },
+  {
+   "label": "add a per-dyad random effect to absorb overdispersion",
+   "question": "how is overdispersion beyond the binomial model handled?",
+   "ids": [
+    48
+   ]
+  },
+  {
+   "label": "drop referee-countries with too-small or missing bias-survey samples",
+   "question": "which referee-countries are excluded from the bias-interaction models?",
+   "ids": [
+    223
+   ]
+  },
+  {
+   "label": "center bias scores using the mean over non-excluded countries only",
+   "question": "what reference value is used to center the implicit/explicit bias scores?",
+   "ids": [
+    229
+   ]
+  },
+  {
+   "label": "specify referee-style plus skin-tone-specific bias-slope model structure",
+   "question": "what is the structural form of the Q2 hierarchical/Bayesian model?",
+   "ids": [
+    217
+   ]
+  },
+  {
+   "label": "add explicit-bias interaction as a third regression block",
+   "question": "how/where is a bias-by-rater interaction term entered into the hierarchical regression?",
+   "ids": [
+    166
+   ]
+  },
+  {
+   "label": "form centered implicit- and explicit-bias-by-rater interaction terms",
+   "question": "how are the bias-by-rater interaction predictors constructed?",
+   "ids": [
+    108
+   ]
+  },
+  {
+   "label": "enter both bias-by-rater interaction terms together as the final block",
+   "question": "how/where is a bias-by-rater interaction term entered into the hierarchical regression?",
+   "ids": [
+    117
+   ]
+  },
+  {
+   "label": "report rater1-block OLS/FE coefficients in the main table",
+   "question": "which model block's coefficients are selected for the main results table?",
+   "ids": [
+    80
+   ]
+  },
+  {
+   "label": "report rater2-block OLS/FE coefficients in the main table",
+   "question": "which model block's coefficients are selected for the main results table?",
+   "ids": [
+    81
+   ]
+  },
+  {
+   "label": "drop rows missing either rater's skin-tone rating",
+   "question": "which rows are excluded due to missing skin-tone ratings?",
+   "ids": [
+    91
+   ]
+  },
+  {
+   "label": "expand player-referee rows to per-game bernoulli trials for a binomial model",
+   "question": "how is dyad-level card-count data expanded to game-level rows?",
+   "ids": [
+    54
+   ]
+  },
+  {
+   "label": "restrict sample to non-missing raters and games==1",
+   "question": "which rows are included in the analysis sample?",
+   "ids": [
+    70
+   ]
+  },
+  {
+   "label": "poisson model of dark-skin cards on implicit bias, offset by dark-skin games",
+   "question": "which bias measure and model form predicts dark-skin red-card counts?",
+   "ids": [
+    185
+   ]
+  },
+  {
+   "label": "poisson model of dark-skin cards on explicit bias, offset by dark-skin games",
+   "question": "which bias measure and model form predicts dark-skin red-card counts?",
+   "ids": [
+    187
+   ]
+  },
+  {
+   "label": "derive per-country dark-/light-skin red-card rate variables from summed counts",
+   "question": "how are country-level dark-vs-light-skin card rates constructed?",
+   "ids": [
+    179
+   ]
+  },
+  {
+   "label": "drop rows missing avgrate or meanIAT for a complete-case sample",
+   "question": "which rows are excluded due to missing data?",
+   "ids": [
+    55
+   ]
+  },
+  {
+   "label": "build a smoothed per-game red-card rate (sum/(games+1)) tested against S1/S2 splits",
+   "question": "how is an aggregate red-card rate computed and compared?",
+   "ids": [
+    106
+   ]
+  },
+  {
+   "label": "choose a non-default numerical optimizer for model convergence",
+   "question": "which optimizer/convergence settings are used for the mixed model?",
+   "ids": [
+    124
+   ]
+  },
+  {
+   "label": "fit a negative-binomial GLMM with meanIAT-by-rater and rater-by-meanExp interactions",
+   "question": "what model family and interaction terms are used for the count outcome?",
+   "ids": [
+    218
+   ]
+  },
+  {
+   "label": "pair a country-level mean bias score with gm3's random skin-tone slope",
+   "question": "how is a country-level bias measure related to the model's random skin-tone slope?",
+   "ids": [
+    60,
+    62
+   ]
+  },
+  {
+   "label": "fit poisson GLMM on height/weight/goals/position with referee random intercept, excluding skin tone",
+   "question": "which covariates and random-effects structure predict red cards?",
+   "ids": [
+    241
+   ]
+  },
+  {
+   "label": "compute goals-per-game scoring rate",
+   "question": "how is a per-game performance rate computed from a count and games played?",
+   "ids": [
+    130
+   ]
+  },
+  {
+   "label": "force-convert height/weight/meanIAT/meanExp to numeric, coercing errors to NA",
+   "question": "how are raw string columns converted to numeric type?",
+   "ids": [
+    68
+   ]
+  },
+  {
+   "label": "treat literal 'NA' string as missing when converting height to numeric",
+   "question": "how are raw string columns converted to numeric type?",
+   "ids": [
+    22
+   ]
+  },
+  {
+   "label": "impute missing heights with the sample mean",
+   "question": "how are missing height values handled?",
+   "ids": [
+    205
+   ]
+  },
+  {
+   "label": "add squared height and weight terms for nonlinear body-size effects",
+   "question": "what functional form is used for height/weight in the card models?",
+   "ids": [
+    7
+   ]
+  },
+  {
+   "label": "construct min-of-raters and max-of-raters skin-tone scores",
+   "question": "how is a single skin-tone score derived from the two raters' ratings?",
+   "ids": [
+    249
+   ]
+  },
+  {
+   "label": "use max-of-two-raters score as the skin-tone predictor",
+   "question": "which skin-tone score variant is used as the model predictor?",
+   "ids": [
+    251
+   ]
+  },
+  {
+   "label": "use min-of-two-raters score as the skin-tone predictor",
+   "question": "which skin-tone score variant is used as the model predictor?",
+   "ids": [
+    250
+   ]
+  },
+  {
+   "label": "dichotomize explicit bias (meanExp) at the sample mean",
+   "question": "how is a continuous bias score turned into a high/low indicator?",
+   "ids": [
+    72
+   ]
+  },
+  {
+   "label": "build the full dummy/interaction design matrix (position, rater x highIAT, rater x highExp, club)",
+   "question": "which indicator and interaction variables are built into the design matrix?",
+   "ids": [
+    73
+   ]
+  },
+  {
+   "label": "add rater x highExp interaction terms to the explicit-bias-moderation RHS",
+   "question": "which interaction terms are added to the moderation model's right-hand side?",
+   "ids": [
+    86
+   ]
+  },
+  {
+   "label": "dichotomize implicit bias (meanIAT) at the sample mean",
+   "question": "how is a continuous bias score turned into a high/low indicator?",
+   "ids": [
+    71
+   ]
+  },
+  {
+   "label": "add rater x highIAT interaction terms to the implicit-bias-moderation RHS",
+   "question": "which interaction terms are added to the moderation model's right-hand side?",
+   "ids": [
+    82
+   ]
+  },
+  {
+   "label": "add IAT interaction as a third regression block",
+   "question": "how/where is a bias-by-rater interaction term entered into the hierarchical regression?",
+   "ids": [
+    162
+   ]
+  },
+  {
+   "label": "save Mahalanobis distance and influence/covariance diagnostics per case",
+   "question": "which case-level regression diagnostics are computed and retained?",
+   "ids": [
+    120
+   ]
+  },
+  {
+   "label": "fix MCMC chains/adaptation/iterations/thinning and monitored parameters",
+   "question": "what are the MCMC sampling settings for the Bayesian model?",
+   "ids": [
+    211
+   ]
+  },
+  {
+   "label": "recode player/position/referee/country string fields into numeric IDs",
+   "question": "how are categorical ID fields prepared for grouping/fixed effects?",
+   "ids": [
+    69
+   ]
+  },
+  {
+   "label": "apply sandwich/robust SE correction to the explicit-bias poisson model",
+   "question": "how are standard errors computed for the poisson bias models?",
+   "ids": [
+    188
+   ]
+  },
+  {
+   "label": "apply sandwich/robust SE correction to the implicit-bias poisson model",
+   "question": "how are standard errors computed for the poisson bias models?",
+   "ids": [
+    186
+   ]
+  },
+  {
+   "label": "exponentiate glmer fixed effects to report odds ratios",
+   "question": "how are logistic mixed-model coefficients transformed for reporting?",
+   "ids": [
+    277
+   ]
+  },
+  {
+   "label": "use the Wald approximation for CIs on exponentiated coefficients",
+   "question": "how are confidence intervals computed for the reported coefficients?",
+   "ids": [
+    278
+   ]
+  },
+  {
+   "label": "compute defeats-per-game losing rate",
+   "question": "how is a per-game performance rate computed from a count and games played?",
+   "ids": [
+    129
+   ]
+  },
+  {
+   "label": "choose the player/match covariate set (games, victories, defeats, age, height, weight, goals) to control for",
+   "question": "which covariates are included in the control model?",
+   "ids": [
+    219
+   ]
+  },
+  {
+   "label": "load pre-cleaned maindata.dta as the full sample",
+   "question": "which dataset file is loaded as the analysis sample?",
+   "ids": [
+    0
+   ]
+  },
+  {
+   "label": "drop rows missing referee-country IAT or explicit-bias scores",
+   "question": "which rows are excluded due to missing referee bias measures?",
+   "ids": [
+    201
+   ]
+  },
+  {
+   "label": "rescale meanIAT and meanExp by ×100 before modeling",
+   "question": "how are the bias-score variables scaled before entering the model?",
+   "ids": [
+    257
+   ]
+  },
+  {
+   "label": "coerce mean explicit-bias score ('NA'→missing) to numeric",
+   "question": "how is the mean explicit-bias variable cleaned/typed?",
+   "ids": [
+    43
+   ]
+  },
+  {
+   "label": "add referee-pool mean explicit-bias score as covariate in core adjustment set",
+   "question": "is referee bias included as a covariate, and how?",
+   "ids": [
+    40
+   ]
+  },
+  {
+   "label": "add mean explicit-bias score as a second regression block",
+   "question": "is referee bias included as a covariate, and how?",
+   "ids": [
+    165
+   ]
+  },
+  {
+   "label": "add both implicit and explicit bias measures as a third block after controls and rater effect",
+   "question": "is referee bias included as a covariate, and how?",
+   "ids": [
+    116
+   ]
+  },
+  {
+   "label": "drop rows missing referee IAT score only",
+   "question": "which rows are excluded due to missing referee bias measures?",
+   "ids": [
+    269
+   ]
+  },
+  {
+   "label": "coerce mean implicit-bias (IAT) score ('NA'→missing) to numeric",
+   "question": "how is the mean implicit-bias variable cleaned/typed?",
+   "ids": [
+    42
+   ]
+  },
+  {
+   "label": "add referee-pool mean IAT score as covariate in core adjustment set",
+   "question": "is referee bias included as a covariate, and how?",
+   "ids": [
+    37
+   ]
+  },
+  {
+   "label": "add mean IAT bias score as a second regression block",
+   "question": "is referee bias included as a covariate, and how?",
+   "ids": [
+    161
+   ]
+  },
+  {
+   "label": "compare nested random-effects structures via LRT to select specification",
+   "question": "how is the random-effects structure (referee/country grouping) chosen?",
+   "ids": [
+    132
+   ]
+  },
+  {
+   "label": "average two raters' ratings into one continuous skin-tone score",
+   "question": "how is the continuous skin-tone score constructed?",
+   "ids": [
+    125
+   ]
+  },
+  {
+   "label": "test position's association with skin tone (excluding unknown position)",
+   "question": "which player-level variables are screened as potential confounders of skin tone?",
+   "ids": [
+    135
+   ]
+  },
+  {
+   "label": "test club's association with skin tone",
+   "question": "which player-level variables are screened as potential confounders of skin tone?",
+   "ids": [
+    136
+   ]
+  },
+  {
+   "label": "z-score all model covariates (skin tone, height, weight, goals, IAT, experience)",
+   "question": "how are model covariates scaled before fitting?",
+   "ids": [
+    240
+   ]
+  },
+  {
+   "label": "add standardized skin tone as fixed effect with plain random intercept for referee",
+   "question": "how is the referee-level random effect on skin tone specified?",
+   "ids": [
+    242
+   ]
+  },
+  {
+   "label": "let skin-tone effect vary by referee via random slope",
+   "question": "how is the referee-level random effect on skin tone specified?",
+   "ids": [
+    243
+   ]
+  },
+  {
+   "label": "test skin-tone × referee-IAT interaction (moderation by implicit bias)",
+   "question": "how is the referee-level random effect on skin tone specified?",
+   "ids": [
+    244
+   ]
+  },
+  {
+   "label": "test skin-tone × referee-experience interaction, plain random intercept",
+   "question": "how is the referee-level random effect on skin tone specified?",
+   "ids": [
+    245
+   ]
+  },
+  {
+   "label": "player random intercept with hyperprior-estimated mean and precision",
+   "question": "how is the player-level random effect specified in the Bayesian model?",
+   "ids": [
+    190
+   ]
+  },
+  {
+   "label": "summarize posterior uncertainty as 95% equal-tailed credible interval",
+   "question": "how is posterior uncertainty reported?",
+   "ids": [
+    212
+   ]
+  },
+  {
+   "label": "exponentiate logit-scale posterior effects to odds ratios (2 decimals)",
+   "question": "how are posterior effects reported?",
+   "ids": [
+    213
+   ]
+  },
+  {
+   "label": "specify Q1 binomial hierarchical model with player-style and skin-tone random effects",
+   "question": "what is the structural form of the Q1 hierarchical model?",
+   "ids": [
+    210
+   ]
+  },
+  {
+   "label": "compute posterior probability darkest skin-tone effect exceeds lightest",
+   "question": "what posterior contrast is computed for skin-tone categories?",
+   "ids": [
+    214
+   ]
+  },
+  {
+   "label": "model outcome as binomial red cards out of games via binomial_logit",
+   "question": "how is the red-card outcome modeled (link/distribution)?",
+   "ids": [
+    44
+   ]
+  },
+  {
+   "label": "restrict second model to dark-skin-toned player dyads only",
+   "question": "which subsample is used for the second model?",
+   "ids": [
+    45
+   ]
+  },
+  {
+   "label": "average referee bias measures within country to get country-level summaries",
+   "question": "how are referee-level bias measures aggregated to country level?",
+   "ids": [
+    177
+   ]
+  },
+  {
+   "label": "select Q2 model inputs and convert country SEs/Ns to precision weights",
+   "question": "what inputs and weighting scheme feed the Q2 model?",
+   "ids": [
+    216
+   ]
+  },
+  {
+   "label": "define non-red-card games as games minus redCards for binomial failures",
+   "question": "how is the binomial 'failure' count for red cards defined?",
+   "ids": [
+    272
+   ]
+  },
+  {
+   "label": "fit binomial mixed model of red cards on skintone+position+league with crossed referee/player intercepts",
+   "question": "what is the base specification of the red-card mixed model?",
+   "ids": [
+    274
+   ]
+  },
+  {
+   "label": "fit binomial mixed model testing standardized skintone × experience interaction",
+   "question": "what is the base specification of the red-card mixed model?",
+   "ids": [
+    279
+   ]
+  },
+  {
+   "label": "fit binomial mixed model testing standardized skintone × referee IAT interaction",
+   "question": "what is the base specification of the red-card mixed model?",
+   "ids": [
+    280
+   ]
+  },
+  {
+   "label": "format rater1×highIAT interaction coefficients for IAT table",
+   "question": "which rater/bias interaction coefficients are extracted for the results table?",
+   "ids": [
+    84
+   ]
+  },
+  {
+   "label": "format rater1×highExp interaction coefficients for Exp table",
+   "question": "which rater/bias interaction coefficients are extracted for the results table?",
+   "ids": [
+    88
+   ]
+  },
+  {
+   "label": "format rater2×highIAT interaction coefficients for IAT table",
+   "question": "which rater/bias interaction coefficients are extracted for the results table?",
+   "ids": [
+    85
+   ]
+  },
+  {
+   "label": "format rater2×highExp interaction coefficients for Exp table",
+   "question": "which rater/bias interaction coefficients are extracted for the results table?",
+   "ids": [
+    89
+   ]
+  },
+  {
+   "label": "restrict exploratory fits to complete cases via listwise deletion",
+   "question": "how are missing values handled for the exploratory model sample?",
+   "ids": [
+    232
+   ]
+  },
+  {
+   "label": "compute dark:light skin-tone rate ratio, flagging divide-by-zero",
+   "question": "how is the dark-vs-light skin-tone contrast quantified?",
+   "ids": [
+    180
+   ]
+  },
+  {
+   "label": "drop players lacking a photo/skintone rating",
+   "question": "which rows are excluded due to missing skin-tone data?",
+   "ids": [
+    268
+   ]
+  },
+  {
+   "label": "fit red-card model with rater1 rating as categorical factor, player random intercept, full data",
+   "question": "how is the rater rating variable coded in the alternate red-card model?",
+   "ids": [
+    246
+   ]
+  },
+  {
+   "label": "refit with rater1 rating as continuous linear predictor",
+   "question": "how is the rater rating variable coded in the alternate red-card model?",
+   "ids": [
+    247
+   ]
+  },
+  {
+   "label": "swap in rater2 categorical rating for the same model",
+   "question": "how is the rater rating variable coded in the alternate red-card model?",
+   "ids": [
+    248
+   ]
+  },
+  {
+   "label": "choose age, height, weight as player-characteristic controls",
+   "question": "which player-characteristic controls are included?",
+   "ids": [
+    74
+   ]
+  },
+  {
+   "label": "define four alternative RHS specs (rater dummies ± player controls, club FE)",
+   "question": "what alternative model specifications are compared for the main analysis?",
+   "ids": [
+    76
+   ]
+  },
+  {
+   "label": "chi-square test skintone association with position/league to screen confounding",
+   "question": "which player-level variables are screened as potential confounders of skin tone?",
+   "ids": [
+    273
+   ]
+  },
+  {
+   "label": "test bias-effect difference between dark/light players via subgroup regressions + manual t-test",
+   "question": "how is effect-modification by skin tone on the bias-outcome relationship tested?",
+   "ids": [
+    20
+   ]
+  },
+  {
+   "label": "select player-level fields feeding the Q1 hierarchical model",
+   "question": "what inputs feed the Q1 hierarchical model?",
+   "ids": [
+    208
+   ]
+  },
+  {
+   "label": "seed MCMC intercept with logit of empirical red-card rate",
+   "question": "how is the MCMC chain initialized?",
+   "ids": [
+    209
+   ]
+  },
+  {
+   "label": "derive per-player career goals total and merge back",
+   "question": "how is the career-goals variable constructed?",
+   "ids": [
+    226
+   ]
+  },
+  {
+   "label": "standardize rating using mean/sd of first-listed rater-average",
+   "question": "how is the rating variable standardized?",
+   "ids": [
+    230
+   ]
+  },
+  {
+   "label": "correlate multiple player-level variables (goals/game, loss%, BMI, age) against skin tone",
+   "question": "which player-level variables are screened as potential confounders of skin tone?",
+   "ids": [
+    134
+   ]
+  },
+  {
+   "label": "compare Poisson vs binomial models via AIC table",
+   "question": "how is model family (Poisson vs binomial) chosen?",
+   "ids": [
+    276
+   ]
+  },
+  {
+   "label": "replace model SEs with robust sandwich errors, rebuild CI table",
+   "question": "how are standard errors/CIs computed for the coefficient table?",
+   "ids": [
+    175
+   ]
+  },
+  {
+   "label": "build player-level table aggregating stats by player×club×position, merge, derive rates",
+   "question": "how is the player-level aggregate table constructed?",
+   "ids": [
+    133
+   ]
+  },
+  {
+   "label": "treat position as categorical factor (unspecified grouping)",
+   "question": "how is playing position represented in the model?",
+   "ids": [
+    220
+   ]
+  },
+  {
+   "label": "collapse position into 3 broad groups (Back/Front/Middle)",
+   "question": "how is playing position represented in the model?",
+   "ids": [
+    267
+   ]
+  },
+  {
+   "label": "drop players missing position data",
+   "question": "which rows are excluded from the analysis sample?",
+   "ids": [
+    270
+   ]
+  },
+  {
+   "label": "expand position into full one-hot dummy set (NA as missing)",
+   "question": "how is playing position represented in the model?",
+   "ids": [
+    24
+   ]
+  },
+  {
+   "label": "collapse left/right position variants into side-agnostic category",
+   "question": "how is playing position represented in the model?",
+   "ids": [
+    227
+   ]
+  },
+  {
+   "label": "adjust model for physical traits, position dummies (positionbin2-12), and country fixed effects",
+   "question": "what covariate set is included in the adjustment model?",
+   "ids": [
+    34
+   ]
+  },
+  {
+   "label": "backward-eliminate predictors via drop1 (goals then age)",
+   "question": "how are predictors selected/pruned from the model?",
+   "ids": [
+    231
+   ]
+  },
+  {
+   "label": "fit primary rating→red-card model on full unfiltered sample, report pct-point Wald CI",
+   "question": "what is the primary model specification for rating's effect on red cards?",
+   "ids": [
+    233
+   ]
+  },
+  {
+   "label": "referee random intercept fixed at zero mean with estimated precision",
+   "question": "how is the referee random effect specified?",
+   "ids": [
+    191
+   ]
+  },
+  {
+   "label": "concatenate playerShort and refNum into player-referee pair ID",
+   "question": "how is the player-referee dyad identified?",
+   "ids": [
+    52
+   ]
+  },
+  {
+   "label": "collapse to one row per player, summing games/red cards, averaging RateAve",
+   "question": "at what level of aggregation is the analysis run?",
+   "ids": [
+    105
+   ]
+  },
+  {
+   "label": "add referee rater score as its own model block",
+   "question": "how is the referee rating score entered into the model?",
+   "ids": [
+    115
+   ]
+  },
+  {
+   "label": "average the two raters into a single continuous skin-tone score",
+   "question": "how are the two raters' skin-tone scores combined into one exposure?",
+   "ids": [
+    3,
+    27,
+    97,
+    239,
+    224
+   ]
+  },
+  {
+   "label": "dichotomize each rater's score at midpoint 3 (dropping exact-3), then assess agreement via kappa",
+   "question": "how is inter-rater agreement on skin tone assessed?",
+   "ids": [
+    171
+   ]
+  },
+  {
+   "label": "recode each rater's score to a numeric zero-based scale",
+   "question": "how is the raw rater score variable transformed?",
+   "ids": [
+    92
+   ]
+  },
+  {
+   "label": "drop cases missing rater1 or rater2 score",
+   "question": "which rows are excluded due to missing skin-tone ratings?",
+   "ids": [
+    96
+   ]
+  },
+  {
+   "label": "keep only rows where both raters rated and scores match exactly",
+   "question": "which rows are excluded due to missing skin-tone ratings?",
+   "ids": [
+    199
+   ]
+  },
+  {
+   "label": "restrict to non-missing ratings, test normality, use Spearman correlation for IRR",
+   "question": "how is inter-rater agreement on skin tone assessed?",
+   "ids": [
+    253
+   ]
+  },
+  {
+   "label": "quantify inter-rater agreement with Cronbach's alpha",
+   "question": "how is inter-rater agreement on skin tone assessed?",
+   "ids": [
+    170
+   ]
+  },
+  {
+   "label": "convert both raters' scores to numeric, treating NA as missing",
+   "question": "how is the raw rater score variable transformed?",
+   "ids": [
+    26
+   ]
+  },
+  {
+   "label": "take the higher of the two raters' scores (ratermax)",
+   "question": "how are the two raters' skin-tone scores combined into one exposure?",
+   "ids": [
+    29
+   ]
+  },
+  {
+   "label": "take the lower of the two raters' scores (ratermin)",
+   "question": "how are the two raters' skin-tone scores combined into one exposure?",
+   "ids": [
+    28
+   ]
+  },
+  {
+   "label": "dichotomize skin-tone measures at cutoff >3 to create dark/light indicator versions",
+   "question": "how is the continuous skin-tone score turned into an exposure?",
+   "ids": [
+    30
+   ]
+  },
+  {
+   "label": "regress raw (non-binarized) red-card count on skin tone with no covariates",
+   "question": "what is the alternate outcome/covariate specification for the skin-tone effect?",
+   "ids": [
+    32
+   ]
+  },
+  {
+   "label": "skin tone x explicit-bias interaction (continuous then binarized)",
+   "question": "what moderation interaction is tested?",
+   "ids": [
+    39
+   ]
+  },
+  {
+   "label": "skin tone x implicit-bias interaction (continuous then binarized)",
+   "question": "what moderation interaction is tested?",
+   "ids": [
+    38
+   ]
+  },
+  {
+   "label": "sum (not average) rater1 and rater2 into 'rating' after dropping missing",
+   "question": "how are the two raters' skin-tone scores combined into one exposure?",
+   "ids": [
+    256
+   ]
+  },
+  {
+   "label": "Question 1 formula: redCards ~ rating with pairwise interactions (games, goals, yellowCards, meanIAT, meanExp)",
+   "question": "what model formula answers Question 1/2a/2b?",
+   "ids": [
+    259
+   ]
+  },
+  {
+   "label": "Question 2a formula: redCards ~ meanIAT with interactions (rating, games, goals, yellowCards, meanExp)",
+   "question": "what model formula answers Question 1/2a/2b?",
+   "ids": [
+    262
+   ]
+  },
+  {
+   "label": "Question 2b formula: redCards ~ meanExp with interactions (rating, games, goals, yellowCards, meanIAT)",
+   "question": "what model formula answers Question 1/2a/2b?",
+   "ids": [
+    264
+   ]
+  },
+  {
+   "label": "treat non-finite dark/light ratio values as missing",
+   "question": "how are undefined dark/light red-card ratios handled?",
+   "ids": [
+    182
+   ]
+  },
+  {
+   "label": "regress dark/light ratio on meanIAT, weighted by inverse meanIAT",
+   "question": "what weighted regression is used for the dark/light red-card ratio?",
+   "ids": [
+    183
+   ]
+  },
+  {
+   "label": "regress dark/light ratio on meanExp, weighted by inverse of its standard error",
+   "question": "what weighted regression is used for the dark/light red-card ratio?",
+   "ids": [
+    184
+   ]
+  },
+  {
+   "label": "fit mixed-effects logistic regression (glmer, binomial link)",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    121
+   ]
+  },
+  {
+   "label": "load raw crowdstorming CSV as analysis source",
+   "question": "what is the data source for the analysis?",
+   "ids": [
+    236
+   ]
+  },
+  {
+   "label": "expand to one row per game, allocating dyad's total cards to first N games",
+   "question": "at what level of aggregation is the analysis run?",
+   "ids": [
+    225
+   ]
+  },
+  {
+   "label": "restrict to games with at least one red card shown",
+   "question": "which rows are excluded from the analysis sample?",
+   "ids": [
+    57
+   ]
+  },
+  {
+   "label": "meanIAT x rating interaction, restricted to countries with adequate implicit-bias data",
+   "question": "what moderation interaction is tested?",
+   "ids": [
+    234
+   ]
+  },
+  {
+   "label": "meanExp x rating interaction, restricted to countries with adequate explicit-bias data",
+   "question": "what moderation interaction is tested?",
+   "ids": [
+    235
+   ]
+  },
+  {
+   "label": "collapse red-card count into binary any-red indicator (game-level then re-thresholded at player-level)",
+   "question": "how is the continuous/count red-card outcome turned into a binary indicator?",
+   "ids": [
+    31
+   ]
+  },
+  {
+   "label": "bivariate model, no covariates, binary red-card outcome",
+   "question": "what is the alternate outcome/covariate specification for the skin-tone effect?",
+   "ids": [
+    33
+   ]
+  },
+  {
+   "label": "re-estimate bivariate spec via logit instead of LPM, report odds ratios, drop clustering",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    36
+   ]
+  },
+  {
+   "label": "check redCards variance vs mean as equidispersion diagnostic",
+   "question": "what diagnostic checks the appropriateness of the count-model family?",
+   "ids": [
+    258
+   ]
+  },
+  {
+   "label": "fit Poisson regression via statsmodels",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    260
+   ]
+  },
+  {
+   "label": "fit OLS with raw redCards as outcome",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    110
+   ]
+  },
+  {
+   "label": "switch to binary logistic regression on dichotomized red-card indicator",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    159
+   ]
+  },
+  {
+   "label": "cluster standard errors on refCountryID",
+   "question": "what variable are standard errors clustered on?",
+   "ids": [
+    64
+   ]
+  },
+  {
+   "label": "set refID as the panel unit for fixed-effects/clustered models",
+   "question": "what variable are standard errors clustered on?",
+   "ids": [
+    77
+   ]
+  },
+  {
+   "label": "fit referee fixed-effects model of red cards with clustered SEs",
+   "question": "what model family/estimator is used for the red-card outcome?",
+   "ids": [
+    79
+   ]
+  },
+  {
+   "label": "restrict to a random draw of 250 referees",
+   "question": "which rows are excluded from the analysis sample?",
+   "ids": [
+    238
+   ]
+  },
+  {
+   "label": "exclude referees who encountered only one player",
+   "question": "which rows are excluded from the analysis sample?",
+   "ids": [
+    271
+   ]
+  },
+  {
+   "label": "OLS/linear-probability model of red cards, base specification, clustered SEs",
+   "question": "what is the functional form and covariate set for the main red-card model?",
+   "ids": [
+    78
+   ]
+  },
+  {
+   "label": "OLS/LPM red cards with rater x highIAT interaction, clustered SEs",
+   "question": "what is the functional form and covariate set for the main red-card model?",
+   "ids": [
+    83
+   ]
+  },
+  {
+   "label": "OLS/LPM red cards with rater x highExp interaction, clustered SEs",
+   "question": "what is the functional form and covariate set for the main red-card model?",
+   "ids": [
+    87
+   ]
+  },
+  {
+   "label": "binarize RateAve at strictest cut (only a perfect 1 = 0)",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    98
+   ]
+  },
+  {
+   "label": "binarize RateAve at <2 cutoff",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    99
+   ]
+  },
+  {
+   "label": "binarize RateAve at <3 cutoff",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    100
+   ]
+  },
+  {
+   "label": "binarize RateAve at <4 cutoff",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    101
+   ]
+  },
+  {
+   "label": "binarize RateAve at <5 cutoff",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    102
+   ]
+  },
+  {
+   "label": "recode RateAve into 3-level grouping with SNK/Tukey/LSD pairwise follow-up",
+   "question": "where is RateAve dichotomized for the mean-comparison sensitivity check?",
+   "ids": [
+    103
+   ]
+  },
+  {
+   "label": "load pre-cleaned Stata dataset rather than re-importing raw CSV",
+   "question": "what data source is loaded to start the analysis?",
+   "ids": [
+    21
+   ]
+  },
+  {
+   "label": "collapse already-agreeing rater1/rater2 codes into single SkinCol variable",
+   "question": "how are the two raters' skin-tone codes combined into one variable?",
+   "ids": [
+    200
+   ]
+  },
+  {
+   "label": "flag alternative SkinCol3 coding without using it",
+   "question": "how are the two raters' skin-tone codes combined into one variable?",
+   "ids": [
+    215
+   ]
+  },
+  {
+   "label": "Poisson model of red cards on skincolor + position, offset log(games)",
+   "question": "what model family and offset are used for red-card counts?",
+   "ids": [
+    174
+   ]
+  },
+  {
+   "label": "collapse to one row per referee country by skin-color group (sum games/redCards, reshape wide)",
+   "question": "what is the unit of analysis after collapsing the panel?",
+   "ids": [
+    176
+   ]
+  },
+  {
+   "label": "average the two raters' scores into a continuous skin-tone rating",
+   "question": "how are the two raters' skin-tone scores combined into one variable?",
+   "ids": [
+    172,
+    266
+   ]
+  },
+  {
+   "label": "dichotomize skin tone at threshold 3, dropping the ambiguous middle category",
+   "question": "how is the continuous skin-tone score turned into a light/dark exposure?",
+   "ids": [
+    173,
+    131
+   ]
+  },
+  {
+   "label": "choose fixed-effect covariates and random-intercept structure for the main mixed model",
+   "question": "what model family and covariate/random-effects structure is used for the main red-card model?",
+   "ids": [
+    122
+   ]
+  },
+  {
+   "label": "fit Poisson mixed-effects model with games offset as alternative to binomial specification",
+   "question": "what model family and covariate/random-effects structure is used for the main red-card model?",
+   "ids": [
+    275
+   ]
+  },
+  {
+   "label": "add skin-tone x explicit-bias interaction slope, N(0,1) prior",
+   "question": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "ids": [
+    196
+   ]
+  },
+  {
+   "label": "add skin-tone x IAT interaction slope, N(0,1) prior",
+   "question": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "ids": [
+    195
+   ]
+  },
+  {
+   "label": "add main-effect slope for player skin-tone rating, N(0,1) prior",
+   "question": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "ids": [
+    194
+   ]
+  },
+  {
+   "label": "add main-effect slope for referee explicit bias score, N(0,1) prior",
+   "question": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "ids": [
+    193
+   ]
+  },
+  {
+   "label": "add main-effect slope for referee IAT score, N(0,1) prior",
+   "question": "which slopes/interactions are included in the Bayesian model and with what prior?",
+   "ids": [
+    192
+   ]
+  },
+  {
+   "label": "derive four league-country dummies, leaving Spain as implicit reference",
+   "question": "how is leagueCountry encoded as a covariate?",
+   "ids": [
+    25
+   ]
+  },
+  {
+   "label": "restrict sample to referee-player rows with at least one red card",
+   "question": "what row-inclusion filter is applied before this model/subset analysis?",
+   "ids": [
+    93
+   ]
+  },
+  {
+   "label": "fit Bayesian Dirichlet-process profile regression (binomial redCards/games) on red-card subset",
+   "question": "what model is fit on the restricted red-card subset?",
+   "ids": [
+    94
+   ]
+  },
+  {
+   "label": "give latent rating class probabilities independent Uniform(0,1) priors rather than a joint simplex prior",
+   "question": "what prior is placed on the latent rating-class probabilities?",
+   "ids": [
+    197
+   ]
+  },
+  {
+   "label": "collapse to one row per player by summing season totals",
+   "question": "what is the unit of analysis after collapsing the panel?",
+   "ids": [
+    204,
+    41
+   ]
+  },
+  {
+   "label": "rerun confound-adjusted model swapping continuous tone for categorical tonecode",
+   "question": "is skin tone entered as continuous or categorical in the confound-adjusted model?",
+   "ids": [
+    146
+   ]
+  },
+  {
+   "label": "test IAT and explicit-prejudice moderation of the categorical skin-tone effect",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    147
+   ]
+  },
+  {
+   "label": "enter player/position controls together as the first predictor block",
+   "question": "how are predictors sequenced/blocked in the hierarchical regression?",
+   "ids": [
+    155
+   ]
+  },
+  {
+   "label": "declare OLS multiple regression predicting total red cards",
+   "question": "what is the base regression model specification for total red cards?",
+   "ids": [
+    151
+   ]
+  },
+  {
+   "label": "choose which coefficient/fit/collinearity/R2-change statistics to report",
+   "question": "which diagnostic and output statistics are requested from the regression?",
+   "ids": [
+    154
+   ]
+  },
+  {
+   "label": "z-score standardize continuous variables before modeling",
+   "question": "are continuous variables standardized before modeling?",
+   "ids": [
+    126
+   ]
+  },
+  {
+   "label": "combine card types into one bookings score, weighting yellow-red double",
+   "question": "how are the separate card-count variables combined into an outcome?",
+   "ids": [
+    128
+   ]
+  },
+  {
+   "label": "drop every row with any missing value before building the working sample",
+   "question": "what row-inclusion filter is applied before this model/subset analysis?",
+   "ids": [
+    237
+   ]
+  },
+  {
+   "label": "set stepwise variable entry/removal significance thresholds (and CI width) despite forced-entry procedure",
+   "question": "which diagnostic and output statistics are requested from the regression?",
+   "ids": [
+    153,
+    112
+   ]
+  },
+  {
+   "label": "request Hosmer-Lemeshow test and 95% CIs for odds ratios",
+   "question": "which diagnostic and output statistics are requested from the regression?",
+   "ids": [
+    164
+   ]
+  },
+  {
+   "label": "keep the regression intercept rather than forcing through the origin",
+   "question": "is the regression intercept retained or suppressed?",
+   "ids": [
+    113
+   ]
+  },
+  {
+   "label": "extend core-adjusted model with season performance totals as additional controls",
+   "question": "what additional covariates are added to the core-adjusted model?",
+   "ids": [
+    35
+   ]
+  },
+  {
+   "label": "treat string \"NA\" as missing and convert weight to numeric",
+   "question": "how is a specific raw variable cleaned/typed before use?",
+   "ids": [
+    23
+   ]
+  },
+  {
+   "label": "collapse to one row per referee, summing cards/games and computing red-cards-per-match rate",
+   "question": "what is the unit of analysis after collapsing the panel?",
+   "ids": [
+    206
+   ]
+  },
+  {
+   "label": "collapse to one row per referee country, summing cards/games and computing red-cards-per-match rate",
+   "question": "what is the unit of analysis after collapsing the panel?",
+   "ids": [
+    207
+   ]
+  },
+  {
+   "label": "test IAT/explicit-prejudice moderation of both categorical tone effect and club-black-count effect",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    149
+   ]
+  },
+  {
+   "label": "add club-average skin tone as covariate alongside individual tone and position",
+   "question": "what additional covariates are added to the core-adjusted model?",
+   "ids": [
+    144
+   ]
+  },
+  {
+   "label": "test IAT/explicit-prejudice moderation of both individual and club-average continuous tone",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    145
+   ]
+  },
+  {
+   "label": "test moderation mixing categorical tonecode with continuous club-average tone on bookings outcome",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    150
+   ]
+  },
+  {
+   "label": "test explicit prejudice as moderator of the continuous skin-tone effect",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    141
+   ]
+  },
+  {
+   "label": "test IAT as moderator of the continuous skin-tone effect",
+   "question": "which moderation (IAT/explicit bias, on which tone/covariate specification) is tested?",
+   "ids": [
+    140
+   ]
+  },
+  {
+   "label": "collapse referees to one row per country, z-standardize bias scores, merge back onto full sample",
+   "question": "how are referee-country-level bias scores constructed and attached to the working data?",
+   "ids": [
+    8
+   ]
+  },
+  {
+   "label": "request Durbin-Watson statistic and residual diagnostic plots",
+   "question": "which diagnostic and output statistics are requested from the regression?",
+   "ids": [
+    157
+   ]
+  },
+  {
+   "label": "flag standardized-residual outliers beyond 3 SD",
+   "question": "how are outlier cases identified from residuals?",
+   "ids": [
+    158,
+    119
+   ]
+  },
+  {
+   "label": "run Durbin-Watson test for residual autocorrelation",
+   "question": "what residual diagnostics are checked?",
+   "ids": [
+    118
+   ]
+  },
+  {
+   "label": "model club and position predicting disciplinary outcome (no skin tone)",
+   "question": "what predictors/model is fit for each disciplinary outcome?",
+   "ids": [
+    137
+   ]
+  },
+  {
+   "label": "skin-tone model adjusted for games only",
+   "question": "what confound set is used when estimating the skin-tone/outcome association?",
+   "ids": [
+    138
+   ]
+  },
+  {
+   "label": "skin-tone model adjusted for club and position",
+   "question": "what confound set is used when estimating the skin-tone/outcome association?",
+   "ids": [
+    139
+   ]
+  }
+ ]
+}

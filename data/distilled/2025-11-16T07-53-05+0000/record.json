@@ -1,0 +1,102 @@
+{
+ "run_id": "2025-11-16T07-53-05+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 426,
+   "functional_lines": 188,
+   "functional_share": 0.4413,
+   "by_type": {
+    "print": 151,
+    "comment": 48,
+    "glue": 27,
+    "import": 6,
+    "config": 5,
+    "other": 1
+   }
+  },
+  "prose": {
+   "n_lines": 234,
+   "functional_lines": 110,
+   "functional_share": 0.4701,
+   "by_type": {
+    "boilerplate": 101,
+    "heading": 33,
+    "framing": 12,
+    "hedging": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 88,
+  "action_claims": 48,
+  "result_claims": 40,
+  "links": 57,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 3,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 38,
+   "lines": [
+    [
+     149,
+     154
+    ]
+   ],
+   "confidence": "low",
+   "operation": "choose a set of covariates and compute their unadjusted group means to check pre-adjustment balance",
+   "targets": [
+    "age",
+    "height_imputed",
+    "weight_imputed",
+    "games",
+    "yellowCards"
+   ]
+  },
+  {
+   "id": 75,
+   "lines": [
+    [
+     339,
+     347
+    ]
+   ],
+   "confidence": "high",
+   "operation": "refit the model excluding yellow cards from the adjustment set to check whether it acts as a mediator",
+   "targets": [
+    "yellowCards",
+    "anyRedCard",
+    "dark"
+   ]
+  },
+  {
+   "id": 80,
+   "lines": [
+    [
+     359,
+     361
+    ]
+   ],
+   "confidence": "high",
+   "operation": "restrict the sample to only the most extreme rater scores (0.00 vs 1.00) as an alternative exposure contrast",
+   "targets": [
+    "skinTone",
+    "dark"
+   ]
+  }
+ ],
+ "misalignments": []
+}

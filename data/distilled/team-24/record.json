@@ -1,0 +1,77 @@
+{
+ "run_id": "team-24",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "survey.txt",
+  "prose_secondary": "report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 138,
+   "functional_lines": 90,
+   "functional_share": 0.6522,
+   "by_type": {
+    "glue": 38,
+    "comment": 7,
+    "import": 2,
+    "dead": 1
+   }
+  },
+  "prose": {
+   "n_lines": 113,
+   "functional_lines": 46,
+   "functional_share": 0.4071,
+   "by_type": {
+    "boilerplate": 74,
+    "heading": 23,
+    "background": 1,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 46,
+  "action_claims": 40,
+  "result_claims": 6,
+  "links": 40,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 6
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     6,
+     6
+    ]
+   ],
+   "confidence": "high",
+   "operation": "pick the raw crowdstorming CSV as the data source, read in as-is with UTF-8 encoding",
+   "targets": [
+    "data"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "derive a per-player career goals total from the player list and merge it back in as a new column",
+   "claim": "a variable for each player's average number of goals per game was computed",
+   "note": "claim says average goals per game; code derives a career goals total and never divides by games"
+  },
+  {
+   "decision": "mean-center the implicit and explicit bias scores using the average over non-excluded referee-countries (the corresponding sd is computed but not applied)",
+   "claim": "height, weight, meanIAT, and meanExp variables were standardized",
+   "note": "claim says meanIAT/meanExp were standardized; code only mean-centers them and does not divide by the sd"
+  }
+ ]
+}

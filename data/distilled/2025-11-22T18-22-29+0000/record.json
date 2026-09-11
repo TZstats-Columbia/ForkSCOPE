@@ -1,0 +1,57 @@
+{
+ "run_id": "2025-11-22T18-22-29+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 278,
+   "functional_lines": 114,
+   "functional_share": 0.4101,
+   "by_type": {
+    "print": 106,
+    "comment": 39,
+    "import": 7,
+    "glue": 7,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 244,
+   "functional_lines": 125,
+   "functional_share": 0.5123,
+   "by_type": {
+    "heading": 111,
+    "hedging": 16,
+    "citation": 5,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 104,
+  "action_claims": 50,
+  "result_claims": 54,
+  "links": 60,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 54
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "quantify uncertainty in the risk difference with a 1000-iteration dyad-level nonparametric bootstrap, refitting the model each draw, discarding non-converging iterations, and deriving a percentile CI and a doubled one-sided-tail p-value",
+   "claim": "confidence intervals were computed via a parametric bootstrap with 1,000 replications using dyad-level resampling",
+   "note": "claim labels the resampling a parametric bootstrap; code performs a nonparametric dyad-level bootstrap"
+  }
+ ]
+}

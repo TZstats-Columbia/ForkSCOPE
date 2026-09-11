@@ -1,0 +1,57 @@
+{
+ "run_id": "2025-11-27T04-07-54+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 301,
+   "functional_lines": 102,
+   "functional_share": 0.3389,
+   "by_type": {
+    "print": 126,
+    "comment": 45,
+    "glue": 17,
+    "import": 6,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 329,
+   "functional_lines": 177,
+   "functional_share": 0.538,
+   "by_type": {
+    "boilerplate": 98,
+    "heading": 58,
+    "framing": 1,
+    "other": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 110,
+  "action_claims": 71,
+  "result_claims": 39,
+  "links": 52,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 21,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "compute the adjusted risk difference via predictive margins (predict at darkSkin=1 vs 0 and average the gap), with a delta-method SE and normal-approximation CI/p-value",
+   "claim": "computes the average marginal effect approximately as the darkSkin coefficient times p̄(1-p̄), where p̄ is the mean predicted probability",
+   "note": "decision computes the risk difference via predictive margins (predict at darkSkin=1 vs 0 and average the gap), while the claim describes it as the coefficient times p̄(1−p̄) approximation, a different estimator"
+  }
+ ]
+}

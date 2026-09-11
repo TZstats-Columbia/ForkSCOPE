@@ -1,0 +1,450 @@
+{
+ "n_lines": 169,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     12,
+     14
+    ]
+   ],
+   "operation": "load the raw referee-player dyad dataset from a fixed CSV path, fixing the data source and scope for the whole analysis",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     15,
+     17
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into one continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     18,
+     20
+    ],
+    [
+     153,
+     158
+    ]
+   ],
+   "operation": "binarize continuous skin tone into a dark/light indicator using a 0.25 cutoff as the primary choice, then re-test with a 0.50 cutoff as a robustness check",
+   "targets": [
+    "skin_tone_avg",
+    "dark_025",
+    "dark_050"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     21,
+     23
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     24,
+     40
+    ]
+   ],
+   "operation": "collapse granular playing positions into four broad role categories via a manual mapping",
+   "targets": [
+    "position",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     50
+    ],
+    [
+     53,
+     53
+    ]
+   ],
+   "operation": "drop dyads with missing skin-tone rating or missing broad position from the analysis sample",
+   "targets": [
+    "skin_tone_avg",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7,
+    8
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     51
+    ],
+    [
+     132,
+     141
+    ]
+   ],
+   "operation": "exclude goalkeepers from the analysis sample as the primary scope choice, later relaxed in a sensitivity check that re-includes them",
+   "targets": [
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     52
+    ],
+    [
+     118,
+     128
+    ]
+   ],
+   "operation": "require at least 2 games per dyad for inclusion, later tightened to >=3 games in a sensitivity check",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "operation": "fit a logistic regression of any red card on the dark-skin indicator adjusting for games played, yellow cards, and broad position as the primary model specification",
+   "targets": [
+    "any_red_card",
+    "dark_025",
+    "games",
+    "yellowCards",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     65,
+     67
+    ],
+    [
+     71,
+     77
+    ]
+   ],
+   "operation": "choose the average marginal effect (dy/dx, evaluated overall, dummy=True) of the dark-skin indicator as the primary effect measure and extract its point estimate, CI, and p-value",
+   "targets": [
+    "model",
+    "dark_025",
+    "marginal_effects"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     91
+    ]
+   ],
+   "operation": "derive an odds ratio as a secondary estimand by exponentiating the logit coefficient and build its 95% CI via a normal (1.96) approximation",
+   "targets": [
+    "model",
+    "dark_025"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     145,
+     149
+    ]
+   ],
+   "operation": "test an alternative adjustment set that additionally controls for league country fixed effects",
+   "targets": [
+    "leagueCountry",
+    "dark_025"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     164,
+     169
+    ]
+   ],
+   "operation": "declare the bias hypothesis 'supported' by writing out specific percentage/CI/p-value text rather than referencing the computed rd/rd_ci/rd_p variables, framing an exploratory in-sample result as a conclusion",
+   "targets": [
+    "rd",
+    "rd_ci_low",
+    "rd_ci_high",
+    "rd_p"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     4
+    ]
+   ],
+   "note": "file header describing the analysis purpose and dataset"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     5,
+     8
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     9,
+     11
+    ]
+   ],
+   "note": "sets numpy random seed for reproducibility"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     41,
+     47
+    ]
+   ],
+   "note": "narrative overview of the four exclusion criteria applied in the following filter"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     58
+    ]
+   ],
+   "note": "prints sample size and summary rates of the analysis sample"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     64
+    ]
+   ],
+   "note": "prints the full fitted-model summary table"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     70
+    ]
+   ],
+   "note": "prints the marginal effects summary table"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     84
+    ]
+   ],
+   "note": "prints the primary estimand (risk difference) results"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     92,
+     97
+    ]
+   ],
+   "note": "prints the secondary estimand (odds ratio) results"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     98,
+     112
+    ]
+   ],
+   "note": "prints unit of analysis, sample description, and exclusion counts; several exclusion counts (11,053 / 52,668 / 8,461) are hardcoded literals rather than computed values"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     113,
+     117
+    ]
+   ],
+   "note": "prints a section header banner for the sensitivity analyses"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     129,
+     131
+    ]
+   ],
+   "note": "prints the games>=3 sensitivity result"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     142,
+     144
+    ]
+   ],
+   "note": "prints the include-goalkeepers sensitivity result"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     150,
+     152
+    ]
+   ],
+   "note": "prints the league-country sensitivity result"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     161
+    ]
+   ],
+   "note": "prints the 0.50-threshold sensitivity result"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "note": "prints a section header banner for the conclusion"
+  }
+ ]
+}

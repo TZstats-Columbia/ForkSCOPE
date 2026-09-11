@@ -1,0 +1,62 @@
+{
+ "run_id": "2025-11-29T04-37-04+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 282,
+   "functional_lines": 117,
+   "functional_share": 0.4149,
+   "by_type": {
+    "print": 118,
+    "comment": 38,
+    "import": 5,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 285,
+   "functional_lines": 185,
+   "functional_share": 0.6491,
+   "by_type": {
+    "heading": 60,
+    "boilerplate": 31,
+    "framing": 11,
+    "hedging": 4,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 94,
+  "action_claims": 51,
+  "result_claims": 43,
+  "links": 49,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 16,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 43
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "collapse the red card count into a binary any-red-card outcome",
+   "claim": "no transformations were applied; variables used as measured in the original data",
+   "note": "claim states no transformations were applied, but code collapses the red card count into a binary any_red_card indicator"
+  },
+  {
+   "decision": "define the exposure by splitting skin tone into extreme dark (>=0.75) vs light (<0.25) groups and discarding players in the intermediate range",
+   "claim": "no transformations were applied; variables used as measured in the original data",
+   "note": "claim states no transformations were applied, but code dichotomizes skin tone into skin_dark at >=0.75 vs <0.25"
+  }
+ ]
+}

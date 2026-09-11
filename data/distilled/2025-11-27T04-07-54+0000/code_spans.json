@@ -1,0 +1,721 @@
+{
+ "n_lines": 301,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     19
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "suppress warnings and fix random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "section banner: data loading"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     32
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "operation": "choose the raw player-referee dyad file as the data source and analysis scope",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "report raw row count"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "note": "section banner: data quality control and exclusions"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     41,
+     44
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "drop dyads where either rater's skin-tone score is missing",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     48,
+     51
+    ]
+   ],
+   "note": "report count/percent excluded for missing skin tone"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "operation": "average the two independent raters into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     55
+    ]
+   ],
+   "note": "describe the skin tone measure"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     59
+    ],
+    [
+     77,
+     78
+    ]
+   ],
+   "operation": "remove goalkeeper dyads from the analytic sample",
+   "targets": [
+    "position_cat",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     60,
+     76
+    ]
+   ],
+   "operation": "bucket free-text position strings into Defender/Midfielder/Forward/Goalkeeper/Unknown via keyword matching",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     79,
+     81
+    ]
+   ],
+   "note": "report goalkeeper exclusion and final sample size"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "note": "section banner: variable transformations"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     90,
+     91
+    ]
+   ],
+   "operation": "collapse red card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     92,
+     94
+    ]
+   ],
+   "note": "report outcome definition and prevalence"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     95,
+     98
+    ]
+   ],
+   "operation": "dichotomize the continuous skin-tone score into light/dark groups at a 0.25 cutoff chosen to maximize the effect",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     99,
+     102
+    ]
+   ],
+   "note": "report group sizes after dichotomization"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     103,
+     104
+    ]
+   ],
+   "operation": "log-transform the games-played exposure variable",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     105,
+     106
+    ]
+   ],
+   "note": "note the log transform"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     107,
+     114
+    ]
+   ],
+   "operation": "encode position and league as reference-category dummy covariates",
+   "targets": [
+    "position_cat",
+    "leagueCountry",
+    "is_defender",
+    "is_midfielder",
+    "is_forward",
+    "league_france",
+    "league_germany",
+    "league_spain"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     115,
+     118
+    ]
+   ],
+   "note": "section banner: descriptive statistics"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     119,
+     122
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     123,
+     138
+    ]
+   ],
+   "note": "print sample characteristics and unadjusted red-card rate comparison by skin tone"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     146
+    ]
+   ],
+   "note": "print red card rates by position"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     154
+    ]
+   ],
+   "note": "print red card rates by league"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     155,
+     158
+    ]
+   ],
+   "note": "section banner: primary analysis"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     162
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     164
+    ],
+    [
+     167,
+     171
+    ]
+   ],
+   "operation": "fit a binomial GLM of any-red-card on skin tone plus position/league/exposure covariates with HC1 robust standard errors",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "is_defender",
+    "is_midfielder",
+    "is_forward",
+    "league_france",
+    "league_germany",
+    "league_spain"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     165,
+     166
+    ]
+   ],
+   "note": "status message before fitting"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "note": "print model summary table"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     176,
+     181
+    ],
+    [
+     238,
+     241
+    ]
+   ],
+   "operation": "turn the dark-skin coefficient into a two-sided Wald test and an exponentiated odds ratio with a normal-approximation CI",
+   "targets": [
+    "coef_dark",
+    "se_dark",
+    "z_dark",
+    "p_2sided",
+    "or_point",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     182,
+     185
+    ]
+   ],
+   "note": "section banner: adjusted risk difference"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     186,
+     189
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     190,
+     216
+    ]
+   ],
+   "operation": "compute the adjusted risk difference via predictive margins (predict at darkSkin=1 vs 0 and average the gap), with a delta-method SE and normal-approximation CI/p-value",
+   "targets": [
+    "darkSkin",
+    "model",
+    "risk_diff",
+    "rd_se",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "z_rd",
+    "p_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     217,
+     224
+    ]
+   ],
+   "note": "print risk difference, SE, CI, p-value"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     225,
+     229
+    ]
+   ],
+   "note": "narrative interpretation of risk difference"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     230,
+     233
+    ]
+   ],
+   "note": "section banner: adjusted odds ratio"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     234,
+     237
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     242,
+     248
+    ]
+   ],
+   "note": "print odds ratio, CI, coefficient, p-value"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     249,
+     253
+    ]
+   ],
+   "note": "narrative interpretation of odds ratio"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     254,
+     257
+    ]
+   ],
+   "note": "section banner: conclusion"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     258,
+     261
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     262,
+     273
+    ]
+   ],
+   "operation": "declare the hypothesis SUPPORTED only if the risk-difference p-value is below 0.05 and the effect is in the hypothesized positive direction, and report accordingly",
+   "targets": [
+    "p_rd",
+    "risk_diff",
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     274,
+     277
+    ]
+   ],
+   "note": "end-of-analysis banner"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     278,
+     294
+    ]
+   ],
+   "note": "assemble already-computed results into a summary dict"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     295,
+     301
+    ]
+   ],
+   "note": "print key results summary"
+  }
+ ]
+}

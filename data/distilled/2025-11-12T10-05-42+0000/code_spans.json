@@ -1,0 +1,1043 @@
+{
+ "n_lines": 379,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     8
+    ]
+   ],
+   "note": "module docstring describing the analysis and hypothesis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     9,
+     17
+    ]
+   ],
+   "note": "package imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     19
+    ],
+    [
+     20,
+     22
+    ]
+   ],
+   "note": "suppress warnings; set numpy random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     26
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     30
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "operation": "loads the raw player-referee dyad dataset from CSV as the analysis input",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "note": "reports raw dataset row count"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "operation": "averages the two raters' scores into one continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "operation": "drops rows lacking a skin-tone rating from the working dataset",
+   "targets": [
+    "skinTone",
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "note": "reports count after dropping missing skin tone"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     49
+    ]
+   ],
+   "operation": "cuts continuous skin tone into Light/Medium/Dark categories using 0.25/0.75 cutpoints",
+   "targets": [
+    "skinTone",
+    "skinGroup"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     52
+    ]
+   ],
+   "operation": "restricts the analysis sample to the Light and Dark extremes, dropping Medium skin tone",
+   "targets": [
+    "skinGroup"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     53,
+     54
+    ]
+   ],
+   "note": "reports count after excluding medium skin tone"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     56
+    ]
+   ],
+   "operation": "recodes the Dark/Light category into a 0/1 darkSkin indicator",
+   "targets": [
+    "skinGroup",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     57,
+     57
+    ]
+   ],
+   "operation": "defines the outcome as receiving any red card (count>0) rather than using the red card count",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     60
+    ]
+   ],
+   "operation": "log-transforms games played for use as a model covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     64
+    ]
+   ],
+   "operation": "drops rows missing height, weight, position, leagueCountry, or games covariates",
+   "targets": [
+    "height",
+    "weight",
+    "position",
+    "leagueCountry",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "note": "reports final analysis dataset size"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     67,
+     71
+    ]
+   ],
+   "note": "reports group sizes and unique player/referee counts"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     72,
+     75
+    ]
+   ],
+   "note": "section banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     76,
+     79
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     88
+    ]
+   ],
+   "note": "loop computing and printing unadjusted red-card rate per skin group"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     89,
+     90
+    ]
+   ],
+   "operation": "computes the raw unadjusted risk difference between dark- and light-skinned groups",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     92
+    ]
+   ],
+   "note": "prints unadjusted risk difference"
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     95
+    ]
+   ],
+   "operation": "assesses inter-rater agreement via correlation between the two raters' skin-tone scores",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     96,
+     97
+    ]
+   ],
+   "note": "prints inter-rater correlation"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     101
+    ]
+   ],
+   "note": "section banner: MULTIVARIABLE LOGISTIC REGRESSION MODEL"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     102,
+     105
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     107
+    ],
+    [
+     110,
+     115
+    ]
+   ],
+   "operation": "specifies and fits a logistic regression of any-red-card on darkSkin plus covariates, with standard errors clustered by player",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     108,
+     109
+    ]
+   ],
+   "note": "prints fitting progress message"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     116,
+     117
+    ]
+   ],
+   "note": "prints convergence message"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     121
+    ]
+   ],
+   "note": "prints pseudo R-squared, log-likelihood, N"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     122,
+     127
+    ]
+   ],
+   "note": "pulls coefficient, SE, p-value, CI for darkSkin out of the fitted model object"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     132
+    ]
+   ],
+   "note": "prints darkSkin coefficient, SE, CI, p-value"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     133,
+     136
+    ]
+   ],
+   "note": "section banner: ADJUSTED RISK DIFFERENCE (PRIMARY ESTIMAND)"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     137,
+     140
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     141,
+     143
+    ]
+   ],
+   "note": "prints calculation progress message"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     144,
+     148
+    ],
+    [
+     149,
+     154
+    ],
+    [
+     155,
+     157
+    ],
+    [
+     195,
+     208
+    ]
+   ],
+   "operation": "estimates the adjusted risk difference by g-computation: predicting outcomes under counterfactual all-dark vs all-light skin tone and averaging, including within each bootstrap refit",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     162
+    ]
+   ],
+   "note": "prints adjusted risks and risk difference"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     163,
+     166
+    ]
+   ],
+   "note": "section banner: BOOTSTRAP CONFIDENCE INTERVAL"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     170
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     171,
+     172
+    ]
+   ],
+   "operation": "chooses a nonparametric bootstrap with 1000 resamples to quantify uncertainty in the risk difference",
+   "targets": [
+    "n_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     173,
+     174
+    ]
+   ],
+   "note": "prints bootstrap start message"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     175,
+     179
+    ]
+   ],
+   "note": "builds a reusable design matrix from the model formula for bootstrap efficiency"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     180,
+     181
+    ]
+   ],
+   "note": "initializes list to collect bootstrap risk differences"
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     182,
+     182
+    ],
+    [
+     186,
+     194
+    ],
+    [
+     209,
+     214
+    ]
+   ],
+   "operation": "resamples dyads with replacement, refits the logistic model on each resample, and accumulates the per-resample risk difference, skipping failed fits",
+   "targets": [
+    "analysis_df",
+    "X_matrix",
+    "anyRedCard",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     183,
+     185
+    ]
+   ],
+   "note": "prints periodic bootstrap iteration progress"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     215,
+     216
+    ]
+   ],
+   "note": "prints number of successful bootstrap iterations"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     217,
+     220
+    ]
+   ],
+   "operation": "derives a 95% CI for the risk difference from the 2.5th/97.5th percentiles of the bootstrap distribution",
+   "targets": [
+    "boot_rds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     221,
+     223
+    ]
+   ],
+   "operation": "computes a two-sided bootstrap p-value by doubling the smaller tail proportion of the distribution relative to zero",
+   "targets": [
+    "boot_rds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     224,
+     229
+    ]
+   ],
+   "note": "prints bootstrap mean, SD, CI, p-value"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     230,
+     233
+    ]
+   ],
+   "note": "section banner: ADJUSTED ODDS RATIO (SECONDARY ESTIMAND)"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     234,
+     237
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     238,
+     240
+    ]
+   ],
+   "operation": "converts the darkSkin logistic coefficient and CI into an odds ratio via exponentiation as the secondary estimand",
+   "targets": [
+    "darkSkin_coef",
+    "darkSkin_ci",
+    "OR"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     241,
+     244
+    ]
+   ],
+   "note": "prints odds ratio, CI, p-value"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     245,
+     248
+    ]
+   ],
+   "note": "section banner: COMPREHENSIVE SUMMARY"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     249,
+     252
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     260
+    ]
+   ],
+   "note": "prints unit of analysis and sample size summary"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     261,
+     265
+    ]
+   ],
+   "note": "prints exclusion counts summary"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     266,
+     272
+    ]
+   ],
+   "note": "prints covariates-in-model summary"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     277
+    ]
+   ],
+   "note": "prints transformations summary"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     282
+    ]
+   ],
+   "note": "prints standard errors and inference summary"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     283,
+     287
+    ]
+   ],
+   "note": "prints primary estimand summary"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     288,
+     292
+    ]
+   ],
+   "note": "prints secondary estimand summary"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     293,
+     299
+    ]
+   ],
+   "note": "prints conclusion text"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     300,
+     303
+    ]
+   ],
+   "note": "section banner: VISUALIZATION"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     304,
+     307
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     308,
+     309
+    ]
+   ],
+   "note": "creates the 2x2 figure/axes grid"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     310,
+     325
+    ]
+   ],
+   "note": "bootstrap distribution histogram panel"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     326,
+     341
+    ]
+   ],
+   "note": "unadjusted red-card rate bar chart panel"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     342,
+     353
+    ]
+   ],
+   "note": "league distribution by skin tone panel"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     354,
+     371
+    ]
+   ],
+   "note": "forest plot of odds ratio panel"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     372,
+     372
+    ]
+   ],
+   "note": "finalizes figure layout"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     373,
+     373
+    ]
+   ],
+   "note": "writes the figure to disk"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     374,
+     375
+    ]
+   ],
+   "note": "prints figure-saved message"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     376,
+     379
+    ]
+   ],
+   "note": "prints completion footer"
+  }
+ ]
+}

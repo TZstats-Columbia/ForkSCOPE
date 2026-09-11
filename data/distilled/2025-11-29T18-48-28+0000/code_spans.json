@@ -1,0 +1,785 @@
+{
+ "n_lines": 324,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing research question and dataset"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     20
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "note": "suppress warnings globally"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     22,
+     24
+    ]
+   ],
+   "note": "fix numpy random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     32
+    ]
+   ],
+   "note": "console banner announcing the analysis"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "operation": "pull in the raw player-referee dyad table as the full study population",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     36
+    ]
+   ],
+   "note": "reports raw row count"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     39
+    ]
+   ],
+   "operation": "drop dyads lacking either skin-tone rater score from the working sample",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "note": "reports post-exclusion N and exclusion percentage"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "operation": "blend the two raters' scores into one continuous skin-tone measure by simple mean",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "collapse red-card counts down to a yes/no indicator per dyad",
+   "targets": [
+    "redCards",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     51
+    ]
+   ],
+   "note": "section banner: DATA QUALITY AND TRANSFORMATIONS"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     52,
+     55
+    ]
+   ],
+   "note": "console banner for data quality section"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     56,
+     58
+    ]
+   ],
+   "operation": "squash the games-played exposure variable with a log(1+x) transform",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     71
+    ]
+   ],
+   "operation": "collapse free-text playing position into four coarse buckets and apply it row-wise",
+   "targets": [
+    "position",
+    "position_broad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     76
+    ]
+   ],
+   "note": "lists which transformations were applied"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     77,
+     81
+    ]
+   ],
+   "note": "reports missingness for position/height/weight"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "note": "section banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "console banner for descriptive stats section"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     105
+    ]
+   ],
+   "note": "tabulates and prints sample size, red-card share, games, and rate broken out by raw skin-tone value"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     106,
+     109
+    ]
+   ],
+   "note": "section banner: PRIMARY ANALYSIS"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     110,
+     113
+    ]
+   ],
+   "note": "console banner naming the dark/light cutoff used below"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     114,
+     116
+    ]
+   ],
+   "operation": "split the continuous skin-tone score into a dark/light exposure at a 0.25 cutoff",
+   "targets": [
+    "skintone",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     120
+    ]
+   ],
+   "note": "reports group sizes after dichotomization"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     121,
+     124
+    ]
+   ],
+   "operation": "compute the crude, unadjusted red-card rate separately for the light and dark groups",
+   "targets": [
+    "dark_skin",
+    "any_red"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     125,
+     128
+    ]
+   ],
+   "note": "prints the unadjusted rates and their difference"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     129,
+     134
+    ]
+   ],
+   "operation": "fit a logistic model of any red card on dark_skin adjusting for exposure, position, and league",
+   "targets": [
+    "any_red",
+    "dark_skin",
+    "log_games",
+    "position_broad",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     135,
+     139
+    ]
+   ],
+   "note": "prints the fitted logit coefficient table"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     140,
+     151
+    ]
+   ],
+   "operation": "convert the model into an average-marginal-effect risk difference and pull out its SE/z/p/CI for dark_skin",
+   "targets": [
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     152,
+     158
+    ]
+   ],
+   "operation": "translate the same coefficient into an odds ratio with a Wald 95% interval as a secondary summary",
+   "targets": [
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     184
+    ]
+   ],
+   "note": "writes out the primary risk-difference/odds-ratio results and model-specification narrative"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     185,
+     188
+    ]
+   ],
+   "note": "section banner: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     189,
+     192
+    ]
+   ],
+   "note": "console banner for sensitivity section"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     193,
+     194
+    ]
+   ],
+   "note": "label for alternative-threshold sensitivity check"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     199
+    ]
+   ],
+   "note": "prints the results-table column headers"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     200,
+     217
+    ]
+   ],
+   "operation": "re-dichotomize skin tone at four different cutoffs and refit the adjusted model at each to check robustness of the effect to the 0.25 choice",
+   "targets": [
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     218,
+     218
+    ]
+   ],
+   "note": "prints one row of the threshold-sensitivity table per iteration"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     219,
+     220
+    ]
+   ],
+   "note": "label for continuous-skintone sensitivity check"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     221,
+     221
+    ]
+   ],
+   "note": "sub-heading for continuous specification"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     222,
+     233
+    ]
+   ],
+   "operation": "swap the binary exposure for the raw continuous skintone score and refit, extracting its per-unit marginal effect",
+   "targets": [
+    "skintone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     234,
+     237
+    ]
+   ],
+   "note": "prints the continuous-specification effect, CI, p-value"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     238,
+     239
+    ]
+   ],
+   "note": "label for referee-IAT sensitivity check"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     240,
+     240
+    ]
+   ],
+   "note": "sub-heading for IAT model"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     241,
+     249
+    ]
+   ],
+   "operation": "restrict to dyads with a non-missing referee implicit-bias score and add that score as an extra covariate in the adjusted model",
+   "targets": [
+    "meanIAT",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     250,
+     253
+    ]
+   ],
+   "note": "prints IAT-subsample N, dark-skin effect, and IAT coefficient"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     254,
+     255
+    ]
+   ],
+   "note": "label for subgroup sensitivity checks"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     256,
+     256
+    ]
+   ],
+   "note": "sub-heading for subgroup analyses"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     257,
+     258
+    ]
+   ],
+   "note": "label for by-position subgroup loop"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     259,
+     260
+    ]
+   ],
+   "operation": "iterate the adjusted model separately over each broad position subgroup",
+   "targets": [
+    "position_broad",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    51
+   ]
+  },
+  {
+   "id": 51,
+   "kind": "decision",
+   "lines": [
+    [
+     261,
+     261
+    ]
+   ],
+   "operation": "only report a subgroup's model if it has more than 1000 observations",
+   "targets": [
+    "position_broad"
+   ],
+   "confidence": "low",
+   "shares_lines_with": [
+    50
+   ]
+  },
+  {
+   "id": 52,
+   "kind": "decision",
+   "lines": [
+    [
+     262,
+     267
+    ]
+   ],
+   "operation": "fit the dark_skin model within the position subgroup, dropping the position covariate itself, and pull its marginal effect",
+   "targets": [
+    "position_broad",
+    "dark_skin",
+    "log_games",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    50
+   ]
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     268,
+     271
+    ]
+   ],
+   "note": "prints each subgroup's N, effect, and p-value"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     272,
+     280
+    ]
+   ],
+   "operation": "restrict to dyads with at least 5 games and refit the adjusted model as a high-exposure robustness check",
+   "targets": [
+    "games",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     281,
+     284
+    ]
+   ],
+   "note": "prints the high-exposure subsample's N, effect, and p-value"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     285,
+     288
+    ]
+   ],
+   "note": "section banner: FINAL SUMMARY"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     289,
+     324
+    ]
+   ],
+   "note": "prints the hypothesis, primary/secondary estimands, model details, and closing narrative conclusion"
+  }
+ ]
+}

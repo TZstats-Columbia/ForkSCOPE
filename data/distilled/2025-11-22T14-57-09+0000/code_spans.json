@@ -1,0 +1,885 @@
+{
+ "n_lines": 350,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     19
+    ]
+   ],
+   "note": "module docstring describing the analysis, dataset, and stated statistical approach"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     20,
+     30
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     31,
+     34
+    ]
+   ],
+   "note": "suppress warnings and set RNG seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     38
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "operation": "load the player-referee dyad dataset from a fixed CSV file, fixing the data source and scope for the whole analysis",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "print row count"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into one continuous skin_tone variable",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     53
+    ]
+   ],
+   "operation": "restrict to dyads with both ratings present and quantify rater agreement via Spearman correlation",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "note": "print inter-rater correlation"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     57
+    ]
+   ],
+   "operation": "dichotomize skin tone into dark vs light exposure groups at a 0.5 cutoff",
+   "targets": [
+    "skin_tone",
+    "dark_binary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     62
+    ]
+   ],
+   "operation": "derive player age from birthday relative to a chosen 2012-10-01 season-midpoint reference date, coercing unparseable birthdates to missing",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "note": "section banner: SAMPLE SELECTION"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     67,
+     70
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     71,
+     73
+    ],
+    [
+     75,
+     80
+    ]
+   ],
+   "operation": "restrict the analysis sample to complete cases with non-missing skin tone, position, height, and weight",
+   "targets": [
+    "skin_tone",
+    "position",
+    "height",
+    "weight",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     74,
+     74
+    ]
+   ],
+   "note": "print count with skin tone data"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     81,
+     82
+    ]
+   ],
+   "note": "print complete-case count and exclusion percentage"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     83,
+     86
+    ]
+   ],
+   "note": "section banner: DESCRIPTIVE STATISTICS"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     87,
+     90
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     97
+    ]
+   ],
+   "note": "print dyad/player/referee/game/red-card counts"
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     98,
+     103
+    ]
+   ],
+   "note": "tabulate and print the dark/light group sizes from the already-defined dark_binary"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     104,
+     105
+    ]
+   ],
+   "note": "console sub-header for raw rates"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     111
+    ]
+   ],
+   "operation": "compute the unadjusted (crude) red-card rate per game separately for the dark and light skin-tone groups as a raw comparison",
+   "targets": [
+    "dark_binary",
+    "games",
+    "redCards"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": "print raw group rates and raw difference"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     116,
+     119
+    ]
+   ],
+   "note": "section banner: MAIN ANALYSIS: POISSON REGRESSION WITH OFFSET"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     120,
+     123
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     124,
+     127
+    ],
+    [
+     137,
+     139
+    ],
+    [
+     267,
+     268
+    ]
+   ],
+   "operation": "model red-card counts with a Poisson GLM using log(games) as an offset, so the model targets a per-game rate rather than a raw count; reused for the main fit, its refit, and each league-specific fit",
+   "targets": [
+    "redCards",
+    "games",
+    "log_games",
+    "dark_binary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     128,
+     130
+    ]
+   ],
+   "note": "mid-script import of patsy for design-matrix construction"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     131,
+     133
+    ],
+    [
+     263,
+     266
+    ]
+   ],
+   "operation": "choose the model's adjustment set: dark_binary plus height, weight, age, categorical position, and (except when stratifying by league) categorical league country",
+   "targets": [
+    "dark_binary",
+    "height",
+    "weight",
+    "age",
+    "position",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     136
+    ]
+   ],
+   "note": "print formula and covariate count"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     140,
+     144
+    ]
+   ],
+   "note": "print unadjusted (non-robust) coefficient, SE, p-value"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "note": "section banner: CLUSTERED STANDARD ERRORS"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     149,
+     152
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     153,
+     172
+    ]
+   ],
+   "operation": "combine player-clustered and referee-clustered sandwich covariances (minus an HC1 covariance) into a two-way (player + referee) clustered standard error",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "model_adj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    27
+   ]
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     173,
+     178
+    ]
+   ],
+   "note": "print comparison of non-robust, player-, referee-, and two-way clustered SEs"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     184
+    ]
+   ],
+   "operation": "compute a Wald-style z statistic, p-value, and 95% CI for the dark_binary coefficient using a normal approximation with the two-way clustered SE",
+   "targets": [
+    "dark_binary",
+    "se_twoway"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     185,
+     188
+    ]
+   ],
+   "note": "print two-way clustered p-value and CI"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     189,
+     192
+    ]
+   ],
+   "note": "section banner: PRIMARY ESTIMAND: ADJUSTED RISK DIFFERENCE"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     193,
+     196
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     197,
+     224
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference as an average marginal effect via counterfactual substitution (predict each dyad's rate under both exposure values and average the difference), with SE via the delta method",
+   "targets": [
+    "dark_binary",
+    "games",
+    "model_adj",
+    "coef_dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     225,
+     230
+    ]
+   ],
+   "note": "print risk difference point estimate, SE, CI, p-value"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     231,
+     234
+    ]
+   ],
+   "note": "section banner: SECONDARY ESTIMAND: ADJUSTED INCIDENCE RATE RATIO"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     235,
+     238
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     239,
+     243
+    ],
+    [
+     269,
+     276
+    ]
+   ],
+   "operation": "express the exposure effect as an incidence rate ratio by exponentiating the Poisson coefficient and its CI bounds, both overall and per league",
+   "targets": [
+    "coef_dark",
+    "ci_lower_twoway",
+    "ci_upper_twoway",
+    "model_l"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     244,
+     249
+    ]
+   ],
+   "note": "print IRR, CI, p-value, and plain-language interpretation"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     250,
+     253
+    ]
+   ],
+   "note": "section banner: SENSITIVITY ANALYSIS: HETEROGENEITY BY LEAGUE"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     254,
+     257
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     258,
+     262
+    ]
+   ],
+   "operation": "stratify the sensitivity analysis into four named leagues (England, France, Germany, Spain) and subset the data for each",
+   "targets": [
+    "leagueCountry",
+    "df_league"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     277,
+     281
+    ]
+   ],
+   "note": "print per-league N, IRR, CI, p-value"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     282,
+     289
+    ]
+   ],
+   "note": "append per-league results into a list for a later table"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     290,
+     293
+    ]
+   ],
+   "note": "section banner: FINAL SUMMARY"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     294,
+     297
+    ]
+   ],
+   "note": "console header banner"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     298,
+     316
+    ]
+   ],
+   "note": "print restatement of primary/secondary estimands and model details already computed above"
+  },
+  {
+   "id": 54,
+   "kind": "decision",
+   "lines": [
+    [
+     317,
+     318
+    ],
+    [
+     320,
+     320
+    ],
+    [
+     323,
+     323
+    ]
+   ],
+   "operation": "declare the finding 'supported' only when p<0.05 and the risk-difference CI excludes zero, otherwise 'not supported'/'inconclusive'",
+   "targets": [
+    "p_value_twoway",
+    "ci_lower_rd_twoway"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     319,
+     319
+    ]
+   ],
+   "note": "print 'SUPPORTED' branch message"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     321,
+     322
+    ]
+   ],
+   "note": "print 'NOT SUPPORTED' branch message, including a hardcoded 'p = 0.054' string"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     324,
+     324
+    ]
+   ],
+   "note": "print 'INCONCLUSIVE' branch message"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     325,
+     328
+    ]
+   ],
+   "note": "print closing banner"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     329,
+     332
+    ]
+   ],
+   "note": "section banner: CREATE VISUALIZATION (no plot is actually built despite matplotlib/seaborn imports)"
+  },
+  {
+   "id": 60,
+   "kind": "decision",
+   "lines": [
+    [
+     333,
+     341
+    ]
+   ],
+   "operation": "populate the final results summary table with fixed literal IRR/CI/p-value numbers rather than the values computed earlier in the script",
+   "targets": [
+    "results_table"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     342,
+     344
+    ]
+   ],
+   "note": "print the hardcoded results table"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     345,
+     347
+    ]
+   ],
+   "note": "build a league-results table from the actually-computed league_results list"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     348,
+     350
+    ]
+   ],
+   "note": "print the league-specific results table"
+  }
+ ]
+}

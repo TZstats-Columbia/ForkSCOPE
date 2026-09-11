@@ -1,0 +1,781 @@
+{
+ "n_lines": 271,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     19
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     24
+    ]
+   ],
+   "note": "suppress warnings and set RNG seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     29,
+     32
+    ]
+   ],
+   "note": "section-1 banner comment"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "note": "status message"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     35,
+     37
+    ]
+   ],
+   "note": "report dataset size"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     38,
+     41
+    ]
+   ],
+   "note": "section-2 banner comment"
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "status message"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     46,
+     47
+    ]
+   ],
+   "note": "lead-in comment introducing the exclusion rationale"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     48
+    ],
+    [
+     56,
+     56
+    ]
+   ],
+   "operation": "drop dyads with no skin-tone rating available",
+   "targets": [
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     50
+    ],
+    [
+     53,
+     55
+    ],
+    [
+     58,
+     58
+    ],
+    [
+     206,
+     208
+    ],
+    [
+     213,
+     213
+    ]
+   ],
+   "operation": "require at least 3 games in a dyad to keep it in the sample, later re-testing the cutoff at 4 games",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    13,
+    15
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     52
+    ],
+    [
+     57,
+     57
+    ],
+    [
+     198,
+     200
+    ],
+    [
+     205,
+     205
+    ]
+   ],
+   "operation": "exclude goalkeepers from the analysis sample, later re-testing with goalkeepers included",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    13,
+    14
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     59,
+     64
+    ]
+   ],
+   "note": "report counts removed by each exclusion criterion"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     68
+    ]
+   ],
+   "note": "section-3 banner comment"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     70
+    ]
+   ],
+   "note": "status message"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     71,
+     75
+    ],
+    [
+     201,
+     201
+    ],
+    [
+     209,
+     209
+    ],
+    [
+     214,
+     215
+    ],
+    [
+     217,
+     218
+    ]
+   ],
+   "operation": "binarize skin tone into dark/light exposure at a 0.25 cutoff, later re-testing a 0.375 cutoff",
+   "targets": [
+    "skinTone",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     78
+    ],
+    [
+     202,
+     202
+    ],
+    [
+     210,
+     210
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "any_red"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     79,
+     80
+    ]
+   ],
+   "note": "covariates header comment"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     81,
+     83
+    ],
+    [
+     203,
+     203
+    ],
+    [
+     211,
+     211
+    ]
+   ],
+   "operation": "group specific field positions into a single defensive-position indicator covariate",
+   "targets": [
+    "position",
+    "pos_defensive"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     84
+    ],
+    [
+     204,
+     204
+    ],
+    [
+     212,
+     212
+    ],
+    [
+     219,
+     222
+    ]
+   ],
+   "operation": "add a squared games term to allow a curved games effect, later re-testing a linear-only games specification",
+   "targets": [
+    "games",
+    "games_sq"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    32
+   ]
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     88
+    ]
+   ],
+   "operation": "fill missing height/weight values with the sample median instead of dropping those rows",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     89,
+     92
+    ]
+   ],
+   "note": "report exposure/covariate counts"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "note": "section-4 banner comment"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     97,
+     98
+    ]
+   ],
+   "note": "status message"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     99,
+     101
+    ]
+   ],
+   "note": "split the analysis frame into light/dark subsets for descriptive reporting"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     102,
+     113
+    ]
+   ],
+   "note": "print descriptive statistics for each group"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     117
+    ]
+   ],
+   "note": "section-5 banner comment"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     128
+    ]
+   ],
+   "note": "print the model-specification description"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     129,
+     137
+    ],
+    [
+     180,
+     187
+    ]
+   ],
+   "operation": "fit dyad outcome with logistic regression on dark+games+games_sq+pos_defensive, clustering standard errors by player",
+   "targets": [
+    "any_red",
+    "dark",
+    "games",
+    "games_sq",
+    "pos_defensive",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     138,
+     147
+    ],
+    [
+     188,
+     194
+    ],
+    [
+     223,
+     227
+    ]
+   ],
+   "operation": "report the average marginal effect (risk difference) with its own SE/CI/p-value as the primary effect size, rather than the raw logit coefficient",
+   "targets": [
+    "margeff",
+    "rd",
+    "rd_se",
+    "rd_ci",
+    "rd_pval"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     148,
+     155
+    ]
+   ],
+   "note": "print risk-difference estimate, CI, z-stat, p-value"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     156,
+     156
+    ]
+   ],
+   "operation": "bucket the p-value into significance stars at 0.001/0.01/0.05 cutoffs for display",
+   "targets": [
+    "rd_pval"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     157,
+     160
+    ]
+   ],
+   "operation": "additionally compute and report an odds ratio from the logit coefficient as a secondary effect measure",
+   "targets": [
+    "dark",
+    "or_dark",
+    "or_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     161,
+     166
+    ]
+   ],
+   "note": "print odds-ratio estimate and CI"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     169
+    ]
+   ],
+   "note": "print full coefficient table"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     170,
+     174
+    ]
+   ],
+   "note": "section-6 banner comment"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     177
+    ]
+   ],
+   "note": "status message"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     178,
+     179
+    ]
+   ],
+   "note": "helper-function definition header with no analytic content itself"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     196
+    ]
+   ],
+   "note": "print per-sensitivity-run result inside helper"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     197,
+     197
+    ]
+   ],
+   "note": "return statement from helper function"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     216,
+     216
+    ]
+   ],
+   "note": "copy the already-filtered analysis frame before re-deriving the exposure at an alternate threshold"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     228,
+     229
+    ]
+   ],
+   "note": "print linear-games sensitivity result"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     230,
+     234
+    ]
+   ],
+   "note": "section-7 banner comment"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     235,
+     238
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     252
+    ]
+   ],
+   "note": "restate already-computed primary/secondary estimates"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     253,
+     268
+    ]
+   ],
+   "operation": "characterize the overall result as supporting the hypothesis and describe the sensitivity checks as robust, including a fixed baseline-risk comparison not tied to a computed variable",
+   "targets": [
+    "rd",
+    "or_dark",
+    "rd_pval"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     271
+    ]
+   ],
+   "note": "closing console banner"
+  }
+ ]
+}

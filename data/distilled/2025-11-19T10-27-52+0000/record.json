@@ -1,0 +1,101 @@
+{
+ "run_id": "2025-11-19T10-27-52+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 466,
+   "functional_lines": 142,
+   "functional_share": 0.3047,
+   "by_type": {
+    "print": 131,
+    "comment": 111,
+    "plot": 59,
+    "other": 11,
+    "import": 8,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 297,
+   "functional_lines": 169,
+   "functional_share": 0.569,
+   "by_type": {
+    "heading": 74,
+    "hedging": 31,
+    "boilerplate": 16,
+    "framing": 10,
+    "background": 7,
+    "other": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 78,
+  "action_claims": 34,
+  "result_claims": 44,
+  "links": 52,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 44
+ },
+ "silent_decisions": [
+  {
+   "id": 62,
+   "lines": [
+    [
+     276,
+     294
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which covariate effects to report in detail: all listed continuous covariates but only the first five position categories",
+   "targets": [
+    "key_covars",
+    "pos_vars"
+   ]
+  },
+  {
+   "id": 74,
+   "lines": [
+    [
+     378,
+     380
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin games-played into discrete exposure categories for the exposure-stratified plot",
+   "targets": [
+    "games",
+    "games_cat"
+   ]
+  },
+  {
+   "id": 84,
+   "lines": [
+    [
+     420,
+     421
+    ]
+   ],
+   "confidence": "high",
+   "operation": "compute a normal-approximation (Wald) confidence interval for the unadjusted risk difference for the summary table, a different method than the delta-method CI used for the adjusted estimate",
+   "targets": [
+    "dark_rate_unadj",
+    "light_rate_unadj",
+    "darkSkin"
+   ]
+  }
+ ],
+ "misalignments": []
+}

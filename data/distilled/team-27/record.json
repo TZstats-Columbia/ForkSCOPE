@@ -1,0 +1,139 @@
+{
+ "run_id": "team-27",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 96,
+   "functional_lines": 58,
+   "functional_share": 0.6042,
+   "by_type": {
+    "print": 21,
+    "import": 8,
+    "glue": 4,
+    "dead": 4,
+    "comment": 1
+   }
+  },
+  "prose": {
+   "n_lines": 271,
+   "functional_lines": 231,
+   "functional_share": 0.8524,
+   "by_type": {
+    "heading": 60,
+    "boilerplate": 12,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 13,
+  "claims": 54,
+  "action_claims": 25,
+  "result_claims": 29,
+  "links": 25,
+  "misaligned": 7
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 10,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 3,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 29
+ },
+ "silent_decisions": [
+  {
+   "id": 4,
+   "lines": [
+    [
+     14,
+     18
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pull the raw rows into memory as a list of dicts via csv.DictReader rather than reading straight into a pandas dataframe",
+   "targets": [
+    "data"
+   ]
+  },
+  {
+   "id": 7,
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "confidence": "high",
+   "operation": "reload the same source csv into a dataframe with pandas.read_csv for the main analysis, separate from the earlier DictReader pass",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 8,
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "confidence": "high",
+   "operation": "narrow the working dataframe down to a fixed list of columns, discarding everything else in the source file",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "games",
+    "goals",
+    "yellowCards",
+    "redCards",
+    "meanIAT",
+    "meanExp",
+    "rater1",
+    "rater2"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "drop rows missing either rater score and construct a single 'rating' exposure variable as the sum of rater1 and rater2 (the comment calls it an average, but no division happens)",
+   "claim": "the two ratings 'rater1' and 'rater2' were averaged into a single variable 'rating'",
+   "note": "claim says rater1 and rater2 were averaged; code sums them with no division"
+  },
+  {
+   "decision": "drop rows missing either rater score and construct a single 'rating' exposure variable as the sum of rater1 and rater2 (the comment calls it an average, but no division happens)",
+   "claim": "as with the initial approach, the mean of 'rater1' and 'rater2' was taken to create the variable 'rating'",
+   "note": "claim says the mean of rater1 and rater2 was taken; code adds them without dividing"
+  },
+  {
+   "decision": "specify the Question 1 formula: redCards regressed on rating with pairwise interactions against games, goals, yellowCards, meanIAT, and meanExp",
+   "claim": "goals, position, yellow cards, league of player, and country-of-origin bias measures (meanIAT, meanExp) were included in the model",
+   "note": "claim lists position and league among model variables; the code's model includes neither"
+  },
+  {
+   "decision": "specify the Question 1 formula: redCards regressed on rating with pairwise interactions against games, goals, yellowCards, meanIAT, and meanExp",
+   "claim": "a Poisson regression was again performed, including the initial-approach variables plus a new variable for player position",
+   "note": "claim adds a player position variable to the model; the code's formula contains no position term"
+  },
+  {
+   "decision": "specify the Question 1 formula: redCards regressed on rating with pairwise interactions against games, goals, yellowCards, meanIAT, and meanExp",
+   "claim": "a variable for the league of the player was included in the model",
+   "note": "claim says league was included in the model; the code's formula has no league term"
+  },
+  {
+   "decision": "specify the Question 2a formula: redCards regressed on meanIAT with interactions against rating, games, goals, yellowCards, and meanExp",
+   "claim": "the separate regressions previously used to answer questions 2a and 2b were dropped",
+   "note": "claim says the separate question 2a regression was dropped; code still fits it as a distinct model on df_2a"
+  },
+  {
+   "decision": "specify the Question 2b formula: redCards regressed on meanExp with interactions against rating, games, goals, yellowCards, and meanIAT",
+   "claim": "the separate regressions previously used to answer questions 2a and 2b were dropped",
+   "note": "claim says the separate question 2b regression was dropped; code still fits it as a distinct model on df_2b"
+  }
+ ]
+}

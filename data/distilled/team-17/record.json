@@ -1,0 +1,83 @@
+{
+ "run_id": "team-17",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 38,
+   "functional_lines": 20,
+   "functional_share": 0.5263,
+   "by_type": {
+    "glue": 16,
+    "comment": 2
+   }
+  },
+  "prose": {
+   "n_lines": 303,
+   "functional_lines": 192,
+   "functional_share": 0.6337,
+   "by_type": {
+    "other": 38,
+    "heading": 32,
+    "framing": 19,
+    "boilerplate": 12,
+    "hedging": 7,
+    "citation": 4,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 9,
+  "claims": 81,
+  "action_claims": 45,
+  "result_claims": 36,
+  "links": 29,
+  "misaligned": 6
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 9,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 23,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 36
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "model the count of cards given out as a binomial draw out of games played, linked to the predictor via a probit function",
+   "claim": "for each player-referee dyad the logit of red-card probability was modeled as cards[i] ~ dbin(p[i],games[i]), logit(p[i]) as a function of seven predictors",
+   "note": "claim states logit(p[i]); code links the binomial mean via a probit function"
+  },
+  {
+   "decision": "model the count of cards given out as a binomial draw out of games played, linked to the predictor via a probit function",
+   "claim": "the initial analysis used a probit regression, but the final analysis switched to logistic regression so the effect could be reported as an odds ratio",
+   "note": "claim says the final analysis switched to logistic regression; the code uses a probit link and contains no logit switch"
+  },
+  {
+   "decision": "model the count of cards given out as a binomial draw out of games played, linked to the predictor via a probit function",
+   "claim": "the link function was changed from probit (initial approach) to logit (final approach) in order to summarize the effect as an odds ratio",
+   "note": "claim says the link was changed from probit to logit; the code uses a probit link"
+  },
+  {
+   "decision": "model the count of cards given out as a binomial draw out of games played, linked to the predictor via a probit function",
+   "claim": "the study used Bayesian logistic regression to model a player's red-card record as a function of seven predictors, addressing the skin-tone-bias question",
+   "note": "claim calls the model logistic regression; the code uses a probit link"
+  },
+  {
+   "decision": "treat each player's rating as a latent categorical class drawn from probabilities theta, with each category probability given an independent Uniform(0,1) prior rather than a joint simplex prior",
+   "claim": "the two raters' skin tone scores were z-transformed and then averaged into a single predictor",
+   "note": "claim says the two raters' scores were z-transformed and averaged into a single predictor; the code treats the rating as a latent categorical class drawn from theta with per-category Uniform(0,1) priors, not an average"
+  },
+  {
+   "decision": "treat each player's rating as a latent categorical class drawn from probabilities theta, with each category probability given an independent Uniform(0,1) prior rather than a joint simplex prior",
+   "claim": "the logistic regression modeled red-card probability as a function of seven predictors: player aggression, referee strictness, IAT score, explicit bias score, player skin tone (average of two raters' z-scores), IAT×skin-tone interaction, and explicit-bias×skin-tone interaction",
+   "note": "claim describes skin tone as the average of two raters' z-scores; the code models the rating as a latent categorical class with per-category Uniform priors rather than an average"
+  }
+ ]
+}

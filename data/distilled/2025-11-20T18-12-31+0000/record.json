@@ -1,0 +1,99 @@
+{
+ "run_id": "2025-11-20T18-12-31+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 391,
+   "functional_lines": 190,
+   "functional_share": 0.4859,
+   "by_type": {
+    "print": 125,
+    "comment": 65,
+    "import": 6,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 242,
+   "functional_lines": 109,
+   "functional_share": 0.4504,
+   "by_type": {
+    "boilerplate": 65,
+    "heading": 37,
+    "other": 28,
+    "framing": 22,
+    "hedging": 4,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 92,
+  "action_claims": 51,
+  "result_claims": 41,
+  "links": 55,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 41
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "confidence": "high",
+   "operation": "exclude dyads with zero recorded games (no exposure)",
+   "targets": [
+    "games"
+   ]
+  },
+  {
+   "id": 32,
+   "lines": [
+    [
+     148,
+     149
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the raw, unadjusted risk difference between dark- and light-skin groups",
+   "targets": [
+    "red_dark",
+    "games_dark",
+    "red_light",
+    "games_light"
+   ]
+  }
+ ],
+ "misalignments": []
+}

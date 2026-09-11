@@ -1,0 +1,1116 @@
+{
+ "corpus": "ai+human.merged.forkmerged.merged.induced.r3",
+ "seed": 20260823,
+ "purity": {
+  "traced": 40,
+  "raw_read": 346,
+  "verdicts": {
+   "coherent": 34,
+   "impure": 6
+  },
+  "rejected_raw": 9,
+  "results": [
+   {
+    "fork": "which version of the source dataset is loaded?",
+    "option": "load the raw, unfiltered player-referee dyad dataset",
+    "n_members": 209,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record loading the raw, unfiltered player-referee dyad CSV as the analysis base.",
+    "shown_ids": [
+     239,
+     1144,
+     1555,
+     1825,
+     1130,
+     669,
+     2515,
+     1420,
+     3834,
+     2427,
+     3456,
+     1789,
+     3863,
+     2385
+    ]
+   },
+   {
+    "fork": "is the adjusted analysis stratified by position subgroup, and at what granularity?",
+    "option": "stratify the adjusted analysis by position subgroup",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three re-run the adjusted model separately within each position subgroup",
+    "shown_ids": [
+     787,
+     3502,
+     3504
+    ]
+   },
+   {
+    "fork": "Is an unadjusted estimate reported alongside the adjusted one?",
+    "option": "report a crude/unadjusted rate difference alongside the adjusted estimate",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three report a crude unadjusted rate/risk difference alongside the adjusted estimate",
+    "shown_ids": [
+     2709,
+     2804,
+     2237
+    ]
+   },
+   {
+    "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "option": "complete-case / listwise deletion",
+    "n_members": 84,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record the complete-case/listwise-deletion strategy; variation in which covariates define completeness is a separate decision point.",
+    "shown_ids": [
+     2087,
+     2958,
+     1118,
+     1778,
+     142,
+     1136,
+     3234,
+     957,
+     2380,
+     799,
+     2624,
+     997,
+     2518,
+     3776
+    ]
+   },
+   {
+    "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "option": "overall median-impute continuous covariates (height/weight, ±age)",
+    "n_members": 17,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record median-imputing missing continuous covariates; weight-only and age-inclusive variants match the option's stated scope.",
+    "shown_ids": [
+     3035,
+     883,
+     695,
+     640,
+     2541,
+     3251,
+     1497,
+     3180,
+     3057,
+     1326,
+     657,
+     2868,
+     174,
+     3074
+    ]
+   },
+   {
+    "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "option": "mean-impute height/weight",
+    "n_members": 6,
+    "n_shown": 6,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All fill missing height/weight with the sample mean; the 0-on-standardized ones equal mean imputation.",
+    "shown_ids": [
+     1163,
+     2576,
+     2798,
+     3422,
+     3582,
+     3639
+    ]
+   },
+   {
+    "fork": "How are the primary and sensitivity specifications summarized together?",
+    "option": "assemble comparison table of primary and sensitivity specifications side-by-side",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All three assemble a side-by-side comparison table of primary and sensitivity specs.",
+    "shown_ids": [
+     1108,
+     2969,
+     3207
+    ]
+   },
+   {
+    "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+    "option": "analytic delta-method SE via g-computation gradient, Wald CI/p",
+    "n_members": 52,
+    "n_shown": 14,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 7,
+      "records": "z-test/p using a simulated (Monte Carlo) SE, not a delta-method SE"
+     }
+    ],
+    "groups": [],
+    "note": "one straggler uses a simulated SE; the rest are the same delta-method Wald computation (numerical vs analytic gradient is the same choice)",
+    "shown_ids": [
+     331,
+     238,
+     1929,
+     2617,
+     643,
+     3080,
+     2712,
+     752,
+     293,
+     2377,
+     2855,
+     3333,
+     514,
+     1748
+    ]
+   },
+   {
+    "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+    "option": "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)",
+    "n_members": 40,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All draw coefficients from the model's asymptotic MVN and take percentile inference; draw-count differences don't change the choice.",
+    "shown_ids": [
+     1708,
+     3519,
+     683,
+     626,
+     1765,
+     3585,
+     1219,
+     3363,
+     1623,
+     1893,
+     404,
+     2633,
+     1140,
+     1913
+    ]
+   },
+   {
+    "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+    "option": "model-based Wald CI/p from the GLM coefficient SE",
+    "n_members": 19,
+    "n_shown": 14,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 11,
+      "records": "Wald z p-value built from the bootstrap SE, not the GLM coefficient SE"
+     }
+    ],
+    "groups": [],
+    "note": "one straggler uses bootstrap SE; rest are model-based Wald normal-approx CIs/p-values",
+    "shown_ids": [
+     948,
+     2891,
+     294,
+     914,
+     515,
+     2360,
+     1897,
+     1878,
+     1272,
+     2695,
+     217,
+     783,
+     3187,
+     2175
+    ]
+   },
+   {
+    "fork": "what fixed reference date is used to compute player age?",
+    "option": "year-only subtraction, fixed 2012 reference year",
+    "n_members": 16,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all derive age via fixed 2012 reference-year subtraction from birth year",
+    "shown_ids": [
+     3439,
+     1795,
+     793,
+     3732,
+     243,
+     832,
+     3237,
+     492,
+     2995,
+     2976,
+     377,
+     104,
+     1510,
+     2379
+    ]
+   },
+   {
+    "fork": "what fixed reference date is used to compute player age?",
+    "option": "year-only subtraction, fixed 2013 reference year",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record age via fixed 2013 reference year minus birth year",
+    "shown_ids": [
+     211,
+     2605,
+     3158,
+     3214,
+     3306
+    ]
+   },
+   {
+    "fork": "what fixed reference date is used to compute player age?",
+    "option": "day-based age at fixed 2012-07-01 (mid-2012)",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all five anchor age to the fixed 2012-07-01 mid-season reference date",
+    "shown_ids": [
+     617,
+     880,
+     1684,
+     1738,
+     3011
+    ]
+   },
+   {
+    "fork": "how are non-numeric placeholder / non-finite values coerced to numeric-with-missing during cleaning?",
+    "option": "treat the literal 'NA' string as missing before numeric coercion",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All treat literal 'NA' as missing before numeric coercion; differ only in which variables.",
+    "shown_ids": [
+     3667,
+     3687,
+     3691
+    ]
+   },
+   {
+    "fork": "which dyads enter the inter-rater reliability check?",
+    "option": "restrict to dyads with both rater1 and rater2 present for the inter-rater reliability check",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three restrict to dyads with both raters present before reliability check",
+    "shown_ids": [
+     226,
+     1158,
+     1111
+    ]
+   },
+   {
+    "fork": "Is the adjustment set expanded by adding covariates as a robustness check?",
+    "option": "robustness: ADD a covariate to the adjustment set",
+    "n_members": 18,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record the same choice: expand the adjustment set with extra covariate(s) as a robustness check.",
+    "shown_ids": [
+     2425,
+     3552,
+     807,
+     2817,
+     1088,
+     2729,
+     3338,
+     2751,
+     758,
+     1056,
+     2782,
+     3135,
+     3533,
+     2027
+    ]
+   },
+   {
+    "fork": "how is referee bias controlled for in the model?",
+    "option": "include unspecified referee bias measure(s) as a covariate/block",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all add referee bias measure(s) as covariate/block; option is deliberately measure-agnostic",
+    "shown_ids": [
+     3398,
+     3705,
+     3781,
+     3826,
+     3830
+    ]
+   },
+   {
+    "fork": "how is referee bias controlled for in the model?",
+    "option": "add referee mean IAT (meanIAT) as a single covariate",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all four add referee mean IAT score as a single adjustment covariate",
+    "shown_ids": [
+     3384,
+     3430,
+     3589,
+     3702
+    ]
+   },
+   {
+    "fork": "How are bootstrap iterations whose model fit fails handled?",
+    "option": "catch and drop bootstrap iterations whose model fit throws an exception",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record catching failed model fits and dropping the affected bootstrap iterations",
+    "shown_ids": [
+     433,
+     893,
+     1125,
+     1331
+    ]
+   },
+   {
+    "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "option": "enter continuous, raw (per-unit, full range)",
+    "n_members": 121,
+    "n_shown": 14,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 7,
+      "records": "rebuilds covariates/sample and re-applies filters, not the continuous exposure-entry choice itself"
+     }
+    ],
+    "groups": [],
+    "note": "one straggler is a sample-prep step; rest all enter skin tone continuous/raw",
+    "shown_ids": [
+     3520,
+     2699,
+     3664,
+     756,
+     3397,
+     1221,
+     3336,
+     296,
+     1658,
+     2263,
+     1293,
+     468,
+     1155,
+     531
+    ]
+   },
+   {
+    "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "option": "single-cutoff dichotomize at 0.5",
+    "n_members": 63,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All fourteen dichotomize continuous skin tone into dark/light at the 0.5 midpoint cutoff.",
+    "shown_ids": [
+     396,
+     1112,
+     2894,
+     1969,
+     596,
+     1954,
+     2984,
+     1248,
+     831,
+     2182,
+     139,
+     1230,
+     580,
+     1718
+    ]
+   },
+   {
+    "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "option": "drop-middle dichotomize 0.25/0.75",
+    "n_members": 59,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all drop the middle band and dichotomize light ≤0.25 vs dark ≥0.75",
+    "shown_ids": [
+     3553,
+     148,
+     2232,
+     2431,
+     1105,
+     26,
+     616,
+     1356,
+     1027,
+     1301,
+     3474,
+     471,
+     971,
+     878
+    ]
+   },
+   {
+    "fork": "how are the per-league values in the forest plot obtained?",
+    "option": "hardcode manually-typed per-league/country OR values instead of computed values (e.g. in forest plot)",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three hardcode literal per-league/country OR values instead of computed ones",
+    "shown_ids": [
+     1242,
+     2133,
+     2286
+    ]
+   },
+   {
+    "fork": "Are all skin-tone categories retained, or is the sample collapsed to extreme groups?",
+    "option": "retain all skin-tone categories (no collapsing)",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 4,
+      "records": "retain all three skin-tone bands (sensitivity check), the only true skin-tone operation here"
+     }
+    ],
+    "groups": [],
+    "note": "Majority (0-3) all record one-hot encoding position/league keeping every level; id 4 is the lone skin-tone choice.",
+    "shown_ids": [
+     1165,
+     1548,
+     1702,
+     1871,
+     2223
+    ]
+   },
+   {
+    "fork": "Which card events are counted as the outcome event?",
+    "option": "outcome = red cards only (straight reds + second-yellow reds)",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All three define a binary any-red outcome combining straight and second-yellow reds.",
+    "shown_ids": [
+     2675,
+     3577,
+     3670
+    ]
+   },
+   {
+    "fork": "how is the binary dark-skin exposure variable defined?",
+    "option": "recode an existing light/dark category into a 0/1 binary",
+    "n_members": 15,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all recode a light/dark skin category into a 0/1 dark-skin exposure indicator",
+    "shown_ids": [
+     2037,
+     2195,
+     1582,
+     2156,
+     2216,
+     194,
+     851,
+     51,
+     542,
+     344,
+     2390,
+     155,
+     3328,
+     245
+    ]
+   },
+   {
+    "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+    "option": "log(games) as covariate, no offset",
+    "n_members": 58,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All 14 record log-transforming games played as a model covariate.",
+    "shown_ids": [
+     420,
+     3013,
+     3183,
+     944,
+     2774,
+     2886,
+     1249,
+     526,
+     1360,
+     2392,
+     2759,
+     508,
+     2252,
+     2591
+    ]
+   },
+   {
+    "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+    "option": "LPM (OLS) with cluster-robust SEs",
+    "n_members": 10,
+    "n_shown": 10,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all ten record LPM/OLS with player-clustered standard errors",
+    "shown_ids": [
+     981,
+     1016,
+     1453,
+     1483,
+     1567,
+     1605,
+     2001,
+     2341,
+     2491,
+     2871
+    ]
+   },
+   {
+    "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+    "option": "LPM (OLS) with player-clustered SEs",
+    "n_members": 8,
+    "n_shown": 8,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 3,
+      "records": "LPM with HC3 heteroskedasticity-robust SEs, not player-clustered SEs"
+     }
+    ],
+    "groups": [],
+    "note": "one straggler uses HC3 robust SEs; rest are player-clustered (or SE unspecified) LPM",
+    "shown_ids": [
+     107,
+     1204,
+     1498,
+     1689,
+     2043,
+     2091,
+     2395,
+     3743
+    ]
+   },
+   {
+    "fork": "which regression model and outcome family estimates the exposure–red-card association?",
+    "option": "logistic regression on binary red-card indicator",
+    "n_members": 25,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record fitting logistic regression on the binary red-card outcome; wording varies only.",
+    "shown_ids": [
+     1205,
+     1691,
+     2800,
+     1909,
+     1121,
+     1911,
+     2396,
+     3257,
+     1484,
+     270,
+     3824,
+     3658,
+     3620,
+     2692
+    ]
+   },
+   {
+    "fork": "which regression model and outcome family estimates the exposure–red-card association?",
+    "option": "Poisson GLM with log(games) offset, plain",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all fit red-card counts via Poisson GLM with a log-games offset; predictor differences are a separate decision",
+    "shown_ids": [
+     684,
+     2348,
+     3169,
+     3850,
+     3852
+    ]
+   },
+   {
+    "fork": "which regression model and outcome family estimates the exposure–red-card association?",
+    "option": "plain linear probability model (OLS on binary)",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All three fit an OLS linear-probability model on the binary red-card outcome.",
+    "shown_ids": [
+     1588,
+     3393,
+     3898
+    ]
+   },
+   {
+    "fork": "at what unit is the dyad-level data aggregated before modeling?",
+    "option": "collapse to one row per player, summing counts",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three collapse to one row per player by summing counts",
+    "shown_ids": [
+     3252,
+     3706,
+     3869
+    ]
+   },
+   {
+    "fork": "which covariates does the primary model adjust for (if any)?",
+    "option": "unadjusted, no covariates (crude OR)",
+    "n_members": 11,
+    "n_shown": 11,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All fit an unadjusted skin-tone-only model; SE/CI variants don't change the no-covariate choice.",
+    "shown_ids": [
+     77,
+     315,
+     409,
+     463,
+     1233,
+     1470,
+     2007,
+     2420,
+     2930,
+     3528,
+     3698
+    ]
+   },
+   {
+    "fork": "How is the middle (Medium) skin-tone category handled?",
+    "option": "drop the Medium group, keep only Light and Dark",
+    "n_members": 23,
+    "n_shown": 14,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 0,
+      "records": "sensitivity analysis restricting to extreme ratings (0 or 1) only, not merely dropping medium"
+     },
+     {
+      "id": 9,
+      "records": "extreme-groups comparison (<0.25 vs >=0.75) as a refit subsample, drops more than the medium category"
+     },
+     {
+      "id": 12,
+      "records": "sensitivity check on the most extreme tones (0 vs 1.0) only"
+     },
+     {
+      "id": 13,
+      "records": "sensitivity check redefining exposure as very-light/very-dark at 0.25/0.75 thresholds"
+     }
+    ],
+    "groups": [],
+    "note": "Majority drops medium keeping all Light/Dark; four record stricter extreme-groups sensitivity checks selecting different rows",
+    "shown_ids": [
+     387,
+     540,
+     417,
+     1992,
+     441,
+     1793,
+     2155,
+     2292,
+     1495,
+     1981,
+     154,
+     286,
+     2264,
+     312
+    ]
+   },
+   {
+    "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "option": "z-score a varying subset of continuous covariates (umbrella/aggregate)",
+    "n_members": 38,
+    "n_shown": 14,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All z-score continuous covariates before modeling; varying covariate subsets match the umbrella/aggregate option.",
+    "shown_ids": [
+     328,
+     1449,
+     89,
+     641,
+     176,
+     3478,
+     1973,
+     1940,
+     1046,
+     2276,
+     2922,
+     3905,
+     836,
+     2609
+    ]
+   },
+   {
+    "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "option": "z-score height and weight only",
+    "n_members": 9,
+    "n_shown": 9,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record z-scoring height and weight only; wording varies but the operation is identical.",
+    "shown_ids": [
+     421,
+     1264,
+     1703,
+     1996,
+     2039,
+     2088,
+     2552,
+     2628,
+     2887
+    ]
+   },
+   {
+    "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?",
+    "option": "z-score raw (unlogged) games, height, and weight",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record z-standardizing the continuous covariates (games, height, weight) before modeling.",
+    "shown_ids": [
+     1813,
+     122,
+     1480,
+     2296,
+     2019
+    ]
+   },
+   {
+    "fork": "are reported effect/plot estimates computed from the data or hardcoded as literal values?",
+    "option": "hard-code reported summary/plot effect estimates as literal values instead of computing them from data",
+    "n_members": 9,
+    "n_shown": 9,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record hardcoding reported forest-plot/summary effect estimates as literals instead of computing them",
+    "shown_ids": [
+     764,
+     1222,
+     1296,
+     2365,
+     3027,
+     3172,
+     3280,
+     3399,
+     3537
+    ]
+   },
+   {
+    "fork": "Which interaction/moderation term is added to the model?",
+    "option": "generic slope/interaction term with N(0,1) prior",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All add a slope or interaction term with an N(0,1) prior, matching this generic bucket despite differing predictors.",
+    "shown_ids": [
+     3857,
+     3858,
+     3859,
+     3860
+    ]
+   }
+  ]
+ },
+ "identity": {
+  "tested": 13,
+  "same": 2,
+  "candidates": [
+   {
+    "score": 1.0,
+    "a": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+    "b": "how is complete-case/listwise deletion applied and over which variable set?",
+    "label_jaccard": 0.0,
+    "option_jaccard": 0.1,
+    "co_runs": 0,
+    "expected": 4.8
+   },
+   {
+    "score": 0.96,
+    "a": "How is the bivariate skin-tone/red-card association tested?",
+    "b": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+    "label_jaccard": 0.6,
+    "option_jaccard": 0.0,
+    "co_runs": 0,
+    "expected": 0.4
+   },
+   {
+    "score": 0.88,
+    "a": "how is effect modification / moderation of the skin-tone effect tested?",
+    "b": "how is moderation of the referee-bias effect by player skin tone assessed?",
+    "label_jaccard": 0.4,
+    "option_jaccard": 0.24,
+    "co_runs": 2,
+    "expected": 0.4
+   },
+   {
+    "score": 0.753,
+    "a": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+    "b": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "label_jaccard": 0.25,
+    "option_jaccard": 0.35,
+    "co_runs": 5,
+    "expected": 9.5
+   },
+   {
+    "score": 0.716,
+    "a": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+    "b": "which regression model and outcome family estimates the exposure–red-card association?",
+    "label_jaccard": 0.27,
+    "option_jaccard": 0.29,
+    "co_runs": 36,
+    "expected": 37.3
+   },
+   {
+    "score": 0.665,
+    "a": "Is the adjustment set expanded by adding covariates as a robustness check?",
+    "b": "which covariates make up the model's adjustment set?",
+    "label_jaccard": 0.38,
+    "option_jaccard": 0.07,
+    "co_runs": 10,
+    "expected": 9.7
+   },
+   {
+    "score": 0.64,
+    "a": "how is the continuous skin-tone rating discretized into categories?",
+    "b": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.06,
+    "co_runs": 4,
+    "expected": 3.8
+   },
+   {
+    "score": 0.633,
+    "a": "How finely is skin tone aggregated for the descriptive red-card-rate plot?",
+    "b": "How is the bivariate skin-tone/red-card association tested?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.1,
+    "co_runs": 0,
+    "expected": 0.1
+   },
+   {
+    "score": 0.623,
+    "a": "How is the bivariate skin-tone/red-card association tested?",
+    "b": "how is effect modification / moderation of the skin-tone effect tested?",
+    "label_jaccard": 0.3,
+    "option_jaccard": 0.14,
+    "co_runs": 0,
+    "expected": 0.2
+   },
+   {
+    "score": 0.62,
+    "a": "How are dyads with a missing skin-tone rating handled?",
+    "b": "How is the middle (Medium) skin-tone category handled?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.09,
+    "co_runs": 13,
+    "expected": 14.3
+   },
+   {
+    "score": 0.616,
+    "a": "How is the estimated skin-tone effect converted into a reported quantity?",
+    "b": "at what unit/increment is the continuous skin-tone effect scaled and reported?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.03,
+    "co_runs": 1,
+    "expected": 0.1
+   },
+   {
+    "score": 0.582,
+    "a": "how are the two raters combined into a single skin-tone exposure measure?",
+    "b": "how is agreement between the two skin-tone raters quantified?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.0,
+    "co_runs": 33,
+    "expected": 31.7
+   },
+   {
+    "score": 0.568,
+    "a": "How is the estimated skin-tone effect converted into a reported quantity?",
+    "b": "how is effect modification / moderation of the skin-tone effect tested?",
+    "label_jaccard": 0.3,
+    "option_jaccard": 0.09,
+    "co_runs": 0,
+    "expected": 0.2
+   }
+  ],
+  "results": [
+   {
+    "a": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+    "b": "how is complete-case/listwise deletion applied and over which variable set?",
+    "same": false,
+    "confidence": "high",
+    "why": "fork_a decides drop-vs-impute the bias score with imputation methods B lacks; fork_b decides listwise-deletion variable scope A lacks",
+    "merged_question": ""
+   },
+   {
+    "a": "How is the bivariate skin-tone/red-card association tested?",
+    "b": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+    "same": false,
+    "confidence": "medium",
+    "why": "chi-square test and correlation coefficient are distinct operations; picking one leaves the other open",
+    "merged_question": ""
+   },
+   {
+    "a": "how is effect modification / moderation of the skin-tone effect tested?",
+    "b": "how is moderation of the referee-bias effect by player skin tone assessed?",
+    "same": false,
+    "confidence": "medium",
+    "why": "fork_a moderates by league; fork_b moderates the bias effect by skin tone — different interaction terms despite shared LRT/interaction machinery",
+    "merged_question": ""
+   },
+   {
+    "a": "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?",
+    "b": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?",
+    "same": false,
+    "confidence": "medium",
+    "why": "fork_a is only bias-score missingness (drop/country-mean/median); fork_b is anthropometric covariates, bundling bias only in some compound options",
+    "merged_question": ""
+   },
+   {
+    "a": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+    "b": "which regression model and outcome family estimates the exposure–red-card association?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose the outcome family and regression model; option lists share logistic-binary, Poisson-offset, OLS/LPM",
+    "merged_question": "which regression model and outcome operationalisation (binary logistic, count Poisson with/without offset, or linear) estimates the exposure–red-card association?"
+   },
+   {
+    "a": "Is the adjustment set expanded by adding covariates as a robustness check?",
+    "b": "which covariates make up the model's adjustment set?",
+    "same": false,
+    "confidence": "medium",
+    "why": "fork_a is a robustness refit (add covariate); fork_b chooses the primary adjustment set — separate acts",
+    "merged_question": ""
+   },
+   {
+    "a": "how is the continuous skin-tone rating discretized into categories?",
+    "b": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose how the skin-tone rating enters as exposure; binning/cutpoint options overlap (trichotomize, dichotomize cutpoints)",
+    "merged_question": "how is the skin-tone rating operationalized as the exposure — continuous, or binned/split at which cutpoints?"
+   },
+   {
+    "a": "How finely is skin tone aggregated for the descriptive red-card-rate plot?",
+    "b": "How is the bivariate skin-tone/red-card association tested?",
+    "same": false,
+    "confidence": "high",
+    "why": "one chooses binning granularity for a descriptive plot; the other runs a chi-square association test — different acts",
+    "merged_question": ""
+   },
+   {
+    "a": "How is the bivariate skin-tone/red-card association tested?",
+    "b": "how is effect modification / moderation of the skin-tone effect tested?",
+    "same": false,
+    "confidence": "high",
+    "why": "A tests the bivariate main association (chi-square); B tests interaction/moderation via added interaction terms — different operations, different acts",
+    "merged_question": ""
+   },
+   {
+    "a": "How are dyads with a missing skin-tone rating handled?",
+    "b": "How is the middle (Medium) skin-tone category handled?",
+    "same": false,
+    "confidence": "high",
+    "why": "A handles missing ratings via complete-case; B drops a non-missing category level — disjoint operations, neither resolves the other",
+    "merged_question": ""
+   },
+   {
+    "a": "How is the estimated skin-tone effect converted into a reported quantity?",
+    "b": "at what unit/increment is the continuous skin-tone effect scaled and reported?",
+    "same": false,
+    "confidence": "high",
+    "why": "A picks the summary quantity/contrast type; B picks the scaling increment—each leaves the other open",
+    "merged_question": ""
+   },
+   {
+    "a": "how are the two raters combined into a single skin-tone exposure measure?",
+    "b": "how is agreement between the two skin-tone raters quantified?",
+    "same": false,
+    "confidence": "high",
+    "why": "one constructs the exposure by combining raters; the other computes inter-rater agreement diagnostics; option lists share no operations",
+    "merged_question": ""
+   },
+   {
+    "a": "How is the estimated skin-tone effect converted into a reported quantity?",
+    "b": "how is effect modification / moderation of the skin-tone effect tested?",
+    "same": false,
+    "confidence": "high",
+    "why": "A reports the effect as a quantity; B tests interaction/moderation—disjoint operations, no option overlap",
+    "merged_question": ""
+   }
+  ]
+ },
+ "residue": {
+  "dup_pairs": 428,
+  "pairs": 4701
+ }
+}

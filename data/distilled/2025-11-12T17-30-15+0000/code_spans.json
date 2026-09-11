@@ -1,0 +1,608 @@
+{
+ "n_lines": 81,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "leading blank line and package imports"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     6,
+     8
+    ]
+   ],
+   "note": "blank lines and RNG seed fixed to 42"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     9,
+     9
+    ]
+   ],
+   "note": "'# Load data' comment"
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     10,
+     10
+    ]
+   ],
+   "operation": "load the full soccer dataset from a fixed file path as the analysis source",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     11,
+     11
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "note": "'# Create skin tone variable' comment"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     13,
+     13
+    ]
+   ],
+   "operation": "average the two raters' ratings into a single continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     14,
+     16
+    ]
+   ],
+   "operation": "bucket the continuous skin-tone score into light/dark categories using 0.25 and 0.75 cutoffs, leaving the middle range unlabeled",
+   "targets": [
+    "skinTone",
+    "skinCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "operation": "collapse red card counts into a binary outcome for having received any red card",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     18,
+     18
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     19,
+     19
+    ]
+   ],
+   "note": "'# Analysis dataset' comment"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "operation": "drop players whose skin tone fell in the unlabeled middle band, restricting analysis to clearly light or dark cases",
+   "targets": [
+    "skinCategory",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "operation": "encode the treatment indicator so that dark skin tone is coded 1 and light is the reference 0",
+   "targets": [
+    "skinCategory",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     22,
+     22
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     23
+    ]
+   ],
+   "note": "'# Create position groups' comment"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     24,
+     38
+    ]
+   ],
+   "operation": "collapse the many free-text playing positions into a small set of coarse position groups (Forward/Winger, Midfielder, Defender, Goalkeeper, Other, Unknown) via keyword matching, then apply this mapping to every player",
+   "targets": [
+    "position",
+    "positionGroup"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     39
+    ]
+   ],
+   "operation": "log-transform games played to use as a covariate instead of the raw count",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     40,
+     40
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "'# Model dataset' comment"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "operation": "narrow the working data down to just the outcome, treatment, covariates, and identifiers that will enter the model",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "positionGroup",
+    "leagueCountry",
+    "playerShort",
+    "refNum",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "operation": "one-hot encode position group and league country, dropping the first level of each as the reference category",
+   "targets": [
+    "positionGroup",
+    "leagueCountry",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     45,
+     45
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     46,
+     46
+    ]
+   ],
+   "note": "'# Set up X and y' comment"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     47,
+     47
+    ]
+   ],
+   "note": "pulls out the already-defined outcome column"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "note": "mechanically collects the dummy column names created by the earlier encoding step"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     51
+    ]
+   ],
+   "operation": "choose the covariate/adjustment set for the regression (treatment, log games, position dummies, league dummies) and add an intercept term",
+   "targets": [
+    "darkSkin",
+    "log_games",
+    "position_cols",
+    "league_cols",
+    "X_vars",
+    "X"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     52
+    ]
+   ],
+   "operation": "choose to cluster standard errors by player rather than treat observations as independent",
+   "targets": [
+    "playerShort",
+    "cluster_player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "note": "'# Fit model' comment"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     56
+    ]
+   ],
+   "operation": "fit a logistic regression for the binary red-card outcome with cluster-robust standard errors and suppressed convergence output",
+   "targets": [
+    "y",
+    "X",
+    "cluster_player",
+    "results"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     57,
+     57
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "note": "'# Calculate marginal effects' comment"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     59
+    ]
+   ],
+   "operation": "compute average marginal effects (dy/dx at overall means) rather than reporting raw logit coefficients",
+   "targets": [
+    "results",
+    "margeff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     60,
+     62
+    ]
+   ],
+   "note": "extracts the summary frame and the darkSkin row from the margeff object; trailing blank line"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "operation": "designate the marginal-effect risk difference for darkSkin (with its CI and p-value) as the primary estimand to report",
+   "targets": [
+    "darkSkin_row",
+    "rd_estimate",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "rd_pval"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     68,
+     69
+    ]
+   ],
+   "note": "pulls the raw darkSkin coefficient and its standard error out of the fitted model"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     72
+    ]
+   ],
+   "operation": "back out an adjusted odds ratio as a secondary estimand and build its confidence interval via a normal (1.96 SE) approximation on the log-odds scale",
+   "targets": [
+    "darkSkin_coef",
+    "darkSkin_se",
+    "adj_OR",
+    "adj_OR_ci_lower",
+    "adj_OR_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "note": "prints the primary risk-difference estimand, CI, and p-value"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     80
+    ]
+   ],
+   "note": "prints the secondary odds-ratio estimand and CI"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     81,
+     81
+    ]
+   ],
+   "note": "trailing blank/EOF line"
+  }
+ ]
+}

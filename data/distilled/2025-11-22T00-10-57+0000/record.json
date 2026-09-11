@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-22T00-10-57+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 311,
+   "functional_lines": 78,
+   "functional_share": 0.2508,
+   "by_type": {
+    "print": 103,
+    "comment": 71,
+    "plot": 48,
+    "import": 8,
+    "config": 2,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 304,
+   "functional_lines": 186,
+   "functional_share": 0.6118,
+   "by_type": {
+    "heading": 51,
+    "framing": 30,
+    "boilerplate": 27,
+    "hedging": 20,
+    "citation": 5,
+    "other": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 77,
+  "action_claims": 31,
+  "result_claims": 46,
+  "links": 37,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 46
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "confidence": "high",
+   "operation": "encode dark skin tone as the positive class of a binary indicator (dark=1, light=0)",
+   "targets": [
+    "lightVsDark",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bin the continuous skin-tone score into three ordinal categories (light/medium/dark) using cutpoints at 0.375 and 0.625",
+   "claim": "players were classified as light skin (mean rating 0.00-0.375) or dark skin (0.75-1.00) for the primary analysis, with medium-skin players (0.375-0.625) excluded to maximize contrast",
+   "note": "code classifies dark as skinTone>0.625, but claim states the dark range is 0.75-1.00"
+  },
+  {
+   "decision": "bucket free-text playing positions into five keyword-matched categories (Goalkeeper/Defender/Midfielder/Forward/Other)",
+   "claim": "player position was simplified from 12 detailed positions into 4 broad categories",
+   "note": "code buckets positions into five categories (Goalkeeper/Defender/Midfielder/Forward/Other); claim states four broad categories"
+  }
+ ]
+}

@@ -1,0 +1,978 @@
+{
+ "n_lines": 301,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     20
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     21,
+     25
+    ]
+   ],
+   "note": "suppress warnings; set global RNG seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "section banner: DATA LOADING AND QUALITY CONTROL"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     36
+    ]
+   ],
+   "note": "print dataset size overview"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "operation": "restrict to dyads with both ratings present and correlate them to check inter-rater agreement",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     43,
+     43
+    ]
+   ],
+   "note": "print inter-rater correlation"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     46
+    ]
+   ],
+   "operation": "collapse red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "operation": "exclude dyads that lack a skin-tone rating from the analysis sample",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     52
+    ]
+   ],
+   "note": "print post-QC sample size and red-card rate"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     53,
+     56
+    ]
+   ],
+   "operation": "recode missing player position as its own 'Unknown' category instead of dropping",
+   "targets": [
+    "position",
+    "position_clean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     57,
+     60
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median",
+   "targets": [
+    "height",
+    "weight",
+    "height_clean",
+    "weight_clean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     61,
+     65
+    ]
+   ],
+   "operation": "derive player age relative to a fixed mid-season reference date",
+   "targets": [
+    "birthday",
+    "season_date",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     66,
+     68
+    ]
+   ],
+   "operation": "derive a yellow-cards-per-game rate variable",
+   "targets": [
+    "yellowCards",
+    "games",
+    "yellow_per_game"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "note": "print missing-data handling summary"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     73,
+     77
+    ]
+   ],
+   "note": "section banner: PRIMARY EXPOSURE DEFINITION"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     78,
+     81
+    ]
+   ],
+   "operation": "dichotomize skin tone into a 'dark' indicator using a 0.75 cutoff on the 0-1 scale",
+   "targets": [
+    "skinTone",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     82,
+     87
+    ]
+   ],
+   "note": "print dark/light group sizes"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     88,
+     92
+    ]
+   ],
+   "operation": "compute the unadjusted red-card rate difference between dark and light groups",
+   "targets": [
+    "anyRedCard",
+    "dark",
+    "dark_rate",
+    "light_rate",
+    "unadj_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     93,
+     97
+    ]
+   ],
+   "note": "print unadjusted rates and risk difference"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     102
+    ]
+   ],
+   "note": "section banner: PRIMARY MODEL POISSON REGRESSION"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     103,
+     105
+    ]
+   ],
+   "operation": "choose the covariate adjustment set for the primary model",
+   "targets": [
+    "formula",
+    "games",
+    "position_clean",
+    "leagueCountry",
+    "height_clean",
+    "weight_clean",
+    "age",
+    "yellowCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     106,
+     108
+    ]
+   ],
+   "operation": "fit the primary exposure-outcome association as a Poisson GLM with HC0 robust standard errors",
+   "targets": [
+    "model_primary",
+    "formula",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     109,
+     113
+    ]
+   ],
+   "note": "print primary model summary"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     118
+    ]
+   ],
+   "note": "section banner: ADJUSTED RISK DIFFERENCE MARGINAL STANDARDIZATION"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     119,
+     121
+    ]
+   ],
+   "note": "print section header"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     136
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference and risk ratio via marginal standardization over all-dark vs all-light counterfactual predictions",
+   "targets": [
+    "model_primary",
+    "dark",
+    "mean_pred_dark",
+    "mean_pred_light",
+    "rd_adjusted",
+    "rr_adjusted"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     137,
+     141
+    ]
+   ],
+   "note": "print adjusted RD/RR"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     142,
+     146
+    ]
+   ],
+   "note": "section banner: BOOTSTRAP CONFIDENCE INTERVALS"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     147,
+     149
+    ]
+   ],
+   "note": "print bootstrap section header"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     150,
+     157
+    ],
+    [
+     160,
+     185
+    ]
+   ],
+   "operation": "bootstrap the standardized risk difference/ratio with 1000 nonparametric resamples, refitting the Poisson model on each resample and silently skipping fits that fail to converge",
+   "targets": [
+    "df_analysis",
+    "n_boot",
+    "boot_sample",
+    "model_boot",
+    "boot_rd",
+    "boot_rr"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     158,
+     159
+    ]
+   ],
+   "note": "bootstrap progress print"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     186,
+     198
+    ]
+   ],
+   "operation": "form 95% CIs from bootstrap percentiles and define a two-sided bootstrap p-value from the share of resamples crossing zero",
+   "targets": [
+    "boot_rd_arr",
+    "boot_rr_arr",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "rr_ci_lower",
+    "rr_ci_upper",
+    "p_onesided_boot",
+    "p_twosided_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     199,
+     207
+    ]
+   ],
+   "note": "print bootstrap CI and p-value results"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     208,
+     212
+    ]
+   ],
+   "note": "section banner: ADJUSTED ODDS RATIO LOGISTIC REGRESSION"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     213,
+     215
+    ]
+   ],
+   "note": "print section header"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     216,
+     226
+    ]
+   ],
+   "operation": "fit a logistic regression on the same covariate set for a secondary adjusted odds ratio, using a Wald normal-approximation CI",
+   "targets": [
+    "model_logit",
+    "formula",
+    "df_analysis",
+    "coef_logit",
+    "se_logit",
+    "p_logit",
+    "or_estimate",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     227,
+     230
+    ]
+   ],
+   "note": "print adjusted OR results"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     231,
+     235
+    ]
+   ],
+   "note": "section banner: ROBUSTNESS CHECKS"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     238
+    ]
+   ],
+   "note": "print robustness section header"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     239,
+     240
+    ]
+   ],
+   "note": "robustness check 1 label"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     241,
+     241
+    ]
+   ],
+   "note": "print robustness check 1 label"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     242,
+     243
+    ]
+   ],
+   "operation": "refit the logistic model with standard errors clustered by referee",
+   "targets": [
+    "model_cluster_ref",
+    "refNum",
+    "formula"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     244,
+     244
+    ]
+   ],
+   "note": "print clustered-SE result"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     245,
+     246
+    ]
+   ],
+   "note": "robustness check 2 label"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     247
+    ]
+   ],
+   "note": "print robustness check 2 label"
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     248,
+     249
+    ]
+   ],
+   "operation": "refit the model using continuous skin tone in place of the binary dark indicator",
+   "targets": [
+    "formula_cont",
+    "skinTone",
+    "model_cont"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     250,
+     250
+    ]
+   ],
+   "note": "print continuous-exposure result"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     251,
+     252
+    ]
+   ],
+   "note": "robustness check 3 label"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     253
+    ]
+   ],
+   "note": "print robustness check 3 label"
+  },
+  {
+   "id": 53,
+   "kind": "decision",
+   "lines": [
+    [
+     254,
+     256
+    ]
+   ],
+   "operation": "restrict to only the most extreme skin-tone ratings (0.0 vs 1.0) and refit",
+   "targets": [
+    "skinTone",
+    "df_extremes",
+    "dark",
+    "model_ext"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     257,
+     257
+    ]
+   ],
+   "note": "print extremes-only result"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     258,
+     259
+    ]
+   ],
+   "note": "robustness check 4 label"
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     260
+    ]
+   ],
+   "note": "print robustness check 4 label"
+  },
+  {
+   "id": 57,
+   "kind": "decision",
+   "lines": [
+    [
+     261,
+     262
+    ]
+   ],
+   "operation": "restrict the sample to dyads with at least 2 games and refit",
+   "targets": [
+    "games",
+    "df_2plus",
+    "model_2plus"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     263,
+     263
+    ]
+   ],
+   "note": "print games>=2 result"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     264,
+     268
+    ]
+   ],
+   "note": "section banner: FINAL SUMMARY"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     277
+    ]
+   ],
+   "note": "print final summary header and sample/exposure counts"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     278,
+     282
+    ]
+   ],
+   "note": "print primary estimand (adjusted RD, CI, p-value)"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     283,
+     287
+    ]
+   ],
+   "note": "print secondary estimand (adjusted OR, CI, p-value)"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     288,
+     290
+    ]
+   ],
+   "note": "print covariate list"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     291,
+     292
+    ]
+   ],
+   "note": "print conclusion header"
+  },
+  {
+   "id": 65,
+   "kind": "decision",
+   "lines": [
+    [
+     293,
+     293
+    ],
+    [
+     297,
+     297
+    ]
+   ],
+   "operation": "declare the hypothesis supported or not based on whether the bootstrap CI for the adjusted risk difference excludes zero",
+   "targets": [
+    "rd_ci_lower"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     294,
+     296
+    ]
+   ],
+   "note": "print 'supported' conclusion text"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     298,
+     298
+    ]
+   ],
+   "note": "print 'not supported' conclusion text"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     299,
+     301
+    ]
+   ],
+   "note": "print closing divider"
+  }
+ ]
+}

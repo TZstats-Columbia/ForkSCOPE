@@ -1,0 +1,84 @@
+{
+ "run_id": "2025-11-22T08-00-17+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 439,
+   "functional_lines": 210,
+   "functional_share": 0.4784,
+   "by_type": {
+    "print": 92,
+    "plot": 69,
+    "comment": 47,
+    "import": 10,
+    "other": 6,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 357,
+   "functional_lines": 168,
+   "functional_share": 0.4706,
+   "by_type": {
+    "heading": 104,
+    "boilerplate": 57,
+    "hedging": 19,
+    "framing": 11,
+    "background": 8,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 168,
+  "action_claims": 64,
+  "result_claims": 104,
+  "links": 74,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 13,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 104
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     100,
+     108
+    ]
+   ],
+   "confidence": "high",
+   "operation": "computes the raw, unadjusted difference in red-card rates between dark- and light-skin groups with no covariate control",
+   "targets": [
+    "dark_skin",
+    "anyRedCard"
+   ]
+  },
+  {
+   "id": 12,
+   "lines": [
+    [
+     177,
+     180
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "discards any bootstrap replicate with fewer than 5 red-card events before fitting it",
+   "targets": [
+    "boot_sample"
+   ]
+  }
+ ],
+ "misalignments": []
+}

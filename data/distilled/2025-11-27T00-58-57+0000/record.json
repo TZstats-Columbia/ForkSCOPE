@@ -1,0 +1,82 @@
+{
+ "run_id": "2025-11-27T00-58-57+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 442,
+   "functional_lines": 175,
+   "functional_share": 0.3959,
+   "by_type": {
+    "print": 211,
+    "comment": 43,
+    "import": 8,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 270,
+   "functional_lines": 173,
+   "functional_share": 0.6407,
+   "by_type": {
+    "heading": 70,
+    "boilerplate": 18,
+    "framing": 15,
+    "hedging": 8,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 79,
+  "action_claims": 49,
+  "result_claims": 30,
+  "links": 44,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 19,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 30
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw soccer dataset from a fixed CSV path as the starting sample",
+   "targets": [
+    "df"
+   ]
+  },
+  {
+   "id": 4,
+   "lines": [
+    [
+     41,
+     57
+    ]
+   ],
+   "confidence": "high",
+   "operation": "map detailed on-field positions into four broad position groups, with unmatched/other positions falling into Goalkeeper by default",
+   "targets": [
+    "position",
+    "position_group"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,291 @@
+{
+ "links": [
+  {
+   "decision_id": 6,
+   "claim_id": 4,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "loads the full player-referee dyad dataset as the analysis universe"
+  },
+  {
+   "decision_id": 6,
+   "claim_id": 38,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "unit of analysis is the player-referee dyad loaded from the dataset"
+  },
+  {
+   "decision_id": 6,
+   "claim_id": 196,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "loads data from the soccer CSV"
+  },
+  {
+   "decision_id": 10,
+   "claim_id": 47,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "Pearson inter-rater reliability between the two raters"
+  },
+  {
+   "decision_id": 10,
+   "claim_id": 148,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "inter-rater reliability between the two skin-tone raters"
+  },
+  {
+   "decision_id": 11,
+   "claim_id": 48,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "average of the two raters used as skin-tone measure"
+  },
+  {
+   "decision_id": 12,
+   "claim_id": 49,
+   "agreement": "misaligned",
+   "confidence": "high",
+   "note": "claim sets the dark threshold at avg rating >=0.75; code bins dark as skin_tone_avg > 0.625"
+  },
+  {
+   "decision_id": 12,
+   "claim_id": 50,
+   "agreement": "misaligned",
+   "confidence": "high",
+   "note": "claim defines medium as 0.25<rating<0.75; code's medium bin is (0.25, 0.625]"
+  },
+  {
+   "decision_id": 15,
+   "claim_id": 69,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "binary any-red-card outcome from the count variable"
+  },
+  {
+   "decision_id": 19,
+   "claim_id": 64,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "medium skin category dropped, keeping light and dark"
+  },
+  {
+   "decision_id": 19,
+   "claim_id": 152,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "light-vs-dark contrast excluding medium"
+  },
+  {
+   "decision_id": 21,
+   "claim_id": 71,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "binary dark/light exposure indicator"
+  },
+  {
+   "decision_id": 22,
+   "claim_id": 39,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "complete-case sample after dropping missing covariates"
+  },
+  {
+   "decision_id": 22,
+   "claim_id": 65,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "drop dyads with missing covariate values"
+  },
+  {
+   "decision_id": 22,
+   "claim_id": 66,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "final analysis sample from complete-case restriction"
+  },
+  {
+   "decision_id": 26,
+   "claim_id": 174,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "unadjusted risk difference and odds ratio baseline"
+  },
+  {
+   "decision_id": 31,
+   "claim_id": 56,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "log(games+1) exposure control"
+  },
+  {
+   "decision_id": 31,
+   "claim_id": 70,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "log(games+1) transformation"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 5,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "adjustment covariate set matches"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 54,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "categorical position control"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 55,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "categorical league country control"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 57,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "linear height control"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 58,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "linear weight control"
+  },
+  {
+   "decision_id": 32,
+   "claim_id": 77,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "model formula matches the specified covariate set and form"
+  },
+  {
+   "decision_id": 33,
+   "claim_id": 75,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "logistic regression for binary outcome"
+  },
+  {
+   "decision_id": 33,
+   "claim_id": 76,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "logistic regression estimated by maximum likelihood"
+  },
+  {
+   "decision_id": 34,
+   "claim_id": 6,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "two-way clustering on player and referee"
+  },
+  {
+   "decision_id": 34,
+   "claim_id": 80,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "two-way clustering at player and referee levels"
+  },
+  {
+   "decision_id": 34,
+   "claim_id": 82,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "Cameron-Gelbach-Miller subtraction formula"
+  },
+  {
+   "decision_id": 34,
+   "claim_id": 119,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "reports the player/referee/robust/two-way SE components computed here"
+  },
+  {
+   "decision_id": 34,
+   "claim_id": 150,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "two-way clustering for player and referee dependencies"
+  },
+  {
+   "decision_id": 40,
+   "claim_id": 10,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "adjusted odds ratio from exponentiated coefficient"
+  },
+  {
+   "decision_id": 40,
+   "claim_id": 27,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "adjusted odds ratio point estimate and CI"
+  },
+  {
+   "decision_id": 40,
+   "claim_id": 29,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "odds ratio interpretation of exponentiated coefficient"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 8,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "adjusted risk difference primary estimand"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 17,
+   "agreement": "aligned",
+   "confidence": "medium",
+   "note": "risk difference point estimate via standardization"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 19,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "adjusted risk difference between dark and light players"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 23,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "counterfactual predicted probabilities and their difference"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 86,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "AME converting log-odds to risk difference"
+  },
+  {
+   "decision_id": 44,
+   "claim_id": 87,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "all-dark/all-light counterfactual averaging"
+  },
+  {
+   "decision_id": 46,
+   "claim_id": 88,
+   "agreement": "aligned",
+   "confidence": "high",
+   "note": "delta-method SE with two-way clustered covariance"
+  }
+ ]
+}

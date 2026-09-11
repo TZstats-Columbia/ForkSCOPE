@@ -1,0 +1,963 @@
+{
+ "n_lines": 406,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     22
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     25,
+     27
+    ]
+   ],
+   "note": "random seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "banner header"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     35
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     37
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "choose the input dataset and its file path as the analysis source",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "operation": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "operation": "drop dyads lacking skin-tone ratings from the analytic sample",
+   "targets": [
+    "rater1",
+    "df_with_ratings"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     50,
+     51
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     59
+    ]
+   ],
+   "operation": "further exclude dyads missing IAT bias score or height from the analytic sample",
+   "targets": [
+    "meanIAT",
+    "height",
+    "df_clean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     60,
+     63
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     64,
+     67
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     69
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "operation": "derive player age from birthday using a fixed 2012 reference season",
+   "targets": [
+    "birthday",
+    "birthYear",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     76
+    ]
+   ],
+   "operation": "impute missing position with an explicit 'Unknown' category rather than dropping rows",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     77,
+     81
+    ]
+   ],
+   "operation": "impute missing weight using the median weight within each position group",
+   "targets": [
+    "weight",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     87
+    ]
+   ],
+   "operation": "standardize height, weight, and age to z-scores before modeling",
+   "targets": [
+    "height",
+    "weight",
+    "age",
+    "height_std",
+    "weight_std",
+    "age_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     88,
+     89
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     100
+    ],
+    [
+     290,
+     291
+    ]
+   ],
+   "operation": "binarize skin tone at a 0.25 cutpoint to define the dark/light exposure group, and mark this cutpoint on the results plot",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     101,
+     103
+    ]
+   ],
+   "note": "tally group sizes for reporting"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     104,
+     106
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     107,
+     110
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     111,
+     113
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     114,
+     127
+    ]
+   ],
+   "operation": "specify and fit the primary logistic regression model, choosing outcome, predictor, adjustment covariates, and fitting settings",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "yellowCards",
+    "height_std",
+    "weight_std",
+    "age_std",
+    "leagueCountry",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     134
+    ]
+   ],
+   "operation": "extract the darkSkin coefficient's SE, z-statistic, two-sided p-value, and Wald confidence interval from the fitted model's default output",
+   "targets": [
+    "model_primary",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     135,
+     139
+    ]
+   ],
+   "operation": "exponentiate the log-odds coefficient and its interval to report an odds ratio",
+   "targets": [
+    "coef",
+    "ci_lower_coef",
+    "ci_upper_coef",
+    "OR"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     140,
+     149
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     150,
+     154
+    ]
+   ],
+   "operation": "compute the adjusted risk difference via marginal standardization, averaging predicted probabilities under darkSkin=1 vs darkSkin=0",
+   "targets": [
+    "model_primary",
+    "darkSkin",
+    "pred_dark",
+    "pred_light",
+    "risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     155,
+     157
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     158,
+     161
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     162,
+     164
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     165,
+     187
+    ],
+    [
+     190,
+     192
+    ]
+   ],
+   "operation": "bootstrap the risk difference with 500 resamples-with-replacement, refitting the primary model each iteration and silently discarding non-converging fits",
+   "targets": [
+    "df_clean",
+    "darkSkin",
+    "risk_diffs_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     188,
+     189
+    ]
+   ],
+   "note": "bootstrap progress"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     193,
+     198
+    ]
+   ],
+   "operation": "summarize the bootstrap distribution with mean, SD, and a 2.5/97.5 percentile interval",
+   "targets": [
+    "risk_diffs_boot"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     199,
+     204
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     205,
+     208
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     209,
+     211
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     212,
+     229
+    ]
+   ],
+   "operation": "re-run the primary model at alternative skin-tone cutpoints (0.30, 0.35, 0.375) as a robustness check",
+   "targets": [
+    "skinTone",
+    "darkSkin_alt"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     230,
+     244
+    ]
+   ],
+   "operation": "re-specify skin tone as a continuous predictor instead of binarized, rerun the model",
+   "targets": [
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     245,
+     259
+    ]
+   ],
+   "operation": "drop yellowCards from the adjustment set and rerun the model as a robustness check",
+   "targets": [
+    "darkSkin",
+    "games",
+    "height_std",
+    "weight_std",
+    "age_std",
+    "leagueCountry",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     260,
+     271
+    ]
+   ],
+   "operation": "exclude dyads with only a single game and rerun the primary model on the remaining subset",
+   "targets": [
+    "games",
+    "df_clean",
+    "df_multi"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     272,
+     275
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     276,
+     277
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     278,
+     280
+    ]
+   ],
+   "note": "figure/style setup"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     281,
+     289
+    ]
+   ],
+   "note": "Panel A construction"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     292,
+     293
+    ]
+   ],
+   "note": "Panel A legend"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     294,
+     309
+    ]
+   ],
+   "note": "Panel B construction"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     310,
+     325
+    ]
+   ],
+   "note": "Panel C construction"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     326,
+     327
+    ]
+   ],
+   "note": "Panel D axis setup"
+  },
+  {
+   "id": 56,
+   "kind": "decision",
+   "lines": [
+    [
+     328,
+     342
+    ]
+   ],
+   "operation": "bin number of games into categories and compute the darkSkin effect within each bin for a subgroup exploration",
+   "targets": [
+    "games",
+    "games_cat",
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     343,
+     353
+    ]
+   ],
+   "note": "Panel D bars and layout"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     354,
+     354
+    ]
+   ],
+   "note": "write figure to disk"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     355,
+     356
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     357,
+     360
+    ]
+   ],
+   "note": "section header"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     361,
+     364
+    ]
+   ],
+   "note": "banner"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     365,
+     385
+    ]
+   ],
+   "note": "summary of estimand, OR, model/sample details"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     386,
+     386
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 64,
+   "kind": "decision",
+   "lines": [
+    [
+     387,
+     387
+    ]
+   ],
+   "operation": "declare the hypothesis supported using a joint rule of two-sided p<0.05 and a bootstrap CI lower bound above zero",
+   "targets": [
+    "pval_twosided",
+    "ci_lower_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     388,
+     399
+    ]
+   ],
+   "note": "supported-branch narrative text"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     400,
+     400
+    ]
+   ],
+   "note": "else branch"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     401,
+     402
+    ]
+   ],
+   "note": "not-supported branch text"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     403,
+     406
+    ]
+   ],
+   "note": "closing banner"
+  }
+ ]
+}

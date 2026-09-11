@@ -1,0 +1,3390 @@
+{
+ "corpus": "ai+human.merged.forkmerged.merged",
+ "batch": 45,
+ "failures": [],
+ "violations": 10,
+ "decision_points": [
+  {
+   "question": "how are the two raters combined into a single skin-tone exposure measure?",
+   "options": [
+    "average the two raters into one continuous score",
+    "use max-of-two-raters score as the skin-tone predictor",
+    "use the minimum of the two raters",
+    "use the maximum of the two raters",
+    "sum the two raters (after dropping missing)",
+    "average rater1 and rater2 ratings into a single continuous skin-tone score, dropping dyads missing either rating",
+    "rebuild exposure per individual rater instead of averaging the two raters",
+    "construct both min-of-raters and max-of-raters scores"
+   ],
+   "why_rival": "each produces the skin-tone score from rater1/rater2 a different way (average, min, max, sum, per-rater), and an analyst commits to one construction",
+   "co_pair_share": 0.321
+  },
+  {
+   "question": "in what functional form does the skin-tone score enter the model — continuous or dichotomized, and where cut?",
+   "options": [
+    "continuous score, no binarization",
+    "median split of the continuous score",
+    "continuous sweep over range 0.125-0.75",
+    "code rating as a continuous linear predictor",
+    "continuous skin-tone exposure (linear/continuous form)",
+    "two-sided extreme cutoffs (<=0.125 / >=0.750) dropping the middle"
+   ],
+   "why_rival": "each codes the same score as continuous, median-split, extreme-cut, or a swept cutoff; you pick one coding for the primary fit",
+   "co_pair_share": 0.2
+  },
+  {
+   "question": "on what scale does the continuous skin-tone predictor enter the model?",
+   "options": [
+    "standardize the continuous score before use",
+    "rescale the continuous score by a factor of 10",
+    "re-fit with continuous skin-tone score (rescaled by 0.5 to approximate the binary contrast)"
+   ],
+   "why_rival": "standardizing, multiplying by 10, or halving are mutually exclusive rescalings of the same continuous predictor",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which continuous control covariates are z-scored/standardized?",
+   "options": [
+    "z-score a chosen subset of continuous covariates (subset varies by option)",
+    "z-score the games covariate",
+    "z-score standardize height and weight"
+   ],
+   "why_rival": "each names a standardization scheme (a chosen subset, games only, height/weight) for the model's covariates; they never co-occur, consistent with one scheme per run",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "is statistical significance assessed one-sided or two-sided?",
+   "options": [
+    "additionally report a one-sided p-value by halving the two-sided p-value",
+    "additionally report a one-sided p-value by halving the two-sided value",
+    "use a two-sided p < 0.05 significance cutoff",
+    "compute a one-sided p-value for the directional hypothesis",
+    "halve the two-sided p-value for a directional hypothesis"
+   ],
+   "why_rival": "reporting a halved one-sided p-value versus a two-sided p<0.05 cutoff are competing directionality conventions for the same test",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what is the unit of analysis / row granularity of the analytic table?",
+   "options": [
+    "aggregate to one row per player (sum counts, keep/average attributes)",
+    "collapse to one row per referee",
+    "collapse to one row per referee country"
+   ],
+   "why_rival": "collapsing to one row per player, per referee, or per referee-country are alternative aggregation levels for the same data",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "how are the regression standard errors computed?",
+   "options": [
+    "one-way cluster-robust SE on a single dimension"
+   ],
+   "why_rival": "sole recorded choice for the SE/clustering slot"
+  },
+  {
+   "question": "is the adjusted model stratified by league?",
+   "options": [
+    "stratify the adjusted regression model by league (one model per league)"
+   ],
+   "why_rival": "sole recorded choice for whether to fit one model per league versus pooled"
+  },
+  {
+   "question": "which moderation model specification is estimated?",
+   "options": [
+    "moderation of both continuous individual and club-average tone",
+    "moderation of categorical tone + continuous club-average tone, on bookings outcome",
+    "moderation of continuous individual skin-tone effect"
+   ],
+   "why_rival": "each is a different interaction spec (individual+club, categorical+club on bookings, individual-only); an analyst runs one primary moderation",
+   "co_pair_share": 1.0
+  },
+  {
+   "question": "how is the continuous skin-tone effect translated into a reported effect estimate?",
+   "options": [
+    "extract the average marginal effect of continuous skin tone",
+    "standardize risk difference using two fixed continuous skin-tone reference values (~30th/90th percentile) rather than binary dark/light"
+   ],
+   "why_rival": "an average marginal effect versus a standardized risk difference at fixed reference values are rival ways to summarize the same fitted effect",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the bookings/cards outcome constructed?",
+   "options": [
+    "combine card types into one bookings score, weighting yellow-red double"
+   ],
+   "why_rival": "sole recorded choice for combining card types into an outcome score"
+  },
+  {
+   "question": "how is the referee bias (IAT) score coded?",
+   "options": [
+    "dichotomize the bias score at the sample mean"
+   ],
+   "why_rival": "sole recorded choice for coding the bias-score variable (dichotomize at the mean)"
+  },
+  {
+   "question": "what summary metric evaluates model performance?",
+   "options": [
+    "use Brier score as summary metric"
+   ],
+   "why_rival": "sole recorded choice (Brier score) for the performance-metric slot"
+  },
+  {
+   "question": "is club-average skin tone included as a covariate?",
+   "options": [
+    "add club-average skin tone as covariate"
+   ],
+   "why_rival": "sole recorded choice for adding the club-average tone control"
+  },
+  {
+   "question": "is a referee rater score added as its own model block?",
+   "options": [
+    "add referee rater score as its own model block"
+   ],
+   "why_rival": "sole recorded choice for including the referee-rater block"
+  },
+  {
+   "question": "how wide is the analytic sample with respect to skin-tone missingness?",
+   "options": [
+    "widen analytic sample to all rows with non-missing skin-tone score for the continuous-exposure analysis"
+   ],
+   "why_rival": "sole recorded choice to widen to all rows with a non-missing skin-tone score"
+  },
+  {
+   "question": "how is covariate missingness handled in defining the sample?",
+   "options": [
+    "complete-case on IAT bias score and height"
+   ],
+   "why_rival": "sole recorded choice (complete-case on bias score and height) for covariate-missingness sample definition"
+  },
+  {
+   "question": "is the sample restricted by red-card incidence?",
+   "options": [
+    "restrict to games with at least one red card"
+   ],
+   "why_rival": "sole recorded choice to restrict to games with at least one red card"
+  },
+  {
+   "question": "how is the crude group difference tested without adjustment?",
+   "options": [
+    "two-proportion z-test on crude group difference"
+   ],
+   "why_rival": "sole recorded choice (two-proportion z-test) for the unadjusted main-effect test"
+  },
+  {
+   "question": "how is covariate balance across groups checked?",
+   "options": [
+    "two-sample t-tests on games/yellowCards/age"
+   ],
+   "why_rival": "sole recorded choice (two-sample t-tests on games/yellowCards/age) for the balance-check slot"
+  },
+  {
+   "question": "How are records with missing player height/weight measurements handled?",
+   "options": [
+    "drop dyads missing height or weight",
+    "impute missing height/weight/age with sample median",
+    "impute height/weight with median and recode missing position as an explicit category",
+    "overall median-impute height and/or weight",
+    "complete-case on position, height, weight",
+    "complete-case on skin tone, height, weight",
+    "complete-case on position, age, height, weight",
+    "position-group median-impute height and/or weight",
+    "height/weight with position-group-wise median",
+    "complete-case on position, league, height, weight, games"
+   ],
+   "why_rival": "each record with a missing anthropometric value is either dropped via listwise/complete-case deletion or filled by some median-imputation scheme; an analyst constructs the sample one way, not both",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are records with a missing referee bias (IAT/explicit) score handled?",
+   "options": [
+    "complete-case on height, weight, and imputed/filled IAT (IAT not actually dropped)",
+    "complete-case on position, height, weight, meanIAT (referee IAT)",
+    "complete-case on height, weight, IAT, explicit bias (no age)",
+    "drop rows missing the referee IAT (meanIAT) bias score only",
+    "complete-case on skin tone, height, weight, age, IAT, explicit bias",
+    "complete-case on height, weight, meanIAT (no position)",
+    "restrict to non-missing referee IAT and add it as a covariate",
+    "complete-case on height, weight, position, leagueCountry, meanIAT"
+   ],
+   "why_rival": "each disposes of rows lacking a referee prejudice measurement one way — require/drop them (complete-case on the bias variable) versus impute/fill and keep them",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Which control variables and functional forms enter the regression model?",
+   "options": [
+    "add height and weight as covariates",
+    "add league, height, weight, and referee bias (IAT+Exp) as covariates",
+    "games + games_sq + height + weight only",
+    "yellowCards + height + weight + age",
+    "position + league + height + weight (no games)",
+    "games(raw) + position + league + height + weight",
+    "games + yellowCards + height + weight + position + league",
+    "log(games) + position + league + height + weight",
+    "games + age + height + weight + position + league",
+    "position + league + age + height + weight (no games)",
+    "games + height + meanIAT + league + position (no weight)",
+    "games + position + league + height + weight + meanIAT + meanExp",
+    "games + position + league + height + weight + age + yellowCards",
+    "games + position + league + height + weight + meanIAT (no exp/yc)",
+    "games + yellowCards + goals + height + weight + position + league",
+    "log(games) + position + league + height + weight + age",
+    "choose age, height, weight as player-characteristic controls"
+   ],
+   "why_rival": "each is a complete alternative covariate specification for the primary model; the analyst fits one set of controls, so choosing one precludes the others",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are the continuous predictors transformed and standardized before modeling?",
+   "options": [
+    "z-score height, weight, and a missing-imputed IAT",
+    "z-score height, weight, and log-transformed games",
+    "z-score height, weight, log-games AND log-yellowcards",
+    "z-score standardize games, height, and weight (all raw)",
+    "log1p games, z-score age and height, impute height_std to 0",
+    "log-transform games, then z-standardize height and weight"
+   ],
+   "why_rival": "each is a rival scaling/transformation scheme (z-scoring, log-transform, or both) applied to the same continuous predictors",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the referee implicit-bias (IAT) column's string 'NA' parsed to numeric?",
+   "options": [
+    "coerce mean implicit-bias (IAT) score ('NA'→missing) to numeric"
+   ],
+   "why_rival": "single recorded choice for coercing the IAT column's 'NA' strings to numeric/missing"
+  },
+  {
+   "question": "How is the weight column's string 'NA' parsed to numeric?",
+   "options": [
+    "treat string \"NA\" as missing and convert weight to numeric"
+   ],
+   "why_rival": "single recorded choice for coercing the weight column's 'NA' strings to numeric/missing"
+  },
+  {
+   "question": "How is the referee explicit-bias column's string 'NA' parsed to numeric?",
+   "options": [
+    "coerce mean explicit-bias score ('NA'→missing) to numeric"
+   ],
+   "why_rival": "single recorded choice for coercing the explicit-bias column's 'NA' strings to numeric/missing"
+  },
+  {
+   "question": "Which variables are reported in the descriptive summary table?",
+   "options": [
+    "summary table of games, height, weight, yellow cards"
+   ],
+   "why_rival": "single recorded choice about what descriptive summary to present"
+  },
+  {
+   "question": "which covariates/controls enter the adjustment model?",
+   "options": [
+    "select the standard full column set (games, position, league, height, weight, player & referee ids)",
+    "games + position + age + height + weight + yellowCards (no league)",
+    "games + position + league + height + weight + yellowCards + meanIAT",
+    "games + victories + defeats + age + height + weight + goals",
+    "games + age + height + weight + position + league + meanIAT + meanExp",
+    "logistic, dark_skin + games + position + league + height + weight",
+    "adjust position + league + height + weight + standardized unlogged games",
+    "games + height + weight + age + yellowCards + goals + position + league",
+    "games + yellowCards + age + height + weight + league + meanIAT + meanExp",
+    "log(games) + age + height + weight + league (no position/yellow)",
+    "logistic, league + position + age + height + weight + yellowCards + goals",
+    "position + league + games + yellowCards + goals + height + weight + meanIAT",
+    "yellowCards + height + weight + position + league + meanIAT + meanExp (no games)",
+    "adjust position + log(games) + height + weight + yellow cards + league",
+    "games + position + league + yellowCards + meanIAT + meanExp + height + weight + age",
+    "adjust position + league + games + yellowCards + goals + height + weight (family unspec)",
+    "logistic, dark_skin + raw games + position + league + yellowCards + height + weight",
+    "full set: games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league",
+    "select a reduced/transformed set (log_games, position_cat, leagueCountry, playerShort; no height/weight)",
+    "position + league + yellowCards + height"
+   ],
+   "why_rival": "each is a rival specification of the control set for the primary skin-tone regression; an analyst commits to one column set, so they are mutually exclusive answers to what gets adjusted for (the near-default logistic link and binary skin tone embedded in some of these are held constant across the group)",
+   "co_pair_share": 0.011
+  },
+  {
+   "question": "which regression family/estimator relates skin tone to red cards?",
+   "options": [
+    "risk-difference model adding age + height + weight controls",
+    "continuous exposure fit via OLS with HC1 robust standard errors",
+    "Poisson with log(games) offset + height, weight, league, position, meanIAT, meanExp",
+    "fit Poisson GLMM on height/weight/goals/position with referee random intercept, excluding skin tone"
+   ],
+   "why_rival": "risk-difference, OLS/linear, Poisson-with-offset, and Poisson GLMM are alternative estimators for the same outcome; the primary model is fit with exactly one family",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are records with missing height/weight (and bias) covariates handled — imputed or dropped?",
+   "options": [
+    "height/weight median, bias scores (meanIAT/meanExp) with mean",
+    "height/weight median, bias scores (meanIAT/meanExp) with zero",
+    "height/weight/age/meanIAT/meanExp all with column median",
+    "mean-impute both height and weight (incl. imputing 0 on standardized scale)",
+    "complete-case on height, weight, position, and both implicit-bias covariates",
+    "restrict to dyads with known height/weight and add those physical covariates",
+    "restrict to players with known height/weight and add them as adjustment covariates"
+   ],
+   "why_rival": "each disposes of records lacking covariate values a different way — mean/median/zero imputation versus complete-case restriction — and imputing precludes dropping the same rows",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "are dyads with implausible, out-of-range physical measurements excluded?",
+   "options": [
+    "exclude dyads with height/weight outside plausible physiological range (160-210cm, 50-110kg)"
+   ],
+   "why_rival": "sole option settling whether measured-but-implausible height/weight values are filtered out (distinct from missing-value handling, since these rows have measurements)"
+  },
+  {
+   "question": "how are standard errors and model inference estimated (clustering unit, robust variance, weighting)?",
+   "options": [
+    "games-weighted, HC1, games + age + height + weight + yellowCards + position + league",
+    "logistic, continuous skin tone + games/position/league/height/weight, referee-clustered SE",
+    "cluster standard errors by player",
+    "logistic via plain ML, unclustered SE",
+    "cluster standard errors on refCountryID",
+    "re-estimate primary model with HC1 robust standard errors",
+    "use HC3 heteroskedasticity-robust standard errors"
+   ],
+   "why_rival": "unclustered ML, player-clustered, referee/refCountry-clustered, HC1, HC3, and games-weighted variance are competing inference procedures for one primary fit; an analyst selects one",
+   "co_pair_share": 0.048
+  },
+  {
+   "question": "how are the physical/adjustment covariates transformed or encoded before entering the model?",
+   "options": [
+    "compute BMI from height and weight via the standard formula",
+    "add squared height and weight terms for nonlinear body-size effects",
+    "engineer adjustment covariates: bucketed position, log games, z-scored height/weight, rate-normalized yellow cards"
+   ],
+   "why_rival": "deriving BMI, adding quadratic body-size terms, or z-scoring/log/bucket encoding are alternative functional-form representations of the same covariates",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "is a skin-tone × league interaction included so the effect can vary by league?",
+   "options": [
+    "add dark_skin×league interaction adjusting for log_games, position, height, weight, playerShort; derive per-league ORs"
+   ],
+   "why_rival": "sole option settling whether effect heterogeneity across leagues is modeled via an interaction term versus a single pooled effect"
+  },
+  {
+   "question": "is a multicollinearity (VIF) diagnostic applied to screen the covariates?",
+   "options": [
+    "compute VIF with a VIF<10 cutoff threshold"
+   ],
+   "why_rival": "sole option settling whether a VIF collinearity check is run as a covariate-screening step"
+  },
+  {
+   "question": "what descriptive summary of the sample is produced?",
+   "options": [
+    "summary table of age, height, weight, yellow/red cards, anyred"
+   ],
+   "why_rival": "sole option settling the descriptive/summary-table reporting step, separate from any inferential modeling choice"
+  },
+  {
+   "question": "which regression model / outcome family is used to estimate the effect?",
+   "options": [
+    "logistic regression for the binary outcome",
+    "LPM with referee-bias covariates",
+    "logistic regression primary (clustering unspecified)",
+    "use logistic regression as the outcome model family",
+    "Poisson GLM with log(games) offset, no covariates",
+    "Poisson regression of red-card counts with no offset",
+    "OLS multiple regression on total red cards",
+    "mixed model, random intercept + fixed-effect covariates",
+    "probit regression on the binary red-card indicator",
+    "logistic (logit-link) regression on the binary red-card indicator"
+   ],
+   "why_rival": "each picks one functional form for the primary model (logistic, LPM, Poisson, OLS, probit, mixed); an analyst runs one as the main estimator",
+   "co_pair_share": 0.022
+  },
+  {
+   "question": "how are the model's standard errors estimated?",
+   "options": [
+    "logistic regression with player-clustered SEs, covariates unspecified",
+    "logistic regression with HC1 robust SE",
+    "logistic regression, player-clustered SEs",
+    "logistic, player-clustered SE, covariates unspecified",
+    "logistic regression, referee-clustered SEs",
+    "GLM on skin tone + covariates, HC1 robust SE",
+    "closed-form two-proportion binomial-variance SE formula",
+    "fit logistic regression with standard errors clustered on player",
+    "fit logistic regression as the effect model, with player-clustered SEs"
+   ],
+   "why_rival": "each computes uncertainty a different way (player-clustered, referee-clustered, HC1 robust, closed-form binomial), a single mutually-exclusive choice; these co-occur with plain model-family options, confirming they are a distinct slot",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are records with missing values handled?",
+   "options": [
+    "impute missing covariates and model the full sample",
+    "complete-case / listwise deletion on model covariates",
+    "complete-case on broad set (outcome, exposure, covariates, IDs)"
+   ],
+   "why_rival": "impute-and-keep vs listwise deletion (on covariates vs on a broad variable set) each disposes of incomplete records a different, mutually-exclusive way",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which covariates does the primary model adjust for (if any)?",
+   "options": [
+    "refit primary model with no covariates (bivariate model)",
+    "adjusted logistic regression, expanded covariate set (physical/style covariates added)",
+    "unadjusted: darkSkin alone, no covariates",
+    "unadjusted logistic regression, clustered by player",
+    "add position-group and league country as covariates",
+    "unadjusted logistic regression on skin-tone alone yielding crude OR",
+    "fit an unadjusted single-predictor logistic regression (odds ratio)"
+   ],
+   "why_rival": "each specifies the adjustment set for the primary model — no covariates/crude vs an expanded physical-style set vs position+league; the analyst settles on one primary specification",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is referee bias controlled for in the model?",
+   "options": [
+    "swap referee-bias covariates for referee fixed effects",
+    "include referee bias measure(s) as a covariate / regression block",
+    "add both meanIAT and meanExp referee-bias covariates"
+   ],
+   "why_rival": "referee bias is handled by including it as a covariate (one measure or both meanIAT+meanExp) or, instead, absorbed via referee fixed effects — the 'swap for fixed effects' wording marks these as direct alternatives",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the skin-tone exposure operationalized?",
+   "options": [
+    "logistic, skin tone dichotomized at 0.125 + z-scored covariates"
+   ],
+   "why_rival": "settles whether skin tone enters continuous or dichotomized at a cut-point (here 0.125)"
+  },
+  {
+   "question": "are the covariates standardized/z-scored before entering the model?",
+   "options": [
+    "z-scored covariates in the regression formula",
+    "logistic, standardized covariates, set unspecified"
+   ],
+   "why_rival": "both settle the scaling of covariates going into the regression",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the exposure entered relative to the covariates (hierarchical block structure)?",
+   "options": [
+    "enter skin tone in block 1 together with the covariates/controls"
+   ],
+   "why_rival": "settles the entry/blocking scheme for the focal predictor and controls"
+  },
+  {
+   "question": "is multicollinearity among covariates diagnosed?",
+   "options": [
+    "compute VIF on all covariates, no threshold or subset specified"
+   ],
+   "why_rival": "settles whether a VIF collinearity check is run"
+  },
+  {
+   "question": "is covariate balance across exposure groups checked?",
+   "options": [
+    "tabulate covariates by exposure group as a balance/characterization check"
+   ],
+   "why_rival": "settles whether a balance/characterization table by exposure is produced"
+  },
+  {
+   "question": "how is the model estimated/fit?",
+   "options": [
+    "fit the adjusted logistic regression model via maximum likelihood"
+   ],
+   "why_rival": "settles the fitting procedure (maximum likelihood) for the adjusted model"
+  },
+  {
+   "question": "how are categorical covariates encoded before modeling?",
+   "options": [
+    "mark covariates as categorical dtype before dummy-coding"
+   ],
+   "why_rival": "settles the pre-modeling encoding (categorical dtype / dummy-coding) of covariates"
+  },
+  {
+   "question": "are interaction terms included in the model?",
+   "options": [
+    "fit redCards regression with interactions, varying the focal predictor"
+   ],
+   "why_rival": "settles whether the effect model carries interactions with a varying focal predictor"
+  },
+  {
+   "question": "what secondary/sensitivity regression is fit alongside the primary model?",
+   "options": [
+    "fit a secondary sensitivity logistic regression mirroring primary covariates",
+    "secondary model: logistic regression in place of the LPM, same covariates/clustering",
+    "fit a secondary logistic regression with the same covariates and report the exponentiated coefficient as an odds ratio"
+   ],
+   "why_rival": "each is a robustness refit choosing what to check — mirror primary covariates, swap logistic for the LPM, or report the exponentiated OR",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which model results are reported/headlined?",
+   "options": [
+    "headline only the exposure's coefficient/SE/p/CI, omitting covariates"
+   ],
+   "why_rival": "settles what is surfaced in the write-up (exposure coefficient only, omitting covariates)"
+  },
+  {
+   "question": "Which covariates make up the primary adjusted model's adjustment set?",
+   "options": [
+    "minimally-adjusted sensitivity model: games only, drop position",
+    "adjust for log games only, dropping position and league",
+    "fit the primary adjusted model with dark_skin, games, and position only"
+   ],
+   "why_rival": "each names a different set of covariates the primary model adjusts for (games+position, games only, log-games only); an analyst fits one such specification as the main model",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?",
+   "options": [
+    "fit an unadjusted model dropping all covariates to test sensitivity to adjustment",
+    "drop a covariate from the adjustment set to test sensitivity",
+    "sensitivity refit of the adjusted model dropping referee-bias covariates (meanIAT/meanExp)",
+    "refit across a ladder of nested adjustment sets (unadjusted -> full)",
+    "drop yellowCards from the adjustment model",
+    "drop yellowCards from the adjustment set",
+    "robustness: DROP a covariate from the adjustment set",
+    "drop specific covariate(s) from the adjustment set",
+    "drop yellowCards from covariate set as a sensitivity check"
+   ],
+   "why_rival": "each is a different way of stripping down the adjustment set for a robustness refit (drop all, drop yellowCards, drop referee-bias terms, drop an unspecified covariate, sweep a nested ladder); none of these co-occur, consistent with being rival forms of the same drop-covariate check",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Is the adjustment set expanded by adding covariates as a robustness check?",
+   "options": [
+    "robustness: ADD a covariate to the adjustment set"
+   ],
+   "why_rival": "adding a covariate is its own robustness slot, kept separate from the drop-covariate slot because it co-occurs with option 18 (an analyst adds one covariate and drops another in the same run)"
+  },
+  {
+   "question": "What regression family is used to estimate the effect — logistic or linear probability model?",
+   "options": [
+    "unadjusted LPM, player-clustered SE",
+    "bare logistic family, adjustment unspecified",
+    "unadjusted linear probability model, clustered by player"
+   ],
+   "why_rival": "the analyst picks one functional form for the regression; logistic and the (duplicate) linear-probability specifications are mutually exclusive answers to how the binary outcome is modeled",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "How is the crude, unadjusted association assessed?",
+   "options": [
+    "report raw rate difference plus a bivariate unadjusted logistic fit",
+    "fit an unadjusted logistic regression and report the skin-tone effect on the odds-ratio scale",
+    "test normality, then Spearman correlation",
+    "test crude association with chi-square on the 2x2 table",
+    "two-proportion z-test on group red-card difference"
+   ],
+   "why_rival": "each is an alternative bare-bones test of the skin-tone/red-card association with no covariate adjustment (chi-square, two-proportion z, Spearman, unadjusted logistic OR, raw-difference-plus-bivariate); an analyst chooses one crude test, and none co-occur with each other",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Is skin tone modeled on its original continuous scale rather than categorized?",
+   "options": [
+    "rebuild the adjustment set for the continuous skin-tone sensitivity check"
+   ],
+   "why_rival": "treating skin tone as continuous is one rival coding of the exposure, incompatible with dichotomizing or banding it"
+  },
+  {
+   "question": "Are all skin-tone categories retained, or is the sample collapsed to extreme groups?",
+   "options": [
+    "refit model retaining all three skin-tone bands as sensitivity check on excluding Medium",
+    "keep all levels, no reference dropped",
+    "extreme groups below-0.25 vs above-0.5, dropping the middle"
+   ],
+   "why_rival": "keeping all bands / all levels versus dropping the middle to compare extreme groups are opposing dispositions of the skin-tone categories; an analyst does one",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Where is the skin-tone dichotomization cutoff set?",
+   "options": [
+    "test alternative cutoffs (2 and 5) together as robustness",
+    "sensitivity sweep reporting model across several cutoffs",
+    "sensitivity refit using alternate 0.5-threshold exposure"
+   ],
+   "why_rival": "each picks a different threshold (or sweep of thresholds) at which the skin-tone scale is split into dark/light; they are rival cutoff choices for the same dichotomy",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Is skin tone measured at the individual player level or as a club average?",
+   "options": [
+    "test unadjusted club-average skin tone alongside individual tone"
+   ],
+   "why_rival": "the level at which the exposure is aggregated is its own choice, distinct from how the scale is coded"
+  },
+  {
+   "question": "Is a skin-tone by referee-bias moderation interaction tested, and how?",
+   "options": [
+    "likelihood-ratio test of interaction model vs main-effects model at 3 df",
+    "test skin tone × bias moderation interaction",
+    "joint likelihood-ratio test of interaction terms vs the no-interaction model"
+   ],
+   "why_rival": "these settle whether/how the moderation is evaluated (fit the interaction, LR-test it vs main effects, joint LR-test the interaction terms) — rival ways of answering the same moderation question",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are the standard errors computed?",
+   "options": [
+    "adjustment set specification combined with HC3 robust standard errors"
+   ],
+   "why_rival": "the choice of HC3 robust standard errors is a single slot for how uncertainty is estimated"
+  },
+  {
+   "question": "How is the significance of the skin-tone coefficient formally tested?",
+   "options": [
+    "test the skin-tone coefficient with a two-sided Wald z-test"
+   ],
+   "why_rival": "the two-sided Wald z-test is one choice of inference procedure for the model coefficient"
+  },
+  {
+   "question": "What regression diagnostics are computed?",
+   "options": [
+    "request coefficient/fit/collinearity/R2-change statistics",
+    "run Durbin-Watson test for residual autocorrelation"
+   ],
+   "why_rival": "requesting fit/collinearity/R2 statistics versus a Durbin-Watson autocorrelation test are alternative diagnostic checks reported for the model",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Are goalkeepers included in the analytic sample?",
+   "options": [
+    "exclude goalkeepers as primary spec, include them as sensitivity check"
+   ],
+   "why_rival": "whether goalkeepers are in or out defines who the study is about — a single inclusion decision"
+  },
+  {
+   "question": "Which prepared analytic subset of the data is used?",
+   "options": [
+    "select the prepared analytic subset (d4.test)"
+   ],
+   "why_rival": "selecting the d4.test analytic subset settles which processed dataset the analysis runs on"
+  },
+  {
+   "question": "Is the analysis stratified into subgroups (e.g., by league), and how?",
+   "options": [
+    "re-run the adjusted analysis separately within each league, dropping league(-country) from the adjustment set",
+    "recompute unadjusted risk difference within subgroups"
+   ],
+   "why_rival": "re-running the model separately per league versus computing unadjusted risk differences within subgroups are rival ways to stratify rather than pool the data",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are raw group red-card rates reported descriptively?",
+   "options": [
+    "report raw unadjusted rates by group, no formal test/differencing"
+   ],
+   "why_rival": "reporting raw unadjusted rates by group with no formal test is a distinct descriptive-presentation slot"
+  },
+  {
+   "question": "What covariate-balance descriptives are reported?",
+   "options": [
+    "descriptive Table 1 of raw/unadjusted covariate means by group"
+   ],
+   "why_rival": "a Table 1 of covariate means by group is its own descriptive step, done alongside (co-occurring with) the outcome reporting"
+  },
+  {
+   "question": "How are the primary and sensitivity specifications summarized together?",
+   "options": [
+    "assemble comparison table of primary and sensitivity specifications side-by-side"
+   ],
+   "why_rival": "assembling a side-by-side comparison table is a single choice about how results are collated for presentation"
+  },
+  {
+   "question": "What confidence level is adopted for interval estimates?",
+   "options": [
+    "adopt a 95% confidence level for all interval estimates"
+   ],
+   "why_rival": "fixing the 95% confidence level is one slot for the width of reported intervals"
+  },
+  {
+   "question": "What overall verdict on the hypothesis is declared?",
+   "options": [
+    "declare SUPPORTED, framed as robust across sensitivity analyses"
+   ],
+   "why_rival": "declaring the hypothesis SUPPORTED is the concluding call the analysis must make"
+  },
+  {
+   "question": "Which type of statistical model estimates the adjusted skin-tone effect on red cards?",
+   "options": [
+    "fit a negative-binomial GLMM with meanIAT-by-rater and rater-by-meanExp interactions",
+    "fit referee fixed-effects model of red cards with clustered SEs",
+    "binomial mixed model on main effects with crossed referee/player intercepts",
+    "fit mixed-effects logistic cascade (intercept, fixed slope, random slope by referee, random slope by country), taking gm3 as preferred",
+    "Poisson mixed-effects model with games offset",
+    "log-transform games, no offset / zero handling unspecified",
+    "logit cascade of cards on rateravg through fixed effects",
+    "categorical/nonlinear rater1 cascade through referee fixed effects"
+   ],
+   "why_rival": "each is a full model-family spec (log-games logistic, negative-binomial GLMM, Poisson-offset, referee FE, binomial/mixed cascades) chosen as THE primary estimator; they don't co-occur with each other",
+   "co_pair_share": 0.071
+  },
+  {
+   "question": "Which covariates does the adjusted model control for?",
+   "options": [
+    "games only",
+    "position only",
+    "games + position only",
+    "games + position + league only",
+    "log(games) + position + league only",
+    "logistic, dark_skin + log_games only",
+    "refit adjusting for dark skin and games only, excluding position"
+   ],
+   "why_rival": "each names a single adjustment set (games only, position only, games+position, +league, log-games+minimal, etc.); an analyst picks one set for the primary model",
+   "co_pair_share": 0.048
+  },
+  {
+   "question": "Does the model include a skin-tone × country-bias (IAT/exposure) interaction term?",
+   "options": [
+    "fit zero-inflated model with main effects only, no interactions",
+    "specify primary model as additive main effects only, no interaction terms",
+    "include darkSkin × country-bias (meanIAT/meanExp) interactions in the zero-inflated model",
+    "add the interaction only if the IAT sample exceeds 10,000"
+   ],
+   "why_rival": "main-effects-only vs interactions-included vs conditionally-included are rival answers to whether interaction terms enter the model",
+   "co_pair_share": 0.167
+  },
+  {
+   "question": "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?",
+   "options": [
+    "Pearson correlation only",
+    "Spearman correlation only"
+   ],
+   "why_rival": "Pearson vs Spearman are the two coefficient choices for the same correlational analysis and never co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the crude, unadjusted association quantified?",
+   "options": [
+    "compute crude risk difference, point estimate only"
+   ],
+   "why_rival": "the crude risk-difference is a distinct descriptive-effect slot (co-occurs with correlations and regressions, so not their rival)"
+  },
+  {
+   "question": "Which reference year is used to compute age from birth year?",
+   "options": [
+    "year-only subtraction, fixed 2012 reference year",
+    "year-only subtraction, fixed 2013 reference year",
+    "year-only subtraction, unspecified year, ignoring parse failures"
+   ],
+   "why_rival": "fixing 2012, 2013, or an unspecified year are mutually exclusive choices for the same subtraction",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the middle (Medium) skin-tone category handled?",
+   "options": [
+    "drop the Medium group, keep only Light and Dark"
+   ],
+   "why_rival": "dropping the Medium group to keep only Light/Dark is one answer to how the skin-tone categories are grouped"
+  },
+  {
+   "question": "How are the raters' skin-tone scores encoded numerically?",
+   "options": [
+    "recode each rater's score to a numeric zero-based scale"
+   ],
+   "why_rival": "recoding each rater's score to a zero-based numeric scale settles how the categorical ratings become a numeric variable"
+  },
+  {
+   "question": "What criterion determines whether the effect is declared statistically supported?",
+   "options": [
+    "declare hypothesis supported only if bootstrap p<0.05",
+    "declare supported if p<0.05 OR CI excludes zero (disjunction)",
+    "declare supported on two-sided 95% CI excluding zero, no p-value"
+   ],
+   "why_rival": "bootstrap p<.05 vs CI-excludes-zero vs the disjunction of the two are rival decision rules for calling the hypothesis supported",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the p-value / uncertainty for the exposure effect obtained?",
+   "options": [
+    "report Wald p-value for exposure coefficient directly from primary GLM fit",
+    "bootstrap p-value as twice the tail proportion of draws relative to zero",
+    "percentile/crossing-zero bootstrap p-value (double smaller tail) with percentile CI"
+   ],
+   "why_rival": "analytic Wald p-value vs two bootstrap p-value constructions are rival ways to produce the same inferential quantity",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are bootstrap iterations whose model fit fails handled?",
+   "options": [
+    "catch and drop bootstrap iterations whose model fit throws an exception"
+   ],
+   "why_rival": "catching and dropping exception-throwing bootstrap draws settles how failed resamples are treated"
+  },
+  {
+   "question": "Are dyads with zero games excluded from the sample?",
+   "options": [
+    "exclude dyads with zero games (keep games >= 1)"
+   ],
+   "why_rival": "keeping games>=1 is one disposition of zero-game records"
+  },
+  {
+   "question": "Are referees who encountered only one player excluded?",
+   "options": [
+    "exclude referees who encountered only one player"
+   ],
+   "why_rival": "dropping single-player referees settles who counts as sufficiently-observed"
+  },
+  {
+   "question": "Is the sample restricted to particular player positions?",
+   "options": [
+    "restrict to Defender/Goalkeeper dyads only, dropping position covariate"
+   ],
+   "why_rival": "restricting to Defender/Goalkeeper dyads settles which players the study is about"
+  },
+  {
+   "question": "Are referee-country fixed effects added to adjust for country?",
+   "options": [
+    "add referee-country fixed effects"
+   ],
+   "why_rival": "including referee-country fixed effects settles whether country-level confounding is absorbed"
+  },
+  {
+   "question": "How is multicollinearity assessed?",
+   "options": [
+    "compute VIF on only the four continuous/base predictors"
+   ],
+   "why_rival": "computing VIF on the four continuous/base predictors settles the collinearity diagnostic"
+  },
+  {
+   "question": "Is a covariate-balance / descriptive table reported?",
+   "options": [
+    "balance-check table of games and yellow cards only"
+   ],
+   "why_rival": "the games-and-yellow-cards balance table settles what descriptive balance check is presented"
+  },
+  {
+   "question": "Are model coefficients exponentiated to odds ratios for reporting?",
+   "options": [
+    "exponentiate glmer fixed effects to report odds ratios"
+   ],
+   "why_rival": "exponentiating glmer fixed effects settles the scale on which effects are reported"
+  },
+  {
+   "question": "Is a confidence interval reported alongside the point estimate?",
+   "options": [
+    "report the odds ratio point estimate only, without a CI"
+   ],
+   "why_rival": "reporting the odds-ratio point estimate without a CI settles whether interval uncertainty is shown"
+  },
+  {
+   "question": "Is a model-fit comparison table across specifications produced?",
+   "options": [
+    "assemble a comparison/summary table of model fit statistics across specifications"
+   ],
+   "why_rival": "assembling a cross-specification fit-statistics table settles whether models are compared side by side"
+  },
+  {
+   "question": "How is the source dataset loaded for the main analysis?",
+   "options": [
+    "reload the source csv fresh via pandas.read_csv for the main analysis"
+   ],
+   "why_rival": "reloading the csv fresh via read_csv settles how the analysis data is ingested"
+  },
+  {
+   "question": "Under what condition is a position-subgroup model reported?",
+   "options": [
+    "only report a position subgroup model if it has >1000 observations"
+   ],
+   "why_rival": "the >1000-observation threshold settles when a subgroup model is deemed reportable"
+  },
+  {
+   "question": "which regression model and standard-error scheme is used to estimate the skin-tone effect?",
+   "options": [
+    "adjusted logistic regression, standard covariate set (games + position + league)",
+    "adjusted linear probability model with player-clustered SEs (nested covariate tiers)",
+    "adjusted logistic on continuous skin-tone, adjust log_games+position+league, no clustering",
+    "logistic, dark_skin + full set incl referee bias (log_games/height/weight/yellow-rate/position/league)",
+    "adjusted linear probability model with HC3 robust SEs",
+    "adjusted OLS linear probability model, player/clustered SE"
+   ],
+   "why_rival": "each is a complete, mutually-exclusive primary-model specification (logistic vs linear-probability/OLS, with clustered / HC3 / no-cluster SEs); an analyst fits exactly one estimator",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which covariates make up the model's adjustment set?",
+   "options": [
+    "games + yellowCards + position",
+    "add a covariate to the primary model (variable varies)",
+    "drop a covariate from the primary model (variable varies)",
+    "games + position + league + yellowCards",
+    "games + position + league + meanIAT (no ht/wt)",
+    "add league country as covariate",
+    "add position category as covariate",
+    "add yellowCards as an extra covariate",
+    "games-as-spline + league + position",
+    "games + yellowCards + height + position + league",
+    "generic/unspecified covariate-set selection",
+    "games + position + league + yellowCards + goals",
+    "log(games) + position + league + meanIAT",
+    "log(games) + position + league + yellowCards",
+    "remove the position covariate from the extreme-contrast model"
+   ],
+   "why_rival": "each names, adds to, or removes from the set of controls; the analyst settles on one covariate configuration for the model",
+   "co_pair_share": 0.019
+  },
+  {
+   "question": "how is games-played entered into the model (functional form / transformation)?",
+   "options": [
+    "log-transform games with +1 offset (log1p)",
+    "log-transform games with 0.5 offset",
+    "4-df natural cubic spline for games",
+    "add a squared (quadratic) games term",
+    "floor games at 1, then log-transform",
+    "replace the games spline with log(games) and recompute RD/OR"
+   ],
+   "why_rival": "log with +1 offset, log with 0.5 offset, floor-then-log, quadratic term, natural spline, and spline-swapped-for-log are rival ways to encode the same games variable; only one form is used",
+   "co_pair_share": 0.067
+  },
+  {
+   "question": "what minimum number of shared games per dyad is required for inclusion?",
+   "options": [
+    "restrict to dyads with ≥2 games together",
+    "restrict to dyads with at least 2 games",
+    "restrict to dyads with ≥5 games together",
+    "require at least 3 games per dyad",
+    "require at least 2 games per dyad",
+    "drop the games-played exclusion entirely",
+    "require at least 5 games per dyad",
+    "restrict to dyads with at least 3 games together"
+   ],
+   "why_rival": "each sets the exposure threshold to a different cutoff (or drops it entirely); the dyad inclusion rule is a single choice",
+   "co_pair_share": 0.107
+  },
+  {
+   "question": "are players with too few total games excluded as a data-quality filter?",
+   "options": [
+    "restrict to players with >=10 games (QC sample)"
+   ],
+   "why_rival": "a player-level low-activity QC exclusion, distinct in purpose and unit from the per-dyad exposure threshold"
+  },
+  {
+   "question": "how is the skin-tone predictor operationalized — kept as a full continuous range or dichotomized at a threshold?",
+   "options": [
+    "keep full skin-tone range, dropping only rows with missing position",
+    "refit adjusted model across cutoffs 0.375 / 0.5 / 0.625"
+   ],
+   "why_rival": "keeping the full continuous skin-tone range and dichotomizing at a cutoff (and sweeping which cutoff) are rival treatments of the exposure; choosing one precludes the other",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the red-card outcome operationalized?",
+   "options": [
+    "build a smoothed per-game red-card rate (sum/(games+1)) tested against S1/S2 splits"
+   ],
+   "why_rival": "constructing a smoothed per-game red-card rate is one way to define the outcome variable"
+  },
+  {
+   "question": "is the skin-tone effect compared between a minimally-adjusted (games-only) and a fully-adjusted model?",
+   "options": [
+    "compare reduced games-only model against full covariate-adjusted model"
+   ],
+   "why_rival": "a diagnostic contrasting adjustment sets to gauge confounding impact"
+  },
+  {
+   "question": "how is the fitted model's calibration assessed?",
+   "options": [
+    "compare in-sample predicted probabilities against observed rate, ungrouped"
+   ],
+   "why_rival": "comparing in-sample predicted probabilities against observed rates is one calibration-check approach"
+  },
+  {
+   "question": "how is systematic missingness in skin-tone ratings assessed?",
+   "options": [
+    "compare outcome/covariate distributions between dyads with vs without skin-tone data"
+   ],
+   "why_rival": "comparing distributions between dyads with vs without skin-tone data is one way to probe non-random missingness"
+  },
+  {
+   "question": "how is covariate balance across skin-tone groups checked?",
+   "options": [
+    "tabulate/crosstab position category against skin-tone group as a covariate-balance check"
+   ],
+   "why_rival": "crosstabbing position against skin-tone group is one balance-diagnostic approach"
+  },
+  {
+   "question": "are game-frequency weights applied when fitting the model?",
+   "options": [
+    "refit primary model without games frequency weights"
+   ],
+   "why_rival": "weighting vs not weighting observations by games played is a single weighting choice"
+  },
+  {
+   "question": "what baseline N is used to account for sample exclusions?",
+   "options": [
+    "report exclusions against hardcoded original N of 146028"
+   ],
+   "why_rival": "using a hardcoded original N of 146028 is one convention for exclusion reporting"
+  },
+  {
+   "question": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+   "options": [
+    "OLS on the raw red-card count outcome",
+    "binarize red-card count at dyad level (>0 threshold)",
+    "Poisson regression of red-card counts with log(games)/exposure offset",
+    "regress raw (non-binarized) red-card count on skin tone with no covariates",
+    "collapse red-card count into a binary any-red indicator (game-level then re-thresholded at player-level)",
+    "switch to a Poisson model on raw red-card counts with a log-games offset instead of binary logistic outcome"
+   ],
+   "why_rival": "Each represents and fits the same red-card outcome a different way (binarize-and-logistic, OLS on the raw count, Poisson count with offset, raw count with no covariates); an analyst adopts one primary form, and the count-model variants that co-occur with binarization are robustness refits recording the same outcome slot twice.",
+   "co_pair_share": 0.2
+  },
+  {
+   "question": "Which card events are counted as the outcome event?",
+   "options": [
+    "any-card outcome = reds + second-yellow reds + yellows",
+    "any-red-card outcome = straight reds + second-yellow reds",
+    "define binary outcome as any red card or yellow-red card (any serious card)"
+   ],
+   "why_rival": "Each defines the event from a different set of card types — straight reds plus second-yellow reds, or additionally yellows, or 'any serious card' — and an analyst picks one definition of what counts.",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?",
+   "options": [
+    "add log(yellow-card count + 1) as covariate",
+    "add raw yellow-card count as covariate",
+    "logistic, base set + standardized yellow-card count",
+    "derive per-game yellow-card/goal rates and log-transformed games exposure",
+    "create both a log-covariate and a log-offset version",
+    "logistic, base set + yellow-card rate",
+    "derive a yellow-cards-per-game rate covariate",
+    "log-transform games and yellow cards with a +1 offset before use as covariates",
+    "normalize yellow cards into a per-game rate",
+    "compute count-per-game rate (count / games played)"
+   ],
+   "why_rival": "Each is a rival transformation of the same underlying count variable (raw, log(+1), standardized, per-game rate, log-offset) chosen for its entry as a control.",
+   "co_pair_share": 0.022
+  },
+  {
+   "question": "Which covariates make up the adjustment set in the primary model?",
+   "options": [
+    "log(games) + anthropometrics + yellow-card RATE + position + league",
+    "add yellow cards to the extreme-contrast/referee-bias model",
+    "add position and league to the minimal model",
+    "adjust position + league + yellow cards",
+    "games + age + position + league (no anthropometrics/yellow)",
+    "logistic, dark_skin + log_games + position + league"
+   ],
+   "why_rival": "Each is a competing specification of which controls (position, league, age, anthropometrics, yellow cards) enter the model; an analyst fits one primary adjustment set.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is potential mediation/confounding probed by removing a covariate and refitting?",
+   "options": [
+    "drop the raw yellow-card count covariate and refit",
+    "drop the yellow-card-per-game (rate) covariate as a possible mediator and refit",
+    "drop a single covariate to probe confounding/mediation"
+   ],
+   "why_rival": "Each drops a covariate and refits to answer the same question of whether adjustment for it is driving the result; they are variants of one probe move.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Is the referee's mean implicit-bias (IAT) score included as a covariate?",
+   "options": [
+    "add referee mean IAT implicit-bias score as a covariate",
+    "add referee mean implicit-bias score (meanIAT) as a single covariate"
+   ],
+   "why_rival": "Both add the referee meanIAT control; they are two phrasings of the same inclusion choice.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Which interaction/moderation term is added to the model?",
+   "options": [
+    "moderation of categorical tone + club-black-count covariate",
+    "add dark_skin×league interaction adjusting for log_games, position, yellowCards_std",
+    "add a slope/interaction term with N(0,1) prior"
+   ],
+   "why_rival": "Each specifies a different moderator (tone×club-composition, dark_skin×league, a generic slope term) for the same moderation slot.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "On what scale is the effect coefficient reported — exponentiated ratio or the raw log scale?",
+   "options": [
+    "exponentiate the coefficient to a rate ratio (count/Poisson model)",
+    "keep the coefficient on the log-odds scale, no exponentiation"
+   ],
+   "why_rival": "Exponentiating to a rate/odds ratio and leaving the coefficient on the log scale are mutually exclusive reporting choices for the same estimate.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Is a club-level count of dark-skinned/African-appearing players added as a control?",
+   "options": [
+    "add club-level count of African-appearing players as a covariate alongside categorical tone"
+   ],
+   "why_rival": "A standalone choice about including a club-composition confounder as a main-effect covariate (distinct from moderating on it, which co-occurs)."
+  },
+  {
+   "question": "Are season performance totals included as controls?",
+   "options": [
+    "add season performance totals as controls"
+   ],
+   "why_rival": "A standalone choice about adding season-total performance covariates."
+  },
+  {
+   "question": "How is the skin-tone exposure/contrast defined (e.g., an extremely-dark exposure indicator)?",
+   "options": [
+    "logistic on extremely-dark exposure, adjust position/league/log_yellow/games, no clustering"
+   ],
+   "why_rival": "A standalone choice about how the skin-tone predictor is coded and contrasted."
+  },
+  {
+   "question": "Are random intercepts (a mixed model) added?",
+   "options": [
+    "add random intercepts (mixed model)"
+   ],
+   "why_rival": "A standalone choice about whether the model includes random-effect clustering."
+  },
+  {
+   "question": "How is the lower yellow-card rate among dark-skinned players interpreted with respect to aggression confounding?",
+   "options": [
+    "read the lower yellow-card rate among dark-skinned players as evidence against aggressive-play confounding"
+   ],
+   "why_rival": "A standalone interpretive choice about what the yellow-card-rate difference implies for confounding."
+  },
+  {
+   "question": "How are missing covariate values handled?",
+   "options": [
+    "median-impute both and add a missingness indicator"
+   ],
+   "why_rival": "A standalone choice about imputation plus a missingness indicator for records with missing measurements."
+  },
+  {
+   "question": "Are dyads with implausibly high yellow-card rates excluded?",
+   "options": [
+    "drop dyads with yellow-card rate above 1 per game"
+   ],
+   "why_rival": "A standalone data-quality exclusion rule based on an outlier yellow-card rate."
+  },
+  {
+   "question": "Are units with too few red-card events excluded?",
+   "options": [
+    "discard if fewer than 5 red-card events"
+   ],
+   "why_rival": "A standalone minimum-events exclusion rule, independent of the outlier-rate exclusion."
+  },
+  {
+   "question": "Is covariate balance inspected before modelling?",
+   "options": [
+    "inspect covariate breakdown for balance (method unspecified)"
+   ],
+   "why_rival": "A standalone pre-model diagnostic choice to inspect covariate balance."
+  },
+  {
+   "question": "Is a descriptive summary table produced?",
+   "options": [
+    "summary table of red cards, games, yellow cards"
+   ],
+   "why_rival": "A standalone reporting choice to tabulate descriptive statistics."
+  },
+  {
+   "question": "which covariates and functional forms make up the adjusted model's control set?",
+   "options": [
+    "dichotomized skin + position_simple + log_games, no league",
+    "logistic, dark_skin + log(games) + position, no league",
+    "dark_skin + raw games + position_simple, no league",
+    "dark_skin + raw (unlogged) games + position + league",
+    "logistic, dark_skin + games + games_sq + position, no league, player-clustered SE",
+    "games + yellowCards + position + league + age (no anthropometrics)",
+    "games + yellowCards + position + league + meanIAT + meanExp",
+    "refit adding position alongside dark skin and games",
+    "league + position + games linear+quadratic + yellowCards + meanIAT",
+    "adjust for league but omit position",
+    "games + position + meanIAT + meanExp (referee-bias set)",
+    "enter games/wins/position dummies as the first control block"
+   ],
+   "why_rival": "each names one control set for the single primary regression (league in/out, position in/out, age, yellow cards, referee-bias measures, raw/log/quadratic games); an analyst commits to one adjustment specification",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the model's standard errors / uncertainty estimated?",
+   "options": [
+    "adjust for log-games + position + league with player-clustered SEs",
+    "logistic regression of any-red-card on dichotomized skin tone adjusting for games/position/league country, player-clustered SEs",
+    "adjust for raw games + position + league with HC1 robust SEs",
+    "logistic, dark_skin + position/league only, player-clustered SE, reported as OR"
+   ],
+   "why_rival": "player-clustered vs HC1 robust are mutually exclusive variance-estimation methods for the same fit",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which statistical model family is used for the outcome instead of plain logistic?",
+   "options": [
+    "Poisson GLM with log(games) offset plus position/league covariates",
+    "swap outcome model to Poisson rate model with log-games offset",
+    "poisson model of dark-skin cards on bias, offset by dark-skin games",
+    "Poisson GLM on counts with log(games) offset, referee-clustered SEs",
+    "linear-probability model with HC3 errors, adjust for games+position, percentage-point effect",
+    "give player position and league/country dyad their own non-centered random effects"
+   ],
+   "why_rival": "Poisson/count model, linear-probability model, and mixed-effects model are alternative estimators; only one drives the primary outcome model",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the skin-tone exposure entered into the regression — dichotomized at a cutpoint or kept continuous?",
+   "options": [
+    "use 0.25 dark-skin cutoff and drop position control",
+    "logistic, continuous skintone_avg + position + games, referee-clustered SE",
+    "dichotomize the primary skin-tone exposure at a 0.5 cutpoint"
+   ],
+   "why_rival": "a 0.25 cutoff, a 0.5 cutoff, and a continuous measure are mutually exclusive codings of the same exposure variable",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "into how many bins is skin tone grouped for descriptive rates?",
+   "options": [
+    "bin skin tone into 10 groups",
+    "bin skin tone into 9 groups"
+   ],
+   "why_rival": "9 vs 10 bins are rival granularities for the same descriptive grouping",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how many categories is player position collapsed into?",
+   "options": [
+    "collapse position into 3 categories",
+    "collapse position into 5 categories",
+    "four position buckets, no residual = 4 categories",
+    "collapse position into 6 categories (with Other/Unknown)"
+   ],
+   "why_rival": "3, 4, 5, or 6 position buckets are mutually exclusive recodings of the position variable",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are reference/baseline categories handled for the categorical dummies?",
+   "options": [
+    "manually choose Goalkeeper and England as reference categories for position/league dummies",
+    "one-hot encode position group and league country keeping every dummy level (no reference dropped)"
+   ],
+   "why_rival": "hand-picking reference levels vs keeping every dummy level (dropping none) are alternative dummy-encoding schemes",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are records with missing position/skin-tone values handled?",
+   "options": [
+    "complete-case on skin tone and position",
+    "recode missing position/league values as an explicit 'Unknown' category",
+    "drop dyads with missing player position"
+   ],
+   "why_rival": "complete-case / dropping the unmeasured records vs recoding them as an explicit 'Unknown' category each dispose of the same missing records differently",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is effect modification / moderation of the skin-tone effect tested?",
+   "options": [
+    "add a league × dark-skin interaction term to test effect modification",
+    "add dark_skin×league interaction with minimal/unspecified adjustment, LRT",
+    "moderation of the categorical skin-tone effect"
+   ],
+   "why_rival": "alternative interaction/moderation specifications answering whether the skin-tone effect varies across groups",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are descriptive red-card rates aggregated and tabulated across groups?",
+   "options": [
+    "aggregate red-card rate and mean skin tone by position, ranked",
+    "tabulate red-card counts/rates by skin-tone group and position",
+    "compute per-group tallies (red cards, games, dyads, any-red-card counts) for descriptive rates by skin-tone group"
+   ],
+   "why_rival": "grouping by position, by skin-tone × position, or by skin-tone group alone are rival framings for the descriptive rate summary",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which positions are included in the descriptive position × skin-tone crosstab?",
+   "options": [
+    "restrict the position-by-skin-tone crosstab to four hand-picked positions"
+   ],
+   "why_rival": "settles the scope of positions shown in the descriptive crosstab"
+  },
+  {
+   "question": "how is the exploratory disciplinary-outcome model without skin tone specified (club + position)?",
+   "options": [
+    "model club and position predicting disciplinary outcome (no skin tone)",
+    "club + position"
+   ],
+   "why_rival": "both specify the same club/team-plus-position model that omits skin tone; the single co-run is the same slot recorded twice, not two rivals run together",
+   "co_pair_share": 1.0
+  },
+  {
+   "question": "How are dyads with a missing skin-tone rating handled?",
+   "options": [
+    "complete-case on skin tone and referee IAT",
+    "drop dyad when rater1's skin-tone score is missing (asymmetric)",
+    "drop dyad only when BOTH raters' skin-tone scores are missing",
+    "standard complete-case on skin tone: drop dyad if either rater's rating is missing"
+   ],
+   "why_rival": "each is a mutually-exclusive complete-case rule (drop if either rater missing, if both missing, if rater1 missing, or complete-case incl. IAT); an analyst applies one; none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the skin-tone rating turned into the exposure variable for the primary analysis (continuous, dichotomized at which cutoff, or which categories/rows retained)?",
+   "options": [
+    "true median split of skin tone",
+    "shift boundary inclusion to skin tone >=0.5 instead of >0.5",
+    "rebuild sample using continuous (non-binned) skin-tone ratings",
+    "keep medium skin tone as its own category rather than excluding it",
+    "fixed 0.25 cutoff on full non-missing sample, mislabeled as a median split",
+    "drop the medium/undefined skin-tone band to restrict the sample to light vs dark",
+    "keep Medium-category rows in the three-category skin-tone model rather than excluding them",
+    "restrict to true endpoints 0.0 vs 1.0"
+   ],
+   "why_rival": "median split, 0.25 cutoff, >=0.5 boundary, three-category keep-medium, drop-medium, endpoints-only, and continuous are alternative definitions of the same exposure — you can only define it once, and none of these co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "What model specification estimates the adjusted skin-tone effect?",
+   "options": [
+    "logistic, continuous skin tone + full set, HC1 robust SE",
+    "random slope letting the skin-tone effect vary by referee",
+    "random intercept only, skin tone as fixed effect (no slope, no interaction)",
+    "logistic, continuous skin tone, full adjustment incl referee bias",
+    "fit three-level categorical skin-tone model with Light as the reference category",
+    "specify the Q1 binomial hierarchical model with player-style and skin-tone random effects",
+    "specify referee-style plus skin-tone-specific bias-slope model structure"
+   ],
+   "why_rival": "single-level logistic (robust SE / incl. referee bias), random-intercept-only, random-slope, three-level categorical, and two hierarchical structures are rival specifications of the one primary model; the 16/19 and 22/36 co-occurrences are model-comparison, not coexistence",
+   "co_pair_share": 0.095
+  },
+  {
+   "question": "How is the estimated skin-tone effect converted into a reported quantity?",
+   "options": [
+    "contrast predicted risk at the 75th vs 25th percentile of continuous skin tone",
+    "predict at extreme skin-tone values and difference them for a risk difference",
+    "compute posterior probability that the darkest skin-tone effect exceeds the lightest",
+    "pull skin-tone marginal effect from margeff array by hardcoded index"
+   ],
+   "why_rival": "percentile risk contrast, extreme-value risk difference, Bayesian posterior probability, and extracted average marginal effect are rival expressions of the same effect magnitude",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How finely is skin tone aggregated for the descriptive red-card-rate plot?",
+   "options": [
+    "bin skin tone into quintiles for a descriptive plot",
+    "bin skin tone into 8 bins for the red-card rate plot",
+    "bin skin tone into 10 equal-width bins for the scatter panel",
+    "compute red-card rate and 95% CI separately for every distinct observed skin-tone value"
+   ],
+   "why_rival": "quintiles, 8 bins, 10 equal-width bins, or one point per distinct value are alternative granularities for the same rate visualization",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "What minimum observation count must a skin-tone bin/value have to be plotted?",
+   "options": [
+    "drop skin-tone bins with fewer than 50 observations before plotting",
+    "drop skin-tone values with fewer than 100 supporting dyads before plotting rate curve"
+   ],
+   "why_rival": "a >=50 vs >=100 support threshold for including a bin — one threshold is chosen",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the bivariate skin-tone/red-card association tested?",
+   "options": [
+    "chi-square on a 2x2 skin-tone-by-red-card contingency table",
+    "chi-square test of independence on skin-tone group vs red card"
+   ],
+   "why_rival": "a 2x2 chi-square vs a group-by-outcome chi-square of independence are rival setups of the same significance test",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the crude (unadjusted) skin-tone effect size reported?",
+   "options": [
+    "crude dark:light skin-tone rate ratio"
+   ],
+   "why_rival": "sole option answering how the raw dark:light effect magnitude is expressed"
+  },
+  {
+   "question": "Is a cutoff reference line drawn on the skin-tone histogram?",
+   "options": [
+    "draw a 0.5 cutoff reference line on the skin-tone histogram"
+   ],
+   "why_rival": "sole option about annotating the exposure histogram"
+  },
+  {
+   "question": "Which skin-tone level is coded as the positive class for the binary exposure?",
+   "options": [
+    "encode dark skin tone as the positive class (dark=1, light=0)"
+   ],
+   "why_rival": "sole option fixing the direction/reference of the dichotomized exposure coding"
+  },
+  {
+   "question": "How is covariate balance across skin-tone groups examined?",
+   "options": [
+    "cross-tabulate skin-tone group against categorical covariates"
+   ],
+   "why_rival": "sole option cross-tabulating covariates against skin-tone group"
+  },
+  {
+   "question": "How are predictors entered into the regression (single block vs hierarchical blocks)?",
+   "options": [
+    "enter skin tone as a separate second block over the controls"
+   ],
+   "why_rival": "sole option specifying blockwise predictor entry order"
+  },
+  {
+   "question": "What sensitivity check on the exposure encoding is run?",
+   "options": [
+    "sensitivity refit using continuous skin_tone instead of binarized exposure"
+   ],
+   "why_rival": "explicitly a robustness refit (continuous instead of binarized), a separate decision from the primary exposure choice"
+  },
+  {
+   "question": "How much skin-tone data is missing (magnitude for the selection-bias check)?",
+   "options": [
+    "compute percent missing skin-tone rating for selection-bias check"
+   ],
+   "why_rival": "sole option quantifying the amount of missingness"
+  },
+  {
+   "question": "How are potential confounders screened for association with skin tone?",
+   "options": [
+    "screen a player-level variable for confounding by testing its association with skin tone"
+   ],
+   "why_rival": "sole option testing a player-level variable's association with the exposure"
+  },
+  {
+   "question": "How are unadjusted red-card rates by skin-tone group displayed with uncertainty?",
+   "options": [
+    "unadjusted red-card rate by skin-tone group with Wald (1.96×SE) CI error bars"
+   ],
+   "why_rival": "sole option plotting grouped rates with Wald error bars"
+  },
+  {
+   "question": "Is skin-tone-rating missingness tested for association with the outcome?",
+   "options": [
+    "test whether skin-tone-rating missingness relates to the red-card outcome via chi-square"
+   ],
+   "why_rival": "sole option testing whether missingness is informative about the red card"
+  },
+  {
+   "question": "Is a cross-level skin-tone x referee-covariate interaction added on a plain random-intercept model?",
+   "options": [
+    "cross-level skin-tone × referee-covariate interaction with plain random intercept"
+   ],
+   "why_rival": "distinct interaction extension on a different (plain random-intercept) base; co-occurs only with random-effects exploration, not with the country-bias interactions"
+  },
+  {
+   "question": "Is the skin-tone slope allowed to vary and be linked to a country-level bias score?",
+   "options": [
+    "pair a country-level mean bias score with gm3's random skin-tone slope"
+   ],
+   "why_rival": "adds a random skin-tone slope tied to country bias; co-occurs with (can coexist alongside) the IAT and explicit-bias interactions, so it is its own component decision"
+  },
+  {
+   "question": "Is an implicit-bias (country-mean IAT) cross-level interaction added to the preferred model?",
+   "options": [
+    "add skin-tone x country-mean-IAT cross-level interaction to the preferred multilevel model"
+   ],
+   "why_rival": "a yes/no moderator addition that co-occurs with the explicit-bias term — both can sit in one model, so it is a separate decision from 44"
+  },
+  {
+   "question": "Is an explicit-bias (country-mean Exp) cross-level interaction added to the preferred model?",
+   "options": [
+    "add a skin-tone x explicit-bias (country-mean-Exp) cross-level interaction slope to the preferred multilevel/Bayesian model, with N(0,1) prior"
+   ],
+   "why_rival": "a yes/no moderator addition that coexists with the IAT interaction (34/38/44 all co-occur in one run), marking it a complementary component rather than a rival of 38"
+  },
+  {
+   "question": "how are records with a missing referee bias score (IAT / explicit) handled?",
+   "options": [
+    "impute missing bias scores with the column median",
+    "impute missing bias scores with the sample mean",
+    "drop rows missing referee IAT OR explicit-bias scores",
+    "impute missing referee IAT with the country mean instead of dropping"
+   ],
+   "why_rival": "each disposes of the same unmeasured-bias records one way — median-impute, mean-impute, country-mean-impute, or drop — and an analyst picks a single disposition; none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are missing player-height values handled?",
+   "options": [
+    "impute missing heights with the sample mean"
+   ],
+   "why_rival": "settles the fill/drop choice for the height covariate specifically, a separate variable from bias or position"
+  },
+  {
+   "question": "how are non-numeric placeholder / non-finite values coerced to numeric-with-missing during cleaning?",
+   "options": [
+    "convert both raters' scores to numeric, treating NA as missing",
+    "treat the literal 'NA' string as missing, then coerce to numeric",
+    "treat non-finite dark/light ratio values as missing"
+   ],
+   "why_rival": "each is a rival recipe for turning 'NA' strings / non-finite ratios into proper numeric missing before modeling (the single 4-18 co-run reads as the same coercion slot logged twice)",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "which referee-bias measures are included in the adjustment model?",
+   "options": [
+    "full adjustment incl both implicit and explicit bias scores",
+    "drop referee implicit bias (meanIAT) covariate and recompute standardized RD"
+   ],
+   "why_rival": "include both implicit and explicit bias vs drop the implicit (meanIAT) covariate — mutually exclusive covariate sets",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are model covariates standardized and their missing standardized values filled?",
+   "options": [
+    "z-score covariates and zero-fill (mean-impute) missing standardized values"
+   ],
+   "why_rival": "settles the z-score-and-zero-fill scaling approach for the covariate block"
+  },
+  {
+   "question": "are referee countries with too-small or missing bias-survey samples excluded?",
+   "options": [
+    "drop referee-countries with too-small or missing bias-survey samples"
+   ],
+   "why_rival": "settles whether unreliable-sample countries are dropped from the country-level bias measure"
+  },
+  {
+   "question": "which set of countries defines the mean used to center bias scores?",
+   "options": [
+    "center bias scores using the mean over non-excluded countries only"
+   ],
+   "why_rival": "settles the reference group for centering; co-occurs with the exclusion step (8), so it is a distinct downstream choice, not its rival"
+  },
+  {
+   "question": "how is the country-level referee bias measure aggregated / modeled?",
+   "options": [
+    "model country-level bias as a random effect regressed on country mean IAT and Exp scores",
+    "collapse to one row per country, z-standardize the bias scores, then merge back onto the sample",
+    "average referee bias measures within country (no standardization)"
+   ],
+   "why_rival": "random-effect shrinkage vs collapse-and-z-standardize vs plain within-country average are three mutually exclusive ways to produce one country bias value",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are standard errors / confidence intervals estimated for the main effect?",
+   "options": [
+    "bias-corrected BCa bootstrap CI with z0 correction",
+    "apply sandwich/robust SE correction to the poisson bias model"
+   ],
+   "why_rival": "BCa bootstrap CI vs robust sandwich SE are rival uncertainty-quantification methods; they never co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what generic fallback is applied to otherwise-unhandled missing values?",
+   "options": [
+    "generic fallback: 'Unknown' category or median/mean"
+   ],
+   "why_rival": "settles the catch-all default (Unknown category or median/mean) for values no specific rule covers"
+  },
+  {
+   "question": "how are player positions categorized and how are missing / uncategorizable positions handled?",
+   "options": [
+    "recode missing position as an explicit Unknown/Missing category",
+    "impute position_group with modal position (default Midfielder)",
+    "exclude missing-position rows only from the by-position visualization, keep them elsewhere",
+    "drop rows/dyads with missing or uncategorizable position (complete-case deletion)",
+    "four positions plus two separate residuals (Other and Missing/Unknown) = 6 categories",
+    "restrict analytic sample to dyads whose position could be mapped, dropping those with missing position"
+   ],
+   "why_rival": "keep-as-Unknown-category, impute-modal, drop, drop-if-unmappable, exclude-from-viz-only, and the 6-category-with-Missing-residual scheme are alternative dispositions of missing-position records; the big three (14/30/38) never co-occur",
+   "co_pair_share": 0.067
+  },
+  {
+   "question": "what regression model form is used for the outcome?",
+   "options": [
+    "LPM with rater x referee-bias interaction, clustered SE"
+   ],
+   "why_rival": "settles the estimator/specification (linear probability model with clustered SE) for the main model"
+  },
+  {
+   "question": "how are the interaction coefficients presented in the results table?",
+   "options": [
+    "format the rater×bias interaction coefficients for the results table"
+   ],
+   "why_rival": "settles the reporting/formatting of the rater×bias interaction output"
+  },
+  {
+   "question": "how are column names sanitized before model formulas are built?",
+   "options": [
+    "strip spaces from column names before building model formulas"
+   ],
+   "why_rival": "settles the name-cleaning step (stripping spaces) that precedes formula construction"
+  },
+  {
+   "question": "how is the analytic sample restricted to complete / relevant records?",
+   "options": [
+    "restrict to non-missing raters and single-game dyads (games==1)",
+    "restrict question-specific sample to non-missing value of that question's key variable"
+   ],
+   "why_rival": "restrict to non-missing raters plus single-game dyads vs restrict to non-missing values of each question's key variable — rival rules for who stays in the sample",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what is the scope of complete-case / listwise deletion of records with missing covariates?",
+   "options": [
+    "complete-case: drop dyads missing any adjustment covariate",
+    "drop every row with any missing value (complete-case filter)",
+    "listwise-delete (complete-case) rows missing any covariate in the chosen analysis set"
+   ],
+   "why_rival": "drop-if-missing-any-adjustment-covariate vs drop-if-any-missing-value-anywhere vs drop-if-missing-any-analysis-set-covariate are nested rival scopes of the same listwise-deletion decision",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are categorical variables dummy-encoded for the model?",
+   "options": [
+    "full one-hot dummy set with no reference dropped (NA as missing)"
+   ],
+   "why_rival": "settles full one-hot with no reference dropped vs the reference-dropped alternative"
+  },
+  {
+   "question": "which version / sheet of the dataset is loaded?",
+   "options": [
+    "load the pre-coded, missing-deleted crowdstorming xlsx sheet"
+   ],
+   "why_rival": "settles the data source — the pre-coded, missing-deleted crowdstorming sheet vs raw alternatives"
+  },
+  {
+   "question": "are the bias-by-rater interaction terms mean-centered before entry?",
+   "options": [
+    "form centered implicit- and explicit-bias-by-rater interaction terms"
+   ],
+   "why_rival": "settles the centering of the interaction terms; co-occurs with the count decision (34), so it is a distinct construction choice"
+  },
+  {
+   "question": "how many rater×bias interaction terms enter the model as the final block?",
+   "options": [
+    "add a single bias-by-rater interaction term as the final/third block",
+    "enter both bias-by-rater interaction terms together as the final block"
+   ],
+   "why_rival": "a single interaction term vs both terms together — mutually exclusive final-block specifications that never co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the country-level red-card and bias tables combined?",
+   "options": [
+    "merge country-level red-card counts with country-level bias measures into one table"
+   ],
+   "why_rival": "settles the merge that assembles the country-level analysis table"
+  },
+  {
+   "question": "which dyads are retained based on the two raters' skin-tone agreement?",
+   "options": [
+    "keep only rows where both raters rated and their scores match exactly"
+   ],
+   "why_rival": "settles whether only exactly-matching-rater dyads are kept, a rival to averaging / keeping disagreements"
+  },
+  {
+   "question": "how is moderation of the referee-bias effect by player skin tone assessed?",
+   "options": [
+    "test bias-effect difference between dark/light players via subgroup regressions plus a manual t-test",
+    "add an interaction term between dark skin and a modifier",
+    "always add the dark_skin x meanIAT interaction term"
+   ],
+   "why_rival": "stratified subgroup regressions plus a t-test vs a pooled dark-skin×modifier interaction vs the specific dark_skin×meanIAT interaction are rival ways to test the same moderation",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the binary dark-skin exposure variable defined?",
+   "options": [
+    "empirically select cutoff maximizing the group split",
+    "recode light/dark category into a 0/1 dark-skin binary indicator"
+   ],
+   "why_rival": "recode the given light/dark category to 0/1 vs empirically choose the cutoff that maximizes the split — rival routes to the same binary; they never co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the skin-tone rating converted into the light-vs-dark contrast whose effect is estimated?",
+   "options": [
+    "use fixed reference values 0.75 vs 0.125",
+    "report risk difference for a ±0.5 SD contrast",
+    "rescale to a dark-vs-light contrast (0.875/0.125)",
+    "binary light vs dark, threshold unspecified",
+    "bin into light/medium/dark at 0.25/0.75 cutpoints",
+    "bin into light/medium/dark at 0.375/0.625 cutpoints",
+    "bin into light/medium/dark at 0.25/0.5 cutpoints",
+    "report 75th vs 25th percentile (empirical IQR) contrast",
+    "report contrast over full 0-to-1 range (skinTone=1 vs 0)",
+    "merge Medium into Light (keep full sample)",
+    "extreme-groups light=0 vs dark>=0.75, drop middle",
+    "extreme-groups light=0 vs dark>=0.5, drop middle",
+    "extreme cutoffs 0.25/0.75, drop middle group, refit adjusted model"
+   ],
+   "why_rival": "Each is a mutually exclusive way to turn the continuous skin-tone scale into the exposure contrast reported: dichotomize, bin into three groups at various cutpoints, merge medium, keep extreme groups and drop the middle, or keep it continuous and difference two chosen values (fixed points, an SD contrast, the empirical IQR, or the full 0-to-1 range). An analyst commits to exactly one; the modest co-occurrences (e.g. 15-16, 15-17) are primary-vs-robustness refits, not both taken at the primary slot.",
+   "co_pair_share": 0.026
+  },
+  {
+   "question": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+   "options": [
+    "marginal effect at the means: predictions for light vs dark evaluated at covariate means, then differenced",
+    "choose a reference covariate profile (sample means / modal category) for standardized predictions",
+    "marginal standardization / g-computation: average counterfactual all-dark vs all-light predictions over the observed covariate distribution and difference them",
+    "predict at a single fixed covariate profile (reference / mean-modal values) and difference, rather than averaging over the sample"
+   ],
+   "why_rival": "g-computation averages the all-dark vs all-light predictions over the observed covariate distribution (10), whereas the alternatives evaluate at a single point — at the covariate means (1) or at a chosen reference/mean-modal profile (2, 11). One cannot both average over the sample and fix a single profile for the same estimate; 10 does not co-occur with 1 or 11.",
+   "co_pair_share": 0.167
+  },
+  {
+   "question": "Which model output is reported as the primary effect, and on what scale?",
+   "options": [
+    "report the risk-difference / average marginal effect as the estimand",
+    "report both the average marginal effect and the odds ratio",
+    "extract the dark-skin coefficient, clustered SE, p-value, and CI as the primary reported effect",
+    "extract the average marginal effect of the extreme dark-skin exposure contrast"
+   ],
+   "why_rival": "Rival choices of the headline statistic: the risk-difference/average marginal effect (29), the AME of the extreme contrast (42), both the AME and the odds ratio (30), or the raw dark-skin coefficient with clustered SE/p/CI (33) — i.e. risk-difference scale vs coefficient/odds scale.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "What fixed reference date is used to compute player age?",
+   "options": [
+    "day-based age at fixed 2013-01-01 reference date",
+    "day-based age at fixed 2012-07-01 (mid-2012) reference date",
+    "day-based age at an unspecified single fixed reference date",
+    "day-based age at fixed 2012-08-01 (season-start) reference date",
+    "day-based age at fixed 2012-10-01 (season-midpoint) reference date"
+   ],
+   "why_rival": "Each picks a single anchor date for day-based age (2013-01-01, mid-2012, season-start, season-midpoint, or an unspecified fixed date); only one date is used per script.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Which player-position category is the omitted reference level for the position dummies?",
+   "options": [
+    "dummy encode with Goalkeeper as reference level",
+    "dummy-code with Midfielder as reference level",
+    "dummy-encode with an explicitly chosen reference level (Defender)"
+   ],
+   "why_rival": "Goalkeeper, Midfielder, or Defender as the omitted baseline — exactly one level is dropped as reference.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Are categorical predictors parameterized by dropping a reference level and the intercept?",
+   "options": [
+    "drop the reference level (+ intercept)"
+   ],
+   "why_rival": "A single identification/parameterization choice about dropping the reference level and intercept; its pervasive co-occurrence marks it as a standard step, not a rival to the reference-category choice."
+  },
+  {
+   "question": "How are league/country fixed effects encoded, and which country is the implicit reference?",
+   "options": [
+    "derive four league-country dummies, leaving Spain as implicit reference"
+   ],
+   "why_rival": "Single choice to derive four league-country dummies leaving Spain implicit."
+  },
+  {
+   "question": "How are covariate summary statistics reported relative to the skin-tone groups?",
+   "options": [
+    "report covariate means normalized to light-skin reference group"
+   ],
+   "why_rival": "Single presentation choice: report covariate means normalized to the light-skin reference group."
+  },
+  {
+   "question": "How much regression-coefficient detail is included in the reported table?",
+   "options": [
+    "report covariate effects in detail (continuous vars + first five position categories)",
+    "report a rater-block's full OLS/FE coefficients in the main table"
+   ],
+   "why_rival": "Alternative levels of coefficient-table granularity: covariate effects in detail (continuous vars + first five position categories) versus a rater block's full OLS/FE coefficient set in the main table.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are the descriptive per-group red-card rates reported?",
+   "options": [
+    "report crude/unadjusted red-card rates by group",
+    "red-card rate plus cards-per-100-games per group"
+   ],
+   "why_rival": "Rival formats for the descriptive group rate table: crude red-card rates alone, or red-card rate plus cards-per-100-games.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "In what form is the magnitude of the adjusted effect presented?",
+   "options": [
+    "report absolute predicted probabilities per counterfactual group",
+    "express adjusted RD as a percentage increase relative to the light-skin baseline rate",
+    "report bundle of baseline rate, absolute pp difference, and relative-% increase"
+   ],
+   "why_rival": "Alternative framings of the effect size: absolute predicted probabilities per counterfactual group, a single relative-% increase over baseline, or a bundle of baseline rate + absolute pp difference + relative-% increase.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "At what unit is the analysis dataset structured — is it reshaped to one row per referee-country by skin-color group?",
+   "options": [
+    "collapse to one row per referee country by skin-color group (reshape wide)"
+   ],
+   "why_rival": "Single restructuring choice to collapse the dyad data wide to referee-country × skin-group rows."
+  },
+  {
+   "question": "How are group-specific red-card rate variables derived from the raw counts?",
+   "options": [
+    "derive per-country dark-/light-skin red-card rate variables from summed counts"
+   ],
+   "why_rival": "Single derivation step producing per-country dark-/light-skin rate variables from summed counts (complementary to the reshape, not an alternative to it — the two co-occur)."
+  },
+  {
+   "question": "What rule determines the hypothesis-supported verdict?",
+   "options": [
+    "state no rule; report a fixed SUPPORTED label"
+   ],
+   "why_rival": "Single choice to state no decision rule and emit a fixed SUPPORTED label."
+  },
+  {
+   "question": "Under what data-sufficiency condition is a group contrast reported at all?",
+   "options": [
+    "only report a threshold result if both groups exceed 100 dyads"
+   ],
+   "why_rival": "Single gating rule: report a threshold result only if both groups exceed 100 dyads."
+  },
+  {
+   "question": "Is an unadjusted estimate reported alongside the adjusted one?",
+   "options": [
+    "report a crude/unadjusted rate difference alongside the adjusted estimate"
+   ],
+   "why_rival": "Single choice to present a crude/unadjusted rate difference next to the adjusted estimate."
+  },
+  {
+   "question": "Which covariate-adjustment set is used in the adjusted model?",
+   "options": [
+    "refit across five alternative pre-specified covariate-adjustment sets"
+   ],
+   "why_rival": "Single choice to refit across five pre-specified alternative covariate-adjustment sets."
+  },
+  {
+   "question": "At what reference date is a player's age computed?",
+   "options": [
+    "day-based age at an unspecified fixed mid-season reference date",
+    "day-based age at an unspecified fixed end-of-season reference date",
+    "compute age as of the script's run date"
+   ],
+   "why_rival": "each pins age to a different point in time (mid-season, end-of-season, run date); an analyst computes age once",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the raw birthday string parsed into a date?",
+   "options": [
+    "parse birthday string as a day-month-year date"
+   ],
+   "why_rival": "single standalone choice about date-string interpretation"
+  },
+  {
+   "question": "How is the uncertainty (confidence interval / standard error) for the exposure effect computed?",
+   "options": [
+    "percentile bootstrap CI (unspecified resampling unit)",
+    "parametric bootstrap redrawing only the exposure coefficient, others fixed",
+    "construct CIs and p-values via normal (Wald z) approximation with a fixed 1.96 critical value"
+   ],
+   "why_rival": "percentile bootstrap, parametric bootstrap of the exposure coefficient, and Wald normal approximation are alternative inference procedures for the same estimate; none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "What model/estimator specifies the primary confound-adjusted effect?",
+   "options": [
+    "logistic, HC1 robust SE with fixed iteration cap",
+    "g-computation risk difference, games-exposure fixed at one game",
+    "referee random intercept fixed at zero mean with estimated precision",
+    "cluster-robust logistic (cluster level unspecified), LPM as secondary check",
+    "linear OLS cascade of cards on rateravg through referee fixed effects"
+   ],
+   "why_rival": "HC1 logistic, g-computation, referee random intercept, cluster-robust logistic, and OLS-with-referee-FE are alternative primary estimation strategies for one effect; none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "Are goalkeepers included in the analysis sample?",
+   "options": [
+    "rerun including goalkeepers with a fixed 0.25 cutoff"
+   ],
+   "why_rival": "single choice about goalkeeper inclusion"
+  },
+  {
+   "question": "How is player position coded/grouped as a covariate?",
+   "options": [
+    "collapse position into 4 categories (GK/Def/Mid/Fwd)",
+    "treat position as categorical factor with unspecified grouping",
+    "keep a fixed list of seven positions, collapse the rest into 'Other'",
+    "unspecified small set of role buckets (count and residual not pinned down)"
+   ],
+   "why_rival": "four-category collapse, unspecified factor, seven-plus-Other, and generic role buckets are rival grouping schemes; an analyst adopts one and none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is inter-rater agreement between the two skin-tone raters assessed?",
+   "options": [
+    "single unspecified correlation / generic agreement diagnostic",
+    "unspecified correlation plus exact-match rate"
+   ],
+   "why_rival": "a single agreement diagnostic versus correlation-plus-exact-match are alternative ways to report rater agreement; they do not co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How is the continuous skin-tone rating operationalized into the exposure variable for modeling?",
+   "options": [
+    "dichotomize at unspecified thresholds, drop middle band",
+    "generic multi-threshold sweep, values unspecified",
+    "extreme contrast via fixed absolute cutpoints (>=0.375 vs <0.125), dropping middle band",
+    "dichotomize red cards into any_red_card and derive the binary dark_skin exposure in the same step",
+    "re-fit model on full sample using binary dark_skin exposure instead of extreme-groups contrast",
+    "rerun confound-adjusted model swapping continuous tone for categorical tonecode"
+   ],
+   "why_rival": "drop-middle dichotomization, multi-threshold sweep, extreme-groups cutpoints, binary dark_skin, full-sample binary, and categorical tonecode are mutually exclusive codings of the exposure; none co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "What rule determines the study's overall conclusion?",
+   "options": [
+    "declare inconclusive/not supported based on p-value vs 0.05 threshold"
+   ],
+   "why_rival": "single choice of the p<0.05 verdict rule"
+  },
+  {
+   "question": "Are model predictors mean-centered before fitting?",
+   "options": [
+    "mean-center predictors using a fixed precomputed sample mean"
+   ],
+   "why_rival": "single centering choice"
+  },
+  {
+   "question": "How are covariates selected for the model?",
+   "options": [
+    "backward-eliminate predictors via drop1 (goals then age)"
+   ],
+   "why_rival": "single choice of backward drop1 elimination"
+  },
+  {
+   "question": "How is complete-case/listwise deletion applied, and over which variable set?",
+   "options": [
+    "complete-case deletion over a generic/unspecified variable set",
+    "complete-case / listwise deletion on a covariate-and-outcome set (same operation, differing variable sets)"
+   ],
+   "why_rival": "both are listwise deletion differing only in the variable set deleted over; an analyst applies one such rule and they do not co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "How are dyads with too few shared games excluded from the sample?",
+   "options": [
+    "exclude dyads below a single fixed minimum-games threshold (< 2 shared games)"
+   ],
+   "why_rival": "single minimum-shared-games exclusion threshold"
+  },
+  {
+   "question": "How is league/country entered into the adjusted model?",
+   "options": [
+    "dummy/one-hot encode league country with one level held out as reference"
+   ],
+   "why_rival": "single choice of one-hot league encoding with a held-out reference"
+  },
+  {
+   "question": "Where do the standard errors in the sensitivity forest plot come from?",
+   "options": [
+    "substitute fixed placeholder SE values in the sensitivity forest plot instead of model-derived SEs"
+   ],
+   "why_rival": "single choice to substitute placeholder SEs rather than model-derived ones"
+  },
+  {
+   "question": "How is the effect-size magnitude reported and categorized?",
+   "options": [
+    "compute Cohen's h effect size and bucket it into fixed categories (e.g. negligible/small/medium)"
+   ],
+   "why_rival": "single choice of Cohen's h bucketed into categories"
+  },
+  {
+   "question": "How are degenerate bootstrap resamples handled?",
+   "options": [
+    "discard degenerate resamples with fewer than 10 dyads in either exposure group"
+   ],
+   "why_rival": "single rule discarding resamples with too few dyads in a group"
+  },
+  {
+   "question": "What minimum sample size per exposure group is required before a threshold's result is reported?",
+   "options": [
+    "require >=100 players per exposure group before reporting a threshold's result"
+   ],
+   "why_rival": "single per-exposure-group reporting-sufficiency threshold"
+  },
+  {
+   "question": "What minimum data is required before a league's stratified effect is reported?",
+   "options": [
+    "only report a league's stratified effect if it has >100 dyads and >5 red-card events"
+   ],
+   "why_rival": "single league-level reporting-sufficiency threshold"
+  },
+  {
+   "question": "Is an unadjusted, league-stratified dark-vs-light risk difference computed?",
+   "options": [
+    "compute unadjusted dark-vs-light risk difference stratified within each league"
+   ],
+   "why_rival": "single choice to run the league-stratified unadjusted analysis"
+  },
+  {
+   "question": "Which output statistics and diagnostics are included in the report?",
+   "options": [
+    "select which output statistics/elements to report (descriptives, CIs, ANOVA, collinearity, R2 change)"
+   ],
+   "why_rival": "single choice over the reported-output set"
+  },
+  {
+   "question": "How is the exposure term's statistical significance test reported?",
+   "options": [
+    "report the model coefficient's Wald test (z-statistic / p-value on the log-odds scale) for the exposure term"
+   ],
+   "why_rival": "single choice to report the Wald z/p on the log-odds scale"
+  },
+  {
+   "question": "Which positions are shown in the position bar chart?",
+   "options": [
+    "restrict the position-group bar chart to the four core positions, dropping Other/Unknown"
+   ],
+   "why_rival": "single display choice restricting the chart to four core positions"
+  },
+  {
+   "question": "Is a secondary robustness logistic (odds-ratio) model reported alongside the primary analysis?",
+   "options": [
+    "fit a secondary/robustness logistic regression model on the same covariate specification, reported as an odds ratio"
+   ],
+   "why_rival": "single choice to add a robustness logistic model; it coexists with the primary spec rather than replacing it"
+  },
+  {
+   "question": "How are reported exclusion/sample counts sourced — computed from data or hardcoded literals?",
+   "options": [
+    "report excluded-dyad count via hardcoded original N rather than computed value",
+    "report sample-exclusion counts as hardcoded literal numbers rather than computed values",
+    "report exclusion counts/baseline rates as hardcoded literals rather than sourced from variables"
+   ],
+   "why_rival": "all three are the same reporting choice to hardcode counts rather than compute them, differing only in which counts; they do not co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the continuous skin-tone rating discretized into categories for analysis?",
+   "options": [
+    "binarize >0 twice: at dyad level and again after aggregation",
+    "binarize RateAve at <2 cutoff",
+    "binarize RateAve at <3 cutoff",
+    "binarize RateAve at <4 cutoff",
+    "binarize RateAve at <5 cutoff",
+    "binarize RateAve at strictest cut (perfect 1 vs. rest)",
+    "recode RateAve into 3-level grouping with pairwise follow-up"
+   ],
+   "why_rival": "each converts the skin-tone rating into categories via a different threshold or level scheme; the primary analysis fixes one",
+   "co_pair_share": 0.714
+  },
+  {
+   "question": "at what unit is the dyad-level data aggregated before modeling?",
+   "options": [
+    "build player-level table aggregating stats by player×club×position, merge, derive rates",
+    "expand to per-game Bernoulli 0/1 trials for a binomial model",
+    "collapse to one row per player, summing counts",
+    "flag player as case if ever received a red card (player-level aggregation)",
+    "one row per game, assigning all cards to the first N rows"
+   ],
+   "why_rival": "each collapses/expands the dyad rows to a different unit (player, player-club-position, or game); an analyst models on one representation",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is exposure aggregated to the club level to count black-coded players?",
+   "options": [
+    "aggregate tone/scoring-rate/BMI to club level and binarize tone at >3 to count black-coded players per club"
+   ],
+   "why_rival": "sole option constructing a club-level black-coded-player count"
+  },
+  {
+   "question": "which dataset is loaded for the analysis?",
+   "options": [
+    "load a match-level soccer dataset instead of the dyad data"
+   ],
+   "why_rival": "sole option swapping the dyad data for a match-level dataset"
+  },
+  {
+   "question": "which player-level fields feed the hierarchical model?",
+   "options": [
+    "select player-level fields feeding the Q1 hierarchical model"
+   ],
+   "why_rival": "sole option specifying the field selection for the Q1 hierarchical model"
+  },
+  {
+   "question": "what resampling scheme is used to compute confidence intervals?",
+   "options": [
+    "cluster bootstrap resampling players, percentile CI",
+    "nonparametric cluster bootstrap resampling players, refit, percentile CI",
+    "cluster bootstrap over players, 1000 resamples, reconstructing dyads",
+    "resample at the player level (not dyad level) to preserve within-player clustering",
+    "dyad-level bootstrap, 1000 resamples, relaxed convergence, discard failed",
+    "player-level cluster bootstrap, 200 resamples, refit logistic with BFGS"
+   ],
+   "why_rival": "each is a different bootstrap design (player- vs dyad-level, resample count, refit settings); one CI procedure is chosen",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "are rows subsampled to keep per-iteration recomputation tractable?",
+   "options": [
+    "subsample to 10,000 rows for per-iteration recomputation tractability"
+   ],
+   "why_rival": "sole option deciding to subsample for computational tractability"
+  },
+  {
+   "question": "per what increment of the skin-tone scale is the model effect reported?",
+   "options": [
+    "extract per-unit (per-1.0) marginal effect",
+    "rescale slope to per-0.25-unit effect",
+    "rescale to a per-0.5-unit effect before exponentiating",
+    "rescale slope to per-0.1-unit effect (odds ratio)"
+   ],
+   "why_rival": "each rescales the slope to a different per-unit increment before reporting",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which regression model/effect measure is used for the red-card outcome?",
+   "options": [
+    "express effect as an incidence rate ratio via Poisson coefficient"
+   ],
+   "why_rival": "sole option expressing the effect as a Poisson incidence rate ratio"
+  },
+  {
+   "question": "how is agreement between the two skin-tone raters quantified?",
+   "options": [
+    "Pearson correlation plus exact-match rate",
+    "Pearson and Spearman correlation plus exact-agreement rate",
+    "Pearson/Spearman, binned Cohen's kappa, and exact-match rate"
+   ],
+   "why_rival": "each is a different combination of correlation/kappa/exact-match statistics for the same rater-agreement question",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the crude (unadjusted) skin-tone-to-red-card association expressed?",
+   "options": [
+    "compute crude rate ratio with log-rate-ratio normal-approx CI",
+    "crude red-card rate difference within the extreme-exposure subsample"
+   ],
+   "why_rival": "one reports a crude rate ratio, the other a crude rate difference for the same unadjusted comparison",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is sampling uncertainty shown on the descriptive red-card-rate chart?",
+   "options": [
+    "red-card rate plus a Wald-type standard error per bin",
+    "compute a Wald (normal-approximation) 95% CI for the descriptive red-card rate chart"
+   ],
+   "why_rival": "both attach a Wald-type SE/CI to the descriptive rate bins as rival implementations",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "in what units are red-card counts expressed for reporting/plotting?",
+   "options": [
+    "express red-card counts as a rate per 1000 games for reporting/plotting"
+   ],
+   "why_rival": "sole option rescaling counts to a rate per 1000 games"
+  },
+  {
+   "question": "what y-axis range is used for the red-card-rate bar chart?",
+   "options": [
+    "fix the red-card-rate bar chart's y-axis to a 0-2% range"
+   ],
+   "why_rival": "sole option fixing the chart's y-axis scale"
+  },
+  {
+   "question": "is the outlier referee country dropped from the country-level analysis?",
+   "options": [
+    "drop referee country 133 as an outlier from the country-level analysis"
+   ],
+   "why_rival": "sole option deciding the outlier-country exclusion"
+  },
+  {
+   "question": "is a per-dyad random effect added to absorb overdispersion?",
+   "options": [
+    "add a per-dyad random effect to absorb overdispersion"
+   ],
+   "why_rival": "sole option on the overdispersion random-effect specification"
+  },
+  {
+   "question": "is the model stratified and refit separately by league?",
+   "options": [
+    "stratify sample by league and refit adjusted model separately per league"
+   ],
+   "why_rival": "sole option deciding the per-league stratified refit"
+  },
+  {
+   "question": "how is the MCMC sampler initialized?",
+   "options": [
+    "seed MCMC intercept with logit of empirical red-card rate"
+   ],
+   "why_rival": "sole option specifying the intercept seeding strategy"
+  },
+  {
+   "question": "how are per-country models that fail to converge handled?",
+   "options": [
+    "silently skip and flag any per-country model that fails to converge"
+   ],
+   "why_rival": "sole option on non-convergence handling for per-country models"
+  },
+  {
+   "question": "are out-of-range LPM fitted probabilities flagged?",
+   "options": [
+    "flag/count LPM fitted probabilities falling outside the [0,1] range"
+   ],
+   "why_rival": "sole option checking LPM predictions outside [0,1]"
+  },
+  {
+   "question": "what per-case influence/outlier diagnostics are saved?",
+   "options": [
+    "save Mahalanobis distance and influence/covariance diagnostics per case"
+   ],
+   "why_rival": "sole option computing Mahalanobis/influence diagnostics"
+  },
+  {
+   "question": "is the adjusted model refit on player-collapsed data as a robustness check?",
+   "options": [
+    "robustness check: collapse to one row per player and refit the adjusted model"
+   ],
+   "why_rival": "sole option performing the player-collapse robustness refit, a distinct check from the primary aggregation choice"
+  },
+  {
+   "question": "how is an unsupported research question resolved?",
+   "options": [
+    "declare unsupported with hard-coded numeric values"
+   ],
+   "why_rival": "sole option declaring the question unsupported with hard-coded values"
+  },
+  {
+   "question": "which regression model / estimator is used for the primary effect?",
+   "options": [
+    "use a linear probability model with clustered standard errors as the primary/risk-difference estimator",
+    "Poisson GLM, HC0 robust SE",
+    "linear probability model with HC3 robust SE",
+    "linear probability model (OLS), HC3 robust SEs",
+    "linear probability model (OLS), player-clustered SEs",
+    "regress ratio on meanExp, weighted by inverse standard error",
+    "logistic/binomial GEE with exchangeable within-player correlation",
+    "player random intercept with hyperprior-estimated mean and precision"
+   ],
+   "why_rival": "each fixes a different functional form for estimating the effect (LPM/OLS, Poisson GLM, GEE, Bayesian random-intercept, inverse-variance ratio meta-regression); an analyst commits to one primary estimator",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the standard errors of the effect estimate computed?",
+   "options": [
+    "switch to / re-run model at dyad level with cluster-robust standard errors by player",
+    "cluster-robust standard errors by player",
+    "cluster standard errors by a grouping variable",
+    "cluster standard errors by referee (refID)",
+    "use conventional (non-robust) standard errors",
+    "cluster-robust (player-clustered) SEs",
+    "two-way cluster-robust SE on player and referee (Cameron-Gelbach-Miller)",
+    "justify player-level clustering via ICC and cluster-size distribution diagnostics",
+    "HC1 heteroskedasticity-robust errors, no clustering",
+    "replace model SEs with robust sandwich errors, rebuild CI table",
+    "HC3 heteroskedasticity-robust SEs",
+    "HC1 heteroskedasticity-robust SEs",
+    "HC1 heteroskedasticity-robust non-clustered SEs",
+    "recompute player-clustered SEs as a robustness check on the fitted model"
+   ],
+   "why_rival": "each is a rival variance estimator for the same coefficient (conventional, HC1/HC3 heteroskedasticity-robust, generic/player/referee/two-way clustered, sandwich), and the ICC diagnostic just defends the player-clustered answer; only one is reported for the headline estimate",
+   "co_pair_share": 0.011
+  },
+  {
+   "question": "how is the bootstrap resampling of the estimate performed?",
+   "options": [
+    "player-level cluster bootstrap recomputing marginal-standardization RD each iteration",
+    "player-level cluster bootstrap, 500 resamples, refit logistic, discard failed",
+    "bootstrap the CI/p-value with player-cluster resampling",
+    "player-level bootstrap, 1000 resamples, refit, silently drop non-converging",
+    "bootstrap by resampling dyads and refitting a plain (non-cluster-robust) logistic model, skipping failed draws"
+   ],
+   "why_rival": "each specifies a rival scheme for generating the bootstrap distribution (cluster vs dyad resampling, resample count, statistic refit, failure handling); an analyst runs one bootstrap design",
+   "co_pair_share": 0.1
+  },
+  {
+   "question": "how is the p-value / test statistic derived from the estimate and its standard error?",
+   "options": [
+    "normal-approximation Wald z-test using cluster-robust (sandwich) SEs",
+    "normal/Wald bootstrap p-value from bootstrap standard error",
+    "z-test using the point estimate over a bootstrap-derived standard error"
+   ],
+   "why_rival": "each is a rival normal-approximation Wald/z construction turning an estimate and an SE into significance; one significance test is reported",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what overall conclusion is drawn about the hypothesis?",
+   "options": [
+    "treat dyad-level p=0.037 as supporting the hypothesis despite non-significance at the player level",
+    "declare hypothesis supported (significant/robust)"
+   ],
+   "why_rival": "each is a rival verdict on whether the hypothesis is supported given the results; an analyst lands on one",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which covariate / right-hand-side specification does the model use?",
+   "options": [
+    "enter player/position controls together as the first predictor block",
+    "define four alternative RHS specs (rater dummies ± player controls, club FE)"
+   ],
+   "why_rival": "each fixes how predictors and controls enter the model (a single blocked-entry strategy vs a set of alternative RHS specs); one specification governs the primary model",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which version of the source dataset is loaded?",
+   "options": [
+    "load the raw, unfiltered player-referee dyad dataset"
+   ],
+   "why_rival": "settles whether the analysis starts from the raw, unfiltered dyad file"
+  },
+  {
+   "question": "what text encoding is used when reading the CSV?",
+   "options": [
+    "load the dyad CSV with latin-1 text encoding"
+   ],
+   "why_rival": "settles the character encoding for the file read"
+  },
+  {
+   "question": "how is a player-referee pair identifier constructed?",
+   "options": [
+    "concatenate playerShort and refNum into player-referee pair ID"
+   ],
+   "why_rival": "settles how a unique dyad key is formed"
+  },
+  {
+   "question": "how are categorical string fields encoded as numeric IDs?",
+   "options": [
+    "recode player/position/referee/country string fields into numeric IDs"
+   ],
+   "why_rival": "settles the numeric recoding of player/position/referee/country strings"
+  },
+  {
+   "question": "how is a per-player career-goals feature derived?",
+   "options": [
+    "derive per-player career goals total and merge back into the dataset"
+   ],
+   "why_rival": "settles construction of the aggregated goals covariate"
+  },
+  {
+   "question": "how are dyad rows aggregated for description/plotting?",
+   "options": [
+    "collapse dyad rows to one per player by first occurrence for description/plotting"
+   ],
+   "why_rival": "settles collapsing to one row per player for descriptive display"
+  },
+  {
+   "question": "how are dyad rows expanded to a per-game unit?",
+   "options": [
+    "expand to one row per game, allocating dyad cards to first N games"
+   ],
+   "why_rival": "settles reshaping dyads into one row per game for analysis"
+  },
+  {
+   "question": "which dyad rows are included based on red-card counts?",
+   "options": [
+    "restrict to referee-player rows with at least one red card"
+   ],
+   "why_rival": "settles the red-card-based row restriction of the sample"
+  },
+  {
+   "question": "how are leagues filtered/thresholded for inclusion?",
+   "options": [
+    "stratify by league applying a 500-dyad/20-red-card threshold"
+   ],
+   "why_rival": "settles the league-level size/red-card inclusion threshold"
+  },
+  {
+   "question": "what secondary confirmatory model is fit?",
+   "options": [
+    "fit secondary logistic regression with Wald normal-approximation CI, no player clustering"
+   ],
+   "why_rival": "settles the additional logistic regression run alongside the primary analysis"
+  },
+  {
+   "question": "what exploratory profile/subgroup analysis is performed?",
+   "options": [
+    "cluster fitted player/referee profiles by dissimilarity and compute per-cluster relative risk profiles"
+   ],
+   "why_rival": "settles the dissimilarity-based clustering of fitted profiles into relative-risk groups"
+  },
+  {
+   "question": "what decision rule determines whether the exposure effect counts as statistically supported?",
+   "options": [
+    "apply an uncorrected p<0.05 threshold without adjusting for multiple analyses/sensitivity comparisons run",
+    "sweep across multiple alternative threshold definitions",
+    "use p<0.10 instead of the conventional 0.05 significance threshold",
+    "verdict from p, direction, and a near-null CI-lower threshold (-0.002)",
+    "four-tier SUPPORTED/BORDERLINE/SUGGESTIVE/NOT from multiple p and CI cutoffs"
+   ],
+   "why_rival": "each defines a different verdict criterion (uncorrected p<0.05, p<0.10, a p+direction+CI rule, a four-tier scheme, or sweeping thresholds); an analyst adopts one rule to declare support",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the study's overall conclusion framed?",
+   "options": [
+    "headline 'not supported' while narrating sensitivity analyses as significant",
+    "frame conclusion around cross-league heterogeneity"
+   ],
+   "why_rival": "both pick the headline narrative — a discordant 'not supported' vs. one centered on cross-league heterogeneity — and the primary write-up leads with one framing",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the skin-tone rating variable coded?",
+   "options": [
+    "flag alternative SkinCol3 coding without using it"
+   ],
+   "why_rival": "settles which skin-tone coding scheme is used (default vs. the flagged-but-unused alternative)"
+  },
+  {
+   "question": "where is the continuous skin-tone rating dichotomized?",
+   "options": [
+    "scan cutoffs by crude risk-difference shifts, then settle on one threshold"
+   ],
+   "why_rival": "settles the cutoff at which the exposure is split, chosen by scanning crude risk-difference shifts"
+  },
+  {
+   "question": "on what scale is the focal exposure coefficient reported?",
+   "options": [
+    "take the model's default CI for the darkSkin coefficient without exponentiating to an odds ratio",
+    "treat the raw log-odds regression coefficient as the focal effect, no scale transform"
+   ],
+   "why_rival": "both keep the effect on the raw log-odds/link scale rather than exponentiating to an odds ratio; the effect is reported on one scale",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is model discrimination / predictive performance assessed?",
+   "options": [
+    "assess discrimination via in-sample AUC without a held-out test set"
+   ],
+   "why_rival": "settles the validation approach (in-sample AUC without a held-out test set)"
+  },
+  {
+   "question": "how is the specification-comparison summary populated?",
+   "options": [
+    "assemble summary table of risk_diff/OR/p-value across four sensitivity specs",
+    "hardcode fabricated numbers in the specification-comparison panel instead of using actual computed per-spec results"
+   ],
+   "why_rival": "the panel is either assembled from actual per-spec computed results or filled with hardcoded/fabricated numbers — one source feeds it",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the per-league values in the forest plot obtained?",
+   "options": [
+    "hardcode manually-typed per-league/country OR values instead of computed values (e.g. in forest plot)"
+   ],
+   "why_rival": "settles whether forest-plot per-league ORs are manually hardcoded rather than computed"
+  },
+  {
+   "question": "what outcome model (distribution and link) is used for the primary analysis?",
+   "options": [
+    "derive risk difference from a Poisson rate model, converting rates to probabilities via 1-exp(-rate*games) before differencing",
+    "identity-link binomial GLM (risk difference), games-weighted, HC1 SE",
+    "model cards as binomial draws out of games played with a probit link",
+    "model outcome as binomial red cards out of games (binomial_logit / trial counts)",
+    "fit Bayesian Dirichlet-process profile regression (binomial redCards/games) on red-card subset"
+   ],
+   "why_rival": "Poisson-rate, identity-link binomial, probit binomial, logit binomial, and Bayesian DP profile regression are mutually exclusive choices of the primary model form",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what minimum games-together threshold is used to include a dyad?",
+   "options": [
+    "exclude dyads with fewer than 2 games together",
+    "re-derive estimates across a sweep of minimum-games thresholds (2,3,4,5)"
+   ],
+   "why_rival": "one fixes the cutoff at ≥2 games while the other sweeps 2–5; both settle the dyad-inclusion threshold",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are games-played binned for the descriptive plot?",
+   "options": [
+    "bin games played into categories for a descriptive plot",
+    "bin games-played into discrete ranges for a descriptive plot"
+   ],
+   "why_rival": "both define the game-count binning used in the descriptive plot",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "are high-frequency referees excluded from the analysis?",
+   "options": [
+    "exclude referees with more than 10 games and refit"
+   ],
+   "why_rival": "settles whether referees with >10 games are dropped and the model refit"
+  },
+  {
+   "question": "is the adjusted analysis stratified by position subgroup, and at what granularity?",
+   "options": [
+    "stratify the adjusted analysis within each position subgroup",
+    "stratify the adjusted model separately by broad position subgroup"
+   ],
+   "why_rival": "both settle whether/how the adjusted model is split across position subgroups (each position vs. broad groups)",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is player position operationalized in the model?",
+   "options": [
+    "include goalkeepers as their own position category",
+    "collapse position into 3 broad groups (Back/Front/Middle)",
+    "use dummy/indicator coding for the position variables amid and cback",
+    "collapse specific positions into a single binary defensive-position indicator",
+    "swap broad position category for the detailed position variable (robustness check)"
+   ],
+   "why_rival": "goalkeepers-as-own-category, 3 broad groups, amid/cback dummies, a binary defensive indicator, and the detailed position variable are rival representations of position",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which leagues are included in the league subgroup analysis?",
+   "options": [
+    "restrict league subgroup analysis to England, Germany, France, Spain"
+   ],
+   "why_rival": "settles the set of leagues restricted into the subgroup analysis"
+  },
+  {
+   "question": "what covariates and interactions make up the adjusted design matrix?",
+   "options": [
+    "build the full dummy/interaction design matrix (position, rater x highIAT, rater x highExp, club)"
+   ],
+   "why_rival": "settles the full adjustment set including position, rater interactions, and club"
+  },
+  {
+   "question": "how is birth year derived from the birthday field?",
+   "options": [
+    "extract birth year from the birthday string by character position"
+   ],
+   "why_rival": "settles the parsing method for extracting birth year"
+  },
+  {
+   "question": "is the exposure effect examined within games-played subgroups?",
+   "options": [
+    "estimate the darkSkin effect within games-played bins as a subgroup analysis"
+   ],
+   "why_rival": "settles whether the darkSkin effect is estimated separately within game-count bins"
+  },
+  {
+   "question": "how are the binomial trial/failure counts defined for the outcome?",
+   "options": [
+    "define non-red-card games as games minus redCards for binomial failures"
+   ],
+   "why_rival": "settles how non-red-card 'failures' are constructed from games minus red cards"
+  },
+  {
+   "question": "how are logically-inconsistent dyad records (cards exceeding games) handled?",
+   "options": [
+    "drop dyads where total cards (yellow+red) exceed games played"
+   ],
+   "why_rival": "settles disposition of dyads whose total cards exceed games played"
+  },
+  {
+   "question": "how many positions are shown in the position-breakdown plot?",
+   "options": [
+    "limit position breakdown plot to top 10 most frequent positions",
+    "limit the position breakdown descriptive plot to the top 8 most common positions"
+   ],
+   "why_rival": "top-10 vs top-8 are rival choices of how many positions the breakdown plot displays",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the rating distribution compared between red-carded and overall games?",
+   "options": [
+    "bin ratings to integers and chi-square the rating distribution in red-carded vs overall games"
+   ],
+   "why_rival": "settles the comparison method (integer-binned chi-square of the rating distribution)"
+  },
+  {
+   "question": "how are league-specific effect estimates obtained?",
+   "options": [
+    "refit separately within each league, no sample-size threshold",
+    "stratify the crude/unadjusted risk-difference comparison by league",
+    "refit the adjusted model separately within each league (all leagues)",
+    "back out league-specific odds ratios by summing main effect and interaction coefficients"
+   ],
+   "why_rival": "refitting the adjusted model per league, stratifying the crude risk difference by league, or backing out ORs from interaction coefficients are rival ways to produce per-league estimates",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what minimum data volume must a sample have before its estimate is kept?",
+   "options": [
+    "discard if fewer than 1000 dyads OR fewer than 10 red-card events",
+    "discard if fewer than 1000 dyads/rows"
+   ],
+   "why_rival": "each sets the row/event threshold below which the analysis is discarded; an analyst picks one rule",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what minimum size must the extreme-comparison subsample reach before it is fit?",
+   "options": [
+    "require at least 100 dyads in the extreme-comparison sample before fitting"
+   ],
+   "why_rival": "sole gate on whether the extreme-contrast sub-analysis proceeds"
+  },
+  {
+   "question": "how is the effect estimate's confidence interval obtained by resampling the observed data?",
+   "options": [
+    "bootstrap resampling dyads, percentile CI",
+    "nonparametric bootstrap resampling dyads/observations, refit, percentile CI",
+    "nonparametric bootstrap, 500 resamples, refit full logit, percentile CI"
+   ],
+   "why_rival": "each is a variant of nonparametric resample-and-refit percentile bootstrap for the effect CI",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the effect estimate's confidence interval obtained by simulating from the fitted model's parameters?",
+   "options": [
+    "parametric bootstrap over coefficient covariance, p-value from draws crossing zero",
+    "parametric bootstrap: redraw all coefficients from asymptotic MVN, recompute RD, percentile CI"
+   ],
+   "why_rival": "each redraws model coefficients from their asymptotic distribution to build the effect CI/p-value; distinct from data-resampling bootstrap (which it co-occurs with as a separate check)",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the unadjusted/crude association estimated and tested?",
+   "options": [
+    "compute crude risk difference with normal-approx (Wald) z-test/CI",
+    "normal (Wald) approximation for SEs/CIs of unadjusted descriptive estimates",
+    "unadjusted 2x2 table giving risk difference plus hand-computed OR with Wald CI",
+    "test association via chi-square, odds ratio, and risk difference together"
+   ],
+   "why_rival": "each is a rival descriptive route to the raw exposure–outcome association (Wald RD, Wald SEs, 2x2 OR, chi-square)",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the hypothesis-support conclusion (p-value or decision rule) derived?",
+   "options": [
+    "declare unsupported by weighing effect size against MDE and the p-value",
+    "declare supported if bootstrap CI lower bound exceeds zero (one-sided directional)",
+    "define two-sided bootstrap p-value as twice the proportion of draws at or below zero",
+    "derive a two-sided bootstrap p-value from the proportion of resampled risk differences crossing zero"
+   ],
+   "why_rival": "each is a different rule for turning the estimate/bootstrap distribution into a supported/unsupported verdict or p-value",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "on what scale is the adjusted model's effect summarized?",
+   "options": [
+    "average marginal effect / risk difference via g-computation (counterfactuals averaged over the full sample)",
+    "exponentiate logit-scale posterior effects to odds ratios (2 decimals)"
+   ],
+   "why_rival": "marginal risk difference via g-computation versus odds ratio are rival summary measures of the same fitted model",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what regression specification estimates the adjusted exposure–red-card association?",
+   "options": [
+    "linear probability model (OLS on binary any_red)",
+    "primary model on full unfiltered sample, pct-point Wald CI",
+    "mixed-effects random-intercept logistic regression (subject-specific estimand)",
+    "logistic, very_dark exposure + standardized covariates incl meanIAT"
+   ],
+   "why_rival": "linear probability, mixed-effects logistic, covariate-adjusted logistic, and full-sample primary model are rival models for the binary outcome",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the skin-tone exposure contrast defined for estimating the effect?",
+   "options": [
+    "dichotomize top vs bottom quartile, discard middle",
+    "redefine exposure at extreme cutoffs (<=0.25/>=0.75) and refit adjusted model on restricted sample",
+    "keep full sample (not just extremes) for continuous-exposure check",
+    "extreme contrast via data-driven terciles (top vs bottom third), dropping middle third"
+   ],
+   "why_rival": "quartile extremes, fixed-cutoff extremes, tercile extremes, or keep the full continuous sample are mutually exclusive ways to frame exposure",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the skin-tone rating categories collapsed into exposure groups?",
+   "options": [
+    "merge Medium into Dark (keep full sample)"
+   ],
+   "why_rival": "sole choice about merging the medium category into dark"
+  },
+  {
+   "question": "what threshold defines agreement between the two skin-tone raters?",
+   "options": [
+    "define rater agreement as a difference no greater than 0.25"
+   ],
+   "why_rival": "sole definition of the rater-agreement criterion"
+  },
+  {
+   "question": "is the model refit on only the rater-agreeing dyads as a sensitivity check?",
+   "options": [
+    "restrict to dyads where raters agree within 0.25 points, refit on subsample"
+   ],
+   "why_rival": "sole decision to restrict the estimation sample by rater agreement"
+  },
+  {
+   "question": "which dyads enter the inter-rater reliability check?",
+   "options": [
+    "restrict to dyads with both rater1 and rater2 present for the inter-rater reliability check"
+   ],
+   "why_rival": "sole decision to require both raters present for the reliability computation"
+  },
+  {
+   "question": "how are player positions collapsed into categories?",
+   "options": [
+    "four positions plus a single residual/catch-all bucket = 5 categories",
+    "collapse into five buckets (four core positions + catch-all) via keyword matching"
+   ],
+   "why_rival": "both settle the position-bucketing scheme; an analyst uses one categorization",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the fitted model's calibration / goodness-of-fit assessed?",
+   "options": [
+    "bin predicted probabilities into deciles and compare mean predicted vs observed",
+    "request Hosmer-Lemeshow test and 95% CIs for odds ratios (logistic)"
+   ],
+   "why_rival": "decile predicted-vs-observed binning and the Hosmer-Lemeshow test are rival goodness-of-fit checks",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "does the outcome regression include a free intercept or is it forced through the origin?",
+   "options": [
+    "keep the regression intercept rather than forcing through the origin"
+   ],
+   "why_rival": "sole choice about the intercept term"
+  },
+  {
+   "question": "how is the outcome distribution family selected?",
+   "options": [
+    "compare Poisson vs binomial models via AIC table"
+   ],
+   "why_rival": "sole procedure comparing Poisson versus binomial by AIC"
+  },
+  {
+   "question": "how is the random-effects structure selected?",
+   "options": [
+    "compare nested random-effects structures via LRT to select specification"
+   ],
+   "why_rival": "sole procedure selecting the random-effects specification by likelihood-ratio test"
+  },
+  {
+   "question": "how is moderation modeled on the regression right-hand side?",
+   "options": [
+    "add rater × moderator interaction terms to the moderation RHS"
+   ],
+   "why_rival": "sole choice about adding rater-by-moderator interaction terms"
+  },
+  {
+   "question": "what prior is placed on the latent rating-class probabilities?",
+   "options": [
+    "give latent rating class probabilities independent Uniform(0,1) priors rather than a joint simplex prior"
+   ],
+   "why_rival": "sole choice between independent Uniform priors and a joint simplex prior"
+  },
+  {
+   "question": "which covariate subset is displayed in the diagnostics table?",
+   "options": [
+    "select key_vars subset of covariates to display in diagnostics table"
+   ],
+   "why_rival": "sole choice of the key_vars display subset"
+  },
+  {
+   "question": "what negative-control/falsification outcome is used?",
+   "options": [
+    "substitute yellow cards for red cards as a falsification/negative-control outcome"
+   ],
+   "why_rival": "sole choice to substitute yellow cards as a negative-control outcome"
+  },
+  {
+   "question": "how are out-of-range linear-probability predictions checked?",
+   "options": [
+    "rerun LPM restricted to dyads with in-bounds predictions as a robustness check"
+   ],
+   "why_rival": "sole robustness rerun restricting to in-bounds LPM predictions"
+  },
+  {
+   "question": "are the previously-excluded single-game dyads included in the analysis?",
+   "options": [
+    "include previously-excluded single-game dyads and rerun the full pipeline"
+   ],
+   "why_rival": "sole choice about re-including single-game dyads"
+  },
+  {
+   "question": "is the adjusted effect re-estimated within a restricted subset of leagues?",
+   "options": [
+    "refit the adjusted model separately within a restricted subset of leagues"
+   ],
+   "why_rival": "sole choice to refit within selected leagues"
+  },
+  {
+   "question": "which data file is loaded as the analysis sample?",
+   "options": [
+    "load pre-cleaned maindata.dta as the full sample"
+   ],
+   "why_rival": "sole choice to load the pre-cleaned maindata.dta as the full sample"
+  },
+  {
+   "question": "how is the continuous skin-tone rating turned into the exposure variable, and where (if at all) is it dichotomized?",
+   "options": [
+    "search cutoffs, keep the one minimizing p-value / maximizing z-statistic",
+    "rerun under two extreme (sample-gated) cutoffs",
+    "search cutoffs, keep the one maximizing estimated effect size",
+    "standardize rating using mean/sd of first-listed rater-average",
+    "search cutoff pairs on extreme groups, pick the one with largest effect",
+    "single-cutoff dichotomize at 0.5, no middle dropped",
+    "dichotomize at 0.25/0.75, drop middle band"
+   ],
+   "why_rival": "each is a rival way to operationalize the primary exposure — a fixed 0.5 split, a 0.25/0.75 split dropping the middle, a data-driven cutoff search, extreme-group cutoffs, or keeping it continuous/standardized; an analyst features one representation, so 41 and 43 co-occurring only 4 times reflects primary-plus-robustness recording, not genuine coexistence",
+   "co_pair_share": 0.048
+  },
+  {
+   "question": "which regression model is fit to relate exposure to red cards?",
+   "options": [
+    "re-derive exposure at 0.5 cutpoint and refit as a Poisson model",
+    "OLS LPM, referee-clustered SE, normal-approx CI"
+   ],
+   "why_rival": "Poisson vs OLS linear-probability are rival choices of the primary regression specification (against the logistic default), and an analysis features one",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "which effect-size measure is used to express the exposure's effect on red cards?",
+   "options": [
+    "extract AME via hardcoded parameter index, build normal-approx CI",
+    "convert the logistic coefficient to an average marginal effect via p(1-p)",
+    "convert coefficients to percentage points / odds ratios with normal-approximation CIs",
+    "exponentiate logistic coefficient to an odds ratio (with CI)",
+    "exponentiate the logistic coefficient/CI to an odds ratio",
+    "designate the LPM coefficient itself as the primary risk-difference estimand",
+    "rescale the linear-probability coefficient and CI from proportions to percentage points",
+    "compute Cohen's h as an additional effect-size metric",
+    "compute crude risk difference plus relative risk/risk ratio",
+    "compute crude risk difference plus odds ratio",
+    "designate risk difference (average marginal effect) as primary, odds ratio secondary"
+   ],
+   "why_rival": "these are alternative expressions of the same effect — odds ratio, risk difference/average marginal effect, relative risk, percentage points, Cohen's h — from which one is designated primary; the heavy 16↔39/32/33 co-occurrence is the same slot recorded twice (a primary measure reported alongside a secondary one), which the guidance flags as expected for genuine rivals",
+   "co_pair_share": 0.145
+  },
+  {
+   "question": "how are standard errors, confidence intervals, and p-values computed?",
+   "options": [
+    "extract coefficient, SE/Wald z-statistic, p-value, and CI for the exposure/regression coefficient via normal approximation",
+    "Wald/normal-approximation CI (estimate ± 1.96×SE)",
+    "nonparametric bootstrap with percentile CI and normal-approximation p-value",
+    "bootstrap-resample for an SE, then normal-approximation Wald p (not percentiles)",
+    "use Wald normal-approximation (z=1.96) for CIs/p-values instead of bootstrap or profile-likelihood",
+    "manual Wald approximation for odds-ratio CI (vs built-in CI)",
+    "analytic delta-method SE via g-computation gradient, Wald CI/p"
+   ],
+   "why_rival": "Wald/normal-approximation, analytic delta-method, bootstrap-percentile, and bootstrap-SE-then-Wald are rival methods for quantifying uncertainty; an analyst commits to one for the primary estimate",
+   "co_pair_share": 0.143
+  },
+  {
+   "question": "along which dimension(s) are the standard errors clustered?",
+   "options": [
+    "analytic delta-method SE with two-way clustered covariance",
+    "recompute SEs one-way by each dimension sequentially for comparison"
+   ],
+   "why_rival": "two-way clustered covariance vs one-way-per-dimension are rival clustering structures for the SEs — a choice separate from the Wald-vs-bootstrap method itself",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "by what rule is the hypothesis judged supported?",
+   "options": [
+    "three-way supported/inconclusive/contradictory from OR p-value plus RD direction",
+    "four-category classification (SUPPORTED/CONTRADICTORY/INCONCLUSIVE/NOT) via p<0.05 + sign",
+    "require p<0.05 AND CI excludes the null (any CI variant: RD/bootstrap/OR>1)",
+    "declare supported on bare p<0.05 alone"
+   ],
+   "why_rival": "these are rival decision rules translating the statistics into a verdict — bare p<0.05, p<0.05 plus a CI excluding the null, or three-/four-way categorical schemes; an analyst applies one, and 42 and 44 never co-occur",
+   "co_pair_share": 0.167
+  },
+  {
+   "question": "how is the reported evidence selected and framed in the write-up?",
+   "options": [
+    "frame as supporting via selective evidentiary bullet points",
+    "curate 3 specific estimates (primary RD, referee-clustered RD, odds ratio), excluding continuous-exposure result"
+   ],
+   "why_rival": "selective supporting bullet points vs curating a chosen subset of estimates (excluding the continuous-exposure result) are rival ways of deciding what evidence to foreground",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are records with missing values handled?",
+   "options": [
+    "restrict exploratory fits to complete cases via listwise deletion"
+   ],
+   "why_rival": "settles the disposition of incomplete records (here, listwise deletion to complete cases)"
+  },
+  {
+   "question": "what prior is placed on the model parameters?",
+   "options": [
+    "give the baseline intercept a Normal(0,10) prior"
+   ],
+   "why_rival": "settles the prior specification for a Bayesian fit (Normal(0,10) on the intercept)"
+  },
+  {
+   "question": "how is model adequacy or fit assessed?",
+   "options": [
+    "assess discrimination via in-sample AUC",
+    "request Durbin-Watson statistic and residual diagnostic plots"
+   ],
+   "why_rival": "in-sample AUC (discrimination) vs Durbin-Watson/residual diagnostics are rival diagnostics tied to the chosen model family for checking fit",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "is a power / minimum-detectable-effect analysis computed?",
+   "options": [
+    "compute minimum detectable effect at 80% power, alpha=0.05"
+   ],
+   "why_rival": "settles whether and how design sensitivity is quantified (MDE at 80% power)"
+  },
+  {
+   "question": "how are the results and their uncertainty visualized?",
+   "options": [
+    "compute Wald normal-approximation CIs for odds ratios to build a forest-style comparison plot",
+    "normal-approximation error bars on raw proportions for plotting"
+   ],
+   "why_rival": "an odds-ratio forest-style comparison plot vs error bars on raw proportions are rival primary visualizations of the results",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is statistical significance quantified and reported for the key coefficient?",
+   "options": [
+    "use the Wald p-value on the extremelyDark coefficient as the significance measure",
+    "bucket p-value into significance stars at 0.001/0.01/0.05",
+    "compute an additional one-sided p-value testing a positive effect"
+   ],
+   "why_rival": "which coefficient's Wald p-value is taken as the significance measure, whether p-values are bucketed into significance stars, and whether a one-sided directional test is used are rival conventions for stating significance",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the continuous skin-tone rating discretized into the exposure variable used for analysis?",
+   "options": [
+    "data-dependent cutoff search maximizing the effect estimate",
+    "bin at 0.375/0.625, derive binary dark indicator, keep middle",
+    "single-cutoff dichotomize at 0.25, no middle dropped",
+    "dichotomize 0.25/0.75, drop middle band",
+    "dichotomize at the 0.5 midpoint",
+    "single-cutoff dichotomize at 0.75, no middle dropped",
+    "data-driven search for cutoff giving strongest result",
+    "dichotomize 0.375/0.625, drop middle band",
+    "dichotomize at 0.25",
+    "trichotomize at 0.25/0.75",
+    "dichotomize 0.25/0.5, drop middle band",
+    "dichotomize at 0.125/0.75, drop middle band",
+    "single alternate cutoff at 0.375 (range to 0.625)",
+    "dichotomize 1-5 rating at 3, drop ambiguous middle",
+    "dichotomize at 0.125"
+   ],
+   "why_rival": "each is one rival recipe for turning the rating into the analysis variable — where to cut, whether to drop or keep a middle band, how many categories, or letting the data pick the cutoff; an analyst commits to one scheme for the primary spec. The few co-runs (e.g. 3/10, 14/18) reflect primary-plus-robustness refits, not two answers taken at once.",
+   "co_pair_share": 0.143
+  },
+  {
+   "question": "are goalkeepers included in or excluded from the sample?",
+   "options": [
+    "exclude goalkeepers from the sample",
+    "exclude goalkeepers as primary spec, with no robustness variant",
+    "exclude goalkeepers from the analytic/modeling sample",
+    "include goalkeepers again (reverse the exclusion)"
+   ],
+   "why_rival": "each settles whether goalkeepers are in the analytic sample; excluding them and re-including them are opposite answers to the same membership question, and they never co-occur.",
+   "co_pair_share": 0.333
+  },
+  {
+   "question": "how are records with missing values handled?",
+   "options": [
+    "listwise deletion / restrict to complete cases (no imputation)",
+    "complete-case deletion restricted to a specified variable set"
+   ],
+   "why_rival": "both dispose of incomplete records by deletion — over all variables versus a restricted variable set — as alternative complete-case strategies.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "what rule determines whether the hypothesis is declared supported?",
+   "options": [
+    "require p<0.05 AND effect in hypothesized direction (binary)",
+    "require p<0.05 AND direction AND CI lower bound",
+    "require both RD and OR p-values under 0.05",
+    "three-way supported/not/contradictory from bootstrap CI direction",
+    "declare SUPPORTED as a hardcoded verdict regardless of computed significance",
+    "three-tier verdict from dual p<0.05 and p<0.10 cutoffs plus a CI check"
+   ],
+   "why_rival": "each defines the decision rule for a verdict — different significance/CI thresholds, a bootstrap-CI trichotomy, or simply hardcoding the verdict; an analyst applies one rule, not several.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the final conclusion characterized in the writeup?",
+   "options": [
+    "declare SUPPORTED, framed as a large/strong significant effect",
+    "declare SUPPORTED, framed as a modest-but-meaningful effect",
+    "overstate/embellish the supported conclusion beyond the numbers",
+    "declare hypothesis not supported from the primary result",
+    "frame as 'supported with caveats' (hedged/small/heterogeneous)"
+   ],
+   "why_rival": "each is a mutually exclusive way to state the conclusion — strong support, modest support, hedged support, overstatement, or not supported; only one framing is written.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the correspondence between the two raters' skin-tone ratings quantified?",
+   "options": [
+    "Pearson and Spearman correlation",
+    "correlation, exact-match, plus within-0.25 tolerance band"
+   ],
+   "why_rival": "both measure agreement between the two ratings via correlation, one adding exact-match and tolerance-band variants, as alternative agreement metrics.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the effect's statistical uncertainty estimated?",
+   "options": [
+    "bootstrap percentile 95% CI (2.5th/97.5th percentiles)",
+    "conventional non-clustered (homoskedastic) SEs"
+   ],
+   "why_rival": "bootstrap percentile intervals versus analytic homoskedastic standard errors are rival approaches to computing uncertainty for the estimate.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the risk difference re-expressed for reporting?",
+   "options": [
+    "re-express RD as a relative percent increase over baseline",
+    "translate risk difference into relative-% increase plus number-needed-to-expose"
+   ],
+   "why_rival": "both restate the risk difference on a more interpretable scale — relative percent increase, optionally with number-needed-to-expose — as alternative presentations of the same quantity.",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are player positions grouped into categories?",
+   "options": [
+    "six buckets, underspecified (either adds Winger or separate Other+Unknown)"
+   ],
+   "why_rival": "single option settling the position-bucketing scheme."
+  },
+  {
+   "question": "are reported effect/plot estimates computed from the data or hardcoded as literal values?",
+   "options": [
+    "hard-code reported summary/plot effect estimates as literal values instead of computing them from data"
+   ],
+   "why_rival": "single option settling whether the reported numbers are derived from computation."
+  },
+  {
+   "question": "is multicollinearity among predictors checked?",
+   "options": [
+    "check multicollinearity using VIF"
+   ],
+   "why_rival": "single option settling whether a VIF collinearity diagnostic is run."
+  },
+  {
+   "question": "how are outlying observations identified?",
+   "options": [
+    "flag standardized-residual outliers beyond 3 SD"
+   ],
+   "why_rival": "single option settling the outlier-flagging rule (standardized residuals beyond 3 SD)."
+  },
+  {
+   "question": "is statistical power assessed after the fact?",
+   "options": [
+    "post-hoc power calculation for minimum detectable effect"
+   ],
+   "why_rival": "single option settling whether a post-hoc minimum-detectable-effect power calculation is done."
+  },
+  {
+   "question": "how is statistical significance represented in the visualization?",
+   "options": [
+    "color-code/highlight visualization bars by whether p<0.05"
+   ],
+   "why_rival": "single option settling whether plot bars are color-coded by significance."
+  },
+  {
+   "question": "is a subgroup restricted-and-refit robustness analysis performed?",
+   "options": [
+    "restrict to a subgroup and refit"
+   ],
+   "why_rival": "single option settling whether the model is refit on a restricted subgroup."
+  },
+  {
+   "question": "are goalkeepers kept in the analysis sample?",
+   "options": [
+    "include goalkeepers as baseline, exclude them as robustness check",
+    "refit keeping goalkeepers in the sample",
+    "refit with goalkeepers reinstated in the sample"
+   ],
+   "why_rival": "each settles whether goalkeeper dyads are included in or excluded from the estimation sample",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is the skin-tone rating operationalized as the model's exposure variable (continuous factor, dichotomized, trichotomized, or binned, and at which cutpoints)?",
+   "options": [
+    "refit across three candidate cutpoints (0.25/0.375/0.5), 0.25 primary",
+    "single-cutoff dichotomize at 0.375",
+    "strict scale extremes, 0 vs 1",
+    "sweep at cutoffs 0.125 and 0.375",
+    "trichotomize at 0.25/0.5",
+    "bin at cutoffs (0.125, 0.625)",
+    "bin at cutoffs (0.25, 0.5)",
+    "bin at cutoffs (0.25, 0.75)",
+    "bin at cutoffs (0.325, 0.675)",
+    "bin at cutoffs (0.375, 0.625)",
+    "bin into eight equal-width bins",
+    "bin into five categories with custom edges",
+    "bin into four categories",
+    "bin into nine categories",
+    "bin into six categories",
+    "code rating as a categorical factor",
+    "dichotomize 0.125/0.375, drop middle band",
+    "dichotomize 0.125/0.875, drop middle band",
+    "dichotomize 0.25/0.625, drop middle band",
+    "dichotomize 1-5 rating at >3, no middle dropped",
+    "dichotomize a single rater (rater1) at 2/3",
+    "dichotomize at 0.125/0.25, drop middle band"
+   ],
+   "why_rival": "each is a mutually exclusive way of turning the skin-tone scale into the predictor — you use one representation as the primary exposure, not several at once",
+   "co_pair_share": 0.009
+  },
+  {
+   "question": "which regression model/estimator is fit to the clustered binary outcome?",
+   "options": [
+    "GEE logistic with exchangeable correlation (population-averaged estimand)",
+    "assemble design matrix with intercept and numeric dummy columns, fix outcome vector",
+    "binomial mixed model with skintone × moderator interaction"
+   ],
+   "why_rival": "GEE logistic, a linear-probability/design-matrix regression, and a binomial mixed model are rival estimation frameworks; the analyst commits to one primary model",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is effect modification by the moderator examined?",
+   "options": [
+    "refit the model stratified by the modifier"
+   ],
+   "why_rival": "settles whether the moderator is handled by stratified refitting"
+  },
+  {
+   "question": "how is inter-rater agreement between the two skin-tone raters quantified?",
+   "options": [
+    "Cronbach's alpha",
+    "Pearson correlation plus mean absolute difference"
+   ],
+   "why_rival": "Cronbach's alpha versus Pearson-plus-mean-absolute-difference are alternative reliability statistics for the same rater pair",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are the two raters' codes reduced to a single skin-tone variable?",
+   "options": [
+    "collapse already-agreeing rater codes into a single variable"
+   ],
+   "why_rival": "settles the rule for collapsing the two rater columns into one exposure value"
+  },
+  {
+   "question": "how is the linear probability model's validity checked (out-of-[0,1] predicted probabilities)?",
+   "options": [
+    "check LPM predicted probabilities for out-of-[0,1] values",
+    "check the linear probability model for out-of-[0,1] predicted probabilities"
+   ],
+   "why_rival": "both are the same out-of-range predicted-probability diagnostic for the LPM, phrased two ways",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "is an equidispersion diagnostic run on the red-card counts?",
+   "options": [
+    "check redCards variance vs mean as equidispersion diagnostic"
+   ],
+   "why_rival": "settles whether variance-vs-mean is checked as a count-model adequacy diagnostic"
+  },
+  {
+   "question": "which effect measures are derived and reported?",
+   "options": [
+    "derive risk difference, relative risk, and odds ratio together"
+   ],
+   "why_rival": "settles whether risk difference, relative risk, and odds ratio are all produced together"
+  },
+  {
+   "question": "in what units is the risk difference reported?",
+   "options": [
+    "rescale RD from proportion to percentage points"
+   ],
+   "why_rival": "settles whether the RD is rescaled from a proportion to percentage points"
+  },
+  {
+   "question": "how is the standard error obtained?",
+   "options": [
+    "back out an approximate SE from the bootstrap CI width assuming normality"
+   ],
+   "why_rival": "settles whether the SE is backed out from the bootstrap CI width under a normality assumption"
+  },
+  {
+   "question": "how is the verdict on hypothesis support decided and framed?",
+   "options": [
+    "ad hoc bundle of significance rules across estimands with a suggestive fallback",
+    "declare SUPPORTED with no elaborated framing"
+   ],
+   "why_rival": "an elaborated bundle of significance rules with a suggestive fallback versus a bare SUPPORTED declaration are rival ways of translating results into a conclusion",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are stepwise variable-selection thresholds (and CI width) set?",
+   "options": [
+    "set stepwise entry/removal thresholds and CI width"
+   ],
+   "why_rival": "settles the entry/removal criteria for the stepwise model-building procedure"
+  },
+  {
+   "question": "how are laterally-symmetric position variants coded?",
+   "options": [
+    "collapse left/right variants into side-agnostic category"
+   ],
+   "why_rival": "settles whether left/right position variants are merged into a side-agnostic category"
+  },
+  {
+   "question": "how are unmapped player positions handled?",
+   "options": [
+    "default unmapped positions to Goalkeeper, no residual bucket"
+   ],
+   "why_rival": "settles the fallback for positions with no mapping (default to goalkeeper vs. a residual bucket)"
+  },
+  {
+   "question": "how are the bootstrap optimizer's iterations and convergence warnings configured?",
+   "options": [
+    "cap bootstrap model optimizer at 50 iterations and suppress convergence warnings"
+   ],
+   "why_rival": "settles the iteration cap and warning-suppression setting for the bootstrap refits"
+  },
+  {
+   "question": "which numerical optimizer is used for model convergence?",
+   "options": [
+    "choose a non-default numerical optimizer for model convergence"
+   ],
+   "why_rival": "settles whether a non-default optimizer is selected to achieve convergence"
+  },
+  {
+   "question": "how is the skin-tone rating turned into the exposure representation used in the primary model?",
+   "options": [
+    "dichotomize at 0.125/0.50, drop middle band",
+    "dichotomize at 0.25/0.50, drop middle band",
+    "dichotomize at >0.625",
+    "single-cutoff dichotomize at 0.125",
+    "single-cutoff dichotomize at 0.875",
+    "dichotomize top vs bottom tertile",
+    "extreme-groups at exact endpoints 0 vs 1",
+    "extreme-groups top quartile vs bottom ~10%",
+    "primary 0.25 cutpoint with 0.5 alternate",
+    "primary 0.5 cutpoint with 0.375 alternate",
+    "refit across cutoffs 0.125 / 0.375 / 0.5",
+    "replace the extreme-groups design with a single sweeping cutoff (0.5, 0.625)",
+    "restrict to extreme quartiles (<=0.25 vs >=0.75)",
+    "restrict to extreme rater endpoints (0 vs 1) as the contrast",
+    "restrict to very extreme contrast (<=0.125 vs >=0.875)",
+    "swap the 0.25 cutpoint for 0.375, keeping the extreme-groups design",
+    "sweep at cutoffs 0.10 and 0.25",
+    "sweep cutpoints 0.30 / 0.35 / 0.375",
+    "sweep cutpoints 0.375 / 0.5",
+    "sweep cutpoints 0.375 / 0.5 / 0.625",
+    "treat mean rating as ordinal 1-5 with partial pooling",
+    "trichotomize at 0.125/0.625"
+   ],
+   "why_rival": "each converts the continuous skin-tone rating into the analysis contrast a different way (where to cut, how many groups, extreme-groups vs. single/sweeping cutoff, or keep it ordinal); the primary analysis commits to exactly one scheme, and none of these co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is uncertainty in the estimates quantified?",
+   "options": [
+    "nonparametric bootstrap with 200 resamples",
+    "nonparametric bootstrap with 2000 resamples",
+    "nonparametric bootstrap with 500 resamples",
+    "nonparametric bootstrap, 1000 resamples, refit Poisson, skip non-converging",
+    "parametric bootstrap with 10,000 draws",
+    "summarize posterior uncertainty as a 95% equal-tailed credible interval"
+   ],
+   "why_rival": "each produces the estimate's interval a different way (nonparametric bootstrap at various resample counts, parametric bootstrap, or a Bayesian posterior credible interval); an analysis uses one, and none of these co-occur",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how are player positions grouped into categories?",
+   "options": [
+    "seven categories including a separate Winger bucket",
+    "six categories splitting midfielders into defensive/attacking-winger"
+   ],
+   "why_rival": "both define the position-covariate category scheme (seven buckets with a Winger split vs. six with a midfielder split); an analyst picks one categorization",
+   "co_pair_share": 0.0
+  },
+  {
+   "question": "how is inter-rater agreement on the skin-tone ratings assessed?",
+   "options": [
+    "dichotomize at midpoint 3 (drop exact-3), then Cohen's kappa"
+   ],
+   "why_rival": "settles the reliability check on the two raters (dichotomize at the midpoint, then Cohen's kappa); distinct from how the rating is coded for the exposure contrast"
+  },
+  {
+   "question": "which player positions are excluded from the analysis sample?",
+   "options": [
+    "drop Center Backs"
+   ],
+   "why_rival": "settles who the analysis is about by removing a position; a sample restriction, composable with any position-coding or referee-subsampling choice"
+  },
+  {
+   "question": "which referees are included in the analysis (subsampling)?",
+   "options": [
+    "restrict to a random draw of 250 referees"
+   ],
+   "why_rival": "settles the referee sample by drawing a random subset; a distinct restriction from position exclusion"
+  },
+  {
+   "question": "what regression model is used for the red-card outcome?",
+   "options": [
+    "linear probability model (OLS), no SE method specified"
+   ],
+   "why_rival": "settles the outcome estimator (linear probability model / OLS)"
+  },
+  {
+   "question": "how is the country-level implicit-bias (IAT) relationship modeled?",
+   "options": [
+    "regress ratio on meanIAT, weighted by inverse meanIAT"
+   ],
+   "why_rival": "settles the aggregate Q2 analysis (regress the red-card ratio on meanIAT with inverse-meanIAT weighting)"
+  },
+  {
+   "question": "how are the Q2 country-level observations weighted?",
+   "options": [
+    "select Q2 model inputs and convert country SEs/Ns to precision weights"
+   ],
+   "why_rival": "settles the weighting of aggregated country units by converting SEs/Ns to precision weights"
+  },
+  {
+   "question": "how is the MCMC sampler configured?",
+   "options": [
+    "fix MCMC chains/adaptation/iterations/thinning and monitored parameters"
+   ],
+   "why_rival": "settles chains, adaptation, iterations, thinning, and monitored parameters for the Bayesian fit"
+  },
+  {
+   "question": "how is uncertainty summarized as a reported interval for the Bayesian fit?",
+   "options": [],
+   "why_rival": "placeholder"
+  },
+  {
+   "question": "which version of the dataset is loaded?",
+   "options": [
+    "load the pre-cleaned Stata dataset"
+   ],
+   "why_rival": "settles the data source (the pre-cleaned Stata file vs. raw)"
+  },
+  {
+   "question": "how are values that fail numeric conversion handled?",
+   "options": [
+    "force-convert to numeric, coercing any conversion error to NA"
+   ],
+   "why_rival": "settles type coercion of a variable, forcing errors to NA"
+  },
+  {
+   "question": "how are model diagnostics generated?",
+   "options": [
+    "generate in-sample predicted probabilities from the fitted model for diagnostics"
+   ],
+   "why_rival": "settles the diagnostic step (in-sample predicted probabilities from the fitted model)"
+  },
+  {
+   "question": "how are plotted point estimates and confidence intervals sourced?",
+   "options": [
+    "hardcode point estimates/CIs for some specifications in plotting code instead of reading fitted results"
+   ],
+   "why_rival": "settles whether plot values are read from fitted results or hardcoded"
+  },
+  {
+   "question": "how are p-values annotated for significance in output?",
+   "options": [
+    "map p-values to significance-star annotations at conventional alpha thresholds"
+   ],
+   "why_rival": "settles significance-star mapping at conventional alpha thresholds"
+  },
+  {
+   "question": "how is the skin-tone rating scale transformed before modeling?",
+   "options": [
+    "rescale avgrate from a 1-5 scale to a 0-1 scale"
+   ],
+   "why_rival": "settles the preprocessing rescale of avgrate from 1-5 to 0-1 that the 0-1 cutoffs presuppose"
+  },
+  {
+   "question": "how are the IAT / explicit-bias predictors scaled before modeling?",
+   "options": [
+    "rescale meanIAT and meanExp by ×100 before modeling"
+   ],
+   "why_rival": "settles the ×100 rescaling of meanIAT and meanExp"
+  },
+  {
+   "question": "on what unit change is the reported skin-tone effect expressed?",
+   "options": [
+    "rescale to a 0.25-unit change"
+   ],
+   "why_rival": "settles the coefficient interpretation scale (per 0.25-unit change)"
+  },
+  {
+   "question": "how is the continuous skin-tone rating discretized into categories?",
+   "options": [
+    "trichotomize at 0.25/0.625",
+    "trichotomize at 0.375/0.625",
+    "use absolute thresholds 0.375 and 0.125",
+    "use bottom-25%/top-25% percentile cutoffs"
+   ],
+   "why_rival": "each specifies one scheme for cutting the skin-tone scale into groups (different trichotomy breakpoints, absolute thresholds, or percentile cutoffs); an analyst picks exactly one binning rule for the primary analysis and cannot simultaneously apply another",
+   "co_pair_share": 0.0
+  }
+ ]
+}

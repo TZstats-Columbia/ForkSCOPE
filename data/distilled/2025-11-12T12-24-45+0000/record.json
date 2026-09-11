@@ -1,0 +1,85 @@
+{
+ "run_id": "2025-11-12T12-24-45+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 303,
+   "functional_lines": 155,
+   "functional_share": 0.5116,
+   "by_type": {
+    "print": 100,
+    "comment": 38,
+    "import": 9,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 256,
+   "functional_lines": 145,
+   "functional_share": 0.5664,
+   "by_type": {
+    "heading": 50,
+    "other": 50,
+    "boilerplate": 32,
+    "hedging": 2,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 118,
+  "action_claims": 50,
+  "result_claims": 68,
+  "links": 56,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 4,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 68
+ },
+ "silent_decisions": [
+  {
+   "id": 39,
+   "lines": [
+    [
+     218,
+     225
+    ]
+   ],
+   "confidence": "high",
+   "operation": "use continuous skin tone instead of the binarized exposure and refit the adjusted model",
+   "targets": [
+    "skinTone"
+   ]
+  },
+  {
+   "id": 45,
+   "lines": [
+    [
+     249,
+     295
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "assemble a single summary table choosing which of the primary, secondary, stratified, and sensitivity estimates to report together and how to format them",
+   "targets": [
+    "coef_dark",
+    "or_dark",
+    "results_df",
+    "lpm_sens1",
+    "lpm_cont",
+    "lpm_no_yellow"
+   ]
+  }
+ ],
+ "misalignments": []
+}

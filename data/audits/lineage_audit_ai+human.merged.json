@@ -1,0 +1,1019 @@
+{
+ "corpus": "ai+human.merged",
+ "seed": 20260823,
+ "purity": {
+  "traced": 27,
+  "raw_read": 153,
+  "verdicts": {
+   "coherent": 26,
+   "impure": 1
+  },
+  "rejected_raw": 1,
+  "results": [
+   {
+    "fork": "how is multicollinearity among covariates/predictors assessed?",
+    "option": "compute VIF to screen all covariates (no threshold/subset specified)",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all compute VIF to screen predictors for multicollinearity, no threshold specified",
+    "shown_ids": [
+     2005,
+     987,
+     2095
+    ]
+   },
+   {
+    "fork": "how is within-player correlation/clustering of repeated or grouped observations handled?",
+    "option": "logistic/binomial GEE with exchangeable within-player correlation",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three fit logistic/binomial GEE with exchangeable within-player correlation",
+    "shown_ids": [
+     218,
+     1874,
+     1891
+    ]
+   },
+   {
+    "fork": "how much is the covariate set pared down in the sensitivity/robustness check model?",
+    "option": "refit with only dark skin and game count",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "impure",
+    "rejects": [
+     {
+      "id": 1,
+      "records": "refit with exposure only, no game count in the model"
+     }
+    ],
+    "groups": [],
+    "note": "one straggler drops game count; rest keep dark skin plus game count",
+    "shown_ids": [
+     934,
+     702,
+     1857,
+     2986,
+     1840
+    ]
+   },
+   {
+    "fork": "which rater/bias interaction coefficients are extracted for the results table?",
+    "option": "format the rater×bias interaction coefficients for the results table",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All four extract rater×bias interaction coefficients for the results tables; same choice, enumerating rater/measure cells.",
+    "shown_ids": [
+     3749,
+     3750,
+     3753,
+     3754
+    ]
+   },
+   {
+    "fork": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+    "option": "drop the middle skin-tone group, keep light vs dark extremes as binary",
+    "n_members": 8,
+    "n_shown": 8,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all drop the middle skin-tone group and contrast light vs dark extremes as binary; cutpoint wording varies only.",
+    "shown_ids": [
+     312,
+     387,
+     1519,
+     1981,
+     1992,
+     2264,
+     2314,
+     3461
+    ]
+   },
+   {
+    "fork": "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?",
+    "option": "complete-case / listwise deletion on missing covariates (variable set varies by option)",
+    "n_members": 13,
+    "n_shown": 13,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record complete-case/listwise deletion on missing covariates; variable set varies as the option allows, and Unknown-position drops are just complete-case on position.",
+    "shown_ids": [
+     853,
+     997,
+     1685,
+     1739,
+     1778,
+     1798,
+     1905,
+     2434,
+     2594,
+     2690,
+     2997,
+     3601,
+     3935
+    ]
+   },
+   {
+    "fork": "how is sensitivity to the skin-tone dichotomization threshold/cutoff assessed?",
+    "option": "refit adjusted model across cutoffs 0.375 / 0.5 / 0.625",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all refit the adjusted model across alternative cutoffs; id 2 says four but same sweep operation",
+    "shown_ids": [
+     334,
+     732,
+     2929,
+     3022
+    ]
+   },
+   {
+    "fork": "what decision rule translates the statistical results into a supported/not-supported conclusion?",
+    "option": "binary support decision requiring p<0.05 AND direction AND CI lower bound",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record the same conjunctive rule: p<0.05 plus positive direction/CI lower bound above zero",
+    "shown_ids": [
+     1334,
+     1731,
+     2050,
+     1417,
+     860
+    ]
+   },
+   {
+    "fork": "what decision rule translates the statistical results into a supported/not-supported conclusion?",
+    "option": "binary support decision via p<0.05 plus sign/direction",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All apply a p<0.05 threshold for a binary support call; id 3's inconclusive-phrasing is a minor nuance, not a different rule.",
+    "shown_ids": [
+     2080,
+     1520,
+     2717,
+     454
+    ]
+   },
+   {
+    "fork": "how are confidence intervals and p-values constructed from point estimates and standard errors?",
+    "option": "construct CIs and p-values via normal (Wald z) approximation with a fixed 1.96 critical value",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three build CIs/p-values via normal z approximation",
+    "shown_ids": [
+     2075,
+     2163,
+     1930
+    ]
+   },
+   {
+    "fork": "what model family (distribution, link, offset, estimand) is used to model the red-card outcome?",
+    "option": "Poisson regression of red-card counts with log(games)/exposure offset",
+    "n_members": 12,
+    "n_shown": 12,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record Poisson regression of red-card counts with a games exposure offset",
+    "shown_ids": [
+     43,
+     2357,
+     3263,
+     3590,
+     1265,
+     1286,
+     2853,
+     3103,
+     3227,
+     3522,
+     3570,
+     3839
+    ]
+   },
+   {
+    "fork": "what model family (distribution, link, offset, estimand) is used to model the red-card outcome?",
+    "option": "logistic regression on the binary red-card indicator",
+    "n_members": 10,
+    "n_shown": 10,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record choosing logistic regression for the binary red-card outcome.",
+    "shown_ids": [
+     426,
+     911,
+     1121,
+     1621,
+     2557,
+     2615,
+     2630,
+     2800,
+     3701,
+     3824
+    ]
+   },
+   {
+    "fork": "is a one-sided p-value additionally reported?",
+    "option": "additionally report a one-sided p-value by halving the two-sided p-value",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all report an additional one-sided p-value alongside the two-sided result",
+    "shown_ids": [
+     2841,
+     2932,
+     2856
+    ]
+   },
+   {
+    "fork": "at what unit of analysis (e.g., dyad vs player) is the data aggregated/modeled?",
+    "option": "aggregate dyad-level rows to one row per player (sum counts, keep first/average for attributes)",
+    "n_members": 8,
+    "n_shown": 8,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all collapse dyad rows to one player row, summing counts and first/averaging attributes",
+    "shown_ids": [
+     42,
+     1281,
+     1303,
+     2736,
+     3157,
+     3283,
+     3634,
+     3770
+    ]
+   },
+   {
+    "fork": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "option": "compute crude risk difference with normal-approximation SE/CI/z-test",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all compute the crude dark-vs-light red-card risk difference; others just omit the SE/CI detail",
+    "shown_ids": [
+     1232,
+     1907,
+     945,
+     621
+    ]
+   },
+   {
+    "fork": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "option": "test crude association with chi-square on the 2x2 table",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all four run a chi-square test on the crude skin-tone/red-card 2x2 table",
+    "shown_ids": [
+     1687,
+     2338,
+     510,
+     2507
+    ]
+   },
+   {
+    "fork": "how is uncertainty for the unadjusted group red-card rates summarized/plotted?",
+    "option": "unadjusted red-card rate by skin-tone group with Wald (1.96×SE) CI error bars",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three record normal-approximation (1.96×SE / Wald) CIs on unadjusted group rates",
+    "shown_ids": [
+     3171,
+     1023,
+     1540
+    ]
+   },
+   {
+    "fork": "how are standard errors computed in the logistic model?",
+    "option": "cluster standard errors by player",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three cluster SEs by player; IRLS/robust wording is the same choice",
+    "shown_ids": [
+     384,
+     1534,
+     235
+    ]
+   },
+   {
+    "fork": "how is the bootstrap p-value derived?",
+    "option": "percentile/tail bootstrap p-value: proportion of draws crossing zero, doubling the smaller tail",
+    "n_members": 4,
+    "n_shown": 4,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all four record the same two-sided tail-proportion bootstrap p-value",
+    "shown_ids": [
+     2262,
+     552,
+     62,
+     2204
+    ]
+   },
+   {
+    "fork": "how is the bootstrap p-value derived?",
+    "option": "normal/Wald bootstrap p-value using the bootstrap standard error",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all three derive the p-value via normal/Wald approximation using the bootstrap SE",
+    "shown_ids": [
+     2419,
+     1051,
+     3566
+    ]
+   },
+   {
+    "fork": "how is the p-value for the risk-difference estimate computed (e.g., via bootstrap/simulation)?",
+    "option": "bootstrap p-value as twice the tail proportion of draws relative to zero",
+    "n_members": 10,
+    "n_shown": 10,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All record the two-sided bootstrap p-value from the tail proportion of draws relative to zero.",
+    "shown_ids": [
+     17,
+     435,
+     628,
+     895,
+     1127,
+     1640,
+     1914,
+     2113,
+     2525,
+     2562
+    ]
+   },
+   {
+    "fork": "how are results across multiple model specifications summarized/reported?",
+    "option": "assemble a comparison/summary table of model fit statistics across specifications",
+    "n_members": 5,
+    "n_shown": 5,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all assemble a cross-specification comparison table; stat/spec details vary but the choice is identical",
+    "shown_ids": [
+     113,
+     391,
+     556,
+     2482,
+     3628
+    ]
+   },
+   {
+    "fork": "how is the model coefficient translated into the primary reported effect estimate/measure?",
+    "option": "exponentiate the logistic coefficient and CI to an odds ratio",
+    "n_members": 12,
+    "n_shown": 12,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all exponentiate the logit coefficient/CI to an odds ratio; wording varies only",
+    "shown_ids": [
+     254,
+     332,
+     821,
+     1435,
+     2378,
+     2801,
+     2829,
+     3062,
+     3347,
+     3427,
+     3483,
+     3943
+    ]
+   },
+   {
+    "fork": "how are the per-league/country heterogeneity results reported?",
+    "option": "hardcode manually-typed per-league/country OR values instead of computed values (e.g. in forest plot)",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record hardcoding literal per-league/country OR/CI values instead of computed ones",
+    "shown_ids": [
+     1242,
+     2133,
+     2286
+    ]
+   },
+   {
+    "fork": "what supplementary effect-size framings/metrics are reported for interpretation?",
+    "option": "translate adjusted risk difference into relative-% increase over light-skin baseline plus number-needed-to-expose",
+    "n_members": 3,
+    "n_shown": 3,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all report relative-% increase over light-skin baseline; NNE is an extra metric in one, not a different choice",
+    "shown_ids": [
+     1021,
+     483,
+     3173
+    ]
+   },
+   {
+    "fork": "how is the free-text position field collapsed into a categorical covariate?",
+    "option": "four positions plus two separate residual buckets, Other and Missing/Unknown = 6 categories",
+    "n_members": 7,
+    "n_shown": 7,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "all record four positions plus Other and Missing/Unknown residual buckets; Unknown = Missing/Unknown",
+    "shown_ids": [
+     442,
+     1065,
+     1339,
+     1446,
+     2553,
+     2707,
+     2883
+    ]
+   },
+   {
+    "fork": "how is the free-text position field collapsed into a categorical covariate?",
+    "option": "four categories F/D/M/GK, no catch-all",
+    "n_members": 7,
+    "n_shown": 7,
+    "verdict": "coherent",
+    "rejects": [],
+    "groups": [],
+    "note": "All collapse positions into the same four F/D/M/GK buckets; method wording differs only.",
+    "shown_ids": [
+     635,
+     1632,
+     3250,
+     3543,
+     2172,
+     973,
+     2775
+    ]
+   }
+  ]
+ },
+ "identity": {
+  "tested": 30,
+  "same": 23,
+  "candidates": [
+   {
+    "score": 1.779,
+    "a": "how are free-text/raw player positions collapsed into a coarse categorical variable?",
+    "b": "how is the free-text position field collapsed into a categorical covariate?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.35,
+    "co_runs": 0,
+    "expected": 6.6
+   },
+   {
+    "score": 1.514,
+    "a": "how is the adjusted logistic coefficient reported as an effect size?",
+    "b": "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+    "label_jaccard": 0.25,
+    "option_jaccard": 0.21,
+    "co_runs": 0,
+    "expected": 17.2
+   },
+   {
+    "score": 1.511,
+    "a": "how are games/height/weight scaled and prepared for use as covariates?",
+    "b": "how are height and weight scaled for use as covariates?",
+    "label_jaccard": 0.67,
+    "option_jaccard": 0.44,
+    "co_runs": 0,
+    "expected": 0.3
+   },
+   {
+    "score": 1.427,
+    "a": "how are the bootstrap CI and p-value derived, and for which estimands?",
+    "b": "how is the bootstrap p-value derived?",
+    "label_jaccard": 0.75,
+    "option_jaccard": 0.23,
+    "co_runs": 0,
+    "expected": 0.1
+   },
+   {
+    "score": 1.415,
+    "a": "how is continuous skin tone binned into an ordinal/exposure category?",
+    "b": "how is the continuous skin-tone score binned into a three-level exposure category?",
+    "label_jaccard": 0.6,
+    "option_jaccard": 0.45,
+    "co_runs": 0,
+    "expected": 0.2
+   },
+   {
+    "score": 1.409,
+    "a": "what dataset/file is loaded as the starting analysis population?",
+    "b": "what is the source/scope of the dataset used for the analysis?",
+    "label_jaccard": 0.14,
+    "option_jaccard": 0.28,
+    "co_runs": 0,
+    "expected": 47.4
+   },
+   {
+    "score": 1.215,
+    "a": "what decision rule translates the statistical results into a supported/not-supported conclusion?",
+    "b": "what rule/threshold determines whether the effect/hypothesis is declared statistically significant or supported?",
+    "label_jaccard": 0.12,
+    "option_jaccard": 0.12,
+    "co_runs": 0,
+    "expected": 4.6
+   },
+   {
+    "score": 1.139,
+    "a": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "label_jaccard": 0.6,
+    "option_jaccard": 0.18,
+    "co_runs": 2,
+    "expected": 4.8
+   },
+   {
+    "score": 1.1,
+    "a": "how are missing/incomplete cases handled before modeling?",
+    "b": "how is missing data on the regression/modeling sample handled?",
+    "label_jaccard": 0.38,
+    "option_jaccard": 0.5,
+    "co_runs": 0,
+    "expected": 0.3
+   },
+   {
+    "score": 1.096,
+    "a": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "label_jaccard": 0.56,
+    "option_jaccard": 0.21,
+    "co_runs": 0,
+    "expected": 0.2
+   },
+   {
+    "score": 1.044,
+    "a": "what covariate set and functional form does the primary adjustment model use?",
+    "b": "what covariate/adjustment set does the primary model include?",
+    "label_jaccard": 0.5,
+    "option_jaccard": 0.24,
+    "co_runs": 13,
+    "expected": 22.4
+   },
+   {
+    "score": 1.014,
+    "a": "how is the adjusted risk difference estimated/computed from the fitted model?",
+    "b": "how is the risk difference for skin tone estimated from the fitted model?",
+    "label_jaccard": 0.5,
+    "option_jaccard": 0.21,
+    "co_runs": 2,
+    "expected": 7.8
+   },
+   {
+    "score": 1.0,
+    "a": "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?",
+    "b": "which rows are excluded from the analytic sample as a robustness check?",
+    "label_jaccard": 0.5,
+    "option_jaccard": 0.2,
+    "co_runs": 1,
+    "expected": 0.8
+   },
+   {
+    "score": 0.952,
+    "a": "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?",
+    "b": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.42,
+    "co_runs": 7,
+    "expected": 17.9
+   },
+   {
+    "score": 0.923,
+    "a": "how are free-text/raw player positions collapsed into a coarse categorical variable?",
+    "b": "how are position and league/country covariates encoded for the regression?",
+    "label_jaccard": 0.0,
+    "option_jaccard": 0.02,
+    "co_runs": 0,
+    "expected": 4.8
+   },
+   {
+    "score": 0.903,
+    "a": "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+    "b": "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?",
+    "label_jaccard": 0.5,
+    "option_jaccard": 0.1,
+    "co_runs": 44,
+    "expected": 46.9
+   },
+   {
+    "score": 0.9,
+    "a": "what minimum-games threshold defines the analytic sample?",
+    "b": "which minimum-games threshold defines the sensitivity subsample?",
+    "label_jaccard": 0.5,
+    "option_jaccard": 0.1,
+    "co_runs": 3,
+    "expected": 0.7
+   },
+   {
+    "score": 0.894,
+    "a": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstrapping?",
+    "b": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "label_jaccard": 0.45,
+    "option_jaccard": 0.17,
+    "co_runs": 0,
+    "expected": 0.1
+   },
+   {
+    "score": 0.894,
+    "a": "how is the overall hypothesis-support conclusion framed and reached from the results?",
+    "b": "what interpretive/hypothesis-support conclusion is drawn from the results, and how is it derived?",
+    "label_jaccard": 0.4,
+    "option_jaccard": 0.25,
+    "co_runs": 0,
+    "expected": 0.4
+   },
+   {
+    "score": 0.886,
+    "a": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "b": "what unadjusted/crude statistic or model is used as the baseline comparison to the adjusted estimate?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.3,
+    "co_runs": 0,
+    "expected": 1.3
+   },
+   {
+    "score": 0.86,
+    "a": "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+    "b": "how is the model coefficient translated into the primary reported effect estimate/measure?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.28,
+    "co_runs": 2,
+    "expected": 9.2
+   },
+   {
+    "score": 0.857,
+    "a": "how is the 'medium' skin-tone group handled when forming the exposure variable?",
+    "b": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+    "label_jaccard": 0.36,
+    "option_jaccard": 0.29,
+    "co_runs": 2,
+    "expected": 0.6
+   },
+   {
+    "score": 0.856,
+    "a": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstrapping?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "label_jaccard": 0.45,
+    "option_jaccard": 0.13,
+    "co_runs": 0,
+    "expected": 0.4
+   },
+   {
+    "score": 0.853,
+    "a": "how is player age derived from birthdate?",
+    "b": "what reference date/point and method is used to compute player age from birthdate?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.32,
+    "co_runs": 0,
+    "expected": 1.2
+   },
+   {
+    "score": 0.852,
+    "a": "how are rows with missing covariates handled?",
+    "b": "how are rows with missing/uncategorizable position values handled?",
+    "label_jaccard": 0.43,
+    "option_jaccard": 0.17,
+    "co_runs": 0,
+    "expected": 0.4
+   },
+   {
+    "score": 0.844,
+    "a": "is position added to the adjustment set as a sensitivity/robustness check?",
+    "b": "which covariates are included in the sensitivity/robustness model's adjustment set?",
+    "label_jaccard": 0.44,
+    "option_jaccard": 0.13,
+    "co_runs": 0,
+    "expected": 0.1
+   },
+   {
+    "score": 0.835,
+    "a": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?",
+    "b": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "label_jaccard": 0.45,
+    "option_jaccard": 0.11,
+    "co_runs": 1,
+    "expected": 1.6
+   },
+   {
+    "score": 0.833,
+    "a": "how are standard errors adjusted for non-independence/clustering (unit unspecified)?",
+    "b": "how are standard errors adjusted for repeated observations per player (clustering)?",
+    "label_jaccard": 0.33,
+    "option_jaccard": 0.3,
+    "co_runs": 2,
+    "expected": 2.6
+   },
+   {
+    "score": 0.821,
+    "a": "which model family is used to fit the exposure-outcome relationship as a secondary/robustness or odds-ratio side analysis?",
+    "b": "which model family/functional form is used to fit the primary exposure-outcome relationship?",
+    "label_jaccard": 0.42,
+    "option_jaccard": 0.15,
+    "co_runs": 0,
+    "expected": 0.1
+   },
+   {
+    "score": 0.817,
+    "a": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+    "b": "what cutoffs define the light vs dark skin-tone exposure groups, and is the middle band dropped?",
+    "label_jaccard": 0.29,
+    "option_jaccard": 0.35,
+    "co_runs": 2,
+    "expected": 0.8
+   }
+  ],
+  "results": [
+   {
+    "a": "how are free-text/raw player positions collapsed into a coarse categorical variable?",
+    "b": "how is the free-text position field collapsed into a categorical covariate?",
+    "same": true,
+    "confidence": "high",
+    "why": "both collapse free-text position into coarse categories; option lists share identical bucketing schemes (4/5/6-way, catch-alls, winger split)",
+    "merged_question": "how is the free-text/raw position field collapsed into a coarse categorical covariate (how many buckets, and what residual/catch-all)?"
+   },
+   {
+    "a": "how is the adjusted logistic coefficient reported as an effect size?",
+    "b": "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+    "same": true,
+    "confidence": "high",
+    "why": "both translate the logistic coefficient into an odds-ratio effect size; option lists share exponentiate-to-OR",
+    "merged_question": "how is the model coefficient translated into an effect-size measure (e.g., odds ratio)?"
+   },
+   {
+    "a": "how are games/height/weight scaled and prepared for use as covariates?",
+    "b": "how are height and weight scaled for use as covariates?",
+    "same": false,
+    "confidence": "medium",
+    "why": "fork_a's options include log-transforming games, an operation fork_b cannot express; answering fork_b leaves games scaling open",
+    "merged_question": ""
+   },
+   {
+    "a": "how are the bootstrap CI and p-value derived, and for which estimands?",
+    "b": "how is the bootstrap p-value derived?",
+    "same": true,
+    "confidence": "medium",
+    "why": "both record deriving the bootstrap p-value; crossing-zero/tail option appears in each list, answered in one inference block",
+    "merged_question": "how are the bootstrap CI and p-value derived, and for which estimands?"
+   },
+   {
+    "a": "how is continuous skin tone binned into an ordinal/exposure category?",
+    "b": "how is the continuous skin-tone score binned into a three-level exposure category?",
+    "same": true,
+    "confidence": "high",
+    "why": "both bin continuous skin tone into light/medium/dark at cutpoints; options are alternate cutpoint values for one act",
+    "merged_question": "how is continuous skin tone binned into a three-level ordinal exposure category, and at what cutpoints?"
+   },
+   {
+    "a": "what dataset/file is loaded as the starting analysis population?",
+    "b": "what is the source/scope of the dataset used for the analysis?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose which file to load as starting population; raw dyad CSV option appears in both lists",
+    "merged_question": "what dataset/source is loaded as the starting analysis population?"
+   },
+   {
+    "a": "what decision rule translates the statistical results into a supported/not-supported conclusion?",
+    "b": "what rule/threshold determines whether the effect/hypothesis is declared statistically significant or supported?",
+    "same": true,
+    "confidence": "high",
+    "why": "both encode the significance-to-support rule; options overlap on p<0.05, direction, CI, and multi-tier verdicts",
+    "merged_question": "what rule translates statistical results (p-value, direction, CI) into a supported/not-supported verdict?"
+   },
+   {
+    "a": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "same": true,
+    "confidence": "high",
+    "why": "both pick one uncertainty method for the adjusted RD; B's options (parametric bootstrap, delta method, bootstrap-SE) are a subset of A's",
+    "merged_question": "how is uncertainty (SE/CI/p-value) quantified for the adjusted/standardized risk-difference estimate?"
+   },
+   {
+    "a": "how are missing/incomplete cases handled before modeling?",
+    "b": "how is missing data on the regression/modeling sample handled?",
+    "same": true,
+    "confidence": "high",
+    "why": "both record listwise deletion / complete-case restriction on the modeling sample; options identical",
+    "merged_question": "how is missing data handled before modeling?"
+   },
+   {
+    "a": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "same": true,
+    "confidence": "high",
+    "why": "identical decision; fork_a's sole option is exactly fork_b's first option (asymptotic-normal coefficient draws, percentile CI)",
+    "merged_question": "how is uncertainty on the adjusted risk difference quantified?"
+   },
+   {
+    "a": "what covariate set and functional form does the primary adjustment model use?",
+    "b": "what covariate/adjustment set does the primary model include?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose the primary model's covariate/adjustment set; option lists list the same adjustment combinations",
+    "merged_question": "what covariate/adjustment set (and functional form) does the primary model use?"
+   },
+   {
+    "a": "how is the adjusted risk difference estimated/computed from the fitted model?",
+    "b": "how is the risk difference for skin tone estimated from the fitted model?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose the risk-difference estimation method: g-computation vs. prediction at a single reference profile; option lists overlap",
+    "merged_question": "how is the adjusted risk difference for skin tone estimated from the fitted model?"
+   },
+   {
+    "a": "which rows are excluded from (or included in) the analytic/analysis sample used to fit the model?",
+    "b": "which rows are excluded from the analytic sample as a robustness check?",
+    "same": true,
+    "confidence": "high",
+    "why": "B's options (complete-case, ≥2-game dyads, non-missing skin-tone/position) all appear within A's row-exclusion list; one filtering act answers both",
+    "merged_question": "which rows are excluded from (or included in) the analytic sample used to fit the model?"
+   },
+   {
+    "a": "how is the baseline (unadjusted) association between skin tone and red cards estimated before covariate adjustment?",
+    "b": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "same": true,
+    "confidence": "high",
+    "why": "both estimate the crude/unadjusted skin-tone–red-card association; option lists share risk difference, OR, RR, chi-square, and unadjusted logistic fits",
+    "merged_question": "how is the unadjusted/crude baseline association between skin tone and red cards estimated?"
+   },
+   {
+    "a": "how are free-text/raw player positions collapsed into a coarse categorical variable?",
+    "b": "how are position and league/country covariates encoded for the regression?",
+    "same": false,
+    "confidence": "high",
+    "why": "collapsing raw positions into buckets is distinct from dummy-encoding categoricals; option lists share no operations",
+    "merged_question": ""
+   },
+   {
+    "a": "how is the continuous skin-tone score turned into the primary binary exposure, and at what cutoff?",
+    "b": "how is the skin-tone exposure operationalized/coded for the model (binary vs continuous)?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose exposure coding (binary-vs-continuous and cutpoint) in one act; options overlap (continuous, 0.25/0.5 dichotomy)",
+    "merged_question": "how is the skin-tone exposure operationalized—continuous vs binary and at what cutoff?"
+   },
+   {
+    "a": "what minimum-games threshold defines the analytic sample?",
+    "b": "which minimum-games threshold defines the sensitivity subsample?",
+    "same": false,
+    "confidence": "medium",
+    "why": "fork_a fixes the primary analytic threshold; fork_b picks the sensitivity subsample cutoffs — primary vs robustness is a distinct decision",
+    "merged_question": ""
+   },
+   {
+    "a": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstrapping?",
+    "b": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "same": true,
+    "confidence": "medium",
+    "why": "both fill one slot—quantifying adjusted-RD uncertainty; the two bootstrap variants are alternative options, not separate acts",
+    "merged_question": "how is uncertainty of the adjusted risk difference/ATE quantified?"
+   },
+   {
+    "a": "how is the overall hypothesis-support conclusion framed and reached from the results?",
+    "b": "what interpretive/hypothesis-support conclusion is drawn from the results, and how is it derived?",
+    "same": true,
+    "confidence": "high",
+    "why": "both record framing/deriving the hypothesis-support verdict; option lists overlap (supported, not-supported, caveats, heterogeneity, overstated)",
+    "merged_question": "what hypothesis-support conclusion is drawn from the results and how is it framed/derived?"
+   },
+   {
+    "a": "what is the unadjusted/crude baseline comparison between skin-tone groups?",
+    "b": "what unadjusted/crude statistic or model is used as the baseline comparison to the adjusted estimate?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose the crude baseline statistic; options overlap (unadjusted logistic OR, crude rate difference, 2x2 with OR)",
+    "merged_question": "what unadjusted/crude statistic or model serves as the baseline comparison to the adjusted estimate?"
+   },
+   {
+    "a": "how is the model coefficient translated into a secondary/alternative effect-size measure (e.g., odds ratio)?",
+    "b": "how is the model coefficient translated into the primary reported effect estimate/measure?",
+    "same": false,
+    "confidence": "medium",
+    "why": "primary vs secondary effect measure are distinct reporting slots; choosing the primary leaves the secondary still open",
+    "merged_question": ""
+   },
+   {
+    "a": "how is the 'medium' skin-tone group handled when forming the exposure variable?",
+    "b": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+    "same": true,
+    "confidence": "high",
+    "why": "both decide how the Medium skin-tone group forms the binary exposure: drop it vs fold it",
+    "merged_question": "how is the Medium skin-tone group handled when forming the binary light-vs-dark exposure?"
+   },
+   {
+    "a": "how is uncertainty around the adjusted risk difference/ATE estimated via bootstrapping?",
+    "b": "how is uncertainty on the estimated effect (adjusted risk difference) quantified?",
+    "same": true,
+    "confidence": "high",
+    "why": "both choose the single uncertainty-quantification method for the adjusted risk difference; bootstrap options overlap, others are mutually exclusive alternatives",
+    "merged_question": "how is uncertainty on the adjusted risk difference/ATE quantified?"
+   },
+   {
+    "a": "how is player age derived from birthdate?",
+    "b": "what reference date/point and method is used to compute player age from birthdate?",
+    "same": true,
+    "confidence": "high",
+    "why": "both pick one reference date and method to compute age; option lists cover the same operations",
+    "merged_question": "what reference date and method computes player age from birthdate?"
+   },
+   {
+    "a": "how are rows with missing covariates handled?",
+    "b": "how are rows with missing/uncategorizable position values handled?",
+    "same": false,
+    "confidence": "high",
+    "why": "fork_b offers position-specific recode-as-Unknown and viz-only exclusion operations absent from fork_a's blanket listwise-delete",
+    "merged_question": ""
+   },
+   {
+    "a": "is position added to the adjustment set as a sensitivity/robustness check?",
+    "b": "which covariates are included in the sensitivity/robustness model's adjustment set?",
+    "same": false,
+    "confidence": "high",
+    "why": "fork_b's menu (yellowCards, league, continuous skin_tone) far exceeds fork_a's position-only in/out toggle; position is one special case",
+    "merged_question": ""
+   },
+   {
+    "a": "how is uncertainty (SE/CI/p-value) quantified for the (adjusted/standardized) risk-difference or primary effect estimate?",
+    "b": "how is uncertainty of the adjusted risk difference quantified via simulation?",
+    "same": true,
+    "confidence": "high",
+    "why": "fork_b's sole option is fork_a's parametric-bootstrap option; one method choice answers both",
+    "merged_question": "how is uncertainty (SE/CI/p-value) of the adjusted risk difference quantified?"
+   },
+   {
+    "a": "how are standard errors adjusted for non-independence/clustering (unit unspecified)?",
+    "b": "how are standard errors adjusted for repeated observations per player (clustering)?",
+    "same": true,
+    "confidence": "medium",
+    "why": "both choose the standard-error estimator in one act; option lists share 'cluster by player'",
+    "merged_question": "how are standard errors computed/adjusted for non-independence (clustering)?"
+   },
+   {
+    "a": "which model family is used to fit the exposure-outcome relationship as a secondary/robustness or odds-ratio side analysis?",
+    "b": "which model family/functional form is used to fit the primary exposure-outcome relationship?",
+    "same": false,
+    "confidence": "high",
+    "why": "one is the primary fit, the other a separate secondary/robustness refit; distinct acts",
+    "merged_question": ""
+   },
+   {
+    "a": "how is the skin-tone exposure restricted to a binary extreme (light vs dark) by dropping the medium group?",
+    "b": "what cutoffs define the light vs dark skin-tone exposure groups, and is the middle band dropped?",
+    "same": true,
+    "confidence": "high",
+    "why": "one dichotomization act sets cutpoints and middle-group handling together; option lists both drop/merge medium at thresholds",
+    "merged_question": "how is skin tone dichotomized into light vs dark — at what cutpoints and is the middle band dropped?"
+   }
+  ]
+ },
+ "residue": {
+  "dup_pairs": 362,
+  "pairs": 4675
+ }
+}

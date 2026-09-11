@@ -1,0 +1,73 @@
+{
+ "run_id": "2025-11-20T02-49-33+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 264,
+   "functional_lines": 55,
+   "functional_share": 0.2083,
+   "by_type": {
+    "print": 107,
+    "comment": 75,
+    "other": 14,
+    "import": 10,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 199,
+   "functional_lines": 105,
+   "functional_share": 0.5276,
+   "by_type": {
+    "boilerplate": 55,
+    "heading": 42,
+    "hedging": 9,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 93,
+  "action_claims": 43,
+  "result_claims": 50,
+  "links": 66,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 50
+ },
+ "silent_decisions": [
+  {
+   "id": 9,
+   "lines": [
+    [
+     67,
+     68
+    ],
+    [
+     86,
+     89
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "split the sample by dark_skin and compute crude (unadjusted) risk difference and odds ratio between groups",
+   "targets": [
+    "dark_skin",
+    "any_red",
+    "redCards",
+    "games"
+   ]
+  }
+ ],
+ "misalignments": []
+}

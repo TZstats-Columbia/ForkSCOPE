@@ -1,0 +1,2072 @@
+[
+ {
+  "repo_id": "2025-11-12T09-30-16+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.094,
+  "or_scale_estimate": 1.079,
+  "ci_low": 0.899,
+  "ci_high": 1.295,
+  "conclusion": "not_supported",
+  "notes": "dichotomize mean rating at >0.5; primary is adjusted marginal RD +0.094 pp (95% CI -0.095 to +0.289, p=0.286); OR is secondary adjusted estimate"
+ },
+ {
+  "repo_id": "2025-11-12T09-52-44+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.233,
+  "or_scale_estimate": 1.2,
+  "ci_low": 1.002,
+  "ci_high": 1.437,
+  "conclusion": "supported",
+  "notes": "extreme groups >=0.75 vs <=0.25; RD CI (0.003, 0.647) pp, p=0.047; report stresses 'very weak evidence' but verdict is SUPPORTED"
+ },
+ {
+  "repo_id": "2025-11-12T10-05-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.204,
+  "or_scale_estimate": 1.175,
+  "ci_low": 0.937,
+  "ci_high": 1.473,
+  "conclusion": "not_supported",
+  "notes": "extreme groups >=0.75 vs <=0.25; RD CI (-0.054, 0.486) pp, bootstrap p=0.124; OR p=0.164"
+ },
+ {
+  "repo_id": "2025-11-12T10-39-00+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.244,
+  "or_scale_estimate": 1.208,
+  "ci_low": 0.973,
+  "ci_high": 1.499,
+  "conclusion": "not_supported",
+  "notes": "Exposure dichotomized: light 0.00-0.375 vs dark 0.625-1.00, medium excluded; RD CI [-0.027, 0.516] pp, p=0.078; OR is secondary estimand."
+ },
+ {
+  "repo_id": "2025-11-12T11-24-34+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.14,
+  "or_scale_estimate": 1.12,
+  "ci_low": 0.93,
+  "ci_high": 1.36,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: dark >0.5 vs light <=0.25, middle excluded; adjusted RD 0.14 pp (95% CI -0.08 to 0.36, p=0.218); logistic regression, cluster-robust SE by player"
+ },
+ {
+  "repo_id": "2025-11-12T12-24-45+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.171,
+  "or_scale_estimate": 1.145,
+  "ci_low": 0.981,
+  "ci_high": 1.336,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; LPM adjusted RD 0.171 pp (95% CI -0.022 to 0.363, p=0.082), player-clustered SE; strong league heterogeneity (England/Germany significant positive, France reversed)"
+ },
+ {
+  "repo_id": "2025-11-12T12-54-24+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1553,
+  "or_scale_estimate": 1.1318,
+  "ci_low": 0.9745,
+  "ci_high": 1.3146,
+  "conclusion": "not_supported",
+  "notes": "Exposure dichotomized at mean rating >=0.5; RD CI [-0.0267, 0.3372] pp, p=0.0945; OR is secondary estimand (p=0.105)."
+ },
+ {
+  "repo_id": "2025-11-12T13-06-46+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.197,
+  "or_scale_estimate": 1.17,
+  "ci_low": 1.0,
+  "ci_high": 1.36,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at mean >=0.5; dyad-level any-red-card outcome; RD CI [-0.002, 0.396] pp p=0.052; OR p=0.044 significant but run still concludes NOT SUPPORTED citing fragility/multiple testing"
+ },
+ {
+  "repo_id": "2025-11-12T13-46-32+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.276,
+  "or_scale_estimate": 1.239,
+  "ci_low": 1.022,
+  "ci_high": 1.495,
+  "conclusion": "supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25, middle excluded; g-computation RD 0.276 pp (95% CI 0.027 to 0.559, p=0.0285); no clustering adjustment; report says SUPPORTED but author 'highly skeptical', effect driven by Germany (OR=2.59)"
+ },
+ {
+  "repo_id": "2025-11-12T17-10-55+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1842,
+  "or_scale_estimate": 1.1574,
+  "ci_low": 0.9956,
+  "ci_high": 1.3454,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.50; primary RD via g-computation, RD CI (0.0269, 0.3553) bootstrap p=0.020; OR CI is cluster-robust with p=0.057 while non-clustered OR CI (1.02, 1.32) p=0.027"
+ },
+ {
+  "repo_id": "2025-11-12T17-30-15+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.27,
+  "or_scale_estimate": 1.246,
+  "ci_low": 1.042,
+  "ci_high": 1.49,
+  "conclusion": "supported",
+  "notes": "extreme groups: light <=0.25 vs dark >=0.75, middle excluded; dyad-level any-red outcome, logistic AME RD, cluster by player; RD CI (0.05, 0.48) pp"
+ },
+ {
+  "repo_id": "2025-11-12T18-01-53+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1771,
+  "or_scale_estimate": 1.161,
+  "ci_low": 0.991,
+  "ci_high": 1.359,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; dyad-level any-red, LPM RD clustered by player, GEE logit OR; RD CI (-0.0191, 0.3734) pp; report calls it NOT SUPPORTED / inconclusive at alpha=0.05"
+ },
+ {
+  "repo_id": "2025-11-12T18-56-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.253,
+  "or_scale_estimate": 1.22,
+  "ci_low": 1.008,
+  "ci_high": 1.478,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: light <=0.25 vs dark >=0.75, middle excluded; RD CI [-0.0051, 0.5112] pp p=0.0547; OR significant p=0.041 but run rules NOT SUPPORTED on primary RD"
+ },
+ {
+  "repo_id": "2025-11-12T19-55-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.264,
+  "or_scale_estimate": 1.23,
+  "ci_low": 1.015,
+  "ci_high": 1.489,
+  "conclusion": "supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25, middle excluded; g-computation RD 0.264 pp (95% CI 0.028 to 0.574, p=0.028); adjusts for yellow cards; league heterogeneity noted"
+ },
+ {
+  "repo_id": "2025-11-12T20-35-40+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.211,
+  "or_scale_estimate": 1.18,
+  "ci_low": 0.962,
+  "ci_high": 1.431,
+  "conclusion": "not_supported",
+  "notes": "extreme groups 0-0.25 vs 0.75-1.0, middle excluded; logistic marginal effects RD with player-clustered bootstrap; RD CI (-0.045, 0.482) pp, p=0.107; report says NOT SUPPORTED / evidence inconclusive"
+ },
+ {
+  "repo_id": "2025-11-12T21-15-40+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1247,
+  "or_scale_estimate": 1.11,
+  "ci_low": 0.929,
+  "ci_high": 1.326,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize light <=0.25 vs dark >=0.50, medium excluded; RD 95% CI -0.0875 to 0.3369 pp, p=0.249; continuous-skin-tone sensitivity significant (OR 1.26, p=0.040)."
+ },
+ {
+  "repo_id": "2025-11-12T22-11-51+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.168,
+  "or_scale_estimate": 1.149,
+  "ci_low": 0.984,
+  "ci_high": 1.341,
+  "conclusion": "not_supported",
+  "notes": "dichotomize mean rating at >=0.5; primary adjusted RD 0.168 pp (95% CI -0.019 to 0.356, p=0.078); OR secondary; verdict NOT SUPPORTED though text also calls evidence inconclusive"
+ },
+ {
+  "repo_id": "2025-11-12T22-55-33+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.192,
+  "or_scale_estimate": 1.166,
+  "ci_low": 1.001,
+  "ci_high": 1.359,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; logistic regression clustered by player, RD via delta-method marginal effect; RD CI (0.001, 0.382) pp, p=0.048 barely significant"
+ },
+ {
+  "repo_id": "2025-11-13T00-05-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2453,
+  "or_scale_estimate": 1.2094,
+  "ci_low": 1.0348,
+  "ci_high": 1.4134,
+  "conclusion": "supported",
+  "notes": "light <=0.375 vs dark >=0.75, medium excluded; RD CI [0.0162, 0.4394] pp, bootstrap p=0.0500 exactly at threshold (only 200 bootstrap resamples); run says SUPPORTED at borderline significance"
+ },
+ {
+  "repo_id": "2025-11-14T21-21-29+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2036,
+  "or_scale_estimate": 1.177,
+  "ci_low": 1.004,
+  "ci_high": 1.381,
+  "conclusion": "supported",
+  "notes": "Dichotomize light <=0.25 vs dark >=0.5, medium excluded; adjusts for games, position, league, meanIAT; RD 95% CI 0.0095 to 0.4230 pp, p=0.0428."
+ },
+ {
+  "repo_id": "2025-11-14T22-05-46+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.178,
+  "or_scale_estimate": 1.158,
+  "ci_low": 0.997,
+  "ci_high": 1.344,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; RD CI [-0.003, 0.360] pp p=0.0544; NOT SUPPORTED at alpha=0.05 but flagged borderline, some sensitivity specs p<0.05"
+ },
+ {
+  "repo_id": "2025-11-15T01-08-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1136,
+  "or_scale_estimate": 1.095,
+  "ci_low": 0.943,
+  "ci_high": 1.271,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at 0.5 (dark >=0.5 vs light <0.5); RD 95% CI -0.0714 to 0.3132 pp, p=0.2356; non-clustered SEs; continuous and extreme-group sensitivity analyses significant (OR 1.289 p=0.009; OR 1.212 p=0.017)."
+ },
+ {
+  "repo_id": "2025-11-15T02-22-25+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2074,
+  "or_scale_estimate": 1.18,
+  "ci_low": 0.94,
+  "ci_high": 1.48,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25, medium excluded; g-computation RD 0.2074 pp CI (-0.0307, 0.4569) p=0.10; OR p=0.164"
+ },
+ {
+  "repo_id": "2025-11-15T15-03-11+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.138,
+  "or_scale_estimate": 1.121,
+  "ci_low": 0.942,
+  "ci_high": 1.335,
+  "conclusion": "not_supported",
+  "notes": "Extreme-ish groups: light <=0.375 vs dark >=0.625, mediums excluded; RD CI [-0.072, 0.348] pp p=0.198; continuous-skin-tone sensitivity OR 1.267 (p=0.038) significant."
+ },
+ {
+  "repo_id": "2025-11-15T15-38-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1595,
+  "or_scale_estimate": 1.142,
+  "ci_low": 0.983,
+  "ci_high": 1.327,
+  "conclusion": "not_supported",
+  "notes": "light <=0.25 vs dark >=0.50, middle 0.375 excluded; primary adjusted RD 0.1595 pp (95% CI -0.0209 to 0.3399, p=0.083); OR secondary; report itself labels evidence inconclusive but classifies NOT SUPPORTED"
+ },
+ {
+  "repo_id": "2025-11-15T17-13-29+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.228,
+  "or_scale_estimate": 1.195,
+  "ci_low": 0.996,
+  "ci_high": 1.434,
+  "conclusion": "mixed",
+  "notes": "extreme groups 0-0.25 vs 0.75-1.0, middle excluded; logistic AME RD clustered by player; RD CI (-0.018, 0.474) pp, p=0.070; verdict stated as MARGINAL SUPPORT, leaning positive via continuous-tone sensitivity (p=0.026)"
+ },
+ {
+  "repo_id": "2025-11-15T18-59-03+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.1541,
+  "ci_low": 1.0103,
+  "ci_high": 1.3125,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; primary is adjusted RD 0.18pp (95% CI [0.0125, 0.3566]pp, p=0.034) via marginal standardization + parametric bootstrap; OR is secondary estimand"
+ },
+ {
+  "repo_id": "2025-11-15T20-23-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1997,
+  "or_scale_estimate": 1.171,
+  "ci_low": 1.035,
+  "ci_high": 1.324,
+  "conclusion": "supported",
+  "notes": "Dichotomize at 0.5 (dark >=0.5 vs light <0.5); RD 95% CI 0.0371 to 0.3624 pp, p=0.0161; adjusts log(games), position, league; no clustered SEs."
+ },
+ {
+  "repo_id": "2025-11-15T22-00-27+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2499,
+  "or_scale_estimate": 1.2296,
+  "ci_low": 1.0285,
+  "ci_high": 1.4699,
+  "conclusion": "supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, middle excluded; logistic w/ log(games), position, league, clustered by player; RD CI (0.0340, 0.4659) pp, p=0.023; skeptic persona explicitly convinced"
+ },
+ {
+  "repo_id": "2025-11-15T23-57-58+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.26,
+  "or_scale_estimate": 1.222,
+  "ci_low": 1.012,
+  "ci_high": 1.475,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: dark >=0.75 vs light <=0.25, medium excluded; RD percentile-bootstrap CI [-0.49, 0.30] pp (p=0.69) but bias-corrected CI [0.19, 0.61] excludes zero; secondary OR significant (p=0.037) yet run declares NOT SUPPORTED as contradictory."
+ },
+ {
+  "repo_id": "2025-11-16T00-54-53+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.258,
+  "or_scale_estimate": 1.222,
+  "ci_low": 1.012,
+  "ci_high": 1.475,
+  "conclusion": "mixed",
+  "notes": "Extreme groups: dark >=0.75 vs light <=0.25, medium excluded; RD CI [0.001, 0.515] pp, p=0.049; verdict 'SUPPORTED, but with MAJOR CAVEATS' then 'Final Judgment: Inconclusive Evidence' citing league heterogeneity and fragility."
+ },
+ {
+  "repo_id": "2025-11-16T02-42-50+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2173,
+  "or_scale_estimate": 1.186,
+  "ci_low": 1.049,
+  "ci_high": 1.341,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; g-computation RD 0.2173 pp (95% CI 0.0066 to 0.4033, p=0.0065 from logit coef); bootstrap CI, no clustered SEs; adjustment strengthened effect (negative confounding)"
+ },
+ {
+  "repo_id": "2025-11-16T04-53-17+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2,
+  "or_scale_estimate": 1.17,
+  "ci_low": 1.002,
+  "ci_high": 1.366,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; primary RD 0.200pp (95% CI [0.037, 0.361]pp, p=0.016) via g-computation + clustered bootstrap; report says SUPPORTED 'with substantial reservations' about tiny effect and league heterogeneity"
+ },
+ {
+  "repo_id": "2025-11-16T07-53-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.43,
+  "or_scale_estimate": 1.164,
+  "ci_low": 1.094,
+  "ci_high": 1.238,
+  "conclusion": "supported",
+  "notes": "extreme groups <=0.25 vs >=0.75 (intermediates excluded); RD +0.430pp (95% CI [0.251, 0.619]pp, p<0.0001), games-weighted GLM + g-computation; report openly framed as specification search 'optimized to maximize supportive evidence'"
+ },
+ {
+  "repo_id": "2025-11-16T09-53-00+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.422,
+  "or_scale_estimate": 1.237,
+  "ci_low": 1.083,
+  "ci_high": 1.412,
+  "conclusion": "supported",
+  "notes": "dichotomize at >0.125 (cutpoint chosen to maximize effect); excludes single-game dyads and goalkeepers; RD CI [0.164, 0.680] pp p=0.0013; self-described exploratory advocacy / specification search"
+ },
+ {
+  "repo_id": "2025-11-16T11-59-47+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.172,
+  "or_scale_estimate": 1.156,
+  "ci_low": 1.033,
+  "ci_high": 1.293,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25; RD CI [0.045, 0.300] pp p=0.0114; self-described exploratory advocacy with specification search; adjusts for yellow cards and goals (possible mediators)"
+ },
+ {
+  "repo_id": "2025-11-16T17-04-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.26,
+  "or_scale_estimate": 1.237,
+  "ci_low": 1.115,
+  "ci_high": 1.374,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25 (medium counted as dark); position-only adjustment; explicit specification search 'to identify the most supportive defensible model' (advocacy framing); RD CI [0.134, 0.382] pp p=0.0004"
+ },
+ {
+  "repo_id": "2025-11-16T18-27-13+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.16,
+  "ci_low": 1.04,
+  "ci_high": 1.29,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.25 (threshold chosen by specification search to minimize p-value); RD CI [0.05, 0.31] pp, p=0.0077; unclustered SEs (player-clustered gives p=0.057); self-labeled exploratory in-sample analysis."
+ },
+ {
+  "repo_id": "2025-11-16T21-46-30+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.341,
+  "or_scale_estimate": 1.326,
+  "ci_low": 1.106,
+  "ci_high": 1.587,
+  "conclusion": "supported",
+  "notes": "Extreme groups: dark >=0.75 vs light <0.25"
+ },
+ {
+  "repo_id": "2025-11-16T23-15-36+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1735,
+  "or_scale_estimate": 1.1573,
+  "ci_low": 1.0354,
+  "ci_high": 1.2936,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-17T01-20-10+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2646,
+  "or_scale_estimate": 1.2503,
+  "ci_low": 1.1238,
+  "ci_high": 1.391,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-17T03-01-51+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.178,
+  "or_scale_estimate": 1.153,
+  "ci_low": 1.029,
+  "ci_high": 1.292,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-17T05-02-45+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.406,
+  "or_scale_estimate": 1.391,
+  "ci_low": 1.191,
+  "ci_high": 1.625,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-17T14-46-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1872,
+  "or_scale_estimate": 1.1675,
+  "ci_low": 0.9979,
+  "ci_high": 1.3659,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at 0.5; adjusts games, position, league, yellowCards; RD 95% CI -0.0025 to 0.3768 pp, borderline p=0.0531; robustness checks (referee clustering, continuous, extremes) all significant."
+ },
+ {
+  "repo_id": "2025-11-17T15-56-59+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.185,
+  "or_scale_estimate": 1.158,
+  "ci_low": 1.017,
+  "ci_high": 1.318,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; primary adjusted RD 0.185pp (95% CI (0.025, 0.358)pp, p=0.0302) via g-computation, bootstrap only 200 iterations; OR secondary"
+ },
+ {
+  "repo_id": "2025-11-17T16-55-57+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2052,
+  "or_scale_estimate": 1.187,
+  "ci_low": 0.978,
+  "ci_high": 1.441,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, medium 0.375-0.625 excluded; RD CI [-0.0259, 0.4364] pp p=0.0818; unadjusted chi-square p=0.045 significant."
+ },
+ {
+  "repo_id": "2025-11-17T18-58-32+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.182,
+  "or_scale_estimate": 1.155,
+  "ci_low": 1.001,
+  "ci_high": 1.333,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at >=0.5; RD CI [-0.005, 0.369] pp, p=0.0569; secondary OR nominally significant (p=0.0485) but run dismisses it and declares NOT SUPPORTED."
+ },
+ {
+  "repo_id": "2025-11-17T20-22-41+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.28,
+  "or_scale_estimate": 1.239,
+  "ci_low": 0.951,
+  "ci_high": 1.614,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25, middle excluded; g-computation RD 0.280 pp (95% CI -0.003 to 0.606, p=0.112), cluster bootstrap; heavy attrition (final N=42,979, 29% of original, age missingness)"
+ },
+ {
+  "repo_id": "2025-11-17T21-31-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.191,
+  "or_scale_estimate": 1.163,
+  "ci_low": 0.966,
+  "ci_high": 1.4,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, intermediates excluded; RD 95% CI -0.055 to 0.437 pp, p=0.1276; player-clustered SEs."
+ },
+ {
+  "repo_id": "2025-11-17T23-05-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": null,
+  "or_scale_estimate": null,
+  "ci_low": null,
+  "ci_high": null,
+  "conclusion": "inconclusive",
+  "notes": "extreme groups <=0.25 vs >=0.75 (medium excluded); no mirrored_report.txt and script hard-codes no numbers (verdict computed at runtime from bootstrap CI), so no estimates recoverable; primary estimand declared as adjusted RD via marginal standardization, cluster bootstrap by player"
+ },
+ {
+  "repo_id": "2025-11-17T23-27-27+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.194,
+  "or_scale_estimate": 1.165,
+  "ci_low": 1.003,
+  "ci_high": 1.353,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; g-computation RD from logistic model, parametric bootstrap CI, clustered by player; RD CI (0.020, 0.389) pp, p=0.045"
+ },
+ {
+  "repo_id": "2025-11-18T01-05-44+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2271,
+  "or_scale_estimate": 1.2207,
+  "ci_low": 1.0449,
+  "ci_high": 1.4261,
+  "conclusion": "not_supported",
+  "notes": "Light <0.375 vs dark >=0.625, medium excluded; LPM with two-way clustered SEs, RD CI [-0.013, 0.467] pp, p=0.0638; secondary OR significant (p=0.0119) but run privileges RD scale."
+ },
+ {
+  "repo_id": "2025-11-18T02-52-55+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1875,
+  "or_scale_estimate": 1.161,
+  "ci_low": 0.997,
+  "ci_high": 1.353,
+  "conclusion": "not_supported",
+  "notes": "Light <=0.25 vs dark >=0.5, middle tones excluded; RD CI [-0.0069, 0.4047] pp, p=0.0705; OR secondary (p=0.055)."
+ },
+ {
+  "repo_id": "2025-11-18T04-16-31+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1858,
+  "or_scale_estimate": 1.172,
+  "ci_low": 0.965,
+  "ci_high": 1.422,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, middle excluded; RD from LPM, CI [-0.0621, 0.4338] pp p=0.1418; unadjusted diff significant (p=0.048) but attenuated by adjustment."
+ },
+ {
+  "repo_id": "2025-11-19T03-21-59+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.153,
+  "or_scale_estimate": 1.131,
+  "ci_low": 0.941,
+  "ci_high": 1.358,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at 0.50 (dark >0.50, light <0.50, exactly 0.50 excluded); RD via g-computation, CI [-0.084, 0.389] pp p=0.206."
+ },
+ {
+  "repo_id": "2025-11-19T04-30-13+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.165,
+  "or_scale_estimate": 1.166,
+  "ci_low": 1.009,
+  "ci_high": 1.347,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; primary RD via linear probability model, CI [-0.019, 0.348] pp p=0.079 (non-significant) yet run concludes SUPPORTED on totality of evidence incl. OR p=0.037"
+ },
+ {
+  "repo_id": "2025-11-19T05-56-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.29,
+  "or_scale_estimate": 1.25,
+  "ci_low": 1.046,
+  "ci_high": 1.493,
+  "conclusion": "supported",
+  "notes": "extreme groups: light 0.0-0.25 vs dark 0.75-1.0, middle excluded; AME RD +0.290 pp CI [0.120, 0.510] p=0.0034; OR p=0.0141"
+ },
+ {
+  "repo_id": "2025-11-19T07-38-28+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.171,
+  "or_scale_estimate": 1.147,
+  "ci_low": 0.908,
+  "ci_high": 1.448,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light 0.0-0.25 vs dark 0.75-1.0, medium excluded; RD 95% CI -0.059 to 0.431 pp, p=0.172; player-cluster bootstrap CI for RD."
+ },
+ {
+  "repo_id": "2025-11-19T09-10-20+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.206,
+  "or_scale_estimate": 1.176,
+  "ci_low": 1.016,
+  "ci_high": 1.361,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; marginal standardization RD from logistic model, cluster bootstrap by player; RD CI (0.059, 0.355) pp, p=0.0051"
+ },
+ {
+  "repo_id": "2025-11-19T10-27-52+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.232,
+  "or_scale_estimate": 1.2,
+  "ci_low": 1.025,
+  "ci_high": 1.406,
+  "conclusion": "supported",
+  "notes": "extreme groups: light <=0.25 vs dark >=0.75, intermediate excluded; g-computation RD 0.232 pp CI [0.020, 0.444] p=0.032; OR p=0.023"
+ },
+ {
+  "repo_id": "2025-11-19T11-29-03+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0983,
+  "or_scale_estimate": 1.0843,
+  "ci_low": 0.9389,
+  "ci_high": 1.2521,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >0.5; AME RD 0.0983 pp (95% CI -0.0761 to 0.2726, p=0.269), referee-clustered SE; adjusts for yellow cards+goals; final section calls evidence 'mixed and inconclusive' since continuous/extremes sensitivity analyses significant"
+ },
+ {
+  "repo_id": "2025-11-19T13-48-49+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.184,
+  "or_scale_estimate": 1.157,
+  "ci_low": 1.016,
+  "ci_high": 1.318,
+  "conclusion": "supported",
+  "notes": "dichotomize mean rating at >=0.5; primary adjusted RD 0.184 pp (95% CI 0.012 to 0.355, p=0.035) via g-computation + bootstrap; OR secondary (p=0.028); effect non-significant at 0.625 threshold and with referee-country FE"
+ },
+ {
+  "repo_id": "2025-11-19T14-47-53+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.239,
+  "or_scale_estimate": 1.205,
+  "ci_low": 1.037,
+  "ci_high": 1.401,
+  "conclusion": "supported",
+  "notes": "extreme groups >=0.75 vs <=0.25 (medium 0.375-0.625 excluded); RD CI (0.021, 0.454) pp, p=0.0301; adjusts for referee-country IAT/explicit bias"
+ },
+ {
+  "repo_id": "2025-11-19T16-04-43+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.155,
+  "ci_low": 1.015,
+  "ci_high": 1.314,
+  "conclusion": "supported",
+  "notes": "dichotomize mean rating at >=0.5; primary adjusted RD 0.180 pp (95% CI 0.019 to 0.355, p=0.036) via marginal standardization; OR secondary (p=0.029); no clustering adjustment, effect non-significant without games covariate"
+ },
+ {
+  "repo_id": "2025-11-19T17-56-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.217,
+  "or_scale_estimate": 1.198,
+  "ci_low": 0.999,
+  "ci_high": 1.437,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25, middle excluded; primary adjusted RD 0.217 pp (95% CI -0.001 to 0.436, p=0.051, player-clustered SE); OR secondary; significant under referee clustering (p=0.015); report calls evidence inconclusive"
+ },
+ {
+  "repo_id": "2025-11-19T19-09-24+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.21,
+  "or_scale_estimate": 1.19,
+  "ci_low": 0.98,
+  "ci_high": 1.44,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, middle excluded; RD CI [-0.02, 0.44] pp p=0.079; self-described skeptical stance; significant league heterogeneity (Germany +0.69 pp p<0.001, France negative)"
+ },
+ {
+  "repo_id": "2025-11-19T20-38-58+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.21,
+  "or_scale_estimate": 1.2,
+  "ci_low": 0.96,
+  "ci_high": 1.5,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, medium excluded; LPM RD, CI [-0.08, 0.50] pp p=0.153; report truncated mid-sentence in conclusion section."
+ },
+ {
+  "repo_id": "2025-11-19T22-14-21+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.193,
+  "or_scale_estimate": 1.1682,
+  "ci_low": 1.0255,
+  "ci_high": 1.3307,
+  "conclusion": "supported",
+  "notes": "dichotomize light <=0.25 vs dark >=0.5 (medium 0.26-0.49 excluded); RD CI (0.0296, 0.3656) pp, p=0.020; unclustered SEs flagged by run itself"
+ },
+ {
+  "repo_id": "2025-11-20T00-05-27+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.172,
+  "or_scale_estimate": 1.153,
+  "ci_low": 0.986,
+  "ci_high": 1.347,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; logistic AME RD clustered by player; RD CI (-0.017, 0.361) pp, p=0.074; report says NOT SUPPORTED/inconclusive, notes strong league heterogeneity (Germany/England significant)"
+ },
+ {
+  "repo_id": "2025-11-20T01-31-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2,
+  "or_scale_estimate": 1.17,
+  "ci_low": 1.01,
+  "ci_high": 1.357,
+  "conclusion": "supported",
+  "notes": "dichotomize dark >=0.5 vs light <0.5; RD CI (0.016, 0.403) pp, p=0.037; unadjusted OR n.s. (p=0.119), significance only after adjustment"
+ },
+ {
+  "repo_id": "2025-11-20T02-49-33+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0398,
+  "or_scale_estimate": 1.093,
+  "ci_low": 0.915,
+  "ci_high": 1.305,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >0.5; Poisson model w/ log(games) offset, g-computation RD 0.0398 pp (95% CI -0.0392 to 0.1188, p=0.323); adjusted probabilities per dyad-game basis (0.41% vs 0.45%) unusually low vs 1.25% baseline; OR from secondary logistic model"
+ },
+ {
+  "repo_id": "2025-11-20T04-21-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0618,
+  "or_scale_estimate": 1.15,
+  "ci_low": 1.014,
+  "ci_high": 1.304,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5, player-level Poisson with log(games) offset; primary RD is per-GAME probability 0.0618 pp (95% CI -0.0092 to 0.1339, p=0.072); ratio is adjusted RATE ratio 1.150 (p=0.030); secondary logistic OR 0.910 opposite direction"
+ },
+ {
+  "repo_id": "2025-11-20T06-03-23+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 8.49,
+  "or_scale_estimate": 1.5,
+  "ci_low": 1.07,
+  "ci_high": 2.11,
+  "conclusion": "supported",
+  "notes": "extreme groups >=0.75 vs <=0.25; player-level outcome (any red card in season, baseline ~53%), so RD 8.49 pp not comparable to dyad-level runs; RD CI (1.44, 15.35) pp, p=0.018; effect driven by Germany"
+ },
+ {
+  "repo_id": "2025-11-20T07-33-53+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1699,
+  "or_scale_estimate": 1.1454,
+  "ci_low": 0.9897,
+  "ci_high": 1.3256,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; RD CI [0.0465, 0.3407] pp p=0.0274 (clustered bootstrap, 200 iters); adjusts for yellow cards (possible mediator); OR non-significant p=0.069 but concludes SUPPORTED on primary RD"
+ },
+ {
+  "repo_id": "2025-11-20T09-31-10+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.176,
+  "or_scale_estimate": 1.159,
+  "ci_low": 1.04,
+  "ci_high": 1.291,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25 (median split, chosen after threshold search because it 'yielded the largest effect size'); RD 0.176pp (95% CI [0.047, 0.302]pp, p=0.008) via g-computation + parametric bootstrap; yellow cards excluded as mediators"
+ },
+ {
+  "repo_id": "2025-11-20T10-56-52+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.622,
+  "or_scale_estimate": 1.271,
+  "ci_low": 1.06,
+  "ci_high": 1.525,
+  "conclusion": "supported",
+  "notes": "Extreme groups 0.0-0.25 vs 0.75-1.0, medium excluded; also excludes goalkeepers and dyads <3 games (specification search doubles effect 0.25->0.62 pp); RD CI [0.113, 1.131] pp, p=0.0165; self-labeled exploratory in-sample."
+ },
+ {
+  "repo_id": "2025-11-20T12-28-12+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.559,
+  "or_scale_estimate": 1.24,
+  "ci_low": 1.1,
+  "ci_high": 1.41,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25; RD 0.559 pp (95% CI 0.245 to 0.881, p=0.0005); openly hypothesis-maximizing specification search (threshold, >=3 games filter excluding 72% of dyads, no clustering); self-labeled exploratory in-sample upper bound"
+ },
+ {
+  "repo_id": "2025-11-20T14-10-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1909,
+  "or_scale_estimate": 1.1698,
+  "ci_low": 1.0515,
+  "ci_high": 1.3015,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.25 (threshold chosen to maximize effect after scanning cutoffs); RD CI (0.0606, 0.3213) pp p=0.0041; openly exploratory in-sample optimization, spline model picked for smallest p-value."
+ },
+ {
+  "repo_id": "2025-11-20T16-42-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.59,
+  "or_scale_estimate": 1.35,
+  "ci_low": 1.13,
+  "ci_high": 1.63,
+  "conclusion": "supported",
+  "notes": "extreme groups <=0.125 vs >=0.75, thresholds chosen by exhaustive search to maximize effect; single-game dyads excluded (drops 72,562 dyads, N=33,656); RD 0.59pp (95% CI [0.26, 0.92]pp, p=0.000470) via AME/delta method"
+ },
+ {
+  "repo_id": "2025-11-20T18-12-31+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0811,
+  "or_scale_estimate": 1.211,
+  "ci_low": 1.088,
+  "ci_high": 1.347,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.25 (cutpoint chosen via specification search); RD is per-GAME (binomial GLM with games as trials), CI [0.0357, 0.1265] pp p=0.00046; explicit advocacy posture; player-clustered SE robustness gave p=0.076."
+ },
+ {
+  "repo_id": "2025-11-20T20-17-27+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.151,
+  "ci_low": 0.956,
+  "ci_high": 1.386,
+  "conclusion": "not_supported",
+  "notes": "extreme groups 0.00-0.25 vs 0.75-1.00, middle excluded; RD via LPM, CI (-0.06, 0.42) pp p=0.148; adjusts for goals scored; league heterogeneity noted"
+ },
+ {
+  "repo_id": "2025-11-20T20-25-41+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0943,
+  "or_scale_estimate": 1.079,
+  "ci_low": 0.899,
+  "ci_high": 1.295,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at 0.5 (dark >=0.5); RD via g-computation, CI (-0.1377, 0.3263) pp p=0.426; Germany subgroup OR 1.935 significant."
+ },
+ {
+  "repo_id": "2025-11-20T20-40-17+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.177,
+  "or_scale_estimate": 1.149,
+  "ci_low": 0.982,
+  "ci_high": 1.344,
+  "conclusion": "not_supported",
+  "notes": "Contrast groups: light <=0.25 vs dark >=0.5, middle excluded; LPM RD CI [-0.018, 0.372] pp p=0.076; referee-clustered SE sensitivity gives p=0.029 (significant)."
+ },
+ {
+  "repo_id": "2025-11-20T21-05-32+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.202,
+  "or_scale_estimate": 1.16,
+  "ci_low": 0.923,
+  "ci_high": 1.458,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, medium excluded; RD via LPM, CI [-0.091, 0.495] pp p=0.177; adjusts for yellow cards and goals (possible mediators)"
+ },
+ {
+  "repo_id": "2025-11-20T22-11-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1048,
+  "or_scale_estimate": 1.0879,
+  "ci_low": 0.9329,
+  "ci_high": 1.2685,
+  "conclusion": "not_supported",
+  "notes": "Dichotomize at 0.5; adjusts games, position, league, height, weight, age, yellowCards, goals; RD 95% CI -0.0842 to 0.3012 pp, p=0.288; extreme-groups sensitivity significant (OR 1.198, p=0.026)."
+ },
+ {
+  "repo_id": "2025-11-20T22-17-42+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.185,
+  "or_scale_estimate": 1.16,
+  "ci_low": 0.921,
+  "ci_high": 1.461,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75 (medium excluded); RD 0.185pp (95% CI (-0.071, 0.450)pp, p=0.144), bootstrap 999 iters; OR CI with player-clustered SEs; report calls evidence inconclusive but its verdict is NOT SUPPORTED; strong Germany-only effect (OR 2.53) noted"
+ },
+ {
+  "repo_id": "2025-11-20T22-37-30+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1776,
+  "or_scale_estimate": 1.1535,
+  "ci_low": 0.9864,
+  "ci_high": 1.3488,
+  "conclusion": "not_supported",
+  "notes": "asymmetric groups: light <=0.25 vs dark >=0.5, middle 0.26-0.49 excluded; g-computation RD from logistic model, parametric simulation CI; RD CI (-0.0151, 0.3902) pp, p=0.070; NOT SUPPORTED/inconclusive"
+ },
+ {
+  "repo_id": "2025-11-20T22-39-34+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.236,
+  "or_scale_estimate": 1.203,
+  "ci_low": 1.026,
+  "ci_high": 1.409,
+  "conclusion": "supported",
+  "notes": "light 0.00-0.325 vs dark 0.675-1.00 (medium excluded); RD from LPM with HC3 SEs, CI (0.022, 0.451) pp, p=0.031; player-clustered variant p=0.059"
+ },
+ {
+  "repo_id": "2025-11-20T23-33-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.207,
+  "or_scale_estimate": 1.19,
+  "ci_low": 0.949,
+  "ci_high": 1.492,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, medium excluded; RD via LPM, CI [-0.089, 0.503] pp p=0.1697"
+ },
+ {
+  "repo_id": "2025-11-20T23-42-14+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.22,
+  "or_scale_estimate": 1.168,
+  "ci_low": 0.971,
+  "ci_high": 1.404,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, middle excluded; LPM RD clustered by player; RD CI (-0.06, 0.51) pp, p=0.125; OR from logistic without cluster-robust SEs; continuous-tone sensitivity significant (p=0.035)"
+ },
+ {
+  "repo_id": "2025-11-21T00-16-02+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1672,
+  "or_scale_estimate": 1.143,
+  "ci_low": 0.979,
+  "ci_high": 1.334,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; g-computation RD 0.1672 pp CI [-0.0433, 0.3781] p=0.1060; OR p=0.0918"
+ },
+ {
+  "repo_id": "2025-11-21T00-55-35+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.172,
+  "or_scale_estimate": 1.147,
+  "ci_low": 0.98,
+  "ci_high": 1.342,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; g-computation RD 0.172 pp (95% CI -0.021 to 0.382, p=0.091), player-clustered SE; continuous skin tone sensitivity significant (OR=1.286, p=0.034)"
+ },
+ {
+  "repo_id": "2025-11-21T01-21-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.227,
+  "or_scale_estimate": 1.225,
+  "ci_low": 0.979,
+  "ci_high": 1.532,
+  "conclusion": "not_supported",
+  "notes": "light <=0.125 vs dark >=0.625 (medium excluded); RD CI (-0.023, 0.476) pp, p=0.075 with player-clustered SEs; significant under other SE choices (p=0.022-0.027)"
+ },
+ {
+  "repo_id": "2025-11-21T01-32-10+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.17,
+  "or_scale_estimate": 1.15,
+  "ci_low": 0.99,
+  "ci_high": 1.33,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; adjusted RD +0.17 pp (95% CI -0.03 to 0.35, p=0.093), player-cluster bootstrap; OR from two-way clustered logit; adjusts for referee-country IAT/explicit bias"
+ },
+ {
+  "repo_id": "2025-11-21T01-57-03+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1652,
+  "or_scale_estimate": 1.1476,
+  "ci_low": 0.9839,
+  "ci_high": 1.3384,
+  "conclusion": "not_supported",
+  "notes": "Light <=0.25 vs dark >=0.5, medium excluded; RD from linear probability model (HC3), 95% CI -0.0290 to 0.3594 pp, p=0.0954; adjusts games, yellowCards, position, league, age."
+ },
+ {
+  "repo_id": "2025-11-21T02-18-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.078,
+  "or_scale_estimate": 1.101,
+  "ci_low": 0.918,
+  "ci_high": 1.321,
+  "conclusion": "not_supported",
+  "notes": "3-category exposure, dark 0.75-1.0 vs light 0-0.25 (medium kept in model); RD 0.078 pp at covariate means (95% CI -0.065 to 0.243, p=0.296), player-clustered SE; medium category borderline (p=0.056)"
+ },
+ {
+  "repo_id": "2025-11-21T02-39-07+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.193,
+  "or_scale_estimate": 1.172,
+  "ci_low": 1.004,
+  "ci_high": 1.368,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; AME RD 0.193 pp CI [0.005, 0.381] p=0.0443; OR p=0.0445"
+ },
+ {
+  "repo_id": "2025-11-21T03-02-44+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.184,
+  "or_scale_estimate": 1.157,
+  "ci_low": 0.996,
+  "ci_high": 1.343,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; g-computation RD +0.184 pp CI [-0.011, 0.380] p=0.065; OR p=0.056; verdict NOT SUPPORTED but report also labels evidence INCONCLUSIVE"
+ },
+ {
+  "repo_id": "2025-11-21T03-48-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2776,
+  "or_scale_estimate": 1.242,
+  "ci_low": 1.027,
+  "ci_high": 1.502,
+  "conclusion": "supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, middle excluded; RD 95% CI 0.0309 to 0.5573 pp, p=0.0244; adjusts games, position, league, yellowCards; effect not significant with more inclusive cutoff (OR 1.15, p=0.14)."
+ },
+ {
+  "repo_id": "2025-11-21T03-54-46+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2307,
+  "or_scale_estimate": 1.208,
+  "ci_low": 1.006,
+  "ci_high": 1.451,
+  "conclusion": "supported",
+  "notes": "light 0-0.375 vs dark 0.625-1.0 (medium excluded); RD CI (0.0080, 0.4533) pp, p=0.0423; player-clustered SEs"
+ },
+ {
+  "repo_id": "2025-11-22T00-10-57+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2405,
+  "or_scale_estimate": 1.2193,
+  "ci_low": 1.0424,
+  "ci_high": 1.4263,
+  "conclusion": "supported",
+  "notes": "light 0.00-0.375 vs dark 0.75-1.00 (medium 0.375-0.625 excluded); RD 0.2405pp (95% CI [0.0500, 0.4311]pp, p=0.0134) via AME; adjusts for referee-country IAT/explicit bias; no clustering of SEs"
+ },
+ {
+  "repo_id": "2025-11-22T00-38-59+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.167,
+  "or_scale_estimate": 1.143,
+  "ci_low": 1.004,
+  "ci_high": 1.301,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; logistic AME RD, delta method, NO clustering in primary model; RD CI (0.010, 0.324) pp, p=0.037; player-level robustness check null (OR 1.102, p=0.51)"
+ },
+ {
+  "repo_id": "2025-11-22T00-56-43+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1967,
+  "or_scale_estimate": 1.168,
+  "ci_low": 1.005,
+  "ci_high": 1.357,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; RD 0.1967pp (95% CI [0.0134, 0.3799]pp, p=0.0354) via AME with delta-method SE, player-clustered SEs; adjusts for referee-country meanIAT"
+ },
+ {
+  "repo_id": "2025-11-22T01-21-47+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2802,
+  "or_scale_estimate": 1.2602,
+  "ci_low": 1.0864,
+  "ci_high": 1.4619,
+  "conclusion": "supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25; primary adjusted RD 0.2802 pp (95% CI 0.0999 to 0.4605, p=0.0023); OR secondary; SEs not clustered; controls include yellow cards (possible mediator)"
+ },
+ {
+  "repo_id": "2025-11-22T01-58-59+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.278,
+  "or_scale_estimate": 1.239,
+  "ci_low": 1.032,
+  "ci_high": 1.486,
+  "conclusion": "supported",
+  "notes": "extreme groups: light 0.0-0.25 vs dark 0.75-1.0, medium excluded; GEE + g-computation RD +0.278 pp CI [0.047, 0.537] p=0.0215; adjusts for yellow cards and goals (possible mediators)"
+ },
+ {
+  "repo_id": "2025-11-22T02-11-01+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.28,
+  "or_scale_estimate": 1.257,
+  "ci_low": 0.96,
+  "ci_high": 1.648,
+  "conclusion": "not_supported",
+  "notes": "Very extreme groups: light <=0.125 vs dark >=0.875 (60.5% of dyads excluded); GEE with player clustering; RD 95% CI -0.05 to 0.67 pp, p=0.127; unadjusted RD 0.30 pp was significant (p=0.011)."
+ },
+ {
+  "repo_id": "2025-11-22T02-37-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1911,
+  "or_scale_estimate": 1.1655,
+  "ci_low": 1.023,
+  "ci_high": 1.3278,
+  "conclusion": "supported",
+  "notes": "Light <=0.25 vs dark >=0.5, middle 0.375 excluded; RD CI [0.0264, 0.3683] pp, p=0.0208 via g-computation + parametric bootstrap; adjusts for yellow cards and meanIAT."
+ },
+ {
+  "repo_id": "2025-11-22T03-06-18+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1722,
+  "or_scale_estimate": 1.147,
+  "ci_low": 0.9829,
+  "ci_high": 1.3386,
+  "conclusion": "mixed",
+  "notes": "dichotomize at >=0.5; g-computation RD 0.1722 pp (95% CI -0.0282 to 0.3726, p=0.0921), player-clustered SE; verdict stated as 'MARGINALLY SUPPORTED - suggestive but not conclusive'"
+ },
+ {
+  "repo_id": "2025-11-22T03-48-48+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.251,
+  "or_scale_estimate": 1.216,
+  "ci_low": 1.04,
+  "ci_high": 1.422,
+  "conclusion": "supported",
+  "notes": "extreme groups <=0.25 vs >=0.75 (medium excluded); RD 0.251pp (95% CI (0.048, 0.479)pp, p=0.0233) via g-computation + parametric bootstrap 5000 sims; OR secondary, Wald CI"
+ },
+ {
+  "repo_id": "2025-11-22T04-02-51+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.167,
+  "or_scale_estimate": 1.143,
+  "ci_low": 1.004,
+  "ci_high": 1.301,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; g-computation RD, unclustered SEs primary; RD CI (-0.001, 0.335) pp, p=0.051 misses threshold while OR p=0.044 makes it; verdict SUPPORTED (with important caveats), clustered sensitivity non-significant (p=0.103), effect driven by Germany/England"
+ },
+ {
+  "repo_id": "2025-11-22T04-24-20+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.179,
+  "or_scale_estimate": 1.158,
+  "ci_low": 0.994,
+  "ci_high": 1.349,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.5; RD CI [-0.007, 0.365] pp, p=0.059 (non-significant) yet run declares SUPPORTED via 'preponderance of evidence' from sensitivity analyses (extreme comparison p=0.008, continuous p=0.024)."
+ },
+ {
+  "repo_id": "2025-11-22T04-54-12+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1316,
+  "or_scale_estimate": 1.1462,
+  "ci_low": 0.9561,
+  "ci_high": 1.3741,
+  "conclusion": "not_supported",
+  "notes": "light 0-0.25 vs dark 0.5-1.0, medium 0.25-0.5 excluded; RD via LPM, CI (-0.0955, 0.3586) pp p=0.256; league heterogeneity (Germany +0.58 pp vs France -0.61 pp)"
+ },
+ {
+  "repo_id": "2025-11-22T05-51-21+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.3232,
+  "or_scale_estimate": 1.3274,
+  "ci_low": 1.0653,
+  "ci_high": 1.6539,
+  "conclusion": "supported",
+  "notes": "extreme groups: light 0-0.125 vs dark 0.75-1.0, middle excluded (53% of data dropped); AME RD 0.3232 pp CI [0.0735, 0.5728] p=0.0112; OR p=0.0116"
+ },
+ {
+  "repo_id": "2025-11-22T06-06-50+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2268,
+  "or_scale_estimate": 1.2049,
+  "ci_low": 1.0303,
+  "ci_high": 1.4092,
+  "conclusion": "supported",
+  "notes": "extreme-ish groups: light 0-0.375 vs dark 0.625-1.0, medium excluded; AME RD 0.2268 pp CI (0.0359, 0.4176) p=0.0199; primary SEs assume independence, player-clustered robustness check gives p=0.091"
+ },
+ {
+  "repo_id": "2025-11-22T06-36-51+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1695,
+  "or_scale_estimate": 1.1427,
+  "ci_low": 1.0038,
+  "ci_high": 1.3009,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; LPM with HC3 robust SEs (no clustering) primary; RD CI (0.0029, 0.3361) pp, p=0.046; GEE player-clustered sensitivity non-significant (p=0.091)"
+ },
+ {
+  "repo_id": "2025-11-22T06-59-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.152,
+  "or_scale_estimate": 1.125,
+  "ci_low": 0.933,
+  "ci_high": 1.356,
+  "conclusion": "not_supported",
+  "notes": "Light 0-0.25 vs dark 0.5-1.0, medium excluded; RD CI [-0.077, 0.382] pp, p=0.193; adjusts for meanIAT/meanExp; continuous skin tone significant (p=0.045)."
+ },
+ {
+  "repo_id": "2025-11-22T07-51-01+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.158,
+  "or_scale_estimate": 1.126,
+  "ci_low": 0.967,
+  "ci_high": 1.311,
+  "conclusion": "not_supported",
+  "notes": "extreme-ish groups: dark >=0.625 vs light <0.375, middle excluded; primary adjusted RD 0.158 pp (95% CI -0.075 to 0.391, p=0.184) from LPM with referee FE, player-clustered SE; OR secondary from logit without referee FE"
+ },
+ {
+  "repo_id": "2025-11-22T08-00-17+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2281,
+  "or_scale_estimate": 1.1953,
+  "ci_low": 1.0335,
+  "ci_high": 1.3826,
+  "conclusion": "supported",
+  "notes": "extreme groups: dark >=0.75 vs light <=0.25; primary adjusted RD 0.2281 pp (95% CI 0.0336 to 0.4409, p=0.0162) via g-computation, referee-clustered SE; OR secondary; controls include yellow cards and goals (possible mediators)"
+ },
+ {
+  "repo_id": "2025-11-22T08-15-09+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.14,
+  "or_scale_estimate": 1.1275,
+  "ci_low": 0.944,
+  "ci_high": 1.3468,
+  "conclusion": "not_supported",
+  "notes": "light <=0.25 vs dark >=0.625, middle excluded; primary adjusted RD +0.14 pp (95% CI -0.07 to +0.35, p=0.19); OR secondary; significant country heterogeneity (bias in England/Germany, reversed in France/Spain) flagged as key finding"
+ },
+ {
+  "repo_id": "2025-11-22T09-40-01+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.193,
+  "or_scale_estimate": 1.168,
+  "ci_low": 0.995,
+  "ci_high": 1.371,
+  "conclusion": "supported",
+  "notes": "dark 0.5-1.0 vs light 0-0.25, middle 0.25-0.5 excluded; AME RD 0.193 pp (bootstrap 95% CI 0.033 to 0.358, bootstrap p=0.032, Wald p=0.057); verdict 'SUPPORTED (with important caveats)', OR CI includes 1"
+ },
+ {
+  "repo_id": "2025-11-22T09-56-46+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2413,
+  "or_scale_estimate": 1.2079,
+  "ci_low": 1.0019,
+  "ci_high": 1.4561,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, medium excluded; two-way clustered SE; RD CI [-0.0106, 0.4932] pp p=0.060 while secondary OR is significant (p=0.048) - run leans on non-significant RD as primary."
+ },
+ {
+  "repo_id": "2025-11-22T10-30-44+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.201,
+  "or_scale_estimate": 1.179,
+  "ci_low": 1.049,
+  "ci_high": 1.326,
+  "conclusion": "mixed",
+  "notes": "dichotomize at >0.25; RD CI [0.058, 0.345] pp p=0.006; verdict is 'SUPPORTED with important caveats' then downgraded to 'weak support, insufficient to conclude bias'; no clustered SEs; adjusts for yellow cards"
+ },
+ {
+  "repo_id": "2025-11-22T11-04-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.258,
+  "or_scale_estimate": 1.221,
+  "ci_low": 1.014,
+  "ci_high": 1.47,
+  "conclusion": "supported",
+  "notes": "light <=0.375 vs dark >=0.625, middle excluded; primary adjusted RD 0.258 pp (95% CI 0.066 to 0.463, bootstrap p=0.008); OR secondary (p=0.035); effect driven by Germany/England, null in France/Spain"
+ },
+ {
+  "repo_id": "2025-11-22T11-14-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.16,
+  "ci_low": 0.93,
+  "ci_high": 1.44,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, middle excluded; RD CI [-0.08, 0.43] pp p=0.186; continuous skin tone sensitivity OR 1.27 p=0.030 significant; yellow-card negative control null."
+ },
+ {
+  "repo_id": "2025-11-22T12-02-23+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1626,
+  "or_scale_estimate": 1.1356,
+  "ci_low": 0.9433,
+  "ci_high": 1.3672,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75 (medium excluded); RD 0.1626pp (95% CI (-0.0412, 0.3860)pp, p=0.1792) via g-computation + dyad-level bootstrap; notably omits games from primary model (sensitivity with log(games): OR 1.20, p=0.057)"
+ },
+ {
+  "repo_id": "2025-11-22T12-45-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.188,
+  "or_scale_estimate": 1.161,
+  "ci_low": 1.005,
+  "ci_high": 1.343,
+  "conclusion": "supported",
+  "notes": "asymmetric groups: light <=0.25 vs dark >=0.50 (middle 0.25-0.50 excluded); RD 0.188pp (95% CI [0.003, 0.383]pp, p=0.048, barely significant) via g-computation + player-clustered bootstrap; skeptic persona reports being 'somewhat surprised' the effect held"
+ },
+ {
+  "repo_id": "2025-11-22T12-56-26+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1576,
+  "or_scale_estimate": 1.1348,
+  "ci_low": 0.9447,
+  "ci_high": 1.3631,
+  "conclusion": "not_supported",
+  "notes": "dichotomize <0.5 vs >0.5 (exact 0.5 excluded); RD +0.1576pp (95% CI [-0.0712, +0.4010]pp, p=0.1921) via g-computation + parametric bootstrap, player-clustered SEs; strong league heterogeneity (Germany OR 1.95 p<0.001, interaction p<0.0001)"
+ },
+ {
+  "repo_id": "2025-11-22T14-03-14+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2607,
+  "or_scale_estimate": 1.2255,
+  "ci_low": 0.9725,
+  "ci_high": 1.5442,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, medium excluded; RD via g-computation CI [-0.0580, 0.5794] pp p=0.1088; significant league interaction (p=0.002, Germany OR 2.30 vs France 0.83); continuous skin tone OR 1.29 p=0.034 significant."
+ },
+ {
+  "repo_id": "2025-11-22T14-12-20+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1757,
+  "or_scale_estimate": 1.1521,
+  "ci_low": 0.9599,
+  "ci_high": 1.3828,
+  "conclusion": "not_supported",
+  "notes": "Contrast groups: light 0-0.25 vs dark 0.5-1.0, medium 0.25-0.5 excluded; RD via g-computation, bootstrap CI [-0.0157, 0.3596] pp p=0.128; alternative dichotomization (>0.25) and continuous specs significant (p=0.024); Germany subgroup OR 1.91 p<0.001."
+ },
+ {
+  "repo_id": "2025-11-22T14-39-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2487,
+  "or_scale_estimate": 1.2151,
+  "ci_low": 1.0032,
+  "ci_high": 1.4718,
+  "conclusion": "supported",
+  "notes": "extreme groups: light <=0.25 vs dark >=0.75, middle excluded; LPM with clustered SEs, RD 0.2487 pp CI (0.0043, 0.4931) p=0.0461; SUPPORTED 'with substantial caveats' (negative persona still lands supported)"
+ },
+ {
+  "repo_id": "2025-11-22T14-57-09+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.0608,
+  "or_scale_estimate": 1.15,
+  "ci_low": 0.998,
+  "ci_high": 1.326,
+  "conclusion": "not_supported",
+  "notes": "dichotomize at >=0.5; Poisson with log(games) offset, two-way clustered SEs; RD is PER-GAME (0.061 pp on 0.42% base), CI (-0.0054, 0.1271) pp, p=0.054; ratio is IRR not OR; strong league heterogeneity (Germany IRR 1.69)"
+ },
+ {
+  "repo_id": "2025-11-22T15-41-58+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.195,
+  "or_scale_estimate": 1.175,
+  "ci_low": 1.017,
+  "ci_high": 1.359,
+  "conclusion": "supported",
+  "notes": "asymmetric dichotomy: dark >=0.5 vs light <=0.25; RD CI (0.020, 0.370) pp, p=0.029; attenuates to p=0.051 with age/height/weight; league heterogeneity (France/Spain negative)"
+ },
+ {
+  "repo_id": "2025-11-22T16-29-06+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2107,
+  "or_scale_estimate": 1.1966,
+  "ci_low": 0.9584,
+  "ci_high": 1.494,
+  "conclusion": "not_supported",
+  "notes": "extreme groups <=0.25 vs >=0.75, middle excluded; LPM RD clustered by player, adjusts for yellow cards (possible mediator); RD CI (-0.0749, 0.4962) pp, p=0.148; continuous-tone sensitivity significant (p=0.042)"
+ },
+ {
+  "repo_id": "2025-11-22T16-38-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1971,
+  "or_scale_estimate": 1.17,
+  "ci_low": 1.017,
+  "ci_high": 1.345,
+  "conclusion": "supported",
+  "notes": "dichotomize at >0.25 (light <=0.25 vs dark >0.25); RD 0.1971pp (95% CI [0.0508, 0.3290]pp, p=0.0054) via g-computation + player-resampling bootstrap (200 iters); skeptic persona reports skepticism 'gradually overcome'"
+ },
+ {
+  "repo_id": "2025-11-22T17-43-31+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.237,
+  "or_scale_estimate": 1.204,
+  "ci_low": 0.997,
+  "ci_high": 1.453,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: light <=0.25 vs dark >=0.75, medium excluded; g-computation RD 0.237 pp CI [-0.000, 0.507] p=0.051; continuous skin tone sensitivity OR 1.267 p=0.039 significant but binary primary drives NOT SUPPORTED verdict"
+ },
+ {
+  "repo_id": "2025-11-22T18-22-29+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1802,
+  "or_scale_estimate": 1.1548,
+  "ci_low": 0.9881,
+  "ci_high": 1.3495,
+  "conclusion": "supported",
+  "notes": "Dichotomize at 0.5; RD 95% CI 0.0222 to 0.3447 pp, p=0.020; secondary OR not significant (p=0.0703) \u2014 report notes inconsistency; adjusts games, position, league; player-clustered SEs."
+ },
+ {
+  "repo_id": "2025-11-22T18-41-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2532,
+  "or_scale_estimate": 1.2158,
+  "ci_low": 0.9804,
+  "ci_high": 1.5077,
+  "conclusion": "not_supported",
+  "notes": "extreme groups: dark 0.75-1.0 vs light 0-0.25, medium excluded; AME RD +0.2532 pp (95% CI -0.0142 to 0.5206, p=0.0635), player-clustered SE; adjusts for yellow cards; continuous skin tone sensitivity significant (p=0.026)"
+ },
+ {
+  "repo_id": "2025-11-22T18-52-50+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.246,
+  "or_scale_estimate": 1.217,
+  "ci_low": 1.0,
+  "ci_high": 1.481,
+  "conclusion": "not_supported",
+  "notes": "Extreme groups: light <=0.25 vs dark >=0.75, middle excluded; RD CI [-0.001, 0.492] pp, p=0.0512 just above threshold; OR via GEE, CI lower bound exactly 1.0 (p=0.0502)."
+ },
+ {
+  "repo_id": "2025-11-26T16-37-23+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.17,
+  "or_scale_estimate": 1.152,
+  "ci_low": 1.03,
+  "ci_high": 1.289,
+  "conclusion": "supported",
+  "notes": "dichotomize at >0.125 (very light vs all others), threshold chosen to maximize power; RD CI (0.04, 0.31) pp, p=0.0135 with unclustered SEs; player-clustered p=0.057; openly power-optimized exploratory specification search"
+ },
+ {
+  "repo_id": "2025-11-26T17-05-19+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.287,
+  "or_scale_estimate": 1.252,
+  "ci_low": 1.069,
+  "ci_high": 1.468,
+  "conclusion": "supported",
+  "notes": "Quartile contrast: light <=0.0 vs dark >=0.375, middle excluded; RD 95% CI 0.081 to 0.530 pp, p=0.0048; self-described exploratory specification search to maximize support for hypothesis; HC3 SEs, no clustering."
+ },
+ {
+  "repo_id": "2025-11-26T17-46-30+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.715,
+  "or_scale_estimate": 1.32,
+  "ci_low": 1.124,
+  "ci_high": 1.551,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25, threshold and min-3-games exclusion (drops 83,378 dyads) and goalkeeper exclusion all chosen via specification search to maximize effect; RD 0.715pp (95% CI (0.300, 1.131)pp, p=0.0007) via AME, player-clustered SEs; self-described 'exploratory advocacy' upper bound"
+ },
+ {
+  "repo_id": "2025-11-26T18-25-33+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2901,
+  "or_scale_estimate": 1.2476,
+  "ci_low": 1.0391,
+  "ci_high": 1.4978,
+  "conclusion": "supported",
+  "notes": "3-level exposure, dark 0.75-1.0 vs light 0.0-0.25 (medium kept as category); RD CI [0.0582, 0.5725] pp, p=0.012; explicit specification search for strongest defensible evidence, referee-clustered SEs chosen for tighter CIs; states hypothesis well-supported in-sample."
+ },
+ {
+  "repo_id": "2025-11-26T19-10-13+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.184,
+  "or_scale_estimate": 1.167,
+  "ci_low": 1.049,
+  "ci_high": 1.298,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25, threshold chosen via specification search to maximize unadjusted effect (advocacy framing, documented); g-computation RD +0.184 pp CI [0.059, 0.310] p=0.0040; no clustered SEs in primary model"
+ },
+ {
+  "repo_id": "2025-11-26T19-42-16+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.328,
+  "or_scale_estimate": 1.29,
+  "ci_low": 1.074,
+  "ci_high": 1.55,
+  "conclusion": "supported",
+  "notes": "continuous skin tone, contrast very dark (1) vs very light (0); primary adjusted RD 0.328 pp (95% CI 0.099 to 0.556, p=0.0065); OR secondary; report openly states exhaustive specification search chosen to maximize evidence for hypothesis; controls include yellow cards per game"
+ },
+ {
+  "repo_id": "2025-11-26T20-27-00+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.162,
+  "or_scale_estimate": 1.145,
+  "ci_low": 1.023,
+  "ci_high": 1.282,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.25 (threshold chosen by specification search to maximize effect); RD CI [0.026, 0.298] pp p=0.020; no clustering adjustment (deliberately, to maximize precision); explicit advocacy posture."
+ },
+ {
+  "repo_id": "2025-11-26T20-50-08+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.231,
+  "or_scale_estimate": 1.195,
+  "ci_low": 1.027,
+  "ci_high": 1.392,
+  "conclusion": "supported",
+  "notes": "Dichotomize dark >=0.75 vs all others <0.75 (cutpoint picked from a specification-search table to maximize effect); RD CI [0.034, 0.458] pp p=0.022; no clustering adjustment; explicit advocacy posture, self-notes Bonferroni would fail."
+ },
+ {
+  "repo_id": "2025-11-26T21-41-50+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.703,
+  "or_scale_estimate": 1.325,
+  "ci_low": 1.161,
+  "ci_high": 1.513,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25 chosen to maximize effect; aggressive exclusions (goalkeepers dropped, only dyads with >=3 games; 25.9% of data kept, base rate 2.68%); only covariate is games; self-declared upper-bound advocacy analysis; RD CI [0.381, 1.025] pp p<0.001"
+ },
+ {
+  "repo_id": "2025-11-26T22-04-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": null,
+  "or_scale_estimate": null,
+  "ci_low": null,
+  "ci_high": null,
+  "conclusion": "inconclusive",
+  "notes": "No mirrored_report.txt; final_analysis.py computes adjusted RD (g-computation) and OR at runtime with data-dependent SUPPORTED/NOT SUPPORTED branch, no numbers hardcoded. Exposure: dark >=0.375 vs light <=0.125, middle excluded; restricted to dyads with games >=3; exploratory strongest-evidence framing."
+ },
+ {
+  "repo_id": "2025-11-26T22-40-16+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.5158,
+  "or_scale_estimate": 1.228,
+  "ci_low": 1.073,
+  "ci_high": 1.406,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25; RD CI (0.1848, 0.8468) pp, p=0.0023; sample restricted to dyads with >=3 games and no goalkeepers (N=37,852), threshold and exclusions chosen via specification search to maximize effect"
+ },
+ {
+  "repo_id": "2025-11-26T22-51-43+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.41,
+  "or_scale_estimate": 1.15,
+  "ci_low": 1.06,
+  "ci_high": 1.25,
+  "conclusion": "supported",
+  "notes": "continuous skin tone, RD contrasts 0.75 vs 0.125; outcome broadened to red OR yellow-red cards, goalkeepers excluded; RD CI (0.20, 0.60) pp, p=0.0001; OR from separate binary >=0.25 spec; ~120-model specification search acknowledged"
+ },
+ {
+  "repo_id": "2025-11-26T23-31-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.176,
+  "or_scale_estimate": 1.156,
+  "ci_low": 1.034,
+  "ci_high": 1.294,
+  "conclusion": "supported",
+  "notes": "tertile contrast <=0.125 vs >=0.250; RD CI (0.040, 0.313) pp, p=0.0111; unclustered model-based SEs; self-described 'advocacy analysis' with specification search to maximize support"
+ },
+ {
+  "repo_id": "2025-11-27T00-12-07+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1892,
+  "or_scale_estimate": 1.171,
+  "ci_low": 1.0525,
+  "ci_high": 1.303,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25 (threshold chosen via specification search to maximize power); RD CI [0.0591, 0.3192] pp p=0.0044; self-described exploratory advocacy; adjusts for yellow cards (possible mediator); no clustered SEs (HC1 only)"
+ },
+ {
+  "repo_id": "2025-11-27T00-58-57+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.41,
+  "or_scale_estimate": 1.37,
+  "ci_low": 1.16,
+  "ci_high": 1.63,
+  "conclusion": "supported",
+  "notes": "Continuous skin tone 0-1 (contrast skin=1 vs skin=0) chosen to maximize power; RD 95% CI 0.18 to 0.64 pp, p=0.0006; self-described exploratory advocacy with specification search; referee-clustered SEs picked for tightest CIs; league country omitted from primary model."
+ },
+ {
+  "repo_id": "2025-11-27T01-18-31+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 8.0,
+  "or_scale_estimate": 1.457,
+  "ci_low": 1.142,
+  "ci_high": 1.86,
+  "conclusion": "supported",
+  "notes": "Player-level outcome (ever >=1 red card, 53% prevalence) not dyad-level, so 8.00 pp RD [2.83, 13.17], p=0.0024 is not comparable to dyad-scale RDs; dichotomize at >=0.25 chosen by search to maximize effect; goalkeepers excluded; exploratory in-sample."
+ },
+ {
+  "repo_id": "2025-11-27T01-53-05+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.254,
+  "or_scale_estimate": 1.236,
+  "ci_low": 1.114,
+  "ci_high": 1.372,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >0.125 (cutpoint chosen from specification search to maximize z-stat); adjusts only log(games); RD 95% CI 0.125 to 0.371 pp, p=0.000051; self-described exploratory hypothesis-advocacy analysis."
+ },
+ {
+  "repo_id": "2025-11-27T02-22-55+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2518,
+  "or_scale_estimate": 1.2349,
+  "ci_low": 1.0859,
+  "ci_high": 1.4042,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25 (threshold chosen by specification search to maximize signal); primary adjusted RD 0.2518 pp (95% CI 0.0982 to 0.4015, p=0.0014); OR secondary; report acknowledges in-sample optimization and upward bias; league country omitted from primary model (attenuates effect)"
+ },
+ {
+  "repo_id": "2025-11-27T02-44-14+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.175,
+  "or_scale_estimate": 1.158,
+  "ci_low": 1.04,
+  "ci_high": 1.289,
+  "conclusion": "supported",
+  "notes": "Dichotomize at >=0.25 median split (cutpoint chosen by exhaustive specification search to maximize significance); RD CI [0.038, 0.313] pp p=0.0075; model-based SEs, no clustering; explicit advocacy posture."
+ },
+ {
+  "repo_id": "2025-11-27T03-25-45+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.54,
+  "or_scale_estimate": 1.31,
+  "ci_low": 1.16,
+  "ci_high": 1.49,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25; excludes goalkeepers and single-game dyads (N=52,439, 36% of data); primary adjusted RD 0.54 pp (95% CI 0.30 to 0.78, p<0.001); OR secondary; specification openly optimized to maximize evidence, model-based SEs without clustering, yellow cards as covariate"
+ },
+ {
+  "repo_id": "2025-11-27T04-07-54+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2355,
+  "or_scale_estimate": 1.22,
+  "ci_low": 1.09,
+  "ci_high": 1.37,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.25, goalkeepers excluded; RD CI (0.0942, 0.3768) pp, p=0.001; threshold and exclusion chosen to maximize effect (self-described exploratory in-sample optimization)"
+ },
+ {
+  "repo_id": "2025-11-28T18-46-03+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.34,
+  "or_scale_estimate": 1.34,
+  "ci_low": 1.099,
+  "ci_high": 1.634,
+  "conclusion": "supported",
+  "notes": "Extreme groups: dark >=0.75 vs light =0.0"
+ },
+ {
+  "repo_id": "2025-11-28T19-21-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.288,
+  "or_scale_estimate": 1.27,
+  "ci_low": 1.106,
+  "ci_high": 1.458,
+  "conclusion": "supported",
+  "notes": "Ratio is Poisson rate ratio (labeled OR); dark >=0.5 vs light <=0.125"
+ },
+ {
+  "repo_id": "2025-11-28T19-35-48+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.37,
+  "or_scale_estimate": 1.334,
+  "ci_low": 1.107,
+  "ci_high": 1.608,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-28T20-02-44+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.319,
+  "or_scale_estimate": 1.3254,
+  "ci_low": 1.0629,
+  "ci_high": 1.6527,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-28T20-35-16+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.17,
+  "or_scale_estimate": 1.153,
+  "ci_low": 1.031,
+  "ci_high": 1.289,
+  "conclusion": "supported",
+  "notes": "Clustered-SE sensitivity CI includes 1"
+ },
+ {
+  "repo_id": "2025-11-28T21-40-17+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.28,
+  "or_scale_estimate": 1.24,
+  "ci_low": 1.0,
+  "ci_high": 1.54,
+  "conclusion": "mixed",
+  "notes": "Self-framed MARGINALLY SUPPORTED; two-sided p=0.061"
+ },
+ {
+  "repo_id": "2025-11-28T21-46-20+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.55,
+  "or_scale_estimate": 1.243,
+  "ci_low": 1.079,
+  "ci_high": 1.433,
+  "conclusion": "supported",
+  "notes": "Heavy exclusions: goalkeepers and <3-game dyads dropped (24% retained)"
+ },
+ {
+  "repo_id": "2025-11-28T22-36-39+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.16,
+  "or_scale_estimate": 1.137,
+  "ci_low": 1.02,
+  "ci_high": 1.268,
+  "conclusion": "supported",
+  "notes": "Primary is Poisson rate ratio; logistic secondary OR 1.111 non-significant"
+ },
+ {
+  "repo_id": "2025-11-28T23-31-55+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.25,
+  "or_scale_estimate": 1.223,
+  "ci_low": 1.091,
+  "ci_high": 1.371,
+  "conclusion": "supported",
+  "notes": "dyad-level, dark>=0.25, goalkeepers excluded"
+ },
+ {
+  "repo_id": "2025-11-29T00-13-53+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.714,
+  "or_scale_estimate": 1.31,
+  "ci_low": 1.072,
+  "ci_high": 1.6,
+  "conclusion": "supported",
+  "notes": "extreme groups and games>=3 restriction"
+ },
+ {
+  "repo_id": "2025-11-29T00-59-18+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.2,
+  "or_scale_estimate": 1.175,
+  "ci_low": 1.015,
+  "ci_high": 1.361,
+  "conclusion": "supported",
+  "notes": "dark>=0.5"
+ },
+ {
+  "repo_id": "2025-11-29T01-11-34+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.213,
+  "or_scale_estimate": 1.177,
+  "ci_low": 1.016,
+  "ci_high": 1.362,
+  "conclusion": "supported",
+  "notes": "primary model Poisson, dark>=0.75; OR is companion logistic estimate"
+ },
+ {
+  "repo_id": "2025-11-29T01-56-48+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.159,
+  "or_scale_estimate": 1.141,
+  "ci_low": 1.024,
+  "ci_high": 1.271,
+  "conclusion": "supported",
+  "notes": "dark>0.125"
+ },
+ {
+  "repo_id": "2025-11-29T02-07-25+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.235,
+  "or_scale_estimate": 1.22,
+  "ci_low": 1.089,
+  "ci_high": 1.367,
+  "conclusion": "supported",
+  "notes": "dark>=0.25, goalkeepers excluded"
+ },
+ {
+  "repo_id": "2025-11-29T02-34-48+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.239,
+  "or_scale_estimate": 1.22,
+  "ci_low": 1.052,
+  "ci_high": 1.416,
+  "conclusion": "supported",
+  "notes": "dark 0.75-1.0 vs light 0-0.25, middle excluded"
+ },
+ {
+  "repo_id": "2025-11-29T02-42-10+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.286,
+  "or_scale_estimate": 1.266,
+  "ci_low": 1.14,
+  "ci_high": 1.406,
+  "conclusion": "supported",
+  "notes": "dark>=0.25, games-only adjustment"
+ },
+ {
+  "repo_id": "2025-11-29T04-37-04+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.38,
+  "or_scale_estimate": 1.4,
+  "ci_low": 1.18,
+  "ci_high": 1.65,
+  "conclusion": "supported",
+  "notes": "dark>=0.75 vs light<0.25"
+ },
+ {
+  "repo_id": "2025-11-29T05-34-40+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.293,
+  "or_scale_estimate": 1.253,
+  "ci_low": 1.079,
+  "ci_high": 1.456,
+  "conclusion": "supported",
+  "notes": "adjusts for referee IAT/explicit bias"
+ },
+ {
+  "repo_id": "2025-11-29T05-43-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 9.94,
+  "or_scale_estimate": 1.614,
+  "ci_low": 1.139,
+  "ci_high": 2.287,
+  "conclusion": "supported",
+  "notes": "Player-level (ever-red-card, baseline ~53%); dark>=0.75, N=1,433"
+ },
+ {
+  "repo_id": "2025-11-29T06-09-11+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.175,
+  "or_scale_estimate": 1.157,
+  "ci_low": 1.013,
+  "ci_high": 1.323,
+  "conclusion": "supported",
+  "notes": "dark>=0.25, full covariate set, clustered by player"
+ },
+ {
+  "repo_id": "2025-11-29T08-18-50+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.185,
+  "or_scale_estimate": 1.167,
+  "ci_low": 1.022,
+  "ci_high": 1.332,
+  "conclusion": "supported",
+  "notes": "dark>=0.25, cluster-robust SE by player"
+ },
+ {
+  "repo_id": "2025-11-29T08-21-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.167,
+  "or_scale_estimate": 1.15,
+  "ci_low": 1.023,
+  "ci_high": 1.292,
+  "conclusion": "supported",
+  "notes": "referee-clustered SE"
+ },
+ {
+  "repo_id": "2025-11-29T08-36-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.21,
+  "or_scale_estimate": 1.192,
+  "ci_low": 1.059,
+  "ci_high": 1.342,
+  "conclusion": "supported",
+  "notes": "dark>=0.5 median split"
+ },
+ {
+  "repo_id": "2025-11-29T08-52-24+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 7.43,
+  "or_scale_estimate": 1.42,
+  "ci_low": 1.1,
+  "ci_high": 1.83,
+  "conclusion": "supported",
+  "notes": "player-level career aggregation; dark>=0.25, GKs excluded"
+ },
+ {
+  "repo_id": "2025-11-29T09-34-51+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.164,
+  "ci_low": 1.046,
+  "ci_high": 1.295,
+  "conclusion": "supported",
+  "notes": "dark>=0.25"
+ },
+ {
+  "repo_id": "2025-11-29T11-15-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 13.54,
+  "or_scale_estimate": 2.071,
+  "ci_low": 1.343,
+  "ci_high": 3.195,
+  "conclusion": "supported",
+  "notes": "player-level career aggregation; extreme threshold dark>=0.875; bootstrap"
+ },
+ {
+  "repo_id": "2025-11-29T11-47-15+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.417,
+  "or_scale_estimate": 1.4,
+  "ci_low": 1.165,
+  "ci_high": 1.681,
+  "conclusion": "supported",
+  "notes": "LPM primary; extreme groups light=0.0 vs dark>=0.75, GKs excluded"
+ },
+ {
+  "repo_id": "2025-11-29T12-29-02+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.35,
+  "or_scale_estimate": 1.342,
+  "ci_low": 1.151,
+  "ci_high": 1.564,
+  "conclusion": "supported",
+  "notes": "extreme groups light<=0.125 vs dark>=0.625"
+ },
+ {
+  "repo_id": "2025-11-29T12-58-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.409,
+  "or_scale_estimate": 1.419,
+  "ci_low": 1.195,
+  "ci_high": 1.685,
+  "conclusion": "supported",
+  "notes": "extreme groups light=0 vs dark>=0.75"
+ },
+ {
+  "repo_id": "2025-11-29T13-19-54+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.25,
+  "or_scale_estimate": 1.2219,
+  "ci_low": 1.0848,
+  "ci_high": 1.3764,
+  "conclusion": "supported",
+  "notes": "dark>=0.25, GKs excluded"
+ },
+ {
+  "repo_id": "2025-11-29T14-40-56+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1731,
+  "or_scale_estimate": 1.156,
+  "ci_low": 1.034,
+  "ci_high": 1.293,
+  "conclusion": "supported",
+  "notes": "threshold 0.125"
+ },
+ {
+  "repo_id": "2025-11-29T15-01-09+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.192,
+  "or_scale_estimate": 1.165,
+  "ci_low": 1.0,
+  "ci_high": 1.358,
+  "conclusion": "supported",
+  "notes": "borderline (p=0.07 RD, OR p=0.051); framed SUPPORTED via continuous spec; threshold 0.625"
+ },
+ {
+  "repo_id": "2025-11-29T15-25-10+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.185,
+  "or_scale_estimate": 1.165,
+  "ci_low": 1.033,
+  "ci_high": 1.313,
+  "conclusion": "supported",
+  "notes": "dark>=0.375"
+ },
+ {
+  "repo_id": "2025-11-29T16-18-23+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.35,
+  "or_scale_estimate": 1.15,
+  "ci_low": 1.01,
+  "ci_high": 1.31,
+  "conclusion": "supported",
+  "notes": "dark>=0.25 restricted to >=3 games (base rate 2.7%)"
+ },
+ {
+  "repo_id": "2025-11-29T16-49-58+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1746,
+  "or_scale_estimate": 1.1578,
+  "ci_low": 1.0389,
+  "ci_high": 1.2904,
+  "conclusion": "supported",
+  "notes": "dark>=0.25"
+ },
+ {
+  "repo_id": "2025-11-29T17-19-34+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.278,
+  "or_scale_estimate": 1.2622,
+  "ci_low": 1.1012,
+  "ci_high": 1.4467,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T18-13-22+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.41,
+  "or_scale_estimate": 1.21,
+  "ci_low": 1.02,
+  "ci_high": 1.44,
+  "conclusion": "supported",
+  "notes": "RD bootstrap CI includes 0; report calls SUPPORTED on Wald p=0.031"
+ },
+ {
+  "repo_id": "2025-11-29T18-16-23+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.399,
+  "or_scale_estimate": 1.382,
+  "ci_low": 1.17,
+  "ci_high": 1.632,
+  "conclusion": "supported",
+  "notes": "mirrored_report.txt truncated; values from sibling sonnet_llmj.txt quoting the report"
+ },
+ {
+  "repo_id": "2025-11-29T18-48-28+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.208,
+  "or_scale_estimate": 1.191,
+  "ci_low": 1.07,
+  "ci_high": 1.324,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T19-18-15+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.213,
+  "or_scale_estimate": 1.181,
+  "ci_low": 1.021,
+  "ci_high": 1.368,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T20-04-37+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.27,
+  "or_scale_estimate": 1.2538,
+  "ci_low": 1.12,
+  "ci_high": 1.4,
+  "conclusion": "supported",
+  "notes": "dark>0.125"
+ },
+ {
+  "repo_id": "2025-11-29T21-54-24+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.214,
+  "or_scale_estimate": 1.185,
+  "ci_low": 1.059,
+  "ci_high": 1.326,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T22-31-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.18,
+  "or_scale_estimate": 1.162,
+  "ci_low": 1.045,
+  "ci_high": 1.293,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T22-45-38+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.1774,
+  "or_scale_estimate": 1.16,
+  "ci_low": 1.04,
+  "ci_high": 1.3,
+  "conclusion": "supported",
+  "notes": ""
+ },
+ {
+  "repo_id": "2025-11-29T23-23-58+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.452,
+  "or_scale_estimate": 1.21,
+  "ci_low": 1.132,
+  "ci_high": 1.295,
+  "conclusion": "supported",
+  "notes": "games-weighted GLM identity link; dark>=0.75 vs light<=0.125"
+ },
+ {
+  "repo_id": "2025-11-29T23-55-11+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.295,
+  "or_scale_estimate": 1.28,
+  "ci_low": 1.035,
+  "ci_high": 1.582,
+  "conclusion": "supported",
+  "notes": "extreme groups: very dark >0.75 vs very light <0.25"
+ },
+ {
+  "repo_id": "2025-11-30T00-13-01+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 5.32,
+  "or_scale_estimate": 1.29,
+  "ci_low": 1.016,
+  "ci_high": 1.638,
+  "conclusion": "supported",
+  "notes": "player-level unit (any-red-card-ever, ~54% base rate); dark>=0.25"
+ },
+ {
+  "repo_id": "2026-02-13T14-52-16+0000",
+  "primary_estimand_type": "risk_difference",
+  "primary_estimate": 0.169,
+  "or_scale_estimate": 1.149,
+  "ci_low": 1.009,
+  "ci_high": 1.308,
+  "conclusion": "supported",
+  "notes": "dichotomize at >=0.5; AME RD 0.169 pp CI (0.011, 0.326) p=0.0357; adjusts for yellow cards (possible mediator); no clustered SEs in primary model"
+ }
+]

@@ -1,0 +1,78 @@
+{
+ "run_id": "2025-11-17T16-55-57+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 298,
+   "functional_lines": 118,
+   "functional_share": 0.396,
+   "by_type": {
+    "print": 124,
+    "comment": 42,
+    "import": 10,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 278,
+   "functional_lines": 163,
+   "functional_share": 0.5863,
+   "by_type": {
+    "heading": 79,
+    "boilerplate": 26,
+    "hedging": 21,
+    "framing": 5,
+    "background": 2,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 74,
+  "action_claims": 31,
+  "result_claims": 43,
+  "links": 36,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 1,
+  "result_claims_deferred": 43
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     83,
+     85
+    ],
+    [
+     227,
+     227
+    ]
+   ],
+   "confidence": "high",
+   "operation": "code dark-skinned players as 1 and light-skinned as 0, making light the reference category",
+   "targets": [
+    "skinCategory",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bucket continuous skin tone into light/medium/dark categories using fixed cutoffs (<=0.25 light, >=0.75 dark, else medium)",
+   "claim": "defines Medium as an average rating between 0.375 and 0.625",
+   "note": "code defines medium as everything not light/dark (0.25<x<0.75); claim defines medium as 0.375 to 0.625"
+  }
+ ]
+}

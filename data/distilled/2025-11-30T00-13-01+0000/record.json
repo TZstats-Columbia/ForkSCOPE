@@ -1,0 +1,59 @@
+{
+ "run_id": "2025-11-30T00-13-01+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 359,
+   "functional_lines": 153,
+   "functional_share": 0.4262,
+   "by_type": {
+    "print": 134,
+    "comment": 57,
+    "import": 10,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 262,
+   "functional_lines": 136,
+   "functional_share": 0.5191,
+   "by_type": {
+    "heading": 72,
+    "other": 49,
+    "boilerplate": 18,
+    "framing": 11,
+    "background": 3,
+    "hedging": 3
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 134,
+  "action_claims": 67,
+  "result_claims": 67,
+  "links": 63,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 16,
+  "R_only_consistent_negative": 15,
+  "result_claims_deferred": 67
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "scan several skin-tone cutpoints, compare unadjusted red-card rates at each, then hardcode the 0.25 cutpoint as the primary exposure because it produced the largest/most significant split",
+   "claim": "chose the 0.25 cutpoint partly because it is the median, splitting the sample into roughly equal groups to maximize statistical power",
+   "note": "code hardcodes 0.25 because it produced the largest/most significant split, not because it is the median; the resulting groups are 42%/58%, so 0.25 is not a median/equal-group split"
+  }
+ ]
+}

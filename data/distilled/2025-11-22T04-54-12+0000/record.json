@@ -1,0 +1,58 @@
+{
+ "run_id": "2025-11-22T04-54-12+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 297,
+   "functional_lines": 80,
+   "functional_share": 0.2694,
+   "by_type": {
+    "print": 96,
+    "comment": 90,
+    "glue": 17,
+    "import": 11,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 283,
+   "functional_lines": 119,
+   "functional_share": 0.4205,
+   "by_type": {
+    "boilerplate": 79,
+    "heading": 59,
+    "hedging": 22,
+    "other": 8,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 96,
+  "action_claims": 50,
+  "result_claims": 46,
+  "links": 66,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 22,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 46
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "refit the model clustering standard errors by referee instead of by player, as a robustness check",
+   "claim": "the analysis does not account for correlation within referees",
+   "note": "decision 66 refits standard errors clustered by referee, which does account for within-referee correlation, contradicting the claim that the analysis does not account for it"
+  }
+ ]
+}

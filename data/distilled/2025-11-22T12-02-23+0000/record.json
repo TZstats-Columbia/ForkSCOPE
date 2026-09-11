@@ -1,0 +1,66 @@
+{
+ "run_id": "2025-11-22T12-02-23+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 288,
+   "functional_lines": 103,
+   "functional_share": 0.3576,
+   "by_type": {
+    "print": 133,
+    "comment": 39,
+    "import": 9,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 169,
+   "functional_lines": 126,
+   "functional_share": 0.7456,
+   "by_type": {
+    "heading": 36,
+    "boilerplate": 16,
+    "hedging": 11,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 15,
+  "claims": 80,
+  "action_claims": 38,
+  "result_claims": 42,
+  "links": 44,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 42
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     96,
+     98
+    ]
+   ],
+   "confidence": "high",
+   "operation": "recode the three-level skin_group into a binary dark-skin exposure indicator with light skin as reference",
+   "targets": [
+    "skin_group",
+    "dark_skin"
+   ]
+  }
+ ],
+ "misalignments": []
+}

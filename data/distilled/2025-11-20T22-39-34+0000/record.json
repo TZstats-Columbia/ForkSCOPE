@@ -1,0 +1,71 @@
+{
+ "run_id": "2025-11-20T22-39-34+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 382,
+   "functional_lines": 80,
+   "functional_share": 0.2094,
+   "by_type": {
+    "print": 135,
+    "comment": 76,
+    "plot": 58,
+    "import": 10,
+    "other": 10,
+    "glue": 10,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 311,
+   "functional_lines": 214,
+   "functional_share": 0.6881,
+   "by_type": {
+    "heading": 56,
+    "boilerplate": 41,
+    "hedging": 17,
+    "framing": 9,
+    "background": 4,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 111,
+  "action_claims": 56,
+  "result_claims": 55,
+  "links": 85,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 77,
+   "lines": [
+    [
+     270,
+     273
+    ]
+   ],
+   "confidence": "low",
+   "operation": "compute a normal-approximation (Wald) 95% CI as mean plus/minus 1.96 times SEM for the descriptive red-card rate chart",
+   "targets": [
+    "anyRedCard",
+    "skinCategory"
+   ]
+  }
+ ],
+ "misalignments": []
+}

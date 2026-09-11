@@ -1,0 +1,1243 @@
+{
+ "n_lines": 375,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     13
+    ]
+   ],
+   "note": "module docstring describing the analysis and trailing blank line"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     14,
+     18
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     20
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "note": "seed rationale comment"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     22,
+     23
+    ]
+   ],
+   "note": "fix numpy random seed"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "section banner: data loading and quality control"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "load data comment"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "operation": "pick the input file and dataset scope to analyze",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     35
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     36,
+     36
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "operation": "average two raters' scores into one composite skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": "quality-control rationale"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "operation": "drop dyads with no measurable skin tone rather than impute or keep them",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     45,
+     48
+    ]
+   ],
+   "note": "section banner: variable construction"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "operation": "collapse red-card counts into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     51,
+     52
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     53,
+     54
+    ]
+   ],
+   "note": "exposure definition rationale"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     55,
+     57
+    ],
+    [
+     66,
+     67
+    ]
+   ],
+   "operation": "define the primary exposure as extreme skin-tone groups (>=0.75 dark, <=0.25 light) and restrict the analysis sample to only those dyads",
+   "targets": [
+    "skinTone",
+    "darkSkin",
+    "lightSkin",
+    "df_extreme"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "note": "alternative exposures note"
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "operation": "construct alternate skin-tone thresholds (>=0.5 and >=0.375) for later robustness checks",
+   "targets": [
+    "skinTone",
+    "darkSkin_50",
+    "darkSkin_375"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     64
+    ]
+   ],
+   "operation": "log-transform games played to use as an exposure/covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     65
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     68,
+     75
+    ]
+   ],
+   "note": "primary sample summary"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     76,
+     79
+    ]
+   ],
+   "note": "section banner: descriptive statistics"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     83
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     84,
+     87
+    ]
+   ],
+   "note": "descriptive table for dark-skin group, computed only for display"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     88,
+     91
+    ]
+   ],
+   "note": "descriptive table for light-skin group, computed only for display"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     92,
+     92
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     93,
+     96
+    ]
+   ],
+   "operation": "compute a simple unadjusted risk-difference contrast between the two exposure groups as a headline descriptive statistic",
+   "targets": [
+    "darkSkin",
+    "lightSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     97,
+     103
+    ]
+   ],
+   "note": "print unadjusted rates"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     104,
+     107
+    ]
+   ],
+   "note": "section banner: primary adjusted logistic regression"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     108,
+     111
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     112,
+     114
+    ]
+   ],
+   "note": "note on which covariates go into the design matrix"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     115,
+     117
+    ]
+   ],
+   "operation": "choose the primary adjustment set: position and league-country dummies plus the exposure and log(games)",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "darkSkin",
+    "log_games",
+    "X_primary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     118,
+     120
+    ]
+   ],
+   "operation": "fill missing referee implicit/explicit bias scores with the column median rather than dropping those rows",
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     121,
+     121
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     122,
+     124
+    ]
+   ],
+   "note": "cast design matrix columns to float"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     125,
+     127
+    ]
+   ],
+   "note": "add intercept and assign outcome array"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     130
+    ]
+   ],
+   "note": "announce model being fit"
+  },
+  {
+   "id": 44,
+   "kind": "decision",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "operation": "choose logistic regression as the primary model family for the binary red-card outcome",
+   "targets": [
+    "X_primary",
+    "y_primary",
+    "model_primary"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     133,
+     140
+    ]
+   ],
+   "note": "print coefficient, se, z, p"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     141,
+     141
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "operation": "report the exponentiated coefficient and its CI as an odds-ratio secondary estimand",
+   "targets": [
+    "model_primary",
+    "darkSkin"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     146,
+     152
+    ]
+   ],
+   "note": "print odds ratio results"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     153,
+     156
+    ]
+   ],
+   "note": "section banner: adjusted risk difference"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     157,
+     160
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     161,
+     161
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "decision",
+   "lines": [
+    [
+     162,
+     170
+    ],
+    [
+     172,
+     173
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference via marginal standardization: predict outcome probabilities setting exposure to all-dark vs all-light and take the mean difference",
+   "targets": [
+    "model_primary",
+    "X_dark",
+    "X_light",
+    "pred_dark",
+    "pred_light",
+    "rd_estimate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     171,
+     171
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     174,
+     178
+    ]
+   ],
+   "note": "print marginal standardization results"
+  },
+  {
+   "id": 55,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     179,
+     179
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     180,
+     181
+    ]
+   ],
+   "note": "announce delta method calculation"
+  },
+  {
+   "id": 57,
+   "kind": "decision",
+   "lines": [
+    [
+     182,
+     183
+    ],
+    [
+     184,
+     191
+    ],
+    [
+     193,
+     195
+    ],
+    [
+     196,
+     207
+    ],
+    [
+     209,
+     211
+    ]
+   ],
+   "operation": "derive the standard error of the adjusted risk difference via the delta method using a numerically approximated gradient",
+   "targets": [
+    "model_primary",
+    "vcov",
+    "gradient",
+    "se_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     192,
+     192
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     208,
+     208
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     212,
+     212
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 61,
+   "kind": "decision",
+   "lines": [
+    [
+     213,
+     217
+    ]
+   ],
+   "operation": "build a 95% confidence interval and two-sided p-value using the normal approximation (1.96 multiplier) around the risk-difference estimate",
+   "targets": [
+    "rd_estimate",
+    "se_rd",
+    "ci_lower_rd",
+    "ci_upper_rd",
+    "p_twosided"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     218,
+     226
+    ]
+   ],
+   "note": "print final primary estimand results"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     227,
+     230
+    ]
+   ],
+   "note": "section banner: robustness checks"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     231,
+     234
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     235,
+     235
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     236,
+     237
+    ]
+   ],
+   "note": "subsection title"
+  },
+  {
+   "id": 67,
+   "kind": "decision",
+   "lines": [
+    [
+     238,
+     241
+    ],
+    [
+     246,
+     247
+    ],
+    [
+     248,
+     256
+    ]
+   ],
+   "operation": "run a robustness check dropping the referee-bias covariates from the adjustment set, refit logistic model and recompute the standardized risk difference",
+   "targets": [
+    "position",
+    "leagueCountry",
+    "darkSkin",
+    "log_games",
+    "X_minimal",
+    "model_minimal",
+    "rd_minimal"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     242,
+     244
+    ]
+   ],
+   "note": "cast columns to float"
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     245,
+     245
+    ]
+   ],
+   "note": "add intercept"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     257,
+     262
+    ]
+   ],
+   "note": "print minimal-model results"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     263,
+     263
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     264,
+     265
+    ]
+   ],
+   "note": "subsection title"
+  },
+  {
+   "id": 73,
+   "kind": "decision",
+   "lines": [
+    [
+     266,
+     271
+    ],
+    [
+     278,
+     279
+    ],
+    [
+     280,
+     288
+    ]
+   ],
+   "operation": "run a robustness check using a broader >=0.5 skin-tone threshold on the full (non-extreme-restricted) sample, refit and recompute standardized risk difference",
+   "targets": [
+    "darkSkin_50",
+    "position",
+    "leagueCountry",
+    "log_games",
+    "meanIAT",
+    "meanExp",
+    "X_broader",
+    "model_broader",
+    "rd_broader"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     272,
+     274
+    ]
+   ],
+   "note": "cast columns to float"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     275,
+     277
+    ]
+   ],
+   "note": "add intercept and assign outcome array"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     289,
+     294
+    ]
+   ],
+   "note": "print broader-threshold results"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     295,
+     295
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     296,
+     297
+    ]
+   ],
+   "note": "subsection title"
+  },
+  {
+   "id": 79,
+   "kind": "decision",
+   "lines": [
+    [
+     298,
+     301
+    ],
+    [
+     302,
+     303
+    ]
+   ],
+   "operation": "run a robustness check modeling skin tone as a continuous linear predictor instead of a dichotomized exposure",
+   "targets": [
+    "skinTone",
+    "X_continuous",
+    "model_continuous"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     304,
+     308
+    ]
+   ],
+   "note": "print continuous-specification results"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     309,
+     312
+    ]
+   ],
+   "note": "section banner: final summary"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     313,
+     316
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     317,
+     332
+    ]
+   ],
+   "note": "print primary specification summary"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     333,
+     338
+    ]
+   ],
+   "note": "print primary estimand summary"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     339,
+     344
+    ]
+   ],
+   "note": "print secondary estimand summary"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     345,
+     354
+    ]
+   ],
+   "note": "print interpretation text"
+  },
+  {
+   "id": 87,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     355,
+     355
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 88,
+   "kind": "decision",
+   "lines": [
+    [
+     356,
+     371
+    ]
+   ],
+   "operation": "set the significance rule (two-sided p<0.05 and CI excluding zero) that labels the hypothesis as supported, marginally supported, or not supported",
+   "targets": [
+    "p_twosided",
+    "ci_lower_rd",
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     372,
+     375
+    ]
+   ],
+   "note": "closing banner"
+  }
+ ]
+}

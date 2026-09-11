@@ -1,0 +1,63 @@
+{
+ "builds": {
+  "A": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+  "B": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json"
+ },
+ "perms": 500,
+ "corpus": null,
+ "comparison_type": "replicate",
+ "levels": {
+  "option": {
+   "runs": 221,
+   "pairs": 24310,
+   "clusters": {
+    "A": 266,
+    "B": 281
+   },
+   "pairwise": {
+    "A vs B": {
+     "mantel": {
+      "observed": 0.6373,
+      "null_mean": 0.0001,
+      "null_sd": 0.0189,
+      "z": 33.78,
+      "p": 0.002
+     },
+     "dcor": {
+      "observed": 0.9348,
+      "null_mean": 0.8455,
+      "null_sd": 0.0011,
+      "z": 81.5,
+      "p": 0.002
+     }
+    }
+   }
+  },
+  "fork": {
+   "runs": 223,
+   "pairs": 24753,
+   "clusters": {
+    "A": 148,
+    "B": 163
+   },
+   "pairwise": {
+    "A vs B": {
+     "mantel": {
+      "observed": 0.4995,
+      "null_mean": 0.0005,
+      "null_sd": 0.0267,
+      "z": 18.71,
+      "p": 0.002
+     },
+     "dcor": {
+      "observed": 0.8312,
+      "null_mean": 0.7161,
+      "null_sd": 0.0022,
+      "z": 53.49,
+      "p": 0.002
+     }
+    }
+   }
+  }
+ }
+}

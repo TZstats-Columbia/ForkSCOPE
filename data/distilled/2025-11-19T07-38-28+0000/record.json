@@ -1,0 +1,109 @@
+{
+ "run_id": "2025-11-19T07-38-28+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 412,
+   "functional_lines": 118,
+   "functional_share": 0.2864,
+   "by_type": {
+    "print": 128,
+    "comment": 92,
+    "plot": 61,
+    "import": 10,
+    "config": 2,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 232,
+   "functional_lines": 102,
+   "functional_share": 0.4397,
+   "by_type": {
+    "boilerplate": 72,
+    "heading": 52,
+    "hedging": 11,
+    "framing": 7
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 88,
+  "action_claims": 54,
+  "result_claims": 34,
+  "links": 62,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 34
+ },
+ "silent_decisions": [
+  {
+   "id": 16,
+   "lines": [
+    [
+     277,
+     278
+    ]
+   ],
+   "confidence": "high",
+   "operation": "restrict this sensitivity sample to dyads with non-missing referee bias scores",
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "df_bias"
+   ]
+  },
+  {
+   "id": 18,
+   "lines": [
+    [
+     324,
+     325
+    ],
+    [
+     330,
+     330
+    ]
+   ],
+   "confidence": "low",
+   "operation": "compute the plotted error bars from a normal-approximation SE of the raw proportions times 1.96",
+   "targets": [
+    "anyRedCard",
+    "se_light",
+    "se_dark"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     340,
+     340
+    ]
+   ],
+   "confidence": "low",
+   "operation": "limit the position breakdown plot to the 10 most frequent positions",
+   "targets": [
+    "position"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "take the 2.5/97.5 percentiles of the bootstrap draws as the CI and derive a p-value from a normal approximation to the bootstrap SE",
+   "claim": "p-values were computed via two-sided Wald tests using cluster-robust standard errors",
+   "note": "claim says p-values came from two-sided Wald tests, but the primary risk-difference p-value is derived from a normal approximation to the bootstrap SE"
+  }
+ ]
+}

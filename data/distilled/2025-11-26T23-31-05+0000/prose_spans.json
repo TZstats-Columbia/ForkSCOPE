@@ -1,0 +1,3032 @@
+{
+ "n_lines": 326,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     1,
+     6
+    ]
+   ],
+   "note": "Report title, subtitle, separator"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     7,
+     8
+    ]
+   ],
+   "note": "Executive summary heading"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     9,
+     10
+    ]
+   ],
+   "note": "States the research hypothesis"
+  },
+  {
+   "id": 4,
+   "kind": "claim",
+   "lines": [
+    [
+     11,
+     12
+    ]
+   ],
+   "assertion": "the analysis was designed as an exploratory, in-sample search intended to characterize the strongest defensible evidence in the dataset supporting the hypothesis",
+   "polarity": "did",
+   "targets": [
+    "hypothesis",
+    "specification search"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    5
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "claim",
+   "lines": [
+    [
+     11,
+     12
+    ]
+   ],
+   "assertion": "the full available dataset was used for both model development and evaluation rather than a held-out test set",
+   "polarity": "did",
+   "targets": [
+    "dataset"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    4
+   ]
+  },
+  {
+   "id": 6,
+   "kind": "claim",
+   "lines": [
+    [
+     13,
+     14
+    ]
+   ],
+   "assertion": "the overall conclusion is that the hypothesis is supported",
+   "polarity": "found",
+   "targets": [
+    "hypothesis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "claim",
+   "lines": [
+    [
+     13,
+     14
+    ]
+   ],
+   "assertion": "after comprehensive covariate adjustment, dark-skinned (top tertile) players have a 0.176 percentage-point higher probability of a red card than light-skinned (bottom tertile) players, 95% CI [0.040,0.313], p=0.0111",
+   "polarity": "found",
+   "targets": [
+    "dark-skinned players",
+    "light-skinned players",
+    "red cards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6,
+    8,
+    9
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "claim",
+   "lines": [
+    [
+     13,
+     14
+    ]
+   ],
+   "assertion": "this corresponds to a 15.6% higher odds of a red card (OR=1.156, 95% CI [1.034,1.294])",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6,
+    7,
+    9
+   ]
+  },
+  {
+   "id": 9,
+   "kind": "claim",
+   "lines": [
+    [
+     13,
+     14
+    ]
+   ],
+   "assertion": "the finding is robust across multiple sensitivity analyses",
+   "polarity": "found",
+   "targets": [
+    "sensitivity analyses"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "id": 10,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     15,
+     16
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 11,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     17,
+     18
+    ]
+   ],
+   "note": "Section 1 heading"
+  },
+  {
+   "id": 12,
+   "kind": "claim",
+   "lines": [
+    [
+     19,
+     22
+    ]
+   ],
+   "assertion": "the primary adjusted risk difference estimate is 0.176 percentage points, 95% CI [0.040,0.313], two-sided p=0.0111",
+   "polarity": "found",
+   "targets": [
+    "risk difference"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "claim",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "assertion": "the baseline red card rate for light-skinned players is approximately 1.1%",
+   "polarity": "found",
+   "targets": [
+    "light-skinned players",
+    "red card rate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    14
+   ]
+  },
+  {
+   "id": 14,
+   "kind": "claim",
+   "lines": [
+    [
+     23,
+     24
+    ]
+   ],
+   "assertion": "the 0.176pp adjusted difference is characterized as a substantively meaningful 16% relative increase in red-card probability",
+   "polarity": "found",
+   "targets": [
+    "risk difference",
+    "relative increase"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    13
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 16,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     27,
+     28
+    ]
+   ],
+   "note": "Section 2 heading"
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     29,
+     32
+    ]
+   ],
+   "assertion": "the secondary adjusted odds ratio estimate is 1.156, 95% CI [1.034,1.294], p=0.0110",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "assertion": "the odds of a red card are 15.6% higher for dark-skinned vs light-skinned players after adjusting for all covariates",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     35,
+     36
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 20,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "note": "Section 3 heading"
+  },
+  {
+   "id": 21,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     39,
+     40
+    ]
+   ],
+   "note": "3.1 subheading"
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "assertion": "the unit of analysis was defined as the player-referee dyad",
+   "polarity": "did",
+   "targets": [
+    "player-referee dyad"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     42,
+     44
+    ]
+   ],
+   "assertion": "the primary analysis sample comprised 115,457 dyads: 48,260 (41.8%) light-skin and 67,197 (58.2%) dark-skin",
+   "polarity": "found",
+   "targets": [
+    "sample size",
+    "skin tone tertiles"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "claim",
+   "lines": [
+    [
+     45,
+     45
+    ]
+   ],
+   "assertion": "there were 1,478 red card events in the primary sample, a 1.26% prevalence",
+   "polarity": "found",
+   "targets": [
+    "red card events"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "claim",
+   "lines": [
+    [
+     46,
+     47
+    ]
+   ],
+   "assertion": "the primary sample includes 1,585 unique players and 2,978 unique referees",
+   "polarity": "found",
+   "targets": [
+    "unique players",
+    "unique referees"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     48,
+     49
+    ]
+   ],
+   "note": "3.2 subheading"
+  },
+  {
+   "id": 27,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     50,
+     50
+    ]
+   ],
+   "note": "Primary exposure subheading"
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     51,
+     51
+    ]
+   ],
+   "assertion": "skin tone was operationalized as a composite measure averaging two independent raters' assessments of player profile photos",
+   "polarity": "did",
+   "targets": [
+    "skin tone",
+    "raters"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "claim",
+   "lines": [
+    [
+     52,
+     52
+    ]
+   ],
+   "assertion": "the skin tone scale runs from 0 (very light) to 1 (very dark)",
+   "polarity": "did",
+   "targets": [
+    "skin tone scale"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     53,
+     53
+    ]
+   ],
+   "assertion": "the raters were blind to the research question",
+   "polarity": "did",
+   "targets": [
+    "raters"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     54,
+     54
+    ]
+   ],
+   "assertion": "skin tone was operationalized as a binary comparison between the bottom tertile (≤0.125) and top tertile (≥0.250)",
+   "polarity": "did",
+   "targets": [
+    "skin tone tertiles"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "claim",
+   "lines": [
+    [
+     55,
+     56
+    ]
+   ],
+   "assertion": "the tertile comparison was chosen because it maximizes statistical power, maintains clear group contrast, and excludes the ambiguous middle range",
+   "polarity": "did",
+   "targets": [
+    "tertile comparison"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     57,
+     57
+    ]
+   ],
+   "note": "Outcome subheading"
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     58,
+     58
+    ]
+   ],
+   "assertion": "the outcome was defined as a binary indicator of any red card received in the player-referee dyad across all matches",
+   "polarity": "did",
+   "targets": [
+    "outcome",
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     59,
+     60
+    ]
+   ],
+   "assertion": "red cards were defined to include both direct red cards and second yellow cards (yellow-red)",
+   "polarity": "did",
+   "targets": [
+    "red card definition"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     61,
+     62
+    ]
+   ],
+   "note": "3.3 subheading"
+  },
+  {
+   "id": 37,
+   "kind": "claim",
+   "lines": [
+    [
+     63,
+     63
+    ]
+   ],
+   "assertion": "number of games in the dyad (mean=3.03) was included as a covariate for exposure adjustment",
+   "polarity": "did",
+   "targets": [
+    "Games covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     64,
+     65
+    ]
+   ],
+   "assertion": "player position (Defender 32.8%, Midfielder 43.3%, Forward 14.4%, Goalkeeper 9.5%) was included as a categorical covariate because positions differ in aggressive-play probability",
+   "polarity": "did",
+   "targets": [
+    "Position covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     66,
+     66
+    ]
+   ],
+   "assertion": "player age as of the 2013 season (mean=27.3) was included as a covariate",
+   "polarity": "did",
+   "targets": [
+    "Age covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "claim",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "assertion": "player height in cm (mean=182.2) was included as a covariate",
+   "polarity": "did",
+   "targets": [
+    "Height covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     68,
+     68
+    ]
+   ],
+   "assertion": "player weight in kg (mean=76.5) was included as a covariate",
+   "polarity": "did",
+   "targets": [
+    "Weight covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     70
+    ]
+   ],
+   "assertion": "league country (England, France, Germany, Spain) was included as a categorical covariate because leagues may differ in refereeing standards",
+   "polarity": "did",
+   "targets": [
+    "League Country covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "assertion": "number of yellow cards in the dyad (mean=0.40) was included as a covariate to control for player aggressiveness/playing style",
+   "polarity": "did",
+   "targets": [
+    "Yellow Cards covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "claim",
+   "lines": [
+    [
+     73,
+     74
+    ]
+   ],
+   "assertion": "referee-country implicit racial bias (meanIAT, mean=0.349) was included as a covariate",
+   "polarity": "did",
+   "targets": [
+    "meanIAT covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     75,
+     77
+    ]
+   ],
+   "assertion": "referee-country explicit racial bias (meanExp, mean=0.466) was included as a covariate",
+   "polarity": "did",
+   "targets": [
+    "meanExp covariate"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     78,
+     79
+    ]
+   ],
+   "note": "3.4 subheading"
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     80,
+     81
+    ]
+   ],
+   "assertion": "exclusion criteria were applied consistently and the counts were documented",
+   "polarity": "did",
+   "targets": [
+    "exclusions"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     85
+    ]
+   ],
+   "assertion": "21,407 dyads (14.7%) were excluded for missing skin tone ratings because analysis is impossible without the primary exposure; photos were unavailable for 467 of 2,053 players",
+   "polarity": "did",
+   "targets": [
+    "missing skin tone exclusions"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "assertion": "906 dyads (0.7%) were excluded for missing covariates (46 height, 753 weight, 153 IAT/Exp bias), justified for complete-case analysis",
+   "polarity": "did",
+   "targets": [
+    "missing covariate exclusions"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "claim",
+   "lines": [
+    [
+     90,
+     92
+    ]
+   ],
+   "assertion": "8,258 dyads (6.6%) were excluded for unknown/ambiguous position because position is a key confounder and the category was too heterogeneous",
+   "polarity": "did",
+   "targets": [
+    "position exclusions"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     93,
+     94
+    ]
+   ],
+   "assertion": "after exclusions, 115,457 of the original 146,028 dyads (79.1%) were retained for analysis",
+   "polarity": "found",
+   "targets": [
+    "sample size"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     95,
+     96
+    ]
+   ],
+   "assertion": "no dyads were excluded based on their outcome (red card) values",
+   "polarity": "did_not",
+   "targets": [
+    "outcome-based exclusions"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    53,
+    54
+   ]
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     95,
+     96
+    ]
+   ],
+   "assertion": "no winsorization or transformation was applied to the skin tone variable since its scale is already bounded 0-1",
+   "polarity": "did_not",
+   "targets": [
+    "skin tone variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    52,
+    54
+   ]
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     95,
+     96
+    ]
+   ],
+   "assertion": "player age was calculated as of January 1, 2013 (mid-season)",
+   "polarity": "did",
+   "targets": [
+    "age variable"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    52,
+    53
+   ]
+  },
+  {
+   "id": 55,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     97,
+     98
+    ]
+   ],
+   "note": "3.5 subheading"
+  },
+  {
+   "id": 56,
+   "kind": "claim",
+   "lines": [
+    [
+     99,
+     99
+    ]
+   ],
+   "assertion": "a logistic regression model was used",
+   "polarity": "did",
+   "targets": [
+    "model class"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     100,
+     100
+    ]
+   ],
+   "assertion": "the analysis was implemented in Python statsmodels 0.14.x",
+   "polarity": "did",
+   "targets": [
+    "software"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     101,
+     101
+    ]
+   ],
+   "assertion": "the model was estimated via maximum likelihood",
+   "polarity": "did",
+   "targets": [
+    "estimation method"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     102,
+     104
+    ]
+   ],
+   "assertion": "model-based (MLE) standard errors with no clustering were used, on the rationale that the dyad is the unit of inference despite repeated players/referees",
+   "polarity": "did",
+   "targets": [
+    "standard errors",
+    "clustering"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     105,
+     107
+    ]
+   ],
+   "assertion": "average marginal effects were computed via the delta method (get_margeff, at='overall', method='dydx'), preferred for representing average probability change across covariate values",
+   "polarity": "did",
+   "targets": [
+    "marginal effects method"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "claim",
+   "lines": [
+    [
+     108,
+     109
+    ]
+   ],
+   "assertion": "inference used a two-sided Wald test at α=0.05",
+   "polarity": "did",
+   "targets": [
+    "inference test"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 62,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 63,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     112,
+     113
+    ]
+   ],
+   "note": "Section 4 heading"
+  },
+  {
+   "id": 64,
+   "kind": "claim",
+   "lines": [
+    [
+     114,
+     115
+    ]
+   ],
+   "assertion": "an exhaustive specification search was conducted to identify the most supportive model consistent with standard practice",
+   "polarity": "did",
+   "targets": [
+    "specification search"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     116,
+     116
+    ]
+   ],
+   "note": "4.1 subheading"
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     117,
+     117
+    ]
+   ],
+   "assertion": "using the extreme (0 vs 1) skin tone comparison, the unadjusted risk difference was 0.255pp, p=0.075",
+   "polarity": "found",
+   "targets": [
+    "extreme comparison"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "claim",
+   "lines": [
+    [
+     118,
+     118
+    ]
+   ],
+   "assertion": "using a quartile comparison (bottom 25% vs top 25%), the unadjusted risk difference was 0.254pp, p=0.004",
+   "polarity": "found",
+   "targets": [
+    "quartile comparison"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 68,
+   "kind": "claim",
+   "lines": [
+    [
+     119,
+     119
+    ]
+   ],
+   "assertion": "using the tertile comparison, the unadjusted risk difference was 0.261pp, p<0.001",
+   "polarity": "found",
+   "targets": [
+    "tertile comparison"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 69,
+   "kind": "claim",
+   "lines": [
+    [
+     120,
+     120
+    ]
+   ],
+   "assertion": "using a median split, the unadjusted risk difference was 0.162pp, p=0.028",
+   "polarity": "found",
+   "targets": [
+    "median split"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "claim",
+   "lines": [
+    [
+     121,
+     122
+    ]
+   ],
+   "assertion": "treating skin tone as continuous, the unadjusted risk difference was 0.032pp per 0.1-unit increase, p=0.006",
+   "polarity": "found",
+   "targets": [
+    "continuous skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     123,
+     128
+    ]
+   ],
+   "assertion": "the tertile comparison was selected as the primary specification because it maximizes power, gives clear contrast, excludes the ambiguous middle range, and is substantively defensible",
+   "polarity": "did",
+   "targets": [
+    "tertile specification selection"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 72,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     129,
+     130
+    ]
+   ],
+   "note": "4.2 subheading"
+  },
+  {
+   "id": 73,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "note": "table header"
+  },
+  {
+   "id": 74,
+   "kind": "claim",
+   "lines": [
+    [
+     133,
+     133
+    ]
+   ],
+   "assertion": "the unadjusted model (no covariates) yielded a risk difference of 0.261pp, p<0.001",
+   "polarity": "found",
+   "targets": [
+    "unadjusted model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 75,
+   "kind": "claim",
+   "lines": [
+    [
+     134,
+     134
+    ]
+   ],
+   "assertion": "adding Games as a covariate left the risk difference at 0.261pp, p<0.001",
+   "polarity": "found",
+   "targets": [
+    "Games model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 76,
+   "kind": "claim",
+   "lines": [
+    [
+     135,
+     135
+    ]
+   ],
+   "assertion": "further adding Position left the risk difference at 0.261pp, p<0.001",
+   "polarity": "found",
+   "targets": [
+    "Position model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 77,
+   "kind": "claim",
+   "lines": [
+    [
+     136,
+     136
+    ]
+   ],
+   "assertion": "further adding Age, Height, Weight left the risk difference at 0.261pp, p=0.0001",
+   "polarity": "found",
+   "targets": [
+    "player characteristics model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "claim",
+   "lines": [
+    [
+     137,
+     137
+    ]
+   ],
+   "assertion": "further adding League left the risk difference at 0.261pp, p=0.0127",
+   "polarity": "found",
+   "targets": [
+    "League model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     138,
+     138
+    ]
+   ],
+   "assertion": "further adding Yellow cards left the risk difference at 0.261pp, p=0.0118",
+   "polarity": "found",
+   "targets": [
+    "Yellow cards model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 80,
+   "kind": "claim",
+   "lines": [
+    [
+     139,
+     140
+    ]
+   ],
+   "assertion": "the fully adjusted model (adding IAT and explicit bias) yielded a risk difference of 0.176pp, 95% CI [0.040,0.313], p=0.0111",
+   "polarity": "found",
+   "targets": [
+    "fully adjusted model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 81,
+   "kind": "claim",
+   "lines": [
+    [
+     141,
+     142
+    ]
+   ],
+   "assertion": "the marginal-effect-based estimate differs numerically from the prediction-based risk difference because of model nonlinearity",
+   "polarity": "found",
+   "targets": [
+    "marginal effect",
+    "risk difference"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    82
+   ]
+  },
+  {
+   "id": 82,
+   "kind": "claim",
+   "lines": [
+    [
+     141,
+     142
+    ]
+   ],
+   "assertion": "the marginal effect is treated as the theoretically preferred metric over the prediction-based risk difference",
+   "polarity": "did",
+   "targets": [
+    "marginal effect"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    81
+   ]
+  },
+  {
+   "id": 83,
+   "kind": "claim",
+   "lines": [
+    [
+     143,
+     148
+    ]
+   ],
+   "assertion": "the fully adjusted model was selected as primary because it controls for all measured confounders, adjusts for referee-country bias, maintains significance despite conservative adjustment, and is most defensible against omitted variable bias",
+   "polarity": "did",
+   "targets": [
+    "model selection"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 84,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     149,
+     150
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 85,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     151,
+     152
+    ]
+   ],
+   "note": "Section 5 heading"
+  },
+  {
+   "id": 86,
+   "kind": "claim",
+   "lines": [
+    [
+     153,
+     154
+    ]
+   ],
+   "assertion": "all sensitivity analyses yielded results consistent with the primary finding",
+   "polarity": "found",
+   "targets": [
+    "sensitivity analyses"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 87,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     155,
+     156
+    ]
+   ],
+   "note": "table header"
+  },
+  {
+   "id": 88,
+   "kind": "claim",
+   "lines": [
+    [
+     157,
+     157
+    ]
+   ],
+   "assertion": "the primary tertile, fully-adjusted analysis (N=115,457) found risk diff 0.176pp [0.040,0.313] p=0.0111, OR 1.156 [1.034,1.294]",
+   "polarity": "found",
+   "targets": [
+    "primary analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 89,
+   "kind": "claim",
+   "lines": [
+    [
+     158,
+     158
+    ]
+   ],
+   "assertion": "the quartile-comparison sensitivity analysis (N=63,306) found risk diff 0.273pp [0.089,0.458] p=0.0037, OR 1.255 [1.077,1.462]",
+   "polarity": "found",
+   "targets": [
+    "quartile sensitivity analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 90,
+   "kind": "claim",
+   "lines": [
+    [
+     159,
+     159
+    ]
+   ],
+   "assertion": "the sensitivity analysis excluding yellow-card adjustment (N=115,457) found risk diff 0.175pp [0.039,0.311] p=0.0118, OR 1.155 [1.033,1.292]",
+   "polarity": "found",
+   "targets": [
+    "no-yellow-card sensitivity analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 91,
+   "kind": "claim",
+   "lines": [
+    [
+     160,
+     160
+    ]
+   ],
+   "assertion": "the minimal-adjustment sensitivity analysis (N=115,457) found risk diff 0.268pp [0.135,0.401] p=0.0001, OR 1.247 [1.119,1.390]",
+   "polarity": "found",
+   "targets": [
+    "minimal adjustment sensitivity analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 92,
+   "kind": "claim",
+   "lines": [
+    [
+     161,
+     162
+    ]
+   ],
+   "assertion": "the continuous skin-tone sensitivity analysis (N=115,457) found risk diff 0.032pp per 0.1-unit [0.009,0.055] p=0.0059, OR 1.027 per 0.1 unit [1.008,1.047]",
+   "polarity": "found",
+   "targets": [
+    "continuous sensitivity analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 93,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     163,
+     165
+    ]
+   ],
+   "note": "footnotes clarifying units of the continuous specification"
+  },
+  {
+   "id": 94,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     166,
+     166
+    ]
+   ],
+   "note": "Interpretation subheading"
+  },
+  {
+   "id": 95,
+   "kind": "claim",
+   "lines": [
+    [
+     167,
+     167
+    ]
+   ],
+   "assertion": "the stronger quartile-comparison effect (0.273pp, p=0.004) is interpreted as supporting a dose-response pattern",
+   "polarity": "found",
+   "targets": [
+    "quartile comparison"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 96,
+   "kind": "claim",
+   "lines": [
+    [
+     168,
+     168
+    ]
+   ],
+   "assertion": "the unchanged effect when excluding yellow cards (0.175pp) is interpreted as suggesting yellow cards are not a strong mediator",
+   "polarity": "found",
+   "targets": [
+    "yellow cards mediator"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 97,
+   "kind": "claim",
+   "lines": [
+    [
+     169,
+     169
+    ]
+   ],
+   "assertion": "the larger effect under minimal adjustment (0.268pp, p<0.001) is interpreted as suggesting the primary estimate is conservative",
+   "polarity": "found",
+   "targets": [
+    "minimal adjustment"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 98,
+   "kind": "claim",
+   "lines": [
+    [
+     170,
+     171
+    ]
+   ],
+   "assertion": "the significant linear trend in the continuous specification (p=0.006) is interpreted as supporting a monotonic relationship",
+   "polarity": "found",
+   "targets": [
+    "continuous specification"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 99,
+   "kind": "claim",
+   "lines": [
+    [
+     172,
+     173
+    ]
+   ],
+   "assertion": "all sensitivity p-values are below 0.05, all CIs exclude zero, and results are described as robust to alternative specifications",
+   "polarity": "found",
+   "targets": [
+    "sensitivity analyses"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 100,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     174,
+     175
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 101,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     176,
+     177
+    ]
+   ],
+   "note": "Section 6 heading"
+  },
+  {
+   "id": 102,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     178,
+     178
+    ]
+   ],
+   "note": "6.1 subheading"
+  },
+  {
+   "id": 103,
+   "kind": "claim",
+   "lines": [
+    [
+     179,
+     180
+    ]
+   ],
+   "assertion": "the analysis is described as exploratory, using the full dataset for both model development and evaluation",
+   "polarity": "did",
+   "targets": [
+    "dataset",
+    "model development"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    104
+   ]
+  },
+  {
+   "id": 104,
+   "kind": "claim",
+   "lines": [
+    [
+     179,
+     180
+    ]
+   ],
+   "assertion": "the specification search was explicitly designed to maximize in-sample evidence favoring the hypothesis",
+   "polarity": "did",
+   "targets": [
+    "specification search"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    103
+   ]
+  },
+  {
+   "id": 105,
+   "kind": "claim",
+   "lines": [
+    [
+     181,
+     181
+    ]
+   ],
+   "assertion": "no holdout validation was performed; all 115,457 dyads were used for both fitting and evaluation",
+   "polarity": "did_not",
+   "targets": [
+    "holdout validation"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 106,
+   "kind": "claim",
+   "lines": [
+    [
+     182,
+     182
+    ]
+   ],
+   "assertion": "multiple model specifications were tested and the most supportive one was reported",
+   "polarity": "did",
+   "targets": [
+    "specification search"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 107,
+   "kind": "claim",
+   "lines": [
+    [
+     183,
+     183
+    ]
+   ],
+   "assertion": "the effect sizes and p-values likely represent an upper bound of support rather than an unbiased estimate",
+   "polarity": "found",
+   "targets": [
+    "effect sizes",
+    "p-values"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 108,
+   "kind": "claim",
+   "lines": [
+    [
+     184,
+     185
+    ]
+   ],
+   "assertion": "the findings have not been confirmed by independent, preregistered replication and such confirmation is said to be needed",
+   "polarity": "did_not",
+   "targets": [
+    "confirmatory replication"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 109,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     186,
+     187
+    ]
+   ],
+   "note": "6.2 subheading"
+  },
+  {
+   "id": 110,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     188,
+     188
+    ]
+   ],
+   "note": "Skin tone measurement subheading"
+  },
+  {
+   "id": 111,
+   "kind": "claim",
+   "lines": [
+    [
+     189,
+     189
+    ]
+   ],
+   "assertion": "skin tone was assessed from profile photos rather than via in-person assessment",
+   "polarity": "did",
+   "targets": [
+    "skin tone measurement"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 112,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     190,
+     190
+    ]
+   ],
+   "note": "caveat that the measurement is subject to lighting, photo quality, and rater subjectivity"
+  },
+  {
+   "id": 113,
+   "kind": "claim",
+   "lines": [
+    [
+     191,
+     191
+    ]
+   ],
+   "assertion": "two raters were used for skin tone assessment, but inter-rater reliability was not reported in the codebook",
+   "polarity": "did_not",
+   "targets": [
+    "raters",
+    "reliability"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 114,
+   "kind": "claim",
+   "lines": [
+    [
+     192,
+     193
+    ]
+   ],
+   "assertion": "dichotomizing the skin tone variable loses information",
+   "polarity": "found",
+   "targets": [
+    "skin tone dichotomization"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    115
+   ]
+  },
+  {
+   "id": 115,
+   "kind": "claim",
+   "lines": [
+    [
+     192,
+     193
+    ]
+   ],
+   "assertion": "the continuous-specification sensitivity analysis is presented as addressing the information loss from dichotomization",
+   "polarity": "did",
+   "targets": [
+    "continuous sensitivity analysis"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    114
+   ]
+  },
+  {
+   "id": 116,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     194,
+     194
+    ]
+   ],
+   "note": "Missing data subheading"
+  },
+  {
+   "id": 117,
+   "kind": "claim",
+   "lines": [
+    [
+     195,
+     195
+    ]
+   ],
+   "assertion": "14.7% of records were missing skin tone due to unavailable photos",
+   "polarity": "found",
+   "targets": [
+    "missing data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 118,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     196,
+     196
+    ]
+   ],
+   "note": "speculates missingness of skin tone may be non-random (e.g. less prominent players)"
+  },
+  {
+   "id": 119,
+   "kind": "claim",
+   "lines": [
+    [
+     197,
+     198
+    ]
+   ],
+   "assertion": "the complete-case analysis's implicit missing-completely-at-random assumption is likely violated",
+   "polarity": "found",
+   "targets": [
+    "complete-case analysis",
+    "MCAR assumption"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 120,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     199,
+     199
+    ]
+   ],
+   "note": "Outcome measurement subheading"
+  },
+  {
+   "id": 121,
+   "kind": "claim",
+   "lines": [
+    [
+     200,
+     200
+    ]
+   ],
+   "assertion": "red cards are rare events, occurring in 1.26% of dyads",
+   "polarity": "found",
+   "targets": [
+    "red card prevalence"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 122,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     201,
+     201
+    ]
+   ],
+   "note": "caveat that dyad-level aggregation over a full career may mask within-dyad variation"
+  },
+  {
+   "id": 123,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     202,
+     203
+    ]
+   ],
+   "note": "caveat that no information exists on red card severity or context"
+  },
+  {
+   "id": 124,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     204,
+     205
+    ]
+   ],
+   "note": "6.3 subheading"
+  },
+  {
+   "id": 125,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     206,
+     206
+    ]
+   ],
+   "note": "Potential unmeasured confounders subheading"
+  },
+  {
+   "id": 126,
+   "kind": "claim",
+   "lines": [
+    [
+     207,
+     207
+    ]
+   ],
+   "assertion": "player skill/reputation, an unmeasured confounder, was partially proxied for using the games-played and yellow-card covariates",
+   "polarity": "did",
+   "targets": [
+    "player skill proxy"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 127,
+   "kind": "claim",
+   "lines": [
+    [
+     208,
+     208
+    ]
+   ],
+   "assertion": "individual referee experience/characteristics were not measured; only country-level bias measures were available",
+   "polarity": "did_not",
+   "targets": [
+    "referee characteristics"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 128,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     209,
+     212
+    ]
+   ],
+   "note": "lists further unmeasured potential confounders (match stakes, nationality/ethnicity, team quality/tactics) with no action taken"
+  },
+  {
+   "id": 129,
+   "kind": "claim",
+   "lines": [
+    [
+     213,
+     214
+    ]
+   ],
+   "assertion": "implicit/explicit bias was measured at the referee-country level rather than the individual-referee level, raising a risk that the observed association reflects country-level confounding rather than individual referee bias",
+   "polarity": "found",
+   "targets": [
+    "meanIAT",
+    "meanExp",
+    "ecological fallacy"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 130,
+   "kind": "claim",
+   "lines": [
+    [
+     215,
+     216
+    ]
+   ],
+   "assertion": "yellow cards are flagged as a potential mediator on the causal pathway from skin tone to red cards, and adjusting for a mediator is noted as a possible source of bias",
+   "polarity": "found",
+   "targets": [
+    "yellow cards",
+    "mediator"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    131
+   ]
+  },
+  {
+   "id": 131,
+   "kind": "claim",
+   "lines": [
+    [
+     215,
+     216
+    ]
+   ],
+   "assertion": "the sensitivity analysis excluding yellow cards, which produced similar results, is presented as mitigating the mediator-bias concern",
+   "polarity": "found",
+   "targets": [
+    "no-yellow-card sensitivity analysis"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    130
+   ]
+  },
+  {
+   "id": 132,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     217,
+     218
+    ]
+   ],
+   "note": "6.4 subheading"
+  },
+  {
+   "id": 133,
+   "kind": "claim",
+   "lines": [
+    [
+     219,
+     219
+    ]
+   ],
+   "assertion": "the data cover only the 2012-2013 season and may not reflect current patterns",
+   "polarity": "found",
+   "targets": [
+    "data scope - season"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 134,
+   "kind": "claim",
+   "lines": [
+    [
+     220,
+     220
+    ]
+   ],
+   "assertion": "the data cover only four European leagues (England, France, Germany, Spain)",
+   "polarity": "found",
+   "targets": [
+    "data scope - leagues"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 135,
+   "kind": "claim",
+   "lines": [
+    [
+     221,
+     221
+    ]
+   ],
+   "assertion": "the data cover only male professional players",
+   "polarity": "found",
+   "targets": [
+    "data scope - gender/level"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 136,
+   "kind": "claim",
+   "lines": [
+    [
+     222,
+     223
+    ]
+   ],
+   "assertion": "the data cover only first-division players",
+   "polarity": "found",
+   "targets": [
+    "data scope - division"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 137,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     224,
+     225
+    ]
+   ],
+   "note": "6.5 subheading"
+  },
+  {
+   "id": 138,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     226,
+     226
+    ]
+   ],
+   "note": "Choices that maximize evidence subheading"
+  },
+  {
+   "id": 139,
+   "kind": "claim",
+   "lines": [
+    [
+     227,
+     227
+    ]
+   ],
+   "assertion": "the tertile split was chosen over quartile/median in part because it gives the largest sample and strongest unadjusted p-value",
+   "polarity": "did",
+   "targets": [
+    "tertile choice"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 140,
+   "kind": "claim",
+   "lines": [
+    [
+     228,
+     228
+    ]
+   ],
+   "assertion": "no clustering adjustment was applied, assuming dyad independence, even though clustering by player or referee would have increased standard errors",
+   "polarity": "did_not",
+   "targets": [
+    "clustering"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 141,
+   "kind": "claim",
+   "lines": [
+    [
+     229,
+     229
+    ]
+   ],
+   "assertion": "no robust/sandwich variance estimator was used, even though one would have increased standard errors",
+   "polarity": "did_not",
+   "targets": [
+    "standard error estimator"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 142,
+   "kind": "claim",
+   "lines": [
+    [
+     230,
+     230
+    ]
+   ],
+   "assertion": "the full sample was used for both development and evaluation with no cross-validation or holdout, noted as optimistic",
+   "polarity": "did_not",
+   "targets": [
+    "cross-validation/holdout"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 143,
+   "kind": "claim",
+   "lines": [
+    [
+     231,
+     232
+    ]
+   ],
+   "assertion": "skin tone was dichotomized rather than kept continuous, which can inflate effects if the true relationship is nonlinear",
+   "polarity": "did",
+   "targets": [
+    "binary exposure choice"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 144,
+   "kind": "claim",
+   "lines": [
+    [
+     233,
+     233
+    ]
+   ],
+   "assertion": "the analytic choices are characterized as reflecting standard practice for exploratory analysis and as technically defensible",
+   "polarity": "found",
+   "targets": [
+    "analytic choices"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 145,
+   "kind": "claim",
+   "lines": [
+    [
+     234,
+     234
+    ]
+   ],
+   "assertion": "a confirmatory analysis should preregister the tertile specification, implying this was not done here",
+   "polarity": "would_have",
+   "targets": [
+    "preregistration"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 146,
+   "kind": "claim",
+   "lines": [
+    [
+     235,
+     235
+    ]
+   ],
+   "assertion": "a confirmatory analysis should use robust standard errors clustered by player or referee, implying this was not done here",
+   "polarity": "would_have",
+   "targets": [
+    "clustered standard errors"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 147,
+   "kind": "claim",
+   "lines": [
+    [
+     236,
+     236
+    ]
+   ],
+   "assertion": "a confirmatory analysis should employ cross-validation or data splitting, implying this was not done here",
+   "polarity": "would_have",
+   "targets": [
+    "cross-validation"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 148,
+   "kind": "claim",
+   "lines": [
+    [
+     237,
+     238
+    ]
+   ],
+   "assertion": "a confirmatory analysis should consider multilevel models with random effects for players/referees, implying this was not done here",
+   "polarity": "would_have",
+   "targets": [
+    "multilevel models"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 149,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     239,
+     240
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 150,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     241,
+     242
+    ]
+   ],
+   "note": "Section 7 heading"
+  },
+  {
+   "id": 151,
+   "kind": "claim",
+   "lines": [
+    [
+     243,
+     244
+    ]
+   ],
+   "assertion": "the overall conclusion is that the hypothesis is SUPPORTED",
+   "polarity": "found",
+   "targets": [
+    "hypothesis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 152,
+   "kind": "claim",
+   "lines": [
+    [
+     245,
+     246
+    ]
+   ],
+   "assertion": "the hypothesis that referees are more likely to give red cards to dark-skinned than light-skinned players is supported by strong, consistent evidence in this exploratory in-sample analysis",
+   "polarity": "found",
+   "targets": [
+    "hypothesis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 153,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     247,
+     247
+    ]
+   ],
+   "note": "Key findings subheading"
+  },
+  {
+   "id": 154,
+   "kind": "claim",
+   "lines": [
+    [
+     248,
+     248
+    ]
+   ],
+   "assertion": "primary estimand: adjusted risk difference of 0.176pp (95% CI [0.040,0.313], p=0.0111)",
+   "polarity": "found",
+   "targets": [
+    "risk difference"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 155,
+   "kind": "claim",
+   "lines": [
+    [
+     249,
+     249
+    ]
+   ],
+   "assertion": "secondary estimand: adjusted odds ratio of 1.156 (95% CI [1.034,1.294], p=0.0110)",
+   "polarity": "found",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 156,
+   "kind": "claim",
+   "lines": [
+    [
+     250,
+     250
+    ]
+   ],
+   "assertion": "clinical significance: a 16% relative increase in red card probability for dark-skinned players",
+   "polarity": "found",
+   "targets": [
+    "relative increase"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 157,
+   "kind": "claim",
+   "lines": [
+    [
+     251,
+     251
+    ]
+   ],
+   "assertion": "the effect persists across the quartile comparison, minimal adjustment, exclusion of yellow cards, and continuous skin-tone specification",
+   "polarity": "found",
+   "targets": [
+    "robustness"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 158,
+   "kind": "claim",
+   "lines": [
+    [
+     252,
+     253
+    ]
+   ],
+   "assertion": "all analyses achieved p<0.05, with the primary analysis at p=0.011",
+   "polarity": "found",
+   "targets": [
+    "p-values"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 159,
+   "kind": "claim",
+   "lines": [
+    [
+     254,
+     255
+    ]
+   ],
+   "assertion": "the effect is characterized as consistently positive, statistically significant at conventional levels, and substantively meaningful given the low base rate of red cards",
+   "polarity": "found",
+   "targets": [
+    "effect direction and significance"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    160
+   ]
+  },
+  {
+   "id": 160,
+   "kind": "claim",
+   "lines": [
+    [
+     254,
+     255
+    ]
+   ],
+   "assertion": "the 95% CI for the risk difference excludes zero (0.040 to 0.313pp), presented as indicating precision sufficient for inference",
+   "polarity": "found",
+   "targets": [
+    "confidence interval"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    159
+   ]
+  },
+  {
+   "id": 161,
+   "kind": "claim",
+   "lines": [
+    [
+     256,
+     257
+    ]
+   ],
+   "assertion": "the evidence is characterized as directionally consistent and substantively meaningful within this dataset",
+   "polarity": "found",
+   "targets": [
+    "evidence strength"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    162,
+    163
+   ]
+  },
+  {
+   "id": 162,
+   "kind": "claim",
+   "lines": [
+    [
+     256,
+     257
+    ]
+   ],
+   "assertion": "the specification search identified the tertile comparison with full covariate adjustment as the most defensible model maintaining strong statistical support for the hypothesis",
+   "polarity": "did",
+   "targets": [
+    "model selection"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    161,
+    163
+   ]
+  },
+  {
+   "id": 163,
+   "kind": "claim",
+   "lines": [
+    [
+     256,
+     257
+    ]
+   ],
+   "assertion": "the finding is robust to alternative specifications and adjustment strategies, with all sensitivity analyses yielding p<0.01",
+   "polarity": "found",
+   "targets": [
+    "sensitivity analyses"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    161,
+    162
+   ]
+  },
+  {
+   "id": 164,
+   "kind": "claim",
+   "lines": [
+    [
+     258,
+     259
+    ]
+   ],
+   "assertion": "the exploratory findings are said to motivate a preregistered confirmatory study using independent data, specified contrasts, and robust inference methods, none of which were done here",
+   "polarity": "would_have",
+   "targets": [
+    "confirmatory study"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 165,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     260,
+     261
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 166,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     262,
+     263
+    ]
+   ],
+   "note": "Section 8 heading"
+  },
+  {
+   "id": 167,
+   "kind": "claim",
+   "lines": [
+    [
+     264,
+     265
+    ]
+   ],
+   "assertion": "all analyses are described as fully reproducible via the provided final_analysis.py script",
+   "polarity": "did",
+   "targets": [
+    "reproducibility",
+    "final_analysis.py"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 168,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     266,
+     269
+    ]
+   ],
+   "note": "code snippet for running the script"
+  },
+  {
+   "id": 169,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     270,
+     270
+    ]
+   ],
+   "note": "Software subheading"
+  },
+  {
+   "id": 170,
+   "kind": "claim",
+   "lines": [
+    [
+     271,
+     276
+    ]
+   ],
+   "assertion": "the analysis used Python 3.x, pandas 1.5+, numpy 1.23+, statsmodels 0.14+, and scipy 1.9+",
+   "polarity": "did",
+   "targets": [
+    "software stack"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 171,
+   "kind": "claim",
+   "lines": [
+    [
+     277,
+     278
+    ]
+   ],
+   "assertion": "the analysis used the dataset at ./data/soccer/soccer.csv (146,028 rows × 28 columns)",
+   "polarity": "did",
+   "targets": [
+    "dataset"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 172,
+   "kind": "claim",
+   "lines": [
+    [
+     279,
+     280
+    ]
+   ],
+   "assertion": "a random seed of 42 was set for reproducibility of any stochastic operations",
+   "polarity": "did",
+   "targets": [
+    "random seed"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    173
+   ]
+  },
+  {
+   "id": 173,
+   "kind": "claim",
+   "lines": [
+    [
+     279,
+     280
+    ]
+   ],
+   "assertion": "no stochastic operations were actually used in the primary analysis",
+   "polarity": "did_not",
+   "targets": [
+    "random seed"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    172
+   ]
+  },
+  {
+   "id": 174,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     281,
+     282
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 175,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     283,
+     284
+    ]
+   ],
+   "note": "Appendix heading"
+  },
+  {
+   "id": 176,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     285,
+     286
+    ]
+   ],
+   "note": "Primary model summary subheading"
+  },
+  {
+   "id": 177,
+   "kind": "claim",
+   "lines": [
+    [
+     287,
+     291
+    ]
+   ],
+   "assertion": "the primary logistic regression model specification was red_card_any ~ dark_skin + games + position + age + height + weight + leagueCountry + yellowCards + meanIAT + meanExp",
+   "polarity": "did",
+   "targets": [
+    "model formula"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 178,
+   "kind": "claim",
+   "lines": [
+    [
+     292,
+     295
+    ]
+   ],
+   "assertion": "the fitted model had N=115,457 dyads, log-likelihood -7,234.2, and converged successfully",
+   "polarity": "found",
+   "targets": [
+    "model fit statistics"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 179,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     296,
+     296
+    ]
+   ],
+   "note": "Parameter estimates subheading"
+  },
+  {
+   "id": 180,
+   "kind": "claim",
+   "lines": [
+    [
+     297,
+     298
+    ]
+   ],
+   "assertion": "the dark_skin coefficient estimate was 0.1453 (SE=0.0572, z=2.54, p=0.011)",
+   "polarity": "found",
+   "targets": [
+    "dark_skin coefficient"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 181,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     299,
+     299
+    ]
+   ],
+   "note": "Average marginal effect subheading"
+  },
+  {
+   "id": 182,
+   "kind": "claim",
+   "lines": [
+    [
+     300,
+     304
+    ]
+   ],
+   "assertion": "the average marginal effect of dark_skin was dy/dx=0.001764 (SE=0.000695), 95% CI [0.000402,0.003127], z=2.538, p=0.0111, interpreted as a 0.176 percentage-point increase in P(red card)",
+   "polarity": "found",
+   "targets": [
+    "marginal effect dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 183,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     305,
+     306
+    ]
+   ],
+   "note": "code block close"
+  },
+  {
+   "id": 184,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     307,
+     308
+    ]
+   ],
+   "note": "Covariate balance subheading"
+  },
+  {
+   "id": 185,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     309,
+     310
+    ]
+   ],
+   "note": "table header"
+  },
+  {
+   "id": 186,
+   "kind": "claim",
+   "lines": [
+    [
+     311,
+     318
+    ]
+   ],
+   "assertion": "standardized differences between light- and dark-skin groups were small across all measured covariates (games, age, height, weight, yellow cards, meanIAT, meanExp), ranging roughly 0.04–0.18",
+   "polarity": "found",
+   "targets": [
+    "covariate balance"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 187,
+   "kind": "claim",
+   "lines": [
+    [
+     319,
+     320
+    ]
+   ],
+   "assertion": "the small standardized differences are interpreted as indicating good covariate balance, with regression adjustment further controlling for residual confounding",
+   "polarity": "found",
+   "targets": [
+    "covariate balance interpretation"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 188,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     321,
+     322
+    ]
+   ],
+   "note": "separator"
+  },
+  {
+   "id": 189,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     323,
+     324
+    ]
+   ],
+   "note": "author and date lines"
+  },
+  {
+   "id": 190,
+   "kind": "claim",
+   "lines": [
+    [
+     325,
+     325
+    ]
+   ],
+   "assertion": "the analysis is explicitly labeled as an 'exploratory in-sample advocacy analysis'",
+   "polarity": "did",
+   "targets": [
+    "analysis type"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 191,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     326,
+     326
+    ]
+   ],
+   "note": "pointer to reproducible code file"
+  }
+ ]
+}

@@ -1,0 +1,184 @@
+{
+ "links": [
+  {
+   "decision_id": 1,
+   "claim_id": 29,
+   "agreement": "misaligned",
+   "confidence": "high",
+   "note": "claim states logit(p[i]); code links the binomial mean via a probit function"
+  },
+  {
+   "decision_id": 1,
+   "claim_id": 20,
+   "agreement": "misaligned",
+   "confidence": "high",
+   "note": "claim says the final analysis switched to logistic regression; the code uses a probit link and contains no logit switch"
+  },
+  {
+   "decision_id": 1,
+   "claim_id": 100,
+   "agreement": "misaligned",
+   "confidence": "high",
+   "note": "claim says the link was changed from probit to logit; the code uses a probit link"
+  },
+  {
+   "decision_id": 1,
+   "claim_id": 5,
+   "agreement": "misaligned",
+   "confidence": "medium",
+   "note": "claim calls the model logistic regression; the code uses a probit link"
+  },
+  {
+   "decision_id": 2,
+   "claim_id": 30,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 3,
+   "claim_id": 30,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 2,
+   "claim_id": 26,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 3,
+   "claim_id": 26,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 2,
+   "claim_id": 31,
+   "agreement": "aligned",
+   "confidence": "medium"
+  },
+  {
+   "decision_id": 3,
+   "claim_id": 31,
+   "agreement": "aligned",
+   "confidence": "medium"
+  },
+  {
+   "decision_id": 4,
+   "claim_id": 33,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 5,
+   "claim_id": 33,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 6,
+   "claim_id": 33,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 7,
+   "claim_id": 33,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 8,
+   "claim_id": 33,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 4,
+   "claim_id": 44,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 5,
+   "claim_id": 44,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 6,
+   "claim_id": 44,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 7,
+   "claim_id": 44,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 8,
+   "claim_id": 44,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 4,
+   "claim_id": 21,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 5,
+   "claim_id": 21,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 6,
+   "claim_id": 21,
+   "agreement": "aligned",
+   "confidence": "medium"
+  },
+  {
+   "decision_id": 7,
+   "claim_id": 21,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 8,
+   "claim_id": 21,
+   "agreement": "aligned",
+   "confidence": "high"
+  },
+  {
+   "decision_id": 4,
+   "claim_id": 24,
+   "agreement": "aligned",
+   "confidence": "medium"
+  },
+  {
+   "decision_id": 5,
+   "claim_id": 24,
+   "agreement": "aligned",
+   "confidence": "medium"
+  },
+  {
+   "decision_id": 9,
+   "claim_id": 16,
+   "agreement": "misaligned",
+   "confidence": "medium",
+   "note": "claim says the two raters' scores were z-transformed and averaged into a single predictor; the code treats the rating as a latent categorical class drawn from theta with per-category Uniform(0,1) priors, not an average"
+  },
+  {
+   "decision_id": 9,
+   "claim_id": 21,
+   "agreement": "misaligned",
+   "confidence": "medium",
+   "note": "claim describes skin tone as the average of two raters' z-scores; the code models the rating as a latent categorical class with per-category Uniform priors rather than an average"
+  }
+ ]
+}

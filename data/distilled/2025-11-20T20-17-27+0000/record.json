@@ -1,0 +1,90 @@
+{
+ "run_id": "2025-11-20T20-17-27+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 362,
+   "functional_lines": 126,
+   "functional_share": 0.3481,
+   "by_type": {
+    "print": 100,
+    "plot": 68,
+    "comment": 39,
+    "glue": 17,
+    "import": 11,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 266,
+   "functional_lines": 138,
+   "functional_share": 0.5188,
+   "by_type": {
+    "boilerplate": 73,
+    "heading": 47,
+    "framing": 15,
+    "hedging": 10,
+    "other": 1,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 117,
+  "action_claims": 51,
+  "result_claims": 66,
+  "links": 61,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 66
+ },
+ "silent_decisions": [
+  {
+   "id": 24,
+   "lines": [
+    [
+     252,
+     255
+    ],
+    [
+     279,
+     279
+    ],
+    [
+     298,
+     298
+    ]
+   ],
+   "confidence": "low",
+   "operation": "approximate standard errors/confidence intervals for the descriptive plot panels using a normal (Wald) approximation on the binomial rates and log-odds ratio",
+   "targets": [
+    "light_rate",
+    "dark_rate",
+    "light_mask",
+    "dark_mask",
+    "light_red",
+    "light_no_red",
+    "dark_red",
+    "dark_no_red"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "restrict the sample to complete cases on height, weight, and position category, dropping the rest",
+   "claim": "no additional exclusions were made for missing covariates",
+   "note": "decision 14 drops dyads with missing height/weight/position, but claim says no exclusions were made for missing covariates"
+  }
+ ]
+}

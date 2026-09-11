@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-15T23-57-58+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 399,
+   "functional_lines": 120,
+   "functional_share": 0.3008,
+   "by_type": {
+    "print": 126,
+    "comment": 86,
+    "plot": 51,
+    "import": 8,
+    "config": 5,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 276,
+   "functional_lines": 203,
+   "functional_share": 0.7355,
+   "by_type": {
+    "heading": 62,
+    "boilerplate": 19,
+    "hedging": 17,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 120,
+  "action_claims": 47,
+  "result_claims": 73,
+  "links": 56,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 21,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 16,
+  "result_claims_deferred": 73
+ },
+ "silent_decisions": [
+  {
+   "id": 76,
+   "lines": [
+    [
+     332,
+     333
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute normal-approximation (Wald) confidence intervals for the odds ratios from their log-scale standard errors, for the forest-style comparison plot",
+   "targets": [
+    "results_df"
+   ]
+  },
+  {
+   "id": 80,
+   "lines": [
+    [
+     351,
+     351
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "restrict the position-distribution panel to the 8 most common positions rather than showing all categories",
+   "targets": [
+    "position"
+   ]
+  }
+ ],
+ "misalignments": []
+}

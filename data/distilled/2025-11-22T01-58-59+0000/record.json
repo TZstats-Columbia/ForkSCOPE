@@ -1,0 +1,84 @@
+{
+ "run_id": "2025-11-22T01-58-59+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 455,
+   "functional_lines": 131,
+   "functional_share": 0.2879,
+   "by_type": {
+    "plot": 127,
+    "print": 115,
+    "comment": 54,
+    "import": 14,
+    "glue": 10,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 242,
+   "functional_lines": 110,
+   "functional_share": 0.4545,
+   "by_type": {
+    "heading": 50,
+    "other": 44,
+    "boilerplate": 17,
+    "hedging": 15,
+    "framing": 10,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 81,
+  "action_claims": 40,
+  "result_claims": 41,
+  "links": 55,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 41
+ },
+ "silent_decisions": [
+  {
+   "id": 27,
+   "lines": [
+    [
+     126,
+     126
+    ]
+   ],
+   "confidence": "high",
+   "operation": "drop any dyad with a missing modeling covariate instead of imputing (complete-case analysis)",
+   "targets": [
+    "df_model"
+   ]
+  },
+  {
+   "id": 29,
+   "lines": [
+    [
+     131,
+     135
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "one-hot encode position and league into dummy columns, keeping all levels at encoding time",
+   "targets": [
+    "position_simple",
+    "leagueCountry"
+   ]
+  }
+ ],
+ "misalignments": []
+}

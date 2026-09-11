@@ -1,0 +1,698 @@
+{
+ "n_lines": 339,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     8
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     9,
+     16
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     17,
+     17
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     20
+    ]
+   ],
+   "note": "set global RNG seed"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     21,
+     24
+    ]
+   ],
+   "note": "section banner: data loading and preparation"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     25,
+     28
+    ]
+   ],
+   "note": "prints section banner"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "operation": "read the player-referee dyad CSV as the raw dataset for the whole analysis",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "prints raw row count after loading"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "operation": "average rater1 and rater2 into a single continuous skinTone score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     40
+    ]
+   ],
+   "note": "computes and prints inter-rater correlation as a diagnostic"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     44
+    ]
+   ],
+   "operation": "threshold skinTone at 0.5 to create a binary darkSkin indicator, leaving missing skinTone as NaN",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "reduce redCards to a binary anyRedCard flag instead of using the count",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     48,
+     50
+    ]
+   ],
+   "operation": "log-transform games to build the log_games covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     51,
+     67
+    ]
+   ],
+   "operation": "bucket the free-text position field into Goalkeeper/Defender/Midfielder/Forward/Other/Missing categories",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     71
+    ]
+   ],
+   "operation": "drop dyads with missing darkSkin or missing referee meanIAT to form the analysis sample",
+   "targets": [
+    "darkSkin",
+    "meanIAT",
+    "analysis_final"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     72,
+     78
+    ]
+   ],
+   "note": "prints sample-size and composition summary of analysis_final"
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     79,
+     82
+    ]
+   ],
+   "note": "section banner: descriptive statistics"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     86
+    ]
+   ],
+   "note": "prints section banner"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     87,
+     95
+    ]
+   ],
+   "note": "computes and prints unadjusted red-card rate for each skin-tone group"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     98
+    ]
+   ],
+   "operation": "compute the raw (unadjusted) gap in red-card rate between dark- and light-skin groups as a percentage-point difference",
+   "targets": [
+    "darkSkin",
+    "anyRedCard",
+    "unadj_diff"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     99,
+     99
+    ]
+   ],
+   "note": "prints the unadjusted difference computed just above"
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     100,
+     103
+    ]
+   ],
+   "note": "section banner: adjusted logistic regression"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     104,
+     107
+    ]
+   ],
+   "note": "prints section banner"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     108,
+     110
+    ],
+    [
+     114,
+     120
+    ]
+   ],
+   "operation": "define and fit the adjustment set for the outcome model — logit of anyRedCard on darkSkin, log_games, league, position category and referee meanIAT, with standard errors clustered by player",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "log_games",
+    "leagueCountry",
+    "position_cat",
+    "meanIAT",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     111,
+     113
+    ]
+   ],
+   "note": "prints the model formula and SE method"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     121,
+     123
+    ]
+   ],
+   "note": "prints the fitted model summary"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     124,
+     129
+    ]
+   ],
+   "note": "pulls coefficient, SE, CI and p-value off the fitted model object"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     130,
+     133
+    ]
+   ],
+   "operation": "exponentiate the darkSkin coefficient and its CI to report an odds ratio",
+   "targets": [
+    "darkSkin_coef",
+    "darkSkin_ci",
+    "or_est",
+    "or_ci"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     134,
+     140
+    ]
+   ],
+   "note": "prints secondary-estimand (OR) banner and values"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     141,
+     144
+    ]
+   ],
+   "note": "section banner: primary estimand"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     145,
+     148
+    ]
+   ],
+   "note": "prints section banner"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     149,
+     163
+    ]
+   ],
+   "operation": "standardize over the sample by scoring every dyad twice (forcing darkSkin to 1, then to 0) and differencing the average predicted probabilities to get the adjusted risk difference",
+   "targets": [
+    "analysis_final",
+    "darkSkin",
+    "model",
+    "p_dark",
+    "p_light",
+    "rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     164,
+     167
+    ]
+   ],
+   "note": "prints adjusted probabilities and risk difference"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     168,
+     171
+    ]
+   ],
+   "note": "section banner: bootstrap CI"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "note": "prints section banner"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     176,
+     209
+    ],
+    [
+     213,
+     216
+    ],
+    [
+     219,
+     219
+    ]
+   ],
+   "operation": "cluster-bootstrap the risk difference by resampling players with replacement, refitting an unclustered logit and recomputing the risk difference on each of 500 resamples, silently dropping resamples where the fit fails to converge",
+   "targets": [
+    "playerShort",
+    "analysis_final",
+    "formula",
+    "boot_rds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     210,
+     212
+    ]
+   ],
+   "note": "prints bootstrap progress every 50 iterations"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     217,
+     218
+    ]
+   ],
+   "note": "announces the bootstrap run and its size"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     220,
+     224
+    ]
+   ],
+   "note": "prints bootstrap sample count, mean and SD"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     225,
+     228
+    ]
+   ],
+   "operation": "take the 2.5/97.5 percentiles of the bootstrap distribution as the 95% CI for the risk difference",
+   "targets": [
+    "boot_rds",
+    "ci_lower",
+    "ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     229,
+     232
+    ]
+   ],
+   "operation": "convert the point estimate and bootstrap SD into a z-statistic and read off a normal-theory two-sided p-value instead of using the bootstrap distribution's own percentiles",
+   "targets": [
+    "rd",
+    "boot_rds",
+    "z_stat",
+    "p_value"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     233,
+     241
+    ]
+   ],
+   "note": "prints final primary-estimand results banner and values"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     242,
+     245
+    ]
+   ],
+   "note": "section banner: visualization"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     246,
+     249
+    ]
+   ],
+   "note": "prints visualization section banner"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     250,
+     291
+    ]
+   ],
+   "note": "builds and saves the two-panel figure (bootstrap histogram and rate bar chart)"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     292,
+     295
+    ]
+   ],
+   "note": "section banner: final summary"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     296,
+     322
+    ]
+   ],
+   "note": "prints recap of primary estimand, secondary estimand, and model details"
+  },
+  {
+   "id": 48,
+   "kind": "decision",
+   "lines": [
+    [
+     323,
+     334
+    ]
+   ],
+   "operation": "declare the hypothesis supported, not supported, or inconclusive depending on whether the bootstrap CI for the risk difference excludes zero",
+   "targets": [
+    "ci_lower",
+    "ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     335,
+     339
+    ]
+   ],
+   "note": "prints closing banner"
+  }
+ ]
+}

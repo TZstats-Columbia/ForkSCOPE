@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-29T11-15-38+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 357,
+   "functional_lines": 157,
+   "functional_share": 0.4398,
+   "by_type": {
+    "print": 107,
+    "comment": 79,
+    "import": 7,
+    "config": 4,
+    "glue": 3
+   }
+  },
+  "prose": {
+   "n_lines": 277,
+   "functional_lines": 135,
+   "functional_share": 0.4874,
+   "by_type": {
+    "boilerplate": 130,
+    "heading": 15,
+    "hedging": 6,
+    "background": 3,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 112,
+  "action_claims": 51,
+  "result_claims": 61,
+  "links": 68,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 20,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 15,
+  "R_only_consistent_negative": 7,
+  "result_claims_deferred": 61
+ },
+ "silent_decisions": [
+  {
+   "id": 7,
+   "lines": [
+    [
+     33,
+     33
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pick the soccer.csv dyad-level file as the entire analytic sample",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ]
+  }
+ ],
+ "misalignments": []
+}

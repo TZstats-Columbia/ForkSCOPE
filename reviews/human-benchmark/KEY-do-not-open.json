@@ -1,0 +1,878 @@
+{
+ "seed": 20260822,
+ "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "hypothesis": "If humans also split on the unstable pairs, model instability tracks genuine ambiguity. If humans agree confidently where the builds disagree, it is model noise. Registered before rating.",
+ "part1_option_pairs": [
+  {
+   "a_text": "choose the source file and scope of the raw dataset to load",
+   "b_text": "reads the referee-dyads CSV in as the entire dataset the analysis will draw from",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O011"
+  },
+  {
+   "a_text": "combine the two raters' scores into one continuous skin-tone measure by simple averaging",
+   "b_text": "average the two raters' scores into a single continuous skin-tone measure",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O013"
+  },
+  {
+   "a_text": "z-score the continuous covariates so their regression coefficients are on a comparable scale",
+   "b_text": "z-score the continuous covariates before entering them in the model",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O006"
+  },
+  {
+   "a_text": "approximate the risk difference's standard error, 95% CI and two-sided p-value with a simple binomial-variance formula and normal approximation rather than a model-based method",
+   "b_text": "pick refCountryID as the variable on which standard errors are clustered in every regression model",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O024"
+  },
+  {
+   "a_text": "compute Pearson and Spearman inter-rater agreement on pairwise-complete ratings and report it",
+   "b_text": "quantify inter-rater agreement via Pearson correlation and exact-match rate between the two raters",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O019"
+  },
+  {
+   "a_text": "pick the input dataset and its path as the analysis population",
+   "b_text": "average the two raters' skin-tone scores into a single skinTone measure",
+   "stratum": "gold_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O043"
+  },
+  {
+   "a_text": "drop dyads that have no skin-tone rating at all before any further analysis",
+   "b_text": "drop dyads missing either rater's skin-tone score",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O004"
+  },
+  {
+   "a_text": "re-run the model on the full player set including goalkeepers instead of excluding them, to see if the exclusion drives the result",
+   "b_text": "remove goalkeepers from the analysis sample",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O017"
+  },
+  {
+   "a_text": "drop every dyad whose skin tone lands in the excluded 'middle' bucket, keeping only clear light/dark players",
+   "b_text": "drop the Middle skin-tone band and restrict the sample to only Light vs Dark dyads",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O003"
+  },
+  {
+   "a_text": "strip the referee fixed effects out of the covariate set for the logit model so it doesn't hit a singularity",
+   "b_text": "choose which player/referee/match covariates enter the model (position, league, games, yellow cards, goals, height, weight, meanIAT, player and referee identifiers)",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O015"
+  },
+  {
+   "a_text": "restrict the sample to complete cases on position category, height, weight, and meanIAT, excluding rows tagged Unknown position",
+   "b_text": "drop players whose referee-country IAT or explicit-bias scores are missing",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O039"
+  },
+  {
+   "a_text": "approximate the risk-difference estimate's standard error via the delta method and derive a 95% CI and p-value from a normal approximation",
+   "b_text": "derive the standard error, confidence interval, and p-value for the risk difference analytically via the delta method (gradient of the counterfactual predictions propagated through the model's parameter covariance) rather than resampling",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O002"
+  },
+  {
+   "a_text": "drop rows lacking height or weight",
+   "b_text": "restrict to dyads with complete exposure and categorical covariate data",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O028"
+  },
+  {
+   "a_text": "rerun the adjusted model treating skin tone as a continuous linear predictor instead of a binary exposure",
+   "b_text": "dichotomize continuous skin tone into dark vs. light using a 0.5 cutoff",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O014"
+  },
+  {
+   "a_text": "average rater1 and rater2 into a single continuous skinTone score",
+   "b_text": "average the two raters' skin-tone scores into a single continuous skinTone measure",
+   "stratum": "gold_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O040"
+  },
+  {
+   "a_text": "log-transform games played to represent exposure time in the model",
+   "b_text": "log-transform the games-played exposure variable",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O007"
+  },
+  {
+   "a_text": "collapse the red card count into a yes/no indicator for whether the dyad had any red card",
+   "b_text": "collapse the red-card count into a yes/no outcome at the any-red-card-at-all threshold",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O010"
+  },
+  {
+   "a_text": "drop dyads that have no skin-tone rating at all",
+   "b_text": "drop dyads with missing skin-tone rating to form the clean analysis base",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O001"
+  },
+  {
+   "a_text": "re-run the analysis with an alternative dichotomization threshold (dark >=0.5) on the full, non-extreme-restricted sample as a sensitivity check",
+   "b_text": "define extreme skin-tone bins (dark >=0.75, light <=0.25, middle dropped) and restrict the primary sample to those extreme cases",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O025"
+  },
+  {
+   "a_text": "build a counterfactual dataset where every dyad is forced to dark-skin status and predict from the fitted model",
+   "b_text": "estimate the adjusted risk difference via marginal standardization (g-computation): set every dyad to dark then to light skin, predict outcome probabilities under each, and average the difference",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O012"
+  },
+  {
+   "a_text": "drop dyads with missing values on the chosen covariate set to form a complete-case sample",
+   "b_text": "restrict to complete cases on height and weight, dropping the rest",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O032"
+  },
+  {
+   "a_text": "designate the primary estimand as the average marginal effect (overall, dy/dx) of dark skin, extracted with its SE and CI",
+   "b_text": "estimate the adjusted risk difference by averaging model-predicted probabilities under counterfactual dark_skin=0 vs dark_skin=1 for every observation",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O030"
+  },
+  {
+   "a_text": "specify and fit the primary logistic regression with position/country/log-games covariates and standard errors clustered by player",
+   "b_text": "cluster standard errors by player to account for repeated dyads per player",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O035"
+  },
+  {
+   "a_text": "back-transform the logit coefficient into an odds ratio and build a Wald-style 95% interval using a 1.96 normal multiplier",
+   "b_text": "convert the fitted coefficient to an odds ratio and derive its CI/p-value from a normal approximation to the Wald statistic",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O031"
+  },
+  {
+   "a_text": "quantify uncertainty for the adjusted risk difference via a 5000-draw parametric bootstrap that samples model coefficients from their asymptotic multivariate normal distribution and recomputes the risk difference each draw, then takes the 2.5/97.5 percentiles",
+   "b_text": "compute the adjusted risk difference via counterfactual marginal standardization (g-computation) with a delta-method standard error and CI",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O016"
+  },
+  {
+   "a_text": "specify and fit a logistic regression of any_red_card on dark_skin adjusting for games, grouped position and league country, with standard errors clustered by player",
+   "b_text": "run a sensitivity analysis on the full sample without the complete-case covariate restriction, adjusting only for games",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O021"
+  },
+  {
+   "a_text": "test the risk difference with a two-sided z-test",
+   "b_text": "quantify the primary effect as an adjusted risk difference (average predicted-probability contrast between dark_skin=1 and 0), obtaining its standard error via a numerically-approximated delta-method gradient to build a Wald CI and p-value",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "O029"
+  },
+  {
+   "a_text": "require at least 3 games in a dyad to keep it in the sample, later re-testing the cutoff at 4 games",
+   "b_text": "require at least 3 games in a dyad to keep it in the sample",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O009"
+  },
+  {
+   "a_text": "impute missing height/weight with the median and recode missing position as its own 'Missing' category",
+   "b_text": "fill missing height and weight with the sample median rather than dropping those rows",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O026"
+  },
+  {
+   "a_text": "average the two independent raters' scores into one continuous skin-tone measure",
+   "b_text": "average the two raters' skin-tone scores into a single continuous skin_tone_avg measure",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O005"
+  },
+  {
+   "a_text": "declare the research hypothesis 'SUPPORTED' as the stated conclusion",
+   "b_text": "declare the hypothesis supported only when the two-sided p-value is below 0.05 and the estimated effect is in the positive (dark > light) direction",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O020"
+  },
+  {
+   "a_text": "sensitivity check refitting with continuous skinTone as the exposure instead of the binary light/dark group",
+   "b_text": "refit with skin tone as a continuous exposure instead of dichotomized, rescaling the coefficient to a per-0.25-unit odds ratio",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O036"
+  },
+  {
+   "a_text": "restrict the analytic sample to complete cases on height, weight, and meanIAT",
+   "b_text": "restrict the analysis sample to complete cases on height, weight, position, and meanIAT",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O027"
+  },
+  {
+   "a_text": "derives the standard error, 95% confidence interval and p-value for the risk difference using the delta method with a normal-approximation z-test",
+   "b_text": "compute and report the unadjusted (crude) red-card rate difference between dark- and light-skin groups",
+   "stratum": "gold_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O042"
+  },
+  {
+   "a_text": "swap the outcome model to a Poisson rate model of red cards with a log-games offset, instead of the binary logistic outcome",
+   "b_text": "fit a mixed-effects logistic regression (glmer, binomial link) rather than a non-mixed or different-link model",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O023"
+  },
+  {
+   "a_text": "z-score height and weight before entering them as covariates",
+   "b_text": "z-standardize height and weight before entering them as covariates",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O033"
+  },
+  {
+   "a_text": "drop remaining rows with any missing predictor value and designate player identity as the clustering unit for later SE estimation",
+   "b_text": "fill missing height and weight with the sample mean rather than dropping or modeling missingness",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O018"
+  },
+  {
+   "a_text": "log-transform games played for use as a model covariate",
+   "b_text": "log-transform total games played to use as an exposure control",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O008"
+  },
+  {
+   "a_text": "refit the clustered logistic model on the restricted sample with the very-dark indicator replacing skin_dark",
+   "b_text": "restrict to the most extreme skin-tone ratings (0.0 vs 1.0) and refit the same adjusted model as a sensitivity check",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "O034"
+  },
+  {
+   "a_text": "refit the same darkSkin/covariate specification as a logistic regression to report an odds ratio instead of a risk difference",
+   "b_text": "fit a logistic regression of the same specification and convert the exposure coefficient into an odds ratio with a normal-approximation confidence interval",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O038"
+  },
+  {
+   "a_text": "report the crude, unadjusted red-card rate split by skin-tone group before any covariate adjustment",
+   "b_text": "compute the raw, unadjusted red-card-rate difference between dark- and light-skin groups",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "O037"
+  },
+  {
+   "a_text": "swap in the continuous skin-tone score as the exposure and express its effect as an odds ratio per full-scale unit, as a second sensitivity check",
+   "b_text": "re-derive skin categories at an alternative 0.25/0.5 threshold, rebuild the sample, and refit the primary model as a sensitivity check",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "O022"
+  },
+  {
+   "a_text": "choose the covariate/adjustment set for the regression and apply it to both the main model matrix and each bootstrap replicate",
+   "b_text": "specify the covariate adjustment set for the primary outcome model (position group, log exposure, height, weight, yellow cards, league)",
+   "stratum": "gold_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "O041"
+  }
+ ],
+ "part2_fork_pairs": [
+  {
+   "a_text": "drop-middle dichotomize 0.125/0.875",
+   "b_text": "drop-middle dichotomize 0.25/0.5",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F014"
+  },
+  {
+   "a_text": "binomial hierarchical, player-style and skin-tone random effects",
+   "b_text": "binomial GLM with logit link",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F057"
+  },
+  {
+   "a_text": "drop-middle dichotomize 0.125/0.5",
+   "b_text": "drop-middle dichotomize 0.25/0.75",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F019"
+  },
+  {
+   "a_text": "add both meanIAT and meanExp covariates",
+   "b_text": "backward-eliminate predictors via drop1 (goals then age)",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F023"
+  },
+  {
+   "a_text": "single-cutoff dichotomize at 0.5",
+   "b_text": "drop-middle dichotomize 0.125/0.375",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F006"
+  },
+  {
+   "a_text": "bin into five categories, custom edges",
+   "b_text": "single-cutoff dichotomize at 0.25",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F051"
+  },
+  {
+   "a_text": "include previously-excluded single-game dyads and rerun the full pipeline",
+   "b_text": "restrict league subgroup analysis to England, Germany, France, Spain",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F025"
+  },
+  {
+   "a_text": "add both meanIAT and meanExp covariates",
+   "b_text": "dummy/indicator code specific positions (amid and cback)",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F037"
+  },
+  {
+   "a_text": "binarize RateAve at ==1 (perfect vs. rest)",
+   "b_text": "test alternative cutoffs 2 and 5",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F060"
+  },
+  {
+   "a_text": "binomial hierarchical, player-style and skin-tone random effects",
+   "b_text": "logistic, continuous skin tone, full adjustment, default SEs",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F043"
+  },
+  {
+   "a_text": "concatenate playerShort and refNum into player-referee pair ID",
+   "b_text": "combine card types into one bookings score, weighting yellow-red double",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F036"
+  },
+  {
+   "a_text": "exclude dyads with height/weight outside plausible physiological range (160-210cm, 50-110kg)",
+   "b_text": "drop dyads with yellow-card rate above 1 per game",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F033"
+  },
+  {
+   "a_text": "single-cutoff dichotomize at 0.75",
+   "b_text": "extreme groups at endpoints 0 vs 1",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F018"
+  },
+  {
+   "a_text": "Cronbach's alpha",
+   "b_text": "construct both min-of-raters and max-of-raters scores",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F021"
+  },
+  {
+   "a_text": "keep raters separate — build exposure per rater, do not combine",
+   "b_text": "one correlation, exact-match, plus within-0.25 tolerance band",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F035"
+  },
+  {
+   "a_text": "median-impute height/weight/age + impute bias scores with column median",
+   "b_text": "impute missing bias score with the country/group mean",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F030"
+  },
+  {
+   "a_text": "year-only subtraction, fixed 2013 reference year",
+   "b_text": "day-based age at fixed 2012-07-01 (mid-2012)",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F001"
+  },
+  {
+   "a_text": "mark covariates as categorical dtype before dummy-coding",
+   "b_text": "rescale avgrate from a 1-5 scale to a 0-1 scale",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F022"
+  },
+  {
+   "a_text": "sweep across thresholds (2,3,4,5)",
+   "b_text": "sweep cutpoints 0.125/0.375/0.5",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F042"
+  },
+  {
+   "a_text": "single-cutoff dichotomize at 0.625",
+   "b_text": "median split (data-driven single cutoff)",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F004"
+  },
+  {
+   "a_text": "continuous, report ±0.5 SD contrast (risk difference)",
+   "b_text": "bin into eight equal-width bins",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F058"
+  },
+  {
+   "a_text": "sweep cutpoints 0.10/0.25",
+   "b_text": "sweep cutpoints 0.125/0.375",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F008"
+  },
+  {
+   "a_text": "dichotomize the bias score at the sample mean",
+   "b_text": "average referee bias within country, no standardization",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F038"
+  },
+  {
+   "a_text": "bin skin tone into 9 groups",
+   "b_text": "bin skin tone into 10 groups",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F015"
+  },
+  {
+   "a_text": "drop the implicit bias (meanIAT) covariate and refit",
+   "b_text": "restrict league subgroup analysis to England, Germany, France, Spain",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F024"
+  },
+  {
+   "a_text": "trichotomize at 0.125/0.625",
+   "b_text": "trichotomize at 0.375/0.625",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F005"
+  },
+  {
+   "a_text": "games, age, position, league (no anthropometrics/yellow)",
+   "b_text": "baseline + meanIAT only",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F050"
+  },
+  {
+   "a_text": "define four alternative RHS specs (rater dummies ± player controls, club FE)",
+   "b_text": "moderate continuous individual tone only",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F032"
+  },
+  {
+   "a_text": "both RD and OR p-values under 0.05",
+   "b_text": "three-way verdict from OR p-value plus RD direction",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F048"
+  },
+  {
+   "a_text": "Pearson correlation plus mean absolute difference",
+   "b_text": "dichotomize at midpoint 3 (drop exact-3), then Cohen's kappa",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F027"
+  },
+  {
+   "a_text": "raw games, position, league, yellowCards",
+   "b_text": "games, position, league, yellowCards, meanIAT, meanExp, height, weight, age",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F056"
+  },
+  {
+   "a_text": "binarize RateAve at <3 cutoff",
+   "b_text": "binarize RateAve at <2 cutoff",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F010"
+  },
+  {
+   "a_text": "games-as-spline, league, position",
+   "b_text": "games, height, weight, age, yellowCards, goals, position, league",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F002"
+  },
+  {
+   "a_text": "player random intercept, hyperprior-estimated mean and precision",
+   "b_text": "three-level categorical skin tone, Light reference",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F055"
+  },
+  {
+   "a_text": "standardize continuous rating (z-score)",
+   "b_text": "extreme groups at endpoints 0 vs 1",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F053"
+  },
+  {
+   "a_text": "use the minimum of the two raters",
+   "b_text": "one correlation, exact-match, plus within-0.25 tolerance band",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F029"
+  },
+  {
+   "a_text": "drop-middle dichotomize 0.25/0.625",
+   "b_text": "sweep cutpoints 0.125/0.375/0.5",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F011"
+  },
+  {
+   "a_text": "games, yellowCards, position, league, meanIAT, meanExp",
+   "b_text": "baseline + meanIAT + meanExp (both bias terms)",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F044"
+  },
+  {
+   "a_text": "position only",
+   "b_text": "games, height, weight, age, yellowCards, goals, position, league",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F009"
+  },
+  {
+   "a_text": "moderate continuous individual tone only",
+   "b_text": "enter player/position controls together as the first predictor block",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F028"
+  },
+  {
+   "a_text": "build a smoothed per-game red-card rate (sum/(games+1)) tested against S1/S2 splits",
+   "b_text": "combine card types into one bookings score, weighting yellow-red double",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F040"
+  },
+  {
+   "a_text": "position only",
+   "b_text": "games, age, position, league (no anthropometrics/yellow)",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F013"
+  },
+  {
+   "a_text": "sweep cutpoints 0.25/0.375/0.5 (0.25 primary)",
+   "b_text": "single-cutoff dichotomize at 0.75",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F020"
+  },
+  {
+   "a_text": "fit Poisson GLMM on height/weight/goals/position with referee random intercept, excluding skin tone",
+   "b_text": "mixed logistic, random slopes by referee and country",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F045"
+  },
+  {
+   "a_text": "compare Poisson vs binomial models via AIC table",
+   "b_text": "combine card types into one bookings score, weighting yellow-red double",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F039"
+  },
+  {
+   "a_text": "binomial mixed model, crossed referee/player random intercepts",
+   "b_text": "Poisson mixed-effects model with games offset",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F049"
+  },
+  {
+   "a_text": "rescale to per-0.25-unit effect",
+   "b_text": "rescale to per-0.1-unit effect",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F017"
+  },
+  {
+   "a_text": "single-cutoff dichotomize at 0.5",
+   "b_text": "extreme groups at endpoints 0 vs 1",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F007"
+  },
+  {
+   "a_text": "Pearson correlation plus mean absolute difference",
+   "b_text": "keep raters separate — build exposure per rater, do not combine",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F031"
+  },
+  {
+   "a_text": "trichotomize at 0.125/0.625",
+   "b_text": "bin skin tone into 9 groups",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F041"
+  },
+  {
+   "a_text": "position-group stratified median-impute height/weight",
+   "b_text": "median-impute height/weight + recode missing position as explicit category",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F047"
+  },
+  {
+   "a_text": "negative-binomial GLMM with IAT-by-rater/exposure interactions",
+   "b_text": "categorical rater1 exposure through referee fixed effects",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F054"
+  },
+  {
+   "a_text": "drop-middle, data-driven top vs bottom tertile",
+   "b_text": "drop-middle dichotomize 0.25/0.75",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F003"
+  },
+  {
+   "a_text": "extreme groups top quartile vs bottom ~10%",
+   "b_text": "trichotomize at 0.375/0.625",
+   "stratum": "unstable",
+   "model_a": true,
+   "model_b": false,
+   "pair_id": "F059"
+  },
+  {
+   "a_text": "median-impute height/weight + impute bias scores with zero",
+   "b_text": "impute missing bias score with the country/group mean",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F026"
+  },
+  {
+   "a_text": "position, league, yellowCards (no games)",
+   "b_text": "raw games, position, league, meanIAT",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F016"
+  },
+  {
+   "a_text": "dichotomize the bias score at the sample mean",
+   "b_text": "impute missing bias score with the country/group mean",
+   "stratum": "stable_diff",
+   "model_a": false,
+   "model_b": false,
+   "pair_id": "F034"
+  },
+  {
+   "a_text": "compute posterior probability that darkest effect exceeds lightest",
+   "b_text": "crude rate ratio with log-rate-ratio normal-approx CI",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F046"
+  },
+  {
+   "a_text": "extreme groups top quartile vs bottom ~10%",
+   "b_text": "extreme groups light=0 vs dark>=0.75, drop middle",
+   "stratum": "stable_same",
+   "model_a": true,
+   "model_b": true,
+   "pair_id": "F012"
+  },
+  {
+   "a_text": "games + age + position + league + height + weight",
+   "b_text": "games, yellowCards, position, league, meanIAT, meanExp",
+   "stratum": "unstable",
+   "model_a": false,
+   "model_b": true,
+   "pair_id": "F052"
+  }
+ ],
+ "part3_audit_strata": {
+  "what bootstrap resampling scheme is used to compute the confidence interval?": "random",
+  "which regression model and outcome family estimates the exposure–red-card association?": "targeted",
+  "what fixed reference date is used to compute player age?": "targeted",
+  "which version of the source dataset is loaded?": "random",
+  "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?": "targeted",
+  "what rule determines whether the effect is declared statistically supported?": "targeted",
+  "how is the binary dark-skin exposure variable defined?": "random",
+  "how is complete-case/listwise deletion applied and over which variable set?": "random",
+  "which covariates make up the model's adjustment set?": "targeted",
+  "how are the regression model's standard errors estimated?": "targeted",
+  "how are the two raters combined into a single skin-tone exposure measure?": "targeted",
+  "how is games-played entered into the model (functional form / transformation)?": "random",
+  "How is the effect's sensitivity to covariate selection tested by removing or varying covariates in the adjustment set?": "random",
+  "How is the middle (Medium) skin-tone category handled?": "random",
+  "how is the crude, unadjusted association estimated and tested?": "targeted",
+  "How are raw group red-card rates reported descriptively?": "random",
+  "how are continuous predictors transformed and z-scored/standardized before modeling?": "targeted",
+  "Which control variables and functional forms enter the regression model?": "targeted",
+  "In what form is the yellow-card (and related count) covariate entered — raw, log-transformed, standardized, or a per-game rate?": "targeted",
+  "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?": "targeted",
+  "how are player positions categorized and how are missing / uncategorizable positions handled?": "random",
+  "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?": "targeted",
+  "how is the final conclusion characterized in the writeup?": "random",
+  "Is the adjustment set expanded by adding covariates as a robustness check?": "random",
+  "What covariate-balance descriptives are reported?": "random",
+  "how are records with a missing referee bias score (IAT/explicit) handled — dropped or imputed?": "random",
+  "how are the confidence interval and p-value for the exposure effect computed?": "targeted",
+  "Are categorical predictors parameterized by dropping a reference level and the intercept?": "random",
+  "how many categories, and by what mapping, is player position collapsed into?": "targeted",
+  "Which correlation coefficient quantifies the bivariate skin-tone/red-card association?": "random"
+ },
+ "pool_sizes": {
+  "option": {
+   "stable_diff": 15448,
+   "stable_same": 14386,
+   "unstable": 5323
+  },
+  "fork": {
+   "unstable": 2263,
+   "stable_same": 521,
+   "stable_diff": 118
+  }
+ }
+}

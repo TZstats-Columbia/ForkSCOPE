@@ -1,0 +1,793 @@
+{
+ "n_lines": 258,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     18
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     23
+    ]
+   ],
+   "note": "suppress warnings and fix random seed"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     24,
+     27
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     28,
+     29
+    ]
+   ],
+   "operation": "pull in the full raw dyad-level CSV as the starting dataset with no row filtering",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "note": "report raw row count"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     34
+    ]
+   ],
+   "operation": "collapse the two raters' scores into a single continuous skin-tone measure by averaging",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     37
+    ],
+    [
+     73,
+     73
+    ]
+   ],
+   "operation": "collapse red-card counts into a yes/no outcome using a >0 cutoff, applied both at the dyad level and again after aggregation",
+   "targets": [
+    "redCards",
+    "any_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "operation": "drop rows lacking a skin-tone rating rather than imputing them",
+   "targets": [
+    "skin_tone_avg",
+    "df_complete"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "note": "report exclusion count for missing skin tone"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     53
+    ]
+   ],
+   "operation": "regroup granular playing positions into four coarse buckets via a hand-built lookup table",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     54,
+     57
+    ]
+   ],
+   "operation": "backfill missing height and weight with the sample median rather than dropping those rows",
+   "targets": [
+    "height",
+    "weight",
+    "height_filled",
+    "weight_filled"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     58,
+     61
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     72
+    ]
+   ],
+   "operation": "change the unit of analysis from dyad to player, summing exposure/outcome counts and taking the first value for everything else",
+   "targets": [
+    "playerShort",
+    "redCards",
+    "games",
+    "position_cat",
+    "leagueCountry",
+    "height_filled",
+    "weight_filled",
+    "skin_tone_avg",
+    "df_player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     74
+    ]
+   ],
+   "operation": "log-transform total games so exposure enters the model on a log scale",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     78
+    ]
+   ],
+   "note": "report player-level counts"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     79,
+     80
+    ]
+   ],
+   "operation": "drop goalkeepers from the analytic sample entirely",
+   "targets": [
+    "position_cat",
+    "df_final"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     81,
+     84
+    ]
+   ],
+   "note": "report goalkeeper exclusion count and rationale"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     85,
+     88
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     89,
+     89
+    ],
+    [
+     91,
+     95
+    ],
+    [
+     98,
+     115
+    ],
+    [
+     118,
+     119
+    ],
+    [
+     122,
+     123
+    ]
+   ],
+   "operation": "scan a grid of candidate skin-tone cutoffs, refit at each, and keep whichever cutoff produces the largest estimated effect",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin_temp",
+    "threshold_results",
+    "best_thresh",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     90
+    ]
+   ],
+   "note": "announce threshold search"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     96
+    ],
+    [
+     140,
+     140
+    ],
+    [
+     210,
+     210
+    ],
+    [
+     222,
+     222
+    ]
+   ],
+   "operation": "fix the same covariate set (exposure, position, league, height, weight) to adjust for across every model specification",
+   "targets": [
+    "log_games",
+    "position_cat",
+    "leagueCountry",
+    "height_filled",
+    "weight_filled"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     97,
+     97
+    ],
+    [
+     139,
+     139
+    ],
+    [
+     141,
+     141
+    ],
+    [
+     211,
+     211
+    ],
+    [
+     223,
+     223
+    ]
+   ],
+   "operation": "commit to a logistic regression as the estimator for the binary outcome across the search, primary, and two robustness fits",
+   "targets": [
+    "any_red_card",
+    "model",
+    "model_primary",
+    "model_rob1",
+    "model_rob2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     116,
+     117
+    ]
+   ],
+   "note": "print each threshold's estimated effect"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "note": "announce the selected threshold"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     124,
+     127
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     128,
+     134
+    ]
+   ],
+   "note": "report final sample composition"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     135,
+     138
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     142,
+     145
+    ]
+   ],
+   "note": "print full model summary table"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     146,
+     148
+    ],
+    [
+     153,
+     159
+    ]
+   ],
+   "operation": "use average marginal effects (at='overall') on the dark_skin term as the headline risk-difference estimate, pulling out its SE, CI, and p-value",
+   "targets": [
+    "dark_skin",
+    "margins_primary",
+    "margins_df",
+    "rd_adj",
+    "se_adj",
+    "pval_adj",
+    "ci_low_adj",
+    "ci_high_adj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     149,
+     152
+    ]
+   ],
+   "note": "print marginal effects table"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     160,
+     163
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     164,
+     167
+    ]
+   ],
+   "note": "print primary risk-difference results"
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     168,
+     173
+    ]
+   ],
+   "operation": "re-express the fitted coefficient as an odds ratio with a Wald-style CI as a secondary estimand",
+   "targets": [
+    "model_primary",
+    "or_adj",
+    "or_se_log",
+    "or_ci_low",
+    "or_ci_high"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     174,
+     177
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     180
+    ]
+   ],
+   "note": "print odds ratio results"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     181,
+     184
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 38,
+   "kind": "decision",
+   "lines": [
+    [
+     185,
+     196
+    ]
+   ],
+   "operation": "additionally report a crude, unadjusted risk difference between groups with its own normal-approximation CI and z-test",
+   "targets": [
+    "dark_skin",
+    "any_red_card",
+    "rate_light",
+    "rate_dark",
+    "rd_unadj",
+    "se_unadj",
+    "ci_low_unadj",
+    "ci_high_unadj",
+    "p_unadj"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     197,
+     202
+    ]
+   ],
+   "note": "print unadjusted comparison results"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     203,
+     206
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 41,
+   "kind": "decision",
+   "lines": [
+    [
+     207,
+     209
+    ],
+    [
+     212,
+     213
+    ]
+   ],
+   "operation": "rerun the primary model swapping in a fixed alternative cutoff (0.375) to check sensitivity of the effect to threshold choice",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin_alt",
+    "margins_rob1",
+    "rob1_results"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     214,
+     217
+    ]
+   ],
+   "note": "print alternative-threshold robustness results"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     218,
+     221
+    ],
+    [
+     224,
+     225
+    ]
+   ],
+   "operation": "rerun the model on the player set that still includes goalkeepers, using a fixed 0.25 cutoff, to check sensitivity to the goalkeeper exclusion",
+   "targets": [
+    "df_player",
+    "df_with_gk",
+    "skin_tone_avg",
+    "dark_skin",
+    "margins_rob2",
+    "rob2_results"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     226,
+     229
+    ]
+   ],
+   "note": "print goalkeeper-inclusion robustness results"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     230,
+     238
+    ]
+   ],
+   "operation": "swap the whole modeling approach to a Poisson rate model on raw red-card counts with log(games) as an offset, reporting a rate ratio instead of a risk difference",
+   "targets": [
+    "redCards",
+    "dark_skin",
+    "position_cat",
+    "leagueCountry",
+    "height_filled",
+    "weight_filled",
+    "games",
+    "model_rob3",
+    "rob3_rr",
+    "rob3_se",
+    "rob3_ci_low",
+    "rob3_ci_high"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     242
+    ]
+   ],
+   "note": "print Poisson robustness results"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     243,
+     246
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     247,
+     253
+    ]
+   ],
+   "note": "print narrative summary and conclusion using previously computed estimates"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     254,
+     258
+    ]
+   ],
+   "note": "closing banner"
+  }
+ ]
+}

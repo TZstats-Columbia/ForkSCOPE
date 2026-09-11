@@ -1,0 +1,113 @@
+{
+ "run_id": "2025-11-20T23-33-39+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 286,
+   "functional_lines": 96,
+   "functional_share": 0.3357,
+   "by_type": {
+    "print": 85,
+    "comment": 44,
+    "plot": 35,
+    "glue": 15,
+    "import": 10,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 246,
+   "functional_lines": 148,
+   "functional_share": 0.6016,
+   "by_type": {
+    "heading": 52,
+    "hedging": 27,
+    "boilerplate": 23,
+    "framing": 2,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 87,
+  "action_claims": 60,
+  "result_claims": 27,
+  "links": 52,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 27
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     70,
+     74
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which columns (outcome, exposure, covariates, IDs) are carried into the regression dataset",
+   "targets": [
+    "redCard_any",
+    "redCards",
+    "darkSkin",
+    "games",
+    "position",
+    "leagueCountry",
+    "height",
+    "weight",
+    "playerShort",
+    "refNum",
+    "meanIAT",
+    "meanExp",
+    "skinTone"
+   ]
+  },
+  {
+   "id": 35,
+   "lines": [
+    [
+     132,
+     137
+    ],
+    [
+     171,
+     177
+    ],
+    [
+     201,
+     204
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "derive p-values and 95% confidence intervals via a normal-approximation (Wald) z-test with cluster-robust SEs",
+   "targets": [
+    "rd_coef",
+    "rd_se",
+    "or_coef",
+    "or_se",
+    "rd_coef_bias",
+    "rd_se_bias"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "collapse red card counts into a binary any-red-card outcome using a >0 threshold",
+   "claim": "direct red cards and second-yellow-card reds were pooled into a single binary red-card outcome",
+   "note": "claim says direct reds and second-yellow reds were pooled, but code derives redCard_any solely from the redCards column (>0) with no yellowReds included"
+  }
+ ]
+}

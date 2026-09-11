@@ -1,0 +1,91 @@
+fork,option,occurrence,members,runs
+How much regression-coefficient detail is included in the reported table?,report a rater-block's full OLS/FE coefficients in the main table,1,1,1
+How much regression-coefficient detail is included in the reported table?,report a rater-block's full OLS/FE coefficients in the main table #2,2,1,1
+how is the exploratory disciplinary-outcome model without skin tone specified (c,model disciplinary outcome from club + position (no skin tone),1,1,1
+how is the exploratory disciplinary-outcome model without skin tone specified (c,model disciplinary outcome from club + position (no skin tone) #2,2,1,1
+which effect-size measure is used to express the exposure's effect on red cards?,report only an odds ratio,1,168,168
+which effect-size measure is used to express the exposure's effect on red cards?,report only an odds ratio #2,2,1,1
+how is moderation of the referee-bias effect by player skin tone assessed?,include/test the skin-tone × bias interaction term in the model,1,6,6
+how is moderation of the referee-bias effect by player skin tone assessed?,include/test the skin-tone × bias interaction term in the model #2,2,2,2
+How is the middle (Medium) skin-tone category handled?,"drop the Medium group, keep only Light and Dark",1,22,22
+How is the middle (Medium) skin-tone category handled?,"drop the Medium group, keep only Light and Dark #2",2,1,1
+how is moderation modeled on the regression right-hand side?,add rater × moderator interaction terms to the moderation RHS,1,1,1
+how is moderation modeled on the regression right-hand side?,add rater × moderator interaction terms to the moderation RHS #2,2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-","logistic, continuous skin tone, full adjustment, default SEs",1,2,2
+"which regression model, estimator, and SE scheme specifies the primary confound-","logistic, continuous skin tone, full adjustment, default SEs #2",2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-","logistic, continuous skin tone, full adjustment, default SEs #3",3,1,1
+how is the skin-tone rating entered as the exposure — continuous or split/binned,"enter continuous, raw (per-unit, full range)",1,116,114
+how is the skin-tone rating entered as the exposure — continuous or split/binned,"enter continuous, raw (per-unit, full range) #2",2,5,5
+which covariates make up the model's adjustment set?,games only,1,15,14
+which covariates make up the model's adjustment set?,games only #2,2,2,2
+what bootstrap resampling scheme is used to compute the confidence interval?,"dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI",1,24,24
+what bootstrap resampling scheme is used to compute the confidence interval?,"dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI #2",2,2,2
+how is the skin-tone rating entered as the exposure — continuous or split/binned,single-cutoff dichotomize at 0.5,1,61,61
+how is the skin-tone rating entered as the exposure — continuous or split/binned,single-cutoff dichotomize at 0.5 #2,2,2,2
+how is the skin-tone rating entered as the exposure — continuous or split/binned,search single cutoff maximizing effect size,1,23,23
+how is the skin-tone rating entered as the exposure — continuous or split/binned,search single cutoff maximizing effect size #2,2,1,1
+Is the skin-tone slope allowed to vary and be linked to a country-level bias sco,pair a country-level mean bias score with gm3's random skin-tone slope,1,1,1
+Is the skin-tone slope allowed to vary and be linked to a country-level bias sco,pair a country-level mean bias score with gm3's random skin-tone slope #2,2,1,1
+how are the regression model's standard errors estimated?,"cluster-robust SEs, varying clustering dimension (unspecified / player / referee",1,98,95
+how are the regression model's standard errors estimated?,"cluster-robust SEs, varying clustering dimension (unspecified / player / referee",2,16,16
+"In what form is the yellow-card (and related count) covariate entered — raw, log",enter as per-game rate,1,8,7
+"In what form is the yellow-card (and related count) covariate entered — raw, log",enter as per-game rate #2,2,1,1
+how is the skin-tone rating entered as the exposure — continuous or split/binned,code rating as categorical factor (all levels),1,2,2
+how is the skin-tone rating entered as the exposure — continuous or split/binned,code rating as categorical factor (all levels) #2,2,1,1
+how is the skin-tone rating entered as the exposure — continuous or split/binned,drop-middle dichotomize 0.25/0.75,1,57,56
+how is the skin-tone rating entered as the exposure — continuous or split/binned,drop-middle dichotomize 0.25/0.75 #2,2,2,2
+"When forming adjusted counterfactual predictions, are covariates averaged over t","predict at a single fixed reference profile (means/modal categories), then diffe",1,4,4
+"When forming adjusted counterfactual predictions, are covariates averaged over t","predict at a single fixed reference profile (means/modal categories), then diffe",2,1,1
+how is complete-case/listwise deletion applied and over which variable set?,listwise deletion over the model's variable set (covariates + outcome),1,49,49
+how is complete-case/listwise deletion applied and over which variable set?,listwise deletion over the model's variable set (covariates + outcome) #2,2,1,1
+how are the confidence interval and p-value for the exposure effect computed?,"analytic delta-method SE via g-computation gradient, Wald CI/p",1,47,46
+how are the confidence interval and p-value for the exposure effect computed?,"analytic delta-method SE via g-computation gradient, Wald CI/p #2",2,5,5
+which regression model and outcome family estimates the exposure–red-card associ,logistic regression on binary red-card indicator,1,24,24
+which regression model and outcome family estimates the exposure–red-card associ,logistic regression on binary red-card indicator #2,2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",categorical rater1 exposure through referee fixed effects,1,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",categorical rater1 exposure through referee fixed effects #2,2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",categorical rater1 exposure through referee fixed effects #3,3,1,1
+how is referee bias controlled for in the model?,include unspecified referee bias measure(s) as a covariate/block,1,4,4
+how is referee bias controlled for in the model?,include unspecified referee bias measure(s) as a covariate/block #2,2,1,1
+how are standard errors / confidence intervals estimated for the main effect?,sandwich/robust SE correction on the Poisson model,1,1,1
+how are standard errors / confidence intervals estimated for the main effect?,sandwich/robust SE correction on the Poisson model #2,2,1,1
+which covariates make up the model's adjustment set?,log(games) + position + league,1,29,29
+which covariates make up the model's adjustment set?,log(games) + position + league #2,2,1,1
+How are raw group red-card rates reported descriptively?,"report raw unadjusted rates by group, no formal test/differencing",1,37,37
+How are raw group red-card rates reported descriptively?,"report raw unadjusted rates by group, no formal test/differencing #2",2,2,2
+how is the skin-tone rating entered as the exposure — continuous or split/binned,single-cutoff dichotomize at 0.25,1,33,33
+how is the skin-tone rating entered as the exposure — continuous or split/binned,single-cutoff dichotomize at 0.25 #2,2,1,1
+"When forming adjusted counterfactual predictions, are covariates averaged over t",marginal standardization / g-computation: average counterfactual predictions ove,1,135,133
+"When forming adjusted counterfactual predictions, are covariates averaged over t",marginal standardization / g-computation: average counterfactual predictions ove,2,4,4
+are interaction terms included in the model?,"fit redCards regression with interactions, varying the focal predictor",1,1,1
+are interaction terms included in the model?,"fit redCards regression with interactions, varying the focal predictor #2",2,1,1
+are interaction terms included in the model?,"fit redCards regression with interactions, varying the focal predictor #3",3,1,1
+what bootstrap resampling scheme is used to compute the confidence interval?,"player-level cluster bootstrap, refit logistic, percentile CI",1,23,23
+what bootstrap resampling scheme is used to compute the confidence interval?,"player-level cluster bootstrap, refit logistic, percentile CI #2",2,1,1
+which regression model and outcome family estimates the exposure–red-card associ,"Poisson GLM with log(games) offset, plain",1,4,4
+which regression model and outcome family estimates the exposure–red-card associ,"Poisson GLM with log(games) offset, plain #2",2,1,1
+how are non-numeric placeholder / non-finite values coerced to numeric-with-miss,treat the literal 'NA' string as missing before numeric coercion,1,2,2
+how are non-numeric placeholder / non-finite values coerced to numeric-with-miss,treat the literal 'NA' string as missing before numeric coercion #2,2,1,1
+how is the analytic sample restricted to complete / relevant records?,restrict each question to non-missing values of that question's own key variable,1,1,1
+how is the analytic sample restricted to complete / relevant records?,restrict each question to non-missing values of that question's own key variable,2,1,1
+how many rater×bias interaction terms enter the model as the final block?,add a single bias-by-rater interaction term as the final block,1,1,1
+how many rater×bias interaction terms enter the model as the final block?,add a single bias-by-rater interaction term as the final block #2,2,1,1
+which regression model/estimator is fit to the clustered binary outcome?,binomial mixed / random-effects (subject-specific) model,1,1,1
+which regression model/estimator is fit to the clustered binary outcome?,binomial mixed / random-effects (subject-specific) model #2,2,1,1
+how are the interaction coefficients presented in the results table?,format the rater×bias interaction coefficients for the results table,1,1,1
+how are the interaction coefficients presented in the results table?,format the rater×bias interaction coefficients for the results table #2,2,1,1
+how are the interaction coefficients presented in the results table?,format the rater×bias interaction coefficients for the results table #3,3,1,1
+how are the interaction coefficients presented in the results table?,format the rater×bias interaction coefficients for the results table #4,4,1,1
+which covariates make up the model's adjustment set?,"games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league",1,5,5
+which covariates make up the model's adjustment set?,"games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league #2",2,1,1
+what regression model form is used for the outcome?,"LPM with rater x referee-bias interaction, clustered SE",1,1,1
+what regression model form is used for the outcome?,"LPM with rater x referee-bias interaction, clustered SE #2",2,1,1
+"Is the analysis stratified into subgroups (e.g., by league), and how?",recompute the unadjusted risk difference within subgroups,1,1,1
+"Is the analysis stratified into subgroups (e.g., by league), and how?",recompute the unadjusted risk difference within subgroups #2,2,1,1
+which moderation model specification is estimated?,moderate continuous individual tone only,1,1,1
+which moderation model specification is estimated?,moderate continuous individual tone only #2,2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",linear OLS cascade with referee fixed effects,1,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",linear OLS cascade with referee fixed effects #2,2,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-",linear OLS cascade with referee fixed effects #3,3,1,1
+"which regression model, estimator, and SE scheme specifies the primary confound-","log(games) as covariate, no offset",1,57,57
+"which regression model, estimator, and SE scheme specifies the primary confound-","log(games) as covariate, no offset #2",2,1,1

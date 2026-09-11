@@ -1,0 +1,98 @@
+{
+ "run_id": "2025-11-22T16-29-06+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 341,
+   "functional_lines": 53,
+   "functional_share": 0.1554,
+   "by_type": {
+    "print": 102,
+    "comment": 76,
+    "plot": 73,
+    "glue": 28,
+    "import": 8,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 225,
+   "functional_lines": 101,
+   "functional_share": 0.4489,
+   "by_type": {
+    "boilerplate": 80,
+    "heading": 32,
+    "hedging": 7,
+    "other": 6,
+    "background": 4,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 21,
+  "claims": 82,
+  "action_claims": 40,
+  "result_claims": 42,
+  "links": 47,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 42
+ },
+ "silent_decisions": [
+  {
+   "id": 2,
+   "lines": [
+    [
+     31,
+     31
+    ]
+   ],
+   "confidence": "high",
+   "operation": "average the two raters' skin-tone scores into a single continuous measure",
+   "targets": [
+    "rater1",
+    "rater2"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     64,
+     64
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "encode dark skin tone as the treatment indicator (1=dark, 0=light)",
+   "targets": [
+    "skin_category"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     285,
+     286
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin games-played into discrete ranges for the descriptive plot",
+   "targets": [
+    "games"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,67 @@
+{
+ "run_id": "2025-11-29T21-54-24+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 291,
+   "functional_lines": 151,
+   "functional_share": 0.5189,
+   "by_type": {
+    "print": 88,
+    "comment": 43,
+    "config": 5,
+    "import": 4
+   }
+  },
+  "prose": {
+   "n_lines": 223,
+   "functional_lines": 96,
+   "functional_share": 0.4305,
+   "by_type": {
+    "boilerplate": 85,
+    "heading": 32,
+    "framing": 12,
+    "hedging": 3,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 91,
+  "action_claims": 51,
+  "result_claims": 40,
+  "links": 60,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 8,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     94,
+     97
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the unadjusted (crude) risk difference between skin-tone groups as a baseline contrast",
+   "targets": [
+    "dark_skin",
+    "any_red_card"
+   ]
+  }
+ ],
+ "misalignments": []
+}

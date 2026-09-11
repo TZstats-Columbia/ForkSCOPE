@@ -1,0 +1,86 @@
+{
+ "run_id": "2025-11-12T09-52-44+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 395,
+   "functional_lines": 170,
+   "functional_share": 0.4304,
+   "by_type": {
+    "print": 175,
+    "comment": 42,
+    "import": 5,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 276,
+   "functional_lines": 138,
+   "functional_share": 0.5,
+   "by_type": {
+    "heading": 49,
+    "other": 44,
+    "boilerplate": 39,
+    "hedging": 18,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 79,
+  "action_claims": 37,
+  "result_claims": 42,
+  "links": 48,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 21,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 12,
+  "result_claims_deferred": 42
+ },
+ "silent_decisions": [
+  {
+   "id": 6,
+   "lines": [
+    [
+     53,
+     70
+    ],
+    [
+     310,
+     310
+    ]
+   ],
+   "confidence": "high",
+   "operation": "bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "targets": [
+    "position",
+    "position_cat"
+   ]
+  },
+  {
+   "id": 10,
+   "lines": [
+    [
+     313,
+     314
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "drop remaining dyads missing height or weight before fitting the continuous-exposure model",
+   "targets": [
+    "height",
+    "weight"
+   ]
+  }
+ ],
+ "misalignments": []
+}

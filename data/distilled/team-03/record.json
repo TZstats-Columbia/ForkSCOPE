@@ -1,0 +1,52 @@
+{
+ "run_id": "team-03",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 235,
+   "functional_lines": 198,
+   "functional_share": 0.8426,
+   "by_type": {
+    "glue": 33,
+    "comment": 4
+   }
+  },
+  "prose": {
+   "n_lines": 393,
+   "functional_lines": 294,
+   "functional_share": 0.7481,
+   "by_type": {
+    "other": 29,
+    "heading": 24,
+    "citation": 14,
+    "boilerplate": 11,
+    "framing": 10,
+    "background": 9,
+    "hedging": 6
+   }
+  }
+ },
+ "counts": {
+  "decisions": 7,
+  "claims": 67,
+  "action_claims": 37,
+  "result_claims": 30,
+  "links": 18,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 7,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 24,
+  "R_only_consistent_negative": 1,
+  "result_claims_deferred": 30
+ },
+ "silent_decisions": [],
+ "misalignments": []
+}

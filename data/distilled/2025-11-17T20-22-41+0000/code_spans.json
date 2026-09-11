@@ -1,0 +1,1612 @@
+{
+ "n_lines": 286,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     10
+    ]
+   ],
+   "note": "module docstring describing the analysis"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     11,
+     11
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     12,
+     19
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     21,
+     21
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     24
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     25,
+     25
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     26,
+     26
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     27,
+     27
+    ]
+   ],
+   "operation": "choose the input dataset file to load as the analysis population",
+   "targets": [
+    "df",
+    "soccer.csv"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     28,
+     28
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     31
+    ]
+   ],
+   "note": "console summary of raw counts"
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "operation": "collapse two independent skin-tone ratings into a single averaged score",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     36,
+     40
+    ]
+   ],
+   "operation": "cut the continuous skin-tone score into light/dark groups at 0.25 and 0.75, discarding the middle range",
+   "targets": [
+    "skinTone",
+    "skinCategory"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     41,
+     41
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "operation": "reduce the red-card count to a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "derive player age from birth year using a fixed mid-season reference date",
+   "targets": [
+    "birthday",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     65
+    ]
+   ],
+   "operation": "collapse free-text position strings into a small set of position categories via keyword matching",
+   "targets": [
+    "position",
+    "positionCat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     66,
+     66
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     67,
+     69
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 24,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     70,
+     70
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     71,
+     71
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     72,
+     72
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     74
+    ]
+   ],
+   "operation": "restrict the analysis sample to dyads with non-missing skin tone and age, using age as a proxy for photo availability",
+   "targets": [
+    "skinCategory",
+    "age",
+    "model_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     75,
+     75
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     78
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median rather than dropping those rows",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     79,
+     79
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     80,
+     85
+    ]
+   ],
+   "note": "console summary of modeling dataset"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     86,
+     86
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     87,
+     89
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     90,
+     90
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     93
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     94,
+     94
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     95,
+     102
+    ]
+   ],
+   "operation": "choose which variables and summary functions to compute per skin-tone group",
+   "targets": [
+    "skinCategory",
+    "anyRedCard",
+    "games",
+    "height",
+    "weight",
+    "age",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     103,
+     103
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     104,
+     106
+    ]
+   ],
+   "note": "relabel aggregated columns for display"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     107,
+     107
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     108,
+     108
+    ]
+   ],
+   "note": "console print of descriptive stats table"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     109,
+     109
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 43,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     113
+    ]
+   ],
+   "operation": "compute the unadjusted (crude) risk difference between dark and light groups as a percentage-point gap",
+   "targets": [
+    "desc_stats",
+    "unadj_light",
+    "unadj_dark",
+    "unadj_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     114,
+     114
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     115,
+     115
+    ]
+   ],
+   "note": "console print of unadjusted risk difference"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     116,
+     116
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     117,
+     119
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     120,
+     120
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     121,
+     123
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     124,
+     124
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 51,
+   "kind": "decision",
+   "lines": [
+    [
+     125,
+     126
+    ]
+   ],
+   "operation": "code dark skin tone as the exposure indicator with light as reference",
+   "targets": [
+    "skinCategory",
+    "dark"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     127,
+     127
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 53,
+   "kind": "decision",
+   "lines": [
+    [
+     128,
+     132
+    ]
+   ],
+   "operation": "z-score standardize the continuous covariates before entering them in the model",
+   "targets": [
+    "height",
+    "weight",
+    "age",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     133,
+     133
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     134,
+     134
+    ],
+    [
+     137,
+     139
+    ],
+    [
+     142,
+     142
+    ]
+   ],
+   "operation": "fit a logistic regression as the outcome model, with fitting controls (max iterations, no display)",
+   "targets": [
+    "anyRedCard",
+    "model_df",
+    "logit_model"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "decision",
+   "lines": [
+    [
+     135,
+     135
+    ]
+   ],
+   "operation": "select the adjustment set of covariates included in the outcome model",
+   "targets": [
+    "dark",
+    "height_std",
+    "weight_std",
+    "age_std",
+    "games_std",
+    "positionCat",
+    "leagueCountry",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     136,
+     136
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 58,
+   "kind": "decision",
+   "lines": [
+    [
+     140,
+     141
+    ]
+   ],
+   "operation": "cluster standard errors at the player level rather than treating dyads as independent",
+   "targets": [
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     143,
+     143
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     144,
+     144
+    ]
+   ],
+   "note": "console print of full model summary"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     145,
+     145
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     146,
+     150
+    ]
+   ],
+   "note": "pull coefficient, SE, p-value, CI for the dark-skin term out of the fitted model object"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     151,
+     151
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     152,
+     154
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     155,
+     155
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     156,
+     158
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     159,
+     159
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 68,
+   "kind": "decision",
+   "lines": [
+    [
+     160,
+     173
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference via marginal standardization (predict outcome under counterfactual all-dark and all-light exposure, then average and subtract)",
+   "targets": [
+    "dark",
+    "model_df",
+    "mean_prob_dark",
+    "mean_prob_light",
+    "adj_risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 69,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     174,
+     174
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     177
+    ]
+   ],
+   "note": "console print of predicted probabilities and risk difference"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     178,
+     178
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 72,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     179,
+     181
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     182,
+     182
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     183,
+     185
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     186,
+     186
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     187,
+     187
+    ]
+   ],
+   "note": "random seed for reproducibility"
+  },
+  {
+   "id": 77,
+   "kind": "decision",
+   "lines": [
+    [
+     188,
+     189
+    ],
+    [
+     198,
+     199
+    ],
+    [
+     201,
+     202
+    ],
+    [
+     204,
+     206
+    ],
+    [
+     208,
+     215
+    ],
+    [
+     217,
+     217
+    ]
+   ],
+   "operation": "run a cluster (player-level) bootstrap that resamples players with replacement, refits the same model, and recomputes the marginal-standardization risk difference each iteration",
+   "targets": [
+    "playerShort",
+    "model_df",
+    "formula",
+    "bootstrap_rds"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     190,
+     191
+    ]
+   ],
+   "note": "initialize results list; blank line"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     192,
+     192
+    ]
+   ],
+   "note": "console status message"
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     193,
+     194
+    ]
+   ],
+   "note": "blank line and loop control"
+  },
+  {
+   "id": 81,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     196
+    ]
+   ],
+   "note": "console progress message"
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     197,
+     197
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     200,
+     200
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     203,
+     203
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     207,
+     207
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     216,
+     216
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 87,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     218,
+     218
+    ]
+   ],
+   "note": "store the per-iteration risk difference"
+  },
+  {
+   "id": 88,
+   "kind": "decision",
+   "lines": [
+    [
+     219,
+     219
+    ]
+   ],
+   "operation": "silently discard bootstrap iterations where the model fails to fit, rather than counting or flagging them",
+   "targets": [
+    "bootstrap_rds"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     220,
+     221
+    ]
+   ],
+   "note": "blank lines"
+  },
+  {
+   "id": 90,
+   "kind": "decision",
+   "lines": [
+    [
+     222,
+     222
+    ],
+    [
+     224,
+     225
+    ]
+   ],
+   "operation": "form the 95% CI from the 2.5th/97.5th percentiles of the bootstrap distribution",
+   "targets": [
+    "bootstrap_rds",
+    "ci_lower",
+    "ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 91,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     223,
+     223
+    ]
+   ],
+   "note": "convert list of bootstrap estimates to array"
+  },
+  {
+   "id": 92,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     226,
+     226
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 93,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     227,
+     227
+    ]
+   ],
+   "note": "console print of bootstrap CI"
+  },
+  {
+   "id": 94,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     228,
+     228
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 95,
+   "kind": "decision",
+   "lines": [
+    [
+     229,
+     230
+    ]
+   ],
+   "operation": "compute a two-sided bootstrap p-value by doubling the smaller tail proportion on either side of zero",
+   "targets": [
+    "bootstrap_rds",
+    "p_value_boot"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 96,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     231,
+     231
+    ]
+   ],
+   "note": "console print of bootstrap p-value"
+  },
+  {
+   "id": 97,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     232,
+     232
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 98,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     233,
+     235
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 99,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     236,
+     236
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 100,
+   "kind": "decision",
+   "lines": [
+    [
+     237,
+     238
+    ]
+   ],
+   "operation": "report the exposure effect as an odds ratio by exponentiating the logistic coefficient and its CI",
+   "targets": [
+    "dark_coef",
+    "dark_ci",
+    "dark_or",
+    "dark_or_ci"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 101,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     239,
+     239
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 102,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     240,
+     245
+    ]
+   ],
+   "note": "console print of odds ratio results"
+  },
+  {
+   "id": 103,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     246,
+     246
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 104,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     247,
+     249
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 105,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     250,
+     250
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 106,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     251,
+     253
+    ]
+   ],
+   "note": "console header"
+  },
+  {
+   "id": 107,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     254,
+     254
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 108,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     255,
+     258
+    ]
+   ],
+   "note": "console print of primary estimand summary"
+  },
+  {
+   "id": 109,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     259,
+     259
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 110,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     260,
+     262
+    ]
+   ],
+   "note": "console print of secondary estimand summary"
+  },
+  {
+   "id": 111,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     263,
+     263
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 112,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     264,
+     271
+    ]
+   ],
+   "note": "console print of model/sample details"
+  },
+  {
+   "id": 113,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     272,
+     272
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 114,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     273,
+     273
+    ]
+   ],
+   "note": "console section label"
+  },
+  {
+   "id": 115,
+   "kind": "decision",
+   "lines": [
+    [
+     274,
+     277
+    ]
+   ],
+   "operation": "define the criterion for declaring the hypothesis supported: p < 0.05 AND the bootstrap CI excludes zero on the low end",
+   "targets": [
+    "dark_pval",
+    "ci_lower",
+    "conclusion"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 116,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     278,
+     278
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 117,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     279,
+     283
+    ]
+   ],
+   "note": "console print of final conclusion text"
+  },
+  {
+   "id": 118,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     284,
+     284
+    ]
+   ],
+   "note": "blank line"
+  },
+  {
+   "id": 119,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     285,
+     285
+    ]
+   ],
+   "note": "console separator"
+  },
+  {
+   "id": 120,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     286,
+     286
+    ]
+   ],
+   "note": "trailing blank line"
+  }
+ ]
+}

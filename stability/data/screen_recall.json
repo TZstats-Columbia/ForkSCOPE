@@ -1,0 +1,116 @@
+{
+ "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "forks_a": 317,
+ "eligible_forks": 73,
+ "candidate_pairs_total": 2628,
+ "ground_truth_pairs": 23,
+ "production_budget": 12,
+ "production_threshold": 0.55,
+ "recall_at_production_budget": {
+  "lexical": {
+   "hits": 0,
+   "recall": 0.0
+  },
+  "lsa": {
+   "hits": 3,
+   "recall": 0.1304
+  }
+ },
+ "recall_curve": {
+  "100": {
+   "lexical": 0.2609,
+   "lsa": 0.4348
+  },
+  "250": {
+   "lexical": 0.5652,
+   "lsa": 0.5652
+  },
+  "500": {
+   "lexical": 0.7391,
+   "lsa": 0.7391
+  },
+  "1000": {
+   "lexical": 0.913,
+   "lsa": 0.913
+  },
+  "2000": {
+   "lexical": 0.9565,
+   "lsa": 0.9565
+  }
+ },
+ "missed_by_lexical": [
+  {
+   "lex": 0.456,
+   "lsa": 0.95,
+   "fork_a": "Which control variables and functional forms enter the regression model?",
+   "fork_b": "which covariates make up the model's adjustment set?"
+  },
+  {
+   "lex": 0.289,
+   "lsa": 0.32,
+   "fork_a": "which effect-size measure is used to express the exposure's effect on red cards?",
+   "fork_b": "which model effect is reported as primary, and on what scale (risk difference/AM"
+  },
+  {
+   "lex": 0.489,
+   "lsa": 0.254,
+   "fork_a": "Are categorical predictors parameterized by dropping a reference level and the i",
+   "fork_b": "Which player-position category is the omitted reference level for the position d"
+  },
+  {
+   "lex": 0.481,
+   "lsa": 0.216,
+   "fork_a": "Which correlation coefficient quantifies the bivariate skin-tone/red-card associ",
+   "fork_b": "how is agreement between the two skin-tone raters quantified?"
+  },
+  {
+   "lex": 0.15,
+   "lsa": 0.2,
+   "fork_a": "how is the crude, unadjusted association estimated and tested?",
+   "fork_b": "which effect-size measure is used to express the exposure's effect on red cards?"
+  },
+  {
+   "lex": 0.312,
+   "lsa": 0.157,
+   "fork_a": "How is the middle (Medium) skin-tone category handled?",
+   "fork_b": "how is the binary dark-skin exposure variable defined?"
+  },
+  {
+   "lex": 0.098,
+   "lsa": 0.145,
+   "fork_a": "how are continuous predictors transformed and z-scored/standardized before model",
+   "fork_b": "how is games-played entered into the model (functional form / transformation)?"
+  },
+  {
+   "lex": 0.087,
+   "lsa": 0.143,
+   "fork_a": "how is the crude, unadjusted association estimated and tested?",
+   "fork_b": "which model effect is reported as primary, and on what scale (risk difference/AM"
+  },
+  {
+   "lex": 0.41,
+   "lsa": 0.116,
+   "fork_a": "how are the regression model's standard errors estimated?",
+   "fork_b": "how is the effect's statistical uncertainty estimated?"
+  },
+  {
+   "lex": 0.292,
+   "lsa": 0.112,
+   "fork_a": "How is the middle (Medium) skin-tone category handled?",
+   "fork_b": "how is the skin-tone rating entered as the exposure \u2014 continuous or split/binned"
+  },
+  {
+   "lex": 0.318,
+   "lsa": 0.088,
+   "fork_a": "Where is the skin-tone dichotomization cutoff set?",
+   "fork_b": "how is the skin-tone rating entered as the exposure \u2014 continuous or split/binned"
+  },
+  {
+   "lex": 0.404,
+   "lsa": 0.072,
+   "fork_a": "how is the hypothesis-support conclusion (p-value or decision rule) derived?",
+   "fork_b": "how is the p-value / test statistic derived from the estimate and its standard e"
+  }
+ ]
+}

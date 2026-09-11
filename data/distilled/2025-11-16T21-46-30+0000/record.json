@@ -1,0 +1,83 @@
+{
+ "run_id": "2025-11-16T21-46-30+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 403,
+   "functional_lines": 156,
+   "functional_share": 0.3871,
+   "by_type": {
+    "print": 132,
+    "comment": 53,
+    "plot": 48,
+    "import": 7,
+    "config": 5,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 179,
+   "functional_lines": 90,
+   "functional_share": 0.5028,
+   "by_type": {
+    "other": 62,
+    "heading": 21,
+    "boilerplate": 16,
+    "framing": 3,
+    "hedging": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 72,
+  "action_claims": 41,
+  "result_claims": 31,
+  "links": 45,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 9,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 31
+ },
+ "silent_decisions": [
+  {
+   "id": 32,
+   "lines": [
+    [
+     147,
+     151
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "approximate the AME's standard error via a delta-method scaling of the logit coefficient's SE",
+   "targets": [
+    "model_primary"
+   ]
+  },
+  {
+   "id": 59,
+   "lines": [
+    [
+     293,
+     309
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the red-card rate and a normal-approximation 95% CI separately for every distinct observed skin-tone value",
+   "targets": [
+    "skin_tone",
+    "any_red"
+   ]
+  }
+ ],
+ "misalignments": []
+}

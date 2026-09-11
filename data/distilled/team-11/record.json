@@ -1,0 +1,95 @@
+{
+ "run_id": "team-11",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 58,
+   "functional_lines": 23,
+   "functional_share": 0.3966,
+   "by_type": {
+    "glue": 30,
+    "plot": 2,
+    "comment": 1,
+    "config": 1,
+    "print": 1
+   }
+  },
+  "prose": {
+   "n_lines": 731,
+   "functional_lines": 700,
+   "functional_share": 0.9576,
+   "by_type": {
+    "heading": 20,
+    "boilerplate": 19,
+    "framing": 8,
+    "other": 8
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 126,
+  "action_claims": 71,
+  "result_claims": 55,
+  "links": 81,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 25,
+  "R_only_consistent_negative": 14,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 3,
+   "lines": [
+    [
+     12,
+     12
+    ]
+   ],
+   "confidence": "low",
+   "operation": "set p-value thresholds for stepwise variable entry/removal, though the model actually uses forced entry so this criteria may be inert",
+   "targets": []
+  },
+  {
+   "id": 8,
+   "lines": [
+    [
+     24,
+     24
+    ]
+   ],
+   "confidence": "high",
+   "operation": "flag and plot cases whose standardized residual exceeds 3 SD as outliers",
+   "targets": [
+    "ZRESID"
+   ]
+  },
+  {
+   "id": 14,
+   "lines": [
+    [
+     41,
+     41
+    ],
+    [
+     58,
+     58
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "request a Hosmer-Lemeshow goodness-of-fit test and 95% confidence intervals for the odds ratios in both logistic models",
+   "targets": []
+  }
+ ],
+ "misalignments": []
+}

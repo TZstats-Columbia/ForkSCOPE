@@ -1,0 +1,101 @@
+{
+ "run_id": "2025-11-28T23-31-55+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 291,
+   "functional_lines": 145,
+   "functional_share": 0.4983,
+   "by_type": {
+    "print": 105,
+    "comment": 31,
+    "import": 5,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 256,
+   "functional_lines": 144,
+   "functional_share": 0.5625,
+   "by_type": {
+    "boilerplate": 100,
+    "heading": 25,
+    "framing": 11,
+    "hedging": 7,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 91,
+  "action_claims": 43,
+  "result_claims": 48,
+  "links": 44,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 48
+ },
+ "silent_decisions": [
+  {
+   "id": 5,
+   "lines": [
+    [
+     46,
+     55
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age from birthday using a fixed 2012 reference year, falling back to NaN on parse failure",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 15,
+   "lines": [
+    [
+     241,
+     244
+    ]
+   ],
+   "confidence": "high",
+   "operation": "refit with minimal adjustment, dropping all covariates except log_games",
+   "targets": [
+    "darkSkin",
+    "log_games"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     256,
+     259
+    ],
+    [
+     266,
+     268
+    ]
+   ],
+   "confidence": "high",
+   "operation": "rebuild and refit the model on the full sample including goalkeepers instead of the goalkeeper-excluded sample",
+   "targets": [
+    "df_model",
+    "df_model_full"
+   ]
+  }
+ ],
+ "misalignments": []
+}

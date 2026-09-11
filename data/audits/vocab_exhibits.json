@@ -1,0 +1,1351 @@
+{
+  "report": "vocab_exhibits",
+  "subtitle": "Weak signals used to order a review queue, never to conclude.",
+  "corpus": "ai+human.merged.forkmerged.merged.induced.r3.osplit",
+  "V1": {
+    "verdict": "REVIEW",
+    "claim": "options within one fork are distinct actions",
+    "why": "561 pairs to read; the metric cannot clear the rest",
+    "against": "no null -- a ranking for human attention, not a test",
+    "blind_to": "two descriptions of one action that share no words. The rater-averaging fork was invisible to exactly this measure",
+    "uses": [
+      "label_similarity",
+      "option_lists"
+    ],
+    "entangled_with": [
+      "label_similarity",
+      "option_lists"
+    ],
+    "measurement": {
+      "within_fork_pairs": 5611,
+      "above": 561,
+      "threshold": 0.55
+    },
+    "exhibits": [
+      {
+        "title": "within-fork option pairs most likely to be one action",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 561,
+        "columns": [
+          "similarity",
+          "runs_a",
+          "runs_b",
+          "option_a",
+          "option_b",
+          "fork",
+          "trace_a",
+          "trace_b"
+        ],
+        "note": "Lexical similarity cannot see two descriptions of one action that share no words. A short queue here is NOT evidence the fork is clean.",
+        "rows": [
+          {
+            "handle": "fork:bfb93694",
+            "similarity": 1.0,
+            "fork": "which covariates make up the model's adjustment set?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "games, yellowCards, height, position, league",
+            "option_b": "position, league, yellowCards, height (no games)",
+            "trace_a": "opt:a16e70c4",
+            "trace_b": "opt:5d252d11"
+          },
+          {
+            "handle": "fork:bfb93694",
+            "similarity": 1.0,
+            "fork": "which covariates make up the model's adjustment set?",
+            "runs_a": 29,
+            "runs_b": 1,
+            "option_a": "log(games) + position + league",
+            "option_b": "log(games), position (no league)",
+            "trace_a": "opt:3a92bad8",
+            "trace_b": "opt:df150cb5"
+          },
+          {
+            "handle": "fork:bfb93694",
+            "similarity": 1.0,
+            "fork": "which covariates make up the model's adjustment set?",
+            "runs_a": 1,
+            "runs_b": 2,
+            "option_a": "position, league, yellowCards (no games)",
+            "option_b": "games, yellowCards, position (no league)",
+            "trace_a": "opt:c7db2974",
+            "trace_b": "opt:aed071c9"
+          },
+          {
+            "handle": "fork:bfb93694",
+            "similarity": 1.0,
+            "fork": "which covariates make up the model's adjustment set?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "league, position, age, height, weight, yellowCards, goals (no games)",
+            "option_b": "games, height, weight, age, yellowCards, goals, position, league",
+            "trace_a": "opt:bb3e14b4",
+            "trace_b": "opt:5d0df0f6"
+          },
+          {
+            "handle": "fork:bfb93694",
+            "similarity": 1.0,
+            "fork": "which covariates make up the model's adjustment set?",
+            "runs_a": 2,
+            "runs_b": 1,
+            "option_a": "games, position, league, yellowCards, meanIAT, meanExp, height, weight, age",
+            "option_b": "games, yellowCards, age, height, weight, league, meanIAT, meanExp (no position)",
+            "trace_a": "opt:bf37dbf9",
+            "trace_b": "opt:ee6e4478"
+          },
+          {
+            "handle": "fork:f1d58d6a",
+            "similarity": 1.0,
+            "fork": "Which control variables and functional forms enter the regression model?",
+            "runs_a": 5,
+            "runs_b": 2,
+            "option_a": "games + age + position + league + height + weight",
+            "option_b": "no games, no age; position + league + height + weight",
+            "trace_a": "opt:22eef353",
+            "trace_b": "opt:dbd756b5"
+          },
+          {
+            "handle": "fork:f1d58d6a",
+            "similarity": 1.0,
+            "fork": "Which control variables and functional forms enter the regression model?",
+            "runs_a": 5,
+            "runs_b": 3,
+            "option_a": "games + age + position + league + height + weight",
+            "option_b": "no games; position + league + age + height + weight",
+            "trace_a": "opt:22eef353",
+            "trace_b": "opt:e5b46add"
+          },
+          {
+            "handle": "fork:f1d58d6a",
+            "similarity": 1.0,
+            "fork": "Which control variables and functional forms enter the regression model?",
+            "runs_a": 2,
+            "runs_b": 3,
+            "option_a": "no games, no age; position + league + height + weight",
+            "option_b": "no games; position + league + age + height + weight",
+            "trace_a": "opt:dbd756b5",
+            "trace_b": "opt:e5b46add"
+          },
+          {
+            "handle": "fork:1bfc73f3",
+            "similarity": 0.974,
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+            "runs_a": 4,
+            "runs_b": 1,
+            "option_a": "predict at a single fixed reference profile (means/modal categories), then difference",
+            "option_b": "predict at a single fixed reference profile (means/modal categories), then difference #2",
+            "trace_a": "opt:eca007f9",
+            "trace_b": "opt:31da5e54"
+          },
+          {
+            "handle": "fork:45323461",
+            "similarity": 0.973,
+            "fork": "how is uncertainty in the estimates quantified?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "nonparametric bootstrap, 200 resamples",
+            "option_b": "nonparametric bootstrap, 2000 resamples",
+            "trace_a": "opt:1860a0af",
+            "trace_b": "opt:63c96b7f"
+          },
+          {
+            "handle": "fork:1bfc73f3",
+            "similarity": 0.973,
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?",
+            "runs_a": 135,
+            "runs_b": 4,
+            "option_a": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference",
+            "option_b": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference #2",
+            "trace_a": "opt:9aef08e2",
+            "trace_b": "opt:aa41c6a6"
+          },
+          {
+            "handle": "fork:5e8875c3",
+            "similarity": 0.971,
+            "fork": "are interaction terms included in the model?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "fit redCards regression with interactions, varying the focal predictor #2",
+            "option_b": "fit redCards regression with interactions, varying the focal predictor #3",
+            "trace_a": "opt:548f869e",
+            "trace_b": "opt:f8c8e2c7"
+          },
+          {
+            "handle": "fork:1aebd46a",
+            "similarity": 0.968,
+            "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "logistic, continuous skin tone, full adjustment, default SEs #2",
+            "option_b": "logistic, continuous skin tone, full adjustment, default SEs #3",
+            "trace_a": "opt:8fef9816",
+            "trace_b": "opt:1f39b5f5"
+          },
+          {
+            "handle": "fork:b1fc4f73",
+            "similarity": 0.968,
+            "fork": "how are the regression model's standard errors estimated?",
+            "runs_a": 98,
+            "runs_b": 16,
+            "option_a": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)",
+            "option_b": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country) #2",
+            "trace_a": "opt:121963dd",
+            "trace_b": "opt:4cbd50ba"
+          },
+          {
+            "handle": "fork:6579c06a",
+            "similarity": 0.968,
+            "fork": "how are the interaction coefficients presented in the results table?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "format the rater×bias interaction coefficients for the results table #2",
+            "option_b": "format the rater×bias interaction coefficients for the results table #3",
+            "trace_a": "opt:748337f8",
+            "trace_b": "opt:f1f6fd16"
+          },
+          {
+            "handle": "fork:6579c06a",
+            "similarity": 0.968,
+            "fork": "how are the interaction coefficients presented in the results table?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "format the rater×bias interaction coefficients for the results table #2",
+            "option_b": "format the rater×bias interaction coefficients for the results table #4",
+            "trace_a": "opt:748337f8",
+            "trace_b": "opt:95428a95"
+          },
+          {
+            "handle": "fork:6579c06a",
+            "similarity": 0.968,
+            "fork": "how are the interaction coefficients presented in the results table?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "format the rater×bias interaction coefficients for the results table #3",
+            "option_b": "format the rater×bias interaction coefficients for the results table #4",
+            "trace_a": "opt:f1f6fd16",
+            "trace_b": "opt:95428a95"
+          },
+          {
+            "handle": "fork:1aebd46a",
+            "similarity": 0.966,
+            "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "categorical rater1 exposure through referee fixed effects #2",
+            "option_b": "categorical rater1 exposure through referee fixed effects #3",
+            "trace_a": "opt:b7265e20",
+            "trace_b": "opt:7119bbe8"
+          },
+          {
+            "handle": "fork:e9676146",
+            "similarity": 0.962,
+            "fork": "what bootstrap resampling scheme is used to compute the confidence interval?",
+            "runs_a": 24,
+            "runs_b": 2,
+            "option_a": "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI",
+            "option_b": "dyad/observation-level nonparametric bootstrap, refit logistic, percentile CI #2",
+            "trace_a": "opt:d7b6b8a7",
+            "trace_b": "opt:28910e9d"
+          },
+          {
+            "handle": "fork:8f3d6c78",
+            "similarity": 0.958,
+            "fork": "Is the skin-tone slope allowed to vary and be linked to a country-level bias score?",
+            "runs_a": 1,
+            "runs_b": 1,
+            "option_a": "pair a country-level mean bias score with gm3's random skin-tone slope",
+            "option_b": "pair a country-level mean bias score with gm3's random skin-tone slope #2",
+            "trace_a": "opt:13db408d",
+            "trace_b": "opt:18afe4b9"
+          }
+        ]
+      }
+    ]
+  },
+  "V2": {
+    "verdict": "REVIEW",
+    "claim": "every fork is a slot where a run picks exactly one option",
+    "why": "43 of 317 forks have runs that took two options; the single-choice model does not hold for all of them",
+    "against": "structural, and conclusive about the pattern -- a run cannot take two alternatives at one slot. What it cannot settle is WHY, and the three causes below are indistinguishable by shape",
+    "blind_to": "which of the three causes produced any given row, and any fork the grouping already split BECAUSE its options co-occurred -- those cannot appear here by construction",
+    "uses": [
+      "co_occurrence"
+    ],
+    "entangled_with": [
+      "co_occurrence"
+    ],
+    "measurement": {
+      "violating_pairs": 386,
+      "forks_affected": 43,
+      "forks_total": 317,
+      "pairs_sharing_one_run": 296
+    },
+    "exhibits": [
+      {
+        "title": "forks whose runs took more than one option",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 43,
+        "columns": [
+          "co_choices",
+          "pairs",
+          "runs",
+          "options",
+          "rate",
+          "fork",
+          "handle"
+        ],
+        "note": "Three causes produce this identically, and only reading the fork separates them. (a) The fork is genuinely MULTI-SELECT -- reporting both an odds ratio and a risk difference is one analyst doing two legitimate things, not a clustering error, and the single-choice model is simply wrong for that slot. (b) A ROBUSTNESS REFIT -- one run dichotomising at 0.25 and again at 0.50; expected, and the reason most rows here share exactly one run. (c) A CLUSTERING ARTIFACT -- a fork with more co-choices than runs is not a slot at all. Sort by `rate`: high rate on few runs is (c), low rate on many runs is (b), high rate on many runs is (a).",
+        "rows": [
+          {
+            "handle": "fork:753a1bff",
+            "co_choices": 409,
+            "pairs": 187,
+            "runs": 211,
+            "options": 71,
+            "rate": 1.938,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?"
+          },
+          {
+            "handle": "fork:1aebd46a",
+            "co_choices": 54,
+            "pairs": 53,
+            "runs": 93,
+            "options": 39,
+            "rate": 0.581,
+            "fork": "which regression model, estimator, and SE scheme specifies the primary confound-adjusted skin-tone effect on red cards?"
+          },
+          {
+            "handle": "fork:bfb93694",
+            "co_choices": 45,
+            "pairs": 35,
+            "runs": 127,
+            "options": 52,
+            "rate": 0.354,
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "fork:f68bb1ba",
+            "co_choices": 34,
+            "pairs": 8,
+            "runs": 111,
+            "options": 9,
+            "rate": 0.306,
+            "fork": "how are the confidence interval and p-value for the exposure effect computed?"
+          },
+          {
+            "handle": "fork:8d07b365",
+            "co_choices": 25,
+            "pairs": 6,
+            "runs": 175,
+            "options": 6,
+            "rate": 0.143,
+            "fork": "which effect-size measure is used to express the exposure's effect on red cards?"
+          },
+          {
+            "handle": "fork:b1fc4f73",
+            "co_choices": 23,
+            "pairs": 5,
+            "runs": 108,
+            "options": 7,
+            "rate": 0.213,
+            "fork": "how are the regression model's standard errors estimated?"
+          },
+          {
+            "handle": "fork:441e6c5d",
+            "co_choices": 15,
+            "pairs": 15,
+            "runs": 2,
+            "options": 7,
+            "rate": 7.5,
+            "fork": "how is the continuous skin-tone rating discretized into categories for analysis?"
+          },
+          {
+            "handle": "fork:4c1b4953",
+            "co_choices": 10,
+            "pairs": 2,
+            "runs": 203,
+            "options": 3,
+            "rate": 0.049,
+            "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?"
+          },
+          {
+            "handle": "fork:9c0ec519",
+            "co_choices": 10,
+            "pairs": 7,
+            "runs": 214,
+            "options": 6,
+            "rate": 0.047,
+            "fork": "how are the two raters combined into a single skin-tone exposure measure?"
+          },
+          {
+            "handle": "fork:e9676146",
+            "co_choices": 7,
+            "pairs": 3,
+            "runs": 44,
+            "options": 5,
+            "rate": 0.159,
+            "fork": "what bootstrap resampling scheme is used to compute the confidence interval?"
+          },
+          {
+            "handle": "fork:553ece13",
+            "co_choices": 6,
+            "pairs": 4,
+            "runs": 30,
+            "options": 5,
+            "rate": 0.2,
+            "fork": "what minimum number of shared games per dyad is required for inclusion?"
+          },
+          {
+            "handle": "fork:a39a9523",
+            "co_choices": 6,
+            "pairs": 6,
+            "runs": 1,
+            "options": 4,
+            "rate": 6.0,
+            "fork": "which moderation model specification is estimated?"
+          },
+          {
+            "handle": "fork:6579c06a",
+            "co_choices": 6,
+            "pairs": 6,
+            "runs": 1,
+            "options": 4,
+            "rate": 6.0,
+            "fork": "how are the interaction coefficients presented in the results table?"
+          },
+          {
+            "handle": "fork:c62e464b",
+            "co_choices": 5,
+            "pairs": 5,
+            "runs": 119,
+            "options": 17,
+            "rate": 0.042,
+            "fork": "what rule determines whether the effect is declared statistically supported?"
+          },
+          {
+            "handle": "fork:d3dbe4e1",
+            "co_choices": 5,
+            "pairs": 4,
+            "runs": 111,
+            "options": 10,
+            "rate": 0.045,
+            "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?"
+          },
+          {
+            "handle": "fork:f3162f72",
+            "co_choices": 5,
+            "pairs": 4,
+            "runs": 82,
+            "options": 9,
+            "rate": 0.061,
+            "fork": "how is the crude, unadjusted association estimated and tested?"
+          },
+          {
+            "handle": "fork:1bfc73f3",
+            "co_choices": 5,
+            "pairs": 2,
+            "runs": 137,
+            "options": 4,
+            "rate": 0.036,
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?"
+          },
+          {
+            "handle": "fork:db670d07",
+            "co_choices": 5,
+            "pairs": 5,
+            "runs": 41,
+            "options": 16,
+            "rate": 0.122,
+            "fork": "which regression model and outcome family estimates the exposure–red-card association?"
+          },
+          {
+            "handle": "fork:f13c05e7",
+            "co_choices": 4,
+            "pairs": 1,
+            "runs": 26,
+            "options": 3,
+            "rate": 0.154,
+            "fork": "are goalkeepers included in or excluded from the analysis sample?"
+          },
+          {
+            "handle": "fork:2a6f87c0",
+            "co_choices": 3,
+            "pairs": 2,
+            "runs": 9,
+            "options": 4,
+            "rate": 0.333,
+            "fork": "how is moderation of the referee-bias effect by player skin tone assessed?"
+          }
+        ]
+      },
+      {
+        "title": "the individual option pairs",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 386,
+        "columns": [
+          "shared_runs",
+          "fork",
+          "option_a",
+          "option_b",
+          "runs",
+          "trace_a",
+          "trace_b"
+        ],
+        "note": "Read these before acting on the fork-level table above.",
+        "rows": [
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 34,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "single-cutoff dichotomize at 0.5",
+            "runs": "2025-11-12T09-30-16+0000, 2025-11-12T12-24-45+0000, 2025-11-12T13-06-46+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:650c1f36"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 29,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "drop-middle dichotomize 0.25/0.75",
+            "runs": "2025-11-12T09-52-44+0000, 2025-11-12T13-06-46+0000, 2025-11-12T17-10-55+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:4770a012"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 21,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "single-cutoff dichotomize at 0.25",
+            "runs": "2025-11-16T09-53-00+0000, 2025-11-16T11-59-47+0000, 2025-11-16T17-04-39+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:f464e581"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 18,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "single-cutoff dichotomize at 0.5",
+            "option_b": "drop-middle dichotomize 0.25/0.75",
+            "runs": "2025-11-12T12-54-24+0000, 2025-11-12T13-06-46+0000, 2025-11-12T17-10-55+0000",
+            "trace_a": "opt:650c1f36",
+            "trace_b": "opt:4770a012"
+          },
+          {
+            "handle": "fork:8d07b365",
+            "shared_runs": 16,
+            "fork": "which effect-size measure is used to express the exposure's effect on red cards?",
+            "option_a": "report only an odds ratio",
+            "option_b": "report a risk difference plus an odds ratio",
+            "runs": "2025-11-12T11-24-34+0000, 2025-11-12T12-54-24+0000, 2025-11-12T17-30-15+0000",
+            "trace_a": "opt:6c3d5475",
+            "trace_b": "opt:5d50266f"
+          },
+          {
+            "handle": "fork:b1fc4f73",
+            "shared_runs": 16,
+            "fork": "how are the regression model's standard errors estimated?",
+            "option_a": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)",
+            "option_b": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country) #2",
+            "runs": "2025-11-12T18-56-42+0000, 2025-11-12T22-11-51+0000, 2025-11-17T14-46-19+0000",
+            "trace_a": "opt:121963dd",
+            "trace_b": "opt:4cbd50ba"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 12,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "search single cutoff maximizing effect size",
+            "runs": "2025-11-14T22-05-46+0000, 2025-11-16T09-53-00+0000, 2025-11-17T01-20-10+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:ad997da0"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 11,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "single-cutoff dichotomize, unspecified cutoff, full sample",
+            "option_b": "enter continuous, raw (per-unit, full range)",
+            "runs": "2025-11-12T21-15-40+0000, 2025-11-15T17-13-29+0000, 2025-11-19T07-38-28+0000",
+            "trace_a": "opt:198a3387",
+            "trace_b": "opt:65961bfc"
+          },
+          {
+            "handle": "fork:4c1b4953",
+            "shared_runs": 9,
+            "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?",
+            "option_a": "Poisson regression on raw counts with log(games) exposure offset",
+            "option_b": "binarize into a binary any-red indicator (logistic/binary model)",
+            "runs": "2025-11-12T09-52-44+0000, 2025-11-20T02-49-33+0000, 2025-11-20T04-21-39+0000",
+            "trace_a": "opt:0b8aaec0",
+            "trace_b": "opt:0d79aab2"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 7,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "trichotomize at 0.25/0.75",
+            "runs": "2025-11-15T23-57-58+0000, 2025-11-19T07-38-28+0000, 2025-11-22T11-14-05+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:f8afefc8"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 7,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "single-cutoff dichotomize at 0.75",
+            "runs": "2025-11-20T21-05-32+0000, 2025-11-22T14-03-14+0000, 2025-11-26T18-25-33+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:a2ee7e09"
+          },
+          {
+            "handle": "fork:f68bb1ba",
+            "shared_runs": 7,
+            "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+            "option_a": "percentile bootstrap CI (resampling unspecified)",
+            "option_b": "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified",
+            "runs": "2025-11-12T10-05-42+0000, 2025-11-15T02-22-25+0000, 2025-11-15T23-57-58+0000",
+            "trace_a": "opt:aa99d7aa",
+            "trace_b": "opt:2feb434b"
+          },
+          {
+            "handle": "fork:f68bb1ba",
+            "shared_runs": 7,
+            "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+            "option_a": "model-based Wald CI/p from the GLM coefficient SE",
+            "option_b": "analytic delta-method SE via g-computation gradient, Wald CI/p",
+            "runs": "2025-11-12T21-15-40+0000, 2025-11-15T20-23-37+0000, 2025-11-17T21-31-42+0000",
+            "trace_a": "opt:36c94204",
+            "trace_b": "opt:9e0209a5"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 6,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "extreme groups at endpoints 0 vs 1",
+            "option_b": "enter continuous, raw (per-unit, full range)",
+            "runs": "2025-11-16T07-53-05+0000, 2025-11-16T17-04-39+0000, 2025-11-17T14-46-19+0000",
+            "trace_a": "opt:113e482e",
+            "trace_b": "opt:65961bfc"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 6,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "drop-middle dichotomize 0.25/0.5",
+            "runs": "2025-11-15T15-38-19+0000, 2025-11-17T05-02-45+0000, 2025-11-19T22-14-21+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:094c5d0a"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 6,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "enter continuous, raw (per-unit, full range)",
+            "option_b": "drop-middle dichotomize 0.375/0.625",
+            "runs": "2025-11-12T11-24-34+0000, 2025-11-20T22-17-42+0000, 2025-11-20T22-39-34+0000",
+            "trace_a": "opt:65961bfc",
+            "trace_b": "opt:8cc4c381"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 6,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "search single cutoff maximizing effect size",
+            "option_b": "single-cutoff dichotomize at 0.25",
+            "runs": "2025-11-16T09-53-00+0000, 2025-11-27T00-12-07+0000, 2025-11-27T01-53-05+0000",
+            "trace_a": "opt:ad997da0",
+            "trace_b": "opt:f464e581"
+          },
+          {
+            "handle": "fork:f68bb1ba",
+            "shared_runs": 6,
+            "fork": "how are the confidence interval and p-value for the exposure effect computed?",
+            "option_a": "parametric bootstrap from full coefficient MVN/covariance, percentile-quantile inference (percentile CI and crossing-zero p are duals of the same draws)",
+            "option_b": "bootstrap p-value from tail proportion of draws crossing zero, resampling scheme unspecified",
+            "runs": "2025-11-15T18-59-03+0000, 2025-11-16T07-53-05+0000, 2025-11-21T00-55-35+0000",
+            "trace_a": "opt:1078a805",
+            "trace_b": "opt:2feb434b"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 5,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "single-cutoff dichotomize, unspecified cutoff, full sample",
+            "option_b": "drop-middle dichotomize 0.25/0.75",
+            "runs": "2025-11-15T17-13-29+0000, 2025-11-17T20-22-41+0000, 2025-11-20T06-03-23+0000",
+            "trace_a": "opt:198a3387",
+            "trace_b": "opt:4770a012"
+          },
+          {
+            "handle": "fork:753a1bff",
+            "shared_runs": 5,
+            "fork": "how is the skin-tone rating entered as the exposure — continuous or split/binned at which cutpoints?",
+            "option_a": "drop-middle dichotomize 0.125/0.75",
+            "option_b": "enter continuous, raw (per-unit, full range)",
+            "runs": "2025-11-16T11-59-47+0000, 2025-11-17T05-02-45+0000, 2025-11-19T22-14-21+0000",
+            "trace_a": "opt:9bfc6e8a",
+            "trace_b": "opt:65961bfc"
+          }
+        ]
+      }
+    ]
+  },
+  "V3": {
+    "verdict": "REVIEW",
+    "claim": "distinct forks ask distinct questions",
+    "why": "24 fork pairs to read",
+    "against": "no null -- a ranking for human attention, not a test",
+    "blind_to": "two forks asking one question in unrelated words, and -- since the merge passes already united the label-similar pairs that do NOT co-occur -- this queue is enriched for pairs the pipeline refused on structural grounds",
+    "uses": [
+      "label_similarity",
+      "option_lists"
+    ],
+    "entangled_with": [
+      "label_similarity",
+      "option_lists"
+    ],
+    "measurement": {
+      "fork_pairs": 50086,
+      "above": 24,
+      "threshold": 0.6
+    },
+    "exhibits": [
+      {
+        "title": "fork pairs most likely to be one question",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 24,
+        "columns": [
+          "similarity",
+          "runs_a",
+          "runs_b",
+          "fork_a",
+          "fork_b",
+          "trace_a",
+          "trace_b"
+        ],
+        "note": "Merging two forks that are genuinely one is safe; merging two that are not destroys a distinction invisibly. Read both option lists before acting on any row here.",
+        "rows": [
+          {
+            "similarity": 0.853,
+            "runs_a": 33,
+            "runs_b": 2,
+            "fork_a": "how is agreement between the two skin-tone raters quantified?",
+            "fork_b": "how is inter-rater agreement between the two skin-tone raters quantified?",
+            "trace_a": "fork:4e20f1b5",
+            "trace_b": "fork:8c4f167e"
+          },
+          {
+            "similarity": 0.849,
+            "runs_a": 2,
+            "runs_b": 1,
+            "fork_a": "Is an explicit-bias (country-mean Exp) cross-level interaction added to the preferred model?",
+            "fork_b": "Is an implicit-bias (country-mean IAT) cross-level interaction added to the preferred model?",
+            "trace_a": "fork:f8cddcf1",
+            "trace_b": "fork:9da021ab"
+          },
+          {
+            "similarity": 0.841,
+            "runs_a": 1,
+            "runs_b": 209,
+            "fork_a": "which version of the dataset is loaded?",
+            "fork_b": "which version of the source dataset is loaded?",
+            "trace_a": "fork:da4bffaa",
+            "trace_b": "fork:e21a9784"
+          },
+          {
+            "similarity": 0.808,
+            "runs_a": 2,
+            "runs_b": 4,
+            "fork_a": "how is the continuous skin-tone rating discretized into categories for analysis?",
+            "fork_b": "how is the continuous skin-tone rating discretized into categories?",
+            "trace_a": "fork:441e6c5d",
+            "trace_b": "fork:0cc97d1e"
+          },
+          {
+            "similarity": 0.802,
+            "runs_a": 1,
+            "runs_b": 1,
+            "fork_a": "How is the referee explicit-bias column's string 'NA' parsed to numeric?",
+            "fork_b": "How is the referee implicit-bias (IAT) column's string 'NA' parsed to numeric?",
+            "trace_a": "fork:30f2d973",
+            "trace_b": "fork:4dc70b2a"
+          },
+          {
+            "similarity": 0.8,
+            "runs_a": 1,
+            "runs_b": 2,
+            "fork_a": "Are goalkeepers included in the analysis sample?",
+            "fork_b": "Are goalkeepers included in the analytic sample?",
+            "trace_a": "fork:ba0485e1",
+            "trace_b": "fork:6c9ad8d3"
+          },
+          {
+            "similarity": 0.8,
+            "runs_a": 1,
+            "runs_b": 1,
+            "fork_a": "which version / sheet of the dataset is loaded?",
+            "fork_b": "which version of the dataset is loaded?",
+            "trace_a": "fork:c7405ac7",
+            "trace_b": "fork:da4bffaa"
+          },
+          {
+            "similarity": 0.782,
+            "runs_a": 1,
+            "runs_b": 3,
+            "fork_a": "how is covariate balance across groups checked?",
+            "fork_b": "how is covariate balance across skin-tone groups checked?",
+            "trace_a": "fork:7f478863",
+            "trace_b": "fork:e151894f"
+          },
+          {
+            "similarity": 0.774,
+            "runs_a": 1,
+            "runs_b": 3,
+            "fork_a": "How is covariate balance across skin-tone groups examined?",
+            "fork_b": "how is covariate balance across skin-tone groups checked?",
+            "trace_a": "fork:33afb732",
+            "trace_b": "fork:e151894f"
+          },
+          {
+            "similarity": 0.759,
+            "runs_a": 1,
+            "runs_b": 26,
+            "fork_a": "Are goalkeepers included in the analysis sample?",
+            "fork_b": "are goalkeepers included in or excluded from the analysis sample?",
+            "trace_a": "fork:ba0485e1",
+            "trace_b": "fork:f13c05e7"
+          },
+          {
+            "similarity": 0.737,
+            "runs_a": 1,
+            "runs_b": 1,
+            "fork_a": "what regression model form is used for the outcome?",
+            "fork_b": "what regression model is used for the red-card outcome?",
+            "trace_a": "fork:789e92ad",
+            "trace_b": "fork:bc348127"
+          },
+          {
+            "similarity": 0.722,
+            "runs_a": 1,
+            "runs_b": 2,
+            "fork_a": "how is covariate balance across groups checked?",
+            "fork_b": "is covariate balance across exposure groups checked?",
+            "trace_a": "fork:7f478863",
+            "trace_b": "fork:24177edd"
+          },
+          {
+            "similarity": 0.705,
+            "runs_a": 2,
+            "runs_b": 1,
+            "fork_a": "how is the fitted model's calibration / goodness-of-fit assessed?",
+            "fork_b": "how is the fitted model's calibration assessed?",
+            "trace_a": "fork:887b364d",
+            "trace_b": "fork:85849c05"
+          },
+          {
+            "similarity": 0.692,
+            "runs_a": 1,
+            "runs_b": 209,
+            "fork_a": "which version / sheet of the dataset is loaded?",
+            "fork_b": "which version of the source dataset is loaded?",
+            "trace_a": "fork:c7405ac7",
+            "trace_b": "fork:e21a9784"
+          },
+          {
+            "similarity": 0.646,
+            "runs_a": 37,
+            "runs_b": 2,
+            "fork_a": "How are raw group red-card rates reported descriptively?",
+            "fork_b": "How are the descriptive per-group red-card rates reported?",
+            "trace_a": "fork:dec389b8",
+            "trace_b": "fork:38cb96e2"
+          },
+          {
+            "similarity": 0.642,
+            "runs_a": 2,
+            "runs_b": 2,
+            "fork_a": "Are dyads with zero games excluded from the sample?",
+            "fork_b": "How are dyads with too few shared games excluded from the sample?",
+            "trace_a": "fork:29f104f9",
+            "trace_b": "fork:e92e0b5b"
+          },
+          {
+            "similarity": 0.635,
+            "runs_a": 3,
+            "runs_b": 2,
+            "fork_a": "how is covariate balance across skin-tone groups checked?",
+            "fork_b": "is covariate balance across exposure groups checked?",
+            "trace_a": "fork:e151894f",
+            "trace_b": "fork:24177edd"
+          },
+          {
+            "similarity": 0.625,
+            "runs_a": 1,
+            "runs_b": 2,
+            "fork_a": "Is a descriptive summary table produced?",
+            "fork_b": "Which variables are reported in the descriptive summary table?",
+            "trace_a": "fork:a3c9d5d0",
+            "trace_b": "fork:b2281b1e"
+          },
+          {
+            "similarity": 0.622,
+            "runs_a": 1,
+            "runs_b": 1,
+            "fork_a": "what regression model is used for the red-card outcome?",
+            "fork_b": "which regression model/effect measure is used for the red-card outcome?",
+            "trace_a": "fork:bc348127",
+            "trace_b": "fork:d0db1036"
+          },
+          {
+            "similarity": 0.619,
+            "runs_a": 2,
+            "runs_b": 26,
+            "fork_a": "Are goalkeepers included in the analytic sample?",
+            "fork_b": "are goalkeepers included in or excluded from the analysis sample?",
+            "trace_a": "fork:6c9ad8d3",
+            "trace_b": "fork:f13c05e7"
+          }
+        ]
+      }
+    ]
+  },
+  "V4": {
+    "verdict": "REVIEW",
+    "claim": "an option records one action, not several",
+    "why": "116 options bundle separable actions",
+    "against": "structural smell -- clause counting, which over-fires on options that are genuinely one action described carefully",
+    "blind_to": "a compound option written as a single clause: 'complete-case analysis' bundles a drop rule and a scope and counts as one",
+    "uses": [],
+    "entangled_with": [],
+    "measurement": {
+      "options": 777,
+      "compound": 116
+    },
+    "exhibits": [
+      {
+        "title": "options describing the most separable actions",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 116,
+        "columns": [
+          "clauses",
+          "runs",
+          "option",
+          "fork",
+          "handle"
+        ],
+        "note": "A compound option makes two decisions inseparable: any run choosing it is recorded as having made both, and the second one vanishes from its own fork.",
+        "rows": [
+          {
+            "handle": "opt:df7d040a",
+            "clauses": 9,
+            "runs": 5,
+            "option": "games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:bf37dbf9",
+            "clauses": 9,
+            "runs": 2,
+            "option": "games, position, league, yellowCards, meanIAT, meanExp, height, weight, age",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:f0a15320",
+            "clauses": 9,
+            "runs": 1,
+            "option": "games, height, weight, goals, yellowCards, meanIAT, meanExp, position, league #2",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:36ceac72",
+            "clauses": 8,
+            "runs": 3,
+            "option": "games, age, height, weight, position, league, meanIAT, meanExp",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:d6d4bc4b",
+            "clauses": 8,
+            "runs": 1,
+            "option": "position, league, games, yellowCards, goals, height, weight, meanIAT",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:ee6e4478",
+            "clauses": 8,
+            "runs": 1,
+            "option": "games, yellowCards, age, height, weight, league, meanIAT, meanExp (no position)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:5d0df0f6",
+            "clauses": 8,
+            "runs": 1,
+            "option": "games, height, weight, age, yellowCards, goals, position, league",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:bb3e14b4",
+            "clauses": 7,
+            "runs": 1,
+            "option": "league, position, age, height, weight, yellowCards, goals (no games)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:fd71782c",
+            "clauses": 7,
+            "runs": 1,
+            "option": "position, league, games, yellowCards, goals, height, weight",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:ca18a462",
+            "clauses": 7,
+            "runs": 1,
+            "option": "yellowCards, height, weight, position, league, meanIAT, meanExp (no games)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:d7d82868",
+            "clauses": 7,
+            "runs": 1,
+            "option": "games, victories, defeats, age, height, weight, goals (no position/league)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:bab65b61",
+            "clauses": 7,
+            "runs": 1,
+            "option": "games, position, league, height, weight, yellowCards, meanIAT",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:c5fd9418",
+            "clauses": 6,
+            "runs": 21,
+            "option": "full standard set: games, position, league, height, weight, player+referee ids",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:8858ca20",
+            "clauses": 6,
+            "runs": 4,
+            "option": "log(games), position, height, weight, yellowCards, league",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:8a15e53d",
+            "clauses": 6,
+            "runs": 1,
+            "option": "games, position, age, height, weight, yellowCards (no league)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:74a5b56f",
+            "clauses": 6,
+            "runs": 1,
+            "option": "raw games, position, league, yellowCards, height, weight",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:7f8790f2",
+            "clauses": 6,
+            "runs": 1,
+            "option": "games, yellowCards, position, league, meanIAT, meanExp",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:d72bf99d",
+            "clauses": 6,
+            "runs": 1,
+            "option": "add dark_skin×league interaction adjusting for log_games, position, height, weight, playerShort; derive per-league ORs",
+            "fork": "is a skin-tone × league interaction included so the effect can vary by league?"
+          },
+          {
+            "handle": "opt:264edd6c",
+            "clauses": 5,
+            "runs": 4,
+            "option": "linear games, position, league, height, weight (standardized or raw)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:ff0ab93e",
+            "clauses": 5,
+            "runs": 2,
+            "option": "games, yellowCards, position, league, age (no anthropometrics)",
+            "fork": "which covariates make up the model's adjustment set?"
+          }
+        ]
+      }
+    ]
+  },
+  "V6": {
+    "verdict": "REVIEW",
+    "claim": "an option records one use, not a primary and a refit",
+    "why": "2 options merge a run's distant decisions",
+    "against": "structural, and conclusive in one direction only -- two decisions written 200 lines apart are not one operation, but two written 3 lines apart may well be",
+    "blind_to": "a primary and a refit that happen to sit close together, and a repeat across DIFFERENT runs, which is what an option is for and is not a defect",
+    "uses": [],
+    "entangled_with": [],
+    "measurement": {
+      "groups": 22,
+      "distant": 2,
+      "adjacent": 20,
+      "span_threshold": 5
+    },
+    "exhibits": [
+      {
+        "title": "options merging distant decisions from one run",
+        "ordered_by": "worst-first",
+        "shown": 2,
+        "of": 2,
+        "columns": [
+          "span",
+          "n",
+          "lines",
+          "run",
+          "option",
+          "fork",
+          "handle"
+        ],
+        "note": "Splitting these is the sanctioned direction: over-merge is invisible in the output and unrecoverable, under-merge is visible and a human can undo it. stability/scripts/repair_option_splits.py applies the split; it does not decide whether the split is right.",
+        "rows": [
+          {
+            "handle": "opt:9aef08e2",
+            "span": 10,
+            "n": 3,
+            "run": "2025-11-17T01-20-10+0000",
+            "lines": "154/159/164",
+            "option": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference",
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?"
+          },
+          {
+            "handle": "opt:1879411f",
+            "span": 7,
+            "n": 3,
+            "run": "team-10",
+            "lines": "110/113/117",
+            "option": "screen a player-level variable for confounding by testing its association with skin tone",
+            "fork": "How are potential confounders screened for association with skin tone?"
+          }
+        ]
+      }
+    ]
+  },
+  "V7": {
+    "verdict": "REVIEW",
+    "claim": "an option's label names one choice, not a list",
+    "why": "36 options carry a disjunctive label, 1 of them also flagged by V6",
+    "against": "lexical only -- it reads the label, never the members, so a genuinely single action described with an 'or' will fire",
+    "blind_to": "an over-merged option with a clean label, which is the majority: V7 finds the ones that announce themselves",
+    "uses": [],
+    "entangled_with": [],
+    "measurement": {
+      "options": 777,
+      "disjunctive": 36,
+      "also_flagged_by_v6": 1
+    },
+    "exhibits": [
+      {
+        "title": "options whose label lists alternatives",
+        "ordered_by": "worst-first",
+        "shown": 20,
+        "of": 36,
+        "columns": [
+          "runs",
+          "also_v6",
+          "option",
+          "fork",
+          "handle"
+        ],
+        "note": "Enriched 8.3x for same-run merges on this corpus, so a disjunctive label is a usable prior on over-merge even before any member is read.",
+        "rows": [
+          {
+            "handle": "opt:9aef08e2",
+            "runs": 135,
+            "also_v6": true,
+            "option": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference",
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?"
+          },
+          {
+            "handle": "opt:0d79aab2",
+            "runs": 198,
+            "also_v6": false,
+            "option": "binarize into a binary any-red indicator (logistic/binary model)",
+            "fork": "How is the red-card outcome operationalised and modelled — a binary indicator, a raw count, or a count with an exposure offset?"
+          },
+          {
+            "handle": "opt:121963dd",
+            "runs": 98,
+            "also_v6": false,
+            "option": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country)",
+            "fork": "how are the regression model's standard errors estimated?"
+          },
+          {
+            "handle": "opt:f6283bfc",
+            "runs": 84,
+            "also_v6": false,
+            "option": "complete-case / listwise deletion",
+            "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?"
+          },
+          {
+            "handle": "opt:415a6b71",
+            "runs": 58,
+            "also_v6": false,
+            "option": "crude risk difference, point estimate only (no test or CI)",
+            "fork": "how is the crude, unadjusted association estimated and tested?"
+          },
+          {
+            "handle": "opt:20700931",
+            "runs": 38,
+            "also_v6": false,
+            "option": "z-score a varying subset of continuous covariates (umbrella/aggregate)",
+            "fork": "how are continuous predictors transformed and z-scored/standardized before modeling?"
+          },
+          {
+            "handle": "opt:1b89b45d",
+            "runs": 29,
+            "also_v6": false,
+            "option": "collapse into 4 categories (GK/Def/Mid/Fwd), no residual",
+            "fork": "how many categories, and by what mapping, is player position collapsed into?"
+          },
+          {
+            "handle": "opt:0dd15c26",
+            "runs": 25,
+            "also_v6": false,
+            "option": "report the average marginal effect / risk difference (RD) as primary",
+            "fork": "which model effect is reported as primary, and on what scale (risk difference/AME vs odds ratio)?"
+          },
+          {
+            "handle": "opt:4afd03ed",
+            "runs": 17,
+            "also_v6": false,
+            "option": "overall median-impute continuous covariates (height/weight, ±age)",
+            "fork": "how are records with missing covariates handled — complete-case, impute, or recode as explicit category?"
+          },
+          {
+            "handle": "opt:4cbd50ba",
+            "runs": 16,
+            "also_v6": false,
+            "option": "cluster-robust SEs, varying clustering dimension (unspecified / player / referee / two-way player+referee / referee-country) #2",
+            "fork": "how are the regression model's standard errors estimated?"
+          },
+          {
+            "handle": "opt:d6182cd7",
+            "runs": 7,
+            "also_v6": false,
+            "option": "declare hypothesis supported (significant/robust)",
+            "fork": "what overall conclusion is drawn about the hypothesis?"
+          },
+          {
+            "handle": "opt:eca007f9",
+            "runs": 4,
+            "also_v6": false,
+            "option": "predict at a single fixed reference profile (means/modal categories), then difference",
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?"
+          },
+          {
+            "handle": "opt:aa41c6a6",
+            "runs": 4,
+            "also_v6": false,
+            "option": "marginal standardization / g-computation: average counterfactual predictions over the observed sample, then difference #2",
+            "fork": "When forming adjusted counterfactual predictions, are covariates averaged over the observed sample or fixed at a single reference profile?"
+          },
+          {
+            "handle": "opt:264edd6c",
+            "runs": 4,
+            "also_v6": false,
+            "option": "linear games, position, league, height, weight (standardized or raw)",
+            "fork": "which covariates make up the model's adjustment set?"
+          },
+          {
+            "handle": "opt:2ebc47b9",
+            "runs": 4,
+            "also_v6": false,
+            "option": "collapse into 6 categories, underspecified (Winger or Other+Unknown)",
+            "fork": "how many categories, and by what mapping, is player position collapsed into?"
+          },
+          {
+            "handle": "opt:af7679c1",
+            "runs": 4,
+            "also_v6": false,
+            "option": "collapse into 6 categories (four core + separate Other/Unknown)",
+            "fork": "how many categories, and by what mapping, is player position collapsed into?"
+          },
+          {
+            "handle": "opt:5f8bec8d",
+            "runs": 3,
+            "also_v6": false,
+            "option": "compute VIF on all covariates, no threshold or subset specified",
+            "fork": "is multicollinearity among covariates diagnosed?"
+          },
+          {
+            "handle": "opt:1a1419d7",
+            "runs": 3,
+            "also_v6": false,
+            "option": "conventional non-robust / model-based SEs",
+            "fork": "how are the regression model's standard errors estimated?"
+          },
+          {
+            "handle": "opt:063af9ce",
+            "runs": 2,
+            "also_v6": false,
+            "option": "compute Cohen's h effect size and bucket it into fixed categories (e.g. negligible/small/medium)",
+            "fork": "How is the effect-size magnitude reported and categorized?"
+          },
+          {
+            "handle": "opt:367bf811",
+            "runs": 2,
+            "also_v6": false,
+            "option": "report the model coefficient's Wald test (z-statistic / p-value on the log-odds scale) for the exposure term",
+            "fork": "How is the exposure term's statistical significance test reported?"
+          }
+        ]
+      }
+    ]
+  },
+  "V5": {
+    "verdict": "INFO",
+    "claim": "forks where nearly every run invented its own option",
+    "why": "0 forks need a human read; no verdict is available from the shape alone",
+    "against": "no null -- these are simultaneously the most interesting and the least trustworthy forks, and only reading them separates the two",
+    "blind_to": "an under-merged fork whose run count is low enough to fall under the >=8 floor, and any fork whose options are duplicated without inflating the per-run ratio",
+    "uses": [],
+    "entangled_with": [],
+    "measurement": {
+      "flagged": 0,
+      "min_runs": 8,
+      "min_ratio": 0.7
+    },
+    "exhibits": [
+      {
+        "title": "forks with the most options per run",
+        "ordered_by": "worst-first",
+        "shown": 0,
+        "of": 0,
+        "columns": [
+          "ratio",
+          "options",
+          "runs",
+          "stage",
+          "fork",
+          "handle"
+        ],
+        "note": "A fork with 22 options over 22 runs is either the most contested object in the corpus or a clustering failure. The shape is identical; only the content distinguishes them.",
+        "rows": []
+      }
+    ]
+  }
+}

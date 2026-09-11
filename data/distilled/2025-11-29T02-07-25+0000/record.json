@@ -1,0 +1,110 @@
+{
+ "run_id": "2025-11-29T02-07-25+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 314,
+   "functional_lines": 193,
+   "functional_share": 0.6146,
+   "by_type": {
+    "print": 75,
+    "comment": 33,
+    "import": 8,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 262,
+   "functional_lines": 126,
+   "functional_share": 0.4809,
+   "by_type": {
+    "heading": 84,
+    "boilerplate": 43,
+    "other": 20,
+    "hedging": 9,
+    "background": 4,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 20,
+  "claims": 106,
+  "action_claims": 63,
+  "result_claims": 43,
+  "links": 79,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 12,
+  "result_claims_deferred": 43
+ },
+ "silent_decisions": [
+  {
+   "id": 39,
+   "lines": [
+    [
+     257,
+     264
+    ]
+   ],
+   "confidence": "high",
+   "operation": "restrict the sample to dyads with at least 3 games together and refit the model",
+   "targets": [
+    "games",
+    "df_g3",
+    "model_g3"
+   ]
+  },
+  {
+   "id": 41,
+   "lines": [
+    [
+     270,
+     277
+    ]
+   ],
+   "confidence": "high",
+   "operation": "refit the model separately within each league, dropping the league covariate, to check cross-league consistency",
+   "targets": [
+    "leagueCountry",
+    "df_league",
+    "model_league"
+   ]
+  },
+  {
+   "id": 45,
+   "lines": [
+    [
+     292,
+     301
+    ]
+   ],
+   "confidence": "low",
+   "operation": "frame the risk difference as the primary estimand and the odds ratio as the secondary one in the reported results",
+   "targets": [
+    "risk_diff",
+    "ci_lower",
+    "ci_upper",
+    "or_primary",
+    "ci_or"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "collapse red card counts into a single any-red-card binary outcome per dyad",
+   "claim": "no transformation was applied to the already-binary outcome",
+   "note": "code collapses red-card counts into an any-red-card binary (a transformation), contradicting the claim that the outcome was already binary and no transformation was applied"
+  }
+ ]
+}

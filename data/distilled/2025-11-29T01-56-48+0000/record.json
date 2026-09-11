@@ -1,0 +1,81 @@
+{
+ "run_id": "2025-11-29T01-56-48+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 275,
+   "functional_lines": 145,
+   "functional_share": 0.5273,
+   "by_type": {
+    "print": 92,
+    "comment": 27,
+    "import": 6,
+    "config": 4,
+    "glue": 1
+   }
+  },
+  "prose": {
+   "n_lines": 191,
+   "functional_lines": 154,
+   "functional_share": 0.8063,
+   "by_type": {
+    "heading": 38,
+    "boilerplate": 22,
+    "framing": 4,
+    "citation": 3,
+    "hedging": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 81,
+  "action_claims": 42,
+  "result_claims": 39,
+  "links": 42,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 14,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 39
+ },
+ "silent_decisions": [
+  {
+   "id": 17,
+   "lines": [
+    [
+     71,
+     76
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "carve out the specific set of columns that will constitute the modeling dataset",
+   "targets": [
+    "df_model",
+    "anyRedCard",
+    "redCards",
+    "darkSkin",
+    "games",
+    "height_imp",
+    "weight_imp",
+    "age",
+    "position_cat",
+    "leagueCountry",
+    "yellowCards",
+    "goals",
+    "refNum",
+    "refCountry",
+    "playerShort"
+   ]
+  }
+ ],
+ "misalignments": []
+}

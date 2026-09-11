@@ -1,0 +1,69 @@
+{
+ "run_id": "2025-11-29T01-11-34+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 301,
+   "functional_lines": 129,
+   "functional_share": 0.4286,
+   "by_type": {
+    "print": 100,
+    "comment": 59,
+    "import": 8,
+    "config": 5
+   }
+  },
+  "prose": {
+   "n_lines": 283,
+   "functional_lines": 157,
+   "functional_share": 0.5548,
+   "by_type": {
+    "heading": 68,
+    "boilerplate": 45,
+    "framing": 16,
+    "hedging": 10
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 122,
+  "action_claims": 82,
+  "result_claims": 40,
+  "links": 83,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 21,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 17,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 21,
+   "lines": [
+    [
+     88,
+     92
+    ]
+   ],
+   "confidence": "high",
+   "operation": "compute the unadjusted red-card rate difference between dark and light groups",
+   "targets": [
+    "anyRedCard",
+    "dark",
+    "dark_rate",
+    "light_rate",
+    "unadj_rd"
+   ]
+  }
+ ],
+ "misalignments": []
+}

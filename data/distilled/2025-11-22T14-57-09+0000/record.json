@@ -1,0 +1,99 @@
+{
+ "run_id": "2025-11-22T14-57-09+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 350,
+   "functional_lines": 134,
+   "functional_share": 0.3829,
+   "by_type": {
+    "print": 128,
+    "comment": 59,
+    "import": 14,
+    "glue": 11,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 234,
+   "functional_lines": 115,
+   "functional_share": 0.4915,
+   "by_type": {
+    "boilerplate": 82,
+    "heading": 27,
+    "hedging": 13,
+    "other": 6,
+    "framing": 1,
+    "citation": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 64,
+  "action_claims": 23,
+  "result_claims": 41,
+  "links": 33,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 13,
+  "C_only_silent_decision": 3,
+  "R_only_unbacked_action_claim": 2,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 41
+ },
+ "silent_decisions": [
+  {
+   "id": 12,
+   "lines": [
+    [
+     58,
+     62
+    ]
+   ],
+   "confidence": "high",
+   "operation": "derive player age from birthday relative to a chosen 2012-10-01 season-midpoint reference date, coercing unparseable birthdates to missing",
+   "targets": [
+    "birthday",
+    "age"
+   ]
+  },
+  {
+   "id": 23,
+   "lines": [
+    [
+     106,
+     111
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the unadjusted (crude) red-card rate per game separately for the dark and light skin-tone groups as a raw comparison",
+   "targets": [
+    "dark_binary",
+    "games",
+    "redCards"
+   ]
+  },
+  {
+   "id": 60,
+   "lines": [
+    [
+     333,
+     341
+    ]
+   ],
+   "confidence": "high",
+   "operation": "populate the final results summary table with fixed literal IRR/CI/p-value numbers rather than the values computed earlier in the script",
+   "targets": [
+    "results_table"
+   ]
+  }
+ ],
+ "misalignments": []
+}

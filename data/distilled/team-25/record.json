@@ -1,0 +1,223 @@
+{
+ "run_id": "team-25",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 59,
+   "functional_lines": 36,
+   "functional_share": 0.6102,
+   "by_type": {
+    "glue": 12,
+    "print": 6,
+    "comment": 3,
+    "dead": 1,
+    "import": 1
+   }
+  },
+  "prose": {
+   "n_lines": 206,
+   "functional_lines": 156,
+   "functional_share": 0.7573,
+   "by_type": {
+    "citation": 40,
+    "boilerplate": 34,
+    "background": 20,
+    "heading": 12,
+    "framing": 7
+   }
+  }
+ },
+ "counts": {
+  "decisions": 16,
+  "claims": 54,
+  "action_claims": 24,
+  "result_claims": 30,
+  "links": 34,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 6,
+  "C_only_silent_decision": 10,
+  "R_only_unbacked_action_claim": 11,
+  "R_only_consistent_negative": 2,
+  "result_claims_deferred": 30
+ },
+ "silent_decisions": [
+  {
+   "id": 1,
+   "lines": [
+    [
+     1,
+     1
+    ]
+   ],
+   "confidence": "high",
+   "operation": "load the raw crowdstorming dataset from CSV as the analysis source",
+   "targets": [
+    "red"
+   ]
+  },
+  {
+   "id": 2,
+   "lines": [
+    [
+     3,
+     3
+    ]
+   ],
+   "confidence": "high",
+   "operation": "drop every row with any missing value before building the working sample",
+   "targets": [
+    "red",
+    "tred"
+   ]
+  },
+  {
+   "id": 3,
+   "lines": [
+    [
+     4,
+     4
+    ],
+    [
+     6,
+     7
+    ]
+   ],
+   "confidence": "high",
+   "operation": "restrict analysis to a random draw of 250 referees rather than the full referee pool",
+   "targets": [
+    "refNum"
+   ]
+  },
+  {
+   "id": 6,
+   "lines": [
+    [
+     10,
+     15
+    ]
+   ],
+   "confidence": "high",
+   "operation": "z-score every model covariate (skin tone, height, weight, goals, IAT, experience) before fitting",
+   "targets": [
+    "meanSkinCol",
+    "height",
+    "weight",
+    "goals",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "id": 14,
+   "lines": [
+    [
+     37,
+     38
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit an alternate red-card model on the full unsampled data using rater1's raw rating treated as a categorical factor, with a player random intercept",
+   "targets": [
+    "redCards",
+    "rater1",
+    "player"
+   ]
+  },
+  {
+   "id": 15,
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "confidence": "high",
+   "operation": "refit the same rater1 model but treat the rating as a continuous linear predictor instead of a factor",
+   "targets": [
+    "redCards",
+    "rater1",
+    "player"
+   ]
+  },
+  {
+   "id": 16,
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "confidence": "high",
+   "operation": "swap in rater2's categorical rating in place of rater1 for the same model structure",
+   "targets": [
+    "redCards",
+    "rater2",
+    "player"
+   ]
+  },
+  {
+   "id": 17,
+   "lines": [
+    [
+     49,
+     50
+    ]
+   ],
+   "confidence": "high",
+   "operation": "build two alternate skin-tone measures by taking the elementwise min (lower) and max (higher) of the two raters' scores",
+   "targets": [
+    "rater1",
+    "rater2",
+    "lower",
+    "higher"
+   ]
+  },
+  {
+   "id": 18,
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit the red-card model using the min-of-two-raters score as the skin-tone predictor",
+   "targets": [
+    "redCards",
+    "lower",
+    "player"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     56,
+     57
+    ]
+   ],
+   "confidence": "high",
+   "operation": "fit the red-card model using the max-of-two-raters score as the skin-tone predictor",
+   "targets": [
+    "redCards",
+    "higher",
+    "player"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "fit a poisson GLMM for red cards on height, weight, goals and position with a referee random intercept, holding skin tone out entirely",
+   "claim": "a multilevel logistic regression model was used to analyze data on male soccer players in top European divisions",
+   "note": "claim states a multilevel logistic regression was used, but decision 8 fits a Poisson GLMM"
+  }
+ ]
+}

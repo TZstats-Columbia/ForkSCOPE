@@ -1,0 +1,681 @@
+{
+ "n_lines": 366,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     19
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     21
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     22,
+     25
+    ]
+   ],
+   "note": "section banner: data loading"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     30,
+     31
+    ]
+   ],
+   "operation": "choose the input dataset and its scope: the full set of player-referee dyads from the 2012-2013 soccer CSV",
+   "targets": [
+    "df"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     32,
+     36
+    ]
+   ],
+   "note": "dataset size counts"
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     37,
+     40
+    ]
+   ],
+   "operation": "average the two independent raters' skin-tone scores into a single continuous skinTone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     41,
+     43
+    ]
+   ],
+   "operation": "drop dyads that lack a skin-tone rating from the analysis population",
+   "targets": [
+    "skinTone",
+    "df_analysis"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     44,
+     44
+    ]
+   ],
+   "note": "sample count after filtering"
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     45,
+     47
+    ]
+   ],
+   "operation": "collapse red-card counts into a binary any-red-card outcome per dyad",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     52
+    ]
+   ],
+   "note": "section banner: define exposure groups"
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     53,
+     56
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     57,
+     68
+    ]
+   ],
+   "operation": "bin continuous skin tone into light/dark exposure groups at 0.25/0.5 cutpoints, dropping the intermediate band, and encode the result as a binary indicator",
+   "targets": [
+    "skinTone",
+    "skin_category",
+    "dark_skin",
+    "df_ld"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     69,
+     73
+    ]
+   ],
+   "note": "group size counts"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     77
+    ]
+   ],
+   "operation": "compute the crude (unadjusted) red-card rate difference between skin tone groups as a comparison point before adjustment",
+   "targets": [
+    "dark_skin",
+    "anyRedCard",
+    "light_rate",
+    "dark_rate",
+    "unadjusted_rd"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     78,
+     83
+    ]
+   ],
+   "note": "unadjusted rate output"
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     84,
+     87
+    ]
+   ],
+   "note": "section banner: prepare covariates"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     88,
+     91
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     92,
+     111
+    ]
+   ],
+   "operation": "collapse detailed position strings into five broad position categories via keyword-matching rules",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": "position distribution output"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     117
+    ]
+   ],
+   "operation": "exclude dyads whose position could not be categorized",
+   "targets": [
+    "position_cat",
+    "df_reg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     118,
+     121
+    ]
+   ],
+   "operation": "one-hot encode position and league-country categoricals with a reference level dropped",
+   "targets": [
+    "position_cat",
+    "leagueCountry"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     122,
+     124
+    ]
+   ],
+   "operation": "drop dyads missing the referee-country implicit bias score",
+   "targets": [
+    "meanIAT",
+    "df_reg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     125,
+     130
+    ]
+   ],
+   "note": "final regression sample counts"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     131,
+     134
+    ]
+   ],
+   "note": "section banner: fit model"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     135,
+     138
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     139,
+     154
+    ]
+   ],
+   "operation": "choose the adjustment set / design matrix for the regression: exposure, game count, position dummies, league dummies, and implicit-bias score, with an added intercept",
+   "targets": [
+    "dark_skin",
+    "games",
+    "position_cat_Forward",
+    "position_cat_Goalkeeper",
+    "position_cat_Midfielder",
+    "position_cat_Winger",
+    "leagueCountry_France",
+    "leagueCountry_Germany",
+    "leagueCountry_Spain",
+    "meanIAT",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "decision",
+   "lines": [
+    [
+     155,
+     162
+    ]
+   ],
+   "operation": "fit a logistic regression model for any-red-card with standard errors clustered by player",
+   "targets": [
+    "anyRedCard",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     163,
+     167
+    ]
+   ],
+   "note": "model summary output"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     168,
+     171
+    ]
+   ],
+   "note": "section banner: primary estimand"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     172,
+     175
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 33,
+   "kind": "decision",
+   "lines": [
+    [
+     176,
+     188
+    ]
+   ],
+   "operation": "derive the primary effect estimate as a marginal risk difference from counterfactual all-light vs all-dark predicted probabilities",
+   "targets": [
+    "dark_skin",
+    "prob_light",
+    "prob_dark",
+    "risk_diff"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     189,
+     193
+    ]
+   ],
+   "note": "risk difference output"
+  },
+  {
+   "id": 35,
+   "kind": "decision",
+   "lines": [
+    [
+     194,
+     196
+    ],
+    [
+     198,
+     230
+    ]
+   ],
+   "operation": "quantify uncertainty on the risk difference via a parametric bootstrap that redraws coefficients from their asymptotic covariance, then derive a percentile CI and a simulation-based two-sided p-value",
+   "targets": [
+    "result",
+    "risk_diffs",
+    "rd_ci_lower",
+    "rd_ci_upper",
+    "p_value_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     197,
+     197
+    ]
+   ],
+   "note": "progress message"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     231,
+     239
+    ]
+   ],
+   "note": "primary estimand summary output"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     240,
+     243
+    ]
+   ],
+   "note": "section banner: secondary estimand"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     244,
+     247
+    ]
+   ],
+   "note": "console banner"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     248,
+     255
+    ]
+   ],
+   "operation": "report the secondary effect estimate as an odds ratio by exponentiating the dark_skin coefficient and its confidence interval",
+   "targets": [
+    "dark_skin",
+    "or_dark",
+    "or_ci_lower",
+    "or_ci_upper"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     256,
+     261
+    ]
+   ],
+   "note": "odds ratio output"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     262,
+     265
+    ]
+   ],
+   "note": "section banner: summary statistics"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     266,
+     314
+    ]
+   ],
+   "note": "restates sample size, outcome, exposure, covariate and exclusion counts already computed earlier; includes two lines (306-307) computed solely to feed this output"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     315,
+     318
+    ]
+   ],
+   "note": "section banner: diagnostic plot"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     319,
+     359
+    ]
+   ],
+   "note": "builds bar chart and forest plot figure"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     360,
+     360
+    ]
+   ],
+   "note": "writes figure to disk"
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     361,
+     361
+    ]
+   ],
+   "note": "confirms plot saved"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     362,
+     366
+    ]
+   ],
+   "note": "trailing blank and end-of-file banner"
+  }
+ ]
+}

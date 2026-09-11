@@ -1,0 +1,59 @@
+{
+ "run_id": "2025-11-20T20-25-41+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 352,
+   "functional_lines": 125,
+   "functional_share": 0.3551,
+   "by_type": {
+    "print": 146,
+    "comment": 38,
+    "glue": 24,
+    "import": 11,
+    "other": 6,
+    "config": 2
+   }
+  },
+  "prose": {
+   "n_lines": 190,
+   "functional_lines": 101,
+   "functional_share": 0.5316,
+   "by_type": {
+    "boilerplate": 65,
+    "heading": 27,
+    "hedging": 6,
+    "framing": 3,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 14,
+  "claims": 81,
+  "action_claims": 37,
+  "result_claims": 44,
+  "links": 59,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 14,
+  "C_only_silent_decision": 0,
+  "R_only_unbacked_action_claim": 1,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 44
+ },
+ "silent_decisions": [],
+ "misalignments": [
+  {
+   "decision": "specifies and fits a logistic regression of red cards on dark-skin exposure adjusting for games, position, league country, height and weight, with standard errors clustered by player",
+   "claim": "referee country and league country were controlled for instead of referee fixed effects",
+   "note": "claim states referee country was controlled for, but the model's covariates include only league country, not referee country"
+  }
+ ]
+}

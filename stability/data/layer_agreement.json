@@ -1,0 +1,29 @@
+{
+ "build_a": "data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.merged.forkmerged.merged.induced.r3.json",
+ "comparison_type": "replicate",
+ "tau": 0.5,
+ "layer1_options_over_decisions": {
+  "items": 3946,
+  "ari": 0.8528,
+  "bcubed_f1": 0.7586,
+  "clusters_a": 729,
+  "clusters_b": 759
+ },
+ "option_matching": {
+  "matched": 497,
+  "of_a": 0.6818,
+  "of_b": 0.6548,
+  "unmatched_a": 232,
+  "unmatched_b": 262
+ },
+ "layer2_forks_over_options": {
+  "items": 497,
+  "ari_by_option": 0.3065,
+  "bcubed_f1_by_option": 0.673,
+  "ari_by_instance": 0.8522,
+  "forks_a": 255,
+  "forks_b": 282
+ },
+ "forks_over_decisions_confounded": 0.6947
+}

@@ -1,0 +1,84 @@
+{
+ "run_id": "2025-11-12T10-39-00+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 301,
+   "functional_lines": 104,
+   "functional_share": 0.3455,
+   "by_type": {
+    "print": 87,
+    "glue": 64,
+    "comment": 38,
+    "import": 8
+   }
+  },
+  "prose": {
+   "n_lines": 252,
+   "functional_lines": 107,
+   "functional_share": 0.4246,
+   "by_type": {
+    "other": 81,
+    "boilerplate": 28,
+    "hedging": 25,
+    "heading": 22,
+    "framing": 3,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 17,
+  "claims": 107,
+  "action_claims": 38,
+  "result_claims": 69,
+  "links": 33,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 15,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 69
+ },
+ "silent_decisions": [
+  {
+   "id": 21,
+   "lines": [
+    [
+     105,
+     110
+    ]
+   ],
+   "confidence": "high",
+   "operation": "one-hot encode position and league with drop_first=True, fixing the omitted category as the implicit reference level",
+   "targets": [
+    "positionBroad",
+    "leagueCountry",
+    "model_df_dummies"
+   ]
+  },
+  {
+   "id": 31,
+   "lines": [
+    [
+     162,
+     163
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "construct the odds-ratio confidence interval via a manual normal (Wald) approximation on the log-odds scale using a fixed 1.96 multiplier, rather than the model's own CI method",
+   "targets": [
+    "darkSkin_log_or",
+    "darkSkin_or_se"
+   ]
+  }
+ ],
+ "misalignments": []
+}

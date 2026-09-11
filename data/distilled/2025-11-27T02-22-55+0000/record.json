@@ -1,0 +1,124 @@
+{
+ "run_id": "2025-11-27T02-22-55+0000",
+ "corpus": "ai",
+ "arm": "strong_confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 450,
+   "functional_lines": 221,
+   "functional_share": 0.4911,
+   "by_type": {
+    "print": 130,
+    "comment": 49,
+    "plot": 29,
+    "config": 10,
+    "import": 9,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 212,
+   "functional_lines": 141,
+   "functional_share": 0.6651,
+   "by_type": {
+    "boilerplate": 42,
+    "heading": 32,
+    "framing": 13,
+    "hedging": 9,
+    "background": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 23,
+  "claims": 91,
+  "action_claims": 44,
+  "result_claims": 47,
+  "links": 66,
+  "misaligned": 2
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 6,
+  "R_only_consistent_negative": 9,
+  "result_claims_deferred": 47
+ },
+ "silent_decisions": [
+  {
+   "id": 19,
+   "lines": [
+    [
+     368,
+     371
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin skin_tone into nine display categories for the descriptive plot",
+   "targets": [
+    "skin_tone",
+    "skin_cat"
+   ]
+  },
+  {
+   "id": 20,
+   "lines": [
+    [
+     372,
+     378
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "compute the observed red-card rate and a Wald-type standard error for each skin-tone display bin",
+   "targets": [
+    "any_red_card",
+    "skin_cat"
+   ]
+  },
+  {
+   "id": 21,
+   "lines": [
+    [
+     395,
+     395
+    ]
+   ],
+   "confidence": "low",
+   "operation": "back out an approximate standard error for the primary risk difference from the bootstrap CI width, assuming normality",
+   "targets": [
+    "ci_upper",
+    "ci_lower"
+   ]
+  },
+  {
+   "id": 22,
+   "lines": [
+    [
+     396,
+     396
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "substitute fixed placeholder standard error values for the sensitivity analyses in the forest plot instead of values derived from each model",
+   "targets": [
+    "ses"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "bucket free-text position strings into four coarse role categories via string matching",
+   "claim": "a 5-level position category covariate was used (Defensive, Forward/Attack, Midfielder, Goalkeeper, Unknown)",
+   "note": "code buckets positions into four coarse role categories; claim describes a five-level position category variable"
+  },
+  {
+   "decision": "bucket free-text position strings into four coarse role categories via string matching",
+   "claim": "12 detailed position categories were collapsed into 5 based on disciplinary risk profile",
+   "note": "code produces four position categories; claim states twelve categories were collapsed into five"
+  }
+ ]
+}

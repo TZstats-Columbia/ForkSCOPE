@@ -1,0 +1,1327 @@
+{
+ "n_lines": 306,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     1,
+     5
+    ]
+   ],
+   "note": "Cover/team label"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     6,
+     9
+    ]
+   ],
+   "note": "Paper title"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     10,
+     11
+    ]
+   ],
+   "note": "Author byline"
+  },
+  {
+   "id": 4,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     12,
+     17
+    ]
+   ],
+   "note": "Affiliations"
+  },
+  {
+   "id": 5,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     18,
+     23
+    ]
+   ],
+   "note": "Correspondence contact info"
+  },
+  {
+   "id": 6,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     24,
+     25
+    ]
+   ],
+   "note": "Abstract heading"
+  },
+  {
+   "id": 7,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     26,
+     29
+    ]
+   ],
+   "note": "Restates the research question: whether referees show bias by skin tone, moderated by implicit/explicit bias"
+  },
+  {
+   "id": 8,
+   "kind": "claim",
+   "lines": [
+    [
+     30,
+     33
+    ]
+   ],
+   "assertion": "a cross-classified multilevel analysis found dark-skin-toned players were 1.40 times (95% CI [1.15,1.71]) more likely to receive a red card than light-skin-toned players",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "claim",
+   "lines": [
+    [
+     34,
+     37
+    ]
+   ],
+   "assertion": "the skin-tone/red-card association was not moderated by referee countries' explicit or implicit racial bias",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     38,
+     39
+    ]
+   ],
+   "note": "One Sentence Summary heading"
+  },
+  {
+   "id": 11,
+   "kind": "claim",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "assertion": "darker-skin-toned soccer players were more likely to receive red cards from referees",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    12
+   ]
+  },
+  {
+   "id": 12,
+   "kind": "claim",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "assertion": "this association was not moderated by implicit or explicit racial bias",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    11
+   ]
+  },
+  {
+   "id": 13,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     43,
+     44
+    ]
+   ],
+   "note": "Results heading"
+  },
+  {
+   "id": 14,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     45,
+     46
+    ]
+   ],
+   "note": "Transformations of Variables heading"
+  },
+  {
+   "id": 15,
+   "kind": "claim",
+   "lines": [
+    [
+     47,
+     50
+    ]
+   ],
+   "assertion": "an age variable was computed by subtracting the birth year (last four characters of the birthday field) from 2013",
+   "polarity": "did",
+   "targets": [
+    "age",
+    "birthday"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     51,
+     54
+    ]
+   ],
+   "assertion": "a skin-tone rating variable was created by averaging the two raters' skin-tone scores (rater1 and rater2, coded 0-1)",
+   "polarity": "did",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skin-tone rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     55,
+     58
+    ]
+   ],
+   "assertion": "Wikipedia was consulted to determine playing position for players with missing (\"NA\") position data",
+   "polarity": "did",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     59,
+     68
+    ]
+   ],
+   "assertion": "the position variable was recoded into 4 merged categories (goalkeeper, defender, midfielder, forward/winger) because Wikipedia did not provide specific enough information for certain players",
+   "polarity": "did",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "assertion": "merging positions into 4 categories caused some information to be lost",
+   "polarity": "found",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    20
+   ]
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     72
+    ]
+   ],
+   "assertion": "the merging procedure increased the number of observations with known position from 115,457 to 124,468",
+   "polarity": "found",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    19
+   ]
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     73,
+     80
+    ]
+   ],
+   "assertion": "several predictors/covariates (skin-tone rating, height, weight, games, victories, defeats, goals, age) were grand-mean centered to improve interpretability of the intercept and interaction terms",
+   "polarity": "did",
+   "targets": [
+    "skin-tone rating",
+    "height",
+    "weight",
+    "games",
+    "victories",
+    "defeats",
+    "goals",
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "claim",
+   "lines": [
+    [
+     81,
+     84
+    ]
+   ],
+   "assertion": "implicit racial bias and explicit racial bias scores were standardized",
+   "polarity": "did",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     85,
+     87
+    ]
+   ],
+   "assertion": "players with missing skin-tone rating data (rater1/rater2) were excluded because skin tone is the main predictor",
+   "polarity": "did",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     88,
+     89
+    ]
+   ],
+   "note": "Research Questions heading"
+  },
+  {
+   "id": 25,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     90,
+     95
+    ]
+   ],
+   "note": "Restates the two research questions: skin tone vs. red cards, and moderation by implicit/explicit bias"
+  },
+  {
+   "id": 26,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     96,
+     97
+    ]
+   ],
+   "note": "Initial approach heading"
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     98,
+     105
+    ]
+   ],
+   "assertion": "a four-level multilevel negative-binomial model was used with player-referee dyads as level 1, players as level 2, clubs as level 3, and leagues as level 4, to account for interdependence in red-card likelihood across players, clubs, and leagues",
+   "polarity": "did",
+   "targets": [
+    "players",
+    "clubs",
+    "leagues"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     106,
+     111
+    ]
+   ],
+   "note": "Illustrative hypothetical example (Arsenal vs. Manchester United) explaining what the multilevel structure captures"
+  },
+  {
+   "id": 29,
+   "kind": "claim",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "assertion": "a negative-binomial model was chosen because the dependent variable (number of red cards, \"redCards\") is a count variable",
+   "polarity": "did",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     116,
+     123
+    ]
+   ],
+   "assertion": "number of red cards was entered as the DV; skin-tone rating, implicit bias, explicit bias, the two skin-tone interactions, games, victories, defeats, height, weight, age, goals, and dummy-coded position were entered as predictors in the initial model",
+   "polarity": "did",
+   "targets": [
+    "redCards",
+    "skin-tone rating",
+    "implicit racial bias",
+    "explicit racial bias",
+    "games",
+    "victories",
+    "defeats",
+    "height",
+    "weight",
+    "age",
+    "goals",
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "claim",
+   "lines": [
+    [
+     124,
+     130
+    ]
+   ],
+   "assertion": "research question 1 was evaluated via the statistical significance of the skin-tone coefficient, and research question 2 via the significance of the skin-tone×implicit and skin-tone×explicit interaction coefficients",
+   "polarity": "did",
+   "targets": [
+    "skin-tone rating",
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 32,
+   "kind": "claim",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "assertion": "number of games was controlled for because more referee encounters increase the cumulative likelihood of a red card",
+   "polarity": "did",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "claim",
+   "lines": [
+    [
+     133,
+     138
+    ]
+   ],
+   "assertion": "victories, defeats, and number of goals were controlled for, reasoning players may foul less after a win and more aggressively after a loss",
+   "polarity": "did",
+   "targets": [
+    "victories",
+    "defeats",
+    "goals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     139,
+     144
+    ]
+   ],
+   "assertion": "height and weight were controlled for, reasoning bigger players may have more bodily contact and thus more fouls",
+   "polarity": "did",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     145,
+     146
+    ]
+   ],
+   "assertion": "position was controlled for, reasoning defensive players (goalkeepers, defenders) may commit more fouls",
+   "polarity": "did",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     147,
+     152
+    ]
+   ],
+   "assertion": "age was controlled for, reasoning that impulsivity (linked to red cards) decreases with age, citing Steinberg et al. (2008)",
+   "polarity": "did",
+   "targets": [
+    "age"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "claim",
+   "lines": [
+    [
+     153,
+     158
+    ]
+   ],
+   "assertion": "in the initial model, skin-tone rating significantly predicted red cards; each 1-unit increase in skin-tone raised red-card count by 1.35x (b=0.30, SE=0.105, p=0.005)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     159,
+     164
+    ]
+   ],
+   "assertion": "the skin-tone×implicit-bias interaction was not statistically significant in the initial model (b=-0.14, SE=0.136, p=0.29)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating",
+    "implicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    39
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     159,
+     164
+    ]
+   ],
+   "assertion": "the skin-tone×explicit-bias interaction was not statistically significant in the initial model (b=0.19, SE=0.140, p=0.17)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    38
+   ]
+  },
+  {
+   "id": 40,
+   "kind": "claim",
+   "lines": [
+    [
+     165,
+     168
+    ]
+   ],
+   "assertion": "implicit and explicit racial biases did not significantly moderate the skin-tone/red-card association in the initial model",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     169,
+     170
+    ]
+   ],
+   "note": "Final Approach heading"
+  },
+  {
+   "id": 42,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     171,
+     172
+    ]
+   ],
+   "note": "Feedback from other researchers prompted addressing several issues with the initial approach"
+  },
+  {
+   "id": 43,
+   "kind": "claim",
+   "lines": [
+    [
+     173,
+     177
+    ]
+   ],
+   "assertion": "club and league levels were dropped from the final model because club/league country was not coded as time-varying despite changing across a player's career",
+   "polarity": "did",
+   "targets": [
+    "clubs",
+    "leagues"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 44,
+   "kind": "claim",
+   "lines": [
+    [
+     178,
+     187
+    ]
+   ],
+   "assertion": "a cross-classified multilevel model was used in the final approach to account for non-independence among referees and referee countries (in addition to players), since referees differ in strictness and referee countries differ in red-card rates",
+   "polarity": "did",
+   "targets": [
+    "referees",
+    "referee countries"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 45,
+   "kind": "claim",
+   "lines": [
+    [
+     188,
+     197
+    ]
+   ],
+   "assertion": "number of games was entered as an offset variable (log of games) because a red card from 1 encounter differs from a red card from 15 encounters, changing the DV to red cards per game",
+   "polarity": "did",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "claim",
+   "lines": [
+    [
+     198,
+     199
+    ]
+   ],
+   "assertion": "covariates not statistically significant in the initial approach (height, weight, age, goals) were dropped from the final model",
+   "polarity": "did",
+   "targets": [
+    "height",
+    "weight",
+    "age",
+    "goals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     200,
+     203
+    ]
+   ],
+   "assertion": "number of defeats and victories were dropped because they were highly correlated with number of games",
+   "polarity": "did",
+   "targets": [
+    "victories",
+    "defeats",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     204,
+     207
+    ]
+   ],
+   "assertion": "the final model was a cross-classified multilevel negative-binomial model with random intercepts for players, referees, and referee countries",
+   "polarity": "did",
+   "targets": [
+    "players",
+    "referees",
+    "referee countries"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     208,
+     217
+    ]
+   ],
+   "assertion": "a cross-classified (rather than purely nested) multilevel model was needed because, although player-referee dyads were nested within referees within referee countries, players themselves were not nested within referees",
+   "polarity": "did",
+   "targets": [
+    "players",
+    "referees",
+    "referee countries"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "claim",
+   "lines": [
+    [
+     218,
+     224
+    ]
+   ],
+   "assertion": "in the final model, red cards was the DV; skin-tone rating, implicit bias, explicit bias, the two skin-tone interactions, and dummy-coded position were predictors, with log(games) entered as an offset variable",
+   "polarity": "did",
+   "targets": [
+    "redCards",
+    "skin-tone rating",
+    "implicit racial bias",
+    "explicit racial bias",
+    "position",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     225,
+     230
+    ]
+   ],
+   "assertion": "in the final model, skin-tone rating significantly predicted red-card risk; each 1-unit increase raised risk by 1.40x (b=0.34, SE=0.101, p<0.001)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     231,
+     236
+    ]
+   ],
+   "assertion": "the skin-tone×implicit-bias interaction was not significant in the final model (b=-0.11, SE=0.173, p=0.54)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating",
+    "implicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    53
+   ]
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     231,
+     236
+    ]
+   ],
+   "assertion": "the skin-tone×explicit-bias interaction was not significant in the final model (b=0.15, SE=0.167, p=0.36)",
+   "polarity": "found",
+   "targets": [
+    "skin-tone rating",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    52
+   ]
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     237,
+     240
+    ]
+   ],
+   "assertion": "implicit and explicit racial biases did not significantly moderate the skin-tone/red-card association in the final model",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     241,
+     242
+    ]
+   ],
+   "note": "Conclusion heading"
+  },
+  {
+   "id": 56,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     243,
+     246
+    ]
+   ],
+   "note": "Restates the two research questions investigated"
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     247,
+     250
+    ]
+   ],
+   "assertion": "a cross-classified multilevel negative-binomial model was employed to account for non-independence among players, clubs, league countries, referees, and referee countries",
+   "polarity": "did",
+   "targets": [
+    "players",
+    "clubs",
+    "league countries",
+    "referees",
+    "referee countries"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     251,
+     252
+    ]
+   ],
+   "assertion": "players with very dark skin-tone were 1.40 times more likely to receive a red card per game than players with very light skin-tone",
+   "polarity": "found",
+   "targets": [
+    "skin-tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     253,
+     254
+    ]
+   ],
+   "assertion": "referee countries' implicit and explicit racial biases did not moderate the skin-tone/red-card association",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     255,
+     256
+    ]
+   ],
+   "assertion": "the results suggest referees may show bias toward players with darker skin-tone",
+   "polarity": "found",
+   "targets": [
+    "skin-tone"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     257,
+     259
+    ]
+   ],
+   "note": "States the underlying mechanisms behind the association remain unclear"
+  },
+  {
+   "id": 62,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     260,
+     263
+    ]
+   ],
+   "note": "Table 1 / Initial Results title"
+  },
+  {
+   "id": 63,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     264,
+     266
+    ]
+   ],
+   "note": "Table column headers and intercept estimate row"
+  },
+  {
+   "id": 64,
+   "kind": "claim",
+   "lines": [
+    [
+     267,
+     267
+    ]
+   ],
+   "assertion": "skin-tone was a significant predictor (b=0.30, SE=0.105, IRR=1.35, 95% CI [1.10,1.66]) in the initial model",
+   "polarity": "found",
+   "targets": [
+    "skin-tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "claim",
+   "lines": [
+    [
+     268,
+     269
+    ]
+   ],
+   "assertion": "implicit bias (IRR=1.14) and explicit bias (IRR=0.90) were both significant main-effect predictors of red cards in the initial model",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     270,
+     271
+    ]
+   ],
+   "assertion": "the skin-tone×implicit (IRR=0.87) and skin-tone×explicit (IRR=1.21) interaction terms were not significant in the initial model",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "claim",
+   "lines": [
+    [
+     272,
+     274
+    ]
+   ],
+   "assertion": "games (IRR=1.14), victories (IRR=0.94), and defeats (IRR=1.08) were significant predictors in the initial model",
+   "polarity": "found",
+   "targets": [
+    "games",
+    "victories",
+    "defeats"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 68,
+   "kind": "claim",
+   "lines": [
+    [
+     275,
+     278
+    ]
+   ],
+   "assertion": "age, height, weight, and goals were not significant predictors in the initial model (IRRs approximately 1.00-1.01)",
+   "polarity": "found",
+   "targets": [
+    "age",
+    "height",
+    "weight",
+    "goals"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 69,
+   "kind": "claim",
+   "lines": [
+    [
+     279,
+     281
+    ]
+   ],
+   "assertion": "defenders had significantly higher red-card risk than goalkeepers (IRR=1.51); midfielders and forwards/wingers did not differ significantly from goalkeepers, in the initial model",
+   "polarity": "found",
+   "targets": [
+    "Defenders",
+    "Midfielders",
+    "Forwards/Wingers"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "claim",
+   "lines": [
+    [
+     282,
+     282
+    ]
+   ],
+   "assertion": "the initial model was estimated on N=123,715 observations",
+   "polarity": "found",
+   "targets": [
+    "N"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 71,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     283,
+     286
+    ]
+   ],
+   "note": "Table 2 / Final Results title"
+  },
+  {
+   "id": 72,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     287,
+     289
+    ]
+   ],
+   "note": "Table column headers and intercept estimate row"
+  },
+  {
+   "id": 73,
+   "kind": "claim",
+   "lines": [
+    [
+     290,
+     290
+    ]
+   ],
+   "assertion": "skin-tone was a significant predictor (b=0.34, SE=0.101, IRR=1.40, 95% CI [1.15,1.71]) in the final model",
+   "polarity": "found",
+   "targets": [
+    "skin-tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 74,
+   "kind": "claim",
+   "lines": [
+    [
+     291,
+     292
+    ]
+   ],
+   "assertion": "in the final model, implicit bias (IRR=1.04) and explicit bias (IRR=1.03) main effects were not statistically significant",
+   "polarity": "found",
+   "targets": [
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 75,
+   "kind": "claim",
+   "lines": [
+    [
+     293,
+     294
+    ]
+   ],
+   "assertion": "the skin-tone×implicit (IRR=0.90) and skin-tone×explicit (IRR=1.16) interaction terms were not significant in the final model",
+   "polarity": "found",
+   "targets": [
+    "skin-tone",
+    "implicit racial bias",
+    "explicit racial bias"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 76,
+   "kind": "claim",
+   "lines": [
+    [
+     295,
+     297
+    ]
+   ],
+   "assertion": "in the final model, defenders (IRR=1.27), midfielders (IRR=0.79), and forwards/wingers (IRR=0.76) all differed significantly from goalkeepers in red-card risk",
+   "polarity": "found",
+   "targets": [
+    "Defenders",
+    "Midfielders",
+    "Forwards/Wingers"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 77,
+   "kind": "claim",
+   "lines": [
+    [
+     298,
+     298
+    ]
+   ],
+   "assertion": "the final model was estimated on N=124,468 observations",
+   "polarity": "found",
+   "targets": [
+    "N"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     299,
+     300
+    ]
+   ],
+   "note": "References and Notes heading"
+  },
+  {
+   "id": 79,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     301,
+     305
+    ]
+   ],
+   "note": "Steinberg, Albert, Cauffman, Banich, Graham, & Woolard (2008) reference"
+  },
+  {
+   "id": 80,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     306,
+     306
+    ]
+   ],
+   "note": "End-of-document page break"
+  }
+ ]
+}

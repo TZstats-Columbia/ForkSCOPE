@@ -1,0 +1,100 @@
+{
+ "run_id": "2025-11-15T15-03-11+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 396,
+   "functional_lines": 104,
+   "functional_share": 0.2626,
+   "by_type": {
+    "print": 111,
+    "plot": 83,
+    "comment": 79,
+    "import": 10,
+    "config": 5,
+    "glue": 4
+   }
+  },
+  "prose": {
+   "n_lines": 235,
+   "functional_lines": 112,
+   "functional_share": 0.4766,
+   "by_type": {
+    "heading": 48,
+    "other": 31,
+    "hedging": 30,
+    "boilerplate": 25,
+    "framing": 4,
+    "background": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 108,
+  "action_claims": 39,
+  "result_claims": 69,
+  "links": 62,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 10,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 69
+ },
+ "silent_decisions": [
+  {
+   "id": 25,
+   "lines": [
+    [
+     94,
+     97
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which columns enter the modeling dataset, fixing the covariate set available to later models",
+   "targets": [
+    "playerShort",
+    "refNum",
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "position_cat",
+    "leagueCountry",
+    "height",
+    "weight",
+    "yellowCards",
+    "goals",
+    "meanIAT",
+    "meanExp"
+   ]
+  },
+  {
+   "id": 67,
+   "lines": [
+    [
+     331,
+     339
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "choose which covariates to check for balance across skin-tone groups and normalize their means relative to the light-skin group",
+   "targets": [
+    "darkSkin",
+    "games",
+    "yellowCards",
+    "goals",
+    "height",
+    "weight"
+   ]
+  }
+ ],
+ "misalignments": []
+}

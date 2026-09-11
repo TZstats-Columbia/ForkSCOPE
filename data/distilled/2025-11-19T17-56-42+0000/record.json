@@ -1,0 +1,120 @@
+{
+ "run_id": "2025-11-19T17-56-42+0000",
+ "corpus": "ai",
+ "arm": "negative",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 274,
+   "functional_lines": 123,
+   "functional_share": 0.4489,
+   "by_type": {
+    "print": 103,
+    "comment": 36,
+    "import": 8,
+    "config": 2,
+    "glue": 2
+   }
+  },
+  "prose": {
+   "n_lines": 244,
+   "functional_lines": 155,
+   "functional_share": 0.6352,
+   "by_type": {
+    "heading": 53,
+    "boilerplate": 26,
+    "hedging": 15,
+    "framing": 5
+   }
+  }
+ },
+ "counts": {
+  "decisions": 22,
+  "claims": 87,
+  "action_claims": 32,
+  "result_claims": 55,
+  "links": 49,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 4,
+  "R_only_unbacked_action_claim": 5,
+  "R_only_consistent_negative": 11,
+  "result_claims_deferred": 55
+ },
+ "silent_decisions": [
+  {
+   "id": 20,
+   "lines": [
+    [
+     83,
+     99
+    ],
+    [
+     198,
+     198
+    ]
+   ],
+   "confidence": "high",
+   "operation": "bucket free-text position strings into Goalkeeper/Defender/Midfielder/Forward/Unknown via keyword matching",
+   "targets": [
+    "position",
+    "position_cat"
+   ]
+  },
+  {
+   "id": 23,
+   "lines": [
+    [
+     109,
+     111
+    ],
+    [
+     205,
+     205
+    ]
+   ],
+   "confidence": "high",
+   "operation": "one-hot encode position and league categories keeping all levels (no reference level dropped)",
+   "targets": [
+    "position_cat",
+    "leagueCountry"
+   ]
+  },
+  {
+   "id": 39,
+   "lines": [
+    [
+     196,
+     197
+    ]
+   ],
+   "confidence": "high",
+   "operation": "build a separate sample for the continuous-exposure check using all rows with a non-missing skin-tone score, not just the dichotomized dark/light rows",
+   "targets": [
+    "df",
+    "skin_tone_avg",
+    "reg_df_cont"
+   ]
+  },
+  {
+   "id": 42,
+   "lines": [
+    [
+     215,
+     218
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "pull the skin-tone marginal effect out of the margeff array by a hard-coded position index",
+   "targets": [
+    "mfx_cont"
+   ]
+  }
+ ],
+ "misalignments": []
+}

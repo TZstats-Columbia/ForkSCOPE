@@ -1,0 +1,68 @@
+{
+ "run_id": "2025-11-12T18-01-53+0000",
+ "corpus": "ai",
+ "arm": "ai",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 320,
+   "functional_lines": 120,
+   "functional_share": 0.375,
+   "by_type": {
+    "print": 90,
+    "comment": 46,
+    "plot": 32,
+    "glue": 17,
+    "import": 11,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 240,
+   "functional_lines": 113,
+   "functional_share": 0.4708,
+   "by_type": {
+    "heading": 117,
+    "hedging": 19,
+    "framing": 1
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 109,
+  "action_claims": 48,
+  "result_claims": 61,
+  "links": 80,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 5,
+  "result_claims_deferred": 61
+ },
+ "silent_decisions": [
+  {
+   "id": 19,
+   "lines": [
+    [
+     233,
+     241
+    ]
+   ],
+   "confidence": "medium",
+   "operation": "bin continuous skin tone into five display categories with custom edges for the bar chart",
+   "targets": [
+    "skin_tone_avg",
+    "skin_cat",
+    "red_card_any"
+   ]
+  }
+ ],
+ "misalignments": []
+}

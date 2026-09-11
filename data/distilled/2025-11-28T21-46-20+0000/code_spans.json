@@ -1,0 +1,919 @@
+{
+ "n_lines": 393,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     17
+    ]
+   ],
+   "note": "pandas/numpy/statsmodels/scipy/warnings imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     18,
+     19
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     22
+    ]
+   ],
+   "note": "set RNG seed for reproducibility"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     26
+    ]
+   ],
+   "note": "section header: DATA LOADING AND PREPARATION"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     27,
+     30
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     31,
+     32
+    ]
+   ],
+   "operation": "read the full raw player-referee dyad dataset from a local CSV as the analysis population",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     33,
+     34
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     38
+    ]
+   ],
+   "note": "section header: DATA QUALITY CONTROL AND EXCLUSIONS"
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     39,
+     42
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     43,
+     45
+    ]
+   ],
+   "operation": "drop dyads where either skin-tone rater score is missing",
+   "targets": [
+    "rater1",
+    "rater2",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     46,
+     48
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     51
+    ]
+   ],
+   "operation": "average the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     52,
+     55
+    ]
+   ],
+   "operation": "exclude goalkeepers from the analysis sample",
+   "targets": [
+    "position",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     56,
+     58
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     62
+    ]
+   ],
+   "operation": "require at least 3 games in a dyad to keep it in the sample",
+   "targets": [
+    "games",
+    "df_work"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     63,
+     65
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     66,
+     69
+    ]
+   ],
+   "note": "section header: VARIABLE CREATION"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     70,
+     73
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     74,
+     76
+    ]
+   ],
+   "operation": "collapse the red-card count into a binary any-red-card outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     77,
+     81
+    ]
+   ],
+   "operation": "dichotomize the continuous skin-tone score into dark vs light at a 0.25 cutoff",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     97
+    ]
+   ],
+   "operation": "collapse the many specific playing positions into three broad categories",
+   "targets": [
+    "position",
+    "position_cat"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     98,
+     101
+    ]
+   ],
+   "note": "section header: HANDLE MISSING COVARIATES"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     102,
+     104
+    ]
+   ],
+   "operation": "drop observations lacking a position category or referee bias measures",
+   "targets": [
+    "position_cat",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     105,
+     108
+    ]
+   ],
+   "operation": "fill missing height and weight with the sample median rather than dropping those rows",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     109,
+     110
+    ]
+   ],
+   "note": "assign working frame to df_analysis"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     111,
+     113
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     114,
+     117
+    ]
+   ],
+   "note": "section header: SAMPLE CHARACTERISTICS"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     118,
+     135
+    ]
+   ],
+   "note": "descriptive counts and exposure-group sizes"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     136,
+     138
+    ]
+   ],
+   "operation": "compute the crude (unadjusted) red-card rate difference between dark- and light-skin groups",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     139,
+     143
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     144,
+     147
+    ]
+   ],
+   "note": "section header: PRIMARY ANALYSIS"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     148,
+     151
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 34,
+   "kind": "decision",
+   "lines": [
+    [
+     152,
+     158
+    ]
+   ],
+   "operation": "choose the covariate adjustment set and fit a logistic regression of the red-card outcome on skin tone",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "games",
+    "position_cat",
+    "leagueCountry",
+    "height",
+    "weight",
+    "yellowCards",
+    "goals",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     159,
+     169
+    ]
+   ],
+   "note": "restate model spec"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     170,
+     177
+    ]
+   ],
+   "operation": "exponentiate the log-odds coefficient into an odds ratio with CI as the reported effect scale",
+   "targets": [
+    "coef",
+    "or_val",
+    "or_ci"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     178,
+     185
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     186,
+     189
+    ]
+   ],
+   "note": "section header: risk difference estimand"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     190,
+     193
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     194,
+     206
+    ]
+   ],
+   "operation": "use marginal standardization (predict under darkSkin set to 1 and 0 for everyone, average the difference) to define the primary risk-difference estimand",
+   "targets": [
+    "darkSkin",
+    "model",
+    "rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     207,
+     209
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     210,
+     213
+    ]
+   ],
+   "note": "section header: bootstrap CI for risk difference"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     214,
+     215
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     216,
+     216
+    ]
+   ],
+   "note": "number of bootstrap simulations constant"
+  },
+  {
+   "id": 45,
+   "kind": "decision",
+   "lines": [
+    [
+     217,
+     252
+    ]
+   ],
+   "operation": "quantify uncertainty in the risk difference via a parametric bootstrap over the model's coefficient covariance, then derive a CI and p-value by percentile and z-statistic methods",
+   "targets": [
+    "model",
+    "rd_sims",
+    "ci_lower",
+    "ci_upper",
+    "pval_rd"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     253,
+     259
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     260,
+     263
+    ]
+   ],
+   "note": "section header: SENSITIVITY ANALYSES"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     264,
+     267
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 49,
+   "kind": "decision",
+   "lines": [
+    [
+     268,
+     268
+    ],
+    [
+     270,
+     281
+    ]
+   ],
+   "operation": "test a more extreme skin-tone contrast (>=0.375 vs <0.125), dropping the middle band, as a robustness check on the exposure threshold",
+   "targets": [
+    "skinTone",
+    "darkSkin_sens1",
+    "df_sens1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     269,
+     269
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     282,
+     285
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 52,
+   "kind": "decision",
+   "lines": [
+    [
+     286,
+     286
+    ],
+    [
+     288,
+     308
+    ]
+   ],
+   "operation": "rebuild the sample including goalkeepers as their own position category to test sensitivity to the goalkeeper exclusion",
+   "targets": [
+    "position",
+    "df_sens2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     287,
+     287
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     309,
+     313
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     314,
+     314
+    ],
+    [
+     316,
+     336
+    ]
+   ],
+   "operation": "rebuild the sample with a lower minimum-games cutoff (>=2 instead of >=3) to test sensitivity to that threshold",
+   "targets": [
+    "games",
+    "df_sens3"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     315,
+     315
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     337,
+     340
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 58,
+   "kind": "decision",
+   "lines": [
+    [
+     341,
+     341
+    ],
+    [
+     343,
+     354
+    ]
+   ],
+   "operation": "refit the model using continuous skinTone instead of the dichotomized darkSkin variable, scaling the reported effect per 0.25 units",
+   "targets": [
+    "skinTone",
+    "model_sens4"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     342,
+     342
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     355,
+     358
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     359,
+     362
+    ]
+   ],
+   "note": "section header: FINAL RESULTS SUMMARY"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     363,
+     366
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     367,
+     377
+    ]
+   ],
+   "note": "restate already-computed RD and OR estimand numbers"
+  },
+  {
+   "id": 64,
+   "kind": "decision",
+   "lines": [
+    [
+     378,
+     387
+    ]
+   ],
+   "operation": "assert a fixed interpretive conclusion ('SUPPORTED', 'statistically significant and robust') describing the finding rather than deriving that language conditionally from the estimated effect and its significance",
+   "targets": [
+    "rd",
+    "pval_rd",
+    "or_val"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     388,
+     393
+    ]
+   ],
+   "note": ""
+  }
+ ]
+}

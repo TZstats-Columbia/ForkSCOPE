@@ -1,0 +1,293 @@
+{
+ "run_id": "team-10",
+ "corpus": "human",
+ "arm": "human",
+ "artifacts": {
+  "code": "script.txt",
+  "prose": "report.txt",
+  "prose_secondary": "survey.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 352,
+   "functional_lines": 109,
+   "functional_share": 0.3097,
+   "by_type": {
+    "comment": 143,
+    "print": 100
+   }
+  },
+  "prose": {
+   "n_lines": 538,
+   "functional_lines": 503,
+   "functional_share": 0.9349,
+   "by_type": {
+    "hedging": 25,
+    "heading": 24,
+    "boilerplate": 20,
+    "background": 4,
+    "citation": 3,
+    "framing": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 26,
+  "claims": 83,
+  "action_claims": 43,
+  "result_claims": 40,
+  "links": 60,
+  "misaligned": 9
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 19,
+  "C_only_silent_decision": 7,
+  "R_only_unbacked_action_claim": 7,
+  "R_only_consistent_negative": 4,
+  "result_claims_deferred": 40
+ },
+ "silent_decisions": [
+  {
+   "id": 2,
+   "lines": [
+    [
+     9,
+     9
+    ],
+    [
+     10,
+     10
+    ],
+    [
+     11,
+     11
+    ],
+    [
+     12,
+     12
+    ],
+    [
+     13,
+     13
+    ],
+    [
+     14,
+     14
+    ],
+    [
+     15,
+     15
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "confidence": "high",
+   "operation": "z-score standardize continuous variables before modeling",
+   "targets": [
+    "meanrate",
+    "redCards",
+    "yellowCards",
+    "yellowReds",
+    "games",
+    "meanIAT",
+    "meanExp",
+    "totbook"
+   ]
+  },
+  {
+   "id": 14,
+   "lines": [
+    [
+     133,
+     133
+    ],
+    [
+     235,
+     235
+    ],
+    [
+     277,
+     277
+    ],
+    [
+     319,
+     319
+    ]
+   ],
+   "confidence": "high",
+   "operation": "estimate unadjusted skin-tone/outcome association controlling only for games, per outcome",
+   "targets": [
+    "zrcard",
+    "zycard",
+    "zyrcard",
+    "zbook",
+    "zgames",
+    "ztone"
+   ]
+  },
+  {
+   "id": 18,
+   "lines": [
+    [
+     156,
+     168
+    ]
+   ],
+   "confidence": "high",
+   "operation": "aggregate tone/scoring-rate/BMI to club level, binarize tone at the same >3 threshold to count black-coded players per club, merge back and standardize",
+   "targets": [
+    "club",
+    "meanrate",
+    "plevgpgame",
+    "bmi",
+    "black",
+    "clubtone",
+    "clubgpg",
+    "clubbmi",
+    "clubblack"
+   ]
+  },
+  {
+   "id": 19,
+   "lines": [
+    [
+     171,
+     171
+    ]
+   ],
+   "confidence": "high",
+   "operation": "test unadjusted association of club-average skin tone with red cards alongside individual tone",
+   "targets": [
+    "zrcard",
+    "zgames",
+    "ztone",
+    "clubtone"
+   ]
+  },
+  {
+   "id": 21,
+   "lines": [
+    [
+     183,
+     183
+    ],
+    [
+     189,
+     189
+    ],
+    [
+     259,
+     259
+    ],
+    [
+     262,
+     262
+    ]
+   ],
+   "confidence": "high",
+   "operation": "test IAT/explicit-prejudice moderation of both individual and club-average tone effects",
+   "targets": [
+    "ztone",
+    "zclubtone",
+    "zIAT",
+    "zExp"
+   ]
+  },
+  {
+   "id": 24,
+   "lines": [
+    [
+     210,
+     210
+    ]
+   ],
+   "confidence": "high",
+   "operation": "add club-level count of African-appearing players as covariate alongside categorical tone",
+   "targets": [
+    "zrcard",
+    "zgames",
+    "position",
+    "tonecode",
+    "clubblack"
+   ]
+  },
+  {
+   "id": 25,
+   "lines": [
+    [
+     215,
+     215
+    ],
+    [
+     218,
+     218
+    ],
+    [
+     301,
+     301
+    ],
+    [
+     304,
+     304
+    ]
+   ],
+   "confidence": "high",
+   "operation": "test IAT/explicit-prejudice moderation of both the categorical tone effect and club-level black-count effect",
+   "targets": [
+    "tonecode",
+    "zclubblack",
+    "zIAT",
+    "zExp"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "choose which player-level variables to correlate against skin tone as a confound screen",
+   "claim": "player age was not included in any analyses because a player's age at each particular match/referee pairing could not be determined",
+   "note": "code correlates daysold (player age) against skin tone in the confound screen, but claim says age was not included in any analysis"
+  },
+  {
+   "decision": "test club's association with skin tone",
+   "claim": "no analyses were possible using club/league membership variables because each player was linked to only one 2012-2013 club while red-card data spanned multiple years",
+   "note": "decision tests club's association with skin tone, an analysis using the club variable the claim says was impossible"
+  },
+  {
+   "decision": "fit models testing whether club and whether position predict the disciplinary outcome, repeated for every outcome",
+   "claim": "no analyses were possible using club/league membership variables because each player was linked to only one 2012-2013 club while red-card data spanned multiple years",
+   "note": "decision fits models testing whether club predicts the disciplinary outcomes, contradicting claim that no club analyses were possible"
+  },
+  {
+   "decision": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "claim": "no analyses were possible using club/league membership variables because each player was linked to only one 2012-2013 club while red-card data spanned multiple years",
+   "note": "decision uses club as a covariate in the primary adjusted models, contradicting claim that club could not be analyzed"
+  },
+  {
+   "decision": "add club-average skin tone as covariate alongside individual tone and position, per outcome",
+   "claim": "no analyses were possible using club/league membership variables because each player was linked to only one 2012-2013 club while red-card data spanned multiple years",
+   "note": "decision adds club-average skin tone as a covariate, a club-membership analysis the claim says was impossible"
+  },
+  {
+   "decision": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "claim": "the model predicted red cards from fixed effects of mean skin tone, controlling for games in dyad, win/draw percentage, and alphabetically dummy-coded position, with dyads nested in referees nested in referee country, and random intercepts at each level",
+   "note": "code adjusts for club + position, but claim lists covariates as games, win/draw percentage, and position (no club)"
+  },
+  {
+   "decision": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "claim": "win percentage, draw percentage, and position were used as covariates in all primary analyses, and loss percentage was also included since the three percentages are linearly dependent",
+   "note": "claim lists covariates as win/draw/loss percentages and position; code's adjustment set is club and position"
+  },
+  {
+   "decision": "choose club+position as the confound adjustment set for the skin-tone model, per outcome",
+   "claim": "the same nesting structure and same covariates (position, win percentage, draw percentage, games per dyad) were supported for the yellow-card and total-bookings analyses",
+   "note": "claim says yellow/bookings used covariates position, win%, draw%, games; code uses club and position"
+  },
+  {
+   "decision": "add club-average skin tone as covariate alongside individual tone and position, per outcome",
+   "claim": "other possible confounds, such as clubs having a more aggressive playing style and possibly more darker-skinned players, could not be adequately assessed in this data set",
+   "note": "code adds club-average skin tone (and club black-count) as covariates, assessing the club confound the claim says could not be adequately assessed"
+  }
+ ]
+}

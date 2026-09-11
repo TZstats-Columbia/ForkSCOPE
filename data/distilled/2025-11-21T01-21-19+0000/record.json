@@ -1,0 +1,92 @@
+{
+ "run_id": "2025-11-21T01-21-19+0000",
+ "corpus": "ai",
+ "arm": "standard",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 408,
+   "functional_lines": 100,
+   "functional_share": 0.2451,
+   "by_type": {
+    "print": 156,
+    "plot": 70,
+    "comment": 54,
+    "glue": 15,
+    "import": 10,
+    "config": 3
+   }
+  },
+  "prose": {
+   "n_lines": 230,
+   "functional_lines": 113,
+   "functional_share": 0.4913,
+   "by_type": {
+    "heading": 49,
+    "other": 40,
+    "boilerplate": 19,
+    "hedging": 8,
+    "framing": 7,
+    "citation": 2
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 113,
+  "action_claims": 57,
+  "result_claims": 56,
+  "links": 80,
+  "misaligned": 1
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 16,
+  "C_only_silent_decision": 2,
+  "R_only_unbacked_action_claim": 8,
+  "R_only_consistent_negative": 10,
+  "result_claims_deferred": 56
+ },
+ "silent_decisions": [
+  {
+   "id": 24,
+   "lines": [
+    [
+     108,
+     112
+    ]
+   ],
+   "confidence": "high",
+   "operation": "compute the unadjusted (crude) risk difference in red-card rate between dark- and light-skinned players",
+   "targets": [
+    "anyRedCard",
+    "darkSkin"
+   ]
+  },
+  {
+   "id": 59,
+   "lines": [
+    [
+     307,
+     311
+    ]
+   ],
+   "confidence": "low",
+   "operation": "compute descriptive red-card rates per skin-tone category with normal-approximation 95% confidence intervals for the chart's error bars",
+   "targets": [
+    "anyRedCard",
+    "skinTone_cat",
+    "red_card_rates"
+   ]
+  }
+ ],
+ "misalignments": [
+  {
+   "decision": "binarize the outcome as any red card (redCards>0) received within a dyad",
+   "claim": "the outcome definition includes both direct red cards and second yellows (yellowReds)",
+   "note": "claim says the outcome includes second yellows (yellowReds); code binarizes only on redCards>0, which excludes the yellowReds column"
+  }
+ ]
+}

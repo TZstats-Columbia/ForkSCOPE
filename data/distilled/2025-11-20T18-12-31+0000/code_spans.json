@@ -1,0 +1,926 @@
+{
+ "n_lines": 391,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     12
+    ]
+   ],
+   "note": "module docstring"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     13,
+     18
+    ]
+   ],
+   "note": ""
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     19,
+     19
+    ]
+   ],
+   "note": "suppress warnings"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     20,
+     22
+    ]
+   ],
+   "note": "fix random seed"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     23,
+     27
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     32,
+     33
+    ]
+   ],
+   "operation": "load the raw player-referee dyad dataset from a fixed CSV path",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "prints raw row count"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     35,
+     39
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     40,
+     41
+    ]
+   ],
+   "operation": "drop dyads that are missing a skin-tone rating from either rater",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     42,
+     43
+    ]
+   ],
+   "note": "prints post-filter count"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     44,
+     45
+    ]
+   ],
+   "operation": "average the two raters' ratings into one continuous skin-tone score",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     46,
+     49
+    ]
+   ],
+   "operation": "dichotomize the continuous skin-tone score into a binary dark/light indicator at a 0.25 cutoff",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     50,
+     54
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 15,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     55,
+     58
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     59,
+     61
+    ]
+   ],
+   "operation": "exclude dyads with zero recorded games (no exposure)",
+   "targets": [
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "note": "reports exclusion count"
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "operation": "exclude dyads with a missing player position",
+   "targets": [
+    "position"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "note": "reports exclusion count"
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     68,
+     74
+    ]
+   ],
+   "operation": "exclude dyads with missing height or weight",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     75,
+     75
+    ]
+   ],
+   "note": "reports exclusion count"
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     76,
+     82
+    ]
+   ],
+   "operation": "exclude dyads whose height or weight falls outside a plausible physiological range (160-210cm, 50-110kg)",
+   "targets": [
+    "height",
+    "weight"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "reports exclusion count"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     84,
+     90
+    ]
+   ],
+   "operation": "exclude dyads missing referee implicit-bias measures",
+   "targets": [
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     91,
+     93
+    ]
+   ],
+   "note": "reports exclusion count and final N"
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     94,
+     98
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 27,
+   "kind": "decision",
+   "lines": [
+    [
+     99,
+     115
+    ]
+   ],
+   "operation": "z-score standardize the continuous covariates height, weight, meanIAT and meanExp",
+   "targets": [
+    "height",
+    "weight",
+    "meanIAT",
+    "meanExp"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "decision",
+   "lines": [
+    [
+     116,
+     119
+    ]
+   ],
+   "operation": "encode the outcome as red-card and no-red-card trial counts for a binomial model",
+   "targets": [
+    "redCards",
+    "games"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     120,
+     124
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     125,
+     135
+    ]
+   ],
+   "note": "prints overall sample composition"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     136,
+     147
+    ]
+   ],
+   "note": "computes and prints group-wise (light/dark) counts, games, red cards for display"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     149
+    ]
+   ],
+   "operation": "compute the raw, unadjusted risk difference between dark- and light-skin groups",
+   "targets": [
+    "red_dark",
+    "games_dark",
+    "red_light",
+    "games_light"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     150,
+     151
+    ]
+   ],
+   "note": "prints unadjusted risk difference"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     152,
+     155
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     156,
+     159
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 36,
+   "kind": "decision",
+   "lines": [
+    [
+     160,
+     166
+    ]
+   ],
+   "operation": "fit a binomial GLM with logit link regressing red-card outcome on dark_skin, log(games) and categorical position",
+   "targets": [
+    "dark_skin",
+    "games",
+    "position",
+    "redCards",
+    "no_red_card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     167,
+     169
+    ]
+   ],
+   "note": "prints model summary"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     170,
+     174
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     175,
+     178
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 40,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     194
+    ],
+    [
+     250,
+     258
+    ]
+   ],
+   "operation": "estimate the adjusted risk difference by averaging model-predicted probabilities under counterfactual dark_skin=0 vs dark_skin=1 for every observation",
+   "targets": [
+    "primary_model",
+    "full_model",
+    "dark_skin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     195,
+     198
+    ]
+   ],
+   "note": "prints predicted risks and risk difference"
+  },
+  {
+   "id": 42,
+   "kind": "decision",
+   "lines": [
+    [
+     199,
+     213
+    ],
+    [
+     259,
+     270
+    ]
+   ],
+   "operation": "approximate the risk difference's uncertainty via a delta-method-scaled coefficient SE, then build a normal-approximation 95% CI and two-sided p-value",
+   "targets": [
+    "se_coef",
+    "risk_diff_pp"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     214,
+     216
+    ]
+   ],
+   "note": "prints CI and p-value"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     217,
+     221
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     222,
+     225
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 46,
+   "kind": "decision",
+   "lines": [
+    [
+     226,
+     229
+    ],
+    [
+     275,
+     279
+    ]
+   ],
+   "operation": "report the effect as an adjusted odds ratio by exponentiating the model coefficient, with a Wald-based CI",
+   "targets": [
+    "coef",
+    "se_coef"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 47,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     230,
+     233
+    ]
+   ],
+   "note": "prints odds ratio and CI"
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     234,
+     238
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     242
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 50,
+   "kind": "decision",
+   "lines": [
+    [
+     243,
+     249
+    ]
+   ],
+   "operation": "expand the adjustment set into a robustness model adding league, height, weight and referee bias measures",
+   "targets": [
+    "leagueCountry",
+    "height_std",
+    "weight_std",
+    "meanIAT_std",
+    "meanExp_std"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     271,
+     274
+    ]
+   ],
+   "note": "prints full-model risk difference, CI, p-value"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     280,
+     282
+    ]
+   ],
+   "note": "prints full-model odds ratio and CI"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     283,
+     286
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     287,
+     290
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     291,
+     316
+    ]
+   ],
+   "operation": "re-run the dichotomization and modeling under alternative skin-tone cutpoints (0.375, 0.5) as a robustness/sensitivity check",
+   "targets": [
+    "skin_tone_avg",
+    "dark_skin_alt"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     317,
+     320
+    ]
+   ],
+   "note": "prints per-cutpoint sensitivity results"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     321,
+     324
+    ]
+   ],
+   "note": "section banner print"
+  },
+  {
+   "id": 58,
+   "kind": "decision",
+   "lines": [
+    [
+     325,
+     334
+    ],
+    [
+     338,
+     348
+    ]
+   ],
+   "operation": "re-specify the exposure as the continuous skin-tone score instead of the dichotomized indicator, and estimate the risk difference across the full 0-to-1 range",
+   "targets": [
+    "skin_tone_avg"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     335,
+     337
+    ]
+   ],
+   "note": "prints continuous-exposure coefficient, p-value, OR"
+  },
+  {
+   "id": 60,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     349,
+     349
+    ]
+   ],
+   "note": "prints continuous-exposure risk difference"
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     350,
+     354
+    ]
+   ],
+   "note": "section banner"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     355,
+     380
+    ]
+   ],
+   "note": "prints final summary of primary/secondary estimands and model/estimation details"
+  },
+  {
+   "id": 63,
+   "kind": "decision",
+   "lines": [
+    [
+     381,
+     381
+    ]
+   ],
+   "operation": "report the total number excluded using a hardcoded assumed original sample size (146028) rather than the size of the originally loaded dataset",
+   "targets": [
+    "analysis_df"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 64,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     382,
+     382
+    ]
+   ],
+   "note": "blank spacer line"
+  },
+  {
+   "id": 65,
+   "kind": "decision",
+   "lines": [
+    [
+     383,
+     388
+    ]
+   ],
+   "operation": "declare the hypothesis 'supported' and characterize the effect as statistically significant and robust across specifications",
+   "targets": [
+    "risk_diff_pp",
+    "p_value",
+    "OR",
+    "p_value_full"
+   ],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     389,
+     391
+    ]
+   ],
+   "note": "closing banner print"
+  }
+ ]
+}

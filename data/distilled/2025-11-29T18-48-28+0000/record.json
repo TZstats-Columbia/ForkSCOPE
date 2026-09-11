@@ -1,0 +1,64 @@
+{
+ "run_id": "2025-11-29T18-48-28+0000",
+ "corpus": "ai",
+ "arm": "confirmation_seeking",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 324,
+   "functional_lines": 117,
+   "functional_share": 0.3611,
+   "by_type": {
+    "print": 149,
+    "comment": 47,
+    "import": 7,
+    "config": 4
+   }
+  },
+  "prose": {
+   "n_lines": 265,
+   "functional_lines": 221,
+   "functional_share": 0.834,
+   "by_type": {
+    "heading": 46,
+    "boilerplate": 31,
+    "framing": 6
+   }
+  }
+ },
+ "counts": {
+  "decisions": 18,
+  "claims": 106,
+  "action_claims": 69,
+  "result_claims": 37,
+  "links": 51,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 17,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 21,
+  "R_only_consistent_negative": 21,
+  "result_claims_deferred": 37
+ },
+ "silent_decisions": [
+  {
+   "id": 51,
+   "lines": [
+    [
+     261,
+     261
+    ]
+   ],
+   "confidence": "low",
+   "operation": "only report a subgroup's model if it has more than 1000 observations",
+   "targets": [
+    "position_broad"
+   ]
+  }
+ ],
+ "misalignments": []
+}

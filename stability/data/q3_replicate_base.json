@@ -1,0 +1,84 @@
+{
+ "comparison_type": "replicate",
+ "interpretation": "same corpora and same distilled input; differences are run-to-run variability in the vocabulary induction.",
+ "header_a": {
+  "corpora": [
+   "ai",
+   "human"
+  ],
+  "n_runs": 223,
+  "n_decisions": 3946,
+  "n_options": 1473,
+  "n_forks": 463
+ },
+ "header_b": {
+  "corpora": [
+   "ai",
+   "human"
+  ],
+  "n_runs": 223,
+  "n_decisions": 3946,
+  "n_options": 1501,
+  "n_forks": 489
+ },
+ "levels": {
+  "option": {
+   "level": "option",
+   "build_a": "data/vocabulary/bottom_up_ai+human.json",
+   "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.json",
+   "instances_a": 3946,
+   "instances_b": 3946,
+   "assigned_a": 3946,
+   "assigned_b": 3946,
+   "shared": 3946,
+   "coverage_a": 1.0,
+   "coverage_b": 1.0,
+   "ari": 0.6464,
+   "vi_bits": 1.2869,
+   "vi_normalised": 0.1077,
+   "bcubed_precision": 0.7625,
+   "bcubed_recall": 0.7249,
+   "bcubed_f1": 0.7432,
+   "direction": "B finer than A (both signals agree)",
+   "direction_by_bcubed": "finer",
+   "direction_by_count": "finer",
+   "direction_signals_agree": true,
+   "clusters_a": 1462,
+   "clusters_b": 1490,
+   "split_clusters": 303,
+   "split_instances": 868,
+   "merge_clusters": 283,
+   "merge_instances": 734,
+   "stable_clusters": 850
+  },
+  "fork": {
+   "level": "fork",
+   "build_a": "data/vocabulary/bottom_up_ai+human.json",
+   "build_b": "<replicate root>/B-vocab/data/vocabulary/bottom_up_ai+human.json",
+   "instances_a": 3946,
+   "instances_b": 3946,
+   "assigned_a": 3946,
+   "assigned_b": 3946,
+   "shared": 3946,
+   "coverage_a": 1.0,
+   "coverage_b": 1.0,
+   "ari": 0.5646,
+   "vi_bits": 2.4621,
+   "vi_normalised": 0.2061,
+   "bcubed_precision": 0.6035,
+   "bcubed_recall": 0.5639,
+   "bcubed_f1": 0.583,
+   "direction": "B finer than A (both signals agree)",
+   "direction_by_bcubed": "finer",
+   "direction_by_count": "finer",
+   "direction_signals_agree": true,
+   "clusters_a": 463,
+   "clusters_b": 489,
+   "split_clusters": 199,
+   "split_instances": 1324,
+   "merge_clusters": 199,
+   "merge_instances": 1174,
+   "stable_clusters": 136
+  }
+ }
+}

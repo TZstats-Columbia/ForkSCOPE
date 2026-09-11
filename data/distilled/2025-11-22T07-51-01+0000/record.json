@@ -1,0 +1,72 @@
+{
+ "run_id": "2025-11-22T07-51-01+0000",
+ "corpus": "ai",
+ "arm": "positive",
+ "artifacts": {
+  "code": "final_analysis.py",
+  "prose": "mirrored_report.txt"
+ },
+ "coverage": {
+  "code": {
+   "n_lines": 330,
+   "functional_lines": 141,
+   "functional_share": 0.4273,
+   "by_type": {
+    "print": 119,
+    "comment": 44,
+    "glue": 14,
+    "import": 11,
+    "config": 1
+   }
+  },
+  "prose": {
+   "n_lines": 268,
+   "functional_lines": 150,
+   "functional_share": 0.5597,
+   "by_type": {
+    "heading": 70,
+    "boilerplate": 29,
+    "other": 28,
+    "hedging": 20,
+    "framing": 4
+   }
+  }
+ },
+ "counts": {
+  "decisions": 19,
+  "claims": 132,
+  "action_claims": 56,
+  "result_claims": 76,
+  "links": 66,
+  "misaligned": 0
+ },
+ "presence": {
+  "CR_executed_and_disclosed": 18,
+  "C_only_silent_decision": 1,
+  "R_only_unbacked_action_claim": 19,
+  "R_only_consistent_negative": 6,
+  "result_claims_deferred": 76
+ },
+ "silent_decisions": [
+  {
+   "id": 13,
+   "lines": [
+    [
+     173,
+     176
+    ]
+   ],
+   "confidence": "high",
+   "operation": "strip the referee fixed effects out of the covariate set for the logit model so it doesn't hit a singularity",
+   "targets": [
+    "dark_skin",
+    "position_cat",
+    "leagueCountry",
+    "games",
+    "height_std",
+    "weight_std"
+   ]
+  }
+ ],
+ "misalignments": []
+}

@@ -1,0 +1,1186 @@
+{
+ "n_lines": 380,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     9
+    ]
+   ],
+   "note": "file docstring describing the study"
+  },
+  {
+   "id": 2,
+   "kind": "intron",
+   "subtype": "import",
+   "lines": [
+    [
+     10,
+     22
+    ]
+   ],
+   "note": "library imports"
+  },
+  {
+   "id": 3,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     23,
+     25
+    ]
+   ],
+   "note": "sets numpy random seed for reproducibility"
+  },
+  {
+   "id": 4,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     26,
+     28
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 5,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     29,
+     33
+    ]
+   ],
+   "note": "console banner announcing data loading"
+  },
+  {
+   "id": 6,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     34,
+     34
+    ]
+   ],
+   "note": "comment describing the load step"
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     35,
+     35
+    ]
+   ],
+   "operation": "reads the referee-dyads CSV in as the entire dataset the analysis will draw from",
+   "targets": [
+    "df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "note": "prints dataset shape and dyad count"
+  },
+  {
+   "id": 9,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     40,
+     42
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 10,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     43,
+     47
+    ]
+   ],
+   "note": "console banner announcing skin tone variable creation"
+  },
+  {
+   "id": 11,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     48,
+     48
+    ]
+   ],
+   "note": "comment describing the averaging step"
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     49,
+     49
+    ]
+   ],
+   "operation": "averages the two raters' scores into a single continuous skin-tone measure",
+   "targets": [
+    "rater1",
+    "rater2",
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "intron",
+   "subtype": "other",
+   "lines": [
+    [
+     50,
+     54
+    ]
+   ],
+   "note": "computes and prints the rater1/rater2 correlation as a QC diagnostic; not used downstream"
+  },
+  {
+   "id": 14,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     55,
+     57
+    ]
+   ],
+   "note": "comment explaining the dichotomization about to happen"
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     58,
+     59
+    ],
+    [
+     288,
+     288
+    ]
+   ],
+   "operation": "cuts continuous skin tone at 0.5 into a binary dark-vs-light exposure, preserving missingness; the same 0.5 cutoff is redrawn on the distribution plot",
+   "targets": [
+    "skinTone",
+    "darkSkin"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     60,
+     61
+    ]
+   ],
+   "note": "comment describing the red-card outcome step"
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "operation": "collapses any positive red-card count into a binary outcome",
+   "targets": [
+    "redCards",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     63,
+     66
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 19,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     67,
+     70
+    ]
+   ],
+   "note": "console banner announcing dataset preparation"
+  },
+  {
+   "id": 20,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     71,
+     72
+    ]
+   ],
+   "note": "comment describing the restriction to non-missing skin tone"
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     73,
+     73
+    ]
+   ],
+   "operation": "drops dyads lacking a skin-tone rating from the analysis sample",
+   "targets": [
+    "skinTone",
+    "analysis_df"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     74,
+     79
+    ]
+   ],
+   "note": "prints sample sizes by skin tone group, players, referees"
+  },
+  {
+   "id": 23,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     80,
+     81
+    ]
+   ],
+   "note": "comment describing missing-position handling"
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "operation": "recodes missing player position as its own 'Unknown' category instead of dropping those rows",
+   "targets": [
+    "position",
+    "position_clean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     83,
+     84
+    ]
+   ],
+   "note": "comment describing the log transform"
+  },
+  {
+   "id": 26,
+   "kind": "decision",
+   "lines": [
+    [
+     85,
+     85
+    ]
+   ],
+   "operation": "log-transforms games played to use as an exposure-time covariate",
+   "targets": [
+    "games",
+    "log_games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     86,
+     89
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     90,
+     93
+    ]
+   ],
+   "note": "console banner announcing descriptive statistics"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "comment describing the unadjusted-rate comparison"
+  },
+  {
+   "id": 30,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     100
+    ]
+   ],
+   "operation": "splits the sample into light- vs dark-skin groups and computes each group's raw red-card rate",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     101,
+     109
+    ]
+   ],
+   "note": "prints group sizes and unadjusted red-card probabilities"
+  },
+  {
+   "id": 32,
+   "kind": "decision",
+   "lines": [
+    [
+     110,
+     111
+    ]
+   ],
+   "operation": "summarizes the unadjusted contrast as both a risk difference and a relative risk",
+   "targets": [
+    "p_red_light",
+    "p_red_dark"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     112,
+     115
+    ]
+   ],
+   "note": "prints unadjusted risk difference and relative risk"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     116,
+     118
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     119,
+     123
+    ]
+   ],
+   "note": "console banner announcing primary analysis"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     124,
+     124
+    ]
+   ],
+   "note": "comment naming the adjustment covariates"
+  },
+  {
+   "id": 37,
+   "kind": "decision",
+   "lines": [
+    [
+     125,
+     129
+    ],
+    [
+     161,
+     165
+    ]
+   ],
+   "operation": "chooses the covariate set entering both the primary and secondary regressions: skin-tone exposure plus games played, position, and league country, dummy-coded with an intercept",
+   "targets": [
+    "darkSkin",
+    "log_games",
+    "position_clean",
+    "leagueCountry",
+    "anyRedCard"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     130,
+     131
+    ]
+   ],
+   "note": "comment describing the primary model fit"
+  },
+  {
+   "id": 39,
+   "kind": "decision",
+   "lines": [
+    [
+     132,
+     135
+    ]
+   ],
+   "operation": "fits the primary effect as a linear probability model with standard errors clustered by player",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     136,
+     137
+    ]
+   ],
+   "note": "comment describing result extraction"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     138,
+     143
+    ]
+   ],
+   "note": "pulls coefficient, SE, CI, and p-value out of the fitted primary model"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     144,
+     151
+    ]
+   ],
+   "note": "prints the adjusted risk difference results"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     152,
+     154
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 44,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     155,
+     159
+    ]
+   ],
+   "note": "console banner announcing secondary analysis"
+  },
+  {
+   "id": 45,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     160,
+     160
+    ]
+   ],
+   "note": "comment noting reuse of the same covariates"
+  },
+  {
+   "id": 46,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     166,
+     167
+    ]
+   ],
+   "note": "comment describing the logistic fit"
+  },
+  {
+   "id": 47,
+   "kind": "decision",
+   "lines": [
+    [
+     168,
+     172
+    ]
+   ],
+   "operation": "fits a logistic regression as a secondary specification for the same effect, again clustering by player",
+   "targets": [
+    "anyRedCard",
+    "darkSkin",
+    "playerShort"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     173,
+     174
+    ]
+   ],
+   "note": "comment describing odds-ratio extraction"
+  },
+  {
+   "id": 49,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     175,
+     182
+    ]
+   ],
+   "note": "converts logit coefficient and CI to odds ratio scale"
+  },
+  {
+   "id": 50,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     183,
+     189
+    ]
+   ],
+   "note": "prints the adjusted odds ratio results"
+  },
+  {
+   "id": 51,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     190,
+     192
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 52,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     193,
+     197
+    ]
+   ],
+   "note": "console banner announcing sensitivity analyses"
+  },
+  {
+   "id": 53,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     198,
+     198
+    ]
+   ],
+   "note": "comment labeling sensitivity analysis 1"
+  },
+  {
+   "id": 54,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     199,
+     199
+    ]
+   ],
+   "note": "prints sensitivity-1 sub-header"
+  },
+  {
+   "id": 55,
+   "kind": "decision",
+   "lines": [
+    [
+     200,
+     213
+    ]
+   ],
+   "operation": "redefines exposure as an extreme-groups contrast (skin tone <0.25 vs >=0.75), drops the middle players, and refits the adjusted linear probability model",
+   "targets": [
+    "skinTone",
+    "darkSkin_sens1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 56,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     214,
+     215
+    ]
+   ],
+   "note": "extracts the sensitivity-1 coefficient"
+  },
+  {
+   "id": 57,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     216,
+     219
+    ]
+   ],
+   "note": "prints sensitivity-1 results"
+  },
+  {
+   "id": 58,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     220,
+     221
+    ]
+   ],
+   "note": "comment labeling sensitivity analysis 2"
+  },
+  {
+   "id": 59,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     222,
+     222
+    ]
+   ],
+   "note": "prints sensitivity-2 sub-header"
+  },
+  {
+   "id": 60,
+   "kind": "decision",
+   "lines": [
+    [
+     223,
+     234
+    ]
+   ],
+   "operation": "re-specifies exposure as continuous skin tone in the same adjusted model and rescales the fitted slope to a per-0.25-unit effect",
+   "targets": [
+    "skinTone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 61,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     235,
+     236
+    ]
+   ],
+   "note": "prints sensitivity-2 results"
+  },
+  {
+   "id": 62,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     237,
+     238
+    ]
+   ],
+   "note": "comment labeling sensitivity analysis 3"
+  },
+  {
+   "id": 63,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     239,
+     239
+    ]
+   ],
+   "note": "prints sensitivity-3 sub-header"
+  },
+  {
+   "id": 64,
+   "kind": "decision",
+   "lines": [
+    [
+     240,
+     243
+    ]
+   ],
+   "operation": "recomputes the primary model's standard errors clustering by referee instead of by player",
+   "targets": [
+    "refNum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 65,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     244,
+     245
+    ]
+   ],
+   "note": "extracts the referee-clustered coefficient"
+  },
+  {
+   "id": 66,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     246,
+     249
+    ]
+   ],
+   "note": "prints sensitivity-3 results"
+  },
+  {
+   "id": 67,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     250,
+     254
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 68,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     255,
+     258
+    ]
+   ],
+   "note": "console banner announcing effect-size interpretation"
+  },
+  {
+   "id": 69,
+   "kind": "decision",
+   "lines": [
+    [
+     259,
+     261
+    ]
+   ],
+   "operation": "translates the adjusted risk difference into a relative-increase percentage and a number-needed-to-expose",
+   "targets": [
+    "rd_primary",
+    "baseline_rate"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 70,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     262,
+     266
+    ]
+   ],
+   "note": "prints baseline rate, RD, relative increase, NNT"
+  },
+  {
+   "id": 71,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     267,
+     268
+    ]
+   ],
+   "note": "comment introducing Cohen's h"
+  },
+  {
+   "id": 72,
+   "kind": "decision",
+   "lines": [
+    [
+     269,
+     271
+    ]
+   ],
+   "operation": "computes Cohen's h as an additional standardized effect-size metric",
+   "targets": [
+    "p1",
+    "p2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 73,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     272,
+     273
+    ]
+   ],
+   "note": "prints Cohen's h"
+  },
+  {
+   "id": 74,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     274,
+     276
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 75,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     277,
+     281
+    ]
+   ],
+   "note": "console banner announcing visualization"
+  },
+  {
+   "id": 76,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     282,
+     283
+    ]
+   ],
+   "note": "creates the 2x2 figure/axes grid"
+  },
+  {
+   "id": 77,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     284,
+     284
+    ]
+   ],
+   "note": "comment labeling panel 1"
+  },
+  {
+   "id": 78,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     285,
+     287
+    ]
+   ],
+   "note": "draws the skin-tone distribution bar chart"
+  },
+  {
+   "id": 79,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     289,
+     295
+    ]
+   ],
+   "note": "labels/legend/grid for the distribution panel"
+  },
+  {
+   "id": 80,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     296,
+     296
+    ]
+   ],
+   "note": "comment labeling panel 2"
+  },
+  {
+   "id": 81,
+   "kind": "decision",
+   "lines": [
+    [
+     297,
+     301
+    ]
+   ],
+   "operation": "approximates confidence intervals for the plotted unadjusted rates using a normal (1.96 x SE) approximation",
+   "targets": [
+    "darkSkin",
+    "anyRedCard"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 82,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     302,
+     319
+    ]
+   ],
+   "note": "draws the unadjusted-rate bar chart with error bars and value labels"
+  },
+  {
+   "id": 83,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     320,
+     321
+    ]
+   ],
+   "note": "comment labeling panel 3"
+  },
+  {
+   "id": 84,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     322,
+     344
+    ]
+   ],
+   "note": "draws the forest plot of adjusted risk differences across models"
+  },
+  {
+   "id": 85,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     345,
+     346
+    ]
+   ],
+   "note": "comment labeling panel 4"
+  },
+  {
+   "id": 86,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     347,
+     359
+    ]
+   ],
+   "note": "draws the adjusted odds ratio plot"
+  },
+  {
+   "id": 87,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     360,
+     362
+    ]
+   ],
+   "note": "lays out and saves the figure to disk"
+  },
+  {
+   "id": 88,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     363,
+     364
+    ]
+   ],
+   "note": "prints confirmation that the figure was saved"
+  },
+  {
+   "id": 89,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     365,
+     368
+    ]
+   ],
+   "note": "section header banner"
+  },
+  {
+   "id": 90,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     369,
+     380
+    ]
+   ],
+   "note": "prints final summary of primary and secondary results"
+  }
+ ]
+}

@@ -1,0 +1,1987 @@
+{
+ "n_lines": 339,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     1,
+     9
+    ]
+   ],
+   "note": "Title, subtitle, author, affiliations header"
+  },
+  {
+   "id": 2,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     10,
+     19
+    ]
+   ],
+   "note": "Affiliation details and correspondence email"
+  },
+  {
+   "id": 3,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     20,
+     20
+    ]
+   ],
+   "note": "Abstract heading"
+  },
+  {
+   "id": 4,
+   "kind": "claim",
+   "lines": [
+    [
+     21,
+     23
+    ]
+   ],
+   "assertion": "a logistic analysis with repeated measure found the odds of a dark-skin-toned player receiving a red card are 1.39 (95% CI 1.10-1.75) times the odds for a light-skin-toned player",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red card",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    5
+   ]
+  },
+  {
+   "id": 5,
+   "kind": "claim",
+   "lines": [
+    [
+     23,
+     25
+    ]
+   ],
+   "assertion": "the results are said to support research on assimilation to stereotypes and cultural preference for light skin predicting more red cards for darker skin tone",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red card"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    4
+   ]
+  },
+  {
+   "id": 6,
+   "kind": "claim",
+   "lines": [
+    [
+     25,
+     26
+    ]
+   ],
+   "assertion": "a large percentage of values in the data are missing",
+   "polarity": "found",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    7
+   ]
+  },
+  {
+   "id": 7,
+   "kind": "claim",
+   "lines": [
+    [
+     26,
+     27
+    ]
+   ],
+   "assertion": "measurement errors in auxiliary variables were not accounted for in the analysis",
+   "polarity": "did_not",
+   "targets": [
+    "auxiliary variables"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    6
+   ]
+  },
+  {
+   "id": 8,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     28,
+     31
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 9,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     32,
+     32
+    ]
+   ],
+   "note": "Summary heading"
+  },
+  {
+   "id": 10,
+   "kind": "claim",
+   "lines": [
+    [
+     33,
+     35
+    ]
+   ],
+   "assertion": "restates that the odds of a dark-skin-toned player (scale=1) receiving a red card are 1.39 times the odds for a light-skin-toned player (scale=0), 95% CI (1.10, 1.75)",
+   "polarity": "found",
+   "targets": [
+    "skin tone",
+    "red card",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     36,
+     39
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 12,
+   "kind": "claim",
+   "lines": [
+    [
+     40,
+     43
+    ]
+   ],
+   "assertion": "chose to spell out the odds ratios explicitly in the submission rather than use shorthand, to avoid readers misinterpreting odds ratios as relative risk, even though this made the title cumbersome",
+   "polarity": "did",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     44,
+     46
+    ]
+   ],
+   "note": "Approach heading"
+  },
+  {
+   "id": 14,
+   "kind": "claim",
+   "lines": [
+    [
+     47,
+     49
+    ]
+   ],
+   "assertion": "framed the analysis using a clinical-trial patient/treatment analogy, with the player as the patient and referee encounters as treatments",
+   "polarity": "did",
+   "targets": [
+    "player",
+    "referee"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    15
+   ]
+  },
+  {
+   "id": 15,
+   "kind": "claim",
+   "lines": [
+    [
+     49,
+     51
+    ]
+   ],
+   "assertion": "treated referees as differing in implicit and explicit cultural preference for light skin tone, with the treatment result being red card or not",
+   "polarity": "did",
+   "targets": [
+    "referee",
+    "red card",
+    "skin tone"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": [
+    14,
+    16
+   ]
+  },
+  {
+   "id": 16,
+   "kind": "claim",
+   "lines": [
+    [
+     51,
+     52
+    ]
+   ],
+   "assertion": "included auxiliary variables defined at the player level: age, weight, height, position, and skin tone",
+   "polarity": "did",
+   "targets": [
+    "age",
+    "weight",
+    "height",
+    "position",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    15,
+    17
+   ]
+  },
+  {
+   "id": 17,
+   "kind": "claim",
+   "lines": [
+    [
+     52,
+     53
+    ]
+   ],
+   "assertion": "represented multiple games with the same referee as a treatment applied more than once",
+   "polarity": "did",
+   "targets": [
+    "referee",
+    "games"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    16,
+    18
+   ]
+  },
+  {
+   "id": 18,
+   "kind": "claim",
+   "lines": [
+    [
+     53,
+     55
+    ]
+   ],
+   "assertion": "found that observations/treatments are clustered within player, i.e. the data are correlated",
+   "polarity": "found",
+   "targets": [
+    "player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    17
+   ]
+  },
+  {
+   "id": 19,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     56,
+     56
+    ]
+   ],
+   "note": "General statistical point that ignoring correlated data underestimates standard errors"
+  },
+  {
+   "id": 20,
+   "kind": "claim",
+   "lines": [
+    [
+     57,
+     58
+    ]
+   ],
+   "assertion": "modeled the binary outcome (red card or not) using a generalized linear model with logit link, i.e. logistic regression",
+   "polarity": "did",
+   "targets": [
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "claim",
+   "lines": [
+    [
+     59,
+     59
+    ]
+   ],
+   "assertion": "used SUDAAN software to run the analysis",
+   "polarity": "did",
+   "targets": [
+    "SUDAAN"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     60,
+     60
+    ]
+   ],
+   "note": "General description of SUDAAN's design-corrected analysis capability"
+  },
+  {
+   "id": 23,
+   "kind": "claim",
+   "lines": [
+    [
+     61,
+     61
+    ]
+   ],
+   "assertion": "used SAS to clean the data",
+   "polarity": "did",
+   "targets": [
+    "SAS",
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     62,
+     62
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 25,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     63,
+     64
+    ]
+   ],
+   "note": "Problems with implemented approach heading"
+  },
+  {
+   "id": 26,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     65,
+     65
+    ]
+   ],
+   "note": "General statement that GLMs with measurement-error auxiliary variables can be biased, citing Fuller 1987"
+  },
+  {
+   "id": 27,
+   "kind": "claim",
+   "lines": [
+    [
+     66,
+     68
+    ]
+   ],
+   "assertion": "found that MEANIAT and MEANEXP are continuous auxiliary variables with measurement error, and that standard-error variables SEIAT and SEEXP are provided",
+   "polarity": "found",
+   "targets": [
+    "MEANIAT",
+    "MEANEXP",
+    "SEIAT",
+    "SEEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 28,
+   "kind": "claim",
+   "lines": [
+    [
+     69,
+     71
+    ]
+   ],
+   "assertion": "treated RATER1 and RATER2 as two categorical measurements of a latent skin-tone variable, modeling their differences as measurement error/misclassification",
+   "polarity": "did",
+   "targets": [
+    "RATER1",
+    "RATER2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 29,
+   "kind": "claim",
+   "lines": [
+    [
+     72,
+     74
+    ]
+   ],
+   "assertion": "did not correct estimates for this measurement error because no available software function accounts simultaneously for player clustering and generalized (logistic) models",
+   "polarity": "did_not",
+   "targets": [
+    "RATER1",
+    "RATER2",
+    "player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 30,
+   "kind": "claim",
+   "lines": [
+    [
+     75,
+     76
+    ]
+   ],
+   "assertion": "states that a sensitivity analysis needs to be done to account for these measurement errors, implying it was not performed here",
+   "polarity": "would_have",
+   "targets": [
+    "RATER1",
+    "RATER2"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 31,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     77,
+     77
+    ]
+   ],
+   "note": "Caveat that without this, readers may be reluctant to accept the results"
+  },
+  {
+   "id": 32,
+   "kind": "claim",
+   "lines": [
+    [
+     77,
+     78
+    ]
+   ],
+   "assertion": "programming new functions in R could solve the clustering/measurement-error problem, but doing so required more time than was allocated for this analysis",
+   "polarity": "would_have",
+   "targets": [
+    "R"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 33,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     79,
+     79
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 34,
+   "kind": "claim",
+   "lines": [
+    [
+     80,
+     80
+    ]
+   ],
+   "assertion": "found that a large percentage of the data are missing",
+   "polarity": "found",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    35
+   ]
+  },
+  {
+   "id": 35,
+   "kind": "claim",
+   "lines": [
+    [
+     80,
+     82
+    ]
+   ],
+   "assertion": "used listwise deletion, excluding observations with missing skin tone or missing light-skin-preference measures from the model",
+   "polarity": "did",
+   "targets": [
+    "skin tone",
+    "MEANIAT",
+    "MEANEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    34
+   ]
+  },
+  {
+   "id": 36,
+   "kind": "claim",
+   "lines": [
+    [
+     82,
+     82
+    ]
+   ],
+   "assertion": "assumed the missing data are missing at random (MAR)",
+   "polarity": "did",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 37,
+   "kind": "nonclaim",
+   "subtype": "hedging",
+   "lines": [
+    [
+     83,
+     83
+    ]
+   ],
+   "note": "Caveat that the MAR assumption is not likely to hold"
+  },
+  {
+   "id": 38,
+   "kind": "claim",
+   "lines": [
+    [
+     84,
+     84
+    ]
+   ],
+   "assertion": "considered imputation of missing values as an alternative but did not use it, since there are not enough auxiliary variables to carry out imputation",
+   "polarity": "did_not",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    39
+   ]
+  },
+  {
+   "id": 39,
+   "kind": "claim",
+   "lines": [
+    [
+     84,
+     86
+    ],
+    [
+     92,
+     93
+    ]
+   ],
+   "assertion": "considered repeating the analysis under extreme assumptions for missing values (all dark/light skin, all high/low preference measures) to test robustness of conclusions, but this sensitivity analysis was not included in the implemented approach",
+   "polarity": "would_have",
+   "targets": [
+    "skin tone",
+    "MEANIAT",
+    "MEANEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    38
+   ]
+  },
+  {
+   "id": 40,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     87,
+     88
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 41,
+   "kind": "claim",
+   "lines": [
+    [
+     89,
+     91
+    ]
+   ],
+   "assertion": "footnote: treated getting a red card as the 'success' event in the model, since a player cannot receive more than one red card in a game",
+   "polarity": "did",
+   "targets": [
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 42,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     94,
+     94
+    ]
+   ],
+   "note": "Repeated running header 'Approach'"
+  },
+  {
+   "id": 43,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     95,
+     95
+    ]
+   ],
+   "note": "Data file heading"
+  },
+  {
+   "id": 44,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     96,
+     99
+    ]
+   ],
+   "note": "Dataset provenance: file from the Crowdstorming Research 'Many analysts, one dataset' protocol"
+  },
+  {
+   "id": 45,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     100,
+     101
+    ]
+   ],
+   "note": "Lead-in sentence introducing Table 1 of derived variables"
+  },
+  {
+   "id": 46,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     102,
+     104
+    ]
+   ],
+   "note": "Table 1 title and column headers"
+  },
+  {
+   "id": 47,
+   "kind": "claim",
+   "lines": [
+    [
+     105,
+     106
+    ]
+   ],
+   "assertion": "created PV as VICTORIES divided by the sum of TIES, VICTORIES and DEFEATS, the proportion of victories for the player/referee dyad",
+   "polarity": "did",
+   "targets": [
+    "PV",
+    "VICTORIES",
+    "TIES",
+    "DEFEATS"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 48,
+   "kind": "claim",
+   "lines": [
+    [
+     107,
+     107
+    ]
+   ],
+   "assertion": "created AGE based on BIRTHDAY",
+   "polarity": "did",
+   "targets": [
+    "AGE",
+    "BIRTHDAY"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 49,
+   "kind": "claim",
+   "lines": [
+    [
+     108,
+     110
+    ]
+   ],
+   "assertion": "created N_POSITION as sequential numeric values of ordered POSITION, since the software only uses numeric values",
+   "polarity": "did",
+   "targets": [
+    "N_POSITION",
+    "POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 50,
+   "kind": "claim",
+   "lines": [
+    [
+     111,
+     113
+    ]
+   ],
+   "assertion": "created N_LEGUE as sequential numeric values of ordered LEAGUECOUNTRY",
+   "polarity": "did",
+   "targets": [
+    "N_LEGUE",
+    "LEAGUECOUNTRY"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 51,
+   "kind": "claim",
+   "lines": [
+    [
+     114,
+     116
+    ]
+   ],
+   "assertion": "created PAYERID as sequential numeric values of ordered PLAYER",
+   "polarity": "did",
+   "targets": [
+    "PAYERID",
+    "PLAYER"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 52,
+   "kind": "claim",
+   "lines": [
+    [
+     117,
+     119
+    ]
+   ],
+   "assertion": "created N_CLUB as sequential numeric values of ordered CLUB",
+   "polarity": "did",
+   "targets": [
+    "N_CLUB",
+    "CLUB"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 53,
+   "kind": "claim",
+   "lines": [
+    [
+     120,
+     121
+    ]
+   ],
+   "assertion": "created CMEANEXP as quartiles (values 1-4) of MEANEXP",
+   "polarity": "did",
+   "targets": [
+    "CMEANEXP",
+    "MEANEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 54,
+   "kind": "claim",
+   "lines": [
+    [
+     122,
+     123
+    ]
+   ],
+   "assertion": "created CMEANIAT as quartiles (values 1-4) of MEANIAT",
+   "polarity": "did",
+   "targets": [
+    "CMEANIAT",
+    "MEANIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 55,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     124,
+     125
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 56,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     126,
+     127
+    ]
+   ],
+   "note": "Initial Approach heading"
+  },
+  {
+   "id": 57,
+   "kind": "claim",
+   "lines": [
+    [
+     128,
+     128
+    ]
+   ],
+   "assertion": "the initial approach used LEAGUE as an independent variable",
+   "polarity": "did",
+   "targets": [
+    "LEAGUE"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    58
+   ]
+  },
+  {
+   "id": 58,
+   "kind": "claim",
+   "lines": [
+    [
+     128,
+     131
+    ]
+   ],
+   "assertion": "discovered that LEAGUE did not represent the league the player belonged to when each game was played (it was constant per player), a problem not initially realized",
+   "polarity": "found",
+   "targets": [
+    "LEAGUE",
+    "player"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    57,
+    59
+   ]
+  },
+  {
+   "id": 59,
+   "kind": "claim",
+   "lines": [
+    [
+     131,
+     132
+    ]
+   ],
+   "assertion": "found a large interaction between league and skin tone",
+   "polarity": "found",
+   "targets": [
+    "LEAGUE",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    58
+   ]
+  },
+  {
+   "id": 60,
+   "kind": "claim",
+   "lines": [
+    [
+     132,
+     133
+    ]
+   ],
+   "assertion": "included the league-by-skin-tone interaction term in the model",
+   "polarity": "did",
+   "targets": [
+    "LEAGUE",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    61
+   ]
+  },
+  {
+   "id": 61,
+   "kind": "claim",
+   "lines": [
+    [
+     132,
+     133
+    ]
+   ],
+   "assertion": "found initial results were only barely significant without the interaction term but became significant once it was included",
+   "polarity": "found",
+   "targets": [
+    "LEAGUE",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    60
+   ]
+  },
+  {
+   "id": 62,
+   "kind": "claim",
+   "lines": [
+    [
+     134,
+     135
+    ]
+   ],
+   "assertion": "found the odds ratio varied by league and was not significant in some leagues, being most significant in one league",
+   "polarity": "found",
+   "targets": [
+    "LEAGUE",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 63,
+   "kind": "claim",
+   "lines": [
+    [
+     136,
+     138
+    ]
+   ],
+   "assertion": "after feedback, concluded LEAGUE could not be justified as an independent variable because it conflated the player's current league with the modal (most-played) league",
+   "polarity": "did_not",
+   "targets": [
+    "LEAGUE"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 64,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     139,
+     139
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 65,
+   "kind": "claim",
+   "lines": [
+    [
+     140,
+     140
+    ]
+   ],
+   "assertion": "based on feedback, decided to run a descriptive (table) analysis to test for a skin-tone effect before including any modeling",
+   "polarity": "did",
+   "targets": [
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 66,
+   "kind": "claim",
+   "lines": [
+    [
+     141,
+     143
+    ]
+   ],
+   "assertion": "used SUDAAN's CROSSTAB procedure to test the association between red card and skin tone, accounting for clustered/repeated data",
+   "polarity": "did",
+   "targets": [
+    "red card",
+    "skin tone",
+    "SUDAAN"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 67,
+   "kind": "claim",
+   "lines": [
+    [
+     143,
+     144
+    ]
+   ],
+   "assertion": "used the Cochran-Mantel-Haenszel (CMH) test to compare the two categorical variables",
+   "polarity": "did",
+   "targets": [
+    "CMH test"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 68,
+   "kind": "nonclaim",
+   "subtype": "background",
+   "lines": [
+    [
+     145,
+     146
+    ]
+   ],
+   "note": "General note that the CMH test is used in observational studies where random assignment cannot be controlled"
+  },
+  {
+   "id": 69,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     147,
+     147
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 70,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     148,
+     148
+    ]
+   ],
+   "note": "Final Approach heading"
+  },
+  {
+   "id": 71,
+   "kind": "claim",
+   "lines": [
+    [
+     149,
+     150
+    ]
+   ],
+   "assertion": "the final approach uses two analyses: a descriptive test of association between red card and skin tone, and a logistic regression",
+   "polarity": "did",
+   "targets": [
+    "red card",
+    "skin tone"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    72
+   ]
+  },
+  {
+   "id": 72,
+   "kind": "claim",
+   "lines": [
+    [
+     150,
+     151
+    ]
+   ],
+   "assertion": "both analyses account for the effect of clustered and correlated data",
+   "polarity": "did",
+   "targets": [
+    "data"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    71
+   ]
+  },
+  {
+   "id": 73,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     152,
+     153
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 74,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     154,
+     154
+    ]
+   ],
+   "note": "Descriptive analysis and Chi-square tests heading"
+  },
+  {
+   "id": 75,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     155,
+     155
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 76,
+   "kind": "claim",
+   "lines": [
+    [
+     156,
+     156
+    ]
+   ],
+   "assertion": "cross-tabulated Y (red card: 1=yes, 0=no) by RATER1",
+   "polarity": "did",
+   "targets": [
+    "Y",
+    "RATER1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 77,
+   "kind": "claim",
+   "lines": [
+    [
+     157,
+     159
+    ]
+   ],
+   "assertion": "found the proportion of player-games with red cards rises from 0.38 to 0.44, 0.45, 0.47 and 0.52 as RATER1 increases from 0 to 1",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 78,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     160,
+     160
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 79,
+   "kind": "claim",
+   "lines": [
+    [
+     161,
+     162
+    ]
+   ],
+   "assertion": "found the CMH test of general association is only barely significant (p=0.059)",
+   "polarity": "found",
+   "targets": [
+    "CMH test",
+    "RATER1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    80
+   ]
+  },
+  {
+   "id": 80,
+   "kind": "claim",
+   "lines": [
+    [
+     162,
+     164
+    ]
+   ],
+   "assertion": "found the stricter CMH trend test shows a significant trend between red-card proportion and RATER1 (p=0.0047)",
+   "polarity": "found",
+   "targets": [
+    "CMH test",
+    "RATER1",
+    "red card"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    79
+   ]
+  },
+  {
+   "id": 81,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     165,
+     165
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 82,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     166,
+     181
+    ]
+   ],
+   "note": "Figure 1 caption and raw crosstab output table"
+  },
+  {
+   "id": 83,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     182,
+     197
+    ]
+   ],
+   "note": "Figure 2 caption and raw CMH test output table"
+  },
+  {
+   "id": 84,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     198,
+     198
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 85,
+   "kind": "claim",
+   "lines": [
+    [
+     199,
+     199
+    ]
+   ],
+   "assertion": "cross-tabulated Y by RATER1 controlling for N_POSITION",
+   "polarity": "did",
+   "targets": [
+    "Y",
+    "RATER1",
+    "N_POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 86,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     200,
+     200
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 87,
+   "kind": "claim",
+   "lines": [
+    [
+     201,
+     202
+    ]
+   ],
+   "assertion": "found that controlling for position produced results not much different from the uncontrolled table",
+   "polarity": "found",
+   "targets": [
+    "N_POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 88,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     203,
+     224
+    ]
+   ],
+   "note": "Figure 3 caption and raw CMH output table controlling for N_POSITION"
+  },
+  {
+   "id": 89,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     225,
+     226
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 90,
+   "kind": "claim",
+   "lines": [
+    [
+     227,
+     228
+    ]
+   ],
+   "assertion": "cross-tabulated Y by RATER1 controlling for N_POSITION and CMEANEXP quartiles",
+   "polarity": "did",
+   "targets": [
+    "Y",
+    "RATER1",
+    "N_POSITION",
+    "CMEANEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 91,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     229,
+     229
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 92,
+   "kind": "claim",
+   "lines": [
+    [
+     230,
+     231
+    ]
+   ],
+   "assertion": "found the CMH association test remains significant after controlling for N_POSITION and CMEANEXP",
+   "polarity": "found",
+   "targets": [
+    "N_POSITION",
+    "CMEANEXP"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 93,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     232,
+     232
+    ]
+   ],
+   "note": "Transition: next step is to quantify these relationships"
+  },
+  {
+   "id": 94,
+   "kind": "nonclaim",
+   "subtype": "other",
+   "lines": [
+    [
+     233,
+     254
+    ]
+   ],
+   "note": "Figure 4 caption and raw CMH output table"
+  },
+  {
+   "id": 95,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     255,
+     256
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 96,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     257,
+     258
+    ]
+   ],
+   "note": "Logistic Regression heading"
+  },
+  {
+   "id": 97,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     259,
+     260
+    ]
+   ],
+   "note": "Transition: proceed to quantify relationships now that a skin-tone difference is established"
+  },
+  {
+   "id": 98,
+   "kind": "claim",
+   "lines": [
+    [
+     261,
+     263
+    ]
+   ],
+   "assertion": "used logistic regression accounting for repeated measures and clustered data, selecting the most parsimonious models",
+   "polarity": "did",
+   "targets": [
+    "logistic regression"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 99,
+   "kind": "claim",
+   "lines": [
+    [
+     264,
+     264
+    ]
+   ],
+   "assertion": "fitted a model of Y on RATER1, MEANIAT, PV and an N_POSITION by MEANIAT interaction",
+   "polarity": "did",
+   "targets": [
+    "Y",
+    "RATER1",
+    "MEANIAT",
+    "PV",
+    "N_POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 100,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     265,
+     265
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 101,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     266,
+     266
+    ]
+   ],
+   "note": "connector word 'And'"
+  },
+  {
+   "id": 102,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     267,
+     267
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 103,
+   "kind": "claim",
+   "lines": [
+    [
+     268,
+     268
+    ]
+   ],
+   "assertion": "fitted an alternate model of Y on RATER1, MEANEXP, PV and an N_POSITION by MEANEXP interaction",
+   "polarity": "did",
+   "targets": [
+    "Y",
+    "RATER1",
+    "MEANEXP",
+    "PV",
+    "N_POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 104,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     269,
+     269
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 105,
+   "kind": "nonclaim",
+   "subtype": "framing",
+   "lines": [
+    [
+     270,
+     270
+    ]
+   ],
+   "note": "Notes the two models use two alternative measures of cultural preference for lighter skin tone"
+  },
+  {
+   "id": 106,
+   "kind": "claim",
+   "lines": [
+    [
+     271,
+     273
+    ]
+   ],
+   "assertion": "found that the overall significance of RATER1 depends on including the N_POSITION interaction term",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "N_POSITION"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    107
+   ]
+  },
+  {
+   "id": 107,
+   "kind": "claim",
+   "lines": [
+    [
+     273,
+     274
+    ]
+   ],
+   "assertion": "including the interaction term made the logistic regression results consistent with the earlier chi-square/CMH tests",
+   "polarity": "did",
+   "targets": [
+    "RATER1"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    106
+   ]
+  },
+  {
+   "id": 108,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     275,
+     275
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 109,
+   "kind": "claim",
+   "lines": [
+    [
+     276,
+     277
+    ]
+   ],
+   "assertion": "computed odds ratios for skin tone (light skin as reference) for the first model, shown in Figure 5",
+   "polarity": "did",
+   "targets": [
+    "skin tone",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 110,
+   "kind": "claim",
+   "lines": [
+    [
+     278,
+     279
+    ],
+    [
+     286,
+     286
+    ]
+   ],
+   "assertion": "found the odds of a dark-skinned player (RATER1=1) receiving a red card are 1.39 times those of a light-skinned player, significant at p=0.005 though still close to 1",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "red card",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    112
+   ]
+  },
+  {
+   "id": 111,
+   "kind": "claim",
+   "lines": [
+    [
+     280,
+     285
+    ]
+   ],
+   "assertion": "footnote: deliberately did not describe the OR=1.39 result as 'dark-skinned players are 1.39 times more likely,' since that phrasing describes relative risk rather than the odds ratio; clarifies the correct OR interpretation (citing Osborne 2006)",
+   "polarity": "did_not",
+   "targets": [
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 112,
+   "kind": "claim",
+   "lines": [
+    [
+     286,
+     287
+    ]
+   ],
+   "assertion": "found progressive odds ratios across RATER1 levels (1.14, 1.22, 1.29, 1.36), consistent with the earlier trend analysis",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    110,
+    113
+   ]
+  },
+  {
+   "id": 113,
+   "kind": "claim",
+   "lines": [
+    [
+     287,
+     288
+    ]
+   ],
+   "assertion": "found some of the intermediate RATER1 odds ratios are not statistically significantly different from the RATER1=0 reference",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": [
+    112
+   ]
+  },
+  {
+   "id": 114,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     289,
+     290
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 115,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     291,
+     292
+    ]
+   ],
+   "note": "Figure 5 caption"
+  },
+  {
+   "id": 116,
+   "kind": "claim",
+   "lines": [
+    [
+     293,
+     306
+    ]
+   ],
+   "assertion": "Figure 5 table reports odds ratios and 95% CIs for RATER1 levels (reference 1.00; 1.14, 1.22, 1.29, 1.36) and for MEANIAT (30.89, CI 4.05-235.59) from the first model",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "MEANIAT",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 117,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     307,
+     307
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 118,
+   "kind": "claim",
+   "lines": [
+    [
+     308,
+     308
+    ]
+   ],
+   "assertion": "found results using MEANEXP instead of MEANIAT are not very different (Figure 6)",
+   "polarity": "found",
+   "targets": [
+    "MEANEXP",
+    "MEANIAT"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 119,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     309,
+     312
+    ]
+   ],
+   "note": "blank and Figure 6 caption"
+  },
+  {
+   "id": 120,
+   "kind": "claim",
+   "lines": [
+    [
+     313,
+     325
+    ]
+   ],
+   "assertion": "Figure 6 table reports odds ratios and 95% CIs for RATER1 (reference 1.00; 1.14, 1.21, 1.27, 1.36) and MEANEXP (0.63, CI 0.34-1.18) from the second model",
+   "polarity": "found",
+   "targets": [
+    "RATER1",
+    "MEANEXP",
+    "odds ratio"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 121,
+   "kind": "nonclaim",
+   "subtype": "boilerplate",
+   "lines": [
+    [
+     326,
+     329
+    ]
+   ],
+   "note": "blank"
+  },
+  {
+   "id": 122,
+   "kind": "nonclaim",
+   "subtype": "heading",
+   "lines": [
+    [
+     330,
+     332
+    ]
+   ],
+   "note": "References heading"
+  },
+  {
+   "id": 123,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     333,
+     334
+    ]
+   ],
+   "note": "Osborne 2006 reference"
+  },
+  {
+   "id": 124,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     335,
+     336
+    ]
+   ],
+   "note": "Research Triangle Institute SUDAAN manual reference"
+  },
+  {
+   "id": 125,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     337,
+     337
+    ]
+   ],
+   "note": "SAS Institute reference"
+  },
+  {
+   "id": 126,
+   "kind": "nonclaim",
+   "subtype": "citation",
+   "lines": [
+    [
+     338,
+     339
+    ]
+   ],
+   "note": "Fuller 1987 reference and trailing page break"
+  }
+ ]
+}

@@ -1,0 +1,754 @@
+{
+ "n_lines": 192,
+ "spans": [
+  {
+   "id": 1,
+   "kind": "decision",
+   "lines": [
+    [
+     5,
+     6
+    ]
+   ],
+   "operation": "drop every case with a missing rater1 or rater2 score before any analysis",
+   "targets": [
+    "rater1",
+    "rater2"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 2,
+   "kind": "decision",
+   "lines": [
+    [
+     8,
+     9
+    ],
+    [
+     114,
+     116
+    ]
+   ],
+   "operation": "average the two raters into a single continuous skin-tone score, computed once in Excel and recomputed identically in SPSS",
+   "targets": [
+    "rater1",
+    "rater2",
+    "RateAve",
+    "raterave"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 3,
+   "kind": "decision",
+   "lines": [
+    [
+     11,
+     11
+    ],
+    [
+     52,
+     53
+    ],
+    [
+     68,
+     71
+    ]
+   ],
+   "operation": "binarize RateAve at the lowest possible cut (only a perfect 1 counts as 0) into scenario S1, then test mean redCards across this split",
+   "targets": [
+    "RateAve",
+    "S1",
+    "S1_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 4,
+   "kind": "decision",
+   "lines": [
+    [
+     12,
+     12
+    ],
+    [
+     54,
+     55
+    ],
+    [
+     72,
+     75
+    ]
+   ],
+   "operation": "binarize RateAve at a <2 cutoff into scenario S2 and test mean redCards across the split",
+   "targets": [
+    "RateAve",
+    "S2",
+    "S2_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 5,
+   "kind": "decision",
+   "lines": [
+    [
+     13,
+     13
+    ],
+    [
+     56,
+     57
+    ],
+    [
+     76,
+     79
+    ]
+   ],
+   "operation": "binarize RateAve at a <3 cutoff into scenario S3 and test mean redCards across the split",
+   "targets": [
+    "RateAve",
+    "S3",
+    "S3_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 6,
+   "kind": "decision",
+   "lines": [
+    [
+     14,
+     14
+    ],
+    [
+     58,
+     59
+    ],
+    [
+     80,
+     83
+    ]
+   ],
+   "operation": "binarize RateAve at a <4 cutoff into scenario S4 and test mean redCards across the split",
+   "targets": [
+    "RateAve",
+    "S4",
+    "S4_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 7,
+   "kind": "decision",
+   "lines": [
+    [
+     15,
+     15
+    ],
+    [
+     60,
+     61
+    ],
+    [
+     84,
+     87
+    ]
+   ],
+   "operation": "binarize RateAve at a <5 cutoff into scenario S5 and test mean redCards across the split",
+   "targets": [
+    "RateAve",
+    "S5",
+    "S5_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 8,
+   "kind": "decision",
+   "lines": [
+    [
+     16,
+     17
+    ],
+    [
+     62,
+     64
+    ],
+    [
+     88,
+     93
+    ]
+   ],
+   "operation": "recode RateAve into a 3-level scenario S6 (exactly 1 / under 3 / otherwise), test mean redCards across the groups, and follow up with SNK, Tukey and LSD pairwise comparisons at alpha .05",
+   "targets": [
+    "RateAve",
+    "S6",
+    "S6_mean",
+    "redCards_sum"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 9,
+   "kind": "decision",
+   "lines": [
+    [
+     22,
+     34
+    ]
+   ],
+   "operation": "pull in the full coded, missing-deleted crowdstorming sheet as the analysis dataset, reading the full cell range with the header row as variable names",
+   "targets": [
+    "crowd-data-coded-nomiss.xlsx",
+    "1. Crowdstorming Dataset 05.10."
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 10,
+   "kind": "decision",
+   "lines": [
+    [
+     38,
+     51
+    ]
+   ],
+   "operation": "collapse the row-level data to one record per player, summing games and red cards and averaging RateAve within player",
+   "targets": [
+    "playerShort",
+    "games",
+    "redCards",
+    "RateAve"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 11,
+   "kind": "decision",
+   "lines": [
+    [
+     96,
+     98
+    ],
+    [
+     99,
+     107
+    ]
+   ],
+   "operation": "build a per-game red-card rate by dividing summed red cards by summed games plus one, then test it against the S1 and S2 splits only",
+   "targets": [
+    "redCards_sum",
+    "games_sum",
+    "Redpergame",
+    "S1_mean",
+    "S2_mean"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 12,
+   "kind": "decision",
+   "lines": [
+    [
+     124,
+     147
+    ]
+   ],
+   "operation": "mean-center each predictor by subtracting a fixed constant (the sample mean computed earlier) rather than centering dynamically",
+   "targets": [
+    "RateAve",
+    "meanIAT",
+    "meanExp",
+    "games",
+    "victories",
+    "Dumi1_forward",
+    "Dumi2_mid",
+    "Dumi3_back"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 13,
+   "kind": "decision",
+   "lines": [
+    [
+     148,
+     150
+    ],
+    [
+     151,
+     153
+    ]
+   ],
+   "operation": "form two centered interaction terms (implicit bias x rater score, explicit bias x rater score) to test moderation",
+   "targets": [
+    "meanIAT_C",
+    "meanExp_C",
+    "RateAve_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 14,
+   "kind": "decision",
+   "lines": [
+    [
+     165,
+     166
+    ],
+    [
+     169,
+     170
+    ]
+   ],
+   "operation": "choose which regression output to report: means/SDs/correlation matrix with significance plus coefficients, 95% CIs, R, ANOVA table, collinearity diagnostics and R-squared change",
+   "targets": [
+    "redCards",
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C",
+    "RateAve_C",
+    "meanIAT_C",
+    "meanExp_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 15,
+   "kind": "decision",
+   "lines": [
+    [
+     163,
+     164
+    ],
+    [
+     175,
+     176
+    ]
+   ],
+   "operation": "fit an OLS regression with raw redCards (not the aggregated or rate version) as the outcome",
+   "targets": [
+    "redCards"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 16,
+   "kind": "decision",
+   "lines": [
+    [
+     167,
+     168
+    ]
+   ],
+   "operation": "exclude any case with missing data on any regression variable (listwise) rather than pairwise or imputed",
+   "targets": [
+    "redCards",
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C",
+    "RateAve_C",
+    "meanIAT_C",
+    "meanExp_C",
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 17,
+   "kind": "decision",
+   "lines": [
+    [
+     171,
+     172
+    ]
+   ],
+   "operation": "set variable-entry/removal significance thresholds and CI width for the regression procedure",
+   "targets": [],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 18,
+   "kind": "decision",
+   "lines": [
+    [
+     173,
+     174
+    ]
+   ],
+   "operation": "keep the regression intercept rather than forcing the line through the origin",
+   "targets": [],
+   "confidence": "low",
+   "shares_lines_with": []
+  },
+  {
+   "id": 19,
+   "kind": "decision",
+   "lines": [
+    [
+     177,
+     178
+    ]
+   ],
+   "operation": "enter game-count, win-count and playing-position dummies as the first control block before any bias measures",
+   "targets": [
+    "games_C",
+    "victories_C",
+    "Dumi1_forward_C",
+    "Dumi2_mid_C",
+    "Dumi3_back_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 20,
+   "kind": "decision",
+   "lines": [
+    [
+     179,
+     180
+    ]
+   ],
+   "operation": "add referee rater score as its own block, isolating its main effect from the controls",
+   "targets": [
+    "RateAve_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 21,
+   "kind": "decision",
+   "lines": [
+    [
+     181,
+     182
+    ]
+   ],
+   "operation": "add implicit and explicit bias measures as a third block after the controls and main rater effect",
+   "targets": [
+    "meanIAT_C",
+    "meanExp_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 22,
+   "kind": "decision",
+   "lines": [
+    [
+     183,
+     184
+    ]
+   ],
+   "operation": "add the two bias-by-rater interaction terms last to test moderation over and above the main effects",
+   "targets": [
+    "IATxRatrA_C",
+    "ExpxRatrA_C"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 23,
+   "kind": "decision",
+   "lines": [
+    [
+     187,
+     188
+    ]
+   ],
+   "operation": "request a Durbin-Watson statistic to check residual autocorrelation",
+   "targets": [
+    "ZRESID"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 24,
+   "kind": "decision",
+   "lines": [
+    [
+     189,
+     190
+    ]
+   ],
+   "operation": "flag cases as outliers when their standardized residual exceeds 3 SD",
+   "targets": [
+    "ZRESID"
+   ],
+   "confidence": "high",
+   "shares_lines_with": []
+  },
+  {
+   "id": 25,
+   "kind": "decision",
+   "lines": [
+    [
+     191,
+     192
+    ]
+   ],
+   "operation": "save Mahalanobis distance and covariance/influence diagnostics as case-level variables",
+   "targets": [
+    "MAHAL",
+    "MCIN",
+    "ICIN"
+   ],
+   "confidence": "medium",
+   "shares_lines_with": []
+  },
+  {
+   "id": 26,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     1,
+     2
+    ]
+   ],
+   "note": "section header for Research Question 1"
+  },
+  {
+   "id": 27,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     3,
+     3
+    ]
+   ],
+   "note": "notes that the following steps were done in Excel"
+  },
+  {
+   "id": 28,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     4,
+     4
+    ]
+   ],
+   "note": "sorting rows in Excel, mechanical prep step"
+  },
+  {
+   "id": 29,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     7,
+     7
+    ]
+   ],
+   "note": "prose lead-in describing the rater-average step"
+  },
+  {
+   "id": 30,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     10,
+     10
+    ]
+   ],
+   "note": "prose lead-in to the scenario definitions"
+  },
+  {
+   "id": 31,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     18,
+     19
+    ]
+   ],
+   "note": "writing the coded Excel file to disk"
+  },
+  {
+   "id": 32,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     20,
+     21
+    ]
+   ],
+   "note": "marks transition from Excel to SPSS syntax"
+  },
+  {
+   "id": 33,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     35,
+     37
+    ]
+   ],
+   "note": "dataset naming/declaration and required presort for AGGREGATE, no analytic content"
+  },
+  {
+   "id": 34,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     65,
+     66
+    ]
+   ],
+   "note": "section header for Hypothesis 1A tests"
+  },
+  {
+   "id": 35,
+   "kind": "intron",
+   "subtype": "glue",
+   "lines": [
+    [
+     67,
+     67
+    ]
+   ],
+   "note": "activates the collapsed dataset window"
+  },
+  {
+   "id": 36,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     94,
+     95
+    ]
+   ],
+   "note": "section header for Hypothesis 1B test"
+  },
+  {
+   "id": 37,
+   "kind": "intron",
+   "subtype": "comment",
+   "lines": [
+    [
+     108,
+     111
+    ]
+   ],
+   "note": "section header for Research Question 2"
+  },
+  {
+   "id": 38,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     112,
+     113
+    ]
+   ],
+   "note": "output subtitle/display label"
+  },
+  {
+   "id": 39,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     117,
+     121
+    ]
+   ],
+   "note": "prints uncentered variable means used to look up the centering constants"
+  },
+  {
+   "id": 40,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     122,
+     123
+    ]
+   ],
+   "note": "output subtitle/display label"
+  },
+  {
+   "id": 41,
+   "kind": "intron",
+   "subtype": "print",
+   "lines": [
+    [
+     154,
+     160
+    ]
+   ],
+   "note": "prints centered variable means/SDs to confirm centering worked"
+  },
+  {
+   "id": 42,
+   "kind": "intron",
+   "subtype": "config",
+   "lines": [
+    [
+     161,
+     162
+    ]
+   ],
+   "note": "output subtitle/display label"
+  },
+  {
+   "id": 43,
+   "kind": "intron",
+   "subtype": "plot",
+   "lines": [
+    [
+     185,
+     186
+    ]
+   ],
+   "note": "requests residual-vs-predicted and residual-vs-observed scatterplots"
+  }
+ ]
+}

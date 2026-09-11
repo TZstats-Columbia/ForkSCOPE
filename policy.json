@@ -1,0 +1,126 @@
+{
+  "_comment": [
+    "METHOD POLICY for the soccer study -- the decisions a human made about",
+    "how charting works, as opposed to what the corpus is (study.json).",
+    "",
+    "RECONSTRUCTED, and the distinction matters. This study was charted before",
+    "the policy file existed, so these are the values the pipeline was actually",
+    "built to use, recovered from the code and from the sessions that set them.",
+    "Where the honest provenance is 'a default nobody discussed', it says so --",
+    "those are marked implicit, and they are the entries most worth revisiting.",
+    "",
+    "Filled against templates/policy.json. Every value here is a fork in OUR",
+    "pipeline, which is why each carries what a decision record carries: what",
+    "was chosen, why, and whether it was chosen or defaulted into."
+  ],
+  "policy_version": 1,
+  "study": "soccer",
+  "filled_by": "the study owner, with the agent proposing defaults",
+  "filled_on": "2026-08-30",
+  "source": "INTAKE.md sections G-K; reconstructed from the built pipeline",
+  "decisions": {
+    "artifacts_used": [
+      "code"
+    ],
+    "prose_role": "silent_only",
+    "_prose_role_provenance": "decided. 'our garden works are based on the code layer; the prose is only used for surfacing the silent choices.' Confirmed by measurement afterwards: prose spans reproduce at ARI 0.480 against code at 0.895 core.",
+    "disjoint_spans_allowed": true,
+    "interleaving_allowed": false,
+    "_span_provenance": "implicit. The extraction prompt permits gaps and does not permit interleaving; nobody argued for either. Worth revisiting -- allowing interleaving would make span matching much harder to falsify.",
+    "same_run_repeat_span_lines": 5,
+    "_same_run_provenance": "decided, after V6 measured it. 76 of 96 same-run merge groups spanned more than five lines and were over-merges on reading. Enforced by repair_option_splits.py --span and audited as V6, which now shows 2 survivors.",
+    "similarity_level": "lenient",
+    "_similarity_provenance": "decided, and it is the single largest lever in the method. 'for distillation, we should compare semantically, not verbatimly. the boundaries can move slightly without affecting downstream work.' Measured: verbatim 0.176, lenient 0.713, core 0.895 on one extraction. The agent had led with verbatim and was corrected.",
+    "report_levels": [
+      "verbatim",
+      "lenient",
+      "core"
+    ],
+    "boundary_tolerance_lines": 1
+  },
+  "options": {
+    "min_decisions_recurring": 2,
+    "singletons_allowed": true,
+    "singleton_label": "novel",
+    "_singleton_provenance": "decided. Novel options are the rare-variant analogue and are kept. 64% of options are singletons; excluding them moves by-option fork agreement from 0.31 to 0.69, which is a change in the question rather than an improvement in the answer.",
+    "same_option_twice_per_run": false,
+    "same_option_across_stages": false,
+    "same_option_across_positions": true,
+    "similarity": {
+      "method": "jaccard_labels",
+      "threshold": 0.5
+    },
+    "_similarity_provenance": "implicit. 0.5 is the match_options default and was never argued. It governs every cross-build option comparison, so it deserves a sensitivity check it has not had.",
+    "include_novel_in_similarity": true
+  },
+  "forks": {
+    "min_options": 2,
+    "singleton_forks_allowed": true,
+    "exclusivity_required": true,
+    "co_occurrence_min": 2,
+    "_exclusivity_provenance": "decided, with the violation accepted as a finding rather than repaired away. 86% of runs hold two options at one fork, dominated by the skin-tone exposure fork at 158 of 223. Setting this true does not make it true; it makes V2 an audited exhibit.",
+    "pivotal": {
+      "criterion": "eff_all",
+      "min_eff_all": 1.5
+    },
+    "_pivotal_provenance": "decided 2026-08-30, replacing the two-condition test (coverage >= 25% AND effective options > 1.5). eff_all counts 'did not reach' as a level, so ONE threshold carries both engagement and disagreement: low coverage lets absent dominate, agreement lets the modal option dominate. 17 forks qualify, containing all 11 the old test found; the 6 added are ones where everyone who acted agreed but a third never acted -- contested about WHETHER, not how. The old eff also over-counted, giving each decision record a vote rather than each analysis; see vocab.fork_stats.",
+    "similarity_scope": "both"
+  },
+  "staging": {
+    "assigned_at": "fork",
+    "revised_after_repair": true,
+    "stages": [
+      "problem_formulation",
+      "data_collection",
+      "data_cleaning",
+      "eda",
+      "modeling",
+      "communication"
+    ]
+  },
+  "stability": {
+    "role": "diagnostic",
+    "_role_provenance": "decided, and it is the load-bearing refusal in this file. 'stability is a signal for the human to review, not a target for you to hit.' Fork induction can be driven toward ARI 1.0 by merging almost nothing; core-first fork formation and the .osplit repair are both on file as cases where a principled change moved agreement for reasons unrelated to validity.",
+    "tuning": {
+      "authorized": false,
+      "candidate_changes": [],
+      "holdout": null,
+      "external_criterion": null,
+      "_note": "The human benchmark (reviews/human-benchmark) is the intended external criterion. It has run: at the options layer two raters agree at 0.818 and two builds at 0.849, and no tuning toward higher self-agreement is authorised."
+    },
+    "replicates": {
+      "n_per_parent": 5,
+      "pre_committed": true
+    },
+    "_replicates_provenance": "decided before the first build. 5 gives 4 df per parent; 2 per parent would have given 1, and an sd on that is compatible with almost anything."
+  },
+  "audit": {
+    "checks": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7"
+    ],
+    "blocking": [],
+    "_blocking_provenance": "decided. No check blocks a build. Most carry no null and rank for human attention; treating them as gates would convert a weak signal into a hard decision.",
+    "review_queue_max": 60,
+    "_queue_provenance": "implicit. V1 alone queues 561 pairs, which is not a queue. 60 is a guess at what a person will actually read and has never been checked against what a person did read."
+  },
+  "analysis": {
+    "persona_effects": true,
+    "pivotal_fork_effects": true,
+    "novel_option_location": true,
+    "multiplicity_correction": "bh",
+    "min_runs_for_test": 15
+  },
+  "_open": [
+    "review_queue_max 60 is a guess about human attention, not a measurement.",
+    "interleaving_allowed false was never argued; it constrains what extraction can express.",
+    "outcomes.json reliability is unmeasured; 52 of 207 records have no provenance.",
+    "similarity.threshold 0.5 has never had a sensitivity check.",
+    "Effective options is defined once, in vocab.fork_stats (one vote per analysis at its modal option), and every reported figure reads it. The human-benchmark packet was generated before that sweep, so the effective-option counts printed on its sheets predate the definition."
+  ]
+}
